@@ -35,7 +35,7 @@ public class heromover : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.UpArrow) && this.transform.position.y <= groundHeight){
             speedY = jumpSpeed;
-            spriteRenderer.sprite = jumpingSprite; // これでええのん？
+            spriteRenderer.sprite = jumpingSprite;
         }
     }
 }
