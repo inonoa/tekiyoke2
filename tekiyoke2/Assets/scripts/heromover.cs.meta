@@ -3,7 +3,9 @@ guid: 7367abbafe31e1d46af2c3c11de1351b
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - spriteRenderer: {instanceID: 0}
+  - jumpingSprite: {fileID: 21300000, guid: 87a4038d1218dbe4385a7ae25a390205, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
