@@ -79,9 +79,9 @@ public class HeroMover : MonoBehaviour
             }
         }
     }
-    public static float jumpSpeed = 80;
+    public static float jumpSpeed = 40;
     public float speedY = 0f;
-    public static float gravity = 5;
+    public static float gravity = 2.5f;
     public SpriteRenderer spriteRenderer;
     public Sprite jumpingSprite;
     public int JumpCount{
