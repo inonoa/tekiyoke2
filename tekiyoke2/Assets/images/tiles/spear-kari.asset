@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: poison
+  m_Name: spear-kari
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300006, guid: 083b23b6dd4a91d45888dda0a809958c, type: 3}
+  m_Sprite: {fileID: 21300006, guid: a15c3a71066266145ae084f01bc11dc7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1

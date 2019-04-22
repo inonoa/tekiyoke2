@@ -83,7 +83,6 @@ public class HeroMover : MonoBehaviour
     public float speedY = 0f;
     public static float gravity = 2.5f;
     public SpriteRenderer spriteRenderer;
-    public Sprite jumpingSprite;
     public int JumpCount{
         get; set;
     } = 1;
