@@ -206,7 +206,7 @@ public class HeroMover : MonoBehaviour
             foreach(ContactPoint2D contact in col.contacts){
                 if(contact.normal.y<0){
                     speedY = 0;
-                    return;
+                    break;
                 }
             }
         }
