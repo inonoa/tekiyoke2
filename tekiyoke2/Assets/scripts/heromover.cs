@@ -16,6 +16,16 @@ public class HeroMover : MonoBehaviour
     }
 
     private HState state = HState.StandR;
+
+    private bool IsJumping{
+        get{
+        if(this.State==HState.JumpL || this.State==HState.JumpLU || this.State==HState.JumpR || this.State==HState.JumpRU){
+            return true;
+        }
+        return false;
+        }
+    }
+
     public HState State{
         get { return state;}
         set{
@@ -64,6 +74,9 @@ public class HeroMover : MonoBehaviour
     }
 
     public static float moveSpeed = 20;
+    
+    ///<summary>坂道登るときちょっと本来より早くする方が気持ち良くない？</summary>
+    public static float crimeBoost = 1.5f;
 
     ///<summary>入力に応じて-1,0,1のどれかを返す</summary>
     private int Move{
@@ -89,6 +102,9 @@ public class HeroMover : MonoBehaviour
     public bool isOnGround = true;
     public Animator anim;
     public Rigidbody2D rigidbody;
+
+    ///<summary>坂道はOnCollisionStayにて管理しているためMovePositionが重複しないための措置</summary>
+    private bool IsCrimbing { get; set; } = false;
 
 
     ///<summary>後々のためにジャンプを分離しただけ</summary>
@@ -169,12 +185,58 @@ public class HeroMover : MonoBehaviour
             }
         }
 
-        rigidbody.MovePosition(new Vector2(this.transform.position.x,this.transform.position.y)
+        if(!this.IsCrimbing){
+            rigidbody.MovePosition(new Vector2(this.transform.position.x,this.transform.position.y)
         　　　　　　　　　　　　　+ new Vector2(Move * moveSpeed, speedY));
+        }
 
         if(transform.position.y < -1000){
             transform.position = new Vector3(0,1000);
             speedY = 0;
+        }
+
+        this.IsCrimbing = false;
+    }
+
+    ///<summary>天井に衝突したときに天井に張り付かないようにする</summary>
+    ///<summary>+坂道で加速させたい</summary>
+    void OnCollisionStay2D(Collision2D col){
+
+        if(this.IsJumping){
+            foreach(ContactPoint2D contact in col.contacts){
+                if(contact.normal.y<0){
+                    speedY = 0;
+                    return;
+                }
+            }
+        }
+
+        // 右向き
+        if(State==HState.RunR){
+            foreach(ContactPoint2D contact in col.contacts){
+                if(contact.normal.x<0 & contact.normal.y!=0){
+                    // 加速
+                    rigidbody.MovePosition(new Vector2(this.transform.position.x,this.transform.position.y)
+            　　　　 + new Vector2(moveSpeed*crimeBoost, moveSpeed*crimeBoost));
+
+                    this.IsCrimbing = true;
+                    return;
+                }
+            }
+        }
+
+        // 左向き
+        if(State==HState.RunL){
+            foreach(ContactPoint2D contact in col.contacts){
+                if(contact.normal.x>0 & contact.normal.y!=0){
+                    // 加速
+                    rigidbody.MovePosition(new Vector2(this.transform.position.x,this.transform.position.y)
+            　　　　 + new Vector2(-moveSpeed*crimeBoost, moveSpeed*crimeBoost));
+
+                    this.IsCrimbing = true;
+                    return;
+                }
+            }
         }
     }
 }
