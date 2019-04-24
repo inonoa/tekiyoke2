@@ -239,4 +239,11 @@ public class HeroMover : MonoBehaviour
             }
         }
     }
+
+    ///<summary>とげでOす</summary>
+    void OnTriggerStay2D(Collider2D col){
+        if(col.gameObject.tag=="Toge"){
+            this.transform.position = new Vector2(0,0);
+        }
+    }
 }
