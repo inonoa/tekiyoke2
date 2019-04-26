@@ -150,9 +150,12 @@ public class HeroMover : MonoBehaviour
     }
     public static float gravity = 2.5f;
     public SpriteRenderer spriteRenderer;
+
+    public int _JumpCount = 1;
     public int JumpCount{
-        get; set;
-    } = 1;
+        get{ return _JumpCount; }
+        set{ _JumpCount = value; }
+    }
     public bool isOnGround = true;
     public Animator anim;
     public Rigidbody2D rigidbody;
@@ -187,7 +190,7 @@ public class HeroMover : MonoBehaviour
         }
     }
 
-    ///<summary>壁ジャンプ右</summary>
+    ///<summary>壁ジャンプ右、JumpCount++は苦し紛れの帳尻合わせ</summary>
     public void JumpR(){
         speedY = jumpSpeed;
         isOnGround = false;
@@ -195,9 +198,10 @@ public class HeroMover : MonoBehaviour
         this.SpeedX = moveSpeed;
         IsFromWall = true;
         IsRightFromWall = true;
+        JumpCount += 1;
     }
 
-    ///<summary>壁ジャンプ左</summary>
+    ///<summary>壁ジャンプ左、JumpCount++は苦し紛れの帳尻合わせ</summary>
     public void JumpL(){
         speedY = jumpSpeed;
         isOnGround = false;
@@ -205,12 +209,14 @@ public class HeroMover : MonoBehaviour
         this.SpeedX = -moveSpeed;
         IsFromWall = true;
         IsRightFromWall = false;
+        JumpCount += 1;
     }
 
     ///<summary>空中ジャンプは回数制限があるためそのカウントを含む。</summary>
     private void JumpInSky(){
         JumpOnGround();
         JumpCount -= 1;
+        IsFromWall = false;
     }
 
     // Start is called before the first frame update
