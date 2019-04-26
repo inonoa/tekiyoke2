@@ -108,7 +108,7 @@ public class HeroMover : MonoBehaviour
 
 
     ///<summary>後々のためにジャンプを分離しただけ</summary>
-    private void JumpOnGround(){
+    public void JumpOnGround(){
         speedY = jumpSpeed;
         isOnGround = false;
         // 左右の入力がある場合はそれに従う
