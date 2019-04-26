@@ -95,9 +95,58 @@ public class HeroMover : MonoBehaviour
     public static float jumpSpeed = 40;
     public float speedY = 0f;
 
+    ///<summary>壁キック後の横方向の移動速度</summary>
+    private float _SpeedX = 0;
+    ///<summary>壁キック後の横方向の移動速度</summary>
     public float SpeedX{
-        get; set;
-    } = 0f;
+        get{
+            float ans = _SpeedX;
+            if(IsRightFromWall){
+                switch(Move){
+                    case 1:
+                        _SpeedX = moveSpeed;
+                        break;
+                    case 0:
+                        if(_SpeedX-0.5f>0){
+                            _SpeedX -= 0.5f;
+                        }else{
+                            _SpeedX = 0;
+                        }
+                        break;
+                    default:
+                        if(_SpeedX-1>-moveSpeed){
+                            _SpeedX -= 1;
+                        }else{
+                            _SpeedX = -moveSpeed;
+                        }
+                        break;
+                }
+            }
+            else{
+                switch(Move){
+                    case -1:
+                        _SpeedX = -moveSpeed;
+                        break;
+                    case 0:
+                        if(_SpeedX+0.5f<0){
+                            _SpeedX += 0.5f;
+                        }else{
+                            _SpeedX = 0;
+                        }
+                        break;
+                    default:
+                        if(_SpeedX+1<moveSpeed){
+                            _SpeedX += 1;
+                        }else{
+                            _SpeedX = moveSpeed;
+                        }
+                        break;
+                }
+            }
+            return ans;
+        }
+        set { _SpeedX = value; }
+    }
     public static float gravity = 2.5f;
     public SpriteRenderer spriteRenderer;
     public int JumpCount{
@@ -109,6 +158,12 @@ public class HeroMover : MonoBehaviour
 
     ///<summary>坂道はOnCollisionStayにて管理しているためMovePositionが重複しないための措置</summary>
     private bool IsCrimbing { get; set; } = false;
+    ///<summary>壁キック後の変態挙動の管理</summary>
+    public bool IsFromWall { get; set; } = false;
+    ///<summary>壁キックの方向。IsFromWallと併用(直したい)</summary>
+    public bool IsRightFromWall { get; set; } = true;
+
+    
 
 
     ///<summary>後々のためにジャンプを分離しただけ</summary>
@@ -131,20 +186,24 @@ public class HeroMover : MonoBehaviour
         }
     }
 
-    ///<summary>壁ジャンプのために作った。強制的に右に移動させたい</summary>
+    ///<summary>壁ジャンプ右</summary>
     public void JumpR(){
         speedY = jumpSpeed;
         isOnGround = false;
         this.State = HState.JumpR;
         this.SpeedX = moveSpeed;
+        IsFromWall = true;
+        IsRightFromWall = true;
     }
 
-    ///<summary>壁ジャンプのために作った。強制的に左に移動させたい</summary>
+    ///<summary>壁ジャンプ左</summary>
     public void JumpL(){
         speedY = jumpSpeed;
         isOnGround = false;
         this.State = HState.JumpL;
         this.SpeedX = -moveSpeed;
+        IsFromWall = true;
+        IsRightFromWall = false;
     }
 
     ///<summary>空中ジャンプは回数制限があるためそのカウントを含む。</summary>
@@ -206,7 +265,7 @@ public class HeroMover : MonoBehaviour
         }
 
         if(!this.IsCrimbing){
-            if(SpeedX!=0){
+            if(this.IsFromWall){
                 rigidbody.MovePosition(new Vector2(this.transform.position.x,this.transform.position.y)
         　　　　　　　　　　　　　     + new Vector2(SpeedX, speedY));
             }else{
@@ -223,10 +282,6 @@ public class HeroMover : MonoBehaviour
         }
 
         this.IsCrimbing = false;
-        SpeedX *= 0.9f;
-        if(-0.05f<SpeedX && SpeedX<0.05f){
-            SpeedX = 0;
-        }
     }
 
     ///<summary>天井に衝突したときに天井に張り付かないようにする</summary>
