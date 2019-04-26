@@ -20,7 +20,7 @@ public class WallCheckerL : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.UpArrow)){
+        if(Input.GetKeyDown(KeyCode.UpArrow) && Input.GetKey(KeyCode.RightArrow)){
             if(this.canJump && !hero.isOnGround){
                 hero.JumpR();
             }
