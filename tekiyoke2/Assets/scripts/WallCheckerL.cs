@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WallChecker : MonoBehaviour
+public class WallCheckerL : MonoBehaviour
 {
 
     public bool canJump = false;
@@ -22,7 +22,7 @@ public class WallChecker : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.UpArrow)){
             if(this.canJump){
-                hero.JumpOnGround();
+                hero.JumpR();
             }
         }
     }

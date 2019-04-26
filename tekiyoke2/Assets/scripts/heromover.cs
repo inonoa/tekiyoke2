@@ -94,6 +94,10 @@ public class HeroMover : MonoBehaviour
     }
     public static float jumpSpeed = 40;
     public float speedY = 0f;
+
+    public float SpeedX{
+        get; set;
+    } = 0f;
     public static float gravity = 2.5f;
     public SpriteRenderer spriteRenderer;
     public int JumpCount{
@@ -125,6 +129,22 @@ public class HeroMover : MonoBehaviour
         else{
             this.State = HState.JumpLU;
         }
+    }
+
+    ///<summary>壁ジャンプのために作った。強制的に右に移動させたい</summary>
+    public void JumpR(){
+        speedY = jumpSpeed;
+        isOnGround = false;
+        this.State = HState.JumpR;
+        this.SpeedX = moveSpeed;
+    }
+
+    ///<summary>壁ジャンプのために作った。強制的に左に移動させたい</summary>
+    public void JumpL(){
+        speedY = jumpSpeed;
+        isOnGround = false;
+        this.State = HState.JumpL;
+        this.SpeedX = -moveSpeed;
     }
 
     ///<summary>空中ジャンプは回数制限があるためそのカウントを含む。</summary>
@@ -186,16 +206,27 @@ public class HeroMover : MonoBehaviour
         }
 
         if(!this.IsCrimbing){
-            rigidbody.MovePosition(new Vector2(this.transform.position.x,this.transform.position.y)
+            if(SpeedX!=0){
+                rigidbody.MovePosition(new Vector2(this.transform.position.x,this.transform.position.y)
+        　　　　　　　　　　　　　     + new Vector2(SpeedX, speedY));
+            }else{
+                rigidbody.MovePosition(new Vector2(this.transform.position.x,this.transform.position.y)
         　　　　　　　　　　　　　+ new Vector2(Move * moveSpeed, speedY));
+            }
+            
         }
 
+        // 落下死書かないとなー
         if(transform.position.y < -1000){
             transform.position = new Vector3(0,1000);
             speedY = 0;
         }
 
         this.IsCrimbing = false;
+        SpeedX *= 0.9f;
+        if(-0.05f<SpeedX && SpeedX<0.05f){
+            SpeedX = 0;
+        }
     }
 
     ///<summary>天井に衝突したときに天井に張り付かないようにする</summary>
