@@ -100,6 +100,7 @@ public class HeroMover : MonoBehaviour
     ///<summary>壁キック後の横方向の移動速度</summary>
     public float SpeedX{
         get{
+            // getでこれするのよくなさすぎる
             float ans = _SpeedX;
             if(IsRightFromWall){
                 switch(Move){

@@ -21,7 +21,7 @@ public class WallCheckerR : MonoBehaviour
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.UpArrow)){
-            if(this.canJump){
+            if(this.canJump && !hero.isOnGround){
                 hero.JumpL();
             }
         }
