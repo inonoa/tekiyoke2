@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Open2Game : MonoBehaviour
+public class S2GcurtainOpener : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -14,7 +14,8 @@ public class Open2Game : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.anyKeyDown){
+        transform.position += new Vector3(40,0);
+        if(transform.position.x>0){
             SceneManager.LoadScene("SampleScene");
         }
     }
