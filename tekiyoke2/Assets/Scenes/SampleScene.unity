@@ -735,6 +735,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a532cd24710cbd34a9c0dc90b36a592c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hero: {fileID: 1034792847}
 --- !u!50 &969389212
 Rigidbody2D:
   serializedVersion: 4
@@ -821,6 +822,7 @@ MonoBehaviour:
   isOnGround: 1
   anim: {fileID: 0}
   rigidbody: {fileID: 0}
+  hp: 3
 --- !u!212 &1034792848
 SpriteRenderer:
   m_ObjectHideFlags: 0

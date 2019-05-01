@@ -167,6 +167,30 @@ public class HeroMover : MonoBehaviour
     ///<summary>壁キックの方向。IsFromWallと併用(直したい)</summary>
     public bool IsRightFromWall { get; set; } = true;
 
+    ///<summary>ここを直接書き換えない</summary>
+    public int hp = 3;
+    private int max_hp = 3;
+
+    ///<summary>HPの増減はすべてここから。</summary>
+    private int HP{
+        get{return hp;}
+        set{
+            if(value<=0){Die(); hp=max_hp;}
+            else{hp = value;}
+        }
+    }
+    ///<summary>敵からのダメージ等。ノックバックなどが入る予定</summary>
+    ///<param name="damage">与えるダメージを書く。1を指定すると100->99,1->0になったりします</param>
+    public void Damage(int damage){
+        HP = HP - damage;
+        // ノックバックなど
+    }
+
+    ///<summary>リスポーン</summary>
+    public void Die(){
+        transform.position = new Vector3(0,0);
+    }
+
     
 
 
