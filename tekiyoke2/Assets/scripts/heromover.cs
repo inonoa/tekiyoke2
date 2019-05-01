@@ -100,9 +100,14 @@ public class HeroMover : MonoBehaviour
     ///<summary>壁キック後の横方向の移動速度</summary>
     public float SpeedX{
         get{
-            // getでこれするのよくなさすぎる
-            float ans = _SpeedX;
-            if(IsRightFromWall){
+            return _SpeedX;
+        }
+        set { _SpeedX = value; }
+    }
+
+    ///<summary>壁キック後の左右の速さの更新。</summary>
+    void UpdateSpeedX(){
+        if(IsRightFromWall){
                 switch(Move){
                     case 1:
                         _SpeedX = moveSpeed;
@@ -144,9 +149,6 @@ public class HeroMover : MonoBehaviour
                         break;
                 }
             }
-            return ans;
-        }
-        set { _SpeedX = value; }
     }
     public static float gravity = 2.5f;
     public SpriteRenderer spriteRenderer;
@@ -166,10 +168,11 @@ public class HeroMover : MonoBehaviour
     public bool IsFromWall { get; set; } = false;
     ///<summary>壁キックの方向。IsFromWallと併用(直したい)</summary>
     public bool IsRightFromWall { get; set; } = true;
+    private static int max_hp = 3;
 
     ///<summary>ここを直接書き換えない</summary>
-    public int hp = 3;
-    private int max_hp = 3;
+    public int hp = max_hp;
+
 
     ///<summary>HPの増減はすべてここから。</summary>
     private int HP{
@@ -299,6 +302,7 @@ public class HeroMover : MonoBehaviour
             if(this.IsFromWall){
                 rigidbody.MovePosition(new Vector2(this.transform.position.x,this.transform.position.y)
         　　　　　　　　　　　　　     + new Vector2(SpeedX, speedY));
+                UpdateSpeedX();
             }else{
                 rigidbody.MovePosition(new Vector2(this.transform.position.x,this.transform.position.y)
         　　　　　　　　　　　　　+ new Vector2(Move * moveSpeed, speedY));
