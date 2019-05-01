@@ -75,7 +75,7 @@ public class HeroMover : MonoBehaviour
 
     public static float moveSpeed = 20;
     
-    ///<summary>坂道登るときちょっと本来より早くする方が気持ち良くない？</summary>
+    ///<summary>坂道登るときちょっと本来より早くする方が気持ち良くない？そんなことない気がしてきた…</summary>
     public static float crimeBoost = 1.5f;
 
     ///<summary>入力に応じて-1,0,1のどれかを返す</summary>
@@ -186,12 +186,17 @@ public class HeroMover : MonoBehaviour
     ///<param name="damage">与えるダメージを書く。1を指定すると100->99,1->0になったりします</param>
     public void Damage(int damage){
         HP = HP - damage;
-        // ノックバックなど
+        BendBack();
     }
 
     ///<summary>リスポーン</summary>
     public void Die(){
         transform.position = new Vector3(0,0);
+    }
+
+    ///<summary>現状ジャンプにしてあるがそのままにしてはおけない</summary>
+    public void BendBack(){
+        JumpInSky();
     }
 
     
