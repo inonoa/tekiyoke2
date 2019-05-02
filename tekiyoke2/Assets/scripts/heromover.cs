@@ -93,6 +93,8 @@ public class HeroMover : MonoBehaviour
         }
     }
     public static float jumpSpeed = 40;
+    public static float bendBackSpeedX = 15;
+    public static float bendBackSpeedY = 20;
     public float speedY = 0f;
 
     ///<summary>壁キック後の横方向の移動速度</summary>
@@ -168,6 +170,7 @@ public class HeroMover : MonoBehaviour
     public bool IsFromWall { get; set; } = false;
     ///<summary>壁キックの方向。IsFromWallと併用(直したい)</summary>
     public bool IsRightFromWall { get; set; } = true;
+    public bool isBendingBack = false;
     private static int max_hp = 3;
 
     ///<summary>ここを直接書き換えない</summary>
@@ -196,7 +199,28 @@ public class HeroMover : MonoBehaviour
 
     ///<summary>現状ジャンプにしてあるがそのままにしてはおけない</summary>
     public void BendBack(){
-        JumpInSky();
+        speedY = bendBackSpeedY;
+        
+        isOnGround = false;
+        isBendingBack = true;
+        // 左右の入力がある場合はそれに従う
+        if(Input.GetKey(KeyCode.RightArrow)){
+            this.State = HState.JumpR;
+            SpeedX = -bendBackSpeedX;
+        }
+        else if(Input.GetKey(KeyCode.LeftArrow)){
+            this.State = HState.JumpL;
+            SpeedX = bendBackSpeedX;
+        }
+        // 入力がない場合は前フレームの向きのまま
+        else if(((int)State)%2==0){
+            this.State = HState.JumpRU;
+            SpeedX = -bendBackSpeedX;
+        }
+        else{
+            this.State = HState.JumpLU;
+            SpeedX = bendBackSpeedX;
+        }
     }
 
     
@@ -264,13 +288,20 @@ public class HeroMover : MonoBehaviour
     {
         if(!isOnGround)speedY -= gravity;
 
-        if(Input.GetKeyDown(KeyCode.UpArrow)){
-            if (isOnGround) {
-                JumpOnGround();
+        if(isBendingBack){
+            rigidbody.MovePosition(new Vector2(this.transform.position.x,this.transform.position.y)
+        　　　　　　　　　　　　　     + new Vector2(SpeedX, speedY));
+        }else{
+
+            if(Input.GetKeyDown(KeyCode.UpArrow)){
+                if (isOnGround) {
+                    JumpOnGround();
+                }
+                else if(JumpCount > 0){
+                    JumpInSky();
+                }
             }
-            else if(JumpCount > 0){
-                JumpInSky();
-            }
+
         }
 
         if(isOnGround){
@@ -308,7 +339,7 @@ public class HeroMover : MonoBehaviour
                 rigidbody.MovePosition(new Vector2(this.transform.position.x,this.transform.position.y)
         　　　　　　　　　　　　　     + new Vector2(SpeedX, speedY));
                 UpdateSpeedX();
-            }else{
+            }else if(!isBendingBack){
                 rigidbody.MovePosition(new Vector2(this.transform.position.x,this.transform.position.y)
         　　　　　　　　　　　　　+ new Vector2(Move * moveSpeed, speedY));
             }

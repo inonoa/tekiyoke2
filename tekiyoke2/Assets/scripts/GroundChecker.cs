@@ -20,7 +20,10 @@ public class GroundChecker : MonoBehaviour
     }
 
     void OnTriggerStay2D(Collider2D other){
-        if(other.tag!="Player") heroMover.JumpCount = 1; heroMover.isOnGround = true; heroMover.speedY = 0; heroMover.IsFromWall = false;
+        if(other.tag!="Player") {
+            heroMover.JumpCount = 1; heroMover.isOnGround = true; heroMover.speedY = 0;
+            heroMover.IsFromWall = false; heroMover.isBendingBack = false; heroMover.SpeedX = 0; heroMover.speedY = 0;
+        }
     }
 
     void OnTriggerExit2D(Collider2D other){
