@@ -7,6 +7,14 @@ public class EnemyController : MonoBehaviour
 {
     Rigidbody2D rb;
     public HeroMover hero;
+
+    public void MovePos(float vx, float vy){
+        rb.MovePosition(new Vector2(
+            transform.position.x + vx*Time.timeScale,
+            transform.position.y + vy*Time.timeScale
+        ));
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,24 +24,24 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.MovePosition(new Vector3(transform.position.x-1,transform.position.y));
+        MovePos(-1,0);
     }
 
     void OnCollisionEnter2D(Collision2D other){
         if(other.gameObject.tag=="Player"){
-            Time.timeScale = 1;
+            Tokitome.SetTime(1);
             hero.Damage(1);
         }
     }
 
     void OnTriggerEnter2D(Collider2D other){
         if(other.gameObject.tag=="Player"){
-            Time.timeScale = 0.1f;
+            Tokitome.SetTime(0.1f);
         }
     }
     void OnTriggerExit2D(Collider2D other){
         if(other.gameObject.tag=="Player"){
-            Time.timeScale = 1;
+            Tokitome.SetTime(1);
         }
     }
 }

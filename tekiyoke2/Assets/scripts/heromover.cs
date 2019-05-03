@@ -5,6 +5,7 @@ using UnityEngine;
 public class HeroMover : MonoBehaviour
 {
 
+    #region 変数と関数
     ///<summary>主人公の状態。基本的にanimationの状態に対応する。(じゃあ何で作ったんだ)
     ///値が偶数だと右向き、奇数だと左向き。すごい！(適当)</summary>
     public enum HState{
@@ -111,43 +112,27 @@ public class HeroMover : MonoBehaviour
     void UpdateSpeedX(){
         if(IsRightFromWall){
                 switch(Move){
-                    case 1:
-                        _SpeedX = moveSpeed;
-                        break;
+                    case 1: _SpeedX = moveSpeed; break;
                     case 0:
-                        if(_SpeedX-0.5f>0){
-                            _SpeedX -= 0.5f;
-                        }else{
-                            _SpeedX = 0;
-                        }
+                        if(_SpeedX-0.5f>0){_SpeedX -= 0.5f;}
+                        else{_SpeedX = 0;}
                         break;
                     default:
-                        if(_SpeedX-1>-moveSpeed){
-                            _SpeedX -= 1;
-                        }else{
-                            _SpeedX = -moveSpeed;
-                        }
+                        if(_SpeedX-1>-moveSpeed){_SpeedX -= 1;}
+                        else{_SpeedX = -moveSpeed;}
                         break;
                 }
             }
             else{
                 switch(Move){
-                    case -1:
-                        _SpeedX = -moveSpeed;
-                        break;
+                    case -1:_SpeedX = -moveSpeed;break;
                     case 0:
-                        if(_SpeedX+0.5f<0){
-                            _SpeedX += 0.5f;
-                        }else{
-                            _SpeedX = 0;
-                        }
+                        if(_SpeedX+0.5f<0){_SpeedX += 0.5f;}
+                        else{_SpeedX = 0;}
                         break;
                     default:
-                        if(_SpeedX+1<moveSpeed){
-                            _SpeedX += 1;
-                        }else{
-                            _SpeedX = moveSpeed;
-                        }
+                        if(_SpeedX+1<moveSpeed){_SpeedX += 1;}
+                        else{_SpeedX = moveSpeed;}
                         break;
                 }
             }
@@ -185,6 +170,7 @@ public class HeroMover : MonoBehaviour
             else{hp = value;}
         }
     }
+    
     ///<summary>敵からのダメージ等。ノックバックなどが入る予定</summary>
     ///<param name="damage">与えるダメージを書く。1を指定すると100->99,1->0になったりします</param>
     public void Damage(int damage){
@@ -200,9 +186,9 @@ public class HeroMover : MonoBehaviour
     ///<summary>現状ジャンプにしてあるがそのままにしてはおけない</summary>
     public void BendBack(){
         speedY = bendBackSpeedY;
-        
         isOnGround = false;
         isBendingBack = true;
+
         // 左右の入力がある場合はそれに従う
         if(Input.GetKey(KeyCode.RightArrow)){
             this.State = HState.JumpR;
@@ -212,6 +198,7 @@ public class HeroMover : MonoBehaviour
             this.State = HState.JumpL;
             SpeedX = bendBackSpeedX;
         }
+
         // 入力がない場合は前フレームの向きのまま
         else if(((int)State)%2==0){
             this.State = HState.JumpRU;
@@ -223,11 +210,9 @@ public class HeroMover : MonoBehaviour
         }
     }
 
-    
-
-
     ///<summary>後々のためにジャンプを分離しただけ</summary>
     public void JumpOnGround(){
+        Tokitome.SetTime(1);
         speedY = jumpSpeed;
         isOnGround = false;
         // 左右の入力がある場合はそれに従う
@@ -248,6 +233,7 @@ public class HeroMover : MonoBehaviour
 
     ///<summary>壁ジャンプ右、JumpCount++は苦し紛れの帳尻合わせ</summary>
     public void JumpR(){
+        Tokitome.SetTime(1);
         speedY = jumpSpeed;
         isOnGround = false;
         this.State = HState.JumpR;
@@ -259,6 +245,7 @@ public class HeroMover : MonoBehaviour
 
     ///<summary>壁ジャンプ左、JumpCount++は苦し紛れの帳尻合わせ</summary>
     public void JumpL(){
+        Tokitome.SetTime(1);
         speedY = jumpSpeed;
         isOnGround = false;
         this.State = HState.JumpL;
@@ -275,6 +262,21 @@ public class HeroMover : MonoBehaviour
         IsFromWall = false;
     }
 
+    ///<summary>指定した値だけ位置をずらす。timeScaleの影響を受けます</summary>
+    public void MovePos(float vx, float vy){
+        rigidbody.MovePosition(new Vector2(
+            transform.position.x + vx*Time.timeScale,
+            transform.position.y + vy*Time.timeScale
+        ));
+    }
+
+    ///<summary>指定した値に位置が移動。timeScaleの影響を受けません</summary>
+    public void WarpPos(float x, float y){
+        rigidbody.MovePosition(new Vector2(x,y));
+    }
+
+    #endregion
+
     // Start is called before the first frame update
     void Start()
     {
@@ -286,11 +288,10 @@ public class HeroMover : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!isOnGround)speedY -= gravity;
+        if(!isOnGround)speedY -= gravity*Time.timeScale;
 
         if(isBendingBack){
-            rigidbody.MovePosition(new Vector2(this.transform.position.x,this.transform.position.y)
-        　　　　　　　　　　　　　     + new Vector2(SpeedX, speedY));
+            MovePos(SpeedX, speedY);
         }else{
 
             if(Input.GetKeyDown(KeyCode.UpArrow)){
@@ -336,12 +337,10 @@ public class HeroMover : MonoBehaviour
 
         if(!this.IsCrimbing){
             if(this.IsFromWall){
-                rigidbody.MovePosition(new Vector2(this.transform.position.x,this.transform.position.y)
-        　　　　　　　　　　　　　     + new Vector2(SpeedX, speedY));
+                MovePos(SpeedX, speedY);
                 UpdateSpeedX();
             }else if(!isBendingBack){
-                rigidbody.MovePosition(new Vector2(this.transform.position.x,this.transform.position.y)
-        　　　　　　　　　　　　　+ new Vector2(Move * moveSpeed, speedY));
+                MovePos(Move * moveSpeed, speedY);
             }
             
         }
@@ -373,8 +372,7 @@ public class HeroMover : MonoBehaviour
             foreach(ContactPoint2D contact in col.contacts){
                 if(contact.normal.x<0 & contact.normal.y!=0){
                     // 加速
-                    rigidbody.MovePosition(new Vector2(this.transform.position.x,this.transform.position.y)
-            　　　　 + new Vector2(moveSpeed*crimeBoost, moveSpeed*crimeBoost));
+                    MovePos(moveSpeed*crimeBoost, moveSpeed*crimeBoost);
 
                     this.IsCrimbing = true;
                     return;
@@ -387,8 +385,7 @@ public class HeroMover : MonoBehaviour
             foreach(ContactPoint2D contact in col.contacts){
                 if(contact.normal.x>0 & contact.normal.y!=0){
                     // 加速
-                    rigidbody.MovePosition(new Vector2(this.transform.position.x,this.transform.position.y)
-            　　　　 + new Vector2(-moveSpeed*crimeBoost, moveSpeed*crimeBoost));
+                    MovePos(-moveSpeed*crimeBoost, moveSpeed*crimeBoost);
 
                     this.IsCrimbing = true;
                     return;
