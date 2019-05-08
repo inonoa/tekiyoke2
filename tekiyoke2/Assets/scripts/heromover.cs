@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class HeroMover : MonoBehaviour
 {
@@ -158,30 +159,10 @@ public class HeroMover : MonoBehaviour
     public bool IsRightFromWall { get; set; } = true;
     public bool isBendingBack = false;
 
-    public Image hpImg1;
-    public Image hpImg2;
-    public Image hpImg3;
-    private static int max_hp = 3;
-
-    ///<summary>ここを直接書き換えない</summary>
-    public int hp = max_hp;
-
-
     ///<summary>HPの増減はすべてここから。</summary>
     private int HP{
-        get{return hp;}
-        set{
-            if(value<=0){
-                Die(); hp=max_hp;
-                hpImg1.gameObject.SetActive(true); hpImg2.gameObject.SetActive(true); hpImg3.gameObject.SetActive(true);
-                }
-            else{
-                hp = value;
-                if(value==1){hpImg1.gameObject.SetActive(true); hpImg2.gameObject.SetActive(false); hpImg3.gameObject.SetActive(false);}
-                else if(value==2){hpImg1.gameObject.SetActive(true); hpImg2.gameObject.SetActive(true); hpImg3.gameObject.SetActive(false);}
-                else if(value==3){hpImg1.gameObject.SetActive(true); hpImg2.gameObject.SetActive(true); hpImg3.gameObject.SetActive(true);}
-            }
-        }
+        get{return hpcntr.HP;}
+        set{hpcntr.HP = value;}
     }
     
     ///<summary>敵からのダメージ等。ノックバックなどが入る予定</summary>
@@ -195,6 +176,13 @@ public class HeroMover : MonoBehaviour
     public void Die(){
         transform.position = new Vector3(0,0);
     }
+
+    ///<summary>HPCntrからの死亡イベントをこう良い感じに…</summary>
+    public void ReceiveDeath(object sender, EventArgs e){
+        Die();
+    }
+
+    public HpCntr hpcntr;
 
     ///<summary>現状ジャンプにしてあるがそのままにしてはおけない</summary>
     public void BendBack(){
@@ -296,6 +284,7 @@ public class HeroMover : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         rigidbody = GetComponent<Rigidbody2D>();
+        hpcntr.die += ReceiveDeath;
     }
 
     // Update is called once per frame

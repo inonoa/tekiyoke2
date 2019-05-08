@@ -1122,6 +1122,7 @@ GameObject:
   - component: {fileID: 1034792852}
   - component: {fileID: 1034792847}
   - component: {fileID: 1034792851}
+  - component: {fileID: 1034792853}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Player
@@ -1148,10 +1149,7 @@ MonoBehaviour:
   anim: {fileID: 0}
   rigidbody: {fileID: 0}
   isBendingBack: 0
-  hpImg1: {fileID: 0}
-  hpImg2: {fileID: 0}
-  hpImg3: {fileID: 0}
-  hp: 3
+  hpcntr: {fileID: 1034792853}
 --- !u!212 &1034792848
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1289,6 +1287,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &1034792853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034792846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f39051087ecb27349beb355b19f5c1c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpImg1: {fileID: 626500407}
+  hpImg2: {fileID: 571433767}
+  hpImg3: {fileID: 1979880076}
+  hp: 3
 --- !u!1 &1512146352
 GameObject:
   m_ObjectHideFlags: 0
