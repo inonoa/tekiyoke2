@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HeroMover : MonoBehaviour
 {
@@ -156,6 +157,10 @@ public class HeroMover : MonoBehaviour
     ///<summary>壁キックの方向。IsFromWallと併用(直したい)</summary>
     public bool IsRightFromWall { get; set; } = true;
     public bool isBendingBack = false;
+
+    public Image hpImg1;
+    public Image hpImg2;
+    public Image hpImg3;
     private static int max_hp = 3;
 
     ///<summary>ここを直接書き換えない</summary>
@@ -166,8 +171,16 @@ public class HeroMover : MonoBehaviour
     private int HP{
         get{return hp;}
         set{
-            if(value<=0){Die(); hp=max_hp;}
-            else{hp = value;}
+            if(value<=0){
+                Die(); hp=max_hp;
+                hpImg1.gameObject.SetActive(true); hpImg2.gameObject.SetActive(true); hpImg3.gameObject.SetActive(true);
+                }
+            else{
+                hp = value;
+                if(value==1){hpImg1.gameObject.SetActive(true); hpImg2.gameObject.SetActive(false); hpImg3.gameObject.SetActive(false);}
+                else if(value==2){hpImg1.gameObject.SetActive(true); hpImg2.gameObject.SetActive(true); hpImg3.gameObject.SetActive(false);}
+                else if(value==3){hpImg1.gameObject.SetActive(true); hpImg2.gameObject.SetActive(true); hpImg3.gameObject.SetActive(true);}
+            }
         }
     }
     
