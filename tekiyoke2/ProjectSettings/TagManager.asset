@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Toge
   - Terrain
+  - Enemy
   layers:
   - Default
   - TransparentFX

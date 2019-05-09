@@ -149,7 +149,7 @@ public class HeroMover : MonoBehaviour
     }
     public bool isOnGround = true;
     public Animator anim;
-    public Rigidbody2D rigidbody;
+    public new Rigidbody2D rigidbody;
 
     ///<summary>坂道はOnCollisionStayにて管理しているためMovePositionが重複しないための措置</summary>
     private bool IsCrimbing { get; set; } = false;
@@ -294,12 +294,18 @@ public class HeroMover : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if(dashcntr.State==DashController.DState.Off || dashcntr.State==DashController.DState.InCoolTime){
+
+        //重力で加速
         if(!isOnGround)speedY -= gravity*Time.timeScale;
 
+        #region のけぞり中の移動とジャンプ(？)
+        //のけぞり中の処理
         if(isBendingBack){
             MovePos(SpeedX, speedY);
         }else{
-
+            //のけぞってないならジャンプできる
             if(Input.GetKeyDown(KeyCode.UpArrow)){
                 if (isOnGround) {
                     JumpOnGround();
@@ -311,6 +317,11 @@ public class HeroMover : MonoBehaviour
 
         }
 
+        #endregion
+
+        #region 状態遷移
+
+        //走る、止まる
         if(isOnGround){
             if(Input.GetKey(KeyCode.RightArrow)){
                 State = HState.RunR;
@@ -326,6 +337,7 @@ public class HeroMover : MonoBehaviour
             }
         }
 
+        //落ちる
         if(speedY < 0){
             if(Input.GetKey(KeyCode.RightArrow)){
                 State = HState.FallR;
@@ -341,6 +353,10 @@ public class HeroMover : MonoBehaviour
             }
         }
 
+        #endregion
+
+        #region 移動(のけぞってないとき)
+
         if(!this.IsCrimbing){
             if(this.IsFromWall){
                 MovePos(SpeedX, speedY);
@@ -348,15 +364,34 @@ public class HeroMover : MonoBehaviour
             }else if(!isBendingBack){
                 MovePos(Move * moveSpeed, speedY);
             }
-            
+        
+        #endregion
+        
+        if(Input.GetKeyDown(KeyCode.D)){
+            if(!this.isBendingBack && dashcntr.CanDash){
+                dashcntr.StandBy();
+            }
+        }
+        }
         }
 
-        // 落下死書かないとなー
+        if(Input.GetKeyUp(KeyCode.D)){
+            if(dashcntr.State==DashController.DState.StandingBy){
+                dashcntr.ExecuteDash();
+            }
+        }
+
+        if(dashcntr.State==DashController.DState.Dashing){
+            MovePos(dashcntr.dashX,0);
+            Debug.Log(dashcntr.dashX);
+        }
+
+        // 落下死
         if(transform.position.y < -1000){
-            transform.position = new Vector3(0,1000);
-            speedY = 0;
+            Die();
         }
 
+        // 坂道は常に登らなくなる(？)
         this.IsCrimbing = false;
     }
 
