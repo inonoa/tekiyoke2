@@ -6,6 +6,7 @@ using UnityEngine.Timeline;
 public class EnemyController : MonoBehaviour
 {
     Rigidbody2D rb;
+
     public HeroMover hero;
 
     public void MovePos(float vx, float vy){
@@ -31,17 +32,6 @@ public class EnemyController : MonoBehaviour
         if(other.gameObject.tag=="Player"){
             Tokitome.SetTime(1);
             hero.Damage(1);
-        }
-    }
-
-    void OnTriggerEnter2D(Collider2D other){
-        if(other.gameObject.tag=="Player"){
-            Tokitome.SetTime(0.1f);
-        }
-    }
-    void OnTriggerExit2D(Collider2D other){
-        if(other.gameObject.tag=="Player"){
-            Tokitome.SetTime(1);
         }
     }
 }

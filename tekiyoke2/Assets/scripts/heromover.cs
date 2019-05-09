@@ -184,6 +184,8 @@ public class HeroMover : MonoBehaviour
 
     public HpCntr hpcntr;
 
+    public DashController dashcntr;
+
     ///<summary>現状ジャンプにしてあるがそのままにしてはおけない</summary>
     public void BendBack(){
         speedY = bendBackSpeedY;
@@ -284,6 +286,8 @@ public class HeroMover : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         rigidbody = GetComponent<Rigidbody2D>();
+        hpcntr = GetComponent<HpCntr>();
+        dashcntr = GetComponent<DashController>();
         hpcntr.die += ReceiveDeath;
     }
 
