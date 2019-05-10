@@ -44,12 +44,11 @@ public class DashController : MonoBehaviour
 
     ///<summary>フレームごとの移動距離の配列。タメ終了時にタメの強さに応じていい感じの値が格納される</summary>
     private float[] moveDists;
-    // x = (4999 - 4900*(t/T)^2) * ((t/T)^2 /99) * X (Tはダッシュに要する時間、Xは距離)の曲線に従って移動する。
-    //ここで、 T[F] = X[Unit] * 3/20 くらいである。
-
+    //T[F] = X[Unit] * 3/20 くらい
+    
     ///<summary>タメ終了時に呼ぶ。ための強さに応じてmoveDistsに移動距離を格納し、ダッシュ中に遷移。</summary>
     public int ExecuteDash(){
-        int x = 200;
+        int x = 500;
         int t = (x*3) /20;
         moveDists = new float[t];
         for(int i=0;i<t;i++){
@@ -60,6 +59,7 @@ public class DashController : MonoBehaviour
         dashTime = 0;
         tame2dash = 0;
         state = DState.Dashing;
+        Tokitome.SetTime(1);
         return re;
     }
 

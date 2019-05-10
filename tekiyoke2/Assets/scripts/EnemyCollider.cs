@@ -20,7 +20,7 @@ public class EnemyCollider : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D other){
-        if(other.gameObject.tag=="Player"){
+        if(other.gameObject.tag=="Player" && hero.dashcntr.State!=DashController.DState.Dashing){
             Tokitome.SetTime(1);
             hero.Damage(1);
         }
