@@ -17,6 +17,9 @@ public class DashController : MonoBehaviour
     ///<summary>外から読むときはこっち(ダッシュ中かどうか/色々)</summary>
     public DState State{get{return state;}}
 
+    ///<summary>ダッシュの向き</summary>
+    public bool dashToRight = false;
+
     ///<summary>タメ開始してから何F経った？</summary>
     public int tame2dash = 0;
 
@@ -38,14 +41,15 @@ public class DashController : MonoBehaviour
         }
     }
 
-    public void StandBy(){
+    public void StandBy(bool dashToRight){
         state = DState.StandingBy;
+        this.dashToRight = dashToRight;
     }
 
     ///<summary>フレームごとの移動距離の配列。タメ終了時にタメの強さに応じていい感じの値が格納される</summary>
     private float[] moveDists;
     //T[F] = X[Unit] * 3/20 くらい
-    
+
     ///<summary>タメ終了時に呼ぶ。ための強さに応じてmoveDistsに移動距離を格納し、ダッシュ中に遷移。</summary>
     public int ExecuteDash(){
         int x = 500;
@@ -82,7 +86,8 @@ public class DashController : MonoBehaviour
         }
         // ダッシュ中なら次の移動距離を準備。
         else if(state==DState.Dashing){
-            dashX = moveDists[dashTime];
+            if(this.dashToRight){dashX = moveDists[dashTime];}
+            else{dashX = -moveDists[dashTime];}
             dashTime ++;
             if(dashFullTime==dashTime){
                 state = DState.InCoolTime;

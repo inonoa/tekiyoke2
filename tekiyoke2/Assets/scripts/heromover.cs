@@ -369,7 +369,13 @@ public class HeroMover : MonoBehaviour
         
         if(Input.GetKeyDown(KeyCode.D)){
             if(!this.isBendingBack && dashcntr.CanDash){
-                dashcntr.StandBy();
+                dashcntr.StandBy(true);
+            }
+        }
+
+        if(Input.GetKeyDown(KeyCode.A)){
+            if(!this.isBendingBack && dashcntr.CanDash){
+                dashcntr.StandBy(false);
             }
         }
         }
@@ -381,9 +387,14 @@ public class HeroMover : MonoBehaviour
             }
         }
 
+        if(Input.GetKeyUp(KeyCode.A)){
+            if(dashcntr.State==DashController.DState.StandingBy){
+                dashcntr.ExecuteDash();
+            }
+        }
+
         if(dashcntr.State==DashController.DState.Dashing){
             MovePos(dashcntr.dashX,0);
-            Debug.Log(dashcntr.dashX);
         }
 
         // 落下死
