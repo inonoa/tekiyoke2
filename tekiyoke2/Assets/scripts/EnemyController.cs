@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Timeline;
+using System;
 
 public class EnemyController : MonoBehaviour
 {
+    private int direction = -1;
     Rigidbody2D rb;
+    public EnemyCollider col;
 
-    public HeroMover hero;
 
     public void MovePos(float vx, float vy){
         rb.MovePosition(new Vector2(
@@ -16,22 +18,20 @@ public class EnemyController : MonoBehaviour
         ));
     }
 
+    private void Turn(object sender, EventArgs e){
+        direction *= -1;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        col.turn += Turn;
     }
 
     // Update is called once per frame
     void Update()
     {
-        MovePos(-1,0);
-    }
-
-    void OnCollisionEnter2D(Collision2D other){
-        if(other.gameObject.tag=="Player"){
-            Tokitome.SetTime(1);
-            hero.Damage(1);
-        }
+        MovePos(direction,0);
     }
 }
