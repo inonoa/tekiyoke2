@@ -24,9 +24,29 @@ public class GroundChecker : MonoBehaviour
             heroMover.JumpCount = 1; heroMover.isOnGround = true; heroMover.speedY = 0;
             heroMover.IsFromWall = false; heroMover.isBendingBack = false; heroMover.SpeedX = 0; heroMover.speedY = 0;
         }
+        
+        if(other.tag=="Ultrathin"){
+            if(heroMover.speedY<=0){
+                if(heroMover.speedY!=0) Debug.Log(heroMover.speedY.ToString()+"でぶつかったよ");
+                heroMover.JumpCount = 1; heroMover.isOnGround = true; heroMover.speedY = 0;
+                heroMover.IsFromWall = false; heroMover.isBendingBack = false; heroMover.SpeedX = 0; heroMover.speedY = 0;
+            }
+        }
+        
+    }
+
+
+    void OnTriggerEnter2D(Collider2D other){
+        if(other.tag=="Ultrathin"){
+            if(heroMover.speedY!=0) Debug.Log(heroMover.speedY.ToString()+"でぶつかったよ");
+            if(heroMover.speedY<=0){
+                heroMover.JumpCount = 1; heroMover.isOnGround = true; heroMover.speedY = 0;
+                heroMover.IsFromWall = false; heroMover.isBendingBack = false; heroMover.SpeedX = 0; heroMover.speedY = 0;
+            }
+        }
     }
 
     void OnTriggerExit2D(Collider2D other){
-        if(other.tag=="Terrain") heroMover.isOnGround = false;
+        if(other.tag=="Terrain" || (other.tag=="Ultrathin" && heroMover.speedY>=0)) heroMover.isOnGround = false;
     }
 }

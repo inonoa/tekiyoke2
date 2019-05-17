@@ -404,6 +404,7 @@ public class HeroMover : MonoBehaviour
 
         // 坂道は常に登らなくなる(？)
         this.IsCrimbing = false;
+        
     }
 
     ///<summary>天井に衝突したときに天井に張り付かないようにする</summary>
@@ -411,11 +412,13 @@ public class HeroMover : MonoBehaviour
     void OnCollisionStay2D(Collision2D col){
 
         if(this.IsJumping){
+            if(col.gameObject.tag=="Terrain"){
             foreach(ContactPoint2D contact in col.contacts){
                 if(contact.normal.y<0){
                     speedY = 0;
                     break;
                 }
+            }
             }
         }
 
@@ -444,6 +447,7 @@ public class HeroMover : MonoBehaviour
                 }
             }
         }
+        
     }
 
     ///<summary>とげでOす</summary>
