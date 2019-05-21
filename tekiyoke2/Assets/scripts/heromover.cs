@@ -175,6 +175,7 @@ public class HeroMover : MonoBehaviour
     ///<summary>リスポーン</summary>
     public void Die(){
         transform.position = new Vector3(0,0);
+        hpcntr.FullRecover();
     }
 
     ///<summary>HPCntrからの死亡イベントをこう良い感じに…</summary>

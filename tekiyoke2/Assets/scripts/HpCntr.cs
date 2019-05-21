@@ -35,6 +35,11 @@ public class HpCntr : MonoBehaviour
         }
     }
 
+    ///<summary>全回復</summary>
+    public void FullRecover(){
+        HP = max_hp;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
