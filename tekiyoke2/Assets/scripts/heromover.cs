@@ -111,7 +111,7 @@ public class HeroMover : MonoBehaviour
     }
 
     ///<summary>壁キック後の左右の速さの更新。</summary>
-    void UpdateSpeedX(){
+    void UpdateSpeedXAfterWallJump(){
         if(IsRightFromWall){
                 switch(Move){
                     case 1: _SpeedX = moveSpeed; break;
@@ -370,7 +370,7 @@ public class HeroMover : MonoBehaviour
         if(!this.IsCrimbing){
             if(this.IsFromWall){
                 MovePos(SpeedX, speedY);
-                UpdateSpeedX();
+                UpdateSpeedXAfterWallJump();
             }else if(!isBendingBack){
                 MovePos(Move * moveSpeed, speedY);
             }
