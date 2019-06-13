@@ -159,6 +159,8 @@ public class HeroMover : MonoBehaviour
     public bool IsRightFromWall { get; set; } = true;
     public bool isBendingBack = false;
 
+    public GameObject curtain;
+
     ///<summary>HPの増減はすべてここから。</summary>
     private int HP{
         get{return hpcntr.HP;}
@@ -174,13 +176,19 @@ public class HeroMover : MonoBehaviour
 
     ///<summary>リスポーン</summary>
     public void Die(){
-        transform.position = new Vector3(0,0);
-        hpcntr.FullRecover();
+        curtain.SetActive(true);
+        curtain.GetComponent<CurtainMover>().state = CurtainMover.CState.Dying;
+        curtain.transform.localPosition = new Vector3(-2000,0);
     }
 
     ///<summary>HPCntrからの死亡イベントをこう良い感じに…</summary>
     public void ReceiveDeath(object sender, EventArgs e){
         Die();
+    }
+
+    public void Respawn(object sender, EventArgs e){
+        transform.position = new Vector3(0,0);
+        hpcntr.FullRecover();
     }
 
     public HpCntr hpcntr;
@@ -290,6 +298,7 @@ public class HeroMover : MonoBehaviour
         hpcntr = GetComponent<HpCntr>();
         dashcntr = GetComponent<DashController>();
         hpcntr.die += ReceiveDeath;
+        curtain.GetComponent<CurtainMover>().heroRespawn += Respawn;
     }
 
     // Update is called once per frame
