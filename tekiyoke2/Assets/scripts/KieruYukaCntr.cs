@@ -29,6 +29,8 @@ public class KieruYukaCntr : MonoBehaviour
         infos.Add(new YukaInfo(yuka.gameObject));
     }
 
+    public HeroMover hero;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,6 +52,7 @@ public class KieruYukaCntr : MonoBehaviour
                     infos[i].obj.SetActive(false);
                     infos[i].frames = 100;
                     infos[i].kieta = true;
+                    hero.isOnGround = false;
                 }
             }
         }
