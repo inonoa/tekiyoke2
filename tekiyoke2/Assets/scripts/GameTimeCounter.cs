@@ -17,7 +17,7 @@ public class GameTimeCounter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        txt.text = "TIME: " + (count/3600).ToString("00") + "\'" + (count%3600/60).ToString("00") + "\"" + (count%60).ToString("00");
+        txt.text = (count/3600).ToString("00") + ":" + (count%3600/60).ToString("00") + ":" + (count%60).ToString("00");
         count ++;
     }
 }

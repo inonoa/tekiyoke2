@@ -176,9 +176,11 @@ public class HeroMover : MonoBehaviour
 
     ///<summary>リスポーン</summary>
     public void Die(){
-        curtain.SetActive(true);
-        curtain.GetComponent<CurtainMover>().state = CurtainMover.CState.Dying;
-        curtain.transform.localPosition = new Vector3(-2000,0);
+        if(curtain.GetComponent<CurtainMover>().state!=CurtainMover.CState.Dying){
+            curtain.SetActive(true);
+            curtain.GetComponent<CurtainMover>().state = CurtainMover.CState.Dying;
+            curtain.transform.localPosition = new Vector3(-2500,290);
+        }
     }
 
     ///<summary>HPCntrからの死亡イベントをこう良い感じに…</summary>
@@ -304,6 +306,9 @@ public class HeroMover : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Space)){
+            Die();
+        }
 
         if(dashcntr.State==DashController.DState.Off || dashcntr.State==DashController.DState.InCoolTime){
 

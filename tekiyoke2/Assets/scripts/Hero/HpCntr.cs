@@ -6,9 +6,14 @@ using System;
 
 public class HpCntr : MonoBehaviour
 {
-    public Image hpImg1;
-    public Image hpImg2;
-    public Image hpImg3;
+    public Sprite img3;
+    public Sprite img3_2;
+    public Sprite img2;
+    public Sprite img2_1;
+    public Sprite img1;
+    public Sprite img0;
+    public Sprite img1_0;
+    public Image spr;
     private static int max_hp = 3;
 
     ///<summary>ここを直接書き換えない</summary>
@@ -23,14 +28,18 @@ public class HpCntr : MonoBehaviour
         set{
             if(value<=0){
                 die?.Invoke(this,EventArgs.Empty);
-                hp=max_hp;
-                hpImg1.gameObject.SetActive(true); hpImg2.gameObject.SetActive(true); hpImg3.gameObject.SetActive(true);
+                hp=0;
+                spr.sprite = img0;
                 }
             else{
-                hp = value;
-                if(value==1){hpImg1.gameObject.SetActive(true); hpImg2.gameObject.SetActive(false); hpImg3.gameObject.SetActive(false);}
-                else if(value==2){hpImg1.gameObject.SetActive(true); hpImg2.gameObject.SetActive(true); hpImg3.gameObject.SetActive(false);}
-                else if(value==3){hpImg1.gameObject.SetActive(true); hpImg2.gameObject.SetActive(true); hpImg3.gameObject.SetActive(true);}
+                hp = Math.Min(3,value);
+                if(value==1){
+                    spr.sprite = img1;
+                }else if(value==2){
+                    spr.sprite = img2;
+                }else{
+                    spr.sprite = img3;
+                }
             }
         }
     }

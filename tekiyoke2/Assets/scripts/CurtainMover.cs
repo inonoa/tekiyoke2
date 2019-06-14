@@ -25,8 +25,8 @@ public class CurtainMover : MonoBehaviour
     {
         switch(state){
             case CState.GameStart:
-                gameObject.transform.position += new Vector3(60,0);
-                if(gameObject.transform.position.x>2000){
+                gameObject.transform.position += new Vector3(50,0);
+                if(gameObject.transform.localPosition.x>4000){
                     state = CState.ToBeInActive;
                 }
                 break;
@@ -34,10 +34,10 @@ public class CurtainMover : MonoBehaviour
                 gameObject.SetActive(false);
                 break;
             case CState.Dying:
-                gameObject.transform.position += new Vector3(60,0);
-                if(gameObject.transform.position.x>2000){
+                gameObject.transform.position += new Vector3(50,0);
+                if(gameObject.transform.localPosition.x>4000){
                     state = CState.ToBeInActive;
-                }else if(gameObject.transform.position.x>400 && gameObject.transform.position.x<500){
+                }else if(gameObject.transform.localPosition.x>400 && gameObject.transform.localPosition.x<500){
                     heroRespawn?.Invoke(this,EventArgs.Empty);
                 }
                 break;
