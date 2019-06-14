@@ -187,7 +187,7 @@ public class HeroMover : MonoBehaviour
     }
 
     public void Respawn(object sender, EventArgs e){
-        transform.position = new Vector3(0,0);
+        transform.position = new Vector3(0,-200);
         hpcntr.FullRecover();
     }
 
