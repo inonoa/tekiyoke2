@@ -22,7 +22,9 @@ public class HpCntr : MonoBehaviour
     public int hp = max_hp;
 
     public event EventHandler die;
-    private readonly int[,] damagemove = new int[10,2]{{5,20},{0,0},{0,0},{0,0},{0,0},{-8,-35},{0,0},{0,0},{0,0},{3,15}};
+    private readonly int[,] damagemove = new int[10,2]{{-5,-10},{0,0},{0,0},{0,0},{0,0},{8,17},{0,0},{0,0},{0,0},{-3,-7}};
+
+    public GameObject camera;
 
 
     ///<summary>HPの増減はすべてここから。</summary>
@@ -72,7 +74,7 @@ public class HpCntr : MonoBehaviour
     {
         if(this.isDamaging){
             if(framesAfterDamage<10){
-                spr.transform.localPosition += new Vector3(damagemove[framesAfterDamage,0],damagemove[framesAfterDamage,1]);
+                camera.transform.localPosition += new Vector3(damagemove[framesAfterDamage,0],damagemove[framesAfterDamage,1]);
             }
             framesAfterDamage ++;
             if(framesAfterDamage==10 || framesAfterDamage==11){
