@@ -13,7 +13,7 @@ public class AnyKeyToStart : MonoBehaviour
 
     private bool readyToGame = false;
 
-    public readonly int curtainV = 40;
+    public readonly int curtainV = 50;
 
     public GameObject curtain;
 

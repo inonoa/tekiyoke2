@@ -309,6 +309,9 @@ public class HeroMover : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space)){
             Die();
         }
+        if(Input.GetKeyDown(KeyCode.B)){
+            Damage(1);
+        }
 
         if(dashcntr.State==DashController.DState.Off || dashcntr.State==DashController.DState.InCoolTime){
 
@@ -468,7 +471,8 @@ public class HeroMover : MonoBehaviour
     ///<summary>とげでOす</summary>
     void OnTriggerStay2D(Collider2D col){
         if(col.gameObject.tag=="Toge"){
-            this.transform.position = new Vector2(0,0);
+            Damage(3);
+            Die();
         }
     }
 }

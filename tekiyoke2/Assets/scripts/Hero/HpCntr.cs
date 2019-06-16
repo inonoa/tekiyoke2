@@ -22,9 +22,9 @@ public class HpCntr : MonoBehaviour
     public int hp = max_hp;
 
     public event EventHandler die;
-    private readonly int[,] damagemove = new int[10,2]{{-5,-10},{0,0},{0,0},{0,0},{0,0},{8,17},{0,0},{0,0},{0,0},{-3,-7}};
+    private readonly int[,] damagemove = new int[10,2]{{-10,3},{0,0},{0,0},{0,0},{13,-5},{0,0},{0,0},{-7,4},{0,0},{4,-2}};
 
-    public GameObject camera;
+    new public GameObject camera;
 
 
     ///<summary>HPの増減はすべてここから。</summary>
@@ -75,12 +75,14 @@ public class HpCntr : MonoBehaviour
         if(this.isDamaging){
             if(framesAfterDamage<10){
                 camera.transform.localPosition += new Vector3(damagemove[framesAfterDamage,0],damagemove[framesAfterDamage,1]);
+            }else if(framesAfterDamage==10){
+                camera.transform.localPosition = new Vector3(0,50,-100);
             }
             framesAfterDamage ++;
-            if(framesAfterDamage==10 || framesAfterDamage==11){
+            if(framesAfterDamage==20 || framesAfterDamage==21){
                 if(HP==0)spr.sprite = img0;
-                if(HP==1)spr.sprite = img1;
-                if(HP==2)spr.sprite = img2;
+                else if(HP==1)spr.sprite = img1;
+                else if(HP==2)spr.sprite = img2;
                 else{Debug.Log("HPが0,1,2じゃないのにダメージを受けたことになってるよ！");}
             }else if(framesAfterDamage==60){
                 spr.color = new Color(1,1,1,180f/255f);
