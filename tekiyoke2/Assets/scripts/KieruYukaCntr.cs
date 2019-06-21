@@ -30,6 +30,9 @@ public class KieruYukaCntr : MonoBehaviour
     }
 
     public HeroMover hero;
+    public Sprite kieruSprite;
+    public Sprite kieteruSprite;
+    public Sprite kienaiSprite;
 
     // Start is called before the first frame update
     void Start()
@@ -45,10 +48,17 @@ public class KieruYukaCntr : MonoBehaviour
             if(infos[i].kieta){
                 if(infos[i].frames==0){
                     infos[i].obj.SetActive(true);
+                    infos[i].obj.GetComponent<SpriteRenderer>().sprite = kienaiSprite;
                     infos.Remove(infos[i]);
                 }
             }else{
-                if(infos[i].frames==0){
+                if(infos[i].frames==25){
+                    infos[i].obj.GetComponent<SpriteRenderer>().sprite = kieruSprite;
+                }
+                else if(infos[i].frames==5){
+                    infos[i].obj.GetComponent<SpriteRenderer>().sprite = kieteruSprite;
+                }
+                else if(infos[i].frames==0){
                     infos[i].obj.SetActive(false);
                     infos[i].frames = 100;
                     infos[i].kieta = true;
