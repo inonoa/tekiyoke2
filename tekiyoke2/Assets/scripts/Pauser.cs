@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
+using System;
 
 public class Pauser : MonoBehaviour
 {
@@ -20,10 +21,12 @@ public class Pauser : MonoBehaviour
     ///<summary>いまポーズ中？</summary>
     bool inPause = false;
 
+    public PauseUIMover uiMover;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        uiMover.GetComponent<PauseUIMover>().pauseEnd += PauseEnded;
     }
 
     // Update is called once per frame
@@ -35,14 +38,13 @@ public class Pauser : MonoBehaviour
             //ポーズに移行(実際にはフレーム終了後に移行)
             if(!inPause){ StartCoroutine("TakeScSho"); Debug.Log("ポーズ開始！"); }
 
-            //ポーズ終了
-            else{
-                Debug.Log("ポーズ終了！");
-                gameMaster.SetActive(true);
-                pauseMaster.SetActive(false);
-                inPause = false;
-            }
         }
+    }
+
+    public void PauseEnded(System.Object sender, EventArgs e){
+        gameMaster.SetActive(true);
+        pauseMaster.SetActive(false);
+        inPause = false;
     }
 
     ///<summary>ボタンを押したときに呼ばれる、フレーム終了時にスクショを撮り、ポーズに移行</summary>
@@ -57,7 +59,7 @@ public class Pauser : MonoBehaviour
 
         //ポーズ画面の背景にスクショをセット
         scshoImg.sprite = Sprite.Create(scsho,new Rect(0, 0, Screen.width, Screen.height),new Vector2(0.5f,0.5f));
-        scshoImg.rectTransform.sizeDelta = new Vector2(Screen.width, Screen.height);
+        //scshoImg.rectTransform.sizeDelta = new Vector2(Screen.width, Screen.height);
 
         //ポーズに切り替え
         gameMaster.SetActive(false);

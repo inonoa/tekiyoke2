@@ -479,8 +479,12 @@ public class HeroMover : MonoBehaviour
 
     //SetActive(false)するとアニメーションの状態がリセットされるようなのでとりあえず主人公はステートだけ反映しなおす
     void OnEnable(){
+        try{
         HState tmp = State;
         State = HState.Tmp;
         State = tmp;
+        }catch(UnassignedReferenceException){
+            // 多分何もしない(起動時につかまりそう)
+        }
     }
 }
