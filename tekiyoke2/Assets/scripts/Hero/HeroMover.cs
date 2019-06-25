@@ -15,7 +15,8 @@ public class HeroMover : MonoBehaviour
         RunR,RunL,
         JumpR,JumpL,JumpRU,JumpLU,
         FallR,FallL,
-        JetR,JetL
+        JetR,JetL,
+        Tmp // 仮()
     }
 
     private HState state = HState.StandR;
@@ -474,5 +475,12 @@ public class HeroMover : MonoBehaviour
             Damage(3);
             Die();
         }
+    }
+
+    //SetActive(false)するとアニメーションの状態がリセットされるようなのでとりあえず主人公はステートだけ反映しなおす
+    void OnEnable(){
+        HState tmp = State;
+        State = HState.Tmp;
+        State = tmp;
     }
 }
