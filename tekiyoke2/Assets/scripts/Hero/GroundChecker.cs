@@ -20,14 +20,15 @@ public class GroundChecker : MonoBehaviour
     }
 
     void OnTriggerStay2D(Collider2D other){
+        //(すり抜け床以外)着地したらジャンプ周りの値をリセット
         if(other.tag=="Terrain") {
             heroMover.JumpCount = 1; heroMover.isOnGround = true; heroMover.speedY = 0;
             heroMover.IsFromWall = false; heroMover.isBendingBack = false; heroMover.SpeedX = 0; heroMover.speedY = 0;
         }
         
+        //すり抜け床の場合は下向きに落ちてるかどうかを確認
         if(other.tag=="Ultrathin"){
             if(heroMover.speedY<=0){
-                if(heroMover.speedY!=0) Debug.Log(heroMover.speedY.ToString()+"でぶつかったよ");
                 heroMover.JumpCount = 1; heroMover.isOnGround = true; heroMover.speedY = 0;
                 heroMover.IsFromWall = false; heroMover.isBendingBack = false; heroMover.SpeedX = 0; heroMover.speedY = 0;
             }
@@ -37,8 +38,8 @@ public class GroundChecker : MonoBehaviour
 
 
     void OnTriggerEnter2D(Collider2D other){
+        //すり抜け床の場合だけEnterでも判定してる(Stayは上)がなんで(要検証)
         if(other.tag=="Ultrathin"){
-            if(heroMover.speedY!=0) Debug.Log(heroMover.speedY.ToString()+"でぶつかったよ");
             if(heroMover.speedY<=0){
                 heroMover.JumpCount = 1; heroMover.isOnGround = true; heroMover.speedY = 0;
                 heroMover.IsFromWall = false; heroMover.isBendingBack = false; heroMover.SpeedX = 0; heroMover.speedY = 0;
@@ -47,6 +48,7 @@ public class GroundChecker : MonoBehaviour
     }
 
     void OnTriggerExit2D(Collider2D other){
+        //接地解除
         if(other.tag=="Terrain" || (other.tag=="Ultrathin" && heroMover.speedY>=0)) heroMover.isOnGround = false;
     }
 }

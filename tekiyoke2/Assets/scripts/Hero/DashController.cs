@@ -52,8 +52,8 @@ public class DashController : MonoBehaviour
 
     ///<summary>タメ終了時に呼ぶ。ための強さに応じてmoveDistsに移動距離を格納し、ダッシュ中に遷移。</summary>
     public int ExecuteDash(){
-        int x = 500;
-        int t = (x*3) /20;
+        int x = Math.Min(Math.Max(10,tame2dash),30)*25;
+        int t = (x*3) /100;
         moveDists = new float[t];
         for(int i=0;i<t;i++){
             moveDists[i] = x * ( IikanjinoKansuu((i+1)/(float)t) - IikanjinoKansuu(i/(float)t) );
@@ -67,13 +67,20 @@ public class DashController : MonoBehaviour
         return re;
     }
 
+    ///<summary>0~1 -> 0~1</summary>
     public float IikanjinoKansuu(float t_T){
-        return (1-(float)Math.Cos(Math.PI*t_T))/2;
+        //return (1-(float)Math.Cos(Math.PI*t_T))/2;
+        if(t_T<0.2f){
+            return 4 * t_T;
+        }else{
+            return 0.8f + 0.2f * (t_T - 0.2f);
+        }
     }
 
     // Start is called before the first frame update
     void Start()
     {
+
     }
 
     // Update is called once per frame

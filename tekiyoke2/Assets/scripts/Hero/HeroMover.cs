@@ -307,7 +307,7 @@ public class HeroMover : MonoBehaviour
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Space)){
-            Die();
+            Damage(3);
         }
         if(Input.GetKeyDown(KeyCode.B)){
             Damage(1);
