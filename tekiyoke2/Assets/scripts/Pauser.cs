@@ -67,5 +67,7 @@ public class Pauser : MonoBehaviour
 
         //フラグ？書き換え
         inPause = true;
+
+        
     }
 }
