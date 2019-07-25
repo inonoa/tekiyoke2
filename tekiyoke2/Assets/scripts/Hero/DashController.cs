@@ -47,6 +47,7 @@ public class DashController : MonoBehaviour
     public void StandBy(bool dashToRight){
         state = DState.StandingBy;
         this.dashToRight = dashToRight;
+        jetSlider.gameObject.SetActive(true);
     }
 
     ///<summary>フレームごとの移動距離の配列。タメ終了時にタメの強さに応じていい感じの値が格納される</summary>
@@ -61,12 +62,15 @@ public class DashController : MonoBehaviour
         for(int i=0;i<t;i++){
             moveDists[i] = x * ( IikanjinoKansuu((i+1)/(float)t) - IikanjinoKansuu(i/(float)t) );
         }
+        if(this.dashToRight){dashX = moveDists[0];}
+        else{dashX = -moveDists[0];}
         dashFullTime = t;
         int re = tame2dash;
-        dashTime = 0;
+        dashTime = 1;
         tame2dash = 0;
         state = DState.Dashing;
         Tokitome.SetTime(1);
+        jetSlider.gameObject.SetActive(false);
         return re;
     }
 
@@ -76,7 +80,7 @@ public class DashController : MonoBehaviour
         if(t_T<0.2f){
             return 4 * t_T;
         }else{
-            return 0.8f + 0.2f * (t_T - 0.2f);
+            return 0.8f + 0.25f * (t_T - 0.2f);
         }
     }
 
@@ -96,11 +100,12 @@ public class DashController : MonoBehaviour
         }
         // ダッシュ中なら次の移動距離を準備。
         else if(state==DState.Dashing){
-            if(this.dashToRight){dashX = moveDists[dashTime];}
-            else{dashX = -moveDists[dashTime];}
-            dashTime ++;
             if(dashFullTime==dashTime){
                 state = DState.InCoolTime;
+            }else{
+                if(this.dashToRight){dashX = moveDists[dashTime];}
+                else{dashX = -moveDists[dashTime];}
+                dashTime ++;
             }
         }
         // ダッシュ後なら残りcool timeを減らす
