@@ -22,6 +22,7 @@ public class HpCntr : MonoBehaviour
     public int hp = max_hp;
 
     public event EventHandler die;
+    public event EventHandler damaged;
     private readonly int[,] damagemove = new int[10,2]{{-10,3},{0,0},{0,0},{0,0},{13,-5},{0,0},{0,0},{-7,4},{0,0},{4,-2}};
 
     new public GameObject camera;
@@ -31,6 +32,8 @@ public class HpCntr : MonoBehaviour
     public int HP{
         get{return hp;}
         set{
+            if(value<=0 && HP<=0)return;
+            if(HP>value)damaged?.Invoke(this,EventArgs.Empty);
             if(value<=0){
                 die?.Invoke(this,EventArgs.Empty);
                 hp=0;

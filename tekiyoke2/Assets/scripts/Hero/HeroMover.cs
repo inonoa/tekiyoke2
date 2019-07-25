@@ -162,7 +162,7 @@ public class HeroMover : MonoBehaviour
 
     public GameObject curtain;
 
-    ///<summary>HPの増減はすべてここから。</summary>
+    ///<summary>HPの増減はすべてここから。(全部HPCntrに通します)</summary>
     private int HP{
         get{return hpcntr.HP;}
         set{hpcntr.HP = value;}
@@ -172,7 +172,6 @@ public class HeroMover : MonoBehaviour
     ///<param name="damage">与えるダメージを書く。1を指定すると100->99,1->0になったりします</param>
     public void Damage(int damage){
         HP = HP - damage;
-        BendBack();
     }
 
     ///<summary>リスポーン</summary>
@@ -199,7 +198,7 @@ public class HeroMover : MonoBehaviour
     public DashController dashcntr;
 
     ///<summary>現状ジャンプにしてあるがそのままにしてはおけない</summary>
-    public void BendBack(){
+    public void BendBack(object sender, EventArgs e){
         speedY = bendBackSpeedY;
         isOnGround = false;
         isBendingBack = true;
@@ -301,6 +300,7 @@ public class HeroMover : MonoBehaviour
         hpcntr = GetComponent<HpCntr>();
         dashcntr = GetComponent<DashController>();
         hpcntr.die += ReceiveDeath;
+        hpcntr.damaged += BendBack;
         curtain.GetComponent<CurtainMover>().heroRespawn += Respawn;
     }
 
