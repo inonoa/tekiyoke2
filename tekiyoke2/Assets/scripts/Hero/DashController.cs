@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System;
 
 public class DashController : MonoBehaviour
@@ -40,6 +41,8 @@ public class DashController : MonoBehaviour
             return state==DState.Off;
         }
     }
+
+    public Slider jetSlider;
 
     public void StandBy(bool dashToRight){
         state = DState.StandingBy;
@@ -89,6 +92,7 @@ public class DashController : MonoBehaviour
         // タメ中ならタメる
         if(state==DState.StandingBy){
             tame2dash ++;
+            jetSlider.value = Math.Min(Math.Max(10,tame2dash),30);
         }
         // ダッシュ中なら次の移動距離を準備。
         else if(state==DState.Dashing){
