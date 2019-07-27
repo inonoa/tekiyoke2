@@ -43,15 +43,21 @@ public class DashController : MonoBehaviour
     }
 
     public Slider jetSlider;
+    public GameObject phantom;
 
     public void StandBy(bool dashToRight){
         state = DState.StandingBy;
         this.dashToRight = dashToRight;
         jetSlider.gameObject.SetActive(true);
+        phantom.SetActive(true);
         if(dashToRight){
+            phantom.transform.localScale = new Vector3(1,1,1);
+            phantom.transform.localPosition = new Vector3(82.5f,0,0);
             jetSlider.transform.localScale = new Vector3(1, 1, 1);
             jetSlider.transform.localPosition = new Vector3(333,0,0);
         }else{
+            phantom.transform.localScale = new Vector3(-1,1,1);
+            phantom.transform.localPosition = new Vector3(-82.5f,0,0);
             jetSlider.transform.localScale = new Vector3(-1, 1, 1);
             jetSlider.transform.localPosition = new Vector3(-333,0,0);
         }
@@ -78,6 +84,7 @@ public class DashController : MonoBehaviour
         state = DState.Dashing;
         Tokitome.SetTime(1);
         jetSlider.gameObject.SetActive(false);
+        phantom.SetActive(false);
         return re;
     }
 
@@ -104,6 +111,11 @@ public class DashController : MonoBehaviour
         if(state==DState.StandingBy){
             tame2dash ++;
             jetSlider.value = Math.Min(Math.Max(10,tame2dash),30);
+            if(dashToRight){
+                phantom.transform.localPosition = new Vector3(Math.Min(Math.Max(10,tame2dash),30)*8.25f,0,0);
+            }else{
+                phantom.transform.localPosition = new Vector3(-Math.Min(Math.Max(10,tame2dash),30)*8.25f,0,0);
+            }
         }
         // ダッシュ中なら次の移動距離を準備。
         else if(state==DState.Dashing){

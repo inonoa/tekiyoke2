@@ -197,6 +197,7 @@ public class HeroMover : MonoBehaviour
 
     public DashController dashcntr;
 
+
     ///<summary>現状ジャンプにしてあるがそのままにしてはおけない</summary>
     public void BendBack(object sender, EventArgs e){
         speedY = bendBackSpeedY;
