@@ -27,6 +27,11 @@ public class CameraController : MonoBehaviour
         state = StateOfCamera.Retreating;
     }
 
+    public void Reset(){
+        //多分要改善。ダッシュ以外のズームが導入された場合とか
+        state = StateOfCamera.Retreating;
+    }
+
 
 
     // Start is called before the first frame update

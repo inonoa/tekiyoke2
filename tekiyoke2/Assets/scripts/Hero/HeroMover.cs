@@ -151,6 +151,7 @@ public class HeroMover : MonoBehaviour
     public bool isOnGround = true;
     public Animator anim;
     public new Rigidbody2D rigidbody;
+    public CameraController cmrCntr;
 
     ///<summary>坂道はOnCollisionStayにて管理しているためMovePositionが重複しないための措置</summary>
     private bool IsCrimbing { get; set; } = false;
@@ -172,6 +173,7 @@ public class HeroMover : MonoBehaviour
     ///<param name="damage">与えるダメージを書く。1を指定すると100->99,1->0になったりします</param>
     public void Damage(int damage){
         HP = HP - damage;
+        cmrCntr.Reset();
     }
 
     ///<summary>リスポーン</summary>
