@@ -48,6 +48,13 @@ public class DashController : MonoBehaviour
         state = DState.StandingBy;
         this.dashToRight = dashToRight;
         jetSlider.gameObject.SetActive(true);
+        if(dashToRight){
+            jetSlider.transform.localScale = new Vector3(1, 1, 1);
+            jetSlider.transform.localPosition = new Vector3(333,0,0);
+        }else{
+            jetSlider.transform.localScale = new Vector3(-1, 1, 1);
+            jetSlider.transform.localPosition = new Vector3(-333,0,0);
+        }
     }
 
     ///<summary>フレームごとの移動距離の配列。タメ終了時にタメの強さに応じていい感じの値が格納される</summary>
