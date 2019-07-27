@@ -44,6 +44,7 @@ public class DashController : MonoBehaviour
 
     public Slider jetSlider;
     public GameObject phantom;
+    public CameraController cmr;
 
     public void StandBy(bool dashToRight){
         state = DState.StandingBy;
