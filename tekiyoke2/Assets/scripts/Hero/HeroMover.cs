@@ -174,6 +174,7 @@ public class HeroMover : MonoBehaviour
     public void Damage(int damage){
         HP = HP - damage;
         cmrCntr.Reset();
+        dashcntr.Reset();
     }
 
     ///<summary>リスポーン</summary>

@@ -91,6 +91,13 @@ public class DashController : MonoBehaviour
         return re;
     }
 
+    public void Reset(){
+        state = DState.InCoolTime;
+        cmr.EndDash();
+        jetSlider.gameObject.SetActive(false);
+        phantom.SetActive(false);
+    }
+
     ///<summary>0~1 -> 0~1</summary>
     public float IikanjinoKansuu(float t_T){
         //return (1-(float)Math.Cos(Math.PI*t_T))/2;
@@ -134,7 +141,7 @@ public class DashController : MonoBehaviour
         // ダッシュ後なら残りcool timeを減らす
         else if(state==DState.InCoolTime){
             dashTime --;
-            if(dashTime==0){
+            if(dashTime<=0){
                 state = DState.Off;
                 dashFullTime = 0;
             }
