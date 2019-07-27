@@ -51,6 +51,7 @@ public class DashController : MonoBehaviour
         this.dashToRight = dashToRight;
         jetSlider.gameObject.SetActive(true);
         phantom.SetActive(true);
+        cmr.StartZoomForDash(dashToRight);
         if(dashToRight){
             phantom.transform.localScale = new Vector3(1,1,1);
             phantom.transform.localPosition = new Vector3(82.5f,0,0);
@@ -86,6 +87,7 @@ public class DashController : MonoBehaviour
         Tokitome.SetTime(1);
         jetSlider.gameObject.SetActive(false);
         phantom.SetActive(false);
+        cmr.Dash();
         return re;
     }
 
@@ -122,6 +124,7 @@ public class DashController : MonoBehaviour
         else if(state==DState.Dashing){
             if(dashFullTime==dashTime){
                 state = DState.InCoolTime;
+                cmr.EndDash();
             }else{
                 if(this.dashToRight){dashX = moveDists[dashTime];}
                 else{dashX = -moveDists[dashTime];}
