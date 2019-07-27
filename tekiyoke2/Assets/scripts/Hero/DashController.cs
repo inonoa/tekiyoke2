@@ -49,7 +49,7 @@ public class DashController : MonoBehaviour
     public void StandBy(bool dashToRight){
         state = DState.StandingBy;
         this.dashToRight = dashToRight;
-        jetSlider.gameObject.SetActive(true);
+        //jetSlider.gameObject.SetActive(true);
         phantom.SetActive(true);
         cmr.StartZoomForDash(dashToRight);
         if(dashToRight){
