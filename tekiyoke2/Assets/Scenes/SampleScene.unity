@@ -3641,6 +3641,7 @@ MonoBehaviour:
   isOnGround: 1
   anim: {fileID: 0}
   rigidbody: {fileID: 0}
+  cmrCntr: {fileID: 519420030}
   isBendingBack: 0
   curtain: {fileID: 791307967}
   hpcntr: {fileID: 0}
