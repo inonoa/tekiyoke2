@@ -6,6 +6,7 @@ public class JerryController : MonoBehaviour
 {
     [SerializeField]
     float _Amplitude = 100;
+    ///<summary>振幅</summary>
     public float Amplitude{
         get{
             return _Amplitude;
@@ -17,6 +18,7 @@ public class JerryController : MonoBehaviour
 
     [SerializeField]
     int _Period = 360;
+    ///<summary>周期</summary>
     public int Period{
         get{
             return _Period;
@@ -25,9 +27,19 @@ public class JerryController : MonoBehaviour
             _Period = value;
         }
     }
+    [SerializeField]
+    int _Phase = 360;
+    ///<summary>位相</summary>
+    public int Phase{
+        get{
+            return _Phase;
+        }
+        set{
+            _Phase = value;
+        }
+    }
+    ///<summary>最初の座標を元に移動する</summary>
     Vector3 defaultPosition;
-
-    int phase = 0;
 
     // Start is called before the first frame update
     void Start()
