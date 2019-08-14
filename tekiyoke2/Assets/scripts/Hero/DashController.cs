@@ -52,6 +52,7 @@ public class DashController : MonoBehaviour
         //jetSlider.gameObject.SetActive(true);
         phantom.SetActive(true);
         cmr.StartZoomForDash(dashToRight);
+        Tokitome.SetTime(0.2f);
         if(dashToRight){
             phantom.transform.localScale = new Vector3(1,1,1);
             phantom.transform.localPosition = new Vector3(82.5f,0,0);
