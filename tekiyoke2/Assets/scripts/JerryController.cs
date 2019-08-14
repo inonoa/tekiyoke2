@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class JerryController : MonoBehaviour
 {
+    Transform jerryTf;
+    Rigidbody2D jerryRb;
+
     [SerializeField]
     float _Amplitude = 100;
     ///<summary>振幅</summary>
@@ -17,44 +20,49 @@ public class JerryController : MonoBehaviour
     }
 
     [SerializeField]
-    int _Period = 360;
-    ///<summary>周期</summary>
-    public int Period{
+    float _SpeedRate = 1;
+    ///<summary>速度の倍率(はい)</summary>
+    public float SpeedRate{
         get{
-            return _Period;
+            return _SpeedRate;
         }
         set{
-            _Period = value;
+            _SpeedRate = value;
         }
     }
-    [SerializeField]
-    int _Phase = 360;
-    ///<summary>位相</summary>
-    public int Phase{
-        get{
-            return _Phase;
-        }
-        set{
-            int toset = value;
-            //周期をこえるとき0に戻る
-            while(toset<Period){
-                toset -= Period;
-            }
-            _Phase = toset;
-        }
-    }
-    ///<summary>最初の座標を元に移動する</summary>
-    Vector3 defaultPosition;
+
+    ///<summary>中心の座標(Controllerの位置)</summary>
+    Vector3 centerPosition;
+
+    public bool isGoingUp = true;
 
     // Start is called before the first frame update
     void Start()
     {
-        defaultPosition = new Vector3(transform.position.x,transform.position.y,transform.position.z);
+        centerPosition = new Vector3(transform.position.x,transform.position.y,transform.position.z);
+        jerryTf = GameObject.Find("Jerry").transform;
+        jerryRb = jerryTf.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(isGoingUp){
+            if(jerryTf.position.y > centerPosition.y+Amplitude-100){
+                //上端
+            }else if(jerryTf.position.y > centerPosition.y-Amplitude+100){
+                //中間
+            }else{
+                //下端
+            }
+        }else{
+            if(jerryTf.position.y > centerPosition.y+Amplitude-100){
+                //上端
+            }else if(jerryTf.position.y > centerPosition.y-Amplitude+100){
+                //中間
+            }else{
+                //下端
+            }
+        }
     }
 }
