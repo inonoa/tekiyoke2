@@ -35,7 +35,12 @@ public class JerryController : MonoBehaviour
             return _Phase;
         }
         set{
-            _Phase = value;
+            int toset = value;
+            //周期をこえるとき0に戻る
+            while(toset<Period){
+                toset -= Period;
+            }
+            _Phase = toset;
         }
     }
     ///<summary>最初の座標を元に移動する</summary>
