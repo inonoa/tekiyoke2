@@ -419,7 +419,6 @@ public class HeroMover : MonoBehaviour
         //ダッシュ中の移動
         if(dashcntr.State==DashController.DState.Dashing){
             MovePos(dashcntr.dashX,0);
-            Debug.Log(dashcntr.dashX);
         }
 
         // 落下死

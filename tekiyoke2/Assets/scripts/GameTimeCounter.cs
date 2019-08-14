@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Timeline;
 
 public class GameTimeCounter : MonoBehaviour
 {
-    int count=0;
+    float count=0;
     Text txt;
 
     // Start is called before the first frame update
@@ -17,7 +18,7 @@ public class GameTimeCounter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        txt.text = (count/3600).ToString("00") + ":" + (count%3600/60).ToString("00") + ":" + (count%60).ToString("00");
-        count ++;
+        txt.text = (((int)count)/3600).ToString("00") + ":" + (((int)count)%3600/60).ToString("00") + ":" + (((int)count)%60).ToString("00");
+        count += Time.timeScale;
     }
 }
