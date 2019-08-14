@@ -21,7 +21,7 @@ public class JerryController : MonoBehaviour
     }
 
     [SerializeField]
-    float _SpeedRate = 5;
+    float _SpeedRate = 4;
     ///<summary>速度の倍率(はい)</summary>
     public float SpeedRate{
         get{

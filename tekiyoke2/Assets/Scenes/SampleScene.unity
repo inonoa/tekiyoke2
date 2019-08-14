@@ -3328,7 +3328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Amplitude: 200
-  _SpeedRate: 3
+  _SpeedRate: 5
   isGoingUp: 1
 --- !u!4 &877725755
 Transform:
