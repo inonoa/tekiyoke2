@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class JerryController : MonoBehaviour
 {
@@ -20,7 +21,7 @@ public class JerryController : MonoBehaviour
     }
 
     [SerializeField]
-    float _SpeedRate = 2;
+    float _SpeedRate = 5;
     ///<summary>速度の倍率(はい)</summary>
     public float SpeedRate{
         get{
@@ -50,9 +51,9 @@ public class JerryController : MonoBehaviour
         if(isGoingUp){
             if(jerryTf.position.y > centerPosition.y+Amplitude-100){
                 //上端
-                float v = (centerPosition.y+Amplitude - jerryTf.position.y) * SpeedRate/100;
+                float v = (float)Math.Sqrt(centerPosition.y+Amplitude - jerryTf.position.y) * SpeedRate/10;
                 jerryRb.MovePosition(new Vector2(jerryTf.position.x,jerryTf.position.y + v));
-                if(jerryTf.position.y >= centerPosition.y+Amplitude){
+                if(jerryTf.position.y >= centerPosition.y+Amplitude-1){
                     isGoingUp = false;
                 }
             }else if(jerryTf.position.y > centerPosition.y-Amplitude+100){
@@ -60,22 +61,22 @@ public class JerryController : MonoBehaviour
                 jerryRb.MovePosition(new Vector2(jerryTf.position.x,jerryTf.position.y + SpeedRate));
             }else{
                 //下端
-                float v = (jerryTf.position.y - centerPosition.y+Amplitude) * SpeedRate/100;
+                float v = (float)Math.Sqrt(jerryTf.position.y - centerPosition.y+Amplitude) * SpeedRate/10;
                 jerryRb.MovePosition(new Vector2(jerryTf.position.x,jerryTf.position.y + v));
             }
         }else{
             if(jerryTf.position.y > centerPosition.y+Amplitude-100){
                 //上端
-                float v = (centerPosition.y+Amplitude - jerryTf.position.y) * SpeedRate/100;
+                float v = (float)Math.Sqrt(centerPosition.y+Amplitude - jerryTf.position.y) * SpeedRate/10;
                 jerryRb.MovePosition(new Vector2(jerryTf.position.x,jerryTf.position.y - v));
             }else if(jerryTf.position.y > centerPosition.y-Amplitude+100){
                 //中間
                 jerryRb.MovePosition(new Vector2(jerryTf.position.x,jerryTf.position.y - SpeedRate));
             }else{
                 //下端
-                float v = (jerryTf.position.y - centerPosition.y+Amplitude) * SpeedRate/100;
+                float v = (float)Math.Sqrt(jerryTf.position.y - centerPosition.y+Amplitude) * SpeedRate/10;
                 jerryRb.MovePosition(new Vector2(jerryTf.position.x,jerryTf.position.y - v));
-                if(jerryTf.position.y <= centerPosition.y-Amplitude){
+                if(jerryTf.position.y <= centerPosition.y-Amplitude+1){
                     isGoingUp = true;
                 }
             }
