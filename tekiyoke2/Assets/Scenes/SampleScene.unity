@@ -3327,7 +3327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 342eb7e8c565d4f4084d897c189d656e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Amplitude: 100
+  _Amplitude: 200
   _SpeedRate: 1
   isGoingUp: 1
 --- !u!4 &877725755
@@ -4956,7 +4956,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 6
+  m_Constraints: 5
 --- !u!212 &1604400913
 SpriteRenderer:
   m_ObjectHideFlags: 0

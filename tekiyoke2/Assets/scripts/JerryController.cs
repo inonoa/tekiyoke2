@@ -20,7 +20,7 @@ public class JerryController : MonoBehaviour
     }
 
     [SerializeField]
-    float _SpeedRate = 1;
+    float _SpeedRate = 2;
     ///<summary>速度の倍率(はい)</summary>
     public float SpeedRate{
         get{
@@ -50,18 +50,34 @@ public class JerryController : MonoBehaviour
         if(isGoingUp){
             if(jerryTf.position.y > centerPosition.y+Amplitude-100){
                 //上端
+                float v = (centerPosition.y+Amplitude - jerryTf.position.y) * SpeedRate/100;
+                jerryRb.MovePosition(new Vector2(jerryTf.position.x,jerryTf.position.y + v));
+                if(jerryTf.position.y >= centerPosition.y+Amplitude){
+                    isGoingUp = false;
+                }
             }else if(jerryTf.position.y > centerPosition.y-Amplitude+100){
                 //中間
+                jerryRb.MovePosition(new Vector2(jerryTf.position.x,jerryTf.position.y + SpeedRate));
             }else{
                 //下端
+                float v = (jerryTf.position.y - centerPosition.y+Amplitude) * SpeedRate/100;
+                jerryRb.MovePosition(new Vector2(jerryTf.position.x,jerryTf.position.y + v));
             }
         }else{
             if(jerryTf.position.y > centerPosition.y+Amplitude-100){
                 //上端
+                float v = (centerPosition.y+Amplitude - jerryTf.position.y) * SpeedRate/100;
+                jerryRb.MovePosition(new Vector2(jerryTf.position.x,jerryTf.position.y - v));
             }else if(jerryTf.position.y > centerPosition.y-Amplitude+100){
                 //中間
+                jerryRb.MovePosition(new Vector2(jerryTf.position.x,jerryTf.position.y - SpeedRate));
             }else{
                 //下端
+                float v = (jerryTf.position.y - centerPosition.y+Amplitude) * SpeedRate/100;
+                jerryRb.MovePosition(new Vector2(jerryTf.position.x,jerryTf.position.y - v));
+                if(jerryTf.position.y <= centerPosition.y-Amplitude){
+                    isGoingUp = true;
+                }
             }
         }
     }
