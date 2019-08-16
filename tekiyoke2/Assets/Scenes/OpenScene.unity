@@ -402,7 +402,7 @@ MonoBehaviour:
   - {fileID: 6911474556061212661, guid: 81a991862ac3e64409a2848f106222e3, type: 3}
   title: {fileID: 916736743}
   AnyKey2Start: {fileID: 689576734}
-  count2Title: 40
+  count2Title: 35
   count2Spawn: 200
   moveSpeed: 2
 --- !u!1 &916736743
