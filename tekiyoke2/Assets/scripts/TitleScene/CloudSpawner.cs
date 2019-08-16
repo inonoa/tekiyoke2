@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 public class CloudSpawner : MonoBehaviour
 {
@@ -14,7 +15,12 @@ public class CloudSpawner : MonoBehaviour
     public List<GameObject> clouds2Spawn = new List<GameObject>();
     private List<GameObject> cloudsExisting = new List<GameObject>();
 
-    private int count = 0;
+    public GameObject title;
+    public GameObject AnyKey2Start;
+
+    private int countWhileActive = 0;
+    private int countWhileWind = 0;
+    public int count2Title = 40;
     public int count2Spawn = 100;
     public int moveSpeed = 3;
 
@@ -31,9 +37,9 @@ public class CloudSpawner : MonoBehaviour
     {
         if(state==State.Active){
             //追加
-            count ++;
-            if(count==count2Spawn){
-                count = 0;
+            countWhileActive ++;
+            if(countWhileActive==count2Spawn){
+                countWhileActive = 0;
                 int idx2Spawn = random.Next(clouds2Spawn.Count);
                 Vector3 position2Spawn = new Vector3(random.Next(800,1000),random.Next(-500,500),random.Next(-3,0));
                 cloudsExisting.Add(Instantiate(clouds2Spawn[idx2Spawn],position2Spawn,Quaternion.identity));
@@ -47,6 +53,24 @@ public class CloudSpawner : MonoBehaviour
                     cloudsExisting.RemoveAt(i);
                 }
             }
+
+        }else if(state==State.Wind){
+            countWhileWind ++;
+            if(countWhileWind==count2Title){
+                SceneManager.LoadScene("StageChoiceScene");
+            }
+            for(int i=cloudsExisting.Count-1;i>-1;i--){
+                cloudsExisting[i].transform.position += new Vector3(-moveSpeed*10,0,0);
+                cloudsExisting[i].GetComponent<SpriteRenderer>().color -= new Color(0,0,0,0.03f);
+                if(cloudsExisting[i].transform.position.x < -800){
+                    Destroy(cloudsExisting[i]);
+                    cloudsExisting.RemoveAt(i);
+                }
+            }
+            title.transform.position += new Vector3(-moveSpeed*2,0,0);
+            title.GetComponent<SpriteRenderer>().color -= new Color(0,0,0,0.1f);
+            AnyKey2Start.transform.position += new Vector3(-moveSpeed*2,0,0);
+            AnyKey2Start.GetComponent<SpriteRenderer>().color -= new Color(0,0,0,0.1f);
         }
     }
 }

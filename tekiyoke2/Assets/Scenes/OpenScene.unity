@@ -395,10 +395,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a794a974c0b534b44bf6ef63df56c1d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: 0
   clouds2Spawn:
   - {fileID: 6061961258853294076, guid: 722b84687bde2f54fac3190d80b1f6ad, type: 3}
   - {fileID: 8132660613396594201, guid: 0887cbbdd44c7fd48b07b83d17c35ab0, type: 3}
   - {fileID: 6911474556061212661, guid: 81a991862ac3e64409a2848f106222e3, type: 3}
+  title: {fileID: 916736743}
+  AnyKey2Start: {fileID: 689576734}
+  count2Title: 40
   count2Spawn: 200
   moveSpeed: 2
 --- !u!1 &916736743
@@ -479,4 +483,48 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1602465933
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1602465935}
+  - component: {fileID: 1602465934}
+  m_Layer: 0
+  m_Name: Tiitle2Stages
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1602465934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1602465933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdbcf74465012614597bfc3c6057c23e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clouds: {fileID: 877431675}
+--- !u!4 &1602465935
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1602465933}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 32.623463, y: 98.99745, z: -11.321188}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
