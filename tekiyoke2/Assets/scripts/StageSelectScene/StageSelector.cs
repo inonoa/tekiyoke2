@@ -5,6 +5,7 @@ using UnityEngine;
 public class StageSelector : MonoBehaviour
 {   
     #region GameObjects
+    public GameObject draftselect;
     public GameObject waku;
     public GameObject[] stages;
 
@@ -13,9 +14,9 @@ public class StageSelector : MonoBehaviour
     #endregion
 
     enum State{
-        Entering, Active, Selected
+        Entering, WakuAppearing, Active, Selected
     }
-    State state = State.Active;
+    State state = State.Entering;
     public int selected = 1;
 
     // Start is called before the first frame update
@@ -31,7 +32,7 @@ public class StageSelector : MonoBehaviour
         Vector3 vv = stages[selected-1].transform.position - waku.transform.position;
 
         if(vv.x*vv.x+vv.y*vv.y<5){
-            waku.transform.position = stages[selected-1].transform.position;
+            waku.transform.position = new Vector3(stages[selected-1].transform.position.x,stages[selected-1].transform.position.y,-2);
         }else{
             int signX = 1; int signY = 1; if(vv.x<0){signX = -1;} if(vv.y<0){signY = -1;} //Sqrtに負の数は渡せない(それはそう)
             vv = 2* new Vector3(signX *(float)System.Math.Sqrt(vv.x * signX), signY *(float)System.Math.Sqrt(vv.y * signY),0);
@@ -39,7 +40,30 @@ public class StageSelector : MonoBehaviour
             waku.transform.position += vv;
         }
 
-        if(state==State.Active){
+        if(state==State.Entering){
+            //手作業での位置調整で厳しい
+            foreach(GameObject st in stages){
+                st.GetComponent<SpriteRenderer>().color += new Color(0,0,0,0.06f);
+                st.transform.position -= new Vector3(1.3f*(float)System.Math.Sqrt(st.transform.position.x),0,0);
+            }
+            draftselect.GetComponent<SpriteRenderer>().color += new Color(0,0,0,0.1f);
+            if(draftselect.GetComponent<SpriteRenderer>().color.a>=0.6f){
+                state = State.WakuAppearing;
+
+                foreach(GameObject st in stages){
+                    st.GetComponent<SpriteRenderer>().color = new Color(st.GetComponent<SpriteRenderer>().color.r,
+                        st.GetComponent<SpriteRenderer>().color.g,st.GetComponent<SpriteRenderer>().color.b,0.6f);
+                    st.transform.position = new Vector3(0,st.transform.position.y,st.transform.position.z);
+                }
+            }
+
+        }else if(state==State.WakuAppearing){
+            waku.GetComponent<SpriteRenderer>().color += new Color(0,0,0,0.1f);
+            if(waku.GetComponent<SpriteRenderer>().color.a>=1){
+                state = State.Active;
+            }
+
+        }else if(state==State.Active){
             if(Input.GetKeyDown(KeyCode.UpArrow)){
                 if(selected>1)selected--;
             }
