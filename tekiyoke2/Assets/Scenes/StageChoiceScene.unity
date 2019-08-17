@@ -892,6 +892,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e59133d618bc5d44da6e76c6290dc199, type: 3}
   - {fileID: 21300000, guid: 777ac69bbe5e46946ae7a7f9c7ac4f69, type: 3}
   - {fileID: 21300000, guid: 48c8ec72693b47747a1acf4801a1e30b, type: 3}
+  wakuLight: {fileID: 1016889450}
   selected: 1
 --- !u!4 &1971942878
 Transform:

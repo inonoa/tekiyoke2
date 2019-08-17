@@ -29,7 +29,7 @@ public class CloudSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for(int i=0;i<3;i++){
+        for(int i=0;i<5;i++){
             int idx2Spawn = random.Next(clouds2Spawn.Count);
             Vector3 position2Spawn = new Vector3(random.Next(-600,600),random.Next(-400,400),random.Next(-3,0));
             cloudsExisting.Add(Instantiate(clouds2Spawn[idx2Spawn],position2Spawn,Quaternion.identity));

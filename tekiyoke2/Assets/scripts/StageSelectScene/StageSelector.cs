@@ -17,6 +17,7 @@ public class StageSelector : MonoBehaviour
     public SpriteRenderer bgbg;
 
     public Sprite[] bgs;
+    public WakuLightMover wakuLight;
 
     #endregion
 
@@ -98,6 +99,7 @@ public class StageSelector : MonoBehaviour
             }
             if(Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.Return)){
                 state = State.Selected;
+                wakuLight.Stop();
                 if(selected==1){
                     curtain.SetActive(true);
                 }

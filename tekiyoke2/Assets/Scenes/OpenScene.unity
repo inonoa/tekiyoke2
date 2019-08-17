@@ -403,7 +403,7 @@ MonoBehaviour:
   title: {fileID: 916736743}
   AnyKey2Start: {fileID: 689576734}
   count2Title: 35
-  count2Spawn: 200
+  count2Spawn: 100
   moveSpeed: 2
 --- !u!1 &916736743
 GameObject:

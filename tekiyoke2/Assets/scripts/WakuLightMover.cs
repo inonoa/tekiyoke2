@@ -5,13 +5,17 @@ using UnityEngine;
 public class WakuLightMover : MonoBehaviour
 {
     enum Direction{
-        Right, Down, Left, Up
+        Right, Down, Left, Up, None
     }
 
     Direction direction = Direction.Right;
 
     SpriteRenderer spriteRenderer;
     SpriteRenderer parentRenderer;
+
+    public void Stop(){
+        direction = Direction.None;
+    }
 
     // Start is called before the first frame update
     void Start()
