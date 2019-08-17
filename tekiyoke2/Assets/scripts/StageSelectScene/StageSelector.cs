@@ -97,10 +97,13 @@ public class StageSelector : MonoBehaviour
                 }
             }
             if(Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.Return)){
+                state = State.Selected;
                 if(selected==1){
                     curtain.SetActive(true);
                 }
             }
+        }else if(state==State.Selected){
+            stages[selected-1].GetComponent<SpriteRenderer>().color += new Color(0,0,0,0.05f);
         }
     }
 }

@@ -8377,7 +8377,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &679923003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8836,6 +8836,7 @@ MonoBehaviour:
   isOnGround: 1
   anim: {fileID: 0}
   rigidbody: {fileID: 0}
+  cmrCntr: {fileID: 0}
   isBendingBack: 0
   curtain: {fileID: 679923002}
   hpcntr: {fileID: 0}
@@ -8856,6 +8857,9 @@ MonoBehaviour:
   tame2dash: 0
   dashTime: 0
   dashX: 0
+  jetSlider: {fileID: 0}
+  phantom: {fileID: 0}
+  cmr: {fileID: 0}
 --- !u!114 &952241389
 MonoBehaviour:
   m_ObjectHideFlags: 0
