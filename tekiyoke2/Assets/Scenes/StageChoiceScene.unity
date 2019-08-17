@@ -672,7 +672,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1883323603}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 270, z: 0}
+  m_LocalPosition: {x: 0, y: 270, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -708,10 +708,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waku: {fileID: 1847371698}
-  stage1: {fileID: 722873677}
-  stage2: {fileID: 420053599}
-  stage3: {fileID: 658782582}
+  stages:
+  - {fileID: 722873677}
+  - {fileID: 420053599}
+  - {fileID: 658782582}
   curtain: {fileID: 207184194}
+  selected: 1
 --- !u!4 &1971942878
 Transform:
   m_ObjectHideFlags: 0
