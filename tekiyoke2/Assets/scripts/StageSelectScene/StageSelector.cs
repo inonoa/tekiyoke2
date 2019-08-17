@@ -4,20 +4,30 @@ using UnityEngine;
 
 public class StageSelector : MonoBehaviour
 {   
-    #region GameObjects
+    #region Objects
     public GameObject draftselect;
     public GameObject waku;
     public GameObject[] stages;
 
     public GameObject curtain;
 
+    public SpriteRenderer bg;
+
+    //クロスフェード用に背後に映すやつ
+    public SpriteRenderer bgbg;
+
+    public Sprite[] bgs;
+
     #endregion
 
+    #region States
     enum State{
         Entering, WakuAppearing, Active, Selected
     }
     State state = State.Entering;
     public int selected = 1;
+
+    #endregion
 
     // Start is called before the first frame update
     void Start()
@@ -40,14 +50,22 @@ public class StageSelector : MonoBehaviour
             waku.transform.position += vv;
         }
 
+        if(bg.color.a<1){
+            bg.color -= new Color(0,0,0,0.05f);
+            if(bg.color.a<=0){
+                bg.sprite = bgbg.sprite;
+                bg.color = new Color(1,1,1,1);
+            }
+        }
+
         if(state==State.Entering){
             //手作業での位置調整で厳しい
             foreach(GameObject st in stages){
                 st.GetComponent<SpriteRenderer>().color += new Color(0,0,0,0.06f);
-                st.transform.position -= new Vector3(1.3f*(float)System.Math.Sqrt(st.transform.position.x),0,0);
+                st.transform.position -= new Vector3((float)System.Math.Sqrt(st.transform.position.x),0,0);
             }
             draftselect.GetComponent<SpriteRenderer>().color += new Color(0,0,0,0.1f);
-            if(draftselect.GetComponent<SpriteRenderer>().color.a>=0.6f){
+            if(stages[0].GetComponent<SpriteRenderer>().color.a>=0.6f){
                 state = State.WakuAppearing;
 
                 foreach(GameObject st in stages){
@@ -65,10 +83,18 @@ public class StageSelector : MonoBehaviour
 
         }else if(state==State.Active){
             if(Input.GetKeyDown(KeyCode.UpArrow)){
-                if(selected>1)selected--;
+                if(selected>1){
+                    selected--;
+                    bgbg.sprite = bgs[selected-1];
+                    bg.color = new Color(1,1,1,0.99f);
+                }
             }
             if(Input.GetKeyDown(KeyCode.DownArrow)){
-                if(selected<3)selected++;
+                if(selected<3){
+                    selected++;
+                    bgbg.sprite = bgs[selected-1];
+                    bg.color = new Color(1,1,1,0.99f);
+                }
             }
             if(Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.Return)){
                 if(selected==1){
