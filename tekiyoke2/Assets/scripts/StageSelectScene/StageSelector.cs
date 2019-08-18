@@ -50,6 +50,7 @@ public class StageSelector : MonoBehaviour
         //選択したステージのUIに近づく
         Vector3 vv = stages[selected-1].transform.position - waku.transform.position;
 
+        //枠の移動
         if(vv.x*vv.x+vv.y*vv.y<5){
             waku.transform.position = new Vector3(stages[selected-1].transform.position.x,stages[selected-1].transform.position.y,-2);
         }else{
@@ -59,6 +60,7 @@ public class StageSelector : MonoBehaviour
             waku.transform.position += vv;
         }
 
+        //背景のクロスフェード
         if(bg.color.a<1){
             bg.color -= new Color(0,0,0,0.05f);
             if(bg.color.a<=0){
@@ -67,52 +69,60 @@ public class StageSelector : MonoBehaviour
             }
         }
 
-        if(state==State.Entering){
-            //手作業での位置調整で厳しい
-            for(int i=0;i<stages.Length;i++){
-                stRenderer[i].color += new Color(0,0,0,0.06f);
-                stages[i].transform.position -= new Vector3((float)System.Math.Sqrt(stages[i].transform.position.x),0,0);
-            }
-            dsRenderer.color += new Color(0,0,0,0.1f);
-            if(stRenderer[0].color.a>=0.6f){
-                state = State.WakuAppearing;
-
+        switch(state){
+            case State.Entering:
+                //手作業での位置調整で厳しい(不透明度を徐々に上げていきある程度上がったら次フェイズへ)
                 for(int i=0;i<stages.Length;i++){
-                    stRenderer[i].color = new Color(stRenderer[i].color.r,stRenderer[i].color.g,stRenderer[i].color.b,0.6f);
-                    stages[i].transform.position = new Vector3(0,stages[i].transform.position.y,stages[i].transform.position.z);
+                    stRenderer[i].color += new Color(0,0,0,0.06f);
+                    stages[i].transform.position -= new Vector3((float)System.Math.Sqrt(stages[i].transform.position.x),0,0);
                 }
-            }
+                dsRenderer.color += new Color(0,0,0,0.1f);
 
-        }else if(state==State.WakuAppearing){
-            wakuRenderer.color += new Color(0,0,0,0.1f);
-            if(wakuRenderer.color.a>=1){
-                state = State.Active;
-            }
+                if(stRenderer[0].color.a>=0.6f){
+                    state = State.WakuAppearing;
+    
+                    for(int i=0;i<stages.Length;i++){
+                        stRenderer[i].color = new Color(stRenderer[i].color.r,stRenderer[i].color.g,stRenderer[i].color.b,0.6f);
+                        stages[i].transform.position = new Vector3(0,stages[i].transform.position.y,stages[i].transform.position.z);
+                    }
+                }
+                break;
+    
+            case State.WakuAppearing:
+                wakuRenderer.color += new Color(0,0,0,0.1f);
+                if(wakuRenderer.color.a>=1){
+                    state = State.Active;
+                }
+                break;
+    
+            case State.Active:
+                if(Input.GetKeyDown(KeyCode.UpArrow)){
+                    if(selected>1){
+                        selected--;
+                        bgbg.sprite = bgs[selected-1];
+                        bg.color = new Color(1,1,1,0.99f);
+                    }
+                }
+                if(Input.GetKeyDown(KeyCode.DownArrow)){
+                    if(selected<3){
+                        selected++;
+                        bgbg.sprite = bgs[selected-1];
+                        bg.color = new Color(1,1,1,0.99f);
+                    }
+                }
+                if(Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.Return)){
+                    state = State.Selected;
+                    wakuLight.Stop();
+                    if(selected==1){
+                        curtain.SetActive(true);
+                    }
+                }
+                break;
 
-        }else if(state==State.Active){
-            if(Input.GetKeyDown(KeyCode.UpArrow)){
-                if(selected>1){
-                    selected--;
-                    bgbg.sprite = bgs[selected-1];
-                    bg.color = new Color(1,1,1,0.99f);
-                }
-            }
-            if(Input.GetKeyDown(KeyCode.DownArrow)){
-                if(selected<3){
-                    selected++;
-                    bgbg.sprite = bgs[selected-1];
-                    bg.color = new Color(1,1,1,0.99f);
-                }
-            }
-            if(Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.Return)){
-                state = State.Selected;
-                wakuLight.Stop();
-                if(selected==1){
-                    curtain.SetActive(true);
-                }
-            }
-        }else if(state==State.Selected){
-            stRenderer[selected-1].color += new Color(0,0,0,0.05f);
+            case State.Selected:
+                stRenderer[selected-1].color += new Color(0,0,0,0.05f);
+                break;
         }
-    }
-}
+            
+    }   
+}   
