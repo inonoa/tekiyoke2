@@ -6,8 +6,11 @@ public class StageSelector : MonoBehaviour
 {   
     #region Objects
     public GameObject draftselect;
+    public SpriteRenderer dsRenderer;
     public GameObject waku;
+    public SpriteRenderer wakuRenderer;
     public GameObject[] stages;
+    public SpriteRenderer[] stRenderer;
 
     public GameObject curtain;
 
@@ -33,7 +36,12 @@ public class StageSelector : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        stRenderer = new SpriteRenderer[stages.Length];
+        for(int i=0;i<stRenderer.Length;i++){
+            stRenderer[i] = stages[i].GetComponent<SpriteRenderer>();
+        }
+        dsRenderer = draftselect.GetComponent<SpriteRenderer>();
+        wakuRenderer = waku.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -61,24 +69,23 @@ public class StageSelector : MonoBehaviour
 
         if(state==State.Entering){
             //手作業での位置調整で厳しい
-            foreach(GameObject st in stages){
-                st.GetComponent<SpriteRenderer>().color += new Color(0,0,0,0.06f);
-                st.transform.position -= new Vector3((float)System.Math.Sqrt(st.transform.position.x),0,0);
+            for(int i=0;i<stages.Length;i++){
+                stRenderer[i].color += new Color(0,0,0,0.06f);
+                stages[i].transform.position -= new Vector3((float)System.Math.Sqrt(stages[i].transform.position.x),0,0);
             }
-            draftselect.GetComponent<SpriteRenderer>().color += new Color(0,0,0,0.1f);
-            if(stages[0].GetComponent<SpriteRenderer>().color.a>=0.6f){
+            dsRenderer.color += new Color(0,0,0,0.1f);
+            if(stRenderer[0].color.a>=0.6f){
                 state = State.WakuAppearing;
 
-                foreach(GameObject st in stages){
-                    st.GetComponent<SpriteRenderer>().color = new Color(st.GetComponent<SpriteRenderer>().color.r,
-                        st.GetComponent<SpriteRenderer>().color.g,st.GetComponent<SpriteRenderer>().color.b,0.6f);
-                    st.transform.position = new Vector3(0,st.transform.position.y,st.transform.position.z);
+                for(int i=0;i<stages.Length;i++){
+                    stRenderer[i].color = new Color(stRenderer[i].color.r,stRenderer[i].color.g,stRenderer[i].color.b,0.6f);
+                    stages[i].transform.position = new Vector3(0,stages[i].transform.position.y,stages[i].transform.position.z);
                 }
             }
 
         }else if(state==State.WakuAppearing){
-            waku.GetComponent<SpriteRenderer>().color += new Color(0,0,0,0.1f);
-            if(waku.GetComponent<SpriteRenderer>().color.a>=1){
+            wakuRenderer.color += new Color(0,0,0,0.1f);
+            if(wakuRenderer.color.a>=1){
                 state = State.Active;
             }
 
@@ -105,7 +112,7 @@ public class StageSelector : MonoBehaviour
                 }
             }
         }else if(state==State.Selected){
-            stages[selected-1].GetComponent<SpriteRenderer>().color += new Color(0,0,0,0.05f);
+            stRenderer[selected-1].color += new Color(0,0,0,0.05f);
         }
     }
 }
