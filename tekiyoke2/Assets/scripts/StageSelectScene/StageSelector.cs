@@ -19,6 +19,8 @@ public class StageSelector : MonoBehaviour
     //クロスフェード用に背後に映すやつ
     public SpriteRenderer bgbg;
 
+    public SpriteRenderer anmaku;
+
     public Sprite[] bgs;
     public WakuLightMover wakuLight;
 
@@ -63,6 +65,7 @@ public class StageSelector : MonoBehaviour
         //背景のクロスフェード
         if(bg.color.a<1){
             bg.color -= new Color(0,0,0,0.05f);
+            anmaku.color = new Color(1,1,1,System.Math.Min(bg.color.a,1-bg.color.a));
             if(bg.color.a<=0){
                 bg.sprite = bgbg.sprite;
                 bg.color = new Color(1,1,1,1);
