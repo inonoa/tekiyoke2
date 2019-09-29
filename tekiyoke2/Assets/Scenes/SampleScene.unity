@@ -1493,12 +1493,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -100
-  m_Sprite: {fileID: 21300000, guid: 537098f8c9944464a928e8d54ae65fc3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 89f2afe55b34d1146a0704a772c26bbb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5.05, y: 3.8}
+  m_Size: {x: 1250, y: 750}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1517,7 +1517,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hero: {fileID: 1034792847}
-  bgrate: 0.3
+  bgrate: 0.1
 --- !u!1 &604882040
 GameObject:
   m_ObjectHideFlags: 0
