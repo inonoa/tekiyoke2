@@ -146,6 +146,10 @@ public class HeroMover : MonoBehaviour
         dashcntr.Reset();
     }
 
+    //直前のフレームでの位置
+    public Vector3 LastPosition{ get; private set; }
+    public Vector3 LastSpeedVec{ get { return transform.position - LastPosition; } }
+
     ///<summary>リスポーン</summary>
     public void Die(){
         if(curtain.GetComponent<CurtainMover>().state!=CurtainMover.CState.Dying){
@@ -259,7 +263,7 @@ public class HeroMover : MonoBehaviour
 
     ///<summary>指定した値に位置が移動。timeScaleの影響を受けません</summary>
     public void WarpPos(float x, float y){
-        rigidbody.MovePosition(new Vector2(x,y));
+        transform.position = new Vector3(x,y,transform.position.z);
     }
 
     #endregion
@@ -275,11 +279,15 @@ public class HeroMover : MonoBehaviour
         hpcntr.die += ReceiveDeath;
         hpcntr.damaged += BendBack;
         curtain.GetComponent<CurtainMover>().heroRespawn += Respawn;
+
+        HeroDefiner.currentHero = this;
     }
 
     // Update is called once per frame
     void Update()
     {
+        LastPosition = transform.position;
+
         if(Input.GetKeyDown(KeyCode.Space)){
             Damage(3);
         }

@@ -10,7 +10,7 @@ public class HeroDefiner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentHero = GetComponent<HeroMover>();
+        
     }
 
     // Update is called once per frame
