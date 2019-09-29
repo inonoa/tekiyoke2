@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//これは何？？？？？？？
 public class WarpShecker : MonoBehaviour
 {
     // Start is called before the first frame update
