@@ -294,12 +294,8 @@ public class HeroMover : MonoBehaviour
 
         LastPosition = transform.position;
 
-        if(Input.GetKeyDown(KeyCode.Space)){
-            Damage(3);
-        }
-        if(Input.GetKeyDown(KeyCode.B)){
-            Damage(1);
-        }
+        if(Input.GetKeyDown(KeyCode.Space)){ Damage(3); }
+        if(Input.GetKeyDown(KeyCode.B)){ Damage(1); }
 
         if(dashcntr.State==DashController.DState.Off || dashcntr.State==DashController.DState.InCoolTime){
 
