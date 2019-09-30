@@ -4,32 +4,35 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    enum StateOfCamera{
-        Default, ZoomingForDash, Dashing, Retreating
-    }
+    public Camera cmr;
+    private float defaultSize;
+    private Vector3 defaultLocalPosition;
+    public float approachV;
 
-    StateOfCamera state = StateOfCamera.Default;
 
     bool toZoomRight = true;
 
-    public Camera cmr;
-    private float defaultSize;
-    private Vector3 defaultPosition;
+    enum CameraStateAboutDash{ Default, ZoomingForDash, Dashing, Retreating }
+    CameraStateAboutDash dashState = CameraStateAboutDash.Default;
 
-    public void StartZoomForDash(bool zoom2Right){
-        state = StateOfCamera.ZoomingForDash;
-        toZoomRight = zoom2Right;
-    }
-    public void Dash(){
-        state = StateOfCamera.Dashing;
-    }
-    public void EndDash(){
-        state = StateOfCamera.Retreating;
-    }
+    //この辺必要か？？？
+    public void StartZoomForDash(bool zoom2Right)
+                    { dashState = CameraStateAboutDash.ZoomingForDash; toZoomRight = zoom2Right; }
+    public void Dash(){ dashState = CameraStateAboutDash.Dashing; }
+    public void EndDash(){ dashState = CameraStateAboutDash.Retreating; }
+    public void Reset(){ dashState = CameraStateAboutDash.Retreating; } //多分要改善。ダッシュ以外のズームが導入された場合とか
 
-    public void Reset(){
-        //多分要改善。ダッシュ以外のズームが導入された場合とか
-        state = StateOfCamera.Retreating;
+
+
+    int frames2freeze = 0;
+    Vector3 freezePosition;
+
+    public bool Freeze(int num_frames = 20){
+        if(frames2freeze > 0) return false;
+
+        frames2freeze = num_frames;
+        freezePosition = transform.position;
+        return true;
     }
 
 
@@ -39,46 +42,49 @@ public class CameraController : MonoBehaviour
     {
         cmr = GetComponent<Camera>();
         defaultSize = cmr.orthographicSize;
-        defaultPosition = transform.localPosition;
+        defaultLocalPosition = transform.localPosition;
     }
 
     // Update is called once per frame
     void Update()
     {
-        switch(state){
-            case StateOfCamera.Default:
-                break;
+        switch(dashState){
+            case CameraStateAboutDash.Default: break;
 
-            case StateOfCamera.ZoomingForDash:
+            case CameraStateAboutDash.ZoomingForDash:
                 if(cmr.orthographicSize>defaultSize/2){
                     cmr.orthographicSize -= 2;
-                    if(toZoomRight){
-                        transform.localPosition += new Vector3(1.5f,-0.4f,0);
-                    }else{
-                        transform.localPosition += new Vector3(-1.5f,-0.4f,0);
-                    }
+                    transform.localPosition += (toZoomRight ? new Vector3(1.5f,-0.4f,0) : new Vector3(-1.5f,-0.4f,0));
                 }
                 break;
 
-            case StateOfCamera.Dashing:
-                break;
+            case CameraStateAboutDash.Dashing: break;
 
-            case StateOfCamera.Retreating:
+            case CameraStateAboutDash.Retreating:
                 if(cmr.orthographicSize<defaultSize){
                     cmr.orthographicSize += 20;
-                    if(toZoomRight){
-                        transform.localPosition += new Vector3(-10,2.6f,0);
-                    }else{
-                        transform.localPosition += new Vector3(10,2.6f,0);
-                    }
+                    transform.localPosition += (toZoomRight ? new Vector3(-10,2.6f,0) : new Vector3(10,2.6f,0));
 
                     if(cmr.orthographicSize>defaultSize){
                         cmr.orthographicSize = defaultSize;
-                        state = StateOfCamera.Default;
-                        transform.localPosition = defaultPosition;
+                        dashState = CameraStateAboutDash.Default;
+                        transform.localPosition = defaultLocalPosition;
                     }
                 }
                 break;
+        }
+
+        if(frames2freeze>0){
+            transform.position = freezePosition;
+            frames2freeze --;
+        }else{
+            float distance_x = HeroDefiner.CurrentHeroPos.x - transform.position.x;
+            float distance_y = HeroDefiner.CurrentHeroPos.y - (transform.position.y - 100);
+            int distance_x_sign = (distance_x>0) ? 1 : -1;
+            int distance_y_sign = (distance_y>0) ? 1 : -1;
+
+            transform.position += new Vector3(distance_x*distance_x * distance_x_sign * approachV, 
+                                              distance_y*distance_y * distance_y_sign * approachV );
         }
     }
 }

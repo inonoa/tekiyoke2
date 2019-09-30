@@ -23,10 +23,10 @@ public class HeroMover : MonoBehaviour
 
     private bool IsJumping{
         get{
-        if(this.State==HState.JumpL || this.State==HState.JumpLU || this.State==HState.JumpR || this.State==HState.JumpRU){
-            return true;
-        }
-        return false;
+            return this.State==HState.JumpL 
+                || this.State==HState.JumpLU 
+                || this.State==HState.JumpR 
+                || this.State==HState.JumpRU;
         }
     }
 
@@ -35,42 +35,18 @@ public class HeroMover : MonoBehaviour
         set{
             if(state!=value){
                 switch(value){
-                    case HState.StandL:
-                        anim.SetTrigger("standl");
-                        break;
-                    case HState.StandR:
-                        anim.SetTrigger("standr");
-                        break;
-                    case HState.RunL:
-                        anim.SetTrigger("runl");
-                        break;
-                    case HState.RunR:
-                        anim.SetTrigger("runr");
-                        break;
-                    case HState.JumpL:
-                        anim.SetTrigger("jumplf");
-                        break;
-                    case HState.JumpLU:
-                        anim.SetTrigger("jumplu");
-                        break;
-                    case HState.JumpR:
-                        anim.SetTrigger("jumprf");
-                        break;
-                    case HState.JumpRU:
-                        anim.SetTrigger("jumpru");
-                        break;
-                    case HState.FallL:
-                        anim.SetTrigger("falll");
-                        break;
-                    case HState.FallR:
-                        anim.SetTrigger("fallr");
-                        break;
-                    case HState.JetL:
-                        anim.SetTrigger("jetl");
-                        break;
-                    case HState.JetR:
-                        anim.SetTrigger("jetr");
-                        break;
+                    case HState.StandL: anim.SetTrigger("standl"); break;
+                    case HState.StandR: anim.SetTrigger("standr"); break;
+                    case HState.RunL: anim.SetTrigger("runl"); break;
+                    case HState.RunR: anim.SetTrigger("runr"); break;
+                    case HState.JumpL: anim.SetTrigger("jumplf"); break;
+                    case HState.JumpLU: anim.SetTrigger("jumplu"); break;
+                    case HState.JumpR: anim.SetTrigger("jumprf"); break;
+                    case HState.JumpRU: anim.SetTrigger("jumpru"); break;
+                    case HState.FallL: anim.SetTrigger("falll"); break;
+                    case HState.FallR: anim.SetTrigger("fallr"); break;
+                    case HState.JetL: anim.SetTrigger("jetl"); break;
+                    case HState.JetR: anim.SetTrigger("jetr"); break;
                 }
             }
             state = value;
@@ -83,17 +59,12 @@ public class HeroMover : MonoBehaviour
     public static float crimeBoost = 1.5f;
 
     ///<summary>入力に応じて-1,0,1のどれかを返す</summary>
-    private int Move{
+    private int MoveDirection2Sign{
+        //これGetAxisでよくね？？
         get{
-            if(Input.GetKey(KeyCode.RightArrow)){
-                return 1;
-            }
-            else if(Input.GetKey(KeyCode.LeftArrow)){
-                return -1;
-            }
-            else{
-                return 0;
-            }
+            if(Input.GetKey(KeyCode.RightArrow)) return 1;
+            if(Input.GetKey(KeyCode.LeftArrow)) return -1;
+            return 0;
         }
     }
     public static float jumpSpeed = 40;
@@ -105,16 +76,14 @@ public class HeroMover : MonoBehaviour
     private float _SpeedX = 0;
     ///<summary>壁キック後の横方向の移動速度</summary>
     public float SpeedX{
-        get{
-            return _SpeedX;
-        }
+        get{ return _SpeedX; }
         set { _SpeedX = value; }
     }
 
     ///<summary>壁キック後の左右の速さの更新。</summary>
     void UpdateSpeedXAfterWallJump(){
         if(IsRightFromWall){
-                switch(Move){
+                switch(MoveDirection2Sign){
                     case 1: _SpeedX = moveSpeed; break;
                     case 0:
                         if(_SpeedX-0.5f>0){_SpeedX -= 0.5f;}
@@ -127,8 +96,8 @@ public class HeroMover : MonoBehaviour
                 }
             }
             else{
-                switch(Move){
-                    case -1:_SpeedX = -moveSpeed;break;
+                switch(MoveDirection2Sign){
+                    case -1: _SpeedX = -moveSpeed; break;
                     case 0:
                         if(_SpeedX+0.5f<0){_SpeedX += 0.5f;}
                         else{_SpeedX = 0;}
@@ -176,6 +145,10 @@ public class HeroMover : MonoBehaviour
         cmrCntr.Reset();
         dashcntr.Reset();
     }
+
+    //直前のフレームでの位置
+    public Vector3 LastPosition{ get; private set; }
+    public Vector3 LastSpeedVec{ get { return transform.position - LastPosition; } }
 
     ///<summary>リスポーン</summary>
     public void Die(){
@@ -290,7 +263,7 @@ public class HeroMover : MonoBehaviour
 
     ///<summary>指定した値に位置が移動。timeScaleの影響を受けません</summary>
     public void WarpPos(float x, float y){
-        rigidbody.MovePosition(new Vector2(x,y));
+        transform.position = new Vector3(x,y,transform.position.z);
     }
 
     #endregion
@@ -306,11 +279,15 @@ public class HeroMover : MonoBehaviour
         hpcntr.die += ReceiveDeath;
         hpcntr.damaged += BendBack;
         curtain.GetComponent<CurtainMover>().heroRespawn += Respawn;
+
+        HeroDefiner.currentHero = this;
     }
 
     // Update is called once per frame
     void Update()
     {
+        LastPosition = transform.position;
+
         if(Input.GetKeyDown(KeyCode.Space)){
             Damage(3);
         }
@@ -385,7 +362,7 @@ public class HeroMover : MonoBehaviour
                 MovePos(SpeedX, speedY);
                 UpdateSpeedXAfterWallJump();
             }else if(!isBendingBack){
-                MovePos(Move * moveSpeed, speedY);
+                MovePos(MoveDirection2Sign * moveSpeed, speedY);
             }
         
         #endregion

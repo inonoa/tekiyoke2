@@ -8,6 +8,7 @@ TagManager:
   - Terrain
   - Enemy
   - Ultrathin
+  - HeroCenter
   layers:
   - Default
   - TransparentFX
