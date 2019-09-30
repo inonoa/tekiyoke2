@@ -8,6 +8,8 @@ public class WarpController : MonoBehaviour
     (float x, float y) xPos;
     (float x, float y) yPos;
 
+    new public CameraController camera;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +27,8 @@ public class WarpController : MonoBehaviour
     }
 
     void Warp(object msgObj, EventArgs e){
+        camera.Freeze();
+
         string colliderStr = msgObj.ToString();
         Debug.Log(colliderStr);
 

@@ -7,6 +7,10 @@ public class HeroDefiner : MonoBehaviour
 {
     static public HeroMover currentHero;
 
+    static public Vector3 CurrentHeroPos{
+        get{ return currentHero.transform.position; }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
