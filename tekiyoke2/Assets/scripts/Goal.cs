@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Goal : MonoBehaviour
 {
+    public GameTimeCounter clock;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +20,9 @@ public class Goal : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other){
         if(other.tag=="Player"){
-            //
+            HeroDefiner.currentHero.spriteRenderer.enabled = false;
+            HeroDefiner.currentHero.CanMove = false;
+            clock.DoesTick = false;
             Debug.Log("GOAL!!!!");
         }
     }
