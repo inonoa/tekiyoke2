@@ -21,6 +21,9 @@ public class HeroMover : MonoBehaviour
 
     private HState state = HState.StandR;
 
+    ///<summary> falseだと一切動かない(落ちてる最中でもそこで浮き続ける) </summary>
+    public bool CanMove { get; set; } = true;
+
     private bool IsJumping{
         get{
             return this.State==HState.JumpL 
@@ -286,14 +289,13 @@ public class HeroMover : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(CanMove){
+
+
         LastPosition = transform.position;
 
-        if(Input.GetKeyDown(KeyCode.Space)){
-            Damage(3);
-        }
-        if(Input.GetKeyDown(KeyCode.B)){
-            Damage(1);
-        }
+        if(Input.GetKeyDown(KeyCode.Space)){ Damage(3); }
+        if(Input.GetKeyDown(KeyCode.B)){ Damage(1); }
 
         if(dashcntr.State==DashController.DState.Off || dashcntr.State==DashController.DState.InCoolTime){
 
@@ -406,11 +408,15 @@ public class HeroMover : MonoBehaviour
         // 坂道は常に登らなくなる(？)
         this.IsCrimbing = false;
         
+
+        }
     }
 
     ///<summary>天井に衝突したときに天井に張り付かないようにする</summary>
     ///<summary>+坂道で加速させたい</summary>
     void OnCollisionStay2D(Collision2D col){
+
+        if(CanMove){
 
         if(this.IsJumping){
             if(col.gameObject.tag=="Terrain"){
@@ -448,14 +454,18 @@ public class HeroMover : MonoBehaviour
                 }
             }
         }
+
+        }
         
     }
 
     ///<summary>とげでOす</summary>
     void OnTriggerStay2D(Collider2D col){
+        if(CanMove){
         if(col.gameObject.tag=="Toge"){
             Damage(3);
             Die();
+        }
         }
     }
 

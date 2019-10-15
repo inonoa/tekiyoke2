@@ -43,6 +43,8 @@ public class CameraController : MonoBehaviour
         cmr = GetComponent<Camera>();
         defaultSize = cmr.orthographicSize;
         defaultLocalPosition = transform.localPosition;
+
+        CameraDefiner.CurrentCamera = this;
     }
 
     // Update is called once per frame

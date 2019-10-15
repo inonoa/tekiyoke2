@@ -8,6 +8,7 @@ public class GameTimeCounter : MonoBehaviour
 {
     float count=0;
     Text txt;
+    public bool DoesTick { get; set; } = true;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,6 @@ public class GameTimeCounter : MonoBehaviour
     void Update()
     {
         txt.text = (((int)count)/3600).ToString("00") + ":" + (((int)count)%3600/60).ToString("00") + ":" + (((int)count)%60).ToString("00");
-        count += Time.timeScale;
+        if(DoesTick) count += Time.timeScale;
     }
 }

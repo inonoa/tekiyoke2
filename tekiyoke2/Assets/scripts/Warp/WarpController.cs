@@ -30,7 +30,6 @@ public class WarpController : MonoBehaviour
         camera.Freeze();
 
         string colliderStr = msgObj.ToString();
-        Debug.Log(colliderStr);
 
         switch(colliderStr){
             case "XL":

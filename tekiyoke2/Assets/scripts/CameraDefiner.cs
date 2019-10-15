@@ -2,10 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BGMover : MonoBehaviour
+public class CameraDefiner : MonoBehaviour
 {
 
-    public float bgrate = 0.1f;
+    public static CameraController CurrentCamera{ get; set; }
+    public static Vector3 CurrentCameraPos{
+        get {return CurrentCamera.transform.position; }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +19,6 @@ public class BGMover : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.transform.position = new Vector2(CameraDefiner.CurrentCameraPos.x/(1+bgrate),CameraDefiner.CurrentCameraPos.y/(1+bgrate)+50);
+        
     }
 }
