@@ -16022,6 +16022,7 @@ GameObject:
   - component: {fileID: 2116531742}
   - component: {fileID: 2116531743}
   - component: {fileID: 2116531744}
+  - component: {fileID: 2116531745}
   m_Layer: 0
   m_Name: Gier
   m_TagString: Enemy
@@ -16037,7 +16038,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2116531740}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -400, y: 400, z: -2}
+  m_LocalPosition: {x: -400, y: 375, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 179343155}
@@ -16103,6 +16104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae035952b4ba23541971909a9e1027e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  runSpeed: 5
 --- !u!61 &2116531744
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16129,3 +16131,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 30, y: 30}
   m_EdgeRadius: 0
+--- !u!50 &2116531745
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2116531740}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
