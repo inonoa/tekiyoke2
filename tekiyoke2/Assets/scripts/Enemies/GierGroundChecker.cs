@@ -2,24 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-///<summary>接地判定のためにあるクラスだが、Update()とOnTriggerEnter2D()が交互に呼ばれている前提になってて不安</summary>
+///<summary>接地判定のためにあるクラス。分ける必要ある？？</summary>
 public class GierGroundChecker : MonoBehaviour
 {
-    public bool IsOnGround { get; set; } = false;
-    bool onGroundInThisFrame = false;
+    public bool IsOnGround{ get; set; } = false;
+    
+    [SerializeField]
+    ContactFilter2D filter;
+    Collider2D col;
+
+    void Start()
+    {
+        col = GetComponent<Collider2D>();
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if(onGroundInThisFrame) IsOnGround = true;
-        else IsOnGround = false;
-
-        onGroundInThisFrame = false;
-    }
-
-    void OnTriggerStay2D(Collider2D other){
-        if(other.tag=="Terrain" || other.tag=="Ultrathin"){
-            onGroundInThisFrame = true;
-        }
+        IsOnGround = col.IsTouching(filter);
     }
 }

@@ -23,6 +23,9 @@ public class GierController : EnemyController
 
     GierGroundChecker groundChecker;
 
+    [SerializeField]
+    ContactFilter2D filter;
+
     // Start is called before the first frame update
     new void Start()
     {

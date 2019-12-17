@@ -1019,6 +1019,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4c93df979c832f4ab18c102fc7bbb2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  filter:
+    useTriggers: 1
+    useLayerMask: 1
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 1024
+    minDepth: -Infinity
+    maxDepth: Infinity
+    minNormalAngle: 0
+    maxNormalAngle: 359.9999
 --- !u!60 &321946948
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -2402,7 +2416,7 @@ GameObject:
   - component: {fileID: 832222021}
   - component: {fileID: 832222024}
   - component: {fileID: 832222025}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Ultrathinmap
   m_TagString: Ultrathin
   m_Icon: {fileID: 0}
@@ -6961,7 +6975,7 @@ GameObject:
   - component: {fileID: 2074573921}
   - component: {fileID: 2074573923}
   - component: {fileID: 2074573922}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Terrainmap
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -16239,9 +16253,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallSpeedMax: 300
   runSpeed: 200
-  distanceToFindHero: 500
+  distanceToFindHero: 200
   framesBeforeRun: 60
-  jumpForce: 750
+  jumpForce: 800
+  filter:
+    useTriggers: 0
+    useLayerMask: 0
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
 --- !u!61 &2116531744
 BoxCollider2D:
   m_ObjectHideFlags: 0
