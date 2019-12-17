@@ -41,7 +41,7 @@ public class JerryController : EnemyController
         if(isGoingUp){
             if(transform.position.y > centerPosition.y+Amplitude-100){
                 //上端
-                float v = (float)Math.Sqrt(centerPosition.y+Amplitude - transform.position.y) * SpeedRate/10;
+                float v = (float)Math.Sqrt(Math.Max(centerPosition.y+Amplitude - transform.position.y,0)) * SpeedRate/10;
                 base.MovePos(0,v);
                 if(transform.position.y >= centerPosition.y+Amplitude-1){
                     isGoingUp = false;
@@ -51,20 +51,20 @@ public class JerryController : EnemyController
                 base.MovePos(0,SpeedRate);
             }else{
                 //下端
-                float v = (float)Math.Sqrt(transform.position.y - centerPosition.y+Amplitude) * SpeedRate/10;
+                float v = (float)Math.Sqrt(Math.Max(transform.position.y - centerPosition.y+Amplitude,0)) * SpeedRate/10;
                 base.MovePos(0,v);
             }
         }else{
             if(transform.position.y > centerPosition.y+Amplitude-100){
                 //上端
-                float v = (float)Math.Sqrt(centerPosition.y+Amplitude - transform.position.y) * SpeedRate/10;
+                float v = (float)Math.Sqrt(Math.Max(centerPosition.y+Amplitude - transform.position.y,0)) * SpeedRate/10;
                 base.MovePos(0,-v);
             }else if(transform.position.y > centerPosition.y-Amplitude+100){
                 //中間
                 base.MovePos(0,-SpeedRate);
             }else{
                 //下端
-                float v = (float)Math.Sqrt(transform.position.y - centerPosition.y+Amplitude) * SpeedRate/10;
+                float v = (float)Math.Sqrt(Math.Max(transform.position.y - centerPosition.y+Amplitude,0)) * SpeedRate/10;
                 base.MovePos(0,-v);
                 if(transform.position.y <= centerPosition.y-Amplitude+1){
                     isGoingUp = true;
