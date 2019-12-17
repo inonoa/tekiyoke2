@@ -12,12 +12,12 @@ public class GierController : EnemyController
 
     [SerializeField]
     float runSpeed = 5;
-    [SerializeField]
-    float fallSpeedMax = 100;
 
     [SerializeField]
     float distanceToFindHero = 200;
 
+    [SerializeField]
+    float framesBeforeRun = 60;
 
     // Start is called before the first frame update
     new void Start()
@@ -38,16 +38,15 @@ public class GierController : EnemyController
 
             case GierState.FindingNow:
                 findingCount ++;
-                if(findingCount > 80){
+                if(findingCount > framesBeforeRun){
                     state = GierState.Running;
                     findingCount = 0;
                 }
                 break;
 
             case GierState.Running:
-                //多用しそうだし関数化するべきかな
-                if(HeroDefiner.CurrentHeroPos.x > transform.position.x) rBody.velocity = new Vector2(runSpeed * Time.timeScale, Math.Max(rBody.velocity.y, -fallSpeedMax));
-                else rBody.velocity = new Vector2(-runSpeed * Time.timeScale, Math.Max(rBody.velocity.y, -fallSpeedMax));
+                if(HeroDefiner.CurrentHeroPos.x > transform.position.x) MoveX_ConsideringGravity(runSpeed);
+                else MoveX_ConsideringGravity(-runSpeed);
                 break;
         }
     }

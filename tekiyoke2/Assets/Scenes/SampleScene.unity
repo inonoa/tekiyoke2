@@ -16162,9 +16162,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae035952b4ba23541971909a9e1027e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 100
-  fallSpeedMax: 200
-  distanceToFindHero: 200
+  runSpeed: 200
+  fallSpeedMax: 300
+  distanceToFindHero: 500
+  framesBeforeRun: 60
 --- !u!61 &2116531744
 BoxCollider2D:
   m_ObjectHideFlags: 0
