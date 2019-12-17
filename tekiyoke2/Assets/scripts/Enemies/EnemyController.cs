@@ -11,6 +11,11 @@ public class EnemyController : MonoBehaviour
     [SerializeField]
     protected float fallSpeedMax = 300;
 
+    int groundCount = 0;
+    protected bool IsOnGround{
+        get{ return groundCount > 0; }
+    }
+
     protected void MovePos(float v_x, float v_y) =>
         rBody.MovePosition(new Vector2(rBody.transform.position.x + v_x*Time.timeScale,
                                        rBody.transform.position.y + v_y*Time.timeScale));

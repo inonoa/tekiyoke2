@@ -18,11 +18,17 @@ public class GierController : EnemyController
 
     [SerializeField]
     float framesBeforeRun = 60;
+    [SerializeField]
+    float jumpForce = 500;
+
+    GierGroundChecker groundChecker;
 
     // Start is called before the first frame update
     new void Start()
     {
         base.Start();
+        HeroDefiner.currentHero.jumped += HeroJumped;
+        groundChecker = transform.Find("GroundChecker").GetComponent<GierGroundChecker>();
     }
 
     // Update is called once per frame
@@ -49,5 +55,10 @@ public class GierController : EnemyController
                 else MoveX_ConsideringGravity(-runSpeed);
                 break;
         }
+    }
+
+    void HeroJumped(object sender, EventArgs e){
+        Debug.Log("主人公が飛んだ！");
+        if(groundChecker.IsOnGround) rBody.velocity = new Vector2(rBody.velocity.x, jumpForce);
     }
 }

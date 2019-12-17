@@ -163,9 +163,7 @@ public class HeroMover : MonoBehaviour
     }
 
     ///<summary>HPCntrからの死亡イベントをこう良い感じに…</summary>
-    public void ReceiveDeath(object sender, EventArgs e){
-        Die();
-    }
+    public void ReceiveDeath(object sender, EventArgs e) => Die();
 
     public void Respawn(object sender, EventArgs e){
         transform.position = new Vector3(0,-200);
@@ -204,8 +202,12 @@ public class HeroMover : MonoBehaviour
         }
     }
 
+    public event EventHandler jumped;
+
     ///<summary>後々のためにジャンプを分離しただけ</summary>
     public void JumpOnGround(){
+        jumped?.Invoke(this, EventArgs.Empty);
+
         Tokitome.SetTime(1);
         speedY = jumpSpeed;
         isOnGround = false;
@@ -227,6 +229,8 @@ public class HeroMover : MonoBehaviour
 
     ///<summary>壁ジャンプ右、JumpCount++は苦し紛れの帳尻合わせ</summary>
     public void JumpR(){
+        jumped?.Invoke(this, EventArgs.Empty);
+
         Tokitome.SetTime(1);
         speedY = jumpSpeed;
         isOnGround = false;
@@ -239,6 +243,8 @@ public class HeroMover : MonoBehaviour
 
     ///<summary>壁ジャンプ左、JumpCount++は苦し紛れの帳尻合わせ</summary>
     public void JumpL(){
+        jumped?.Invoke(this, EventArgs.Empty);
+        
         Tokitome.SetTime(1);
         speedY = jumpSpeed;
         isOnGround = false;
