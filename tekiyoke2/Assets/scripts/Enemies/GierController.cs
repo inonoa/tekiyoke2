@@ -35,8 +35,10 @@ public class GierController : EnemyController
     }
 
     // Update is called once per frame
-    void Update()
+    new void Update()
     {
+        base.Update();
+
         switch(state){
 
             case GierState.BeforeFinding:
@@ -54,14 +56,14 @@ public class GierController : EnemyController
                 break;
 
             case GierState.Running:
-                if(HeroDefiner.CurrentHeroPos.x > transform.position.x) MoveX_ConsideringGravity(runSpeed);
-                else MoveX_ConsideringGravity(-runSpeed);
+                if(HeroDefiner.CurrentHeroPos.x > transform.position.x + 10) MoveX_ConsideringGravity( runSpeed);
+                if(HeroDefiner.CurrentHeroPos.x < transform.position.x - 10) MoveX_ConsideringGravity(-runSpeed);
                 break;
         }
     }
 
     void HeroJumped(object sender, EventArgs e){
         Debug.Log("主人公が飛んだ！");
-        if(groundChecker.IsOnGround) rBody.velocity = new Vector2(rBody.velocity.x, jumpForce);
+        if(groundChecker.IsOnGround && state == GierState.Running) rBody.velocity = new Vector2(rBody.velocity.x, jumpForce);
     }
 }

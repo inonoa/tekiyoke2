@@ -25,4 +25,6 @@ public class EnemyController : MonoBehaviour
         rBody.velocity = new Vector2(v_x * Time.timeScale, Math.Max(rBody.velocity.y, -fallSpeedMax));
 
     protected void Start() => rBody = GetComponent<Rigidbody2D>();
+
+    protected void Update() => rBody.velocity = new Vector2(0, rBody.velocity.y);
 }

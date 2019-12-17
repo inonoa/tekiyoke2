@@ -20,5 +20,5 @@ public class NaitrumController : EnemyController
     }
 
     // Update is called once per frame
-    void Update() => MovePos(direction,0);
+    new void Update() => MovePos(direction,0);
 }

@@ -36,7 +36,7 @@ public class JerryController : EnemyController
     }
 
     // Update is called once per frame
-    void Update()
+    new void Update()
     {
         if(isGoingUp){
             if(transform.position.y > centerPosition.y+Amplitude-100){
