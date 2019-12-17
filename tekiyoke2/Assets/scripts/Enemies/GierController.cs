@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class GierController : EnemyController
 {
@@ -11,6 +12,11 @@ public class GierController : EnemyController
 
     [SerializeField]
     float runSpeed = 5;
+    [SerializeField]
+    float fallSpeedMax = 100;
+
+    [SerializeField]
+    float distanceToFindHero = 200;
 
 
     // Start is called before the first frame update
@@ -25,7 +31,7 @@ public class GierController : EnemyController
         switch(state){
 
             case GierState.BeforeFinding:
-                if( MyMath.DistanceXY(HeroDefiner.CurrentHeroPos,transform.position) > 500 ){
+                if( MyMath.DistanceXY(HeroDefiner.CurrentHeroPos,transform.position) < distanceToFindHero ){
                     state = GierState.FindingNow;
                 }
                 break;
@@ -39,8 +45,9 @@ public class GierController : EnemyController
                 break;
 
             case GierState.Running:
-                if(HeroDefiner.CurrentHeroPos.x > transform.position.x) MovePos(runSpeed,0);
-                else MovePos(-runSpeed,0);
+                //多用しそうだし関数化するべきかな
+                if(HeroDefiner.CurrentHeroPos.x > transform.position.x) rBody.velocity = new Vector2(runSpeed * Time.timeScale, Math.Max(rBody.velocity.y, -fallSpeedMax));
+                else rBody.velocity = new Vector2(-runSpeed * Time.timeScale, Math.Max(rBody.velocity.y, -fallSpeedMax));
                 break;
         }
     }
