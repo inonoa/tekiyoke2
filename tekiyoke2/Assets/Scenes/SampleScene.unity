@@ -3853,7 +3853,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 60, y: 80}
+  m_Size: {x: 100, y: 100}
   m_EdgeRadius: 0
 --- !u!1 &969389208
 GameObject:
@@ -16252,10 +16252,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallSpeedMax: 300
-  runSpeed: 200
+  runSpeed: 400
   distanceToFindHero: 200
-  framesBeforeRun: 60
-  jumpForce: 800
+  framesBeforeRun: 40
+  jumpForce: 1000
   filter:
     useTriggers: 0
     useLayerMask: 0
@@ -16311,7 +16311,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0
-  m_GravityScale: 150
+  m_GravityScale: 200
   m_Material: {fileID: 6200000, guid: 6a8dea704b8665742911f386d932fbba, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
