@@ -1752,7 +1752,7 @@ RectTransform:
   m_Children:
   - {fileID: 1819055330}
   - {fileID: 791307968}
-  - {fileID: 1922368667}
+  - {fileID: 1470467493}
   m_Father: {fileID: 231779672}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4120,7 +4120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clock: {fileID: 1819055333}
   doubleAnim: {fileID: 263193331}
-  curtain: {fileID: 1922368670}
+  curtain: {fileID: 0}
 --- !u!1 &1034792846
 GameObject:
   m_ObjectHideFlags: 0
@@ -4222,7 +4222,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1034792846}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -200, z: -1}
+  m_LocalPosition: {x: 6438, y: 515, z: -1}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 388033667}
@@ -5396,6 +5396,52 @@ MonoBehaviour:
   - 0
   - 0
   - 0
+--- !u!1 &1470467492
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1470467493}
+  - component: {fileID: 1470467494}
+  m_Layer: 0
+  m_Name: SceneTransition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1470467493
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1470467492}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.0009338, y: 1.0009338, z: 1.0009338}
+  m_Children: []
+  m_Father: {fileID: 599016401}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1470467494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1470467492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80d68c0dd503a8e43b54f464e9fea930, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curtainIn: {fileID: 6789942870855061318, guid: 9a497827e3b42fa4e804f0dfe365c78f,
+    type: 3}
+  curtainOut: {fileID: 0}
 --- !u!1 &1512146352
 GameObject:
   m_ObjectHideFlags: 0
@@ -6515,93 +6561,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1855654802}
   m_CullTransparentMesh: 0
---- !u!1 &1922368666
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1922368667}
-  - component: {fileID: 1922368669}
-  - component: {fileID: 1922368668}
-  - component: {fileID: 1922368670}
-  m_Layer: 5
-  m_Name: GoalCurtain
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &1922368667
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1922368666}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 599016401}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -3000, y: 289.77844}
-  m_SizeDelta: {x: 4000, y: 754}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1922368668
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1922368666}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 4caa4a121e7902344b348f776e137523, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
---- !u!222 &1922368669
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1922368666}
-  m_CullTransparentMesh: 0
---- !u!114 &1922368670
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1922368666}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5f024f1ddd3bae44a0e016f30d6fe56, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1931265719
 GameObject:
   m_ObjectHideFlags: 0
@@ -15818,14 +15777,6 @@ CompositeCollider2D:
         Y: -3000000000
       - X: -5000000000
         Y: -3000000000
-    - - X: -6499999744
-        Y: 3500000000
-      - X: -7000000000
-        Y: 3500000000
-      - X: -7000000000
-        Y: -3000000000
-      - X: -6499999744
-        Y: -3000000000
     - - X: -9500000256
         Y: 3500000000
       - X: -10000000000
@@ -15833,6 +15784,14 @@ CompositeCollider2D:
       - X: -10000000000
         Y: -3000000000
       - X: -9500000256
+        Y: -3000000000
+    - - X: -6499999744
+        Y: 3500000000
+      - X: -7000000000
+        Y: 3500000000
+      - X: -7000000000
+        Y: -3000000000
+      - X: -6499999744
         Y: -3000000000
     - - X: 9500000256
         Y: -6000000000
@@ -16042,14 +16001,14 @@ CompositeCollider2D:
       - {x: -550.00006, y: 350}
       - {x: -550.00006, y: -300}
       - {x: -500, y: -300}
-    - - {x: -650, y: 350}
-      - {x: -700, y: 350}
-      - {x: -700, y: -300}
-      - {x: -650, y: -300}
     - - {x: -950.00006, y: 350}
       - {x: -1000, y: 350}
       - {x: -1000, y: -300}
       - {x: -950.00006, y: -300}
+    - - {x: -650, y: 350}
+      - {x: -700, y: 350}
+      - {x: -700, y: -300}
+      - {x: -650, y: -300}
     - - {x: 950.00006, y: -600}
       - {x: 1200, y: -600}
       - {x: 1200, y: -500}
