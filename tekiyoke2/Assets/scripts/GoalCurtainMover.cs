@@ -5,16 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class GoalCurtainMover : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public string NextSceneName { get; set; }
 
     // Update is called once per frame
     void Update()
     {
         transform.localPosition += new Vector3(50,0,0);
-        if(transform.localPosition.x>500) SceneManager.LoadScene("StageChoiceScene");
+        if(transform.localPosition.x>250) SceneManager.LoadScene(NextSceneName);
     }
 }

@@ -12,8 +12,6 @@ public class StageSelector : MonoBehaviour
     public GameObject[] stages;
     public SpriteRenderer[] stRenderer;
 
-    public GameObject curtain;
-
     public SpriteRenderer bg;
 
     //クロスフェード用に背後に映すやつ
@@ -117,7 +115,7 @@ public class StageSelector : MonoBehaviour
                     state = State.Selected;
                     wakuLight.Stop();
                     if(selected==1){
-                        curtain.SetActive(true);
+                        SceneTransition.Start2ChangeState("SampleScene",SceneTransition.TransitionType.Normal);
                     }
                 }
                 break;

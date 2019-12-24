@@ -61,7 +61,7 @@ public class CloudSpawner : MonoBehaviour
         }else if(state==State.Wind){
             countWhileWind ++;
             if(countWhileWind==count2Title){
-                SceneManager.LoadScene("StageChoiceScene");
+                SceneTransition.Start2ChangeState("StageChoiceScene",SceneTransition.TransitionType.Default);
             }
             for(int i=cloudsExisting.Count-1;i>-1;i--){
                 cloudsExisting[i].transform.position += new Vector3(-moveSpeed*10,0,0);
