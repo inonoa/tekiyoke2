@@ -6,7 +6,7 @@ public class Goal : MonoBehaviour
 {
     public GameTimeCounter clock;
     public Animator doubleAnim;
-    public GoalCurtainMover curtain;
+    public Curtain4SceneEndMover curtain;
 
     bool goaled = false;
 

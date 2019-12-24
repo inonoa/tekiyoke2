@@ -12,8 +12,12 @@ public class SceneTransition : MonoBehaviour
     [SerializeField]
     GameObject curtain4SceneStart;
 
-    enum SceneTransitState{ None, Normal }
-    static SceneTransitState state = SceneTransitState.None;
+    enum SceneTransitState{ None, Default, Normal }
+    static SceneTransitState _State = SceneTransitState.Normal;
+    static SceneTransitState State{
+        get{ return _State; }
+        set{ _State = value; Debug.Log(value); }
+    }
 
     ///<summary>様々な遷移がある</summary>
     public enum TransitionType{
@@ -25,17 +29,37 @@ public class SceneTransition : MonoBehaviour
 
     public static void Start2ChangeState(string sceneName, TransitionType transitionType){
         switch(transitionType){
+
             case TransitionType.Default:
+                SceneTransition.State = SceneTransitState.Default;
                 SceneManager.LoadScene(sceneName);
                 break;
+
             case TransitionType.Normal:
+                SceneTransition.State = SceneTransitState.Normal;
                 var curtain = Instantiate(currentInstance.curtain4SceneEnd, currentInstance.transform);
-                curtain.GetComponent<GoalCurtainMover>().NextSceneName = sceneName;
+                curtain.GetComponent<Curtain4SceneEndMover>().NextSceneName = sceneName;
                 break;
         }
     }
 
     void Start(){
+        Debug.Log(SceneTransition.State);
         currentInstance = this;
+
+        switch(SceneTransition.State){
+            case SceneTransitState.None:
+                break;
+
+            case SceneTransitState.Default:
+                break;
+            
+            case SceneTransitState.Normal:
+                Instantiate(curtain4SceneStart, transform);
+                break;
+        }
+
+        //ステート名からくる直感に反するのでアレ
+        SceneTransition.State = SceneTransitState.None;
     }
 }
