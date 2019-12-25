@@ -39,12 +39,29 @@ public class StateRun : IHeroState
     public void Update(){
         if(!hero.IsOnGround) hero.States.Push(new StateFall(hero));
 
-        if(hero.IsOnSakamichi){
-            if(hero.EyeToRight) hero.velocity.x = HeroMover.moveSpeed * sakamichiSpeedRate;
-            else hero.velocity.x = -HeroMover.moveSpeed * sakamichiSpeedRate;
+        if(hero.IsOnSakamichiR){
+            if(hero.EyeToRight){
+                hero.velocity.x =  HeroMover.moveSpeed * sakamichiSpeedRate;
+                hero.velocity.y = 0;
+            }
+            else{
+                hero.velocity.x = -HeroMover.moveSpeed;
+                hero.velocity.y = -20;
+            }
+
+        }else if(hero.IsOnSakamichiL){
+            if(!hero.EyeToRight){
+                hero.velocity.x = -HeroMover.moveSpeed * sakamichiSpeedRate;
+                hero.velocity.y = 0;
+            }else{
+                hero.velocity.x = HeroMover.moveSpeed;
+                hero.velocity.y = -20;
+            }
+
         }else{
             if(hero.EyeToRight) hero.velocity.x = HeroMover.moveSpeed;
             else hero.velocity.x = -HeroMover.moveSpeed;
+            hero.velocity.y = 0;
         }
     }
 }

@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class SakamichiChecker : MonoBehaviour
 {
-    public bool OnSakamichi{ get => onSakamichiL || onSakamichiR; }
-    bool onSakamichiR = false;
-    bool onSakamichiL = false;
+    public bool OnSakamichi{ get => OnSakamichiL || OnSakamichiR; }
+    bool _OnSakamichiR = false;
+    public bool OnSakamichiR{ get => _OnSakamichiR; }
+    bool _OnSakamichiL = false;
+    public bool OnSakamichiL{ get => _OnSakamichiL; }
 
     [SerializeField]
     ContactFilter2D filterR;
@@ -15,7 +17,7 @@ public class SakamichiChecker : MonoBehaviour
     [SerializeField]
     new PolygonCollider2D collider;
     void Update(){
-        onSakamichiL = collider.IsTouching(filterL);
-        onSakamichiR = collider.IsTouching(filterR);
+        _OnSakamichiL = collider.IsTouching(filterL);
+        _OnSakamichiR = collider.IsTouching(filterR);
     }
 }

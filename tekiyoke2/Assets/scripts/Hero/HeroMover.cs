@@ -97,6 +97,8 @@ public class HeroMover : MonoBehaviour
 
     public bool IsOnGround{ get => groundChecker.isOnGround; }
     public bool IsOnSakamichi{ get => sakamichiChecker.OnSakamichi; }
+    public bool IsOnSakamichiR{ get => sakamichiChecker.OnSakamichiR; }
+    public bool IsOnSakamichiL{ get => sakamichiChecker.OnSakamichiL; }
     public bool EyeToRight{ get; set; } = true;
 
     ///<summary>指定した値だけ位置をずらす。timeScaleの影響を受けます</summary>
