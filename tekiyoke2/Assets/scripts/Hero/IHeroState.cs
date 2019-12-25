@@ -4,10 +4,11 @@ using UnityEngine;
 
 public interface IHeroState
 {
-    void Start(HeroMover hero);
-    void Update(HeroMover hero);
-    void Try2StartJet(HeroMover hero);
-    void Try2EndJet(HeroMover hero);
-    void Try2Jump(HeroMover hero);
-    void Try2Move(bool toRight, HeroMover hero);
+    void Start();
+    void Update();
+    void Try2StartJet();
+    void Try2EndJet();
+    void Try2Jump();
+    void Try2StartMove(bool toRight);
+    void Try2EndMove();
 }

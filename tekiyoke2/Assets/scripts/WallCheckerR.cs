@@ -20,11 +20,7 @@ public class WallCheckerR : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.UpArrow) && Input.GetKey(KeyCode.LeftArrow)){
-            if(this.canJump && !hero.isOnGround){
-                hero.JumpL();
-            }
-        }
+        
     }
     void OnTriggerEnter2D(Collider2D other){
         canJump = true;

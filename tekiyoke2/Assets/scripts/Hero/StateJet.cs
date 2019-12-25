@@ -4,22 +4,29 @@ using UnityEngine;
 
 public class StateJet : IHeroState
 {
-    public void Try2StartJet(HeroMover hero){
+    HeroMover hero;
+    public StateJet(HeroMover hero){
+        this.hero = hero;
+    }
+    public void Try2StartJet(){
 
     }
-    public void Try2EndJet(HeroMover hero){
+    public void Try2EndJet(){
 
     }
-    public void Try2Jump(HeroMover hero){
+    public void Try2Jump(){
 
     }
-    public void Try2Move(bool toRight, HeroMover hero){
+    public void Try2StartMove(bool toRight){
         
     }
-    public void Start(HeroMover hero){
+    public void Try2EndMove(){
+
+    }
+    public void Start(){
         
     }
-    public void Update(HeroMover hero){
+    public void Update(){
         
     }
 }

@@ -4,22 +4,25 @@ using UnityEngine;
 
 public class StateWait : IHeroState
 {
-    public void Try2StartJet(HeroMover hero){
+    HeroMover hero;
+    public StateWait(HeroMover hero){
+        this.hero = hero;
+    }
+    public void Try2StartJet(){
+        //今のところパス
+    }
+    public void Try2EndJet(){ }
+    public void Try2Jump(){
+        hero.States.Push(new StateJump(hero));
+    }
+    public void Try2StartMove(bool toRight){
+        hero.States.Push(new StateRun(hero));
+        if(toRight) hero.velocity.x =  HeroMover.moveSpeed;
+        else        hero.velocity.x = -HeroMover.moveSpeed;
+    }
+    public void Try2EndMove(){ }
+    public void Start(){
 
     }
-    public void Try2EndJet(HeroMover hero){
-
-    }
-    public void Try2Jump(HeroMover hero){
-
-    }
-    public void Try2Move(bool toRight, HeroMover hero){
-        
-    }
-    public void Start(HeroMover hero){
-        
-    }
-    public void Update(HeroMover hero){
-        
-    }
+    public void Update(){ }
 }

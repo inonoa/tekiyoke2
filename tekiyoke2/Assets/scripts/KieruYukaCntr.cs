@@ -72,7 +72,7 @@ public class KieruYukaCntr : MonoBehaviour
                     infos[i].obj.SetActive(false);
                     infos[i].frames = 100;
                     infos[i].kieta = true;
-                    hero.isOnGround = false;
+                    //hero.isOnGround = false;
                 }
             }
         }
