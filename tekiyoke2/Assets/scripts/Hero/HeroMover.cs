@@ -155,10 +155,10 @@ public class HeroMover : MonoBehaviour
 
     ///<summary>リスポーン</summary>
     public void Die(){
-        if(curtain.GetComponent<CurtainMover>().state!=CurtainMover.CState.Dying){
+        if(curtain.GetComponent<Curtain4DeathMover>().state!=Curtain4DeathMover.CState.Dying){
             curtain.SetActive(true);
-            curtain.GetComponent<CurtainMover>().state = CurtainMover.CState.Dying;
-            curtain.transform.localPosition = new Vector3(-2500,290);
+            curtain.GetComponent<Curtain4DeathMover>().state = Curtain4DeathMover.CState.Dying;
+            curtain.GetComponent<Curtain4DeathMover>().ResetPosition();
         }
     }
 
@@ -287,7 +287,7 @@ public class HeroMover : MonoBehaviour
         dashcntr = GetComponent<DashController>();
         hpcntr.die += ReceiveDeath;
         hpcntr.damaged += BendBack;
-        curtain.GetComponent<CurtainMover>().heroRespawn += Respawn;
+        curtain.GetComponent<Curtain4DeathMover>().heroRespawn += Respawn;
 
         HeroDefiner.currentHero = this;
     }

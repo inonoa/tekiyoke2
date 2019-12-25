@@ -75,7 +75,7 @@ public class PauseUIMover : MonoBehaviour
                 Reset();
                 pauseEnd?.Invoke(this,EventArgs.Empty);
             }else if(selected==2){
-                SceneManager.LoadScene("StageChoiceScene");
+                SceneTransition.Start2ChangeState("StageChoiceScene",SceneTransition.TransitionType.Default);
             }
         }
     }

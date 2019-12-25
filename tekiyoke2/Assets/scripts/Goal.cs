@@ -6,7 +6,7 @@ public class Goal : MonoBehaviour
 {
     public GameTimeCounter clock;
     public Animator doubleAnim;
-    public GoalCurtainMover curtain;
+    public Curtain4SceneEndMover curtain;
 
     bool goaled = false;
 
@@ -31,7 +31,10 @@ public class Goal : MonoBehaviour
             HeroDefiner.currentHero.CanMove = false;
             clock.DoesTick = false;
             doubleAnim.gameObject.SetActive(true);
-            curtain.gameObject.SetActive(true);
+            //curtain.gameObject.SetActive(true);
+
+            SceneTransition.Start2ChangeState("StageChoiceScene", SceneTransition.TransitionType.Normal);
+
             doubleAnim.SetTrigger("runr");
             Debug.Log("GOAL!!!!");
         }

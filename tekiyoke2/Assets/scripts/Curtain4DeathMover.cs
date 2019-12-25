@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CurtainMover : MonoBehaviour
+public class Curtain4DeathMover : MonoBehaviour
 {
 
     public enum CState{
@@ -13,6 +13,10 @@ public class CurtainMover : MonoBehaviour
     public CState state = CState.GameStart;
 
     public event EventHandler heroRespawn;
+
+    public void ResetPosition(){
+        transform.localPosition = new Vector3(-3000,0,10);
+    }
 
     // Start is called before the first frame update
     void Start()

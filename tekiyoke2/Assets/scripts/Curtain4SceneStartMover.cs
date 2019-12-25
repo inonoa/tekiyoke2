@@ -1,9 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class GoalCurtainMover : MonoBehaviour
+public class Curtain4SceneStartMover : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -14,7 +13,7 @@ public class GoalCurtainMover : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.localPosition += new Vector3(50,0,0);
-        if(transform.localPosition.x>500) SceneManager.LoadScene("StageChoiceScene");
+        transform.position += new Vector3(50,0);
+        if(gameObject.transform.localPosition.x>4000) Destroy(gameObject);
     }
 }
