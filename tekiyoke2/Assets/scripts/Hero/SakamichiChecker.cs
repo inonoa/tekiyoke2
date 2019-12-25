@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+///<summary>これの参照を直接持っていいのはHeroMoverだけです</summary>
 public class SakamichiChecker : MonoBehaviour
 {
     public bool OnSakamichi{ get => OnSakamichiL || OnSakamichiR; }
-    bool _OnSakamichiR = false;
     public bool OnSakamichiR{ get => _OnSakamichiR; }
-    bool _OnSakamichiL = false;
     public bool OnSakamichiL{ get => _OnSakamichiL; }
+
+
+    bool _OnSakamichiR = false;
+    bool _OnSakamichiL = false;
 
     [SerializeField]
     ContactFilter2D filterR;

@@ -7,44 +7,103 @@ using System;
 ///<summary>最終的には各機能をまとめる役割と渉外担当みたいな役割とだけを持たせたい</summary>
 public class HeroMover : MonoBehaviour
 {
-
-    #region 変数と関数
-
-    ///<summary> falseだと一切動かない(落ちてる最中でもそこで浮き続ける) </summary>
-    public bool CanMove { get; set; } = true;
-
-    public Stack<IHeroState> States { get; set; } = new Stack<IHeroState>();
-
+    #region 移動関係の(だいたい)定数
     public static float moveSpeed = 20;
 
-    ///<summary>入力に応じて-1,0,1のどれかを返す</summary>
-    private int MoveDirection2Sign{
-        //これGetAxisでよくね？？
-        get{
-            if(Input.GetKey(KeyCode.RightArrow)) return 1;
-            if(Input.GetKey(KeyCode.LeftArrow)) return -1;
-            return 0;
+    #endregion
+
+    #region 操作・移動関係
+
+    ///<summary> trueだと一切動かない(落ちてる最中でもそこで浮き続ける) </summary>
+    public bool IsFrozen { get; set; } = false;
+    ///<summary>操作を受け付けるかどうか。空中でfalseになってても落ちはする</summary>
+    public bool CanMove { get; set; } = true;
+    public bool IsOnGround{ get => groundChecker.isOnGround; }
+    public bool IsOnSakamichi{ get => sakamichiChecker.OnSakamichi; }
+    public bool IsOnSakamichiR{ get => sakamichiChecker.OnSakamichiR; }
+    public bool IsOnSakamichiL{ get => sakamichiChecker.OnSakamichiL; }
+    public bool EyeToRight{ get; set; } = true;
+    public (float x, float y) velocity = (0,0);
+    int lastDirection = 0;
+
+    ///<summary>指定した値だけ位置をずらす。timeScaleの影響を受けます</summary>
+    public void MovePos(float vx, float vy){
+        rigidbody.MovePosition(new Vector2(
+            transform.position.x + vx*Time.timeScale,
+            transform.position.y + vy*Time.timeScale
+        ));
+    }
+
+    ///<summary>指定した値に位置が移動。timeScaleの影響を受けません</summary>
+    public void WarpPos(float x, float y){
+        transform.position = new Vector3(x,y,transform.position.z);
+    }
+    ///<summary>前フレームでの向きと今フレームの入力から移動方向を決定</summary>
+    void UpdateMoveDirection(){
+
+        //右ボタンを押したとき右に動く
+        if(Input.GetKeyDown(KeyCode.RightArrow) && lastDirection!=1){
+            States.Peek().Try2StartMove(true);
+            lastDirection = 1;
+            EyeToRight = true;
+
+        //左ボタンを押したときに左に動く
+        }else if(Input.GetKeyDown(KeyCode.LeftArrow) && lastDirection!=-1){
+            States.Peek().Try2StartMove(false);
+            lastDirection = -1;
+            EyeToRight = false;
+
+        //右ボタンを離したときはさっきまで動いていた向きによって挙動が変わる
+        }else if(Input.GetKeyUp(KeyCode.RightArrow) && lastDirection==1){
+
+            if(Input.GetKey(KeyCode.LeftArrow)){
+                States.Peek().Try2StartMove(false);
+                lastDirection = -1;
+                EyeToRight = false;
+
+            }else{
+                States.Peek().Try2EndMove();
+                lastDirection = 0;
+            }
+
+        //左ボタンを離したときはさっきまで動いていた向きによって挙動が変わる
+        }else if(Input.GetKeyUp(KeyCode.LeftArrow) && lastDirection==-1){
+
+            if(Input.GetKey(KeyCode.RightArrow)){
+                States.Peek().Try2StartMove(true);
+                lastDirection = 1;
+                EyeToRight = true;
+
+            }else{
+                States.Peek().Try2EndMove();
+                lastDirection = 0;
+            }
         }
     }
+    public event EventHandler jumped;
 
-    int lastDirection = 0;
-    public static float jumpSpeed = 40;
-    public static float bendBackSpeedX = 15;
-    public static float bendBackSpeedY = 20;
+    #endregion
 
-    ///<summary>壁キック後の横方向の移動速度</summary>
-    private float _SpeedXAfterKick = 0;
-    ///<summary>壁キック後の横方向の移動速度</summary>
-    public float SpeedXAfterKick{
-        get{ return _SpeedXAfterKick; }
-        set { _SpeedXAfterKick = value; }
-    }
+    #region 別クラスで持っている情報
+
+    ///<summary>一応過去の(特に直前の)状態を見るためにStackに積んでるけど必要か…？</summary>
+    public Stack<IHeroState> States { get; set; } = new Stack<IHeroState>();
+    ///<summary>直前フレームの状態が入っているはず(大半の場合現在の状態と同じ)</summary>
+    IHeroState lastState;
+    public CameraController cmrCntr;
+    public HpCntr hpcntr;
+    GroundChecker groundChecker;
+    SakamichiChecker sakamichiChecker;
+
+
     public SpriteRenderer spriteRenderer;
     public Animator anim;
     public new Rigidbody2D rigidbody;
-    public CameraController cmrCntr;
-
     public GameObject curtain;
+    
+    #endregion
+
+    #region ダメージとか
 
     ///<summary>HPの増減はすべてここから。(全部HPCntrに通します)</summary>
     private int HP{
@@ -52,12 +111,14 @@ public class HeroMover : MonoBehaviour
         set{hpcntr.HP = value;}
     }
     
-    ///<summary>敵からのダメージ等。ノックバックなどが入る予定</summary>
+    ///<summary>敵からのダメージ等。ノックバックなどが入る予定(あれ？)</summary>
     ///<param name="damage">与えるダメージを書く。1を指定すると100->99,1->0になったりします</param>
     public void Damage(int damage){
         HP = HP - damage;
         cmrCntr.Reset();
-        dashcntr.Reset();
+    }
+    public void BendBack(object sender, EventArgs e){
+        
     }
 
     ///<summary>リスポーン</summary>
@@ -77,70 +138,40 @@ public class HeroMover : MonoBehaviour
         hpcntr.FullRecover();
     }
 
-    public HpCntr hpcntr;
-
-    public DashController dashcntr;
-
-
-    ///<summary>現状ジャンプにしてあるがそのままにしてはおけない</summary>
-    public void BendBack(object sender, EventArgs e){
-        
-    }
-
-    public event EventHandler jumped;
-
-    public (float x, float y) velocity = (0,0);
-    IHeroState lastState;
-
-    GroundChecker groundChecker;
-    SakamichiChecker sakamichiChecker;
-
-    public bool IsOnGround{ get => groundChecker.isOnGround; }
-    public bool IsOnSakamichi{ get => sakamichiChecker.OnSakamichi; }
-    public bool IsOnSakamichiR{ get => sakamichiChecker.OnSakamichiR; }
-    public bool IsOnSakamichiL{ get => sakamichiChecker.OnSakamichiL; }
-    public bool EyeToRight{ get; set; } = true;
-
-    ///<summary>指定した値だけ位置をずらす。timeScaleの影響を受けます</summary>
-    public void MovePos(float vx, float vy){
-        rigidbody.MovePosition(new Vector2(
-            transform.position.x + vx*Time.timeScale,
-            transform.position.y + vy*Time.timeScale
-        ));
-    }
-
-    ///<summary>指定した値に位置が移動。timeScaleの影響を受けません</summary>
-    public void WarpPos(float x, float y){
-        transform.position = new Vector3(x,y,transform.position.z);
-    }
-
     #endregion
+
+    #region 勝手に呼ばれる関数群
 
     // Start is called before the first frame update
     void Start()
     {
         States.Push(new StateWait(this));
         lastState = States.Peek();
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        anim = GetComponent<Animator>();
-        rigidbody = GetComponent<Rigidbody2D>();
-        hpcntr = GetComponent<HpCntr>();
-        dashcntr = GetComponent<DashController>();
-        hpcntr.die += ReceiveDeath;
-        hpcntr.damaged += BendBack;
-        groundChecker = transform.Find("GroundChecker").GetComponent<GroundChecker>();
-        sakamichiChecker = GetComponent<SakamichiChecker>();
 
+        spriteRenderer   = GetComponent<SpriteRenderer>();
+        anim             = GetComponent<Animator>();
+        rigidbody        = GetComponent<Rigidbody2D>();
+        hpcntr           = GetComponent<HpCntr>();
+        sakamichiChecker = GetComponent<SakamichiChecker>();
+        groundChecker    = transform.Find("GroundChecker").GetComponent<GroundChecker>();
+
+        hpcntr.die     += ReceiveDeath;
+        hpcntr.damaged += BendBack;
         curtain.GetComponent<Curtain4DeathMover>().heroRespawn += Respawn;
 
         HeroDefiner.currentHero = this;
+    }
+
+    ///<summary>SetActive(false)するとアニメーションの状態がリセットされるようなのでとりあえず主人公はステートだけ反映しなおす</summary>
+    void OnEnable(){
+        if(States.Count>0) States.Peek().Start();
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        if(CanMove){
+        if(!IsFrozen && CanMove){
 
             UpdateMoveDirection();
 
@@ -148,7 +179,8 @@ public class HeroMover : MonoBehaviour
                 States.Peek().Try2Jump();
             }
 
-            if(Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.A)){ //面倒だし向きは移動方向と同じでいいからキーは1つでいい気がする
+            //面倒だし向きは移動方向と同じでいいからキーは1つでいい気がするが…
+            if(Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.A)){
                 States.Peek().Try2StartJet();
             }
             if(Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.A)){
@@ -163,79 +195,30 @@ public class HeroMover : MonoBehaviour
             States.Peek().Update();
 
             MovePos(velocity.x, velocity.y);
-
-            Debug.Log(velocity);
-        }
-    }
-
-    ///<summary>前フレームでの向きと今フレームの入力から移動方向を決定</summary>
-    void UpdateMoveDirection(){
-
-        if(Input.GetKeyDown(KeyCode.RightArrow) && lastDirection!=1){
-            States.Peek().Try2StartMove(true);
-            lastDirection = 1;
-            EyeToRight = true;
-
-        }else if(Input.GetKeyDown(KeyCode.LeftArrow) && lastDirection!=-1){
-            States.Peek().Try2StartMove(false);
-            lastDirection = -1;
-            EyeToRight = false;
-
-        }else if(Input.GetKeyUp(KeyCode.RightArrow) && lastDirection==1){
-
-            if(Input.GetKey(KeyCode.LeftArrow)){
-                States.Peek().Try2StartMove(false);
-                lastDirection = -1;
-                EyeToRight = false;
-
-            }else{
-                States.Peek().Try2EndMove();
-                lastDirection = 0;
-            }
-
-        }else if(Input.GetKeyUp(KeyCode.LeftArrow) && lastDirection==-1){
-
-            if(Input.GetKey(KeyCode.RightArrow)){
-                States.Peek().Try2StartMove(true);
-                lastDirection = 1;
-                EyeToRight = true;
-
-            }else{
-                States.Peek().Try2EndMove();
-                lastDirection = 0;
-            }
         }
     }
 
     ///<summary>天井に衝突したときに天井に張り付かないようにする</summary>
-    ///<summary>+坂道で加速させたい</summary>
     void OnCollisionStay2D(Collision2D col){
 
-        if(CanMove){
-
-            if(col.gameObject.tag=="Terrain"){
-                foreach(ContactPoint2D contact in col.contacts){
-                    if(contact.normal.y<0){
-                        velocity.y = 0;
-                        break;
-                    }
+        if(col.gameObject.tag=="Terrain" && !IsFrozen){
+            foreach(ContactPoint2D contact in col.contacts){
+                if(contact.normal.y<0){
+                    velocity.y = 0;
+                    return;
                 }
             }
         }
     }
 
-    ///<summary>とげでOす</summary>
+    ///<summary>(これとげ側のコードに書かれるべきじゃない？)</summary>
     void OnTriggerStay2D(Collider2D col){
-        if(CanMove){
-            if(col.gameObject.tag=="Toge"){
-                Damage(3);
-                Die();
-            }
+
+        if(col.gameObject.tag=="Toge" && !IsFrozen){
+            Damage(3);
+            Die();
         }
     }
 
-    //SetActive(false)するとアニメーションの状態がリセットされるようなのでとりあえず主人公はステートだけ反映しなおす
-    void OnEnable(){
-        if(States.Count>0) States.Peek().Start();
-    }
+    #endregion
 }

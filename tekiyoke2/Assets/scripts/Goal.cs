@@ -28,7 +28,7 @@ public class Goal : MonoBehaviour
         if(other.tag=="Player" && !goaled){
             goaled = true;
             HeroDefiner.currentHero.spriteRenderer.enabled = false;
-            HeroDefiner.currentHero.CanMove = false;
+            HeroDefiner.currentHero.IsFrozen = true;
             clock.DoesTick = false;
             doubleAnim.gameObject.SetActive(true);
             //curtain.gameObject.SetActive(true);
