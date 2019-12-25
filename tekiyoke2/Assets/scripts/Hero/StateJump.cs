@@ -22,14 +22,25 @@ public class StateJump : IHeroState
         }
     }
     public void Try2StartMove(bool toRight){
-        if(toRight) hero.velocity.x =  HeroMover.moveSpeed;
-        else        hero.velocity.x = -HeroMover.moveSpeed;
+        if(toRight){
+            hero.velocity.x =  HeroMover.moveSpeed;
+            hero.anim.SetTrigger("jumprf");
+        }else{
+            hero.velocity.x = -HeroMover.moveSpeed;
+            hero.anim.SetTrigger("jumplf");
+        }
     }
     public void Try2EndMove(){
         hero.velocity.x = 0;
+        hero.anim.SetTrigger(hero.EyeToRight ? "jumpru" : "jumplu");
     }
     public void Start(){
         hero.velocity.y = StateJump.jumpForce;
+
+        if     (hero.velocity.x > 0) hero.anim.SetTrigger("jumprf");
+        else if(hero.velocity.x < 0) hero.anim.SetTrigger("jumplf");
+        else if(hero.EyeToRight)     hero.anim.SetTrigger("jumpru");
+        else                         hero.anim.SetTrigger("jumplu");
     }
     public void Update(){
         hero.velocity.y -= gravity;

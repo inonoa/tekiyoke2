@@ -23,16 +23,25 @@ public class StateFall : IHeroState
         }
     }
     public void Try2StartMove(bool toRight){
-        if(toRight) hero.velocity.x =  HeroMover.moveSpeed;
-        else        hero.velocity.x = -HeroMover.moveSpeed;
+        if(toRight){
+            hero.velocity.x =  HeroMover.moveSpeed;
+            hero.anim.SetTrigger("fallr");
+        }else{
+            hero.velocity.x = -HeroMover.moveSpeed;
+            hero.anim.SetTrigger("falll");
+        }
     }
     public void Try2EndMove(){
         hero.velocity.x = 0;
     }
     public void Start(){
-
+        hero.anim.SetTrigger(hero.EyeToRight ? "fallr" : "falll");
     }
     public void Update(){
         hero.velocity.y -= gravity;
+        if(hero.IsOnGround){
+            if(hero.velocity.x==0) hero.States.Push(new StateWait(hero));
+            else hero.States.Push(new StateRun(hero));
+        }
     }
 }

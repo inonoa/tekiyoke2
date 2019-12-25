@@ -21,12 +21,11 @@ public class GroundChecker : MonoBehaviour
     }
 
     void OnTriggerStay2D(Collider2D other){
-        //(すり抜け床以外)着地したらジャンプ周りの値をリセット
+
         if(other.tag=="Terrain") {
             isOnGround = true;
         }
         
-        //すり抜け床の場合は下向きに落ちてるかどうかを確認
         if(other.tag=="Ultrathin"){
             if(heroMover.velocity.y<=0){
                 isOnGround = true;
@@ -40,13 +39,12 @@ public class GroundChecker : MonoBehaviour
         //すり抜け床の場合だけEnterでも判定してる(Stayは上)がなんで(要検証)
         if(other.tag=="Ultrathin"){
             if(heroMover.velocity.y<=0){
-                isOnGround = true; heroMover.velocity.y = 0;
+                isOnGround = true;
             }
         }
     }
 
     void OnTriggerExit2D(Collider2D other){
-        //接地解除
         if(other.tag=="Terrain" || (other.tag=="Ultrathin" && heroMover.velocity.y>=0)) isOnGround = false;
     }
 }

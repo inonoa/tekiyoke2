@@ -43,7 +43,6 @@ public class HeroMover : MonoBehaviour
     public Animator anim;
     public new Rigidbody2D rigidbody;
     public CameraController cmrCntr;
-    public bool isBendingBack = false;
 
     public GameObject curtain;
 
@@ -93,6 +92,13 @@ public class HeroMover : MonoBehaviour
     public (float x, float y) velocity = (0,0);
     IHeroState lastState;
 
+    GroundChecker groundChecker;
+    SakamichiChecker sakamichiChecker;
+
+    public bool IsOnGround{ get => groundChecker.isOnGround; }
+    public bool IsOnSakamichi{ get => sakamichiChecker.OnSakamichi; }
+    public bool EyeToRight{ get; set; } = true;
+
     ///<summary>指定した値だけ位置をずらす。timeScaleの影響を受けます</summary>
     public void MovePos(float vx, float vy){
         rigidbody.MovePosition(new Vector2(
@@ -120,6 +126,9 @@ public class HeroMover : MonoBehaviour
         dashcntr = GetComponent<DashController>();
         hpcntr.die += ReceiveDeath;
         hpcntr.damaged += BendBack;
+        groundChecker = transform.Find("GroundChecker").GetComponent<GroundChecker>();
+        sakamichiChecker = GetComponent<SakamichiChecker>();
+
         curtain.GetComponent<Curtain4DeathMover>().heroRespawn += Respawn;
 
         HeroDefiner.currentHero = this;
@@ -152,6 +161,8 @@ public class HeroMover : MonoBehaviour
             States.Peek().Update();
 
             MovePos(velocity.x, velocity.y);
+
+            Debug.Log(velocity);
         }
     }
 
@@ -161,16 +172,19 @@ public class HeroMover : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.RightArrow) && lastDirection!=1){
             States.Peek().Try2StartMove(true);
             lastDirection = 1;
+            EyeToRight = true;
 
         }else if(Input.GetKeyDown(KeyCode.LeftArrow) && lastDirection!=-1){
             States.Peek().Try2StartMove(false);
             lastDirection = -1;
+            EyeToRight = false;
 
         }else if(Input.GetKeyUp(KeyCode.RightArrow) && lastDirection==1){
 
             if(Input.GetKey(KeyCode.LeftArrow)){
                 States.Peek().Try2StartMove(false);
                 lastDirection = -1;
+                EyeToRight = false;
 
             }else{
                 States.Peek().Try2EndMove();
@@ -182,6 +196,7 @@ public class HeroMover : MonoBehaviour
             if(Input.GetKey(KeyCode.RightArrow)){
                 States.Peek().Try2StartMove(true);
                 lastDirection = 1;
+                EyeToRight = true;
 
             }else{
                 States.Peek().Try2EndMove();

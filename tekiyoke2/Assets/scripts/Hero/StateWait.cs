@@ -22,7 +22,10 @@ public class StateWait : IHeroState
     }
     public void Try2EndMove(){ }
     public void Start(){
-
+        hero.velocity = (0,0);
+        hero.anim.SetTrigger(hero.EyeToRight ? "standr" : "standl");
     }
-    public void Update(){ }
+    public void Update(){
+        if(!hero.IsOnGround) hero.States.Push(new StateFall(hero));
+    }
 }
