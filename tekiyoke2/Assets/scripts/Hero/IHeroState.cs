@@ -4,6 +4,7 @@ using UnityEngine;
 
 public interface IHeroState
 {
+    void Start(HeroMover hero);
     void Update(HeroMover hero);
     void Try2StartJet(HeroMover hero);
     void Try2EndJet(HeroMover hero);

@@ -16,6 +16,9 @@ public class StateFall : IHeroState
     public void Try2Move(bool toRight, HeroMover hero){
         
     }
+    public void Start(HeroMover hero){
+        
+    }
     public void Update(HeroMover hero){
         
     }
