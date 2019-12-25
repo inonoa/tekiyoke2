@@ -19,6 +19,12 @@ public class SceneTransition : MonoBehaviour
         set{ _State = value; Debug.Log(value); }
     }
 
+    ///<summary>シーンごとにデフォルトのStateを持っておき、そのシーンが初めに呼ばれたらstaticのstateに反映</summary>
+    [SerializeField]
+    SceneTransitState firstState;
+    ///<summary>firstState参照</summary>
+    static bool firstSceneLoaded = false;
+
     ///<summary>様々な遷移がある</summary>
     public enum TransitionType{
         ///<summary>素のLoadScene()が呼ばれる</summary>
@@ -27,7 +33,10 @@ public class SceneTransition : MonoBehaviour
         Normal
     }
 
+    ///<summary>シーンを変えることを試みる、短時間に複数回遷移させるみたいなことにならないようによしなにする</summary>
     public static void Start2ChangeState(string sceneName, TransitionType transitionType){
+        if(SceneTransition.State != SceneTransitState.None) return;
+
         switch(transitionType){
 
             case TransitionType.Default:
@@ -43,9 +52,13 @@ public class SceneTransition : MonoBehaviour
         }
     }
 
+    ///<summary>遷移してきたなら遷移のタイプによって相応のオブジェクトを出す、そうでないならfirstStateを反映</summary>
     void Start(){
-        Debug.Log(SceneTransition.State);
         currentInstance = this;
+        if(!firstSceneLoaded){
+            SceneTransition.State = firstState;
+            firstSceneLoaded = true;
+        }
 
         switch(SceneTransition.State){
             case SceneTransitState.None:
