@@ -43,7 +43,7 @@ public class StateJump : IHeroState
         else                         hero.anim.SetTrigger("jumplu");
     }
     public void Update(){
-        hero.velocity.y -= gravity;
+        hero.velocity.y -= gravity * Time.timeScale;
         if(hero.velocity.y < 0) hero.States.Push(new StateFall(hero, canJump));
     }
 }

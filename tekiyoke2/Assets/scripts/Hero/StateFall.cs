@@ -38,7 +38,7 @@ public class StateFall : IHeroState
         hero.anim.SetTrigger(hero.EyeToRight ? "fallr" : "falll");
     }
     public void Update(){
-        hero.velocity.y -= gravity;
+        hero.velocity.y -= gravity * Time.timeScale;
         if(hero.IsOnGround){
             if(hero.velocity.x==0) hero.States.Push(new StateWait(hero));
             else hero.States.Push(new StateRun(hero));
