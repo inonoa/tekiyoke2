@@ -7,6 +7,20 @@ using System;
 ///<summary>最終的には各機能をまとめる役割と渉外担当みたいな役割とだけを持たせたい</summary>
 public class HeroMover : MonoBehaviour
 {
+    #region デバッグ用
+
+    [SerializeField]
+    bool isInDebug = false;
+    void Log4Debug(){
+        string txt = States.Peek().ToString() + "\n"
+                   + "Velocity: " + velocity.ToString() + "\n"
+                   + "KeyDirection: " + KeyDirection.ToString() + "\n"
+                   + "EyeToRight: " + EyeToRight.ToString();
+        Debug.Log(txt);
+    }
+
+    #endregion
+
     #region 移動関係の(だいたい)定数
     public static float moveSpeed = 20;
 
@@ -22,9 +36,19 @@ public class HeroMover : MonoBehaviour
     public bool IsOnSakamichi{ get => sakamichiChecker.OnSakamichi; }
     public bool IsOnSakamichiR{ get => sakamichiChecker.OnSakamichiR; }
     public bool IsOnSakamichiL{ get => sakamichiChecker.OnSakamichiL; }
+    public bool CanKickFromWallL{ get => wallCheckerL.CanKick; }
+    public bool CanKickFromWallR{ get => wallCheckerR.CanKick; }
+
+    ///<summary>主人公の目はどちらに向いているか(移動方向とは必ずしも一致しない)
+    ///(壁キック中は変則的かも…) (これKeyDirectionといい感じに統合したほうがいいかもな…)
+    ///(velocity, KeyDirection参照)</summary>
     public bool EyeToRight{ get; set; } = true;
+
+    ///<summary>実際に移動している方向(ワープした場合は知らん) (EyeToright, KeyDiretion参照)</summary>
     public (float x, float y) velocity = (0,0);
-    public int Direction{ get; private set; } = 0;
+
+    ///<summary>このフレームで方向キーの押されている方向 (EyeToRight, velocity参照)</summary>
+    public int KeyDirection{ get; private set; } = 0;
 
     ///<summary>指定した値だけ位置をずらす。timeScaleの影響を受けます</summary>
     public void MovePos(float vx, float vy){
@@ -42,41 +66,41 @@ public class HeroMover : MonoBehaviour
     void UpdateMoveDirection(){
 
         //右ボタンを押したとき右に動く
-        if(Input.GetKeyDown(KeyCode.RightArrow) && Direction!=1){
+        if(Input.GetKeyDown(KeyCode.RightArrow) && KeyDirection!=1){
             States.Peek().Try2StartMove(true);
-            Direction = 1;
+            KeyDirection = 1;
             EyeToRight = true;
 
         //左ボタンを押したときに左に動く
-        }else if(Input.GetKeyDown(KeyCode.LeftArrow) && Direction!=-1){
+        }else if(Input.GetKeyDown(KeyCode.LeftArrow) && KeyDirection!=-1){
             States.Peek().Try2StartMove(false);
-            Direction = -1;
+            KeyDirection = -1;
             EyeToRight = false;
 
         //右ボタンを離したときはさっきまで動いていた向きによって挙動が変わる
-        }else if(Input.GetKeyUp(KeyCode.RightArrow) && Direction==1){
+        }else if(Input.GetKeyUp(KeyCode.RightArrow) && KeyDirection==1){
 
             if(Input.GetKey(KeyCode.LeftArrow)){
                 States.Peek().Try2StartMove(false);
-                Direction = -1;
+                KeyDirection = -1;
                 EyeToRight = false;
 
             }else{
                 States.Peek().Try2EndMove();
-                Direction = 0;
+                KeyDirection = 0;
             }
 
         //左ボタンを離したときはさっきまで動いていた向きによって挙動が変わる
-        }else if(Input.GetKeyUp(KeyCode.LeftArrow) && Direction==-1){
+        }else if(Input.GetKeyUp(KeyCode.LeftArrow) && KeyDirection==-1){
 
             if(Input.GetKey(KeyCode.RightArrow)){
                 States.Peek().Try2StartMove(true);
-                Direction = 1;
+                KeyDirection = 1;
                 EyeToRight = true;
 
             }else{
                 States.Peek().Try2EndMove();
-                Direction = 0;
+                KeyDirection = 0;
             }
         }
     }
@@ -95,6 +119,8 @@ public class HeroMover : MonoBehaviour
     public HpCntr hpcntr;
     GroundChecker groundChecker;
     SakamichiChecker sakamichiChecker;
+    WallCheckerL wallCheckerL;
+    WallCheckerR wallCheckerR;
 
 
     public SpriteRenderer spriteRenderer;
@@ -160,6 +186,8 @@ public class HeroMover : MonoBehaviour
         hpcntr           = GetComponent<HpCntr>();
         sakamichiChecker = GetComponent<SakamichiChecker>();
         groundChecker    = transform.Find("GroundChecker").GetComponent<GroundChecker>();
+        wallCheckerL     = transform.Find("WallCheckerL").GetComponent<WallCheckerL>();
+        wallCheckerR     = transform.Find("WallCheckerR").GetComponent<WallCheckerR>();
 
         hpcntr.die     += ReceiveDeath;
         hpcntr.damaged += BendBack;
@@ -202,6 +230,8 @@ public class HeroMover : MonoBehaviour
             States.Peek().Update();
 
             MovePos(velocity.x, velocity.y);
+
+            if(isInDebug) Log4Debug();
         }
     }
 

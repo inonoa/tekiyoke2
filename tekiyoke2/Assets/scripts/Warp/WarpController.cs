@@ -50,8 +50,6 @@ public class WarpController : MonoBehaviour
                     HeroDefiner.currentHero.WarpPos(xPos.x+3,xPos.y);
                     break;
             }
-
-            Debug.Log(colliderStr);
         }
     }
 }

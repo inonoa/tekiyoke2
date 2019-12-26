@@ -18,9 +18,10 @@ public class StateFall : IHeroState
     }
     public void Try2EndJet(){ }
     public void Try2Jump(){
-        if(canJump){
-            hero.States.Push(new StateJump(hero));
-        }
+        if(hero.CanKickFromWallL)      hero.States.Push(new StateKick(hero, true,  canJump));
+        else if(hero.CanKickFromWallR) hero.States.Push(new StateKick(hero, false, canJump));
+
+        else if(canJump) hero.States.Push(new StateJump(hero, false));
     }
     public void Try2StartMove(bool toRight){
         if(toRight){
@@ -40,7 +41,7 @@ public class StateFall : IHeroState
     public void Update(){
         hero.velocity.y -= gravity * Time.timeScale;
         if(hero.IsOnGround){
-            if(hero.velocity.x==0) hero.States.Push(new StateWait(hero));
+            if(hero.KeyDirection==0) hero.States.Push(new StateWait(hero));
             else hero.States.Push(new StateRun(hero));
         }
     }

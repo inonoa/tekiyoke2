@@ -50,7 +50,7 @@ public class StateJet : IHeroState
         Tokitome.SetTime(0.1f);
         hero.CanBeDamaged = false;
 
-        switch(hero.Direction){
+        switch(hero.KeyDirection){
             case 1:
                 jet2Right = true;
                 break;

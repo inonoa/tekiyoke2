@@ -22,7 +22,7 @@ public class StateWait : IHeroState
     }
     public void Try2EndMove(){ }
     public void Start(){
-        if(hero.Direction != 0){
+        if(hero.KeyDirection != 0){
             hero.States.Push(new StateRun(hero));
             return;
         }

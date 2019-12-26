@@ -17,9 +17,10 @@ public class StateJump : IHeroState
     }
     public void Try2EndJet(){ }
     public void Try2Jump(){
-        if(canJump){
-            hero.States.Push(new StateJump(hero, false));
-        }
+        if(hero.CanKickFromWallL)      hero.States.Push(new StateKick(hero, true,  canJump));
+        else if(hero.CanKickFromWallR) hero.States.Push(new StateKick(hero, false, canJump));
+
+        else if(canJump) hero.States.Push(new StateJump(hero, false));
     }
     public void Try2StartMove(bool toRight){
         if(toRight){

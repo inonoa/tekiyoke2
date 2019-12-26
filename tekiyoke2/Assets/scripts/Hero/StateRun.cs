@@ -41,7 +41,7 @@ public class StateRun : IHeroState
 
         //坂を右向きに上っているときは数値上若干加速し、下っているときは下に落とすことで接地し続けさせる
         if(hero.IsOnSakamichiR){
-            if(hero.EyeToRight){
+            if(hero.KeyDirection==1){
                 hero.velocity.x =  HeroMover.moveSpeed * sakamichiSpeedRate;
                 hero.velocity.y = 0;
             }
@@ -52,7 +52,7 @@ public class StateRun : IHeroState
 
         //坂を左向きに上っているときは数値上若干加速し、下っているときは下に落とすことで接地し続けさせる
         }else if(hero.IsOnSakamichiL){
-            if(!hero.EyeToRight){
+            if(!(hero.KeyDirection==1)){
                 hero.velocity.x = -HeroMover.moveSpeed * sakamichiSpeedRate;
                 hero.velocity.y = 0;
             }else{
@@ -62,7 +62,7 @@ public class StateRun : IHeroState
 
         //そうでなければまあ良しなに
         }else{
-            if(hero.EyeToRight) hero.velocity.x = HeroMover.moveSpeed;
+            if(hero.KeyDirection==1) hero.velocity.x = HeroMover.moveSpeed;
             else hero.velocity.x = -HeroMover.moveSpeed;
             hero.velocity.y = 0;
         }
