@@ -37,9 +37,8 @@ public class StateJet : IHeroState
                 jetVelocities[i] = fullDist * ( EasingFunc((i+1)/(float)jetFramesMax) - EasingFunc(i/(float)jetFramesMax) );
 
             //ちょっと待って…
-            // jetSlider.gameObject.SetActive(false);
             // phantom.SetActive(false);
-            // cmr.Dash();
+            hero.cmrCntr.Dash(); //今は何も起こってなさそう
         }
     }
     public void Try2Jump(){ }
@@ -62,6 +61,8 @@ public class StateJet : IHeroState
                 jet2Right = hero.EyeToRight;
                 break;
         }
+
+        hero.cmrCntr.StartZoomForDash(jet2Right);
     }
     public void Update(){
         switch(state){
@@ -96,5 +97,6 @@ public class StateJet : IHeroState
     public void Exit(){
         hero.CanBeDamaged = true;
         hero.spriteRenderer.color = new Color(1,1,1,1);
+        hero.cmrCntr.EndDash();
     }
 }
