@@ -101,12 +101,11 @@ public class DashController : MonoBehaviour
 
     ///<summary>0~1 -> 0~1</summary>
     public float IikanjinoKansuu(float t_T){
-        //return (1-(float)Math.Cos(Math.PI*t_T))/2;
-        if(t_T<0.2f){
+        
+        if(t_T<0.2f)
             return 4 * t_T;
-        }else{
+        else
             return 0.8f + 0.25f * (t_T - 0.2f);
-        }
     }
 
     // Start is called before the first frame update

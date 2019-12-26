@@ -14,7 +14,7 @@ public class StateFall : IHeroState
         this.canJump = canJump;
     }
     public void Try2StartJet(){
-        //いまのところパス
+        hero.States.Push(new StateJet(hero));
     }
     public void Try2EndJet(){ }
     public void Try2Jump(){
@@ -44,4 +44,6 @@ public class StateFall : IHeroState
             else hero.States.Push(new StateRun(hero));
         }
     }
+
+    public void Exit(){ }
 }

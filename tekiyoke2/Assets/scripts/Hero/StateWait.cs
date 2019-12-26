@@ -9,7 +9,7 @@ public class StateWait : IHeroState
         this.hero = hero;
     }
     public void Try2StartJet(){
-        //今のところパス
+        hero.States.Push(new StateJet(hero));
     }
     public void Try2EndJet(){ }
     public void Try2Jump(){
@@ -22,10 +22,17 @@ public class StateWait : IHeroState
     }
     public void Try2EndMove(){ }
     public void Start(){
+        if(hero.Direction != 0){
+            hero.States.Push(new StateRun(hero));
+            return;
+        }
+
         hero.velocity = (0,0);
         hero.anim.SetTrigger(hero.EyeToRight ? "standr" : "standl");
     }
     public void Update(){
         if(!hero.IsOnGround) hero.States.Push(new StateFall(hero));
     }
+
+    public void Exit(){ }
 }

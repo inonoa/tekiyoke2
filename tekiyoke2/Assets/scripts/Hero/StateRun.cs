@@ -10,7 +10,7 @@ public class StateRun : IHeroState
         this.hero = hero;
     }
     public void Try2StartJet(){
-        //今のところパス
+        hero.States.Push(new StateJet(hero));
     }
     public void Try2EndJet(){ }
     public void Try2Jump(){
@@ -67,4 +67,6 @@ public class StateRun : IHeroState
             hero.velocity.y = 0;
         }
     }
+
+    public void Exit(){ }
 }

@@ -2,49 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+///<summary>これの参照を直接持っていいのはHeroMoverだけです</summary>
 public class GroundChecker : MonoBehaviour
 {
-    public bool isOnGround = true;
-    public PolygonCollider2D pol;
-    public HeroMover heroMover;
-    // Start is called before the first frame update
-    void Start()
-    {
-        pol = GetComponent<PolygonCollider2D>();
-        heroMover = transform.parent.GetComponent<HeroMover>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    void OnTriggerStay2D(Collider2D other){
-
-        if(other.tag=="Terrain") {
-            isOnGround = true;
-        }
-        
-        if(other.tag=="Ultrathin"){
-            if(heroMover.velocity.y<=0){
-                isOnGround = true;
-            }
-        }
-        
-    }
+    public bool IsOnGround = true;
 
 
-    void OnTriggerEnter2D(Collider2D other){
-        //すり抜け床の場合だけEnterでも判定してる(Stayは上)がなんで(要検証)
-        if(other.tag=="Ultrathin"){
-            if(heroMover.velocity.y<=0){
-                isOnGround = true;
-            }
-        }
-    }
-
-    void OnTriggerExit2D(Collider2D other){
-        if(other.tag=="Terrain" || (other.tag=="Ultrathin" && heroMover.velocity.y>=0)) isOnGround = false;
-    }
+    [SerializeField]
+    ContactFilter2D filter;
+    [SerializeField]
+    new PolygonCollider2D collider;
+    void Start() => collider = GetComponent<PolygonCollider2D>();
+    void Update() => IsOnGround = collider.IsTouching(filter);
 }

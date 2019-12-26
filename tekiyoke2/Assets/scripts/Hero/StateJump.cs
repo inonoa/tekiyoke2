@@ -13,7 +13,7 @@ public class StateJump : IHeroState
         this.canJump = canJump;
     }
     public void Try2StartJet(){
-        //今のところパス
+        hero.States.Push(new StateJet(hero));
     }
     public void Try2EndJet(){ }
     public void Try2Jump(){
@@ -36,6 +36,7 @@ public class StateJump : IHeroState
     }
     public void Start(){
         hero.velocity.y = StateJump.jumpForce;
+        hero.Jumped();
 
         if     (hero.velocity.x > 0) hero.anim.SetTrigger("jumprf");
         else if(hero.velocity.x < 0) hero.anim.SetTrigger("jumplf");
@@ -46,4 +47,6 @@ public class StateJump : IHeroState
         hero.velocity.y -= gravity * Time.timeScale;
         if(hero.velocity.y < 0) hero.States.Push(new StateFall(hero, canJump));
     }
+
+    public void Exit(){ }
 }

@@ -18,13 +18,13 @@ public class HeroMover : MonoBehaviour
     public bool IsFrozen { get; set; } = false;
     ///<summary>操作を受け付けるかどうか。空中でfalseになってても落ちはする</summary>
     public bool CanMove { get; set; } = true;
-    public bool IsOnGround{ get => groundChecker.isOnGround; }
+    public bool IsOnGround{ get => groundChecker.IsOnGround; }
     public bool IsOnSakamichi{ get => sakamichiChecker.OnSakamichi; }
     public bool IsOnSakamichiR{ get => sakamichiChecker.OnSakamichiR; }
     public bool IsOnSakamichiL{ get => sakamichiChecker.OnSakamichiL; }
     public bool EyeToRight{ get; set; } = true;
     public (float x, float y) velocity = (0,0);
-    int lastDirection = 0;
+    public int Direction{ get; private set; } = 0;
 
     ///<summary>指定した値だけ位置をずらす。timeScaleの影響を受けます</summary>
     public void MovePos(float vx, float vy){
@@ -42,45 +42,46 @@ public class HeroMover : MonoBehaviour
     void UpdateMoveDirection(){
 
         //右ボタンを押したとき右に動く
-        if(Input.GetKeyDown(KeyCode.RightArrow) && lastDirection!=1){
+        if(Input.GetKeyDown(KeyCode.RightArrow) && Direction!=1){
             States.Peek().Try2StartMove(true);
-            lastDirection = 1;
+            Direction = 1;
             EyeToRight = true;
 
         //左ボタンを押したときに左に動く
-        }else if(Input.GetKeyDown(KeyCode.LeftArrow) && lastDirection!=-1){
+        }else if(Input.GetKeyDown(KeyCode.LeftArrow) && Direction!=-1){
             States.Peek().Try2StartMove(false);
-            lastDirection = -1;
+            Direction = -1;
             EyeToRight = false;
 
         //右ボタンを離したときはさっきまで動いていた向きによって挙動が変わる
-        }else if(Input.GetKeyUp(KeyCode.RightArrow) && lastDirection==1){
+        }else if(Input.GetKeyUp(KeyCode.RightArrow) && Direction==1){
 
             if(Input.GetKey(KeyCode.LeftArrow)){
                 States.Peek().Try2StartMove(false);
-                lastDirection = -1;
+                Direction = -1;
                 EyeToRight = false;
 
             }else{
                 States.Peek().Try2EndMove();
-                lastDirection = 0;
+                Direction = 0;
             }
 
         //左ボタンを離したときはさっきまで動いていた向きによって挙動が変わる
-        }else if(Input.GetKeyUp(KeyCode.LeftArrow) && lastDirection==-1){
+        }else if(Input.GetKeyUp(KeyCode.LeftArrow) && Direction==-1){
 
             if(Input.GetKey(KeyCode.RightArrow)){
                 States.Peek().Try2StartMove(true);
-                lastDirection = 1;
+                Direction = 1;
                 EyeToRight = true;
 
             }else{
                 States.Peek().Try2EndMove();
-                lastDirection = 0;
+                Direction = 0;
             }
         }
     }
     public event EventHandler jumped;
+    public void Jumped() => jumped?.Invoke(this, EventArgs.Empty);
 
     #endregion
 
@@ -110,19 +111,24 @@ public class HeroMover : MonoBehaviour
         get{return hpcntr.HP;}
         set{hpcntr.HP = value;}
     }
+
+    ///<summary>falseだと無敵になる</summary>
+    public bool CanBeDamaged{ get; set; } = true;
     
     ///<summary>敵からのダメージ等。ノックバックなどが入る予定(あれ？)</summary>
     ///<param name="damage">与えるダメージを書く。1を指定すると100->99,1->0になったりします</param>
     public void Damage(int damage){
-        HP = HP - damage;
-        cmrCntr.Reset();
+        if(CanBeDamaged){
+            HP = HP - damage;
+            cmrCntr.Reset();
+        }
     }
     public void BendBack(object sender, EventArgs e){
         
     }
 
     ///<summary>リスポーン</summary>
-    public void Die(){
+    void Die(){
         if(curtain.GetComponent<Curtain4DeathMover>().state!=Curtain4DeathMover.CState.Dying){
             curtain.SetActive(true);
             curtain.GetComponent<Curtain4DeathMover>().state = Curtain4DeathMover.CState.Dying;
@@ -131,9 +137,9 @@ public class HeroMover : MonoBehaviour
     }
 
     ///<summary>HPCntrからの死亡イベントをこう良い感じに…</summary>
-    public void ReceiveDeath(object sender, EventArgs e) => Die();
+    void ReceiveDeath(object sender, EventArgs e) => Die();
 
-    public void Respawn(object sender, EventArgs e){
+    void Respawn(object sender, EventArgs e){
         transform.position = new Vector3(0,-200);
         hpcntr.FullRecover();
     }
@@ -188,6 +194,7 @@ public class HeroMover : MonoBehaviour
             }
 
             if(States.Peek() != lastState){
+                lastState.Exit();
                 States.Peek().Start();
                 lastState = States.Peek();
             }

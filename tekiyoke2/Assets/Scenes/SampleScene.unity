@@ -365,7 +365,7 @@ GameObject:
   - component: {fileID: 93297984}
   - component: {fileID: 93297983}
   - component: {fileID: 93297982}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: kieruyuka (2)
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -1238,9 +1238,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed9bec20f0e767a4d83df72a978dace2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isOnGround: 1
-  pol: {fileID: 0}
-  heroMover: {fileID: 0}
+  IsOnGround: 1
+  filter:
+    useTriggers: 1
+    useLayerMask: 1
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 1024
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
+  collider: {fileID: 0}
 --- !u!60 &388033669
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1280,7 +1293,7 @@ GameObject:
   - component: {fileID: 442064607}
   - component: {fileID: 442064609}
   - component: {fileID: 442064608}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RigidBodyDayo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1417,7 +1430,7 @@ GameObject:
   - component: {fileID: 478851002}
   - component: {fileID: 478851001}
   - component: {fileID: 478851000}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: kieruyuka (3)
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -2138,7 +2151,7 @@ GameObject:
   - component: {fileID: 785746414}
   - component: {fileID: 785746418}
   - component: {fileID: 785746416}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: kieruyuka
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -3715,7 +3728,7 @@ GameObject:
   - component: {fileID: 891652855}
   - component: {fileID: 891652857}
   - component: {fileID: 891652856}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RigidBodyDayo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4284,13 +4297,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7367abbafe31e1d46af2c3c11de1351b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cmrCntr: {fileID: 519420030}
+  hpcntr: {fileID: 0}
   spriteRenderer: {fileID: 0}
   anim: {fileID: 0}
   rigidbody: {fileID: 0}
-  cmrCntr: {fileID: 519420030}
   curtain: {fileID: 1397289767}
-  hpcntr: {fileID: 0}
-  dashcntr: {fileID: 0}
 --- !u!212 &1034792848
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4575,7 +4587,7 @@ GameObject:
   - component: {fileID: 1176101909}
   - component: {fileID: 1176101911}
   - component: {fileID: 1176101910}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RigidBodyDayo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6271,7 +6283,7 @@ GameObject:
   - component: {fileID: 1643585436}
   - component: {fileID: 1643585438}
   - component: {fileID: 1643585437}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RigidBodyDayo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6963,7 +6975,7 @@ GameObject:
   - component: {fileID: 2014368324}
   - component: {fileID: 2014368323}
   - component: {fileID: 2014368322}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: kieruyuka (1)
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -7081,7 +7093,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2069377520}
   - component: {fileID: 2069377519}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: KieruYukaConroller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
