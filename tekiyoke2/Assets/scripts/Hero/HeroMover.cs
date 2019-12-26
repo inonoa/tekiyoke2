@@ -202,6 +202,8 @@ public class HeroMover : MonoBehaviour
             States.Peek().Update();
 
             MovePos(velocity.x, velocity.y);
+
+            Debug.Log(velocity);
         }
     }
 

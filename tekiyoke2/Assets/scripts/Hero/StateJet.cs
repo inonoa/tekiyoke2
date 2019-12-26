@@ -25,6 +25,9 @@ public class StateJet : IHeroState
     public void Try2EndJet(){
         if(state==State.Ready){
             state = State.Jetting;
+            hero.anim.SetTrigger(jet2Right ? "runr" : "runl");
+            Tokitome.SetTime(1);
+            hero.spriteRenderer.color = new Color(1,1,1,0.3f);
 
             //Jetする距離を計算
             int fullDist = (int)(MyMath.FloorAndCeil(10,tameFrames,30) * 25);
@@ -32,8 +35,6 @@ public class StateJet : IHeroState
             jetVelocities = new float[jetFramesMax];
             for(int i=0;i<jetFramesMax;i++)
                 jetVelocities[i] = fullDist * ( EasingFunc((i+1)/(float)jetFramesMax) - EasingFunc(i/(float)jetFramesMax) );
-            
-            Tokitome.SetTime(1);
 
             //ちょっと待って…
             // jetSlider.gameObject.SetActive(false);
@@ -68,7 +69,7 @@ public class StateJet : IHeroState
             case State.Ready:
                 //ためすぎるとエンスト？してダメージ受けるとかしたいね
                 tameFrames ++;
-                hero.velocity.y -= gravity;
+                if(!hero.IsOnGround) hero.velocity.y -= gravity;
                 break;
 
             case State.Jetting:
@@ -92,5 +93,8 @@ public class StateJet : IHeroState
             return 0.8f + 0.25f * (zero2one - 0.2f);
     }
 
-    public void Exit() => hero.CanBeDamaged = true;
+    public void Exit(){
+        hero.CanBeDamaged = true;
+        hero.spriteRenderer.color = new Color(1,1,1,1);
+    }
 }
