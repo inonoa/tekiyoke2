@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-///<summary>これの参照を直接持っていいのはHeroMoverだけです</summary>
 public class GroundChecker : MonoBehaviour
 {
     public int FramesSinceTakeOff{ get; private set; } = 0;
@@ -10,7 +9,7 @@ public class GroundChecker : MonoBehaviour
 
 
     [SerializeField]
-    ContactFilter2D filter;
+    ContactFilter2D filter = new ContactFilter2D();
     [SerializeField]
     new PolygonCollider2D collider;
     void Start() => collider = GetComponent<PolygonCollider2D>();

@@ -8,9 +8,9 @@ public class SceneTransition : MonoBehaviour
     static SceneTransition currentInstance;
 
     [SerializeField]
-    GameObject curtain4SceneEnd;
+    GameObject curtain4SceneEnd = null;
     [SerializeField]
-    GameObject curtain4SceneStart;
+    GameObject curtain4SceneStart = null;
 
     enum SceneTransitState{ None, Default, Normal }
     static SceneTransitState _State = SceneTransitState.Normal;
@@ -21,7 +21,7 @@ public class SceneTransition : MonoBehaviour
 
     ///<summary>シーンごとにデフォルトのStateを持っておき、そのシーンが初めに呼ばれたらstaticのstateに反映</summary>
     [SerializeField]
-    SceneTransitState firstState;
+    SceneTransitState firstState = SceneTransitState.None;
     ///<summary>firstState参照</summary>
     static bool firstSceneLoaded = false;
 

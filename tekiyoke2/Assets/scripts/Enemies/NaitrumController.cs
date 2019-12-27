@@ -7,7 +7,7 @@ using System;
 public class NaitrumController : EnemyController
 {
     private int direction = -1;
-    public NaitrumCollider col;
+    public EnemyCollider2Wall col;
 
     private void Turn(object sender, EventArgs e) => direction *= -1;
 
@@ -15,8 +15,8 @@ public class NaitrumController : EnemyController
     new void Start()
     {
         base.Start();
-        col = GetComponent<NaitrumCollider>();
-        col.turn += Turn;
+        col = GetComponent<EnemyCollider2Wall>();
+        col.touched2Wall += Turn;
     }
 
     // Update is called once per frame

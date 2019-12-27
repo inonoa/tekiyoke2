@@ -108,7 +108,8 @@ public class HeroMover : MonoBehaviour
         }
     }
     public event EventHandler jumped;
-    public void Jumped() => jumped?.Invoke(this, EventArgs.Empty);
+    public void Jumped(bool isFromGround ,bool isKick)
+        => jumped?.Invoke(this, new HeroJumpedEventArgs(isFromGround, isKick));
 
     #endregion
 
