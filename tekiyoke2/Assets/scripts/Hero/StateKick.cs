@@ -17,6 +17,8 @@ public class StateKick : IHeroState
         this.canJump = canJump;
     }
     public void Start(){
+        hero.Jumped(false, true);
+
         if(hero.velocity.y > 0) hero.anim.SetTrigger(toRight ? "jumprf" : "jumplf");
         else                    hero.anim.SetTrigger(toRight ? "fallr"  : "falll");
 

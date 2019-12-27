@@ -17,6 +17,8 @@ public class GierController : EnemyController
 
     [SerializeField]
     float distanceToFindHero = 200;
+    [SerializeField]
+    float distanceToMissHero = 500;
 
     [SerializeField]
     float framesBeforeRun = 60;
@@ -47,7 +49,7 @@ public class GierController : EnemyController
         switch(state){
 
             case GierState.BeforeFindingR:
-                //なんでColliderつけてないんだこれ…
+                //なんでColliderつけてないんだこれ… -> 判定の広さ調整が若干楽になるとかか(融通は利かないけど…)
                 if( MyMath.DistanceXY(HeroDefiner.CurrentHeroPos,transform.position) < distanceToFindHero ){
                     state = GierState.FindingNow;
                 }
@@ -72,11 +74,17 @@ public class GierController : EnemyController
             case GierState.Running:
                 if(HeroDefiner.CurrentHeroPos.x > transform.position.x + 10) MoveX_ConsideringGravity( runSpeed);
                 if(HeroDefiner.CurrentHeroPos.x < transform.position.x - 10) MoveX_ConsideringGravity(-runSpeed);
+
+                if( MyMath.DistanceXY(HeroDefiner.CurrentHeroPos,transform.position) > distanceToMissHero ){
+                    if(rBody.velocity.x > 0) state = GierState.BeforeFindingR;
+                    else                     state = GierState.BeforeFindingL;
+                }
                 break;
         }
     }
 
     void HeroJumped(object sender, EventArgs e){
+        if(((HeroJumpedEventArgs)e).isKick) return;
         if(groundChecker.IsOnGround && state == GierState.Running) rBody.velocity = new Vector2(rBody.velocity.x, jumpForce);
     }
 

@@ -36,7 +36,7 @@ public class StateJump : IHeroState
     }
     public void Start(){
         hero.velocity.y = StateJump.jumpForce;
-        hero.Jumped();
+        hero.Jumped(canJump, false);
 
         if     (hero.velocity.x > 0) hero.anim.SetTrigger("jumprf");
         else if(hero.velocity.x < 0) hero.anim.SetTrigger("jumplf");

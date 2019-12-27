@@ -16670,6 +16670,7 @@ MonoBehaviour:
   walkSpeed: 100
   runSpeed: 400
   distanceToFindHero: 200
+  distanceToMissHero: 1000
   framesBeforeRun: 40
   jumpForce: 1000
   filter:
