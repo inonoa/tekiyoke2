@@ -4,15 +4,51 @@ using UnityEngine;
 
 public class KennerController : EnemyController
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    enum State{ Wait, Jump, Shoot, Rest }
+    State state = State.Wait;
+
+    [SerializeField]
+    int restFrames = 100;
+    int restFramesNow = 0;
+
+    [SerializeField]
+    float distanceToFindHero = 200;
+    [SerializeField]
+    float jumpForce = 400;
 
     // Update is called once per frame
-    void Update()
+    new void Update()
     {
-        
+        switch(state){
+
+            case State.Wait:
+                if(MyMath.DistanceXY(transform.position, HeroDefiner.CurrentHeroPos) < distanceToFindHero){
+                    rBody.velocity = new Vector2(0,jumpForce);
+                    state = State.Jump;
+                }
+                break;
+            
+            case State.Jump:
+                if(rBody.velocity.y < 0) state = State.Shoot;
+                break;
+            
+            case State.Shoot:
+                //todo
+                state = State.Rest;
+                break;
+            
+            case State.Rest:
+                restFramesNow ++;
+
+                if(restFramesNow==restFrames){
+                    restFramesNow = 0;
+                    if(MyMath.DistanceXY(transform.position, HeroDefiner.CurrentHeroPos) < distanceToFindHero){
+                        rBody.velocity = new Vector2(0,jumpForce);
+                        state = State.Jump;
+                    }
+                    else state = State.Wait;
+                }
+                break;
+        }
     }
 }
