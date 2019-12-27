@@ -365,7 +365,7 @@ GameObject:
   - component: {fileID: 93297984}
   - component: {fileID: 93297983}
   - component: {fileID: 93297982}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: kieruyuka (2)
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -1238,8 +1238,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed9bec20f0e767a4d83df72a978dace2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pol: {fileID: 0}
-  heroMover: {fileID: 0}
+  IsOnGround: 1
+  filter:
+    useTriggers: 1
+    useLayerMask: 1
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 1024
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
+  collider: {fileID: 0}
 --- !u!60 &388033669
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1279,7 +1293,7 @@ GameObject:
   - component: {fileID: 442064607}
   - component: {fileID: 442064609}
   - component: {fileID: 442064608}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RigidBodyDayo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1416,7 +1430,7 @@ GameObject:
   - component: {fileID: 478851002}
   - component: {fileID: 478851001}
   - component: {fileID: 478851000}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: kieruyuka (3)
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -2137,7 +2151,7 @@ GameObject:
   - component: {fileID: 785746414}
   - component: {fileID: 785746418}
   - component: {fileID: 785746416}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: kieruyuka
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -3714,7 +3728,7 @@ GameObject:
   - component: {fileID: 891652855}
   - component: {fileID: 891652857}
   - component: {fileID: 891652856}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RigidBodyDayo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4263,6 +4277,7 @@ GameObject:
   - component: {fileID: 1034792847}
   - component: {fileID: 1034792853}
   - component: {fileID: 1034792854}
+  - component: {fileID: 1034792851}
   m_Layer: 8
   m_Name: Hero
   m_TagString: Player
@@ -4282,17 +4297,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7367abbafe31e1d46af2c3c11de1351b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedY: 0
+  isInDebug: 0
+  cmrCntr: {fileID: 519420030}
+  hpcntr: {fileID: 0}
   spriteRenderer: {fileID: 0}
-  _JumpCount: 1
-  isOnGround: 1
   anim: {fileID: 0}
   rigidbody: {fileID: 0}
-  cmrCntr: {fileID: 519420030}
-  isBendingBack: 0
   curtain: {fileID: 1397289767}
-  hpcntr: {fileID: 0}
-  dashcntr: {fileID: 0}
 --- !u!212 &1034792848
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4349,7 +4360,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1034792846}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6438, y: 515, z: -1}
+  m_LocalPosition: {x: 0, y: -200, z: -1}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 388033667}
@@ -4382,6 +4393,47 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1034792851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034792846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db11973342917a648bb901cc9c91ada0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  filterR:
+    useTriggers: 0
+    useLayerMask: 1
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 1
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 1024
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 100
+    maxNormalAngle: 170
+  filterL:
+    useTriggers: 0
+    useLayerMask: 1
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 1
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 1024
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 10
+    maxNormalAngle: 80
+  collider: {fileID: 1394615829}
 --- !u!50 &1034792852
 Rigidbody2D:
   serializedVersion: 4
@@ -4398,7 +4450,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 6a8dea704b8665742911f386d932fbba, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -4536,7 +4588,7 @@ GameObject:
   - component: {fileID: 1176101909}
   - component: {fileID: 1176101911}
   - component: {fileID: 1176101910}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RigidBodyDayo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5978,7 +6030,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 189d8d868ad39564592fe03b8fd4b498, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canJump: 0
+  filter:
+    useTriggers: 1
+    useLayerMask: 1
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 1024
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
 --- !u!61 &1561660269
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6232,7 +6297,7 @@ GameObject:
   - component: {fileID: 1643585436}
   - component: {fileID: 1643585438}
   - component: {fileID: 1643585437}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RigidBodyDayo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6529,7 +6594,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bd09c1de9b9aa1439cdb6fbe3bf0f3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canJump: 0
+  filter:
+    useTriggers: 1
+    useLayerMask: 1
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 1024
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
 --- !u!61 &1816692369
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6924,7 +7002,7 @@ GameObject:
   - component: {fileID: 2014368324}
   - component: {fileID: 2014368323}
   - component: {fileID: 2014368322}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: kieruyuka (1)
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -7042,7 +7120,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2069377520}
   - component: {fileID: 2069377519}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: KieruYukaConroller
   m_TagString: Untagged
   m_Icon: {fileID: 0}

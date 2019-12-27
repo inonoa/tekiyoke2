@@ -19,7 +19,7 @@ public class NearToEnemyChecker : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D other){
-        if(other.gameObject.tag=="Enemy" && hero.dashcntr.State!=DashController.DState.Dashing){
+        if(other.gameObject.tag=="Enemy"){
             Tokitome.SetTime(0.1f);
         }
     }

@@ -16,7 +16,7 @@ public class SceneTransition : MonoBehaviour
     static SceneTransitState _State = SceneTransitState.Normal;
     static SceneTransitState State{
         get{ return _State; }
-        set{ _State = value; Debug.Log(value); }
+        set{ _State = value; }
     }
 
     ///<summary>シーンごとにデフォルトのStateを持っておき、そのシーンが初めに呼ばれたらstaticのstateに反映</summary>

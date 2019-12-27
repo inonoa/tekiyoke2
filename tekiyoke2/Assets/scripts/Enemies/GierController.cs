@@ -63,7 +63,6 @@ public class GierController : EnemyController
     }
 
     void HeroJumped(object sender, EventArgs e){
-        Debug.Log("主人公が飛んだ！");
         if(groundChecker.IsOnGround && state == GierState.Running) rBody.velocity = new Vector2(rBody.velocity.x, jumpForce);
     }
 }

@@ -5,10 +5,14 @@ using System;
 
 public class WarpController : MonoBehaviour
 {
+
     (float x, float y) xPos;
     (float x, float y) yPos;
 
     new public CameraController camera;
+
+    static readonly int coolTime = 3;
+    int coolTimeNow = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -23,29 +27,29 @@ public class WarpController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(coolTimeNow > 0) coolTimeNow --;
     }
 
     void Warp(object msgObj, EventArgs e){
-        camera.Freeze();
+        if(coolTimeNow==0){
+            coolTimeNow = coolTime;
+            camera.Freeze();
 
-        string colliderStr = msgObj.ToString();
-
-        switch(colliderStr){
-            case "XL":
-                HeroDefiner.currentHero.WarpPos(yPos.x-3,yPos.y);
-                break;
-            case "XR":
-                HeroDefiner.currentHero.WarpPos(yPos.x+3,yPos.y);
-                break;
-            case "YL":
-                HeroDefiner.currentHero.WarpPos(xPos.x-3,xPos.y);
-                break;
-            case "YR":
-                HeroDefiner.currentHero.WarpPos(xPos.x+3,xPos.y);
-                break;
-            default:
-                break;
+            string colliderStr = msgObj.ToString();
+            switch(colliderStr){
+                case "XL":
+                    HeroDefiner.currentHero.WarpPos(yPos.x-3,yPos.y);
+                    break;
+                case "XR":
+                    HeroDefiner.currentHero.WarpPos(yPos.x+3,yPos.y);
+                    break;
+                case "YL":
+                    HeroDefiner.currentHero.WarpPos(xPos.x-3,xPos.y);
+                    break;
+                case "YR":
+                    HeroDefiner.currentHero.WarpPos(xPos.x+3,xPos.y);
+                    break;
+            }
         }
     }
 }
