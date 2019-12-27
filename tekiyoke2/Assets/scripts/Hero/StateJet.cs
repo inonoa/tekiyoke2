@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class StateJet : IHeroState
 {
+    static readonly float timeScaleBeforeJet = 0.2f;
 
     HeroMover hero;
 
@@ -46,7 +47,7 @@ public class StateJet : IHeroState
     }
     public void Try2EndMove(){ }
     public void Start(){
-        Tokitome.SetTime(0.1f);
+        Tokitome.SetTime(timeScaleBeforeJet);
         hero.CanBeDamaged = false;
 
         switch(hero.KeyDirection){

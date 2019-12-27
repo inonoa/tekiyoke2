@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WallCheckerL : MonoBehaviour
+public class WallCheckerR : MonoBehaviour
 {
 
     public bool CanKick { get; private set; } = false;
 
     [SerializeField]
-    private ContactFilter2D filter;
+    private ContactFilter2D filter = new ContactFilter2D();
     private BoxCollider2D col;
 
     // Start is called before the first frame update

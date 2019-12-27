@@ -14,11 +14,12 @@ public class SakamichiChecker : MonoBehaviour
     bool _OnSakamichiL = false;
 
     [SerializeField]
-    ContactFilter2D filterR;
+    ContactFilter2D filterR = new ContactFilter2D();
+
     [SerializeField]
-    ContactFilter2D filterL;
+    ContactFilter2D filterL = new ContactFilter2D();
     [SerializeField]
-    new PolygonCollider2D collider;
+    new PolygonCollider2D collider = null;
     void Update(){
         _OnSakamichiL = collider.IsTouching(filterL);
         _OnSakamichiR = collider.IsTouching(filterR);

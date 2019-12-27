@@ -5,7 +5,6 @@ using System;
 
 public class GierController : EnemyController
 {
-    //あとでクラス化するか…？
     enum GierState{ BeforeFinding, FindingNow, Running }
     GierState state = GierState.BeforeFinding;
     int findingCount = 0;
@@ -21,7 +20,7 @@ public class GierController : EnemyController
     [SerializeField]
     float jumpForce = 500;
 
-    GierGroundChecker groundChecker;
+    GroundChecker groundChecker;
 
     [SerializeField]
     ContactFilter2D filter;
@@ -31,7 +30,7 @@ public class GierController : EnemyController
     {
         base.Start();
         HeroDefiner.currentHero.jumped += HeroJumped;
-        groundChecker = transform.Find("GroundChecker").GetComponent<GierGroundChecker>();
+        groundChecker = transform.Find("GroundChecker").GetComponent<GroundChecker>();
     }
 
     // Update is called once per frame
