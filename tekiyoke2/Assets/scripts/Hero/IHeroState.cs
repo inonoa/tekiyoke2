@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-///<summary>「ジャンプ中」などの主人公の状態はこのインターフェースを実装したクラスの形で記述します。それはそうとメソッド作りすぎたかもな…</summary>
+///<summary>「ジャンプ中」などの主人公の状態はこのインターフェースを実装したクラスの形で記述します
+///それはそうとメソッド作りすぎたかもな… / OnLand() みたいなのあってもいいかもな…</summary>
 public interface IHeroState
 {
     void Start();

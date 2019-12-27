@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class StateJet : IHeroState
 {
-    static float gravity = 2.5f;
 
     HeroMover hero;
 
@@ -70,7 +69,7 @@ public class StateJet : IHeroState
             case State.Ready:
                 //ためすぎるとエンスト？してダメージ受けるとかしたいね
                 tameFrames ++;
-                if(!hero.IsOnGround) hero.velocity.y -= gravity;
+                if(!hero.IsOnGround) hero.velocity.y -= HeroMover.gravity;
                 break;
 
             case State.Jetting:

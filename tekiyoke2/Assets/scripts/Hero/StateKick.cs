@@ -5,7 +5,6 @@ using UnityEngine;
 public class StateKick : IHeroState
 {
     static readonly float kickForceY = 40;
-    static readonly float gravity = 2.5f;
     static readonly float moveForce = 0.5f;
     static readonly int frames2BeFree = 20;
     int frames2BeFreeNow = frames2BeFree;
@@ -31,7 +30,7 @@ public class StateKick : IHeroState
             return;
         }
 
-        hero.velocity.y -= gravity * Time.timeScale;
+        hero.velocity.y -= HeroMover.gravity * Time.timeScale;
         if(hero.velocity.y < 0){
             if(frames2BeFreeNow > 0) hero.anim.SetTrigger(toRight         ? "fallr" : "falll");
             else                     hero.anim.SetTrigger(hero.EyeToRight ? "fallr" : "falll");
@@ -65,7 +64,7 @@ public class StateKick : IHeroState
     public void Try2EndJet(){ }
     public void Try2Jump(){
         if(frames2BeFreeNow == 0){
-            
+
             if(hero.CanKickFromWallL)      hero.States.Push(new StateKick(hero, true,  canJump));
             else if(hero.CanKickFromWallR) hero.States.Push(new StateKick(hero, false, canJump));
 

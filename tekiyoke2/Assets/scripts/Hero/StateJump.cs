@@ -5,7 +5,6 @@ using UnityEngine;
 public class StateJump : IHeroState
 {
     static readonly float jumpForce = 40;
-    static readonly float gravity = 2.5f;
     HeroMover hero;
     readonly bool canJump;
     public StateJump(HeroMover hero, bool canJump = true){
@@ -45,7 +44,7 @@ public class StateJump : IHeroState
         else                         hero.anim.SetTrigger("jumplu");
     }
     public void Update(){
-        hero.velocity.y -= gravity * Time.timeScale;
+        hero.velocity.y -= HeroMover.gravity * Time.timeScale;
         if(hero.velocity.y < 0) hero.States.Push(new StateFall(hero, canJump));
     }
 

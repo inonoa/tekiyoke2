@@ -15,7 +15,8 @@ public class HeroMover : MonoBehaviour
         string txt = States.Peek().ToString() + "\n"
                    + "Velocity: " + velocity.ToString() + "\n"
                    + "KeyDirection: " + KeyDirection.ToString() + "\n"
-                   + "EyeToRight: " + EyeToRight.ToString();
+                   + "EyeToRight: " + EyeToRight.ToString() + "\n"
+                   + "IsOnGround: " + IsOnGround.ToString() + "\n";
         Debug.Log(txt);
     }
 
@@ -23,6 +24,7 @@ public class HeroMover : MonoBehaviour
 
     #region 移動関係の(だいたい)定数
     public static float moveSpeed = 20;
+    public static readonly float gravity = 2.5f;
 
     #endregion
 
@@ -150,7 +152,7 @@ public class HeroMover : MonoBehaviour
         }
     }
     public void BendBack(object sender, EventArgs e){
-        
+        States.Push(new StateBend(this));
     }
 
     ///<summary>リスポーン</summary>

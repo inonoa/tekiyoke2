@@ -22,15 +22,16 @@ public class StateWait : IHeroState
     }
     public void Try2EndMove(){ }
     public void Start(){
-        if(hero.KeyDirection != 0){
-            hero.States.Push(new StateRun(hero));
-            return;
-        }
 
         hero.velocity = (0,0);
         hero.anim.SetTrigger(hero.EyeToRight ? "standr" : "standl");
     }
     public void Update(){
+        if(hero.KeyDirection != 0){
+            hero.States.Push(new StateRun(hero));
+            return;
+        }
+        
         if(!hero.IsOnGround) hero.States.Push(new StateFall(hero));
     }
 

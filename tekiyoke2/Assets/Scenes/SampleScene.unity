@@ -4297,7 +4297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7367abbafe31e1d46af2c3c11de1351b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInDebug: 1
+  isInDebug: 0
   cmrCntr: {fileID: 519420030}
   hpcntr: {fileID: 0}
   spriteRenderer: {fileID: 0}

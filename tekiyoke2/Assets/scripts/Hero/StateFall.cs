@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class StateFall : IHeroState
 {
-    static readonly float gravity = 2.5f;
     readonly bool canJump;
 
     HeroMover hero;
@@ -39,7 +38,7 @@ public class StateFall : IHeroState
         hero.anim.SetTrigger(hero.EyeToRight ? "fallr" : "falll");
     }
     public void Update(){
-        hero.velocity.y -= gravity * Time.timeScale;
+        hero.velocity.y -= HeroMover.gravity * Time.timeScale;
         if(hero.IsOnGround){
             if(hero.KeyDirection==0) hero.States.Push(new StateWait(hero));
             else hero.States.Push(new StateRun(hero));
