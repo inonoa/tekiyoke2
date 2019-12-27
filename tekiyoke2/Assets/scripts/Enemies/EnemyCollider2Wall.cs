@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class NaitrumCollider : MonoBehaviour
+public class EnemyCollider2Wall : MonoBehaviour
 {
-    public event EventHandler turn;
+    public event EventHandler touched2Wall;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,8 +19,9 @@ public class NaitrumCollider : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D other){
+        Debug.Log(other);
         if(other.gameObject.tag=="Terrain"){
-            turn?.Invoke(this,EventArgs.Empty);
+            touched2Wall?.Invoke(this,EventArgs.Empty);
         }
     }
 }

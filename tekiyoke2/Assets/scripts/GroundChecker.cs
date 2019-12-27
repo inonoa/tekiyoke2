@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-///<summary>これの参照を直接持っていいのはHeroMoverだけです</summary>
 public class GroundChecker : MonoBehaviour
 {
     public int FramesSinceTakeOff{ get; private set; } = 0;

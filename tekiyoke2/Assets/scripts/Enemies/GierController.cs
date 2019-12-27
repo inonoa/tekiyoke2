@@ -5,9 +5,12 @@ using System;
 
 public class GierController : EnemyController
 {
-    enum GierState{ BeforeFinding, FindingNow, Running }
-    GierState state = GierState.BeforeFinding;
+    enum GierState{ BeforeFindingR, BeforeFindingL, FindingNow, Running }
+    GierState state = GierState.BeforeFindingR;
     int findingCount = 0;
+
+    [SerializeField]
+    float walkSpeed = 2;
 
     [SerializeField]
     float runSpeed = 5;
@@ -31,6 +34,9 @@ public class GierController : EnemyController
         base.Start();
         HeroDefiner.currentHero.jumped += HeroJumped;
         groundChecker = transform.Find("GroundChecker").GetComponent<GroundChecker>();
+        transform.Find("DontWannaFallR").GetComponent<DontWannaFall>().about2fall += Turn;
+        transform.Find("DontWannaFallL").GetComponent<DontWannaFall>().about2fall += Turn;
+        transform.Find("Collider2Wall").GetComponent<EnemyCollider2Wall>().touched2Wall += Turn;
     }
 
     // Update is called once per frame
@@ -40,11 +46,20 @@ public class GierController : EnemyController
 
         switch(state){
 
-            case GierState.BeforeFinding:
+            case GierState.BeforeFindingR:
+                //なんでColliderつけてないんだこれ…
                 if( MyMath.DistanceXY(HeroDefiner.CurrentHeroPos,transform.position) < distanceToFindHero ){
                     state = GierState.FindingNow;
                 }
+                MoveX_ConsideringGravity(walkSpeed);
                 break;
+
+            case GierState.BeforeFindingL:
+                if( MyMath.DistanceXY(HeroDefiner.CurrentHeroPos,transform.position) < distanceToFindHero ){
+                    state = GierState.FindingNow;
+                }
+                MoveX_ConsideringGravity(-walkSpeed);
+            break;
 
             case GierState.FindingNow:
                 findingCount ++;
@@ -63,5 +78,10 @@ public class GierController : EnemyController
 
     void HeroJumped(object sender, EventArgs e){
         if(groundChecker.IsOnGround && state == GierState.Running) rBody.velocity = new Vector2(rBody.velocity.x, jumpForce);
+    }
+
+    void Turn(object sender, EventArgs e){
+        if(state==GierState.BeforeFindingL) state = GierState.BeforeFindingR;
+        else if(state==GierState.BeforeFindingR) state = GierState.BeforeFindingL;
     }
 }
