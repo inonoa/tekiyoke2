@@ -5,6 +5,7 @@ using UnityEngine;
 public class StateFall : IHeroState
 {
     readonly bool canJump;
+    static readonly int coyoteTime = 10;
 
     HeroMover hero;
 
@@ -20,7 +21,10 @@ public class StateFall : IHeroState
         if(hero.CanKickFromWallL)      hero.States.Push(new StateKick(hero, true,  canJump));
         else if(hero.CanKickFromWallR) hero.States.Push(new StateKick(hero, false, canJump));
 
-        else if(canJump) hero.States.Push(new StateJump(hero, false));
+        else if(canJump){
+            if(hero.FramesSinceTakeOff < coyoteTime) hero.States.Push(new StateJump(hero, true));
+            else hero.States.Push(new StateJump(hero, false));
+        }
     }
     public void Try2StartMove(bool toRight){
         if(toRight){

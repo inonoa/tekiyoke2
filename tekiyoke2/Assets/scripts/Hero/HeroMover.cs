@@ -35,6 +35,7 @@ public class HeroMover : MonoBehaviour
     ///<summary>操作を受け付けるかどうか。空中でfalseになってても落ちはする</summary>
     public bool CanMove { get; set; } = true;
     public bool IsOnGround{ get => groundChecker.IsOnGround; }
+    public int FramesSinceTakeOff{ get => groundChecker.FramesSinceTakeOff; }
     public bool IsOnSakamichi{ get => sakamichiChecker.OnSakamichi; }
     public bool IsOnSakamichiR{ get => sakamichiChecker.OnSakamichiR; }
     public bool IsOnSakamichiL{ get => sakamichiChecker.OnSakamichiL; }
