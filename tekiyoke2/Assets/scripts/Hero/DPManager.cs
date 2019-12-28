@@ -9,12 +9,18 @@ public class DPManager : MonoBehaviour
     RectTransform rTransform;
 
     public int DP{ get; private set; } = 0;
+
+    [SerializeField]
+    int displayInterval = 3;
+    int frames2Display = 1;
+
+    ///<summary>1Pずつたまっていく感じにしたいので、内部的なDPとは別に見かけのDPを用意してこれをもとに描画</summary>
+    int DPonDisplay = 0;
     static readonly int maxDP = 100;
 
     public void AddDP(int delta){
         if(delta > 0){
             DP = Math.Min(maxDP, DP + delta);
-            print(delta + "DP、ゲットだぜ！  |  今のDPは" + DP + "Pだぜ！！");
         }
         else print("負のDPは得られません");
     }
@@ -38,6 +44,15 @@ public class DPManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rTransform.sizeDelta = new Vector2(1000.0f * DP / maxDP, 50);
+        frames2Display --;
+        if(frames2Display==0){
+            frames2Display = displayInterval;
+
+            //急速にDPが増えたら急速に追いついてほしい
+            if(DPonDisplay > DP)      DPonDisplay -= 1 + (DPonDisplay - DP) / 5;
+            else if(DPonDisplay < DP) DPonDisplay += 1 + (DP - DPonDisplay) / 5;
+
+            rTransform.sizeDelta = new Vector2(1000.0f * DPonDisplay / maxDP, 50);
+        }
     }
 }
