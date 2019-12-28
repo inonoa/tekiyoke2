@@ -6,8 +6,9 @@ using System;
 public class DPManager : MonoBehaviour
 {
     public static DPManager Instance{ get; set; }
+    RectTransform rTransform;
 
-    int DP = 0;
+    public int DP{ get; private set; } = 0;
     static readonly int maxDP = 100;
 
     public void AddDP(int delta){
@@ -31,11 +32,12 @@ public class DPManager : MonoBehaviour
     void Start()
     {
         Instance = this;
+        rTransform = GetComponent<RectTransform>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        rTransform.sizeDelta = new Vector2(1000.0f * DP / maxDP, 50);
     }
 }
