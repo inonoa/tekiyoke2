@@ -255,7 +255,6 @@ public class HeroMover : MonoBehaviour
 
         if(col.gameObject.tag=="Toge" && !IsFrozen){
             Damage(3);
-            Die();
         }
     }
 
