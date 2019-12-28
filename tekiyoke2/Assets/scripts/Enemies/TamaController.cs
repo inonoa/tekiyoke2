@@ -11,6 +11,8 @@ public class TamaController : MonoBehaviour
     public float speed;
     Vector3 speedVec;
 
+    public int life;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +24,8 @@ public class TamaController : MonoBehaviour
     void Update()
     {
         rBody.MovePosition(transform.position + speedVec);
+        life --;
+        if(life==0) Destroy(gameObject);
     }
 
     void OnTriggerEnter2D(Collider2D other){

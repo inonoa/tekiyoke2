@@ -1545,7 +1545,7 @@ MonoBehaviour:
   fallSpeedMax: 300
   restFrames: 70
   distanceToFindHero: 400
-  jumpForce: 1100
+  jumpForce: 1200
   framesPerShoot: 10
   howManyShoots: 3
   upAngle: 15
@@ -1553,6 +1553,7 @@ MonoBehaviour:
   num_tamaPerShoot: 10
   tama: {fileID: 1695468421560617688, guid: 83ebf111c7aef5a4c9a70696bd32b809, type: 3}
   tamaSpeed: 10
+  tamaLife: 50
 --- !u!1 &476865546
 GameObject:
   m_ObjectHideFlags: 0
@@ -2474,7 +2475,7 @@ PolygonCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 13, y: 0}
+  m_Offset: {x: 13, y: -5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -4626,7 +4627,6 @@ GameObject:
   - component: {fileID: 1034792852}
   - component: {fileID: 1034792847}
   - component: {fileID: 1034792853}
-  - component: {fileID: 1034792854}
   - component: {fileID: 1034792851}
   m_Layer: 8
   m_Name: Hero
@@ -4828,25 +4828,6 @@ MonoBehaviour:
   spr: {fileID: 1362614045}
   hp: 3
   camera: {fileID: 519420028}
---- !u!114 &1034792854
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1034792846}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00a6f5e792943a34098f949953b668c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dashToRight: 0
-  tame2dash: 0
-  dashTime: 0
-  dashX: 0
-  jetSlider: {fileID: 9808984}
-  phantom: {fileID: 322574792}
-  cmr: {fileID: 519420030}
 --- !u!1 &1148878266
 GameObject:
   m_ObjectHideFlags: 0

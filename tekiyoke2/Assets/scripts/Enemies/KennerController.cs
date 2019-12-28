@@ -7,6 +7,17 @@ public class KennerController : EnemyController
     enum State{ Wait, Jump, Shoot, Rest }
     State state = State.Wait;
 
+    bool _EyeToRight;
+    bool EyeToRight{
+        get { return _EyeToRight; }
+        set {
+            if( _EyeToRight && !value) print("hoge");
+            if(!_EyeToRight &&  value) print("fuga");
+
+            _EyeToRight = value;
+        }
+    }
+
     [SerializeField]
     int restFrames = 100;
     int restFramesNow = 0;
@@ -38,6 +49,9 @@ public class KennerController : EnemyController
     [SerializeField]
     float tamaSpeed = 10;
 
+    [SerializeField]
+    int tamaLife = 100;
+
     new void Start()
     {
         base.Start();
@@ -47,6 +61,8 @@ public class KennerController : EnemyController
     // Update is called once per frame
     new void Update()
     {
+        EyeToRight = transform.position.x < HeroDefiner.CurrentHeroPos.x;
+
         switch(state){
 
             case State.Wait:
@@ -99,12 +115,16 @@ public class KennerController : EnemyController
 
     void Shoot(){
         for(int i=0; i<num_tamaPerShoot; i++){
-            GameObject imatama = Instantiate(tama,transform.position + new Vector3(60,-50),Quaternion.identity,transform.parent);
+            Vector3 offset = EyeToRight ? new Vector3(60,-50) : new Vector3(-60,-50);
+            GameObject imatama = Instantiate(tama, transform.position + offset, Quaternion.identity, transform.parent);
 
             float angle = - upAngle - i * (downAngle - upAngle) / (num_tamaPerShoot - 1);
+            if(!EyeToRight) angle = - 180 - angle;
             imatama.GetComponent<TamaController>().angle = angle;
-            imatama.GetComponent<TamaController>().speed = tamaSpeed;
             imatama.transform.Rotate(new Vector3(0,0,angle));
+
+            imatama.GetComponent<TamaController>().speed = tamaSpeed;
+            imatama.GetComponent<TamaController>().life = tamaLife;
         }
     }
 }
