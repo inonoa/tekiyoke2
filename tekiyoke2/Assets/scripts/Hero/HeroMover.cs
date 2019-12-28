@@ -164,6 +164,12 @@ public class HeroMover : MonoBehaviour
         GameTimeCounter.CurrentInstance.DoesTick = false;
         SceneTransition.Start2ChangeState(SceneManager.GetActiveScene().name, SceneTransition.TransitionType.HeroDied);
     }
+    ///<summary>落下死、実装が強引でうーん</summary>
+    public void Drop(){
+        Damage(3);
+        CanMove = false;
+        velocity = (0, -15);
+    }
 
     ///<summary>HPCntrからの死亡イベントをこう良い感じに…</summary>
     void ReceiveDeath(object sender, EventArgs e) => Die();
@@ -206,35 +212,37 @@ public class HeroMover : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(!IsFrozen){
 
-        if(!IsFrozen && CanMove){
+            if(CanMove){
 
-            UpdateMoveDirection();
+                UpdateMoveDirection();
 
-            if(Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)){
-                States.Peek().Try2Jump();
+                if(Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)){
+                    States.Peek().Try2Jump();
+                }
+
+                //面倒だし向きは移動方向と同じでいいからキーは1つでいい気がするが…
+                if(Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.A)){
+                    States.Peek().Try2StartJet();
+                }
+                if(Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.A)){
+                    States.Peek().Try2EndJet();
+                }
+
+                if(States.Peek() != lastState){
+                    lastState.Exit();
+                    States.Peek().Start();
+                    lastState = States.Peek();
+                }
+
+                States.Peek().Update(); //ここかこれ？
             }
-
-            //面倒だし向きは移動方向と同じでいいからキーは1つでいい気がするが…
-            if(Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.A)){
-                States.Peek().Try2StartJet();
-            }
-            if(Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.A)){
-                States.Peek().Try2EndJet();
-            }
-
-            if(States.Peek() != lastState){
-                lastState.Exit();
-                States.Peek().Start();
-                lastState = States.Peek();
-            }
-
-            States.Peek().Update();
 
             MovePos(velocity.x, velocity.y);
-
-            if(isInDebug) Log4Debug();
         }
+
+        if(isInDebug) Log4Debug();
     }
 
     ///<summary>天井に衝突したときに天井に張り付かないようにする</summary>
