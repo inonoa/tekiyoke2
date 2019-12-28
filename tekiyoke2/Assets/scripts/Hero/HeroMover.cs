@@ -160,10 +160,8 @@ public class HeroMover : MonoBehaviour
 
     ///<summary>リスポーン</summary>
     void Die(){
-        if(curtain.GetComponent<Curtain4DeathMover>().state!=Curtain4DeathMover.CState.Dying){
-            MemoryOverDeath.Instance.Save();
-            SceneTransition.Start2ChangeState(SceneManager.GetActiveScene().name, SceneTransition.TransitionType.HeroDied);
-        }
+        MemoryOverDeath.Instance.Save();
+        SceneTransition.Start2ChangeState(SceneManager.GetActiveScene().name, SceneTransition.TransitionType.HeroDied);
     }
 
     ///<summary>HPCntrからの死亡イベントをこう良い感じに…</summary>
@@ -195,7 +193,6 @@ public class HeroMover : MonoBehaviour
 
         hpcntr.die     += ReceiveDeath;
         hpcntr.damaged += BendBack;
-        curtain.GetComponent<Curtain4DeathMover>().heroRespawn += Respawn;
 
         HeroDefiner.currentHero = this;
     }
