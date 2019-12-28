@@ -16,7 +16,27 @@ public class KennerController : EnemyController
     [SerializeField]
     float jumpForce = 400;
 
+    [SerializeField]
+    int framesPerShoot = 20;
+    int framesToShootNow = 1;
+
+    [SerializeField]
+    int howManyShoots = 3;
+    int howManyShootsNow = 0;
+
+    [SerializeField]
+    float upAngle = 10;
+    [SerializeField]
+    float downAngle = 70;
+    [SerializeField]
+    float num_tamaPerShoot = 5;
+
     GroundChecker groundChecker;
+    [SerializeField]
+    GameObject tama = null;
+
+    [SerializeField]
+    float tamaSpeed = 10;
 
     new void Start()
     {
@@ -37,12 +57,27 @@ public class KennerController : EnemyController
                 break;
             
             case State.Jump:
-                if(rBody.velocity.y < 0) state = State.Shoot;
+                if(rBody.velocity.y < 0){
+                    state = State.Shoot;
+                    framesToShootNow = 1;
+                    howManyShootsNow = howManyShoots;
+                }
                 break;
             
             case State.Shoot:
-                //todo
-                state = State.Rest;
+                rBody.simulated = false;
+                framesToShootNow --;
+
+                if(framesToShootNow==0){
+                    Shoot();
+                    framesToShootNow = framesPerShoot;
+
+                    howManyShootsNow --;
+                    if(howManyShootsNow==0){
+                        state = State.Rest;
+                        rBody.simulated = true;
+                    }
+                }
                 break;
             
             case State.Rest:
@@ -59,6 +94,17 @@ public class KennerController : EnemyController
                 }else if(groundChecker.IsOnGround) rBody.velocity = new Vector2();
 
                 break;
+        }
+    }
+
+    void Shoot(){
+        for(int i=0; i<num_tamaPerShoot; i++){
+            GameObject imatama = Instantiate(tama,transform.position + new Vector3(60,-50),Quaternion.identity,transform.parent);
+
+            float angle = - upAngle - i * (downAngle - upAngle) / (num_tamaPerShoot - 1);
+            imatama.GetComponent<TamaController>().angle = angle;
+            imatama.GetComponent<TamaController>().speed = tamaSpeed;
+            imatama.transform.Rotate(new Vector3(0,0,angle));
         }
     }
 }

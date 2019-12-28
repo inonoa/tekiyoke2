@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class NearToEnemyChecker : MonoBehaviour
 {
-    public HeroMover hero;
     static readonly float timeScaleWhenNear = 0.3f;
+
+    [SerializeField]
+    bool slowNearEnemy = true;
 
     // Start is called before the first frame update
     void Start()
     {
-        hero = GetComponentInParent<HeroMover>();
+
     }
 
     // Update is called once per frame
@@ -20,12 +22,12 @@ public class NearToEnemyChecker : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D other){
-        if(other.gameObject.tag=="Enemy"){
+        if(other.gameObject.tag=="Enemy" & slowNearEnemy){
             Tokitome.SetTime(timeScaleWhenNear);
         }
     }
     void OnTriggerExit2D(Collider2D other){
-        if(other.gameObject.tag=="Enemy"){
+        if(other.gameObject.tag=="Enemy" && slowNearEnemy){
             Tokitome.SetTime(1);
         }
     }

@@ -143,7 +143,7 @@ public class HeroMover : MonoBehaviour
     }
 
     ///<summary>falseだと無敵になる</summary>
-    public bool CanBeDamaged{ get; set; } = true;
+    public bool CanBeDamaged = true;
     
     ///<summary>敵からのダメージ等。ノックバックなどが入る予定(あれ？)</summary>
     ///<param name="damage">与えるダメージを書く。1を指定すると100->99,1->0になったりします</param>
