@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using UnityEngine.SceneManagement;
 
 ///<summary>最終的には各機能をまとめる役割と渉外担当みたいな役割とだけを持たせたい</summary>
 public class HeroMover : MonoBehaviour
@@ -160,9 +161,8 @@ public class HeroMover : MonoBehaviour
     ///<summary>リスポーン</summary>
     void Die(){
         if(curtain.GetComponent<Curtain4DeathMover>().state!=Curtain4DeathMover.CState.Dying){
-            curtain.SetActive(true);
-            curtain.GetComponent<Curtain4DeathMover>().state = Curtain4DeathMover.CState.Dying;
-            curtain.GetComponent<Curtain4DeathMover>().ResetPosition();
+            MemoryOverDeath.Instance.Save();
+            SceneTransition.Start2ChangeState(SceneManager.GetActiveScene().name, SceneTransition.TransitionType.HeroDied);
         }
     }
 
