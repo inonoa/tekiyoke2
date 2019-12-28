@@ -14,6 +14,7 @@ public class MemoryOverDeath
 
     public void Load(){
         GameTimeCounter.CurrentInstance.count = time;
+        GameTimeCounter.CurrentInstance.DoesTick = true;
     }
 
 

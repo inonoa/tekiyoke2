@@ -161,6 +161,7 @@ public class HeroMover : MonoBehaviour
     ///<summary>リスポーン</summary>
     void Die(){
         MemoryOverDeath.Instance.Save();
+        GameTimeCounter.CurrentInstance.DoesTick = false;
         SceneTransition.Start2ChangeState(SceneManager.GetActiveScene().name, SceneTransition.TransitionType.HeroDied);
     }
 
