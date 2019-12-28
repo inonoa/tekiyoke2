@@ -11,8 +11,8 @@ public class KennerController : EnemyController
     bool EyeToRight{
         get { return _EyeToRight; }
         set {
-            if( _EyeToRight && !value) print("hoge");
-            if(!_EyeToRight &&  value) print("fuga");
+            if( _EyeToRight && !value) { }
+            if(!_EyeToRight &&  value) { }
 
             _EyeToRight = value;
         }

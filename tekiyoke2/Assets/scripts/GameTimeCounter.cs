@@ -6,9 +6,15 @@ using UnityEngine.Timeline;
 
 public class GameTimeCounter : MonoBehaviour
 {
-    float count=0;
+    public static GameTimeCounter CurrentInstance{ get; set; }
+
+    public float count=0;
     Text txt;
     public bool DoesTick { get; set; } = true;
+
+    void Awake(){
+        CurrentInstance = this;
+    }
 
     // Start is called before the first frame update
     void Start()

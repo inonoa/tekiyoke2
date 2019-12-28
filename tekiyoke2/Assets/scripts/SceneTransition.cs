@@ -12,7 +12,7 @@ public class SceneTransition : MonoBehaviour
     [SerializeField]
     GameObject curtain4SceneStart = null;
 
-    enum SceneTransitState{ None, Default, Normal }
+    enum SceneTransitState{ None, Default, Normal, HeroDied }
     static SceneTransitState _State = SceneTransitState.Normal;
     static SceneTransitState State{
         get{ return _State; }
@@ -30,7 +30,9 @@ public class SceneTransition : MonoBehaviour
         ///<summary>素のLoadScene()が呼ばれる</summary>
         Default,
         ///<summary>今のとこカーテンが出て横にシューっとなる(？)、大体の場合これを使うみたいな感じで</summary>
-        Normal
+        Normal,
+        ///<summary>主人公が死んだとき専用の遷移</summary>
+        HeroDied
     }
 
     ///<summary>シーンを変えることを試みる、短時間に複数回遷移させるみたいなことにならないようによしなにする</summary>
@@ -48,6 +50,12 @@ public class SceneTransition : MonoBehaviour
                 SceneTransition.State = SceneTransitState.Normal;
                 var curtain = Instantiate(currentInstance.curtain4SceneEnd, currentInstance.transform);
                 curtain.GetComponent<Curtain4SceneEndMover>().NextSceneName = sceneName;
+                break;
+            
+            case TransitionType.HeroDied:
+                SceneTransition.State = SceneTransitState.HeroDied;
+                var curtainD = Instantiate(currentInstance.curtain4SceneEnd, currentInstance.transform);
+                curtainD.GetComponent<Curtain4SceneEndMover>().NextSceneName = sceneName;
                 break;
         }
     }
@@ -69,6 +77,11 @@ public class SceneTransition : MonoBehaviour
             
             case SceneTransitState.Normal:
                 Instantiate(curtain4SceneStart, transform);
+                break;
+            
+            case SceneTransitState.HeroDied:
+                Instantiate(curtain4SceneStart, transform);
+                MemoryOverDeath.Instance.Load();
                 break;
         }
 
