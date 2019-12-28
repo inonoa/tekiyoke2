@@ -16,6 +16,14 @@ public class KennerController : EnemyController
     [SerializeField]
     float jumpForce = 400;
 
+    GroundChecker groundChecker;
+
+    new void Start()
+    {
+        base.Start();
+        groundChecker = transform.Find("GroundChecker").GetComponent<GroundChecker>();
+    }
+
     // Update is called once per frame
     new void Update()
     {
@@ -47,7 +55,9 @@ public class KennerController : EnemyController
                         state = State.Jump;
                     }
                     else state = State.Wait;
-                }
+
+                }else if(groundChecker.IsOnGround) rBody.velocity = new Vector2();
+
                 break;
         }
     }
