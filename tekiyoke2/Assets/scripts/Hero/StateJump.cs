@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class StateJump : IHeroState
 {
-    static readonly float jumpForce = 40;
+    float jumpForce;
     HeroMover hero;
     readonly bool canJump;
-    public StateJump(HeroMover hero, bool canJump = true){
+    public StateJump(HeroMover hero, bool canJump = true, float jumpForce = 40){
         this.hero = hero;
         this.canJump = canJump;
+        this.jumpForce = jumpForce;
     }
     public void Try2StartJet(){
         hero.States.Push(new StateJet(hero));
@@ -35,7 +36,7 @@ public class StateJump : IHeroState
         hero.anim.SetTrigger(hero.EyeToRight ? "jumpru" : "jumplu");
     }
     public void Start(){
-        hero.velocity.y = StateJump.jumpForce;
+        hero.velocity.y = jumpForce;
         hero.Jumped(canJump, false);
 
         if     (hero.velocity.x > 0) hero.anim.SetTrigger("jumprf");
