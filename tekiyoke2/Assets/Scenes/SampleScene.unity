@@ -4603,6 +4603,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac079396c4b6a644fae87bf6bc3a8526, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  displayInterval: 5
 --- !u!114 &876172748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4771,6 +4772,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slowNearEnemy: 0
+  DPInterval: 5
 --- !u!61 &915217538
 BoxCollider2D:
   m_ObjectHideFlags: 0
