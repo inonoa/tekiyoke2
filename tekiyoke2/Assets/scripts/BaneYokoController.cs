@@ -5,6 +5,9 @@ using UnityEngine;
 public class BaneYokoController : MonoBehaviour
 {
     [SerializeField]
+    bool push2Right = true;
+
+    [SerializeField]
     int fromTrigger2Push = 50;
     int frames2Push = 50;
     [SerializeField]
@@ -23,7 +26,7 @@ public class BaneYokoController : MonoBehaviour
         if(col.IsTouching(filter)){
             frames2Push --;
             if(frames2Push==0){
-                HeroDefiner.currentHero.States.Push(new StateJump(HeroDefiner.currentHero, jumpForce: pushForce)); //とりま
+                HeroDefiner.currentHero.States.Push(new StateBaneYoko(HeroDefiner.currentHero, push2Right, pushForce)); //とりま
             }
         }else{
             frames2Push = fromTrigger2Push;

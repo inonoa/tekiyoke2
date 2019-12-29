@@ -19,7 +19,6 @@ public class BaneController : MonoBehaviour
     }
 
     void Update(){
-        print(col.IsTouching(filter));
         if(col.IsTouching(filter)){
             frames2Fly --;
             if(frames2Fly==0){
