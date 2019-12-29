@@ -54,6 +54,9 @@ public class HeroMover : MonoBehaviour
     ///<summary>移動床とかの外部からの移動をつかさどる？</summary>
     public Dictionary<MonoBehaviour, Vector2> additionalVelocities = new Dictionary<MonoBehaviour, Vector2>();
 
+    ///<summary>余韻と言うか一定時間引きずり続けるスピードをアレする</summary>
+    public List<ISpeedResidue> speedResidues = new List<ISpeedResidue>();
+
     ///<summary>このフレームで方向キーの押されている方向 (EyeToRight, velocity参照)</summary>
     public int KeyDirection{ get; private set; } = 0;
 
@@ -248,6 +251,13 @@ public class HeroMover : MonoBehaviour
                 vx += vi.x;
                 vy += vi.y;
             }
+
+            speedResidues.RemoveAll(residue => residue.UpdateSpeed(this));
+            foreach(ISpeedResidue residue in speedResidues){
+                vx += residue.SpeedX;
+                vy += residue.SpeedY;
+            }
+
             MovePos(vx, vy);
         }
 

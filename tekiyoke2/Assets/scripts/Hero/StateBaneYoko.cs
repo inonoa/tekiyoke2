@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class StateBaneYoko : IHeroState
 {
+    static readonly float speedBreak = 0.5f;
+    static readonly int unstoppableFrames = 20;
+    bool unstoppable = true;
+    int frames2BeStoppable = unstoppableFrames;
     readonly bool toRight;
     readonly float pushSpeed;
     readonly HeroMover hero;
@@ -17,16 +21,69 @@ public class StateBaneYoko : IHeroState
     public void Start(){
         hero.velocity.x = toRight ? pushSpeed : -pushSpeed;
         hero.anim.SetTrigger(toRight ? "runr" : "runl");
+        hero.EyeToRight = toRight;
     }
 
     public void Update(){
 
+        if(unstoppable){
+            frames2BeStoppable --;
+            if(frames2BeStoppable==0) unstoppable = false;
+
+        }else{
+            if(toRight){
+                switch(hero.KeyDirection){
+                    case 1:
+                        hero.velocity.x -= speedBreak / 2;
+                        //これでは一瞬右に行って状態戻してから左に行くムーブが(引き返すには)最適になるぞ！！！！
+                        if(hero.velocity.x <= HeroMover.moveSpeed) hero.States.Push(new StateRun(hero));
+                        break;
+
+                    case 0:
+                        hero.velocity.x -= speedBreak;
+                        if(hero.velocity.x <= 0){
+                            hero.velocity.x = 0;
+                            hero.States.Push(new StateWait(hero));
+                        }
+                        break;
+
+                    case -1:
+                        hero.velocity.x -= speedBreak * 2;
+                        if(hero.velocity.x <= 0) hero.States.Push(new StateRun(hero));
+                        break;
+                }
+            }
+            else{
+                switch(hero.KeyDirection){
+                    case 1:
+                        hero.velocity.x += speedBreak * 2;
+                        //これでは一瞬右に行って状態戻してから左に行くムーブが(引き返すには)最適になるぞ！！！！
+                        if(hero.velocity.x >= 0) hero.States.Push(new StateRun(hero));
+                        break;
+
+                    case 0:
+                        hero.velocity.x += speedBreak;
+                        if(hero.velocity.x >= 0){
+                            hero.velocity.x = 0;
+                            hero.States.Push(new StateWait(hero));
+                        }
+                        break;
+
+                    case -1:
+                        hero.velocity.x += speedBreak / 2;
+                        if(hero.velocity.x >= -HeroMover.moveSpeed) hero.States.Push(new StateRun(hero));
+                        break;
+                }
+            }
+        }
     }
-    
+
     public void Try2StartJet(){ }
     public void Try2EndJet(){ }
     public void Try2Jump(){ }
     public void Try2StartMove(bool toRight){ }
     public void Try2EndMove(){ }
-    public void Exit(){ }
+    public void Exit(){
+        if(hero.KeyDirection != 0) hero.EyeToRight = (hero.KeyDirection == 1);
+    }
 }

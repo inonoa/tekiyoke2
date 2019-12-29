@@ -2703,6 +2703,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4496930025663380769, guid: e5cae27744a8ef04ead9ebf1f263ead3,
+        type: 3}
+      propertyPath: jumpForce
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5cae27744a8ef04ead9ebf1f263ead3, type: 3}
 --- !u!1 &599016400
@@ -3189,7 +3194,7 @@ GameObject:
   - component: {fileID: 685179551}
   - component: {fileID: 685179552}
   m_Layer: 0
-  m_Name: banemigi
+  m_Name: Banemigi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3295,8 +3300,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95fe0004ddd2be4469189aaba114bfcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  push2Right: 1
   fromTrigger2Push: 50
-  pushForce: 60
+  pushForce: 30
   filter:
     useTriggers: 1
     useLayerMask: 1
