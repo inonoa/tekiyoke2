@@ -22,7 +22,6 @@ public class BaneYokoController : MonoBehaviour
     }
 
     void Update(){
-        print(col.IsTouching(filter));
         if(col.IsTouching(filter)){
             frames2Push --;
             if(frames2Push==0){

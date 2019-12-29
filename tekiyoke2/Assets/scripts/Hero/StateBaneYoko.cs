@@ -31,11 +31,18 @@ public class StateBaneYoko : IHeroState
             if(frames2BeStoppable==0) unstoppable = false;
 
         }else{
+            if(!hero.IsOnGround){
+                hero.States.Push(new StateFall(hero));
+                hero.speedResidues.Add(new BaneResidue(hero.velocity.x, speedBreak));
+            }
+
+            //この辺全部BaneResidueに移管してもいいかもね
             if(toRight){
                 switch(hero.KeyDirection){
                     case 1:
                         hero.velocity.x -= speedBreak / 2;
                         //これでは一瞬右に行って状態戻してから左に行くムーブが(引き返すには)最適になるぞ！！！！
+                        //RTAで変態挙動出来そうだし(誰がやるの？？)まあいいか……
                         if(hero.velocity.x <= HeroMover.moveSpeed) hero.States.Push(new StateRun(hero));
                         break;
 
@@ -58,6 +65,7 @@ public class StateBaneYoko : IHeroState
                     case 1:
                         hero.velocity.x += speedBreak * 2;
                         //これでは一瞬右に行って状態戻してから左に行くムーブが(引き返すには)最適になるぞ！！！！
+                        //RTAで変態挙動出来そうだし(誰がやるの？？)まあいいか……
                         if(hero.velocity.x >= 0) hero.States.Push(new StateRun(hero));
                         break;
 
@@ -78,9 +86,19 @@ public class StateBaneYoko : IHeroState
         }
     }
 
-    public void Try2StartJet(){ }
+    public void Try2StartJet(){
+        if(!unstoppable){
+            hero.States.Push(new StateJet(hero));
+            hero.speedResidues.Add(new BaneResidue(hero.velocity.x, speedBreak));
+        }
+    }
     public void Try2EndJet(){ }
-    public void Try2Jump(){ }
+    public void Try2Jump(){
+        if(!unstoppable){
+            hero.States.Push(new StateJump(hero));
+            hero.speedResidues.Add(new BaneResidue(hero.velocity.x, speedBreak));
+        }
+    }
     public void Try2StartMove(bool toRight){ }
     public void Try2EndMove(){ }
     public void Exit(){
