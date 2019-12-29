@@ -2,24 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//主人公をいちいちInspector上なりなんなりで指定するのは面倒なのでここで一括管理すればええんでは
-public class HeroDefiner : MonoBehaviour
+///<summary>主人公の参照を良い感じに持てるようになるのは良いが若干危険なのかなあ、あとHeroMoverに書けばよかったかもなあ</summary>
+public class HeroDefiner
 {
     static public HeroMover currentHero;
 
     static public Vector3 CurrentHeroPos{
         get{ return currentHero.transform.position; }
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
