@@ -39,37 +39,57 @@ public class IdouYukaController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        bool isTouchedByHero = col.IsTouching(filter2Hero);
 
         switch(state){
 
             case State.AtoB:
                 if(MyMath.DistanceXY(yukaTF.position, positionB) < 10){
+                    if(isTouchedByHero)
+                        HeroDefiner.currentHero.additionalVelocities[this] = positionB - yukaTF.position;
+                    else
+                        HeroDefiner.currentHero.additionalVelocities.Remove(this);
+
                     yukaRB.MovePosition(positionB);
                     frames2StopNow = StopFrames;
                     state = State.B;
+
                 }else{
                     yukaRB.MovePosition(yukaTF.position + moveVec);
+
+                    if(isTouchedByHero) HeroDefiner.currentHero.additionalVelocities[this] = moveVec;
+                    else                HeroDefiner.currentHero.additionalVelocities.Remove(this);
                 }
                 break;
 
             case State.B:
                 frames2StopNow --;
                 if(frames2StopNow==0) state = State.BtoA;
+                HeroDefiner.currentHero.additionalVelocities.Remove(this);
                 break;
 
             case State.BtoA:
                 if(MyMath.DistanceXY(yukaTF.position, positionA) < 10){
+                    if(isTouchedByHero)
+                        HeroDefiner.currentHero.additionalVelocities[this] = positionA - yukaTF.position;
+                    else
+                        HeroDefiner.currentHero.additionalVelocities.Remove(this);
+
                     yukaRB.MovePosition(positionA);
                     frames2StopNow = StopFrames;
                     state = State.A;
                 }else{
                     yukaRB.MovePosition(yukaTF.position - moveVec);
+                    
+                    if(isTouchedByHero) HeroDefiner.currentHero.additionalVelocities[this] = -moveVec;
+                    else                HeroDefiner.currentHero.additionalVelocities.Remove(this);
                 }
                 break;
 
             case State.A:
                 frames2StopNow --;
                 if(frames2StopNow==0) state = State.AtoB;
+                HeroDefiner.currentHero.additionalVelocities.Remove(this);
                 break;
         }
     }

@@ -52,7 +52,7 @@ public class HeroMover : MonoBehaviour
     public (float x, float y) velocity = (0,0);
 
     ///<summary>移動床とかの外部からの移動をつかさどる？</summary>
-    public Dictionary<string, Vector2> additionalVelocities = new Dictionary<string, Vector2>();
+    public Dictionary<MonoBehaviour, Vector2> additionalVelocities = new Dictionary<MonoBehaviour, Vector2>();
 
     ///<summary>このフレームで方向キーの押されている方向 (EyeToRight, velocity参照)</summary>
     public int KeyDirection{ get; private set; } = 0;
