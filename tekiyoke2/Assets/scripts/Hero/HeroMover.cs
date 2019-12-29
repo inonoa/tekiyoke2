@@ -51,6 +51,9 @@ public class HeroMover : MonoBehaviour
     ///<summary>実際に移動している方向(ワープした場合は知らん) (EyeToright, KeyDiretion参照)</summary>
     public (float x, float y) velocity = (0,0);
 
+    ///<summary>移動床とかの外部からの移動をつかさどる？</summary>
+    public Dictionary<string, Vector2> additionalVelocities = new Dictionary<string, Vector2>();
+
     ///<summary>このフレームで方向キーの押されている方向 (EyeToRight, velocity参照)</summary>
     public int KeyDirection{ get; private set; } = 0;
 
@@ -239,7 +242,13 @@ public class HeroMover : MonoBehaviour
                 States.Peek().Update(); //ここかこれ？
             }
 
-            MovePos(velocity.x, velocity.y);
+            float vx = velocity.x;
+            float vy = velocity.y;
+            foreach(Vector2 vi in additionalVelocities.Values){
+                vx += vi.x;
+                vy += vi.y;
+            }
+            MovePos(vx, vy);
         }
 
         if(isInDebug) Log4Debug();
