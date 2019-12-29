@@ -104760,6 +104760,7 @@ GameObject:
   - component: {fileID: 1512146356}
   - component: {fileID: 1512146355}
   - component: {fileID: 1512146354}
+  - component: {fileID: 1512146359}
   m_Layer: 0
   m_Name: TogeMap
   m_TagString: Toge
@@ -105075,6 +105076,18 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1512146359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1512146352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac54db52db16d747b1dd40f9c970382, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1519325322
 PrefabInstance:
   m_ObjectHideFlags: 0

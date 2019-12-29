@@ -280,13 +280,5 @@ public class HeroMover : MonoBehaviour
         }
     }
 
-    ///<summary>(これとげ側のコードに書かれるべきじゃない？)</summary>
-    void OnTriggerStay2D(Collider2D col){
-
-        if(col.gameObject.tag=="Toge" && !IsFrozen){
-            Damage(3);
-        }
-    }
-
     #endregion
 }
