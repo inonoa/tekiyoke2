@@ -21,6 +21,7 @@ public class StateKick : IHeroState
 
         if(hero.velocity.y > 0) hero.anim.SetTrigger(toRight ? "jumprf" : "jumplf");
         else                    hero.anim.SetTrigger(toRight ? "fallr"  : "falll");
+        hero.EyeToRight = toRight;
 
         hero.velocity.x = toRight ? HeroMover.moveSpeed : -HeroMover.moveSpeed;
         hero.velocity.y = kickForceY;
