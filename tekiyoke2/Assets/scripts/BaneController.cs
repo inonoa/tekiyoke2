@@ -4,15 +4,29 @@ using UnityEngine;
 
 public class BaneController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    [SerializeField]
+    int fromTrigger2Fly = 50;
+    int frames2Fly = 50;
+    [SerializeField]
+    float jumpForce = 60;
+
+    [SerializeField]
+    ContactFilter2D filter = new ContactFilter2D();
+    Collider2D col;
+
+    void Start(){
+        col = GetComponent<BoxCollider2D>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    void Update(){
+        print(col.IsTouching(filter));
+        if(col.IsTouching(filter)){
+            frames2Fly --;
+            if(frames2Fly==0){
+                HeroDefiner.currentHero.States.Push(new StateJump(HeroDefiner.currentHero, jumpForce: jumpForce)); //とりま
+            }
+        }else{
+            frames2Fly = fromTrigger2Fly;
+        }
     }
 }
