@@ -74,44 +74,47 @@ public class HeroMover : MonoBehaviour
     }
     ///<summary>前フレームでの向きと今フレームの入力から移動方向を決定</summary>
     void UpdateMoveDirection(){
-
-        //右ボタンを押したとき右に動く
-        if(Input.GetKeyDown(KeyCode.RightArrow) && KeyDirection!=1){
-            States.Peek().Try2StartMove(true);
-            KeyDirection = 1;
-            EyeToRight = true;
-
-        //左ボタンを押したときに左に動く
-        }else if(Input.GetKeyDown(KeyCode.LeftArrow) && KeyDirection!=-1){
-            States.Peek().Try2StartMove(false);
-            KeyDirection = -1;
-            EyeToRight = false;
-
-        //右ボタンを離したときはさっきまで動いていた向きによって挙動が変わる
-        }else if(Input.GetKeyUp(KeyCode.RightArrow) && KeyDirection==1){
-
-            if(Input.GetKey(KeyCode.LeftArrow)){
-                States.Peek().Try2StartMove(false);
-                KeyDirection = -1;
-                EyeToRight = false;
-
-            }else{
-                States.Peek().Try2EndMove();
-                KeyDirection = 0;
-            }
-
-        //左ボタンを離したときはさっきまで動いていた向きによって挙動が変わる
-        }else if(Input.GetKeyUp(KeyCode.LeftArrow) && KeyDirection==-1){
-
-            if(Input.GetKey(KeyCode.RightArrow)){
+        if(CanMove){
+            
+            //右ボタンを押したとき右に動く
+            if(Input.GetKeyDown(KeyCode.RightArrow) && KeyDirection!=1){
                 States.Peek().Try2StartMove(true);
                 KeyDirection = 1;
                 EyeToRight = true;
-
-            }else{
-                States.Peek().Try2EndMove();
-                KeyDirection = 0;
+    
+            //左ボタンを押したときに左に動く
+            }else if(Input.GetKeyDown(KeyCode.LeftArrow) && KeyDirection!=-1){
+                States.Peek().Try2StartMove(false);
+                KeyDirection = -1;
+                EyeToRight = false;
+    
+            //右ボタンを離したときはさっきまで動いていた向きによって挙動が変わる
+            }else if(Input.GetKeyUp(KeyCode.RightArrow) && KeyDirection==1){
+            
+                if(Input.GetKey(KeyCode.LeftArrow)){
+                    States.Peek().Try2StartMove(false);
+                    KeyDirection = -1;
+                    EyeToRight = false;
+    
+                }else{
+                    States.Peek().Try2EndMove();
+                    KeyDirection = 0;
+                }
+    
+            //左ボタンを離したときはさっきまで動いていた向きによって挙動が変わる
+            }else if(Input.GetKeyUp(KeyCode.LeftArrow) && KeyDirection==-1){
+            
+                if(Input.GetKey(KeyCode.RightArrow)){
+                    States.Peek().Try2StartMove(true);
+                    KeyDirection = 1;
+                    EyeToRight = true;
+    
+                }else{
+                    States.Peek().Try2EndMove();
+                    KeyDirection = 0;
+                }
             }
+
         }
     }
     public event EventHandler jumped;
