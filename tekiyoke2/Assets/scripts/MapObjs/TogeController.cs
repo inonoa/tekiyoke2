@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class TogeController : MonoBehaviour
 {
-    void OnTriggerEnter2D(Collider2D other){
-        if(other.gameObject.tag=="Player") HeroDefiner.currentHero.Damage(2);
+    void OnTriggerStay2D(Collider2D other){
+        if(other.gameObject.tag=="Player") HeroDefiner.currentHero.Damage(3);
     }
 
     // Start is called before the first frame update
