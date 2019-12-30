@@ -5977,7 +5977,7 @@ MonoBehaviour:
   anim: {fileID: 0}
   rigidbody: {fileID: 0}
   curtain: {fileID: 0}
-  CanBeDamaged: 0
+  CanBeDamaged: 1
 --- !u!212 &1034792848
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -120751,10 +120751,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 794be7bf41c30d640b4110003cfac84a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scshoImg: {fileID: 1352575598}
-  pauseMaster: {fileID: 1464731581}
-  gameMaster: {fileID: 179343154}
-  uiMover: {fileID: 1464731583}
 --- !u!4 &1786063618
 Transform:
   m_ObjectHideFlags: 0

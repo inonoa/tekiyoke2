@@ -88,4 +88,7 @@ public class SceneTransition : MonoBehaviour
         //ステート名からくる直感に反するのでアレ
         SceneTransition.State = SceneTransitState.None;
     }
+
+    ///<summary>Start()時にsetするだけだとポーズとかの(SceneTranitionがシーン内に複数存在する)場合に支障をきたすらしいので</summary>
+    void OnEnable() => currentInstance = this;
 }

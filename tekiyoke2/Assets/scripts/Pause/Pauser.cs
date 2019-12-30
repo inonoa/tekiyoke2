@@ -9,11 +9,11 @@ public class Pauser : MonoBehaviour
 {
 
     ///<summary>ポーズ画面に貼り付けるスクショ</summary>
-    public Image scshoImg;
+    Image scshoImg;
 
     //ポーズ/ゲーム切り替える親玉
-    public GameObject pauseMaster;
-    public GameObject gameMaster;
+    GameObject pauseMaster;
+    GameObject gameMaster;
     
     ///<summary>スクショ(ポーズに入るときに撮って背景に映す)</summary>
     Texture2D scsho;
@@ -21,12 +21,17 @@ public class Pauser : MonoBehaviour
     ///<summary>いまポーズ中？</summary>
     bool inPause = false;
 
-    public PauseUIMover uiMover;
+    PauseUIMover uiMover;
 
     // Start is called before the first frame update
     void Start()
     {
-        uiMover.GetComponent<PauseUIMover>().pauseEnd += PauseEnded;
+        gameMaster = transform.Find("GameMaster").gameObject;
+        pauseMaster = transform.Find("PauseMaster").gameObject;
+        uiMover = pauseMaster.GetComponent<PauseUIMover>();
+        scshoImg = pauseMaster.transform.Find("Canvas").Find("ScSho").GetComponent<Image>();
+
+        uiMover.pauseEnd += PauseEnded;
     }
 
     // Update is called once per frame
@@ -36,7 +41,7 @@ public class Pauser : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.S)){
 
             //ポーズに移行(実際にはフレーム終了後に移行)
-            if(!inPause){ StartCoroutine("TakeScSho"); Debug.Log("ポーズ開始！"); }
+            if(!inPause) StartCoroutine("TakeScSho");
 
         }
     }
