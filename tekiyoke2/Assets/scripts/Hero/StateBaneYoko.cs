@@ -5,17 +5,17 @@ using UnityEngine;
 public class StateBaneYoko : IHeroState
 {
     static readonly float speedBreak = 0.5f;
-    static readonly int unstoppableFrames = 20;
     bool unstoppable = true;
-    int frames2BeStoppable = unstoppableFrames;
+    int frames2BeStoppable;
     readonly bool toRight;
     readonly float pushSpeed;
     readonly HeroMover hero;
 
-    public StateBaneYoko(HeroMover hero, bool toRight, float pushSpeed = 100){
+    public StateBaneYoko(HeroMover hero, bool toRight, float pushSpeed = 100, int frames2BeStoppable = 20){
         this.hero = hero;
         this.toRight = toRight;
         this.pushSpeed = pushSpeed;
+        this.frames2BeStoppable = frames2BeStoppable;
     }
 
     public void Start(){

@@ -10,6 +10,10 @@ public class BaneYokoController : MonoBehaviour
     [SerializeField]
     int fromTrigger2Push = 50;
     int frames2Push = 50;
+
+    [SerializeField]
+    int frames2BeStoppable = 20;
+
     [SerializeField]
     float pushForce = 60;
 
@@ -25,7 +29,7 @@ public class BaneYokoController : MonoBehaviour
         if(col.IsTouching(filter)){
             frames2Push --;
             if(frames2Push==0){
-                HeroDefiner.currentHero.States.Push(new StateBaneYoko(HeroDefiner.currentHero, push2Right, pushForce)); //とりま
+                HeroDefiner.currentHero.States.Push(new StateBaneYoko(HeroDefiner.currentHero, push2Right, pushForce, frames2BeStoppable)); //とりま
             }
         }else{
             frames2Push = fromTrigger2Push;
