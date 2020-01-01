@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class DropTileController : MonoBehaviour
 {
-    void OnTriggerEnter2D(Collider2D other){
-        if(other.gameObject.tag == "Player") HeroDefiner.currentHero.Drop();
+    void OnTriggerStay2D(Collider2D other){
+        if(other.gameObject.tag == "Player"){
+            HeroDefiner.currentHero.Drop();
+        }
     }
 }

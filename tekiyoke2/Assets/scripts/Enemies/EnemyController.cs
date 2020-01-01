@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Timeline;
 using System;
 
+//メモ: 主人公が近づいてきてから動き出すほうがレベルデザインしやすい
 public class EnemyController : MonoBehaviour
 {
     protected Rigidbody2D rBody;

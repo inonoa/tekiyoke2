@@ -32,7 +32,7 @@ public class HpCntr : MonoBehaviour
     public int HP{
         get{return hp;}
         set{
-            if(value<=0 && HP<=0)return;
+            if(value<=0 && HP<=0) return;
             if(HP>value)damaged?.Invoke(this,EventArgs.Empty);
             if(value<=0){
                 die?.Invoke(this,EventArgs.Empty);

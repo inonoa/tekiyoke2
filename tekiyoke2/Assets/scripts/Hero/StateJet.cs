@@ -24,6 +24,7 @@ public class StateJet : IHeroState
     public void Try2StartJet(){ }
     public void Try2EndJet(){
         if(state==State.Ready){
+            hero.CanBeDamaged = false;
             state = State.Jetting;
             hero.anim.SetTrigger(jet2Right ? "runr" : "runl");
             Tokitome.SetTime(1);
@@ -48,7 +49,6 @@ public class StateJet : IHeroState
     public void Try2EndMove(){ }
     public void Start(){
         Tokitome.SetTime(timeScaleBeforeJet);
-        hero.CanBeDamaged = false;
 
         switch(hero.KeyDirection){
             case 1:
