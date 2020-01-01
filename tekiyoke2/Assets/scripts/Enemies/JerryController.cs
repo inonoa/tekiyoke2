@@ -4,71 +4,72 @@ using UnityEngine;
 using System;
 using UnityEngine.Timeline;
 
-///<summary>子(Sprite)だけが動いてしまい無限に上昇する</summary>
 public class JerryController : EnemyController
 {
 
-    [SerializeField]
-    float _Amplitude = 100;
-    ///<summary>振幅</summary>
-    public float Amplitude{
-        get{ return _Amplitude; }
-        set{ _Amplitude = value; }
-    }
+    float amplitude;
 
     [SerializeField]
-    float _SpeedRate = 4;
-    ///<summary>速度の倍率(はい)</summary>
-    public float SpeedRate{
-        get{ return _SpeedRate; }
-        set{ _SpeedRate = value; }
-    }
+    float speedRate = 4;
 
-    ///<summary>中心の座標(Controllerの位置)</summary>
-    Vector3 centerPosition;
+    float centerPositionY;
 
     public bool isGoingUp = true;
 
+    float JellyPosY{ get{ return rBody.transform.position.y; } }
+
+    static readonly float speedYEpsilon = 0.01f;
+
     // Start is called before the first frame update
     new void Start(){
-        base.Start();
-        centerPosition = new Vector3(transform.position.x, transform.position.y);
+        rBody = transform.Find("Jelly").GetComponent<Rigidbody2D>();
+
+        float posU = transform.Find("PositionU").position.y;
+        float posD = transform.Find("PositionD").position.y;
+        centerPositionY = (posU + posD) / 2;
+        amplitude       = (posU - posD) / 2;
+        print( "振幅: " + amplitude + " 中心: " + centerPositionY );
     }
 
     // Update is called once per frame
     new void Update()
     {
         if(isGoingUp){
-            if(transform.position.y > centerPosition.y+Amplitude-100){
+            if(JellyPosY > centerPositionY+amplitude-100){
                 //上端
-                float v = (float)Math.Sqrt(Math.Max(centerPosition.y+Amplitude - transform.position.y,0)) * SpeedRate/10;
+                float v = (float)Math.Sqrt(Math.Max(centerPositionY+amplitude - JellyPosY, speedYEpsilon)) * speedRate/10;
                 base.MovePos(0,v);
-                if(transform.position.y >= centerPosition.y+Amplitude-1){
-                    isGoingUp = false;
-                }
-            }else if(transform.position.y > centerPosition.y-Amplitude+100){
+
+                if(JellyPosY >= centerPositionY+amplitude-1) isGoingUp = false;
+
+            }else if(JellyPosY > centerPositionY-amplitude+100){
                 //中間
-                base.MovePos(0,SpeedRate);
+                base.MovePos(0,speedRate);
+
             }else{
                 //下端
-                float v = (float)Math.Sqrt(Math.Max(transform.position.y - centerPosition.y+Amplitude,0)) * SpeedRate/10;
+                float v = (float)Math.Sqrt(Math.Max(JellyPosY - centerPositionY+amplitude, speedYEpsilon)) * speedRate/10;
                 base.MovePos(0,v);
+                print(v);
+
             }
         }else{
-            if(transform.position.y > centerPosition.y+Amplitude-100){
+            if(JellyPosY > centerPositionY+amplitude-100){
                 //上端
-                float v = (float)Math.Sqrt(Math.Max(centerPosition.y+Amplitude - transform.position.y,0)) * SpeedRate/10;
+                float v = (float)Math.Sqrt(Math.Max(centerPositionY+amplitude - JellyPosY, speedYEpsilon)) * speedRate/10;
                 base.MovePos(0,-v);
-            }else if(transform.position.y > centerPosition.y-Amplitude+100){
+                print(v);
+
+            }else if(JellyPosY > centerPositionY-amplitude+100){
                 //中間
-                base.MovePos(0,-SpeedRate);
+                base.MovePos(0,-speedRate);
+
             }else{
                 //下端
-                float v = (float)Math.Sqrt(Math.Max(transform.position.y - centerPosition.y+Amplitude,0)) * SpeedRate/10;
+                float v = (float)Math.Sqrt(Math.Max(JellyPosY - centerPositionY+amplitude, speedYEpsilon)) * speedRate/10;
                 base.MovePos(0,-v);
-                if(transform.position.y <= centerPosition.y-Amplitude+1){
-                    isGoingUp = true;
-                }
+
+                if(JellyPosY <= centerPositionY-amplitude+1) isGoingUp = true;
             }
         }
     }
