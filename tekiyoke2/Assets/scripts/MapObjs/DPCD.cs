@@ -21,9 +21,6 @@ public class DPCD : MonoBehaviour
         if(other.gameObject.tag == "Player"){
             Destroy(gameObject);
             DPManager.Instance.AddDP(DPperDPCD);
-
-            //これは後で消す
-            if(DPManager.Instance.DP == 100) GameTimeCounter.CurrentInstance.DoesTick = false;
         }
     }
 }
