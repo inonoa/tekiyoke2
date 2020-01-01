@@ -233,7 +233,7 @@ public class HeroMover : MonoBehaviour
 
             if(CanMove){
 
-                if(Input.GetKeyDown(KeyCode.Z)) savePositionManager.Save();
+                if(Input.GetKeyDown(KeyCode.Z)) savePositionManager.Try2Save();
 
 
                 UpdateMoveDirection();
