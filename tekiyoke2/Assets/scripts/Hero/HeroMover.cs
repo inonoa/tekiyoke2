@@ -135,6 +135,7 @@ public class HeroMover : MonoBehaviour
     SakamichiChecker sakamichiChecker;
     WallCheckerL wallCheckerL;
     WallCheckerR wallCheckerR;
+    SavePositionManager savePositionManager;
 
 
     public SpriteRenderer spriteRenderer;
@@ -170,7 +171,6 @@ public class HeroMover : MonoBehaviour
 
     ///<summary>リスポーン</summary>
     void Die(){
-        MemoryOverDeath.Instance.Save();
         GameTimeCounter.CurrentInstance.DoesTick = false;
         SceneTransition.Start2ChangeState(SceneManager.GetActiveScene().name, SceneTransition.TransitionType.HeroDied);
     }
@@ -195,25 +195,30 @@ public class HeroMover : MonoBehaviour
 
     #region 勝手に呼ばれる関数群
 
+    ///<summary>他のオブジェクトのStart()内でCurrentHeroを参照したい時があり、
+    ///Start()内でcurrentHeroを設定すると実行順によっては前シーンのHeroを参照してしまうため</summary>
+    void Awake(){
+        HeroDefiner.currentHero = this;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         States.Push(new StateWait(this));
         lastState = States.Peek();
 
-        spriteRenderer   = GetComponent<SpriteRenderer>();
-        anim             = GetComponent<Animator>();
-        rigidbody        = GetComponent<Rigidbody2D>();
-        hpcntr           = GetComponent<HpCntr>();
-        sakamichiChecker = GetComponent<SakamichiChecker>();
+        spriteRenderer      = GetComponent<SpriteRenderer>();
+        anim                = GetComponent<Animator>();
+        rigidbody           = GetComponent<Rigidbody2D>();
+        hpcntr              = GetComponent<HpCntr>();
+        sakamichiChecker    = GetComponent<SakamichiChecker>();
+        savePositionManager = GetComponent<SavePositionManager>();
         groundChecker    = transform.Find("GroundChecker").GetComponent<GroundChecker>();
         wallCheckerL     = transform.Find("WallCheckerL").GetComponent<WallCheckerL>();
         wallCheckerR     = transform.Find("WallCheckerR").GetComponent<WallCheckerR>();
 
         hpcntr.die     += ReceiveDeath;
         hpcntr.damaged += BendBack;
-
-        HeroDefiner.currentHero = this;
     }
 
     ///<summary>SetActive(false)するとアニメーションの状態がリセットされるようなのでとりあえず主人公はステートだけ反映しなおす</summary>
@@ -227,6 +232,9 @@ public class HeroMover : MonoBehaviour
         if(!IsFrozen){
 
             if(CanMove){
+
+                if(Input.GetKeyDown(KeyCode.Z)) savePositionManager.Try2Save();
+
 
                 UpdateMoveDirection();
 

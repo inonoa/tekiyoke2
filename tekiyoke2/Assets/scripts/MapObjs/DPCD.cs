@@ -6,6 +6,8 @@ public class DPCD : MonoBehaviour
 {
     static readonly int rotateInterval = 10;
     int rotateCount = 0;
+    [SerializeField]
+    int DPperDPCD = 1;
 
     // Update is called once per frame
     void Update()
@@ -18,7 +20,7 @@ public class DPCD : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other){
         if(other.gameObject.tag == "Player"){
             Destroy(gameObject);
-            DPManager.Instance.AddDP(1);
+            DPManager.Instance.AddDP(DPperDPCD);
 
             //これは後で消す
             if(DPManager.Instance.DP == 100) GameTimeCounter.CurrentInstance.DoesTick = false;
