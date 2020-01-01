@@ -7,7 +7,7 @@ public class SavePositionManager : MonoBehaviour
     GameObject resPos;
 
     public void Save(){
-        MemoryOverDeath.Instance.SavePosition();
+        MemoryOverDeath.Instance.Save();
         resPos.SetActive(true);
         resPos.transform.position = new Vector3(transform.position.x, transform.position.y, resPos.transform.position.z);
     }

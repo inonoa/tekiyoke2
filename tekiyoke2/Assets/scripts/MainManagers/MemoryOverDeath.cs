@@ -4,16 +4,13 @@ using UnityEngine;
 
 public class MemoryOverDeath
 {
-    float time;
-    string checkPoint;
+    float time = 0;
+    string checkPoint = "";
     (float x, float y) heroPosition = (0,0);
 
     public void Save(){
         time = GameTimeCounter.CurrentInstance.count;
         checkPoint = "とりあえず";
-    }
-
-    public void SavePosition(){
         heroPosition = (HeroDefiner.CurrentHeroPos.x, HeroDefiner.CurrentHeroPos.y);
     }
 
