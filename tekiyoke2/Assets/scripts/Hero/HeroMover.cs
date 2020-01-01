@@ -195,6 +195,12 @@ public class HeroMover : MonoBehaviour
 
     #region 勝手に呼ばれる関数群
 
+    ///<summary>他のオブジェクトのStart()内でCurrentHeroを参照したい時があり、
+    ///Start()内でcurrentHeroを設定すると実行順によっては前シーンのHeroを参照してしまうため</summary>
+    void Awake(){
+        HeroDefiner.currentHero = this;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -212,8 +218,6 @@ public class HeroMover : MonoBehaviour
 
         hpcntr.die     += ReceiveDeath;
         hpcntr.damaged += BendBack;
-
-        HeroDefiner.currentHero = this;
     }
 
     ///<summary>SetActive(false)するとアニメーションの状態がリセットされるようなのでとりあえず主人公はステートだけ反映しなおす</summary>
