@@ -135,6 +135,7 @@ public class HeroMover : MonoBehaviour
     SakamichiChecker sakamichiChecker;
     WallCheckerL wallCheckerL;
     WallCheckerR wallCheckerR;
+    SavePositionManager savePositionManager;
 
 
     public SpriteRenderer spriteRenderer;
@@ -207,11 +208,12 @@ public class HeroMover : MonoBehaviour
         States.Push(new StateWait(this));
         lastState = States.Peek();
 
-        spriteRenderer   = GetComponent<SpriteRenderer>();
-        anim             = GetComponent<Animator>();
-        rigidbody        = GetComponent<Rigidbody2D>();
-        hpcntr           = GetComponent<HpCntr>();
-        sakamichiChecker = GetComponent<SakamichiChecker>();
+        spriteRenderer      = GetComponent<SpriteRenderer>();
+        anim                = GetComponent<Animator>();
+        rigidbody           = GetComponent<Rigidbody2D>();
+        hpcntr              = GetComponent<HpCntr>();
+        sakamichiChecker    = GetComponent<SakamichiChecker>();
+        savePositionManager = GetComponent<SavePositionManager>();
         groundChecker    = transform.Find("GroundChecker").GetComponent<GroundChecker>();
         wallCheckerL     = transform.Find("WallCheckerL").GetComponent<WallCheckerL>();
         wallCheckerR     = transform.Find("WallCheckerR").GetComponent<WallCheckerR>();
@@ -231,6 +233,9 @@ public class HeroMover : MonoBehaviour
         if(!IsFrozen){
 
             if(CanMove){
+
+                if(Input.GetKeyDown(KeyCode.Z)) savePositionManager.Save();
+
 
                 UpdateMoveDirection();
 

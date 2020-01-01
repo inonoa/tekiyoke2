@@ -6,7 +6,7 @@ public class MemoryOverDeath
 {
     float time;
     string checkPoint;
-    (float x, float y) heroPosition;
+    (float x, float y) heroPosition = (0,0);
 
     public void Save(){
         time = GameTimeCounter.CurrentInstance.count;
@@ -15,13 +15,17 @@ public class MemoryOverDeath
 
     public void SavePosition(){
         heroPosition = (HeroDefiner.CurrentHeroPos.x, HeroDefiner.CurrentHeroPos.y);
-        Debug.Log(heroPosition);
     }
 
     public void Load(){
         GameTimeCounter.CurrentInstance.count = time;
         GameTimeCounter.CurrentInstance.DoesTick = true;
-        HeroDefiner.currentHero.WarpPos(heroPosition.x, heroPosition.y);
+        if(heroPosition!=(0,0)){
+            HeroDefiner.currentHero.WarpPos(heroPosition.x, heroPosition.y);
+            GameObject resPos = GameObject.Find("GameMaster").transform.Find("RespawnPosition").gameObject; //苦しい
+            resPos.SetActive(true);
+            resPos.transform.position = new Vector3(heroPosition.x, heroPosition.y, resPos.transform.position.z);
+        }
     }
 
 
