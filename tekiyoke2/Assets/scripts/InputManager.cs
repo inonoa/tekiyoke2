@@ -88,19 +88,21 @@ public class InputManager : MonoBehaviour
 
     static Dictionary<ButtonCode, KeyCode[]> button2Keys = new Dictionary<ButtonCode, KeyCode[]>()
     {
-        {ButtonCode.Right,  new[]{KeyCode.RightArrow         }},
-        {ButtonCode.Left,   new[]{KeyCode.LeftArrow          }},
-        {ButtonCode.Up,     new[]{KeyCode.UpArrow            }},
-        {ButtonCode.Down,   new[]{KeyCode.DownArrow          }},
-        {ButtonCode.Jump,   new[]{KeyCode.UpArrow, KeyCode.W }},
-        {ButtonCode.JetLR,  new[]{KeyCode.A, KeyCode.D       }},
-        {ButtonCode.JetL,   new[]{KeyCode.A                  }},
-        {ButtonCode.JetR,   new[]{KeyCode.D                  }},
-        {ButtonCode.Zone,   new[]{KeyCode.Return             }},
-        {ButtonCode.Save,   new[]{KeyCode.Space              }},
-        {ButtonCode.Pause,  new[]{KeyCode.S                  }},
-        {ButtonCode.Enter,  new[]{KeyCode.Z                  }},
-        {ButtonCode.Cancel, new[]{KeyCode.X                  }}
+        {ButtonCode.Right,  new[]{KeyCode.D, KeyCode.RightArrow }},
+        {ButtonCode.Left,   new[]{KeyCode.A, KeyCode.LeftArrow }},
+        {ButtonCode.Up,     new[]{KeyCode.UpArrow, KeyCode.W }},
+        {ButtonCode.Down,   new[]{KeyCode.DownArrow, KeyCode.S, KeyCode.K }},
+
+        {ButtonCode.Jump,   new[]{KeyCode.UpArrow, KeyCode.W, KeyCode.I }},
+        {ButtonCode.JetLR,  new[]{KeyCode.J, KeyCode.L }},
+        {ButtonCode.JetL,   new[]{KeyCode.L }},
+        {ButtonCode.JetR,   new[]{KeyCode.J }},
+        {ButtonCode.Zone,   new[]{KeyCode.Return, KeyCode.Z }},
+        {ButtonCode.Save,   new[]{KeyCode.Space, KeyCode.Return }},
+
+        {ButtonCode.Pause,  new[]{KeyCode.Backspace, KeyCode.Escape }},
+        {ButtonCode.Enter,  new[]{KeyCode.Return, KeyCode.Z, KeyCode.F1 }},
+        {ButtonCode.Cancel, new[]{KeyCode.X, KeyCode.Backspace, KeyCode.F2 }}
     };
 
 
