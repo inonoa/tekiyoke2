@@ -35,13 +35,9 @@ public class InputManager : MonoBehaviour
     public bool ButtonsDownSimultaneously(ButtonCode b1, ButtonCode b2){
 
         if(GetButtonDown(b1) && (buttonsDown4Latency[(int)b2] >= 0)){
-            buttonsDown4Latency[(int)b1] = -1;
-            buttonsDown4Latency[(int)b2] = -1;
             return true;
         }
         if(GetButtonDown(b2) && (buttonsDown4Latency[(int)b1] >= 0)){
-            buttonsDown4Latency[(int)b1] = -1;
-            buttonsDown4Latency[(int)b2] = -1;
             return true;
         }
         return false;
@@ -55,6 +51,7 @@ public class InputManager : MonoBehaviour
     }
 
     void Start(){
+        Instance = this;
         foreach(ButtonCode b in Enum.GetValues(typeof(ButtonCode))){
             buttons4Latency[(int)b] = new Queue<bool>();
             inputLatencies[(int)b] = defaultLatency;
@@ -110,7 +107,7 @@ public class InputManager : MonoBehaviour
     #region Instance
 
     public static InputManager Instance{ get; private set; }
-    public InputManager() => Instance = this;
+    public InputManager(){ }
 
     #endregion
 }

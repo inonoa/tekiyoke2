@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class StateFall : IHeroState
 {
+    static readonly int inputLatency4Kick = 3;
     readonly bool canJump;
     static readonly int coyoteTime = 10;
 
@@ -43,6 +44,9 @@ public class StateFall : IHeroState
     }
     public void Start(){
         hero.anim.SetTrigger(hero.EyeToRight ? "fallr" : "falll");
+        InputManager.Instance.SetInputLatency(ButtonCode.Right,inputLatency4Kick);
+        InputManager.Instance.SetInputLatency(ButtonCode.Left, inputLatency4Kick);
+        InputManager.Instance.SetInputLatency(ButtonCode.Jump, inputLatency4Kick);
     }
     public void Update(){
         hero.velocity.y -= HeroMover.gravity * Time.timeScale;
@@ -52,5 +56,9 @@ public class StateFall : IHeroState
         }
     }
 
-    public void Exit(){ }
+    public void Exit(){
+        InputManager.Instance.SetInputLatency(ButtonCode.Right,0);
+        InputManager.Instance.SetInputLatency(ButtonCode.Left,0);
+        InputManager.Instance.SetInputLatency(ButtonCode.Jump,0);
+    }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class StateJump : IHeroState
 {
+    static readonly int inputLatency4Kick = 3;
     float jumpForce;
     HeroMover hero;
     readonly bool canJump;
@@ -19,7 +20,7 @@ public class StateJump : IHeroState
     public void Try2Jump(){
         if(hero.CanKickFromWallL && InputManager.Instance.ButtonsDownSimultaneously(ButtonCode.Right,ButtonCode.Jump))
             hero.States.Push(new StateKick(hero, true,  canJump));
-            
+
         else if(hero.CanKickFromWallR && InputManager.Instance.ButtonsDownSimultaneously(ButtonCode.Left,ButtonCode.Jump))
             hero.States.Push(new StateKick(hero, false, canJump));
 
@@ -46,11 +47,19 @@ public class StateJump : IHeroState
         else if(hero.velocity.x < 0) hero.anim.SetTrigger("jumplf");
         else if(hero.EyeToRight)     hero.anim.SetTrigger("jumpru");
         else                         hero.anim.SetTrigger("jumplu");
+        
+        InputManager.Instance.SetInputLatency(ButtonCode.Right,inputLatency4Kick);
+        InputManager.Instance.SetInputLatency(ButtonCode.Left, inputLatency4Kick);
+        InputManager.Instance.SetInputLatency(ButtonCode.Jump, inputLatency4Kick);
     }
     public void Update(){
         hero.velocity.y -= HeroMover.gravity * Time.timeScale;
         if(hero.velocity.y < 0) hero.States.Push(new StateFall(hero, canJump));
     }
 
-    public void Exit(){ }
+    public void Exit(){
+        InputManager.Instance.SetInputLatency(ButtonCode.Right,0);
+        InputManager.Instance.SetInputLatency(ButtonCode.Left,0);
+        InputManager.Instance.SetInputLatency(ButtonCode.Jump,0);
+    }
 }
