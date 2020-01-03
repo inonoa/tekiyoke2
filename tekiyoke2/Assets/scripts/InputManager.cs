@@ -13,6 +13,9 @@ public class InputManager : MonoBehaviour
     public void SetInputLatency(ButtonCode b, int latency) => inputLatencies[(int)b] = latency;
     public int GetInputLatency(ButtonCode b) => inputLatencies[(int)b];
 
+    [SerializeField]
+    int defaultLatency = 0;
+
     #endregion
 
 
@@ -30,7 +33,7 @@ public class InputManager : MonoBehaviour
     #endregion
 
     public bool ButtonsDownSimultaneously(ButtonCode b1, ButtonCode b2){
-        
+
         if(GetButtonDown(b1) && (buttonsDown4Latency[(int)b2] >= 0)){
             buttonsDown4Latency[(int)b1] = -1;
             buttonsDown4Latency[(int)b2] = -1;
@@ -42,6 +45,13 @@ public class InputManager : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    void Start(){
+        foreach(ButtonCode b in Enum.GetValues(typeof(ButtonCode))){
+            buttons4Latency[(int)b] = new Queue<bool>();
+            inputLatencies[(int)b] = defaultLatency;
+        }
     }
 
     ///<summary>Edit->Project Settings->Script Execution Orderの設定をしたので他のUpdate()より早く実行される</summary>
@@ -58,14 +68,17 @@ public class InputManager : MonoBehaviour
 
         foreach(ButtonCode b in Enum.GetValues(typeof(ButtonCode))){
 
+            bool bBeingPushed = false;
+
             foreach(KeyCode k in button2Keys[b]){
 
-                if(buttons4Latency[(int)b].Count <= inputLatencies[(int)b])
-                    buttons4Latency[(int)b].Enqueue(Input.GetKey(k));
+                bBeingPushed |= Input.GetKey(k);
 
                 if(Input.GetKeyDown(k)) buttonsDown4Latency[(int)b] = inputLatencies[(int)b];
                 if(Input.GetKeyUp(k))   buttonsUp4Latency[(int)b]   = inputLatencies[(int)b];
             }
+
+            buttons4Latency[(int)b].Enqueue(bBeingPushed);
         }
     }
 
