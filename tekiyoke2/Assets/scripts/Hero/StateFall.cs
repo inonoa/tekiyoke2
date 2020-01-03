@@ -18,8 +18,11 @@ public class StateFall : IHeroState
     }
     public void Try2EndJet(){ }
     public void Try2Jump(){
-        if(hero.CanKickFromWallL)      hero.States.Push(new StateKick(hero, true,  canJump));
-        else if(hero.CanKickFromWallR) hero.States.Push(new StateKick(hero, false, canJump));
+        if(hero.CanKickFromWallL && InputManager.Instance.ButtonsDownSimultaneously(ButtonCode.Right,ButtonCode.Jump))
+            hero.States.Push(new StateKick(hero, true,  canJump));
+            
+        else if(hero.CanKickFromWallR && InputManager.Instance.ButtonsDownSimultaneously(ButtonCode.Left,ButtonCode.Jump))
+            hero.States.Push(new StateKick(hero, false, canJump));
 
         else if(canJump){
             if(hero.FramesSinceTakeOff < coyoteTime) hero.States.Push(new StateJump(hero, true));

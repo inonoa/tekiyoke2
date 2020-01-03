@@ -58,19 +58,19 @@ public class PauseUIMover : MonoBehaviour
             framesFromStart ++;
         }
         markRTF.Rotate(new Vector3(0,0,3));
-        if(Input.GetKeyDown(KeyCode.DownArrow)){
+        if(InputManager.Instance.GetButtonDown(ButtonCode.Down)){
             if(selected<2){
                 selected ++;
                 mark.transform.localPosition += new Vector3(-40,-127);
             }
         }
-        if(Input.GetKeyDown(KeyCode.UpArrow)){
+        if(InputManager.Instance.GetButtonDown(ButtonCode.Up)){
             if(selected>0){
                 selected --;
                 mark.transform.localPosition -= new Vector3(-40,-127);
             }
         }
-        if(Input.GetKeyDown(KeyCode.S)){
+        if(InputManager.Instance.GetButtonDown(ButtonCode.Enter)){
             if(selected==0){
                 Reset();
                 pauseEnd?.Invoke(this,EventArgs.Empty);

@@ -47,6 +47,13 @@ public class InputManager : MonoBehaviour
         return false;
     }
 
+    public bool AnyButtonDown(){
+        foreach(ButtonCode b in Enum.GetValues(typeof(ButtonCode))){
+            if(GetButtonDown(b)) return true;
+        }
+        return false;
+    }
+
     void Start(){
         foreach(ButtonCode b in Enum.GetValues(typeof(ButtonCode))){
             buttons4Latency[(int)b] = new Queue<bool>();

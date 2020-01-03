@@ -97,25 +97,25 @@ public class StageSelector : MonoBehaviour
                 break;
     
             case State.Active:
-                if(Input.GetKeyDown(KeyCode.UpArrow)){
+                if(InputManager.Instance.GetButtonDown(ButtonCode.Up)){
                     if(selected>1){
                         selected--;
                         bgbg.sprite = bgs[selected-1];
                         bg.color = new Color(1,1,1,0.99f);
                     }
                 }
-                if(Input.GetKeyDown(KeyCode.DownArrow)){
+                if(InputManager.Instance.GetButtonDown(ButtonCode.Down)){
                     if(selected<3){
                         selected++;
                         bgbg.sprite = bgs[selected-1];
                         bg.color = new Color(1,1,1,0.99f);
                     }
                 }
-                if(Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.Return)){
+                if(InputManager.Instance.GetButtonDown(ButtonCode.Enter)){
                     state = State.Selected;
                     wakuLight.Stop();
                     if(selected==1){
-                        SceneTransition.Start2ChangeState("SampleScene",SceneTransition.TransitionType.Normal);
+                        SceneTransition.Start2ChangeState("Draft1",SceneTransition.TransitionType.Normal);
                     }
                 }
                 break;
