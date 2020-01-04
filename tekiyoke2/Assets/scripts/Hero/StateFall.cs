@@ -31,10 +31,18 @@ public class StateFall : IHeroState
         }
     }
     public void Try2StartMove(bool toRight){
+
         if(toRight){
+            if(hero.CanKickFromWallL && InputManager.Instance.ButtonsDownSimultaneously(ButtonCode.Right,ButtonCode.Jump))
+                hero.States.Push(new StateKick(hero, true,  canJump));
+
             hero.velocity.x =  HeroMover.moveSpeed;
             hero.anim.SetTrigger("fallr");
+
         }else{
+            if(hero.CanKickFromWallR && InputManager.Instance.ButtonsDownSimultaneously(ButtonCode.Left,ButtonCode.Jump))
+                hero.States.Push(new StateKick(hero, false, canJump));
+                
             hero.velocity.x = -HeroMover.moveSpeed;
             hero.anim.SetTrigger("falll");
         }

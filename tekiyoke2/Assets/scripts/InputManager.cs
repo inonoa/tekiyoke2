@@ -13,8 +13,8 @@ public class InputManager : MonoBehaviour
     public void SetInputLatency(ButtonCode b, int latency) => inputLatencies[(int)b] = latency;
     public int GetInputLatency(ButtonCode b) => inputLatencies[(int)b];
 
-    [SerializeField]
-    int defaultLatency = 0;
+    ///<summary>セットすると全Buttonのはじめの遅延がこの値になる</summary>
+    [SerializeField] int defaultLatency = 0;
 
     #endregion
 
@@ -32,35 +32,41 @@ public class InputManager : MonoBehaviour
 
     #endregion
 
+    #region その他便利関数
+
+    ///<summary>二つのButtonが同時に押されているか、latencyの分だけ誤差が許容されます</summary>
     public bool ButtonsDownSimultaneously(ButtonCode b1, ButtonCode b2){
 
-        if(GetButtonDown(b1) && (buttonsDown4Latency[(int)b2] >= 0)){
-            return true;
-        }
-        if(GetButtonDown(b2) && (buttonsDown4Latency[(int)b1] >= 0)){
-            return true;
-        }
+        if(GetButtonDown(b1) && (buttonsDown4Latency[(int)b2] >= 0)) return true;
+        if(GetButtonDown(b2) && (buttonsDown4Latency[(int)b1] >= 0)) return true;
         return false;
     }
 
+    ///<summary>何らかのButtonに登録されているキーが押されたFにtrue</summary>
     public bool AnyButtonDown(){
-        foreach(ButtonCode b in Enum.GetValues(typeof(ButtonCode))){
+
+        foreach(ButtonCode b in Enum.GetValues(typeof(ButtonCode)))
             if(GetButtonDown(b)) return true;
-        }
         return false;
     }
+
+    #endregion
+
+    ///<summary>現在のインスタンスが入るはず(シーンごとに入れ替わる)</summary>
+    public static InputManager Instance{ get; private set; }
 
     void Start(){
         Instance = this;
         foreach(ButtonCode b in Enum.GetValues(typeof(ButtonCode))){
             buttons4Latency[(int)b] = new Queue<bool>();
-            inputLatencies[(int)b] = defaultLatency;
+            inputLatencies[(int)b]  = defaultLatency;
         }
     }
 
     ///<summary>Edit->Project Settings->Script Execution Orderの設定をしたので他のUpdate()より早く実行される</summary>
     void Update(){
 
+        //もう見た入力をQueueから出す/カウントダウン
         foreach(ButtonCode b in Enum.GetValues(typeof(ButtonCode))){
 
             while(buttons4Latency[(int)b].Count > inputLatencies[(int)b]){
@@ -70,6 +76,7 @@ public class InputManager : MonoBehaviour
             buttonsUp4Latency[(int)b] --;
         }
 
+        //取ってきた入力を一旦Queueに入れる/カウントダウンを始めることで遅延させる
         foreach(ButtonCode b in Enum.GetValues(typeof(ButtonCode))){
 
             bool bBeingPushed = false;
@@ -86,6 +93,7 @@ public class InputManager : MonoBehaviour
         }
     }
 
+    ///<summary>ButtonCodeとKeyCode群との対応を書く。入っているKeyのうちいずれかが押されると押された判定になる</summary>
     static Dictionary<ButtonCode, KeyCode[]> button2Keys = new Dictionary<ButtonCode, KeyCode[]>()
     {
         {ButtonCode.Right,  new[]{KeyCode.D, KeyCode.RightArrow }},
@@ -104,18 +112,10 @@ public class InputManager : MonoBehaviour
         {ButtonCode.Enter,  new[]{KeyCode.Return, KeyCode.Z, KeyCode.F1 }},
         {ButtonCode.Cancel, new[]{KeyCode.X, KeyCode.Backspace, KeyCode.F2 }}
     };
-
-
-    #region Instance
-
-    public static InputManager Instance{ get; private set; }
-    public InputManager(){ }
-
-    #endregion
 }
 
 public enum ButtonCode{
     Right, Left, Up, Down,
-    Jump,JetL, JetR, JetLR,
+    Jump, JetL, JetR, JetLR,
     Zone, Save, Pause, Enter, Cancel
 }
