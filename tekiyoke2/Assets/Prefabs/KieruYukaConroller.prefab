@@ -491,7 +491,7 @@ GameObject:
   - component: {fileID: 6912870832257743400}
   - component: {fileID: 6912870832257743406}
   - component: {fileID: 6912870832257743401}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RigidBodyDayo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -606,7 +606,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f35fe64db49bde4dac5817ce962366e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hero: {fileID: 0}
   kieruSprite: {fileID: 21300000, guid: 10599e0581c2101488c7eb0f0e96c610, type: 3}
   kieteruSprite: {fileID: 21300000, guid: 09c611d5d05d14b4d85e870e60a75f87, type: 3}
   kienaiSprite: {fileID: 21300000, guid: 50d68d00565e491459e2c267b9f516ff, type: 3}
@@ -621,7 +620,7 @@ GameObject:
   - component: {fileID: 6912870832475094298}
   - component: {fileID: 6912870832475094296}
   - component: {fileID: 6912870832475094299}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RigidBodyDayo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -700,7 +699,7 @@ GameObject:
   - component: {fileID: 6912870832541107812}
   - component: {fileID: 6912870832541107866}
   - component: {fileID: 6912870832541107813}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RigidBodyDayo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -779,7 +778,7 @@ GameObject:
   - component: {fileID: 6912870832782354197}
   - component: {fileID: 6912870832782354187}
   - component: {fileID: 6912870832782354186}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RigidBodyDayo
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -96,21 +96,21 @@ public class InputManager : MonoBehaviour
     ///<summary>ButtonCodeとKeyCode群との対応を書く。入っているKeyのうちいずれかが押されると押された判定になる</summary>
     static Dictionary<ButtonCode, KeyCode[]> button2Keys = new Dictionary<ButtonCode, KeyCode[]>()
     {
-        {ButtonCode.Right,  new[]{KeyCode.D, KeyCode.RightArrow }},
-        {ButtonCode.Left,   new[]{KeyCode.A, KeyCode.LeftArrow }},
-        {ButtonCode.Up,     new[]{KeyCode.UpArrow, KeyCode.W }},
-        {ButtonCode.Down,   new[]{KeyCode.DownArrow, KeyCode.S, KeyCode.K }},
+        {ButtonCode.Right,  new[]{ KeyCode.D }},
+        {ButtonCode.Left,   new[]{ KeyCode.A }},
+        {ButtonCode.Up,     new[]{ KeyCode.W, KeyCode.UpArrow }},
+        {ButtonCode.Down,   new[]{ KeyCode.S, KeyCode.DownArrow }},
 
-        {ButtonCode.Jump,   new[]{KeyCode.UpArrow, KeyCode.W, KeyCode.I }},
-        {ButtonCode.JetLR,  new[]{KeyCode.J, KeyCode.L }},
-        {ButtonCode.JetL,   new[]{KeyCode.L }},
-        {ButtonCode.JetR,   new[]{KeyCode.J }},
-        {ButtonCode.Zone,   new[]{KeyCode.Return, KeyCode.Z }},
-        {ButtonCode.Save,   new[]{KeyCode.Space, KeyCode.Return }},
+        {ButtonCode.Jump,   new[]{ KeyCode.W, KeyCode.I }},
+        {ButtonCode.JetLR,  new[]{ KeyCode.J, KeyCode.L }},
+        {ButtonCode.JetL,   new[]{ KeyCode.L }},
+        {ButtonCode.JetR,   new[]{ KeyCode.J }},
+        {ButtonCode.Zone,   new[]{ KeyCode.Return }},
+        {ButtonCode.Save,   new[]{ KeyCode.Space }},
 
-        {ButtonCode.Pause,  new[]{KeyCode.Backspace, KeyCode.Escape }},
-        {ButtonCode.Enter,  new[]{KeyCode.Return, KeyCode.Z, KeyCode.F1 }},
-        {ButtonCode.Cancel, new[]{KeyCode.X, KeyCode.Backspace, KeyCode.F2 }}
+        {ButtonCode.Pause,  new[]{ KeyCode.Escape }},
+        {ButtonCode.Enter,  new[]{ KeyCode.Return, KeyCode.Z }},
+        {ButtonCode.Cancel, new[]{ KeyCode.Backspace, KeyCode.X }}
     };
 }
 
