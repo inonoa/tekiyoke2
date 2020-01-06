@@ -29,6 +29,7 @@ public class InputManager : MonoBehaviour
     Queue<bool>[] buttons4Latency = new Queue<bool>[Enum.GetNames(typeof(ButtonCode)).Length];
     int[] buttonsDown4Latency = new int[Enum.GetNames(typeof(ButtonCode)).Length];
     int[] buttonsUp4Latency   = new int[Enum.GetNames(typeof(ButtonCode)).Length];
+    int[] nagaoshiFrames = new int[Enum.GetNames(typeof(ButtonCode)).Length];
 
     #endregion
 
@@ -48,6 +49,11 @@ public class InputManager : MonoBehaviour
         foreach(ButtonCode b in Enum.GetValues(typeof(ButtonCode)))
             if(GetButtonDown(b)) return true;
         return false;
+    }
+
+    public int GetNagaoshiFrames(ButtonCode b){
+        if(buttons4Latency[(int)b].Peek()) return nagaoshiFrames[(int)b] + 1;
+        else                               return 0;
     }
 
     #endregion
@@ -70,6 +76,10 @@ public class InputManager : MonoBehaviour
         foreach(ButtonCode b in Enum.GetValues(typeof(ButtonCode))){
 
             while(buttons4Latency[(int)b].Count > inputLatencies[(int)b]){
+
+                if(buttons4Latency[(int)b].Peek()) nagaoshiFrames[(int)b] ++;
+                else                               nagaoshiFrames[(int)b] = 0;
+
                 buttons4Latency[(int)b].Dequeue();
             }
             buttonsDown4Latency[(int)b] --;
