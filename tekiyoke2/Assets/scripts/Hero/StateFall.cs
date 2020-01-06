@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class StateFall : IHeroState
 {
+    static readonly int inputLatency4Kick = 3;
     readonly bool canJump;
     static readonly int coyoteTime = 10;
 
@@ -18,8 +19,11 @@ public class StateFall : IHeroState
     }
     public void Try2EndJet(){ }
     public void Try2Jump(){
-        if(hero.CanKickFromWallL)      hero.States.Push(new StateKick(hero, true,  canJump));
-        else if(hero.CanKickFromWallR) hero.States.Push(new StateKick(hero, false, canJump));
+        if(hero.CanKickFromWallL && InputManager.Instance.ButtonsDownSimultaneously(ButtonCode.Right,ButtonCode.Jump))
+            hero.States.Push(new StateKick(hero, true,  canJump));
+            
+        else if(hero.CanKickFromWallR && InputManager.Instance.ButtonsDownSimultaneously(ButtonCode.Left,ButtonCode.Jump))
+            hero.States.Push(new StateKick(hero, false, canJump));
 
         else if(canJump){
             if(hero.FramesSinceTakeOff < coyoteTime) hero.States.Push(new StateJump(hero, true));
@@ -27,10 +31,18 @@ public class StateFall : IHeroState
         }
     }
     public void Try2StartMove(bool toRight){
+
         if(toRight){
+            if(hero.CanKickFromWallL && InputManager.Instance.ButtonsDownSimultaneously(ButtonCode.Right,ButtonCode.Jump))
+                hero.States.Push(new StateKick(hero, true,  canJump));
+
             hero.velocity.x =  HeroMover.moveSpeed;
             hero.anim.SetTrigger("fallr");
+
         }else{
+            if(hero.CanKickFromWallR && InputManager.Instance.ButtonsDownSimultaneously(ButtonCode.Left,ButtonCode.Jump))
+                hero.States.Push(new StateKick(hero, false, canJump));
+                
             hero.velocity.x = -HeroMover.moveSpeed;
             hero.anim.SetTrigger("falll");
         }
@@ -40,6 +52,9 @@ public class StateFall : IHeroState
     }
     public void Start(){
         hero.anim.SetTrigger(hero.EyeToRight ? "fallr" : "falll");
+        InputManager.Instance.SetInputLatency(ButtonCode.Right,inputLatency4Kick);
+        InputManager.Instance.SetInputLatency(ButtonCode.Left, inputLatency4Kick);
+        InputManager.Instance.SetInputLatency(ButtonCode.Jump, inputLatency4Kick);
     }
     public void Update(){
         hero.velocity.y -= HeroMover.gravity * Time.timeScale;
@@ -49,5 +64,9 @@ public class StateFall : IHeroState
         }
     }
 
-    public void Exit(){ }
+    public void Exit(){
+        InputManager.Instance.SetInputLatency(ButtonCode.Right,0);
+        InputManager.Instance.SetInputLatency(ButtonCode.Left,0);
+        InputManager.Instance.SetInputLatency(ButtonCode.Jump,0);
+    }
 }

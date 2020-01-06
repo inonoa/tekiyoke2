@@ -38,7 +38,7 @@ public class Pauser : MonoBehaviour
     void Update()
     {
         // 押したら画面切り替え
-        if(Input.GetKeyDown(KeyCode.S)){
+        if(InputManager.Instance.GetButtonDown(ButtonCode.Pause)){
 
             //ポーズに移行(実際にはフレーム終了後に移行)
             if(!inPause) StartCoroutine("TakeScSho");

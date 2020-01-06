@@ -30,7 +30,7 @@ public class Title2Stages : MonoBehaviour
             }
         }
 
-        if(Input.GetKeyDown(KeyCode.Z)){
+        if(InputManager.Instance.AnyButtonDown()){
             clouds.state = CloudSpawner.State.Wind;
             buttonPushed = true;
         }

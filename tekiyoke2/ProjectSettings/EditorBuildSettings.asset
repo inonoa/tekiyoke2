@@ -8,13 +8,13 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/OpenScene.unity
     guid: f99868a517972f7478a917906000254c
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/StageChoiceScene.unity
     guid: f31b60d93242bec4cabc84ac88f31e31
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 849a30e797501af4d9c9da85c4a35c18
   - enabled: 1
