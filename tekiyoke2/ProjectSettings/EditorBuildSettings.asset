@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MuzuD1.unity
     guid: 9287c154884fd014a8f28d96c41c5d37
+  - enabled: 1
+    path: Assets/Scenes/Draft1.unity
+    guid: 5914d8f1b6605b44988749f699e62b22
   m_configObjects: {}

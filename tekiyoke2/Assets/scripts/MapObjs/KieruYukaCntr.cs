@@ -33,8 +33,6 @@ public class KieruYukaCntr : MonoBehaviour
         }
         infos.Add(new YukaInfo(yuka.gameObject));
     }
-
-    public HeroMover hero;
     public Sprite kieruSprite;
     public Sprite kieteruSprite;
     public Sprite kienaiSprite;
