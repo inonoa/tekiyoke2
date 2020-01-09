@@ -76,7 +76,7 @@ public class CameraController : MonoBehaviour
         }
 
         if(frames2freeze>0){
-            transform.position = freezePosition;
+            //transform.position = freezePosition;
             frames2freeze --;
         }else{
             Vector2 targetPos = (Vector2)HeroDefiner.CurrentHeroPos

@@ -6,14 +6,10 @@ using System;
 
 public class HpCntr : MonoBehaviour
 {
-    public Sprite img3;
-    public Sprite img3_2;
-    public Sprite img2;
-    public Sprite img2_1;
-    public Sprite img1;
-    public Sprite img0;
-    public Sprite img1_0;
+    public Sprite img3;   public Sprite img2;   public Sprite img1;   public Sprite img0;
+    public Sprite img3_2; public Sprite img2_1; public Sprite img1_0;
     public Image spr;
+
     private static int max_hp = 3;
     private bool isDamaging = false;
     private int framesAfterDamage = 0;
@@ -23,7 +19,10 @@ public class HpCntr : MonoBehaviour
 
     public event EventHandler die;
     public event EventHandler damaged;
-    private readonly int[,] damagemove = new int[10,2]{{-20,6},{0,0},{0,0},{0,0},{26,-10},{0,0},{0,0},{14,8},{0,0},{8,-4}};
+    private float[,] damagemove = new float[10,2]{{-20,6},
+                                                       {-10,3},{0,0},{20,-10},{9,-5},
+                                                       {0,0},{15,8},
+                                                       {16,4},{9,-5},{3,-1}};
 
     new public GameObject camera;
 
@@ -69,16 +68,44 @@ public class HpCntr : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        damagemove = IikanjinoKansu(3);
+        string hoge = "";
+        Debug.Log(damagemove.Length);
+        for(int i=0;i<15;i++){
+            for(int j=0;j<2;j++){
+                hoge += damagemove[i,j] + ",";
+            }
+            hoge += "\n";
+        }
+        Debug.Log(hoge);
+    }
 
+    float[,] IikanjinoKansu(float radius){
+        Vector2[] vs = new Vector2[15];
+        for(int i=0; i<5; i++){
+            vs[3*i + 2] = new Vector2((float)Math.Cos(2*i) * (5-i)*(5-i) * radius, (float)Math.Sin(2*i) * (5-i)*(5-i) * radius);
+            vs[3*i    ] = i==0 ? vs[2] * 1 / 5 : ( vs[3*i-1] * 4 + vs[3*i+2] ) / 5;
+            vs[3*i + 1] = i==0 ? vs[2] * 4 / 5 : ( vs[3*i+2] * 4 + vs[3*i-1] ) / 5;
+        }
+        float[,] re = new float[30,2];
+        re[0,0] = vs[0].x;
+        re[0,1] = vs[0].y;
+        re[1,0] = 0; re[1,1] = 0;
+        for(int i=1; i<15; i++){
+            re[2*i+1,0] = 0; re[2*i+1,1] = 0;
+            re[2*i,0] = vs[i].x - vs[i-1].x;
+            re[2*i,1] = vs[i].y - vs[i-1].y;
+        }
+        return re;
     }
 
     // Update is called once per frame
     void Update()
     {
         if(this.isDamaging){
-            if(framesAfterDamage<10){
+            if(framesAfterDamage<30){
                 camera.transform.localPosition += new Vector3(damagemove[framesAfterDamage,0],damagemove[framesAfterDamage,1]);
-            }else if(framesAfterDamage==10){
+            }else if(framesAfterDamage==30){
                 camera.transform.localPosition = HeroDefiner.CurrentHeroPastPos[0] + new Vector3(0,50,-200); 
                 //短時間に複数回被弾したときに画面揺れの途中で揺れの状態が初めに戻って二重にずれてる、応急処置
             }

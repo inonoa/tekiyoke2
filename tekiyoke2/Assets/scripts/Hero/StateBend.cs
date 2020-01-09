@@ -24,6 +24,9 @@ public class StateBend : IHeroState
         hero.anim.SetTrigger( (hero.velocity.x > 0) ? "jumprf" : "jumplf" );
 
         hero.CanBeDamaged = false;
+
+        CameraController.CurrentCamera.Freeze(num_frames: 20);
+        Debug.Log("ヴッ");
     }
     public void Update(){
 
