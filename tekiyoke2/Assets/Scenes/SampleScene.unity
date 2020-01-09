@@ -765,7 +765,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fromTrigger2Fly: 50
-  jumpForce: 100
+  jumpForce: 70
   filter:
     useTriggers: 1
     useLayerMask: 1
@@ -900,7 +900,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fromTrigger2Fly: 50
-  jumpForce: 100
+  jumpForce: 70
   filter:
     useTriggers: 1
     useLayerMask: 1

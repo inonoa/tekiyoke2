@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static System.Math;
 
 public class CameraController : MonoBehaviour
 {
@@ -13,18 +14,17 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     float approachV;
 
-
-    bool toZoomRight = true;
+    (float x, float y) velocity = (0,0);
+    float dvMax = 20;
 
     enum CameraStateAboutDash{ Default, ZoomingForDash, Dashing, Retreating }
     CameraStateAboutDash dashState = CameraStateAboutDash.Default;
 
     //この辺必要か？？？
-    public void StartZoomForDash(bool zoom2Right)
-                    { dashState = CameraStateAboutDash.ZoomingForDash; toZoomRight = zoom2Right; }
-    public void Dash(){ dashState = CameraStateAboutDash.Dashing; }
-    public void EndDash(){ dashState = CameraStateAboutDash.Retreating; }
-    public void Reset(){ dashState = CameraStateAboutDash.Retreating; } //多分要改善。ダッシュ以外のズームが導入された場合とか
+    public void StartZoomForDash() => dashState = CameraStateAboutDash.ZoomingForDash;
+    public void Dash() => dashState = CameraStateAboutDash.Dashing;
+    public void EndDash() => dashState = CameraStateAboutDash.Retreating;
+    public void Reset() => dashState = CameraStateAboutDash.Retreating; //多分要改善。ダッシュ以外のズームが導入された場合とか
 
 
 
@@ -57,7 +57,6 @@ public class CameraController : MonoBehaviour
             case CameraStateAboutDash.ZoomingForDash:
                 if(cmr.orthographicSize>zoomSizeMin){
                     cmr.orthographicSize -= zoomSpeed;
-                    //transform.localPosition += (toZoomRight ? new Vector3(1.5f,-0.4f,0) : new Vector3(-1.5f,-0.4f,0));
                 }
                 break;
 
@@ -66,12 +65,11 @@ public class CameraController : MonoBehaviour
             case CameraStateAboutDash.Retreating:
                 if(cmr.orthographicSize<defaultSize){
                     cmr.orthographicSize += unzoomSpeed;
-                    //transform.localPosition += (toZoomRight ? new Vector3(-10,2.6f,0) : new Vector3(10,2.6f,0));
 
                     if(cmr.orthographicSize>defaultSize){
                         cmr.orthographicSize = defaultSize;
                         dashState = CameraStateAboutDash.Default;
-                        transform.position = HeroDefiner.CurrentHeroPastPos[0] + new Vector3(0,-50,-200); //tmp
+                        transform.position = HeroDefiner.CurrentHeroPos + new Vector3(0,-50,-200); //tmp
                     }
                 }
                 break;
@@ -81,15 +79,24 @@ public class CameraController : MonoBehaviour
             transform.position = freezePosition;
             frames2freeze --;
         }else{
-            float distance_x = HeroDefiner.CurrentHeroPastPos[0].x - transform.position.x;
-            float distance_y = HeroDefiner.CurrentHeroPastPos[0].y - (transform.position.y - 100);
+            Vector2 targetPos = (Vector2)HeroDefiner.CurrentHeroPos
+                                + 5 * new Vector2(HeroDefiner.currentHero.velocity.x * 2, HeroDefiner.currentHero.velocity.y);
+
+            float distance_x = targetPos.x - transform.position.x;
+            float distance_y = targetPos.y - (transform.position.y - 100);
             int distance_x_sign = (distance_x>0) ? 1 : -1;
             int distance_y_sign = (distance_y>0) ? 1 : -1;
 
-            var moveVec = new Vector3(distance_x*distance_x * distance_x_sign * approachV, 
-                                      distance_y*distance_y * distance_y_sign * approachV );
+            float velX = distance_x*distance_x * distance_x_sign * approachV;
+            float velY = distance_y*distance_y * distance_y_sign * approachV;
 
-            transform.position += moveVec;
+            float dvX = velX - velocity.x;
+            float dvY = velY - velocity.y;
+
+            velocity.x += dvX>0 ? Min(dvX, dvMax) : - Min(-dvX, dvMax);
+            velocity.y += dvY>0 ? Min(dvY, dvMax) : - Min(-dvY, dvMax);
+
+            transform.position += new Vector3(velocity.x, velocity.y);
         }
     }
 

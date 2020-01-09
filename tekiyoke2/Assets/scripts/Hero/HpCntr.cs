@@ -23,7 +23,7 @@ public class HpCntr : MonoBehaviour
 
     public event EventHandler die;
     public event EventHandler damaged;
-    private readonly int[,] damagemove = new int[10,2]{{-10,3},{0,0},{0,0},{0,0},{13,-5},{0,0},{0,0},{-7,4},{0,0},{4,-2}};
+    private readonly int[,] damagemove = new int[10,2]{{-20,6},{0,0},{0,0},{0,0},{26,-10},{0,0},{0,0},{14,8},{0,0},{8,-4}};
 
     new public GameObject camera;
 

@@ -62,7 +62,7 @@ public class StateJet : IHeroState
                 break;
         }
 
-        hero.cmrCntr.StartZoomForDash(jet2Right);
+        hero.cmrCntr.StartZoomForDash();
     }
     public void Update(){
         switch(state){
