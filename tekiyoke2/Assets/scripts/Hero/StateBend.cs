@@ -5,7 +5,7 @@ using UnityEngine;
 public class StateBend : IHeroState
 {
     HeroMover hero;
-    static readonly (float x, float y) bendForce = (20, 13);
+    static readonly (float x, float y) bendForce = (15, 10);
     static readonly int bendFrames = 100;
     int bendFramesNow = bendFrames;
     static readonly int frames_CantUpdate = 3;

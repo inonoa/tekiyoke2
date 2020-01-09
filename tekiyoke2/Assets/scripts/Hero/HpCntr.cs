@@ -79,7 +79,7 @@ public class HpCntr : MonoBehaviour
             if(framesAfterDamage<10){
                 camera.transform.localPosition += new Vector3(damagemove[framesAfterDamage,0],damagemove[framesAfterDamage,1]);
             }else if(framesAfterDamage==10){
-                camera.transform.localPosition = new Vector3(0,50,-100); 
+                camera.transform.localPosition = HeroDefiner.CurrentHeroPastPos[0] + new Vector3(0,50,-200); 
                 //短時間に複数回被弾したときに画面揺れの途中で揺れの状態が初めに戻って二重にずれてる、応急処置
             }
             framesAfterDamage ++;

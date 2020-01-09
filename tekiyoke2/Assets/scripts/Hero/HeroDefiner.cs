@@ -10,4 +10,8 @@ public class HeroDefiner
     static public Vector3 CurrentHeroPos{
         get{ return currentHero.transform.position; }
     }
+
+    static public RingBuffer<Vector3> CurrentHeroPastPos{
+        get{ return currentHero.pastPoss; }
+    }
 }

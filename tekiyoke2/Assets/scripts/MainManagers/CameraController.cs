@@ -6,8 +6,12 @@ public class CameraController : MonoBehaviour
 {
     public Camera cmr;
     private float defaultSize;
-    private Vector3 defaultLocalPosition;
-    public float approachV;
+    static readonly float zoomSizeMin = 300;
+    static readonly float zoomSpeed = 1;
+    static readonly float unzoomSpeed = 10;
+
+    [SerializeField]
+    float approachV;
 
 
     bool toZoomRight = true;
@@ -42,19 +46,18 @@ public class CameraController : MonoBehaviour
     {
         cmr = GetComponent<Camera>();
         defaultSize = cmr.orthographicSize;
-        defaultLocalPosition = transform.localPosition;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         switch(dashState){
             case CameraStateAboutDash.Default: break;
 
             case CameraStateAboutDash.ZoomingForDash:
-                if(cmr.orthographicSize>defaultSize/2){
-                    cmr.orthographicSize -= 2;
-                    transform.localPosition += (toZoomRight ? new Vector3(1.5f,-0.4f,0) : new Vector3(-1.5f,-0.4f,0));
+                if(cmr.orthographicSize>zoomSizeMin){
+                    cmr.orthographicSize -= zoomSpeed;
+                    //transform.localPosition += (toZoomRight ? new Vector3(1.5f,-0.4f,0) : new Vector3(-1.5f,-0.4f,0));
                 }
                 break;
 
@@ -62,13 +65,13 @@ public class CameraController : MonoBehaviour
 
             case CameraStateAboutDash.Retreating:
                 if(cmr.orthographicSize<defaultSize){
-                    cmr.orthographicSize += 20;
-                    transform.localPosition += (toZoomRight ? new Vector3(-10,2.6f,0) : new Vector3(10,2.6f,0));
+                    cmr.orthographicSize += unzoomSpeed;
+                    //transform.localPosition += (toZoomRight ? new Vector3(-10,2.6f,0) : new Vector3(10,2.6f,0));
 
                     if(cmr.orthographicSize>defaultSize){
                         cmr.orthographicSize = defaultSize;
                         dashState = CameraStateAboutDash.Default;
-                        transform.localPosition = defaultLocalPosition;
+                        transform.position = HeroDefiner.CurrentHeroPastPos[0] + new Vector3(0,-50,-200); //tmp
                     }
                 }
                 break;
@@ -78,13 +81,15 @@ public class CameraController : MonoBehaviour
             transform.position = freezePosition;
             frames2freeze --;
         }else{
-            float distance_x = HeroDefiner.CurrentHeroPos.x - transform.position.x;
-            float distance_y = HeroDefiner.CurrentHeroPos.y - (transform.position.y - 100);
+            float distance_x = HeroDefiner.CurrentHeroPastPos[0].x - transform.position.x;
+            float distance_y = HeroDefiner.CurrentHeroPastPos[0].y - (transform.position.y - 100);
             int distance_x_sign = (distance_x>0) ? 1 : -1;
             int distance_y_sign = (distance_y>0) ? 1 : -1;
 
-            transform.position += new Vector3(distance_x*distance_x * distance_x_sign * approachV, 
-                                              distance_y*distance_y * distance_y_sign * approachV );
+            var moveVec = new Vector3(distance_x*distance_x * distance_x_sign * approachV, 
+                                      distance_y*distance_y * distance_y_sign * approachV );
+
+            transform.position += moveVec;
         }
     }
 

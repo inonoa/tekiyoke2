@@ -24,8 +24,8 @@ public class HeroMover : MonoBehaviour
     #endregion
 
     #region 移動関係の(だいたい)定数
-    public static float moveSpeed = 20;
-    public static readonly float gravity = 2.5f;
+    public static float moveSpeed = 15;
+    public static readonly float gravity = 1.7f;
 
     #endregion
 
@@ -257,6 +257,18 @@ public class HeroMover : MonoBehaviour
                 if(InputManager.Instance.GetButtonUp(ButtonCode.JetLR)){
                     States.Peek().Try2EndJet();
                 }
+            }
+        }
+
+        if(isInDebug) Log4Debug();
+    }
+
+
+    void FixedUpdate(){
+
+        if(!IsFrozen){
+
+            if(CanMove){
 
                 if(States.Peek() != lastState){
                     lastState.Exit();
@@ -281,9 +293,8 @@ public class HeroMover : MonoBehaviour
             }
 
             MovePos(vx, vy);
-        }
 
-        if(isInDebug) Log4Debug();
+        }
     }
 
     ///<summary>天井に衝突したときに天井に張り付かないようにする</summary>

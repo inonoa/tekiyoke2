@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class StateKick : IHeroState
 {
-    static readonly float kickForceY = 40;
-    static readonly float moveForce = 0.5f;
+    static readonly float kickForceY = 30;
+    static readonly float moveForce = 0.38f;
     static readonly int frames2BeFree = 20;
     int frames2BeFreeNow = frames2BeFree;
     readonly bool toRight;
