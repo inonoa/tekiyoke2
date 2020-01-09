@@ -13,6 +13,6 @@ public class ZatsuTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(InputManager.Instance.GetButton(ButtonCode.Zone)) RingBuffer<int>.Test();
+        
     }
 }
