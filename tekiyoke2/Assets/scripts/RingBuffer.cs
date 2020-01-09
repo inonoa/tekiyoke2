@@ -77,22 +77,4 @@ public class RingBuffer<T>
             array[(i + firstIndex) % array.Length] = value;
         }
     }
-
-    public static void Test(){
-        RingBuffer<string> buffer = new RingBuffer<string>(100);
-
-        for(int i=0; i<100; i++){
-            buffer.PushLast(i.ToString());
-            Debug.Log(buffer.Count);
-        }
-        for(int i=0; i<20; i++){
-            Debug.Log(buffer.PopFirst());
-            Debug.Log(buffer.PopLast());
-        }
-        for(int i=0; i<40; i++){
-            buffer.PushLast((-i).ToString());
-            Debug.Log(buffer.Count);
-        }
-        buffer.PushFirst(1000.ToString());
-    }
 }
