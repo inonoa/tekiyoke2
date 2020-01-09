@@ -9,7 +9,7 @@ public class WarpController : MonoBehaviour
     (float x, float y) xPos;
     (float x, float y) yPos;
 
-    new public CameraController camera;
+    new CameraController camera;
 
     static readonly int coolTime = 3;
     int coolTimeNow = 0;
@@ -17,6 +17,8 @@ public class WarpController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        camera = CameraController.CurrentCamera;
+
         foreach(WarpEvent w in GetComponentsInChildren<WarpEvent>()){
             w.warpStart += Warp;
             if(w.msg=="XL") xPos = (w.transform.position.x, w.transform.position.y);

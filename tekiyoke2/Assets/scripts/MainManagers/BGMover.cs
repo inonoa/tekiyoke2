@@ -15,6 +15,6 @@ public class BGMover : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.transform.position = new Vector2(CameraDefiner.CurrentCameraPos.x/(1+bgrate),CameraDefiner.CurrentCameraPos.y/(1+bgrate)+50);
+        this.transform.position = new Vector2(CameraController.CurrentCameraPos.x/(1+bgrate),CameraController.CurrentCameraPos.y/(1+bgrate)+50);
     }
 }

@@ -43,8 +43,6 @@ public class CameraController : MonoBehaviour
         cmr = GetComponent<Camera>();
         defaultSize = cmr.orthographicSize;
         defaultLocalPosition = transform.localPosition;
-
-        CameraDefiner.CurrentCamera = this;
     }
 
     // Update is called once per frame
@@ -89,4 +87,14 @@ public class CameraController : MonoBehaviour
                                               distance_y*distance_y * distance_y_sign * approachV );
         }
     }
+
+    #region instance
+
+    static CameraController _CurrentCamera;
+    public static CameraController CurrentCamera{ get => _CurrentCamera; }
+    public static Vector3 CurrentCameraPos{ get => _CurrentCamera.transform.position; }
+
+    void Awake() => _CurrentCamera = this;
+
+    #endregion
 }

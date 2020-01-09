@@ -207,6 +207,7 @@ public class HeroMover : MonoBehaviour
         States.Push(new StateWait(this));
         lastState = States.Peek();
 
+        cmrCntr = CameraController.CurrentCamera;
         spriteRenderer      = GetComponent<SpriteRenderer>();
         anim                = GetComponent<Animator>();
         rigidbody           = GetComponent<Rigidbody2D>();

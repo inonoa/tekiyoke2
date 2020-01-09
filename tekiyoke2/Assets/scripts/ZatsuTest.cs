@@ -2,14 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraDefiner : MonoBehaviour
+public class ZatsuTest : MonoBehaviour
 {
-
-    public static CameraController CurrentCamera{ get; set; }
-    public static Vector3 CurrentCameraPos{
-        get {return CurrentCamera.transform.position; }
-    }
-
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +13,6 @@ public class CameraDefiner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(InputManager.Instance.GetButton(ButtonCode.Zone)) RingBuffer<int>.Test();
     }
 }
