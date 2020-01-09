@@ -51,6 +51,9 @@ public class HeroMover : MonoBehaviour
     ///<summary>実際に移動している方向(ワープした場合は知らん) (EyeToright, KeyDiretion参照)</summary>
     public (float x, float y) velocity = (0,0);
 
+    ///<summary>過去1000フレーム分の位置を記録</summary>
+    public readonly RingBuffer<Vector3> pastPoss = new RingBuffer<Vector3>(new Vector3());
+
     ///<summary>移動床とかの外部からの移動をつかさどる？</summary>
     public Dictionary<MonoBehaviour, Vector2> additionalVelocities = new Dictionary<MonoBehaviour, Vector2>();
 
@@ -230,6 +233,9 @@ public class HeroMover : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        pastPoss.PushFirst(transform.position);
+        if(pastPoss.Count > 1000) pastPoss.PopLast();
+
         if(!IsFrozen){
 
             if(CanMove){
