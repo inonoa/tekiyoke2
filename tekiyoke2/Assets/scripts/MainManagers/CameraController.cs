@@ -14,8 +14,7 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     float approachV;
 
-    (float x, float y) velocity = (0,0);
-    float dvMax = 20;
+    Vector2 positionGap = Vector2.zero;
 
     enum CameraStateAboutDash{ Default, ZoomingForDash, Dashing, Retreating }
     CameraStateAboutDash dashState = CameraStateAboutDash.Default;
@@ -76,27 +75,28 @@ public class CameraController : MonoBehaviour
         }
 
         if(frames2freeze>0){
-            //transform.position = freezePosition;
             frames2freeze --;
         }else{
-            Vector2 targetPos = (Vector2)HeroDefiner.CurrentHeroPos
-                                + 5 * new Vector2(HeroDefiner.currentHero.velocity.x * 2, HeroDefiner.currentHero.velocity.y);
+            Vector2 heroVec = HeroVelocityMean(30);
 
-            float distance_x = targetPos.x - transform.position.x;
-            float distance_y = targetPos.y - (transform.position.y - 100);
-            int distance_x_sign = (distance_x>0) ? 1 : -1;
-            int distance_y_sign = (distance_y>0) ? 1 : -1;
+            //Normalizeとはいったものの楕円との交点を取ってる
+            Vector2 heroVecNormalized;
+            if(heroVec.magnitude < 1) heroVecNormalized = Vector2.zero;
+            else                      heroVecNormalized = heroVec / (float)System.Math.Sqrt(heroVec.x*heroVec.x /4 + heroVec.y*heroVec.y);
 
-            float velX = distance_x*distance_x * distance_x_sign * approachV;
-            float velY = distance_y*distance_y * distance_y_sign * approachV;
+            positionGap += (heroVecNormalized * 100 - positionGap).magnitude < 1 ? Vector2.zero : (heroVecNormalized * 100 - positionGap) / 30;
+            transform.position = HeroDefiner.CurrentHeroPos + new Vector3(0,100,-200) + positionGap.ToVector3();
+        }
+    }
 
-            float dvX = velX - velocity.x;
-            float dvY = velY - velocity.y;
+    ///<summary>velocityというか実際に移動した距離の平均</summary>
+    Vector2 HeroVelocityMean(int range){
 
-            velocity.x += dvX>0 ? Min(dvX, dvMax) : - Min(-dvX, dvMax);
-            velocity.y += dvY>0 ? Min(dvY, dvMax) : - Min(-dvY, dvMax);
-
-            transform.position += new Vector3(velocity.x, velocity.y);
+        int count = HeroDefiner.CurrentHeroPastPos.Count;
+        if(count > range){
+            return (HeroDefiner.CurrentHeroPos - HeroDefiner.CurrentHeroPastPos[range]) / range;
+        }else{
+            return (HeroDefiner.CurrentHeroPos - HeroDefiner.CurrentHeroPastPos[count-1]) / range;
         }
     }
 

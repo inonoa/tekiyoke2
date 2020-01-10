@@ -509,7 +509,7 @@ MonoBehaviour:
     type: 3}
   curtain4SceneStart: {fileID: 1484245753204163691, guid: 5fa93a3e983c21149855f97a2ba32be3,
     type: 3}
-  firstState: 2
+  firstState: 0
 --- !u!1 &3760894675471906926
 GameObject:
   m_ObjectHideFlags: 0
@@ -128535,7 +128535,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cmr: {fileID: 0}
-  approachV: 0.001
+  approachV: 0.1
 --- !u!20 &8531278768275885903
 Camera:
   m_ObjectHideFlags: 0
@@ -131640,11 +131640,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   img3: {fileID: 21300000, guid: a645f07c3e2f4304ea2bf26aa65600dc, type: 3}
-  img3_2: {fileID: 21300000, guid: 18d0d2f98db55a54d89e0ce60dd3e18f, type: 3}
   img2: {fileID: 21300000, guid: b3deb520ebd16364eba63287c2768f6f, type: 3}
-  img2_1: {fileID: 21300000, guid: 37d119dbadb5c0149bd1715dfabe90a0, type: 3}
   img1: {fileID: 21300000, guid: aa6c86db97776394ba8dd3001b5bbe6b, type: 3}
   img0: {fileID: 21300000, guid: 55a2ace8e82ab8a44a4084f80d924531, type: 3}
+  img3_2: {fileID: 21300000, guid: 18d0d2f98db55a54d89e0ce60dd3e18f, type: 3}
+  img2_1: {fileID: 21300000, guid: 37d119dbadb5c0149bd1715dfabe90a0, type: 3}
   img1_0: {fileID: 21300000, guid: 5973a019c7a99c245a6acc64e95f5d34, type: 3}
   spr: {fileID: 8531278766971346989}
   hp: 3

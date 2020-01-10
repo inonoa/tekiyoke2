@@ -63,16 +63,7 @@ public class HpCntr : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-        string hoge = "";
-        Debug.Log(damagemove.Length);
-        for(int i=0;i<damagemove.GetLength(0);i++){
-            for(int j=0;j<2;j++){
-                hoge += damagemove[i,j] + ",";
-            }
-            hoge += "\n";
-        }
-        Debug.Log(hoge);
+        
     }
 
     // Update is called once per frame
