@@ -15,13 +15,17 @@ public class CameraController : MonoBehaviour
     float approachV;
 
     Vector2 positionGap = Vector2.zero;
+    Vector2 targetPosition;
 
     enum CameraStateAboutDash{ Default, ZoomingForDash, Dashing, Retreating }
     CameraStateAboutDash dashState = CameraStateAboutDash.Default;
 
     //この辺必要か？？？
     public void StartZoomForDash() => dashState = CameraStateAboutDash.ZoomingForDash;
-    public void Dash() => dashState = CameraStateAboutDash.Dashing;
+    public void Dash(int jetFrames){
+        dashState = CameraStateAboutDash.Dashing;
+        Freeze(jetFrames);
+    }
     public void EndDash() => dashState = CameraStateAboutDash.Retreating;
     public void Reset() => dashState = CameraStateAboutDash.Retreating; //多分要改善。ダッシュ以外のズームが導入された場合とか
 
@@ -45,6 +49,7 @@ public class CameraController : MonoBehaviour
     {
         cmr = GetComponent<Camera>();
         defaultSize = cmr.orthographicSize;
+        targetPosition = HeroDefiner.CurrentHeroPos + new Vector3(0,100,-200);
     }
 
     // Update is called once per frame
@@ -77,15 +82,24 @@ public class CameraController : MonoBehaviour
         if(frames2freeze>0){
             frames2freeze --;
         }else{
-            Vector2 heroVec = HeroVelocityMean(30);
+            //Update targetPosition
+            //単純に主人公の移動距離分追いかけたあと、Freeze中に置いてけぼりを喰らっていた分をちょっとずつ追い付く
+            if(HeroDefiner.CurrentHeroPastPos.Count > 1){
+                targetPosition += (HeroDefiner.CurrentHeroPos - HeroDefiner.CurrentHeroPastPos[1]).ToVector2();
+            }
+            targetPosition += (HeroDefiner.CurrentHeroPos.ToVector2() + new Vector2(0,100) - targetPosition) / 10;
 
+            //Update positionGap
+            Vector2 heroVec = HeroVelocityMean(30);
             //Normalizeとはいったものの楕円との交点を取ってる
             Vector2 heroVecNormalized;
             if(heroVec.magnitude < 1) heroVecNormalized = Vector2.zero;
             else                      heroVecNormalized = heroVec / (float)System.Math.Sqrt(heroVec.x*heroVec.x /4 + heroVec.y*heroVec.y);
 
-            positionGap += (heroVecNormalized * 100 - positionGap).magnitude < 1 ? Vector2.zero : (heroVecNormalized * 100 - positionGap) / 30;
-            transform.position = HeroDefiner.CurrentHeroPos + new Vector3(0,100,-200) + positionGap.ToVector3();
+            positionGap += (heroVecNormalized * 100 - positionGap).magnitude < 1 ? Vector2.zero : (heroVecNormalized * 100 - positionGap) / 50;
+
+
+            transform.position = targetPosition.ToVector3() + new Vector3(0,0,-200) + positionGap.ToVector3();
         }
     }
 

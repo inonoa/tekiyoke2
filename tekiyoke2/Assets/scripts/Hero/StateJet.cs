@@ -39,7 +39,7 @@ public class StateJet : IHeroState
 
             //ちょっと待って…
             // phantom.SetActive(false);
-            hero.cmrCntr.Dash(); //今は何も起こってなさそう
+            hero.cmrCntr.Dash(jetFramesMax); //今は何も起こってなさそう
         }
     }
     public void Try2Jump(){ }
