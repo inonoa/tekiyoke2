@@ -46,7 +46,7 @@ public class IdouYukaController : MonoBehaviour
             case State.AtoB:
                 if(MyMath.DistanceXY(yukaTF.position, positionB) < 10){
                     if(isTouchedByHero)
-                        HeroDefiner.currentHero.additionalVelocities[this] = positionB - yukaTF.position + new Vector3(0,-1,0);
+                        HeroDefiner.currentHero.additionalVelocities[this] = positionB - yukaTF.position + new Vector3(0,-100,0);
                     else
                         HeroDefiner.currentHero.additionalVelocities.Remove(this);
 
@@ -62,7 +62,7 @@ public class IdouYukaController : MonoBehaviour
                 }
                 break;
 
-            case State.B:
+            case State.B:   
                 frames2StopNow --;
                 if(frames2StopNow==0) state = State.BtoA;
                 HeroDefiner.currentHero.additionalVelocities.Remove(this);

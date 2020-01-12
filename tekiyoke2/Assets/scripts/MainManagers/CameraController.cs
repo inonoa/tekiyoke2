@@ -14,8 +14,9 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     float approachV;
 
-    Vector2 positionGap = Vector2.zero;
     Vector2 targetPosition;
+    Vector2 positionGap = Vector2.zero;
+    static readonly float positionGapRadiusY = 100;
 
     enum CameraStateAboutDash{ Default, ZoomingForDash, Dashing, Retreating }
     CameraStateAboutDash dashState = CameraStateAboutDash.Default;
@@ -73,7 +74,6 @@ public class CameraController : MonoBehaviour
                     if(cmr.orthographicSize>defaultSize){
                         cmr.orthographicSize = defaultSize;
                         dashState = CameraStateAboutDash.Default;
-                        transform.position = HeroDefiner.CurrentHeroPos + new Vector3(0,-50,-200); //tmp
                     }
                 }
                 break;
@@ -84,22 +84,23 @@ public class CameraController : MonoBehaviour
         }else{
             //Update targetPosition
             //単純に主人公の移動距離分追いかけたあと、Freeze中に置いてけぼりを喰らっていた分をちょっとずつ追い付く
-            if(HeroDefiner.CurrentHeroPastPos.Count > 1){
+            if(HeroDefiner.CurrentHeroPastPos.Count > 1)
                 targetPosition += (HeroDefiner.CurrentHeroPos - HeroDefiner.CurrentHeroPastPos[1]).ToVector2();
-            }
             targetPosition += (HeroDefiner.CurrentHeroPos.ToVector2() + new Vector2(0,100) - targetPosition) / 10;
 
             //Update positionGap
-            Vector2 heroVec = HeroVelocityMean(30);
+            Vector2 heroVec = HeroVelocityMean(15);
             //Normalizeとはいったものの楕円との交点を取ってる
             Vector2 heroVecNormalized;
             if(heroVec.magnitude < 1) heroVecNormalized = Vector2.zero;
             else                      heroVecNormalized = heroVec / (float)System.Math.Sqrt(heroVec.x*heroVec.x /4 + heroVec.y*heroVec.y);
 
-            positionGap += (heroVecNormalized * 100 - positionGap).magnitude < 1 ? Vector2.zero : (heroVecNormalized * 100 - positionGap) / 50;
+            Vector2 dist2Gap = heroVecNormalized * positionGapRadiusY - positionGap;
+            if(dist2Gap.magnitude < 1) positionGap += Vector2.zero;
+            else                       positionGap += (heroVecNormalized * positionGapRadiusY - positionGap) / 50;
 
 
-            transform.position = targetPosition.ToVector3() + new Vector3(0,0,-200) + positionGap.ToVector3();
+            transform.position = targetPosition.ToVector3() + positionGap.ToVector3() + new Vector3(0,0,-200);
         }
     }
 
@@ -107,11 +108,10 @@ public class CameraController : MonoBehaviour
     Vector2 HeroVelocityMean(int range){
 
         int count = HeroDefiner.CurrentHeroPastPos.Count;
-        if(count > range){
+        if(count > range)
             return (HeroDefiner.CurrentHeroPos - HeroDefiner.CurrentHeroPastPos[range]) / range;
-        }else{
+        else
             return (HeroDefiner.CurrentHeroPos - HeroDefiner.CurrentHeroPastPos[count-1]) / range;
-        }
     }
 
     #region instance
