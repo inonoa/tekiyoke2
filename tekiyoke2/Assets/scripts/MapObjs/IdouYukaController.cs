@@ -46,7 +46,7 @@ public class IdouYukaController : MonoBehaviour
             case State.AtoB:
                 if(MyMath.DistanceXY(yukaTF.position, positionB) < 10){
                     if(isTouchedByHero)
-                        HeroDefiner.currentHero.additionalVelocities[this] = positionB - yukaTF.position;
+                        HeroDefiner.currentHero.additionalVelocities[this] = positionB - yukaTF.position + new Vector3(0,-100,0);
                     else
                         HeroDefiner.currentHero.additionalVelocities.Remove(this);
 
@@ -57,12 +57,12 @@ public class IdouYukaController : MonoBehaviour
                 }else{
                     yukaRB.MovePosition(yukaTF.position + moveVec);
 
-                    if(isTouchedByHero) HeroDefiner.currentHero.additionalVelocities[this] = moveVec;
+                    if(isTouchedByHero) HeroDefiner.currentHero.additionalVelocities[this] = moveVec + new Vector3(0,-1,0);
                     else                HeroDefiner.currentHero.additionalVelocities.Remove(this);
                 }
                 break;
 
-            case State.B:
+            case State.B:   
                 frames2StopNow --;
                 if(frames2StopNow==0) state = State.BtoA;
                 HeroDefiner.currentHero.additionalVelocities.Remove(this);
@@ -71,7 +71,7 @@ public class IdouYukaController : MonoBehaviour
             case State.BtoA:
                 if(MyMath.DistanceXY(yukaTF.position, positionA) < 10){
                     if(isTouchedByHero)
-                        HeroDefiner.currentHero.additionalVelocities[this] = positionA - yukaTF.position;
+                        HeroDefiner.currentHero.additionalVelocities[this] = positionA - yukaTF.position + new Vector3(0,-1,0);
                     else
                         HeroDefiner.currentHero.additionalVelocities.Remove(this);
 
@@ -81,7 +81,7 @@ public class IdouYukaController : MonoBehaviour
                 }else{
                     yukaRB.MovePosition(yukaTF.position - moveVec);
                     
-                    if(isTouchedByHero) HeroDefiner.currentHero.additionalVelocities[this] = -moveVec;
+                    if(isTouchedByHero) HeroDefiner.currentHero.additionalVelocities[this] = -moveVec + new Vector3(0,-1,0);
                     else                HeroDefiner.currentHero.additionalVelocities.Remove(this);
                 }
                 break;

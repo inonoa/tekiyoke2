@@ -8,7 +8,7 @@ public class StateJump : IHeroState
     float jumpForce;
     HeroMover hero;
     readonly bool canJump;
-    public StateJump(HeroMover hero, bool canJump = true, float jumpForce = 40){
+    public StateJump(HeroMover hero, bool canJump = true, float jumpForce = 30){
         this.hero = hero;
         this.canJump = canJump;
         this.jumpForce = jumpForce;

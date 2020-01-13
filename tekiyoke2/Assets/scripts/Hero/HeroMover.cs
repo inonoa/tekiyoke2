@@ -24,8 +24,8 @@ public class HeroMover : MonoBehaviour
     #endregion
 
     #region 移動関係の(だいたい)定数
-    public static float moveSpeed = 20;
-    public static readonly float gravity = 2.5f;
+    public static float moveSpeed = 15;
+    public static readonly float gravity = 1.7f;
 
     #endregion
 
@@ -50,6 +50,12 @@ public class HeroMover : MonoBehaviour
 
     ///<summary>実際に移動している方向(ワープした場合は知らん) (EyeToright, KeyDiretion参照)</summary>
     public (float x, float y) velocity = (0,0);
+
+    ///<summary>過去1000フレーム分の位置を記録</summary>
+    public readonly RingBuffer<Vector3> pastPoss = new RingBuffer<Vector3>(new Vector3());
+
+    ///<summary>何も障害などが無ければ物理演算後にはこの位置にいるはず</summary>
+    public (float x, float y) expectedPosition;
 
     ///<summary>移動床とかの外部からの移動をつかさどる？</summary>
     public Dictionary<MonoBehaviour, Vector2> additionalVelocities = new Dictionary<MonoBehaviour, Vector2>();
@@ -207,6 +213,7 @@ public class HeroMover : MonoBehaviour
         States.Push(new StateWait(this));
         lastState = States.Peek();
 
+        cmrCntr = CameraController.CurrentCamera;
         spriteRenderer      = GetComponent<SpriteRenderer>();
         anim                = GetComponent<Animator>();
         rigidbody           = GetComponent<Rigidbody2D>();
@@ -229,6 +236,7 @@ public class HeroMover : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if(!IsFrozen){
 
             if(CanMove){
@@ -250,6 +258,21 @@ public class HeroMover : MonoBehaviour
                 if(InputManager.Instance.GetButtonUp(ButtonCode.JetLR)){
                     States.Peek().Try2EndJet();
                 }
+            }
+        }
+
+        if(isInDebug) Log4Debug();
+    }
+
+
+    void FixedUpdate(){
+
+        pastPoss.PushFirst(transform.position);
+        if(pastPoss.Count > 1000) pastPoss.PopLast();
+
+        if(!IsFrozen){
+
+            if(CanMove){
 
                 if(States.Peek() != lastState){
                     lastState.Exit();
@@ -274,9 +297,10 @@ public class HeroMover : MonoBehaviour
             }
 
             MovePos(vx, vy);
-        }
+            expectedPosition.x = transform.position.x + vx*Time.timeScale;
+            expectedPosition.y = transform.position.y + vy*Time.timeScale;
 
-        if(isInDebug) Log4Debug();
+        }
     }
 
     ///<summary>天井に衝突したときに天井に張り付かないようにする</summary>

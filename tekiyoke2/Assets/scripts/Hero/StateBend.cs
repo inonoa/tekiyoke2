@@ -5,7 +5,7 @@ using UnityEngine;
 public class StateBend : IHeroState
 {
     HeroMover hero;
-    static readonly (float x, float y) bendForce = (20, 13);
+    static readonly (float x, float y) bendForce = (15, 10);
     static readonly int bendFrames = 100;
     int bendFramesNow = bendFrames;
     static readonly int frames_CantUpdate = 3;
@@ -24,6 +24,9 @@ public class StateBend : IHeroState
         hero.anim.SetTrigger( (hero.velocity.x > 0) ? "jumprf" : "jumplf" );
 
         hero.CanBeDamaged = false;
+
+        CameraController.CurrentCamera.Freeze(num_frames: 20);
+        Debug.Log("ヴッ");
     }
     public void Update(){
 
