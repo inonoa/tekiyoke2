@@ -14,6 +14,13 @@ public class HpCntr : MonoBehaviour
     private bool isDamaging = false;
     private int framesAfterDamage = 0;
 
+    static readonly int mutekiFramesAfterDamage = 100;
+    private bool _CanBeDamaged = true;
+    public bool CanBeDamaged{
+        get => _CanBeDamaged && (framesAfterDamage > mutekiFramesAfterDamage);
+        set => _CanBeDamaged = value;
+    }
+
     ///<summary>ここを直接書き換えない</summary>
     public int hp = max_hp;
 
@@ -79,19 +86,17 @@ public class HpCntr : MonoBehaviour
                 //短時間に複数回被弾したときに画面揺れの途中で揺れの状態が初めに戻って二重にずれてる、応急処置
             }
 
-            framesAfterDamage ++;
-
-            if(framesAfterDamage==20 || framesAfterDamage==21){ //これはなぜ
+            if(framesAfterDamage==19 || framesAfterDamage==20){ //これはなぜ
                 if(HP==0)spr.sprite = img0;
                 else if(HP==1)spr.sprite = img1;
                 else if(HP==2)spr.sprite = img2;
-                else{Debug.Log("HPが0,1,2じゃないのにダメージを受けたことになってるよ！");}
 
             }else if(framesAfterDamage==60){
                 spr.color = new Color(1,1,1,180f/255f);
                 isDamaging = false;
-                framesAfterDamage = 0;
             }
         }
+
+        framesAfterDamage ++;
     }
 }
