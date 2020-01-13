@@ -106,7 +106,11 @@ public class CameraController : MonoBehaviour
 
     ///<summary>velocityというか実際に移動した距離の平均</summary>
     Vector2 HeroVelocityMean(int range){
-        return (MyMath.DistAsVector2(HeroDefiner.CurrentHeroExpectedPos, HeroDefiner.CurrentHeroPastPos[range - 1])) / range;
+        int count = HeroDefiner.CurrentHeroPastPos.Count;
+        if(count >= range)
+            return (MyMath.DistAsVector2(HeroDefiner.CurrentHeroExpectedPos, HeroDefiner.CurrentHeroPastPos[range - 1])) / range;
+        else
+            return (MyMath.DistAsVector2(HeroDefiner.CurrentHeroExpectedPos, HeroDefiner.CurrentHeroPastPos[count - 1])) / count;
     }
 
     #region instance
