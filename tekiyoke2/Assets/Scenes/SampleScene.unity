@@ -254,7 +254,7 @@ PrefabInstance:
     - target: {fileID: 3945363196062423196, guid: 51aa9f8804d85804db7f41d1eed3f9b4,
         type: 3}
       propertyPath: pushForce
-      value: 70
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51aa9f8804d85804db7f41d1eed3f9b4, type: 3}
@@ -683,7 +683,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   push2Right: 1
   fromTrigger2Push: 50
-  frames2BeStoppable: 100
+  frames2BeStoppable: 30
   pushForce: 30
   filter:
     useTriggers: 1

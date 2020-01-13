@@ -54,6 +54,9 @@ public class HeroMover : MonoBehaviour
     ///<summary>過去1000フレーム分の位置を記録</summary>
     public readonly RingBuffer<Vector3> pastPoss = new RingBuffer<Vector3>(new Vector3());
 
+    ///<summary>何も障害などが無ければ物理演算後にはこの位置にいるはず</summary>
+    public (float x, float y) expectedPosition;
+
     ///<summary>移動床とかの外部からの移動をつかさどる？</summary>
     public Dictionary<MonoBehaviour, Vector2> additionalVelocities = new Dictionary<MonoBehaviour, Vector2>();
 
@@ -294,6 +297,8 @@ public class HeroMover : MonoBehaviour
             }
 
             MovePos(vx, vy);
+            expectedPosition.x = transform.position.x + vx*Time.timeScale;
+            expectedPosition.y = transform.position.y + vy*Time.timeScale;
 
         }
     }

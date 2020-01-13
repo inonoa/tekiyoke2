@@ -52,6 +52,11 @@ public class StateFall : IHeroState
     }
     public void Start(){
         hero.anim.SetTrigger(hero.EyeToRight ? "fallr" : "falll");
+        switch(hero.KeyDirection){
+            case 1 : hero.velocity.x = HeroMover.moveSpeed;  break;
+            case 0 : hero.velocity.x = 0;                    break;
+            case -1: hero.velocity.x = -HeroMover.moveSpeed; break;
+        }
         InputManager.Instance.SetInputLatency(ButtonCode.Right,inputLatency4Kick);
         InputManager.Instance.SetInputLatency(ButtonCode.Left, inputLatency4Kick);
         InputManager.Instance.SetInputLatency(ButtonCode.Jump, inputLatency4Kick);
