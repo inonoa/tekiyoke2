@@ -67,7 +67,7 @@ public class RingBuffer<T>
         }
     }
 
-    ///<summary>環状バッファにインデクサつけるのなんか違わない？ / はじめに入れたほうから数えてi番目です</summary>
+    ///<summary>はじめに入れたほうから数えてi番目です</summary>
     public T this[int i]{
         get{
             if(i < 0 || i >= Count) Debug.Log("Index Out Of Range");
