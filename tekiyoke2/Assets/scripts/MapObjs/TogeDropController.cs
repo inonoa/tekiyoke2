@@ -15,8 +15,22 @@ public class TogeDropController : MonoBehaviour
     [SerializeField] int readyCountMax = 30;
     [SerializeField] float gravity = 2.5f;
     float velocityY = 0;
+    [SerializeField] int frames2Respawn = 100;
+    Vector3 defaultPos;
+    public Vector3 DefaultPosition{ get => defaultPos; }
     
-    void Start() => rigidbody = GetComponent<Rigidbody2D>();
+    void Start(){
+        rigidbody = GetComponent<Rigidbody2D>();
+        defaultPos = transform.position;
+        TogeDropRespawner.Instance.AddDrop(this);
+    }
+
+    public void OnRespawn(){
+        state = State.Wait;
+        readyCount = 0;
+        velocityY = 0;
+    }
+
     void OnTriggerEnter2D(Collider2D other){
         if(other.gameObject.tag=="Player")  HeroDefiner.currentHero.Damage(1);
         if(other.gameObject.tag=="Terrain" || other.gameObject.tag=="Ultrathin") state = State.Die;
@@ -44,7 +58,8 @@ public class TogeDropController : MonoBehaviour
                 break;
 
             case State.Die:
-                Destroy(gameObject); //仮
+                gameObject.SetActive(false);
+                TogeDropRespawner.Instance.SendDeath(this, frames2Respawn);
                 break;
         }
     }
