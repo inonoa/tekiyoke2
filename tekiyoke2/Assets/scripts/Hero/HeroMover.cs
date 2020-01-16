@@ -148,6 +148,7 @@ public class HeroMover : MonoBehaviour
     public Animator anim;
     public new Rigidbody2D rigidbody;
     public GameObject curtain;
+    [SerializeField] Chishibuki chishibuki;
     
     #endregion
 
@@ -175,6 +176,7 @@ public class HeroMover : MonoBehaviour
         States.Push(new StateBend(this));
         ParticleSystem ps = transform.Find("Particle System").GetComponent<ParticleSystem>();
         ps.Play();
+        chishibuki.StartCoroutine("StartChishibuki");
     }
 
     ///<summary>リスポーン</summary>
@@ -225,6 +227,7 @@ public class HeroMover : MonoBehaviour
         groundChecker    = transform.Find("GroundChecker").GetComponent<GroundChecker>();
         wallCheckerL     = transform.Find("WallCheckerL").GetComponent<WallCheckerL>();
         wallCheckerR     = transform.Find("WallCheckerR").GetComponent<WallCheckerR>();
+        chishibuki       = transform.parent.Find("Canvas").Find("ChishibukiController").GetComponent<Chishibuki>();
 
         hpcntr.die     += ReceiveDeath;
         hpcntr.damaged += BendBack;
