@@ -173,6 +173,8 @@ public class HeroMover : MonoBehaviour
     }
     public void BendBack(object sender, EventArgs e){
         States.Push(new StateBend(this));
+        ParticleSystem ps = transform.Find("Particle System").GetComponent<ParticleSystem>();
+        ps.Play();
     }
 
     ///<summary>リスポーン</summary>
