@@ -83,21 +83,21 @@ public class HeroMover : MonoBehaviour
         if(CanMove){
             
             //右ボタンを押したとき右に動く
-            if(InputManager.Instance.GetButtonDown(ButtonCode.Right) && KeyDirection!=1){
+            if(input.GetButtonDown(ButtonCode.Right) && KeyDirection!=1){
                 States.Peek().Try2StartMove(true);
                 KeyDirection = 1;
                 EyeToRight = true;
     
             //左ボタンを押したときに左に動く
-            }else if(InputManager.Instance.GetButtonDown(ButtonCode.Left) && KeyDirection!=-1){
+            }else if(input.GetButtonDown(ButtonCode.Left) && KeyDirection!=-1){
                 States.Peek().Try2StartMove(false);
                 KeyDirection = -1;
                 EyeToRight = false;
     
             //右ボタンを離したときはさっきまで動いていた向きによって挙動が変わる
-            }else if(InputManager.Instance.GetButtonUp(ButtonCode.Right) && KeyDirection==1){
+            }else if(input.GetButtonUp(ButtonCode.Right) && KeyDirection==1){
             
-                if(InputManager.Instance.GetButton(ButtonCode.Left)){
+                if(input.GetButton(ButtonCode.Left)){
                     States.Peek().Try2StartMove(false);
                     KeyDirection = -1;
                     EyeToRight = false;
@@ -108,9 +108,9 @@ public class HeroMover : MonoBehaviour
                 }
     
             //左ボタンを離したときはさっきまで動いていた向きによって挙動が変わる
-            }else if(InputManager.Instance.GetButtonUp(ButtonCode.Left) && KeyDirection==-1){
+            }else if(input.GetButtonUp(ButtonCode.Left) && KeyDirection==-1){
             
-                if(InputManager.Instance.GetButton(ButtonCode.Right)){
+                if(input.GetButton(ButtonCode.Right)){
                     States.Peek().Try2StartMove(true);
                     KeyDirection = 1;
                     EyeToRight = true;
@@ -142,12 +142,14 @@ public class HeroMover : MonoBehaviour
     WallCheckerL wallCheckerL;
     WallCheckerR wallCheckerR;
     SavePositionManager savePositionManager;
+    IAskedInput input;
 
 
     public SpriteRenderer spriteRenderer;
     public Animator anim;
     public new Rigidbody2D rigidbody;
     public GameObject curtain;
+    [SerializeField] Chishibuki chishibuki;
     
     #endregion
 
@@ -175,6 +177,7 @@ public class HeroMover : MonoBehaviour
         States.Push(new StateBend(this));
         ParticleSystem ps = transform.Find("Particle System").GetComponent<ParticleSystem>();
         ps.Play();
+        chishibuki.StartCoroutine("StartChishibuki");
     }
 
     ///<summary>リスポーン</summary>
@@ -216,6 +219,7 @@ public class HeroMover : MonoBehaviour
         lastState = States.Peek();
 
         cmrCntr = CameraController.CurrentCamera;
+        input   = InputManager.Instance;
         spriteRenderer      = GetComponent<SpriteRenderer>();
         anim                = GetComponent<Animator>();
         rigidbody           = GetComponent<Rigidbody2D>();
@@ -225,6 +229,7 @@ public class HeroMover : MonoBehaviour
         groundChecker    = transform.Find("GroundChecker").GetComponent<GroundChecker>();
         wallCheckerL     = transform.Find("WallCheckerL").GetComponent<WallCheckerL>();
         wallCheckerR     = transform.Find("WallCheckerR").GetComponent<WallCheckerR>();
+        chishibuki       = transform.parent.Find("Canvas").Find("ChishibukiController").GetComponent<Chishibuki>();
 
         hpcntr.die     += ReceiveDeath;
         hpcntr.damaged += BendBack;
@@ -244,20 +249,20 @@ public class HeroMover : MonoBehaviour
             if(CanMove){
 
                 //なんとなく入力をまとめて置きたくてここにしているがあまり意味がないような…
-                if(InputManager.Instance.GetNagaoshiFrames(ButtonCode.Save) == 70) savePositionManager.Try2Save();
+                if(input.GetNagaoshiFrames(ButtonCode.Save) == 70) savePositionManager.Try2Save();
 
 
                 UpdateMoveDirection();
 
-                if(InputManager.Instance.GetButtonDown(ButtonCode.Jump)){
+                if(input.GetButtonDown(ButtonCode.Jump)){
                     States.Peek().Try2Jump();
                 }
 
                 //面倒だし向きは移動方向と同じでいいからキーは1つでいい気がするが…
-                if(InputManager.Instance.GetButtonDown(ButtonCode.JetLR)){
+                if(input.GetButtonDown(ButtonCode.JetLR)){
                     States.Peek().Try2StartJet();
                 }
-                if(InputManager.Instance.GetButtonUp(ButtonCode.JetLR)){
+                if(input.GetButtonUp(ButtonCode.JetLR)){
                     States.Peek().Try2EndJet();
                 }
             }
