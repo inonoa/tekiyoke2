@@ -8,15 +8,15 @@ public class Kazaguruma : MonoBehaviour{
     [SerializeField] Transform kuruma;
     [SerializeField] float rotateVelFirst = 0.1f;
     [SerializeField] float nextRotateVelRate = 0.9f;
+    [SerializeField] float rotatingThreshold = 0.02f;
     float rotateVel;
-    bool rotating = false;
     public bool IsRotating{
-        get => rotating;
+        get => rotateVel > rotatingThreshold;
     }
     public event EventHandler Rotated;
 
     void OnTriggerEnter2D(Collider2D other){
-        if(other.gameObject.tag=="Jet"){
+        if(other.gameObject.tag=="Player"){
             rotateVel = rotateVelFirst;
             Rotated?.Invoke(this, EventArgs.Empty);
         }
