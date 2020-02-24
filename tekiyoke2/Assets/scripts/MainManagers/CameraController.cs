@@ -56,7 +56,7 @@ public class CameraController : MonoBehaviour
     {
         cmr = GetComponent<Camera>();
         defaultSize = cmr.orthographicSize;
-        targetPosition = HeroDefiner.CurrentHeroPos + new Vector3(0,100,-200);
+        targetPosition = HeroDefiner.CurrentHeroPos + new Vector3(0,100,-500);
     }
 
     // Update is called once per frame
@@ -100,7 +100,7 @@ public class CameraController : MonoBehaviour
             else                       positionGap += (heroVec * positionGapWidth - positionGap) * positionGapChangeSpeed;
 
 
-            transform.position = targetPosition.ToVector3() + positionGap.ToVector3() + new Vector3(0,0,-200);
+            transform.position = targetPosition.ToVector3() + positionGap.ToVector3() + new Vector3(0,0,-500);
         }
     }
 

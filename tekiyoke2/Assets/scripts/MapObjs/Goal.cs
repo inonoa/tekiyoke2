@@ -10,12 +10,6 @@ public class Goal : MonoBehaviour
 
     bool goaled = false;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -31,12 +25,10 @@ public class Goal : MonoBehaviour
             HeroDefiner.currentHero.IsFrozen = true;
             clock.DoesTick = false;
             doubleAnim.gameObject.SetActive(true);
-            //curtain.gameObject.SetActive(true);
 
-            SceneTransition.Start2ChangeState("StageChoiceScene", SceneTransition.TransitionType.Normal);
+            SceneTransition.Start2ChangeState("ResultScene", SceneTransition.TransitionType.WindAndBlur);
 
             doubleAnim.SetTrigger("runr");
-            Debug.Log("GOAL!!!!");
         }
     }
 }

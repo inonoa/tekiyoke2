@@ -66,6 +66,7 @@
         float distance = _Distance / _Resolution;
         int resolution = _Resolution;
         fixed4 computedColor = tex2D(_MainTex, input.textureCoordinate) * input.color;
+        //なんかこう……高速にならないですかね……
         for(int i=-resolution; i<resolution+1; i++){
             for(int j=-resolution; j<resolution+1; j++){
                 computedColor += tex2D(_MainTex, half2(

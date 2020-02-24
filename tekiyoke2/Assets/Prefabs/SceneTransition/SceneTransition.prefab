@@ -43,7 +43,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80d68c0dd503a8e43b54f464e9fea930, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curtain4SceneEnd: {fileID: 6789942870855061318, guid: 9a497827e3b42fa4e804f0dfe365c78f,
+  curtain4SceneEnd: {fileID: 3757604634413297123, guid: 9a497827e3b42fa4e804f0dfe365c78f,
     type: 3}
-  curtain4SceneStart: {fileID: 1484245753204163691, guid: 5fa93a3e983c21149855f97a2ba32be3,
+  curtain4SceneStart: {fileID: 7335697979290078405, guid: 5fa93a3e983c21149855f97a2ba32be3,
     type: 3}
+  windAndBlur: {fileID: 1855145380354302208, guid: b74f51cabc3a95e418df7c634d589a0d,
+    type: 3}
+  scshoImage: {fileID: 6327406004804041851, guid: 0a43d2f3384d94f4dad9792771feac2c,
+    type: 3}
+  firstState: 0
