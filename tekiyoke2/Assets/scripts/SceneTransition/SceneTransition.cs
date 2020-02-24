@@ -102,8 +102,9 @@ public class SceneTransition : MonoBehaviour
                 break;
 
             case SceneTransitState.WindAndBlur:
-                Instantiate(scshoImage, transform).sprite =
-                    Sprite.Create(scSho, new Rect(0, 0, Screen.width, Screen.height), new Vector2(0.5f,0.5f));
+                Image scshoImg = Instantiate(scshoImage, transform.parent.Find("BG"));
+                scshoImg.transform.SetAsFirstSibling();
+                scshoImg.sprite = Sprite.Create(scSho, new Rect(0, 0, Screen.width, Screen.height), new Vector2(0.5f,0.5f));
                 break;
         }
 

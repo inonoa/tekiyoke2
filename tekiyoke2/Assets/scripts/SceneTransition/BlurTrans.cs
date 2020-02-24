@@ -19,7 +19,6 @@ public class BlurTrans : MonoBehaviour
     IEnumerator Blur(){
         for(int i=0; i<framesToBlur; i++){
             float distRate = 1 - ((i+1f) / framesToBlur - 1) * ((i+1f) / framesToBlur - 1);
-            print(distRate);
             material.SetFloat( "_Distance", distanceMax * distRate );
             yield return null;
         }
