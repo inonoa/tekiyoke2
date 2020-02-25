@@ -2,17 +2,37 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using DG.Tweening;
 
+//staticな関数であってほしいとなんとなく思ってこうしたけどcurrentInstance必要なら覆い隠すべきではない気もしてきたね……
 public class SceneTransition : MonoBehaviour
 {
     static SceneTransition currentInstance;
 
-    [SerializeField]
-    GameObject curtain4SceneEnd = null;
-    [SerializeField]
-    GameObject curtain4SceneStart = null;
+    [SerializeField] Curtain4SceneEndMover curtain4SceneEnd = null;
+    [SerializeField] Curtain4SceneStartMover curtain4SceneStart = null;
+    [SerializeField] WindAndBlur windAndBlur = null;
+    [SerializeField] Image scshoImage = null;
+    static Texture2D scSho = null;
+    static List<string> _SceneNameLog = new List<string>();
+    public static IReadOnlyList<string> SceneNameLog{
+        get => _SceneNameLog;
+    }
+    public static int LastStageIndex(){
 
-    enum SceneTransitState{ None, Default, Normal, HeroDied }
+        for(int i = SceneNameLog.Count - 1; i > -1; i--){
+
+            switch(SceneNameLog[i]){
+                case "Draft1": return 0;
+                case "Draft2": return 1;
+                case "Draft3": return 2;
+            }
+        }
+        return -1;
+    }
+
+    enum SceneTransitState{ None, Default, Normal, HeroDied, WindAndBlur }
     static SceneTransitState _State = SceneTransitState.Normal;
     static SceneTransitState State{
         get{ return _State; }
@@ -28,14 +48,16 @@ public class SceneTransition : MonoBehaviour
     ///<summary>様々な遷移がある</summary>
     public enum TransitionType{
         ///<summary>素のLoadScene()が呼ばれる</summary>
-        Default,
+        Default
         ///<summary>今のとこカーテンが出て横にシューっとなる(？)、大体の場合これを使うみたいな感じで</summary>
-        Normal,
+        , Normal
         ///<summary>主人公が死んだとき専用の遷移</summary>
-        HeroDied
+        , HeroDied
+        ///<summary>風みたいなエフェクトを出した後背景をぼかす(？)</summary>
+        , WindAndBlur
     }
 
-    ///<summary>シーンを変えることを試みる、短時間に複数回遷移させるみたいなことにならないようによしなにする</summary>
+    ///<summary>シーンを変えることを試みる、短時間に複数回遷移させるみたいなことにならないようによしなにする(StateじゃなくてSceneじゃねこれ)</summary>
     public static void Start2ChangeState(string sceneName, TransitionType transitionType){
         if(SceneTransition.State != SceneTransitState.None) return;
 
@@ -49,13 +71,24 @@ public class SceneTransition : MonoBehaviour
             case TransitionType.Normal:
                 SceneTransition.State = SceneTransitState.Normal;
                 var curtain = Instantiate(currentInstance.curtain4SceneEnd, currentInstance.transform);
-                curtain.GetComponent<Curtain4SceneEndMover>().NextSceneName = sceneName;
+                curtain.NextSceneName = sceneName;
                 break;
             
             case TransitionType.HeroDied:
                 SceneTransition.State = SceneTransitState.HeroDied;
                 var curtainD = Instantiate(currentInstance.curtain4SceneEnd, currentInstance.transform);
-                curtainD.GetComponent<Curtain4SceneEndMover>().NextSceneName = sceneName;
+                curtainD.NextSceneName = sceneName;
+                break;
+            
+            case TransitionType.WindAndBlur:
+                SceneTransition.State = SceneTransitState.WindAndBlur;
+                DOVirtual.DelayedCall(1.2f, () =>
+                {
+                    var windblur = Instantiate(currentInstance.windAndBlur, currentInstance.transform.parent);
+                    windblur.NextSceneName = sceneName;
+                    windblur.ReadyToChange += (ss, e) => scSho = (Texture2D)ss;
+                    windblur.transform.SetAsLastSibling();
+                });
                 break;
         }
     }
@@ -63,6 +96,7 @@ public class SceneTransition : MonoBehaviour
     ///<summary>遷移してきたなら遷移のタイプによって相応のオブジェクトを出す、そうでないならfirstStateを反映</summary>
     void Start(){
         currentInstance = this;
+        _SceneNameLog.Add(gameObject.scene.name);
         if(!firstSceneLoaded){
             SceneTransition.State = firstState;
             firstSceneLoaded = true;
@@ -82,6 +116,11 @@ public class SceneTransition : MonoBehaviour
             case SceneTransitState.HeroDied:
                 Instantiate(curtain4SceneStart, transform);
                 MemoryOverDeath.Instance.Load();
+                break;
+
+            case SceneTransitState.WindAndBlur:
+                Image scshoImg = Instantiate(scshoImage, transform.parent.Find("BG"));
+                scshoImg.sprite = Sprite.Create(scSho, new Rect(0, 0, Screen.width, Screen.height), new Vector2(0.5f,0.5f));
                 break;
         }
 
