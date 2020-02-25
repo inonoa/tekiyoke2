@@ -4,13 +4,22 @@ using UnityEngine;
 
 public class Goal : MonoBehaviour
 {
-    public GameTimeCounter clock;
+    int stageIdx;
     public Animator doubleAnim;
     public Curtain4SceneEndMover curtain;
 
     bool goaled = false;
 
-    // Update is called once per frame
+    void Start(){
+
+        switch(this.gameObject.scene.name){
+            case "Draft1": stageIdx = 0; break;
+            case "Draft2": stageIdx = 1; break;
+            case "Draft3": stageIdx = 2; break;
+            default: stageIdx = 0; break;
+        }
+    }
+
     void Update()
     {
         if(goaled){
@@ -23,7 +32,8 @@ public class Goal : MonoBehaviour
             goaled = true;
             HeroDefiner.currentHero.spriteRenderer.enabled = false;
             HeroDefiner.currentHero.IsFrozen = true;
-            clock.DoesTick = false;
+            GameTimeCounter.CurrentInstance.DoesTick = false;
+            ScoreHolder.Instance.clearTimesLast[stageIdx] = GameTimeCounter.CurrentInstance.Seconds;
             doubleAnim.gameObject.SetActive(true);
 
             SceneTransition.Start2ChangeState("ResultScene", SceneTransition.TransitionType.WindAndBlur);

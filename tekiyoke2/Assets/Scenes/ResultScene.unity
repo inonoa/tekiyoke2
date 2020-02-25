@@ -926,6 +926,7 @@ GameObject:
   - component: {fileID: 1591239892}
   - component: {fileID: 1591239893}
   - component: {fileID: 1591239894}
+  - component: {fileID: 1591239895}
   m_Layer: 5
   m_Name: TIME
   m_TagString: Untagged
@@ -980,6 +981,19 @@ MonoBehaviour:
   secToIn: 1
   secDelay: 0.5
   distanceVec: {x: 150, y: 0, z: 0}
+--- !u!114 &1591239895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1591239891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19dd3d4e649668d46809dc48243444bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeTxt: {fileID: 82341626}
 --- !u!1 &1642394517
 GameObject:
   m_ObjectHideFlags: 0

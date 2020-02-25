@@ -8,7 +8,7 @@ public class GameTimeCounter : MonoBehaviour
 {
     public static GameTimeCounter CurrentInstance{ get; set; }
 
-    public float count=0;
+    public float Seconds{ get; set; } = 0;
     Text txt;
     public bool DoesTick { get; set; } = true;
 
@@ -16,16 +16,18 @@ public class GameTimeCounter : MonoBehaviour
         CurrentInstance = this;
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         txt = GetComponent<Text>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        txt.text = (((int)count)/3600).ToString("00") + ":" + (((int)count)%3600/60).ToString("00") + ":" + (((int)count)%60).ToString("00");
-        if(DoesTick) count += Time.timeScale;
+        int seconds = (int) Seconds;
+        int minutes = seconds / 60;
+        int comma__ = (int) ((Seconds - seconds) * 100);
+        txt.text = minutes.ToString("00") + ":" + seconds.ToString("00") + ":" + comma__.ToString("00");
+
+        if(DoesTick) Seconds += Time.timeScale * Time.deltaTime;
     }
 }

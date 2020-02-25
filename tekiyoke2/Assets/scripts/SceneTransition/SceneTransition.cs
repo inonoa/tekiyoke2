@@ -15,6 +15,22 @@ public class SceneTransition : MonoBehaviour
     [SerializeField] WindAndBlur windAndBlur = null;
     [SerializeField] Image scshoImage = null;
     static Texture2D scSho = null;
+    static List<string> _SceneNameLog = new List<string>();
+    public static IReadOnlyList<string> SceneNameLog{
+        get => _SceneNameLog;
+    }
+    public static int LastStageIndex(){
+
+        for(int i = SceneNameLog.Count - 1; i > -1; i--){
+
+            switch(SceneNameLog[i]){
+                case "Draft1": return 0;
+                case "Draft2": return 1;
+                case "Draft3": return 2;
+            }
+        }
+        return -1;
+    }
 
     enum SceneTransitState{ None, Default, Normal, HeroDied, WindAndBlur }
     static SceneTransitState _State = SceneTransitState.Normal;
@@ -41,7 +57,7 @@ public class SceneTransition : MonoBehaviour
         , WindAndBlur
     }
 
-    ///<summary>シーンを変えることを試みる、短時間に複数回遷移させるみたいなことにならないようによしなにする</summary>
+    ///<summary>シーンを変えることを試みる、短時間に複数回遷移させるみたいなことにならないようによしなにする(StateじゃなくてSceneじゃねこれ)</summary>
     public static void Start2ChangeState(string sceneName, TransitionType transitionType){
         if(SceneTransition.State != SceneTransitState.None) return;
 
@@ -80,6 +96,7 @@ public class SceneTransition : MonoBehaviour
     ///<summary>遷移してきたなら遷移のタイプによって相応のオブジェクトを出す、そうでないならfirstStateを反映</summary>
     void Start(){
         currentInstance = this;
+        _SceneNameLog.Add(gameObject.scene.name);
         if(!firstSceneLoaded){
             SceneTransition.State = firstState;
             firstSceneLoaded = true;

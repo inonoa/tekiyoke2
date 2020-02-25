@@ -8,12 +8,12 @@ public class MemoryOverDeath
     (float x, float y) heroPosition = (0,0);
 
     public void Save(){
-        time = GameTimeCounter.CurrentInstance.count;
+        time = GameTimeCounter.CurrentInstance.Seconds;
         heroPosition = (HeroDefiner.CurrentHeroPos.x, HeroDefiner.CurrentHeroPos.y);
     }
 
     public void Load(){
-        GameTimeCounter.CurrentInstance.count = time;
+        GameTimeCounter.CurrentInstance.Seconds = time;
         GameTimeCounter.CurrentInstance.DoesTick = true;
         if(heroPosition!=(0,0)){
             HeroDefiner.currentHero.WarpPos(heroPosition.x, heroPosition.y);
