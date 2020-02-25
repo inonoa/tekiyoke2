@@ -50,6 +50,8 @@ public class StateJet : IHeroState
             trailTF.position = hero.transform.position;
             trailTF.GetComponent<TrailRenderer>().time = jetFramesMax / 60f;
 
+            JetCloudManager.CurrentInstance.EndClouds();
+
             //ちょっと待って…
             // phantom.SetActive(false);
             hero.cmrCntr.Dash(jetFramesMax); //今は何も起こってなさそう
@@ -76,6 +78,7 @@ public class StateJet : IHeroState
         }
 
         hero.cmrCntr.StartZoomForDash();
+        JetCloudManager.CurrentInstance.StartClouds();
     }
     public void Update(){
         switch(state){
@@ -118,5 +121,6 @@ public class StateJet : IHeroState
         hero.spriteRenderer.color = new Color(1,1,1,1);
         hero.cmrCntr.EndDash();
         GameObject.Destroy(jetStream);
+        JetCloudManager.CurrentInstance.EndClouds();
     }
 }
