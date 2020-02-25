@@ -148,8 +148,8 @@ public class HeroMover : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public Animator anim;
     public new Rigidbody2D rigidbody;
-    public GameObject curtain;
     [SerializeField] Chishibuki chishibuki;
+    public GameObject jetStreamPrefab;
     
     #endregion
 

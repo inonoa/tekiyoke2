@@ -134116,7 +134116,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a65a4b5ea2e950c45a82fba87f353175, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  count: 0
 --- !u!1 &8531278768000744610
 GameObject:
   m_ObjectHideFlags: 0
@@ -137918,7 +137917,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab5e2a479442291428ec92a3a0586cbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clock: {fileID: 8531278767966102485}
   doubleAnim: {fileID: 8531278768557209027}
   curtain: {fileID: 0}
 --- !u!212 &8531278768792311968
@@ -137977,7 +137975,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8531278768792311998}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6500, y: 475, z: -1}
+  m_LocalPosition: {x: 0, y: -200, z: -1}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 8531278768147258291}
@@ -138136,8 +138134,9 @@ MonoBehaviour:
   spriteRenderer: {fileID: 0}
   anim: {fileID: 0}
   rigidbody: {fileID: 0}
-  curtain: {fileID: 0}
   chishibuki: {fileID: 0}
+  jetStreamPrefab: {fileID: 8900711695561503522, guid: 06218cdfbbedd5d44a9e274110518bb5,
+    type: 3}
 --- !u!114 &8531278768792312000
 MonoBehaviour:
   m_ObjectHideFlags: 0
