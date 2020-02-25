@@ -7,6 +7,10 @@ public class StateJet : IHeroState
     static readonly float timeScaleBeforeJet = 0.2f;
 
     HeroMover hero;
+    Vector3 posWhenJet;
+    GameObject jetStream;
+    BoxCollider2D jsCol;
+    Transform trailTF;
 
     enum State { Ready, Jetting }
     State state = State.Ready;
@@ -34,8 +38,19 @@ public class StateJet : IHeroState
             int fullDist = (int)(MyMath.FloorAndCeil(10,tameFrames,30) * 25);
             jetFramesMax = (fullDist*3) /100;
             jetVelocities = new float[jetFramesMax];
-            for(int i=0;i<jetFramesMax;i++)
+            for(int i=0;i<jetFramesMax;i++){
                 jetVelocities[i] = fullDist * ( EasingFunc((i+1)/(float)jetFramesMax) - EasingFunc(i/(float)jetFramesMax) );
+            }
+            posWhenJet = hero.transform.position;
+            jetStream = GameObject.Instantiate(hero.jetStreamPrefab, hero.transform.parent /* ->GameMaster(うーん) */);
+            jetStream.transform.position = hero.transform.position;
+            jsCol = jetStream.GetComponent<BoxCollider2D>();
+
+            trailTF = GameObject.Instantiate(hero.jetTrail, hero.transform.parent /* ->GameMaster(うーん) */).transform;
+            trailTF.position = hero.transform.position;
+            trailTF.GetComponent<TrailRenderer>().time = jetFramesMax / 60f;
+
+            JetCloudManager.CurrentInstance.EndClouds();
 
             //ちょっと待って…
             // phantom.SetActive(false);
@@ -63,6 +78,7 @@ public class StateJet : IHeroState
         }
 
         hero.cmrCntr.StartZoomForDash();
+        JetCloudManager.CurrentInstance.StartClouds();
     }
     public void Update(){
         switch(state){
@@ -75,6 +91,12 @@ public class StateJet : IHeroState
 
             case State.Jetting:
                 hero.velocity = (jet2Right ? jetVelocities[jetFrames] : -jetVelocities[jetFrames] , 0);
+
+                jetStream.transform.position = (posWhenJet + hero.transform.position) / 2;
+                float colWidth  = Mathf.Abs(hero.transform.position.x - posWhenJet.x);
+                float colHeight = Mathf.Abs(hero.transform.position.y - posWhenJet.y) + 80;
+                jsCol.size = new Vector2(colWidth, colHeight);
+                trailTF.position = hero.transform.position;
 
                 jetFrames ++;
                 if(jetFrames == jetFramesMax) hero.States.Push(new StateWait(hero));
@@ -98,5 +120,7 @@ public class StateJet : IHeroState
         hero.CanBeDamaged = true;
         hero.spriteRenderer.color = new Color(1,1,1,1);
         hero.cmrCntr.EndDash();
+        GameObject.Destroy(jetStream);
+        JetCloudManager.CurrentInstance.EndClouds();
     }
 }

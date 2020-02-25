@@ -16,7 +16,7 @@ public class Kazaguruma : MonoBehaviour{
     public event EventHandler Rotated;
 
     void OnTriggerEnter2D(Collider2D other){
-        if(other.gameObject.tag=="Player"){
+        if(other.gameObject.tag=="Wind"){
             rotateVel = rotateVelFirst;
             Rotated?.Invoke(this, EventArgs.Empty);
         }
