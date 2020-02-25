@@ -6,7 +6,7 @@ public class ScoreHolder
 {
     int numStages = 3;
     public float[] clearTimesLast;
-    public float[] clearTimesBest;
+    public float[] clearTimesBestExceptLast;
 
 
     #region Singleton
@@ -21,8 +21,8 @@ public class ScoreHolder
     }
     private ScoreHolder(){
         clearTimesLast = new float[numStages];
-        clearTimesBest = new float[numStages];
+        clearTimesBestExceptLast = new float[numStages];
     }
-    
+
     #endregion
 }
