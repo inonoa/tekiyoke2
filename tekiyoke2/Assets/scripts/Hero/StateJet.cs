@@ -10,6 +10,7 @@ public class StateJet : IHeroState
     Vector3 posWhenJet;
     GameObject jetStream;
     BoxCollider2D jsCol;
+    Transform trailTF;
 
     enum State { Ready, Jetting }
     State state = State.Ready;
@@ -44,6 +45,10 @@ public class StateJet : IHeroState
             jetStream = GameObject.Instantiate(hero.jetStreamPrefab, hero.transform.parent /* ->GameMaster(うーん) */);
             jetStream.transform.position = hero.transform.position;
             jsCol = jetStream.GetComponent<BoxCollider2D>();
+
+            trailTF = GameObject.Instantiate(hero.jetTrail, hero.transform.parent /* ->GameMaster(うーん) */).transform;
+            trailTF.position = hero.transform.position;
+            trailTF.GetComponent<TrailRenderer>().time = jetFramesMax / 60f;
 
             //ちょっと待って…
             // phantom.SetActive(false);
@@ -88,6 +93,7 @@ public class StateJet : IHeroState
                 float colWidth  = Mathf.Abs(hero.transform.position.x - posWhenJet.x);
                 float colHeight = Mathf.Abs(hero.transform.position.y - posWhenJet.y) + 80;
                 jsCol.size = new Vector2(colWidth, colHeight);
+                trailTF.position = hero.transform.position;
 
                 jetFrames ++;
                 if(jetFrames == jetFramesMax) hero.States.Push(new StateWait(hero));

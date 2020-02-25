@@ -149,7 +149,10 @@ public class HeroMover : MonoBehaviour
     public Animator anim;
     public new Rigidbody2D rigidbody;
     [SerializeField] Chishibuki chishibuki;
+
+    //Jet用(Jet用なんだからJetに書くべきだがインスペクタに表示しづらいため…)
     public GameObject jetStreamPrefab;
+    public TrailRenderer jetTrail;
     
     #endregion
 
