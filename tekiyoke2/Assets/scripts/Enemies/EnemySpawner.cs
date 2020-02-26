@@ -20,5 +20,6 @@ public class EnemySpawner : MonoBehaviour
     {
         enemies = GetComponentsInChildren<EnemyController>(true);
         defaultPositions = enemies.Select(e => e.transform.position).ToArray();
+        foreach(EnemyController enemy in enemies) enemy.gameObject.SetActive(false);
     }
 }
