@@ -11,11 +11,13 @@ public class CameraController : MonoBehaviour
     static readonly float zoomSpeed = 1;
     static readonly float unzoomSpeed = 10;
 
+    ///<summary>主人公を追いかけている、主人公が動くと遅れてついていく</summary>
     Vector2 targetPosition;
 
     ///<summary>Freeze後に追いかけるスピードとかに比例してる</summary>
     static readonly float targetPosChangeSpeed = 0.1f;
 
+    ///<summary>右に移動中は右に、左に移動中は左に寄る、みたいなのの度合い</summary>
     Vector2 positionGap = Vector2.zero;
 
     ///<summary>動いている向き(左右のみ)にこの幅だけカメラが先行して(？)動く</summary>
@@ -90,14 +92,18 @@ public class CameraController : MonoBehaviour
         }else{
             //Update targetPosition
             //単純に主人公の移動距離分追いかけたあと、Freeze中に置いてけぼりを喰らっていた分をちょっとずつ追い付く
-            targetPosition += MyMath.DistAsVector2(HeroDefiner.CurrentHeroExpectedPos, HeroDefiner.CurrentHeroPastPos[0]);
+            targetPosition += MyMath.DistAsVector2(HeroDefiner.CurrentHeroPos, HeroDefiner.CurrentHeroPastPos[1]);
             targetPosition += (HeroDefiner.CurrentHeroExpectedPos + new Vector2(0,100) - targetPosition) * targetPosChangeSpeed;
 
             //Update positionGap
-            Vector2 heroVec = new Vector2(MyMath.FloorAndCeil(-1,HeroVelocityMean(3).x,1),0);
-            Vector2 dist2Gap = heroVec * positionGapWidth - positionGap;
+            float velMX = HeroVelocityMean(100).x;
+            float zureX;
+            if     (velMX < - HeroMover.moveSpeed * 0.6f) zureX = -1;
+            else if(velMX <   HeroMover.moveSpeed * 0.6f) zureX = 0;
+            else                                          zureX = 1;
+            Vector2 dist2Gap = new Vector2(zureX,0) * positionGapWidth - positionGap;
             if(dist2Gap.magnitude < 1) positionGap += Vector2.zero;
-            else                       positionGap += (heroVec * positionGapWidth - positionGap) * positionGapChangeSpeed;
+            else                       positionGap += dist2Gap * positionGapChangeSpeed;
 
 
             transform.position = targetPosition.ToVector3() + positionGap.ToVector3() + new Vector3(0,0,-500);

@@ -18,6 +18,11 @@ public static class MyMath
         else      return n % m;
     }
 
+    public static float DoubleRamp(float x, float thresholdAbs){
+        if(x > 0) return Math.Max(0, x - thresholdAbs);
+        else      return Math.Min(0, x + thresholdAbs);
+    }
+
     public static Vector2 ToVector2(this Vector3 vec3) => new Vector2(vec3.x, vec3.y);
     public static Vector3 ToVector3(this Vector2 vec2) => new Vector3(vec2.x, vec2.y, 0);
 
