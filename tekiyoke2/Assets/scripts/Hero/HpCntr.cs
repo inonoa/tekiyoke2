@@ -28,10 +28,10 @@ public class HpCntr : MonoBehaviour
     public event EventHandler damaged;
     private float[,] damagemove = {{20,0},{0,0},{0,0},{-40,10},{0,0},{0,0},{10,-30},{0,0},{0,0},{15,30},{0,0},{0,0},{-5,-10}};
 
-    new public GameObject camera;
+    new CameraController camera;
 
 
-    ///<summary>HPの増減はすべてここから。</summary>
+    ///<summary>HPの増減はすべてここから。 / プロパティにしては重い処理をしている……</summary>
     public int HP{
         get{return hp;}
         set{
@@ -70,7 +70,7 @@ public class HpCntr : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        camera = CameraController.CurrentCamera;
     }
 
     // Update is called once per frame

@@ -26,7 +26,6 @@ public class StateBend : IHeroState
         hero.CanBeDamaged = false;
 
         CameraController.CurrentCamera.Freeze(num_frames: 20);
-        Debug.Log("ヴッ");
     }
     public void Update(){
 
