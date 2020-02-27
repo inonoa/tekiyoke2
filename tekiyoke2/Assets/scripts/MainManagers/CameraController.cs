@@ -92,7 +92,8 @@ public class CameraController : MonoBehaviour
         }else{
             //Update targetPosition
             //単純に主人公の移動距離分追いかけたあと、Freeze中に置いてけぼりを喰らっていた分をちょっとずつ追い付く
-            targetPosition += MyMath.DistAsVector2(HeroDefiner.CurrentHeroPos, HeroDefiner.CurrentHeroPastPos[1]);
+            targetPosition += MyMath.DistAsVector2(HeroDefiner.CurrentHeroPos,
+                HeroDefiner.CurrentHeroPastPos.Count > 1 ? HeroDefiner.CurrentHeroPastPos[1] : HeroDefiner.CurrentHeroPos);
             targetPosition += (HeroDefiner.CurrentHeroExpectedPos + new Vector2(0,100) - targetPosition) * targetPosChangeSpeed;
 
             //Update positionGap

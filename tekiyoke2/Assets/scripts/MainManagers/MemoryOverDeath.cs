@@ -12,6 +12,10 @@ public class MemoryOverDeath
         heroPosition = (HeroDefiner.CurrentHeroPos.x, HeroDefiner.CurrentHeroPos.y);
     }
 
+    public void SaveOnDeath(){
+        time = GameTimeCounter.CurrentInstance.Seconds;
+    }
+
     public void Load(){
         GameTimeCounter.CurrentInstance.Seconds = time;
         GameTimeCounter.CurrentInstance.DoesTick = true;

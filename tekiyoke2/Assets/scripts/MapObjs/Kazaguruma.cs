@@ -14,6 +14,7 @@ public class Kazaguruma : MonoBehaviour{
         get => rotateVel > rotatingThreshold;
     }
     public event EventHandler Rotated;
+    public event EventHandler OnSlow;
 
     void OnTriggerEnter2D(Collider2D other){
         if(other.gameObject.tag=="Wind"){
@@ -26,9 +27,19 @@ public class Kazaguruma : MonoBehaviour{
     void Update()
     {
         if(rotateVel > 0){
+
             kuruma.Rotate(0,0,rotateVel);
-            rotateVel *= nextRotateVelRate;
-            if(rotateVel < 0.001f) rotateVel = 0;
+
+            float nextVel = rotateVel * nextRotateVelRate;
+
+            if(rotateVel >= rotatingThreshold && nextVel < rotatingThreshold){
+                OnSlow?.Invoke(this, EventArgs.Empty);
+            }
+
+            rotateVel = nextVel;
+            if(rotateVel < 0.1f){
+                rotateVel = 0;
+            }
         }
     }
 }

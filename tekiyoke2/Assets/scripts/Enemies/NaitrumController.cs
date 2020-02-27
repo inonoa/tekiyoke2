@@ -6,10 +6,11 @@ using System;
 
 public class NaitrumController : EnemyController
 {
-    private int direction = -1;
+    [SerializeField] float moveSpeed = 1;
+    [SerializeField] bool toRight = false;
     public EnemyCollider2Wall col;
 
-    private void Turn(object sender, EventArgs e) => direction *= -1;
+    private void Turn(object sender, EventArgs e) => toRight = !toRight;
 
     // Start is called before the first frame update
     new void Start()
@@ -20,5 +21,5 @@ public class NaitrumController : EnemyController
     }
 
     // Update is called once per frame
-    new void Update() => MovePos(direction,0);
+    new void Update() => MovePos( (toRight ? 1 : -1) * moveSpeed, 0);
 }

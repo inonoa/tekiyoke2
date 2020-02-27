@@ -6,7 +6,7 @@ using System;
 public class GierController : EnemyController
 {
     enum GierState{ BeforeFindingR, BeforeFindingL, FindingNow, Running }
-    GierState state = GierState.BeforeFindingR;
+    GierState state;
     int findingCount = 0;
 
     [SerializeField]
@@ -24,6 +24,8 @@ public class GierController : EnemyController
     float framesBeforeRun = 60;
     [SerializeField]
     float jumpForce = 500;
+    [SerializeField]
+    bool toRightFirst = true;
 
     GroundChecker groundChecker;
 
@@ -39,6 +41,7 @@ public class GierController : EnemyController
         transform.Find("DontWannaFallR").GetComponent<DontWannaFall>().about2fall += Turn;
         transform.Find("DontWannaFallL").GetComponent<DontWannaFall>().about2fall += Turn;
         transform.Find("Collider2Wall").GetComponent<EnemyCollider2Wall>().touched2Wall += Turn;
+        state = toRightFirst ? GierState.BeforeFindingR : GierState.BeforeFindingL;
     }
 
     // Update is called once per frame

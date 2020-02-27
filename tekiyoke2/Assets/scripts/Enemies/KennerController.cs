@@ -18,39 +18,34 @@ public class KennerController : EnemyController
         }
     }
 
-    [SerializeField]
-    int restFrames = 100;
+    [Header("--Kennerのパラメータ？--")]
+
+    [SerializeField] int restFrames = 100;
     int restFramesNow = 0;
 
-    [SerializeField]
-    float distanceToFindHero = 200;
-    [SerializeField]
-    float jumpForce = 400;
+    [SerializeField] float distanceToFindHero = 200;
+    [SerializeField] float jumpForce = 400;
 
-    [SerializeField]
-    int framesPerShoot = 20;
+
+    [Header("--弾の撃ち方--")]
+    [SerializeField] int framesPerShoot = 20;
     int framesToShootNow = 1;
 
-    [SerializeField]
-    int howManyShoots = 3;
+    [SerializeField] int howManyShoots = 3;
     int howManyShootsNow = 0;
 
-    [SerializeField]
-    float upAngle = 10;
-    [SerializeField]
-    float downAngle = 70;
-    [SerializeField]
-    float num_tamaPerShoot = 5;
+    [SerializeField] float upAngle = 10;
+    [SerializeField] float downAngle = 70;
+    [SerializeField] float num_tamaPerShoot = 5;
 
     GroundChecker groundChecker;
-    [SerializeField]
-    GameObject tama = null;
 
-    [SerializeField]
-    float tamaSpeed = 10;
+    [Header("--弾のパラメータ--")]
+    [SerializeField] GameObject tama = null;
 
-    [SerializeField]
-    int tamaLife = 100;
+    [SerializeField] float tamaSpeed = 10;
+
+    [SerializeField] int tamaLife = 100;
 
     new void Start()
     {

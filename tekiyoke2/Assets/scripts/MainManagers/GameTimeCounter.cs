@@ -23,10 +23,11 @@ public class GameTimeCounter : MonoBehaviour
 
     void Update()
     {
-        int seconds = (int) Seconds;
-        int minutes = seconds / 60;
-        int comma__ = (int) ((Seconds - seconds) * 100);
-        txt.text = minutes.ToString("00") + ":" + seconds.ToString("00") + ":" + comma__.ToString("00");
+        int secInt = (int)Seconds;
+        int secs    = secInt % 60;
+        int minutes = secInt / 60;
+        int comma__ = (int) ((Seconds - secInt) * 100);
+        txt.text = minutes.ToString("00") + ":" + secs.ToString("00") + ":" + comma__.ToString("00");
 
         if(DoesTick) Seconds += Time.timeScale * Time.deltaTime;
     }

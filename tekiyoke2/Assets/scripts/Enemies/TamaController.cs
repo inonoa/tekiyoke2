@@ -6,12 +6,12 @@ using System;
 public class TamaController : MonoBehaviour
 {
     Rigidbody2D rBody;
-    public float angle;
+    [HideInInspector] public float angle;
 
-    public float speed;
+    [HideInInspector] public float speed;
     Vector3 speedVec;
 
-    public int life;
+    [HideInInspector] public int life;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +29,7 @@ public class TamaController : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D other){
-        if(other.gameObject.tag == "Terrain" || other.gameObject.tag == "Player") Destroy(gameObject);
+        if(other.gameObject.tag == "Terrain" || other.gameObject.tag == "Ultrathin" || other.gameObject.tag == "Player") Destroy(gameObject);
         if(other.gameObject.tag == "Player") HeroDefiner.currentHero.Damage(1);
     }
 }
