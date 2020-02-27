@@ -207,7 +207,7 @@ MonoBehaviour:
   kuruma: {fileID: 6190435699541397385}
   rotateVelFirst: 20
   nextRotateVelRate: 0.99
-  rotatingThreshold: 1
+  rotatingThreshold: 2
 --- !u!61 &7264114684153644685
 BoxCollider2D:
   m_ObjectHideFlags: 0
