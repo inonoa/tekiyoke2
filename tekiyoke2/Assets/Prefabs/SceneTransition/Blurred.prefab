@@ -88,4 +88,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   framesToBlur: 30
-  distanceMax: 0.01
+  distanceMax: 0.005

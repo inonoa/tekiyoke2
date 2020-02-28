@@ -291,7 +291,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300008, guid: 625f51076d4132249877a04076663139, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 681b56feab6a20845a2691d53ede9bd5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -321,6 +321,7 @@ MonoBehaviour:
   distanceToMissHero: 1000
   framesBeforeRun: 40
   jumpForce: 1000
+  toRightFirst: 1
   filter:
     useTriggers: 0
     useLayerMask: 0
