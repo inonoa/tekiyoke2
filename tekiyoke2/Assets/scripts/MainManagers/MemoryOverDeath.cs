@@ -19,12 +19,18 @@ public class MemoryOverDeath
     public void Load(){
         GameTimeCounter.CurrentInstance.Seconds = time;
         GameTimeCounter.CurrentInstance.DoesTick = true;
+        //今は初期位置でセーブする意味が無いのであれだがしょうらい……
         if(heroPosition!=(0,0)){
             HeroDefiner.currentHero.WarpPos(heroPosition.x, heroPosition.y);
             GameObject resPos = GameObject.Find("GameMaster").transform.Find("RespawnPosition").gameObject; //苦しい
             resPos.SetActive(true);
             resPos.transform.position = new Vector3(heroPosition.x, heroPosition.y, resPos.transform.position.z);
         }
+    }
+
+    public void Clear(){
+        time = 0;
+        heroPosition = (0, 0);
     }
 
 

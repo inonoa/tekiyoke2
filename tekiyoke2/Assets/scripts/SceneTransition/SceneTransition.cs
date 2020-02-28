@@ -93,10 +93,13 @@ public class SceneTransition : MonoBehaviour
         }
     }
 
+    void Awake(){
+        _SceneNameLog.Add(gameObject.scene.name);
+    }
+
     ///<summary>遷移してきたなら遷移のタイプによって相応のオブジェクトを出す、そうでないならfirstStateを反映</summary>
     void Start(){
         currentInstance = this;
-        _SceneNameLog.Add(gameObject.scene.name);
         if(!firstSceneLoaded){
             SceneTransition.State = firstState;
             firstSceneLoaded = true;

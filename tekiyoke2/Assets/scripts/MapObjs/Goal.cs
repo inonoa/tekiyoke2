@@ -34,6 +34,7 @@ public class Goal : MonoBehaviour
             HeroDefiner.currentHero.IsFrozen = true;
             GameTimeCounter.CurrentInstance.DoesTick = false;
             ScoreHolder.Instance.clearTimesLast[stageIdx] = GameTimeCounter.CurrentInstance.Seconds;
+            MemoryOverDeath.Instance.Clear();
             doubleAnim.gameObject.SetActive(true);
 
             SceneTransition.Start2ChangeState("ResultScene", SceneTransition.TransitionType.WindAndBlur);

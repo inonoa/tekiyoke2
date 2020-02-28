@@ -14,7 +14,7 @@ public class SavePositionManager : MonoBehaviour
 
     public void Try2Save(){
         if(DPManager.Instance.DP >= saveCostDP){
-            print("DPを" + saveCostDP + "消費し情報をセーブします");
+            
             DPManager.Instance.UseDP(saveCostDP);
             MemoryOverDeath.Instance.Save();
             resPos.SetActive(true);
@@ -42,11 +42,5 @@ public class SavePositionManager : MonoBehaviour
     void Start()
     {
         resPos = transform.parent.Find("RespawnPosition").gameObject;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
