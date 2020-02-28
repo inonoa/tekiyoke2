@@ -112,9 +112,9 @@ public class StageSelector : MonoBehaviour
                     }
                 }
                 if(InputManager.Instance.GetButtonDown(ButtonCode.Enter)){
-                    state = State.Selected;
-                    wakuLight.Stop();
                     if(selected==1){
+                        state = State.Selected;
+                        wakuLight.Stop();
                         SceneTransition.Start2ChangeState("Draft1",SceneTransition.TransitionType.Normal);
                     }
                 }
