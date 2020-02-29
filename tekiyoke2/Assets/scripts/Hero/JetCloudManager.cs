@@ -6,12 +6,8 @@ using System.Linq;
 
 public class JetCloudManager : MonoBehaviour
 {
-    //UIsMagagerみたいなのだけを公開したい気持ちがある
-    public static JetCloudManager CurrentInstance{ get; private set; }
     void Start(){
         DOTween.SetTweensCapacity(200, 125);
-
-        CurrentInstance = this;
         
         cloudsDefaultPosX = clouds.Select( sr => sr.transform.localPosition.x ).ToArray();
         seqs = new Sequence[clouds.Length];

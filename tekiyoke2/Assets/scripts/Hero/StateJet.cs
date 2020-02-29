@@ -12,6 +12,8 @@ public class StateJet : IHeroState
     BoxCollider2D jsCol;
     Transform trailTF;
 
+    JetCloudManager clouds;
+
     enum State { Ready, Jetting }
     State state = State.Ready;
     bool jet2Right = true;
@@ -24,6 +26,7 @@ public class StateJet : IHeroState
 
     public StateJet(HeroMover hero){
         this.hero = hero;
+        clouds = GameUIManager.CurrentInstance.JetCloud;
     }
     public void Try2StartJet(){ }
     public void Try2EndJet(){
@@ -46,11 +49,12 @@ public class StateJet : IHeroState
             jetStream.transform.position = hero.transform.position;
             jsCol = jetStream.GetComponent<BoxCollider2D>();
 
+            //風エフェクト
             trailTF = GameObject.Instantiate(hero.jetTrail, hero.transform.parent /* ->GameMaster(うーん) */).transform;
             trailTF.position = hero.transform.position;
             trailTF.GetComponent<TrailRenderer>().time = jetFramesMax / 60f;
 
-            JetCloudManager.CurrentInstance.EndClouds();
+            clouds.EndClouds();
 
             //ちょっと待って…
             // phantom.SetActive(false);
@@ -78,7 +82,7 @@ public class StateJet : IHeroState
         }
 
         hero.cmrCntr.StartZoomForDash();
-        JetCloudManager.CurrentInstance.StartClouds();
+        clouds.StartClouds();
     }
     public void Update(){
         switch(state){
@@ -121,6 +125,6 @@ public class StateJet : IHeroState
         hero.spriteRenderer.color = new Color(1,1,1,1);
         hero.cmrCntr.EndDash();
         GameObject.Destroy(jetStream);
-        JetCloudManager.CurrentInstance.EndClouds();
+        clouds.EndClouds();
     }
 }

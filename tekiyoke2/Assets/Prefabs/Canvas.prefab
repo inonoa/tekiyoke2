@@ -400,7 +400,7 @@ GameObject:
   - component: {fileID: 2783582464103811386}
   - component: {fileID: 2783582464103811387}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Watch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -662,6 +662,7 @@ GameObject:
   - component: {fileID: 2783582464668264382}
   - component: {fileID: 2783582464668264383}
   - component: {fileID: 2783582464668264380}
+  - component: {fileID: 2947960440191558684}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -756,6 +757,20 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &2947960440191558684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2783582464668264381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 359a1d233b4d3d441999d7d3b3ec3621, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _JetCloud: {fileID: 5819905632445229926}
+  _Chishibuki: {fileID: 6730074496268314265}
 --- !u!1 &2783582464683715581
 GameObject:
   m_ObjectHideFlags: 0
@@ -1562,3 +1577,15 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 5819905631901697062}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6730074496268314265 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 982473350372057791, guid: 112d9592e23d7e940b52f1cd11007de7,
+    type: 3}
+  m_PrefabInstance: {fileID: 5819905631901697062}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7531878ecc153614db2daa620c2a56bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

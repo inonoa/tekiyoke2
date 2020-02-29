@@ -148,7 +148,7 @@ public class HeroMover : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public Animator anim;
     public new Rigidbody2D rigidbody;
-    [SerializeField] Chishibuki chishibuki;
+    Chishibuki chishibuki;
 
     //Jet用(Jet用なんだからJetに書くべきだがインスペクタに表示しづらいため…)
     public GameObject jetStreamPrefab;
@@ -224,6 +224,7 @@ public class HeroMover : MonoBehaviour
 
         cmrCntr = CameraController.CurrentCamera;
         input   = InputManager.Instance;
+        chishibuki = GameUIManager.CurrentInstance.Chishibuki;
         spriteRenderer      = GetComponent<SpriteRenderer>();
         anim                = GetComponent<Animator>();
         rigidbody           = GetComponent<Rigidbody2D>();
