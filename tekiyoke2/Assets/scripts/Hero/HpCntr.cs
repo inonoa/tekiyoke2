@@ -22,7 +22,7 @@ public class HpCntr : MonoBehaviour
     }
 
     ///<summary>ここを直接書き換えない</summary>
-    public int hp = max_hp;
+    int hp = max_hp;
 
     public event EventHandler die;
     public event EventHandler damaged;
