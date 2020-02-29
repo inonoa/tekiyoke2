@@ -11,16 +11,23 @@ public class JetCloudManager : MonoBehaviour
         
         cloudsDefaultPosX = clouds.Select( sr => sr.transform.localPosition.x ).ToArray();
         seqs = new Sequence[clouds.Length];
+        endSeqs = new Sequence[clouds.Length];
     }
+    
 
 
     [SerializeField] SpriteRenderer[] clouds;
     [SerializeField] float[] cloudsDstX;
     float[] cloudsDefaultPosX;
     Sequence[] seqs;
+    Sequence[] endSeqs;
     [SerializeField] float durationSec;
 
     public void StartClouds(){
+
+        foreach(Sequence sq in endSeqs){
+            sq?.Kill();
+        }
 
         for(int i=0; i<clouds.Length; i++){
 
@@ -36,8 +43,19 @@ public class JetCloudManager : MonoBehaviour
 
     public void EndClouds(){
         foreach(Sequence sq in seqs){
-            sq.PlayBackwards();
-            sq.timeScale *= 3;
+            sq?.Kill();
         }
+
+        for(int i=0; i<clouds.Length; i++){
+
+            endSeqs[i] = DOTween.Sequence();
+            endSeqs[i].Append(
+                clouds[i].transform.DOLocalMoveX(cloudsDefaultPosX[i], durationSec / 3)
+            );
+            endSeqs[i].Join(
+                clouds[i].DOFade(0, durationSec / 3)
+            );
+        }
+
     }
 }
