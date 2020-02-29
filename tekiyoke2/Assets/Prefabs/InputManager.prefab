@@ -43,4 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 048efa6a41ddb6d40922102fb3f3e801, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  framesToBeEnabled: 10
   defaultLatency: 0

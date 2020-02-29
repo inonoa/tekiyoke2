@@ -5,6 +5,9 @@ using System;
 
 public class InputManager : MonoBehaviour, IAskedInput
 {
+    ///<summary>シーンロード時に入力とるとバグりがちなので始めちょっと無効にしてみる</summary>
+    [SerializeField] int framesToBeEnabled = 2;
+    int toBeEnabled;
 
     #region latencies
 
@@ -21,9 +24,18 @@ public class InputManager : MonoBehaviour, IAskedInput
 
     #region GetDownUp
 
-    public bool GetButton(ButtonCode b)     => buttons4Latency[(int)b].Peek();
-    public bool GetButtonDown(ButtonCode b) => buttonsDown4Latency[(int)b] == 0;
-    public bool GetButtonUp(ButtonCode b)   => buttonsUp4Latency[(int)b] == 0;
+    public bool GetButton(ButtonCode b){
+        if(toBeEnabled > 0) return false;
+        else                return buttons4Latency[(int)b].Peek();
+    }
+    public bool GetButtonDown(ButtonCode b){
+        if(toBeEnabled > 0) return false;
+        else                return buttonsDown4Latency[(int)b] == 0;
+    }
+    public bool GetButtonUp(ButtonCode b){
+        if(toBeEnabled > 0) return false;
+        else                return buttonsUp4Latency[(int)b] == 0;
+    }
 
 
     Queue<bool>[] buttons4Latency = new Queue<bool>[Enum.GetNames(typeof(ButtonCode)).Length];
@@ -52,6 +64,8 @@ public class InputManager : MonoBehaviour, IAskedInput
     }
 
     public int GetNagaoshiFrames(ButtonCode b){
+        if(toBeEnabled > 0) return 0;
+
         if(buttons4Latency[(int)b].Peek()) return nagaoshiFrames[(int)b] + 1;
         else                               return 0;
     }
@@ -69,10 +83,16 @@ public class InputManager : MonoBehaviour, IAskedInput
             buttons4Latency[(int)b] = new Queue<bool>();
             inputLatencies[(int)b]  = defaultLatency;
         }
+        toBeEnabled = framesToBeEnabled + 1;
     }
 
     ///<summary>Edit->Project Settings->Script Execution Orderの設定をしたので他のUpdate()より早く実行される</summary>
     void Update(){
+
+        if(toBeEnabled > 0){
+            toBeEnabled --;
+            if(toBeEnabled > 0) return;
+        }
 
         //もう見た入力をQueueから出す/カウントダウン
         foreach(ButtonCode b in Enum.GetValues(typeof(ButtonCode))){
