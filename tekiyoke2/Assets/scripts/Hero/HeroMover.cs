@@ -160,8 +160,8 @@ public class HeroMover : MonoBehaviour
 
     ///<summary>HPの増減はすべてここから。(全部HPCntrに通します)</summary>
     private int HP{
-        get{return hpcntr.HP;}
-        set{hpcntr.HP = value;}
+        get => hpcntr.HP;
+        set => hpcntr.ChangeHP(value);
     }
 
     ///<summary>falseだと無敵になる</summary>

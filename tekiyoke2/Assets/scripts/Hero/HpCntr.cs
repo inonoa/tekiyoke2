@@ -30,42 +30,45 @@ public class HpCntr : MonoBehaviour
 
     new CameraController camera;
 
+    ///<summary>HPの増減はすべてここから。</summary>
+    public void ChangeHP(int value){
+        if(value <= 0 && HP <= 0) return;
 
-    ///<summary>HPの増減はすべてここから。 / プロパティにしては重い処理をしている……</summary>
-    public int HP{
-        get{return hp;}
-        set{
-            if(value<=0 && HP<=0) return;
-            if(HP>value)damaged?.Invoke(this,EventArgs.Empty);
-            if(value<=0){
-                die?.Invoke(this,EventArgs.Empty);
-                hp=0;
-                spr.sprite = img1_0;
-                framesAfterDamage = 0;
+        if(HP > value) damaged?.Invoke(this, EventArgs.Empty);
+
+        if(value <= 0){
+            die?.Invoke(this,EventArgs.Empty);
+            hp=0;
+            spr.sprite = img1_0;
+            framesAfterDamage = 0;
+            isDamaging = true;
+            spr.color = new Color(1,1,1,1);
+        }
+        else{
+            hp = Math.Min(3,value);
+
+            if(value==1){
+                spr.sprite = img2_1;
                 isDamaging = true;
+                framesAfterDamage = 0;
                 spr.color = new Color(1,1,1,1);
-                }
-            else{
-                hp = Math.Min(3,value);
-                if(value==1){
-                    spr.sprite = img2_1;
-                    isDamaging = true;
-                    framesAfterDamage = 0;
-                    spr.color = new Color(1,1,1,1);
-                }else if(value==2){
-                    spr.sprite = img3_2;
-                    isDamaging = true;
-                    framesAfterDamage = 0;
-                    spr.color = new Color(1,1,1,1);
-                }else{
-                    spr.sprite = img3;
-                }
+
+            }else if(value==2){
+                spr.sprite = img3_2;
+                isDamaging = true;
+                framesAfterDamage = 0;
+                spr.color = new Color(1,1,1,1);
+
+            }else{
+                spr.sprite = img3;
             }
         }
     }
 
+    public int HP{ get => hp; }
+
     ///<summary>全回復</summary>
-    public void FullRecover() => HP = max_hp;
+    public void FullRecover() => ChangeHP(max_hp);
 
     void Start()
     {
