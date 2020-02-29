@@ -135,19 +135,19 @@ public class HeroMover : MonoBehaviour
     public Stack<IHeroState> States { get; set; } = new Stack<IHeroState>();
     ///<summary>直前フレームの状態が入っているはず(大半の場合現在の状態と同じ)</summary>
     IHeroState lastState;
-    public CameraController cmrCntr;
-    public HpCntr hpcntr;
-    GroundChecker groundChecker;
+    [HideInInspector] public CameraController cmrCntr;
+    [HideInInspector] public HpCntr hpcntr;
+    [SerializeField] GroundChecker groundChecker;
     SakamichiChecker sakamichiChecker;
-    WallCheckerL wallCheckerL;
-    WallCheckerR wallCheckerR;
+    [SerializeField] WallCheckerL wallCheckerL;
+    [SerializeField] WallCheckerR wallCheckerR;
     SavePositionManager savePositionManager;
     IAskedInput input;
 
 
-    public SpriteRenderer spriteRenderer;
-    public Animator anim;
-    public new Rigidbody2D rigidbody;
+    [HideInInspector] public SpriteRenderer spriteRenderer;
+    [HideInInspector] public Animator anim;
+    [HideInInspector] public new Rigidbody2D rigidbody;
     Chishibuki chishibuki;
 
     //Jet用(Jet用なんだからJetに書くべきだがインスペクタに表示しづらいため…)
@@ -230,10 +230,6 @@ public class HeroMover : MonoBehaviour
         hpcntr              = GetComponent<HpCntr>();
         sakamichiChecker    = GetComponent<SakamichiChecker>();
         savePositionManager = GetComponent<SavePositionManager>();
-        groundChecker    = transform.Find("GroundChecker").GetComponent<GroundChecker>();
-        wallCheckerL     = transform.Find("WallCheckerL").GetComponent<WallCheckerL>();
-        wallCheckerR     = transform.Find("WallCheckerR").GetComponent<WallCheckerR>();
-        chishibuki       = transform.parent.Find("Canvas").Find("ChishibukiController").GetComponent<Chishibuki>();
 
         hpcntr.die     += ReceiveDeath;
         hpcntr.damaged += BendBack;

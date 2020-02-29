@@ -391,10 +391,12 @@ MonoBehaviour:
   isInDebug: 0
   cmrCntr: {fileID: 0}
   hpcntr: {fileID: 0}
+  groundChecker: {fileID: 3106219250714267053}
+  wallCheckerL: {fileID: 3106219248715147193}
+  wallCheckerR: {fileID: 3106219249542638149}
   spriteRenderer: {fileID: 0}
   anim: {fileID: 0}
   rigidbody: {fileID: 0}
-  chishibuki: {fileID: 0}
   jetStreamPrefab: {fileID: 8900711695561503522, guid: 06218cdfbbedd5d44a9e274110518bb5,
     type: 3}
   jetTrail: {fileID: 7456876022590087109, guid: fc1c627a062e5f5498ce124a28c35929,
@@ -474,6 +476,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   saveCostDP: 10
+  dialogImg: {fileID: 0}
 --- !u!1 &3106219250170215766
 GameObject:
   m_ObjectHideFlags: 0
