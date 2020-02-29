@@ -34,14 +34,12 @@ public class DPManager : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         Instance = this;
         rTransform = GetComponent<RectTransform>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         frames2Display --;

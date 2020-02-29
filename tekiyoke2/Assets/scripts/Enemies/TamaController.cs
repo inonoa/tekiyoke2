@@ -13,14 +13,12 @@ public class TamaController : MonoBehaviour
 
     [HideInInspector] public int life;
 
-    // Start is called before the first frame update
     void Start()
     {
         rBody = GetComponent<Rigidbody2D>();
         speedVec = speed * new Vector3((float)Math.Cos(angle * Math.PI / 180), (float)Math.Sin(angle * Math.PI / 180));
     }
 
-    // Update is called once per frame
     void Update()
     {
         rBody.MovePosition(transform.position + speedVec);

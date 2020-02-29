@@ -216,7 +216,6 @@ public class HeroMover : MonoBehaviour
         HeroDefiner.currentHero = this;
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         States.Push(new StateWait(this));
@@ -245,7 +244,6 @@ public class HeroMover : MonoBehaviour
         if(States.Count>0) States.Peek().Start();
     }
 
-    // Update is called once per frame
     void Update()
     {
 

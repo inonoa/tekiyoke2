@@ -53,7 +53,6 @@ public class KennerController : EnemyController
         groundChecker = transform.Find("GroundChecker").GetComponent<GroundChecker>();
     }
 
-    // Update is called once per frame
     new void Update()
     {
         EyeToRight = transform.position.x < HeroDefiner.CurrentHeroPos.x;

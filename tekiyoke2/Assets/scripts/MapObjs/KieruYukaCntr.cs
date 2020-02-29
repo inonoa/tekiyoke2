@@ -37,13 +37,6 @@ public class KieruYukaCntr : MonoBehaviour
     public Sprite kieteruSprite;
     public Sprite kienaiSprite;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         //一定時間でスプライトを変える、消える、現れる

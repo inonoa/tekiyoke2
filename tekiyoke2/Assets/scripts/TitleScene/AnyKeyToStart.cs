@@ -16,14 +16,7 @@ public class AnyKeyToStart : MonoBehaviour
     public readonly int curtainV = 50;
 
     public GameObject curtain;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    
     void Update()
     {
         if(!readyToGame){

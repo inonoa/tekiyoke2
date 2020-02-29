@@ -17,14 +17,12 @@ public class WakuLightMover : MonoBehaviour
         direction = Direction.None;
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         parentRenderer = transform.parent.GetComponent<SpriteRenderer>();
     }
 
-    // Update is called once per frame
     void Update()
     {
 

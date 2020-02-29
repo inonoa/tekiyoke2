@@ -11,13 +11,11 @@ public class WallCheckerL : MonoBehaviour
     private ContactFilter2D filter = new ContactFilter2D();
     private BoxCollider2D col;
 
-    // Start is called before the first frame update
     void Start()
     {
         col = GetComponent<BoxCollider2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         CanKick = col.IsTouching(filter);

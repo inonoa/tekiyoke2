@@ -14,7 +14,6 @@ public class WarpController : MonoBehaviour
     static readonly int coolTime = 3;
     int coolTimeNow = 0;
 
-    // Start is called before the first frame update
     void Start()
     {
         camera = CameraController.CurrentCamera;
@@ -25,8 +24,7 @@ public class WarpController : MonoBehaviour
             if(w.msg=="YL") yPos = (w.transform.position.x, w.transform.position.y);
         }
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         if(coolTimeNow > 0) coolTimeNow --;

@@ -33,7 +33,6 @@ public class StageSelector : MonoBehaviour
 
     #endregion
 
-    // Start is called before the first frame update
     void Start()
     {
         stRenderer = new SpriteRenderer[stages.Length];
@@ -44,7 +43,6 @@ public class StageSelector : MonoBehaviour
         wakuRenderer = waku.GetComponent<SpriteRenderer>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         //選択したステージのUIに近づく

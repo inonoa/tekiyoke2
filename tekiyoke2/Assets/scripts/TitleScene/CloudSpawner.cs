@@ -26,7 +26,6 @@ public class CloudSpawner : MonoBehaviour
 
     private System.Random random = new System.Random();
 
-    // Start is called before the first frame update
     void Start()
     {
         for(int i=0;i<5;i++){
@@ -36,7 +35,6 @@ public class CloudSpawner : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(state==State.Active){

@@ -15,13 +15,6 @@ public class NearToEnemyChecker : MonoBehaviour
     int DPInterval = 3;
     int DPCount = 0;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if(nearEnemy){

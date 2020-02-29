@@ -23,7 +23,6 @@ public class Pauser : MonoBehaviour
 
     PauseUIMover uiMover;
 
-    // Start is called before the first frame update
     void Start()
     {
         gameMaster = transform.Find("GameMaster").gameObject;
@@ -34,7 +33,6 @@ public class Pauser : MonoBehaviour
         uiMover.pauseEnd += PauseEnded;
     }
 
-    // Update is called once per frame
     void Update()
     {
         // 押したら画面切り替え

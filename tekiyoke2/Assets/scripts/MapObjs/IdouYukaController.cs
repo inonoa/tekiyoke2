@@ -24,7 +24,6 @@ public class IdouYukaController : MonoBehaviour
     ContactFilter2D filter2Hero = new ContactFilter2D();
     Collider2D col;
 
-    // Start is called before the first frame update
     void Start()
     {
         positionA = transform.Find("PositionA").position;
@@ -36,7 +35,6 @@ public class IdouYukaController : MonoBehaviour
         moveVec = ( positionB - positionA ).normalized * moveSpeed;
     }
 
-    // Update is called once per frame
     void Update()
     {
         bool isTouchedByHero = col.IsTouching(filter2Hero);

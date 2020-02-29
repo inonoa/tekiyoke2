@@ -5,8 +5,7 @@ using System.Linq;
 
 public class TogeDropRespawner : MonoBehaviour
 {
-    static TogeDropRespawner _Instance;
-    static public TogeDropRespawner Instance{ get => _Instance; }
+
     public void AddDrop(TogeDropController drop){
         drops2count[drop.gameObject] = -1;
     }
@@ -16,13 +15,6 @@ public class TogeDropRespawner : MonoBehaviour
     
     Dictionary<GameObject, int> drops2count = new Dictionary<GameObject, int>();
 
-    // Start is called before the first frame update
-    void Awake()
-    {
-        _Instance = this;
-    }
-
-    // Update is called once per frame
     void Update()
     {
         var keys = drops2count.Keys.ToList();
@@ -35,4 +27,7 @@ public class TogeDropRespawner : MonoBehaviour
             }
         }
     }
+
+    static public TogeDropRespawner Instance{ get; private set; }
+    void Awake() { Instance = this; }
 }

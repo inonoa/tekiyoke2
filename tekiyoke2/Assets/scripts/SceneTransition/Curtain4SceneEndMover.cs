@@ -7,7 +7,6 @@ public class Curtain4SceneEndMover : MonoBehaviour
 {
     public string NextSceneName { get; set; }
 
-    // Update is called once per frame
     void Update()
     {
         transform.localPosition += new Vector3(50,0,0);

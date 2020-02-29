@@ -52,8 +52,6 @@ public class CameraController : MonoBehaviour
     }
 
 
-
-    // Start is called before the first frame update
     void Start()
     {
         cmr = GetComponent<Camera>();
@@ -61,7 +59,6 @@ public class CameraController : MonoBehaviour
         targetPosition = HeroDefiner.CurrentHeroPos + new Vector3(0,100,-500);
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         switch(dashState){

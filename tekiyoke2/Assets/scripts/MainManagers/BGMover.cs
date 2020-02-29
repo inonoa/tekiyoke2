@@ -6,13 +6,12 @@ public class BGMover : MonoBehaviour
 {
 
     public float bgrate = 0.1f;
-    // Start is called before the first frame update
+    
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         this.transform.position = new Vector2(CameraController.CurrentCameraPos.x/(1+bgrate),CameraController.CurrentCameraPos.y/(1+bgrate)+50);

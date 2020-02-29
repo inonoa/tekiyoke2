@@ -8,17 +8,10 @@ public class KieruYuka : MonoBehaviour
     KieruYukaCntr cntr;
     public event EventHandler heroOn;
 
-    // Start is called before the first frame update
     void Start()
     {
         cntr = transform.parent.gameObject.GetComponent<KieruYukaCntr>();
         heroOn += cntr.AddYuka;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     void OnTriggerEnter2D(Collider2D other){

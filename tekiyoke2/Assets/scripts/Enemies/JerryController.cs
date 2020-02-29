@@ -21,7 +21,6 @@ public class JerryController : EnemyController
     static readonly float speedYEpsilon = 0.01f;
     static readonly float linear2Sin = 80;
 
-    // Start is called before the first frame update
     new void Start(){
         rBody = transform.Find("Jelly").GetComponent<Rigidbody2D>();
 
@@ -31,7 +30,6 @@ public class JerryController : EnemyController
         amplitude       = (posU - posD) / 2;
     }
 
-    // Update is called once per frame
     new void Update()
     {
         if(isGoingUp){

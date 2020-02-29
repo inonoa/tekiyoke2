@@ -38,7 +38,6 @@ public class SavePositionManager : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         resPos = transform.parent.Find("RespawnPosition").gameObject;

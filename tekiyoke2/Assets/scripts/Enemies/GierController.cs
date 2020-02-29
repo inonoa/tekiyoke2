@@ -32,7 +32,6 @@ public class GierController : EnemyController
     [SerializeField]
     ContactFilter2D filter;
 
-    // Start is called before the first frame update
     new void Start()
     {
         base.Start();
@@ -44,7 +43,6 @@ public class GierController : EnemyController
         state = toRightFirst ? GierState.BeforeFindingR : GierState.BeforeFindingL;
     }
 
-    // Update is called once per frame
     new void Update()
     {
         base.Update();

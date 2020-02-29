@@ -32,7 +32,6 @@ public class PauseUIMover : MonoBehaviour
         framesFromStart = 0;
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         for(int i=0;i<moveFrames;i++){
@@ -42,7 +41,6 @@ public class PauseUIMover : MonoBehaviour
         markRTF = mark.GetComponent<RectTransform>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(framesFromStart<moveFrames){

@@ -20,9 +20,4 @@ public class ScoresToText : MonoBehaviour
         timeTxt.text = "time: " + minutes.ToString("00") + ":" + seconds.ToString("00") + ":" + comma__.ToString("00");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
