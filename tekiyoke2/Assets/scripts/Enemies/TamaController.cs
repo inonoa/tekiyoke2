@@ -13,17 +13,20 @@ public class TamaController : MonoBehaviour
 
     [HideInInspector] public int life;
 
+    float lifeNow;
+
     void Start()
     {
         rBody = GetComponent<Rigidbody2D>();
         speedVec = speed * new Vector3((float)Math.Cos(angle * Math.PI / 180), (float)Math.Sin(angle * Math.PI / 180));
+        lifeNow = life;
     }
 
     void Update()
     {
-        rBody.MovePosition(transform.position + speedVec);
-        life --;
-        if(life==0) Destroy(gameObject);
+        rBody.MovePosition(transform.position + speedVec * Time.timeScale);
+        lifeNow -= Time.timeScale;
+        if(lifeNow <= 0) Destroy(gameObject);
     }
 
     void OnTriggerEnter2D(Collider2D other){
