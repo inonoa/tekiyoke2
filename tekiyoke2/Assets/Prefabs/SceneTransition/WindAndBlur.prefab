@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6035892637557041803}
   - component: {fileID: 1704945695416384527}
   - component: {fileID: 7310323474651823520}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: WindBrushMain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -195,7 +195,7 @@ GameObject:
   - component: {fileID: 9092481986269142953}
   - component: {fileID: 832265745331781854}
   - component: {fileID: 2629185448666002829}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: WindBrush (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -395,7 +395,7 @@ GameObject:
   - component: {fileID: 9190860623369389567}
   - component: {fileID: 6163793901049510254}
   - component: {fileID: 1855145380354302208}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: WindAndBlur
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -461,7 +461,7 @@ GameObject:
   - component: {fileID: 8260304649310733796}
   - component: {fileID: 1352687086431616924}
   - component: {fileID: 3741537270577000181}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: WindBrush
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -670,7 +670,7 @@ GameObject:
   - component: {fileID: 6779094126367166178}
   - component: {fileID: 7559765220422600836}
   - component: {fileID: 6574841551656826965}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: WindBrush (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

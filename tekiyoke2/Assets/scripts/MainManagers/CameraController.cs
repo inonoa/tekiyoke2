@@ -12,8 +12,10 @@ public class CameraController : MonoBehaviour
     static readonly float zoomSpeed = 1;
     static readonly float unzoomSpeed = 10;
 
-    [SerializeField] ScShoOutOfUIController scShoOutOfUIController;
+    [SerializeField] ScShoOutOfWindController scShoOutOfWindController;
     [SerializeField] ScShoController scShoController;
+
+    [SerializeField] Canvas canvas;
 
     ///<summary>主人公を追いかけている、主人公が動くと遅れてついていく</summary>
     Vector2 targetPosition;
@@ -61,10 +63,11 @@ public class CameraController : MonoBehaviour
         cmr = GetComponent<Camera>();
         defaultSize = cmr.orthographicSize;
         targetPosition = HeroDefiner.CurrentHeroPos + new Vector3(0,100,-500);
+        scShoOutOfWindController.canvas = canvas;
     }
 
     void Update(){
-        if(Input.GetKeyDown(KeyCode.P)) ScShoOutOfUI(ss => print("SCSHO"));
+        if(Input.GetKeyDown(KeyCode.P)) ScShoOutOfWind(ss => print("SCSHO"));
     }
 
     void FixedUpdate()
@@ -128,8 +131,9 @@ public class CameraController : MonoBehaviour
     public void ScSho(Action<Texture2D> callbackOnTaken)
         => scShoController.BeginScSho(callbackOnTaken);
 
-    public void ScShoOutOfUI(Action<Texture2D> callbackOnTaken)
-        => scShoOutOfUIController.BeginScShoOutOfUI(callbackOnTaken);
+    public void ScShoOutOfWind(Action<Texture2D> callbackOnTaken)
+        => scShoOutOfWindController.BeginScShoOutOfWind(callbackOnTaken);
+    
 
     #region instance
 

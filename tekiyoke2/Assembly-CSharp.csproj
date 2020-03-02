@@ -107,7 +107,7 @@
      <Compile Include="Assets\scripts\MainManagers\GameTimeCounter.cs" />
      <Compile Include="Assets\scripts\MainManagers\MemoryOverDeath.cs" />
      <Compile Include="Assets\scripts\MainManagers\ScShoController.cs" />
-     <Compile Include="Assets\scripts\MainManagers\ScShoOutOfUIController.cs" />
+     <Compile Include="Assets\scripts\MainManagers\ScShoOutOfWindController.cs" />
      <Compile Include="Assets\scripts\MainManagers\Tokitome.cs" />
      <Compile Include="Assets\scripts\MapObjs\BaneController.cs" />
      <Compile Include="Assets\scripts\MapObjs\BaneYokoController.cs" />
