@@ -5,11 +5,13 @@ using static System.Math;
 
 public class CameraController : MonoBehaviour
 {
-    public Camera cmr;
+    Camera cmr;
     private float defaultSize;
     static readonly float zoomSizeMin = 300;
     static readonly float zoomSpeed = 1;
     static readonly float unzoomSpeed = 10;
+
+    [SerializeField] ScShoOutOfUIController scShoOutOfUIController;
 
     ///<summary>主人公を追いかけている、主人公が動くと遅れてついていく</summary>
     Vector2 targetPosition;
@@ -57,6 +59,10 @@ public class CameraController : MonoBehaviour
         cmr = GetComponent<Camera>();
         defaultSize = cmr.orthographicSize;
         targetPosition = HeroDefiner.CurrentHeroPos + new Vector3(0,100,-500);
+    }
+
+    void Update(){
+        if(Input.GetKeyDown(KeyCode.P)) ScShoOutOfUI();
     }
 
     void FixedUpdate()
@@ -116,6 +122,8 @@ public class CameraController : MonoBehaviour
         else
             return (MyMath.DistAsVector2(HeroDefiner.CurrentHeroExpectedPos, HeroDefiner.CurrentHeroPastPos[count - 1])) / count;
     }
+
+    public Texture2D ScShoOutOfUI() => scShoOutOfUIController.ScShoOutOfUI();
 
     #region instance
 
