@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using static System.Math;
+using System;
 
 public class CameraController : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class CameraController : MonoBehaviour
     static readonly float unzoomSpeed = 10;
 
     [SerializeField] ScShoOutOfUIController scShoOutOfUIController;
+    [SerializeField] ScShoController scShoController;
 
     ///<summary>主人公を追いかけている、主人公が動くと遅れてついていく</summary>
     Vector2 targetPosition;
@@ -62,7 +64,7 @@ public class CameraController : MonoBehaviour
     }
 
     void Update(){
-        if(Input.GetKeyDown(KeyCode.P)) ScShoOutOfUI();
+        if(Input.GetKeyDown(KeyCode.P)) ScShoOutOfUI(ss => print("SCSHO"));
     }
 
     void FixedUpdate()
@@ -123,7 +125,11 @@ public class CameraController : MonoBehaviour
             return (MyMath.DistAsVector2(HeroDefiner.CurrentHeroExpectedPos, HeroDefiner.CurrentHeroPastPos[count - 1])) / count;
     }
 
-    public Texture2D ScShoOutOfUI() => scShoOutOfUIController.ScShoOutOfUI();
+    public void ScSho(Action<Texture2D> callbackOnTaken)
+        => scShoController.BeginScSho(callbackOnTaken);
+
+    public void ScShoOutOfUI(Action<Texture2D> callbackOnTaken)
+        => scShoOutOfUIController.BeginScShoOutOfUI(callbackOnTaken);
 
     #region instance
 

@@ -39,7 +39,18 @@ public class Pauser : MonoBehaviour
         if(InputManager.Instance.GetButtonDown(ButtonCode.Pause)){
 
             //ポーズに移行(実際にはフレーム終了後に移行)
-            if(!inPause) StartCoroutine("TakeScSho");
+            if(!inPause){
+                CameraController.CurrentCamera.ScSho(ss => {
+
+                    scshoImg.sprite = Sprite.Create(ss, new Rect(0, 0, Screen.width, Screen.height),new Vector2(0.5f,0.5f));
+
+                    gameMaster.SetActive(false);
+                    pauseMaster.SetActive(true);
+
+                    //フラグ？書き換え
+                    inPause = true;
+                });
+            }
 
         }
     }
@@ -48,29 +59,5 @@ public class Pauser : MonoBehaviour
         gameMaster.SetActive(true);
         pauseMaster.SetActive(false);
         inPause = false;
-    }
-
-    ///<summary>ボタンを押したときに呼ばれる、フレーム終了時にスクショを撮り、ポーズに移行</summary>
-    IEnumerator TakeScSho(){
-        //フレーム終了まで待つ
-        yield return new WaitForEndOfFrame();
-
-        //スクショ
-        scsho = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, true);
-        scsho.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), 0, 0);
-        scsho.Apply();
-
-        //ポーズ画面の背景にスクショをセット
-        scshoImg.sprite = Sprite.Create(scsho,new Rect(0, 0, Screen.width, Screen.height),new Vector2(0.5f,0.5f));
-        //scshoImg.rectTransform.sizeDelta = new Vector2(Screen.width, Screen.height);
-
-        //ポーズに切り替え
-        gameMaster.SetActive(false);
-        pauseMaster.SetActive(true);
-
-        //フラグ？書き換え
-        inPause = true;
-
-        
     }
 }

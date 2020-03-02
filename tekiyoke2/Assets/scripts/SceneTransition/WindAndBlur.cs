@@ -23,7 +23,7 @@ public class WindAndBlur : MonoBehaviour
     void Start()
     {
         //ステージのスクショを撮る(まだ表示してない)
-        StartCoroutine("TakeScSho");
+        CameraController.CurrentCamera.ScShoOutOfUI(ss => scsho = ss);
 
         DOVirtual.DelayedCall(secondsToBlur, () =>
         {
@@ -37,23 +37,10 @@ public class WindAndBlur : MonoBehaviour
 
         DOVirtual.DelayedCall(secondsToBeReadyToChange, () => 
         {
-            //風のエフェクトごとスクショを撮って渡し、シーンを変える(渡したスクショは変えた先のシーンで使われる)
-            StartCoroutine("TakeScSho");
-            scShoTaken += (ss, e) => {
+            CameraController.CurrentCamera.ScSho(ss => {
                 ReadyToChange?.Invoke(ss, EventArgs.Empty);
                 SceneManager.LoadScene(NextSceneName);
-            };
+            });
         });
-    }
-
-    IEnumerator TakeScSho(){
-        //フレーム終了まで待つ
-        yield return new WaitForEndOfFrame();
-
-        //スクショ
-        scsho = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, true);
-        scsho.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), 0, 0);
-        scsho.Apply();
-        scShoTaken?.Invoke(scsho, EventArgs.Empty);
     }
 }

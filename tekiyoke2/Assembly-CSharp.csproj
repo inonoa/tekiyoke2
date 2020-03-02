@@ -106,6 +106,8 @@
      <Compile Include="Assets\scripts\MainManagers\CameraController.cs" />
      <Compile Include="Assets\scripts\MainManagers\GameTimeCounter.cs" />
      <Compile Include="Assets\scripts\MainManagers\MemoryOverDeath.cs" />
+     <Compile Include="Assets\scripts\MainManagers\ScShoController.cs" />
+     <Compile Include="Assets\scripts\MainManagers\ScShoOutOfUIController.cs" />
      <Compile Include="Assets\scripts\MainManagers\Tokitome.cs" />
      <Compile Include="Assets\scripts\MapObjs\BaneController.cs" />
      <Compile Include="Assets\scripts\MapObjs\BaneYokoController.cs" />
@@ -138,7 +140,6 @@
      <Compile Include="Assets\scripts\SceneTransition\WindAndBlur.cs" />
      <Compile Include="Assets\scripts\SceneTransition\WindPath.cs" />
      <Compile Include="Assets\scripts\ScoreHolder.cs" />
-     <Compile Include="Assets\scripts\ScShoOutOfUIController.cs" />
      <Compile Include="Assets\scripts\StageSelectScene\StageSelector.cs" />
      <Compile Include="Assets\scripts\StageSelectScene\WakuLightMover.cs" />
      <Compile Include="Assets\scripts\TitleScene\AnyKeyToStart.cs" />
