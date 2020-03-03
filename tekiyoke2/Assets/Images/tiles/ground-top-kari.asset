@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: tboard-l-kari
+  m_Name: ground-top-kari
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 21300012, guid: a15c3a71066266145ae084f01bc11dc7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -33,4 +33,4 @@ MonoBehaviour:
     e33: 1
   m_InstancedGameObject: {fileID: 0}
   m_Flags: 1
-  m_ColliderType: 0
+  m_ColliderType: 1

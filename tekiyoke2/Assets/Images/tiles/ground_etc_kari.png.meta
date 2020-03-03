@@ -35,7 +35,7 @@ TextureImporter:
     21300060: ground_etc_kari_30
     21300062: ground_etc_kari_31
   externalObjects: {}
-  serializedVersion: 7
+  serializedVersion: 9
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -266,7 +266,11 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -25, y: -25}
+        - {x: -25, y: 25}
+        - {x: 25, y: 25}
+        - {x: 25, y: -25}
       tessellationDetail: 0
       bones: []
       spriteID: 35a156b0afea2974198e7c7bd04d98b8
