@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3423410218929363414}
   - component: {fileID: 3423410218929363413}
   - component: {fileID: 7195403637980874227}
+  - component: {fileID: 1472872603020283857}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -100,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scShoOutOfWindController: {fileID: 6478240744771120905}
   scShoController: {fileID: 7195403637980874227}
+  canvas: {fileID: 0}
 --- !u!114 &7195403637980874227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,6 +114,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 906efb516efa92a48bf14fced0a161c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1472872603020283857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3423410218929363415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34b8407a2366315419b5205bf12d0cf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mat: {fileID: 2100000, guid: b44d5e1b94e9555479bf7043874f3d73, type: 2}
 --- !u!1 &3423410219917244378
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,3 +315,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f398ed7b2cb59e4dbd78708c3615062, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
