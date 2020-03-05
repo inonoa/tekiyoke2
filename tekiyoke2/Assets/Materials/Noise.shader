@@ -3,6 +3,8 @@
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
+        _Volume ("Volume", float) = 0.2
+        _Density("Density", float) = 0.025
     }
     SubShader
     {
@@ -32,6 +34,8 @@
             };
 
             sampler2D _MainTex;
+            float _Volume;
+            float _Density;
 
             VertToFrag vert (VertInput vert)
             {
@@ -44,10 +48,20 @@
                 return output;
             }
 
+            float random (fixed2 p){
+                return frac(sin(dot(p, fixed2(12.9898,78.233))) * 43758.5453);
+            }
+
+            float odoriba(float x){
+                return (x <= 1 - _Density) ? (x < _Density) ? (x / _Density / 2) : 0.5 : ( (x-1) / _Density / 2 + 1);
+            }
+
             fixed4 frag (VertToFrag input) : SV_Target
             {
                 fixed4 col = tex2D(_MainTex, input.uv);
-                
+                float rd = random( floor(input.uv * 100) + _Time * 7);
+                col -= fixed4(1,1,1,0) * _Volume * (odoriba(rd) - 0.5);
+
                 return col;
             }
             ENDCG
