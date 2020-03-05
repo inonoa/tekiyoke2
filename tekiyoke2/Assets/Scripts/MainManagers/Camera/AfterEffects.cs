@@ -27,7 +27,10 @@ public class AfterEffects : MonoBehaviour
             if(applies) numActiveMats++;
         }
 
-        if(numActiveMats==1){
+        if(numActiveMats==0){
+            Graphics.Blit(src, dst, matThatDoesNothing);
+        }
+        else if(numActiveMats==1){
             for(int i=0; i<appliesMat.Length; i++){
                 if(appliesMat[i]){
                     Graphics.Blit(src, dst, mats[i]);
