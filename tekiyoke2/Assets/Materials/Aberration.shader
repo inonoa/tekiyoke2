@@ -1,9 +1,9 @@
-﻿Shader "Unlit/Vignette"
+﻿Shader "Unlit/Aberration"
 {
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
-        _Volume ("Volume", float) = 0.3
+        _Gap ("Gap", float) = 0.002
     }
     SubShader
     {
@@ -33,7 +33,7 @@
             };
 
             sampler2D _MainTex;
-            float _Volume;
+            float _Gap;
 
             VertToFrag vert (VertInput vert)
             {
@@ -46,14 +46,33 @@
                 return output;
             }
 
-            float edge(float x){
-                return (x * x * x * x  +  (1-x) * (1-x) * (1-x) * (1-x)) * 8/7 - 1/7;
+            float zero2one(float x){
+                return x<0 ? 0 : x>1 ? 1 : x;
+            }
+
+            float outside(float x){
+                return x * (1 + _Gap) - 0.5 * _Gap;
+            }
+            float inside(float x){
+                return x * (1 - _Gap) + 0.5 * _Gap;
+            }
+
+            float2 outside2(float2 xy){
+                float2 f2 = float2(zero2one(outside(xy.x)), zero2one(outside(xy.y)));
+                return f2;
+            }
+            float2 inside2(float2 xy){
+                float2 f2 = float2(inside(xy.x), inside(xy.y));
+                return f2;
             }
 
             fixed4 frag (VertToFrag input) : SV_Target
             {
-                fixed4 col = tex2D(_MainTex, input.uv);
-                col -= float4(0.5,0.6,1,0) * ( edge(input.uv.x) / 1.5 + edge(input.uv.y) / 3 ) * _Volume;
+                fixed4 col = fixed4(1,1,1,1);
+                col.r = tex2D(_MainTex, outside2(input.uv)).r;
+                col.g = tex2D(_MainTex, input.uv).g;
+                col.b = tex2D(_MainTex, inside2(input.uv)).b;
+
                 return col;
             }
             ENDCG
