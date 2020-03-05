@@ -129,6 +129,8 @@ MonoBehaviour:
   mats:
   - {fileID: 2100000, guid: b44d5e1b94e9555479bf7043874f3d73, type: 2}
   - {fileID: 2100000, guid: 6886e0a0d51b82b47bdd1056b011e355, type: 2}
+  appliesMat: 0101
+  matThatDoesNothing: {fileID: 2100000, guid: 0e00109b90ba7484b82247c4fd8753d6, type: 2}
 --- !u!1 &3423410219917244378
 GameObject:
   m_ObjectHideFlags: 0

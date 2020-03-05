@@ -5,6 +5,8 @@ using UnityEngine;
 public class AfterEffects : MonoBehaviour
 {
     [SerializeField] Material[] mats;
+    [SerializeField] bool[] appliesMat;
+    [SerializeField] Material matThatDoesNothing;
 
     RenderTexture[] rTexs;
 
@@ -20,12 +22,30 @@ public class AfterEffects : MonoBehaviour
 
     void OnRenderImage(RenderTexture src, RenderTexture dst){
 
-        if(mats.Length==1) Graphics.Blit(src, dst, mats[0]);
+        int numActiveMats = 0;
+        foreach(bool applies in appliesMat){
+            if(applies) numActiveMats++;
+        }
+
+        if(numActiveMats==1){
+            for(int i=0; i<appliesMat.Length; i++){
+                if(appliesMat[i]){
+                    Graphics.Blit(src, dst, mats[i]);
+                    break;
+                }
+            }
+        }
         else{
+            int rtidx = 0;
+
             for(int i=0; i<mats.Length; i++){
-                if(i==0)                      Graphics.Blit(src,        rTexs[0], mats[i]);
-                else if(i!=mats.Length-1)     Graphics.Blit(rTexs[i-1], rTexs[i], mats[i]);
-                else                          Graphics.Blit(rTexs[i-1], dst,      mats[i]);
+                if(appliesMat[i]){
+                    if(rtidx==0)                      Graphics.Blit(src,            rTexs[0],     mats[i]);
+                    else if(rtidx != numActiveMats-1) Graphics.Blit(rTexs[rtidx-1], rTexs[rtidx], mats[i]);
+                    else                              Graphics.Blit(rTexs[rtidx-1], dst,          mats[i]);
+
+                    rtidx ++;
+                }
             }
         }
     }
