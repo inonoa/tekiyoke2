@@ -103,8 +103,8 @@
      <Compile Include="Assets\Scripts\Input\IAskedInput.cs" />
      <Compile Include="Assets\Scripts\Input\InputManager.cs" />
      <Compile Include="Assets\Scripts\MainManagers\BGMover.cs" />
+     <Compile Include="Assets\Scripts\MainManagers\Camera\AfterEffects.cs" />
      <Compile Include="Assets\Scripts\MainManagers\Camera\CameraController.cs" />
-     <Compile Include="Assets\Scripts\MainManagers\Camera\NoiseEffect.cs" />
      <Compile Include="Assets\Scripts\MainManagers\Camera\ScShoController.cs" />
      <Compile Include="Assets\Scripts\MainManagers\Camera\ScShoOutOfWindController.cs" />
      <Compile Include="Assets\Scripts\MainManagers\GameTimeCounter.cs" />
