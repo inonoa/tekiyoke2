@@ -1,9 +1,10 @@
-﻿Shader "Unlit/Aberration"
+﻿Shader "Unlit/BlurEdge1"
 {
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
-        _Gap ("Gap", float) = 0.002
+        _GapMax ("Gap Max", float) = 0.002
+        _ResolutionMax ("Resolution Max", int) = 5
     }
     SubShader
     {
@@ -33,7 +34,8 @@
             };
 
             sampler2D _MainTex;
-            float _Gap;
+            float _GapMax;
+            int _ResolutionMax;
 
             VertToFrag vert (VertInput vert)
             {
@@ -46,28 +48,18 @@
                 return output;
             }
 
-            float outside(float x){
-                return x * (1 + _Gap) - 0.5 * _Gap;
-            }
-            float inside(float x){
-                return x * (1 - _Gap) + 0.5 * _Gap;
-            }
-
-            float2 outside2(float2 xy){
-                float2 f2 = float2(saturate(outside(xy.x)), saturate(outside(xy.y)));
-                return f2;
-            }
-            float2 inside2(float2 xy){
-                float2 f2 = float2(inside(xy.x), inside(xy.y));
-                return f2;
+            float edge(float x){
+                return (x * x * x * x  +  (1-x) * (1-x) * (1-x) * (1-x)) * 8/7 - 1/7;
             }
 
             fixed4 frag (VertToFrag input) : SV_Target
             {
-                fixed4 col = fixed4(1,1,1,1);
-                col.r = tex2D(_MainTex, outside2(input.uv)).r;
-                col.g = tex2D(_MainTex, input.uv).g;
-                col.b = tex2D(_MainTex, inside2(input.uv)).b;
+                fixed4 col = fixed4(0,0,0,0);
+
+                for(int i = -_ResolutionMax; i < 1+_ResolutionMax; i++ ){
+                    col += tex2D(_MainTex, input.uv + float2(i, 0) * _GapMax/_ResolutionMax * edge(input.uv.x)) * (_ResolutionMax - abs(i) + 1);
+                }
+                col /= col.a;
 
                 return col;
             }
