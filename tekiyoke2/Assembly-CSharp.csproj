@@ -103,11 +103,12 @@
      <Compile Include="Assets\Scripts\Input\IAskedInput.cs" />
      <Compile Include="Assets\Scripts\Input\InputManager.cs" />
      <Compile Include="Assets\Scripts\MainManagers\BGMover.cs" />
-     <Compile Include="Assets\Scripts\MainManagers\CameraController.cs" />
+     <Compile Include="Assets\Scripts\MainManagers\Camera\AfterEffects.cs" />
+     <Compile Include="Assets\Scripts\MainManagers\Camera\CameraController.cs" />
+     <Compile Include="Assets\Scripts\MainManagers\Camera\ScShoController.cs" />
+     <Compile Include="Assets\Scripts\MainManagers\Camera\ScShoOutOfWindController.cs" />
      <Compile Include="Assets\Scripts\MainManagers\GameTimeCounter.cs" />
      <Compile Include="Assets\Scripts\MainManagers\MemoryOverDeath.cs" />
-     <Compile Include="Assets\Scripts\MainManagers\ScShoController.cs" />
-     <Compile Include="Assets\Scripts\MainManagers\ScShoOutOfWindController.cs" />
      <Compile Include="Assets\Scripts\MainManagers\Tokitome.cs" />
      <Compile Include="Assets\Scripts\MapObjs\BaneController.cs" />
      <Compile Include="Assets\Scripts\MapObjs\BaneYokoController.cs" />
@@ -149,10 +150,16 @@
      <Compile Include="Assets\Scripts\Warp\WarpEvent.cs" />
      <Compile Include="Assets\Scripts\ZatsuTest.cs" />
      <None Include="Assets\Demigiant\DOTweenPro\readme.txt" />
-     <None Include="Assets\Materials\Shaders\Blur.shader" />
+     <None Include="Assets\Materials\Vignette.shader" />
+     <None Include="Assets\Materials\Blur.shader" />
+     <None Include="Assets\Materials\BlurEdge2.shader" />
+     <None Include="Assets\Materials\BlurEdge1.shader" />
      <None Include="Assets\Demigiant\DOTween\readme.txt" />
+     <None Include="Assets\Materials\Noise.shader" />
      <None Include="Assets\Demigiant\DemiLib\Core\DemiLib.xml" />
+     <None Include="Assets\Materials\DefaultShader.shader" />
      <None Include="Assets\Demigiant\readme_DOTweenPro.txt" />
+     <None Include="Assets\Materials\Aberration.shader" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/Users/inonoa/Documents/ino_game/tekiyoke2/tekiyoke2/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
