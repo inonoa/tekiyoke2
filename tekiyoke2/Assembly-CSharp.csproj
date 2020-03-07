@@ -149,9 +149,11 @@
      <Compile Include="Assets\Scripts\Warp\WarpController.cs" />
      <Compile Include="Assets\Scripts\Warp\WarpEvent.cs" />
      <Compile Include="Assets\Scripts\ZatsuTest.cs" />
+     <None Include="Assets\Materials\Bane.shader" />
      <None Include="Assets\Demigiant\DOTweenPro\readme.txt" />
      <None Include="Assets\Materials\Vignette.shader" />
      <None Include="Assets\Materials\Blur.shader" />
+     <None Include="Assets\Materials\Idouyuka.shader" />
      <None Include="Assets\Materials\BlurEdge2.shader" />
      <None Include="Assets\Materials\BlurEdge1.shader" />
      <None Include="Assets\Demigiant\DOTween\readme.txt" />
