@@ -847,7 +847,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallSpeedMax: 300
-  col: {fileID: 0}
+  moveSpeed: 1
+  toRight: 0
+  spriteRenderer: {fileID: 4856608118754829434}
 --- !u!114 &5827355569240345888
 MonoBehaviour:
   m_ObjectHideFlags: 0
