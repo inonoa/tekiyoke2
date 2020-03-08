@@ -120,8 +120,8 @@ MonoBehaviour:
   fallSpeedMax: 300
   moveSpeed: 1
   toRight: 0
-  col: {fileID: 0}
-  spriteRenderer: {fileID: 1421112567456498835}
+  spriteRenderers:
+  - {fileID: 1421112567456498835}
 --- !u!61 &1421112567456498836
 BoxCollider2D:
   m_ObjectHideFlags: 0
