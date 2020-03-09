@@ -1570,7 +1570,7 @@ PrefabInstance:
     - target: {fileID: 1421112567456498832, guid: 297174f459b7f074d9871597ceb41596,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -50
+      value: -60
       objectReference: {fileID: 0}
     - target: {fileID: 1421112567456498832, guid: 297174f459b7f074d9871597ceb41596,
         type: 3}
@@ -2345,7 +2345,7 @@ PrefabInstance:
     - target: {fileID: 1421112567456498832, guid: 297174f459b7f074d9871597ceb41596,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 1421112567456498832, guid: 297174f459b7f074d9871597ceb41596,
         type: 3}
@@ -135902,22 +135902,22 @@ PrefabInstance:
     - target: {fileID: 1472872603020283857, guid: 95d3e8075a941f348803e6df2c824c6d,
         type: 3}
       propertyPath: appliesMat.Array.data[1]
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1472872603020283857, guid: 95d3e8075a941f348803e6df2c824c6d,
         type: 3}
       propertyPath: appliesMat.Array.data[2]
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1472872603020283857, guid: 95d3e8075a941f348803e6df2c824c6d,
         type: 3}
       propertyPath: appliesMat.Array.data[3]
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1472872603020283857, guid: 95d3e8075a941f348803e6df2c824c6d,
         type: 3}
       propertyPath: appliesMat.Array.data[4]
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95d3e8075a941f348803e6df2c824c6d, type: 3}
@@ -138261,7 +138261,7 @@ PrefabInstance:
     - target: {fileID: 1421112567456498832, guid: 297174f459b7f074d9871597ceb41596,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 50
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 1421112567456498832, guid: 297174f459b7f074d9871597ceb41596,
         type: 3}
