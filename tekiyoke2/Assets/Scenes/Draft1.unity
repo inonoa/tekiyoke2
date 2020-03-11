@@ -135931,6 +135931,16 @@ PrefabInstance:
       propertyPath: appliesMat.Array.data[4]
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3423410219917244383, guid: 95d3e8075a941f348803e6df2c824c6d,
+        type: 3}
+      propertyPath: zure.x
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 3423410219917244383, guid: 95d3e8075a941f348803e6df2c824c6d,
+        type: 3}
+      propertyPath: zure.y
+      value: 200
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95d3e8075a941f348803e6df2c824c6d, type: 3}
 --- !u!4 &1170471150 stripped
@@ -141856,7 +141866,7 @@ PrefabInstance:
     - target: {fileID: 5968962424875183125, guid: 2408ea26f4198c34a91098350fe346da,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5968962424875183125, guid: 2408ea26f4198c34a91098350fe346da,
         type: 3}
@@ -142625,7 +142635,7 @@ PrefabInstance:
     - target: {fileID: 5968962424875183125, guid: 2408ea26f4198c34a91098350fe346da,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5968962424875183125, guid: 2408ea26f4198c34a91098350fe346da,
         type: 3}
@@ -142700,7 +142710,7 @@ PrefabInstance:
     - target: {fileID: 5968962424875183125, guid: 2408ea26f4198c34a91098350fe346da,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5968962424875183125, guid: 2408ea26f4198c34a91098350fe346da,
         type: 3}
