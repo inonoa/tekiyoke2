@@ -7,7 +7,7 @@ public class BGMover : MonoBehaviour
 
     public float bgrate = 0.1f;
 
-    [SerializeField] Vector2 zure = new Vector2();
+    [SerializeField] Vector3 zure = new Vector2();
     
     void Start()
     {
@@ -16,7 +16,7 @@ public class BGMover : MonoBehaviour
 
     void Update()
     {
-        this.transform.position = new Vector2(CameraController.CurrentCameraPos.x/(1+bgrate),CameraController.CurrentCameraPos.y/(1+bgrate))
-                                  + zure + new Vector2(0,50);
+        this.transform.position = new Vector3(CameraController.CurrentCameraPos.x/(1+bgrate),CameraController.CurrentCameraPos.y/(1+bgrate))
+                                  + zure + new Vector3(0,50);
     }
 }
