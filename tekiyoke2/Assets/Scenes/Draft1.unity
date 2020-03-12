@@ -135940,7 +135940,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: e0910b0eba2a5c44eb4d76baa2ecd244, type: 2}
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 3423410219917244383, guid: 95d3e8075a941f348803e6df2c824c6d,
         type: 3}
       propertyPath: zure.x
@@ -135954,7 +135954,7 @@ PrefabInstance:
     - target: {fileID: 3423410219917244383, guid: 95d3e8075a941f348803e6df2c824c6d,
         type: 3}
       propertyPath: zure.z
-      value: 700
+      value: 500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95d3e8075a941f348803e6df2c824c6d, type: 3}
