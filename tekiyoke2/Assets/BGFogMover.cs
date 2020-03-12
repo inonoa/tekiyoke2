@@ -11,13 +11,13 @@ public class BGFogMover : MonoBehaviour
     Vector3 lastCameraPos;
 
     Vector3 defPos;
+    Vector2 screenEdge = new Vector2(2000, 1200);
 
     void Start()
     {
         lastCameraPos = CameraController.CurrentCameraPos;
         defPos = transform.localPosition;
-        Color tmp = GetComponent<SpriteRenderer>().color;
-        GetComponent<SpriteRenderer>().color = new Color(tmp.r, tmp.g, tmp.b, (0.8f - 0.5f * depth));
+        GetComponent<SpriteRenderer>().material.SetFloat("_AlphaRate", 0.2f + 0.8f * depth);
     }
 
     void Update()
@@ -27,9 +27,9 @@ public class BGFogMover : MonoBehaviour
 
         transform.localPosition += - cameraMove * (1 - depth) + speed;
 
-        if(transform.localPosition.x > 1000 ) transform.localPosition += new Vector3(-2000,     0, 0);
-        if(transform.localPosition.x < -1000) transform.localPosition += new Vector3( 2000,     0, 0);
-        if(transform.localPosition.y > 750)   transform.localPosition += new Vector3(    0, -1500, 0);
-        if(transform.localPosition.y < -750)  transform.localPosition += new Vector3( 1500,  1500, 0);
+        if(transform.localPosition.x >  screenEdge.x ) transform.localPosition += new Vector3(-2*screenEdge.x,               0, 0);
+        if(transform.localPosition.x < -screenEdge.x)  transform.localPosition += new Vector3( 2*screenEdge.x,               0, 0);
+        if(transform.localPosition.y >  screenEdge.y)  transform.localPosition += new Vector3(              0, -2*screenEdge.y, 0);
+        if(transform.localPosition.y < -screenEdge.y)  transform.localPosition += new Vector3(              0,  2*screenEdge.y, 0);
     }
 }
