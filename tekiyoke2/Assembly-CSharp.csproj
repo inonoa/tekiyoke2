@@ -53,7 +53,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\BGFogMover.cs" />
      <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleAudio.cs" />
      <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModulePhysics.cs" />
      <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModulePhysics2D.cs" />
@@ -113,6 +112,7 @@
      <Compile Include="Assets\Scripts\MainManagers\Tokitome.cs" />
      <Compile Include="Assets\Scripts\MapObjs\BaneController.cs" />
      <Compile Include="Assets\Scripts\MapObjs\BaneYokoController.cs" />
+     <Compile Include="Assets\Scripts\MapObjs\BGFogMover.cs" />
      <Compile Include="Assets\Scripts\MapObjs\DPCD.cs" />
      <Compile Include="Assets\Scripts\MapObjs\DropTileController.cs" />
      <Compile Include="Assets\Scripts\MapObjs\Goal.cs" />
