@@ -32,6 +32,14 @@ public class GierController : EnemyController
     [SerializeField]
     ContactFilter2D filter;
 
+    [SerializeField] SpriteRenderer HontaiSR = null;
+    [SerializeField] Vector3 normalRotateSpeed = Vector3.zero;
+    [SerializeField] Vector3 runningRotateSpeed = Vector3.zero;
+    [SerializeField] SpriteRenderer eyeRenderer;
+    [SerializeField] Sprite eyeNormal;
+    [SerializeField] Sprite eyeFinding;
+    [SerializeField] Sprite eyeRunning;
+
     new void Start()
     {
         base.Start();
@@ -55,6 +63,7 @@ public class GierController : EnemyController
                     state = GierState.FindingNow;
                 }
                 MoveX_ConsideringGravity(walkSpeed);
+                HontaiSR.transform.Rotate(-normalRotateSpeed);
                 break;
 
             case GierState.BeforeFindingL:
@@ -62,6 +71,7 @@ public class GierController : EnemyController
                     state = GierState.FindingNow;
                 }
                 MoveX_ConsideringGravity(-walkSpeed);
+                HontaiSR.transform.Rotate(normalRotateSpeed);
             break;
 
             case GierState.FindingNow:
@@ -73,8 +83,14 @@ public class GierController : EnemyController
                 break;
 
             case GierState.Running:
-                if(HeroDefiner.CurrentHeroPos.x > transform.position.x + 10) MoveX_ConsideringGravity( runSpeed);
-                if(HeroDefiner.CurrentHeroPos.x < transform.position.x - 10) MoveX_ConsideringGravity(-runSpeed);
+                if(HeroDefiner.CurrentHeroPos.x > transform.position.x + 10){
+                    MoveX_ConsideringGravity( runSpeed);
+                    HontaiSR.transform.Rotate(-runningRotateSpeed);
+                }
+                if(HeroDefiner.CurrentHeroPos.x < transform.position.x - 10){
+                    MoveX_ConsideringGravity(-runSpeed);
+                    HontaiSR.transform.Rotate(runningRotateSpeed);
+                }
 
                 if( MyMath.DistanceXY(HeroDefiner.CurrentHeroPos,transform.position) > distanceToMissHero ){
                     if(rBody.velocity.x > 0) state = GierState.BeforeFindingR;
