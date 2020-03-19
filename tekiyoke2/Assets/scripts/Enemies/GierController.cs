@@ -61,6 +61,8 @@ public class GierController : EnemyController
                 //なんでColliderつけてないんだこれ… -> 判定の広さ調整が若干楽になるとかか(融通は利かないけど…)
                 if( MyMath.DistanceXY(HeroDefiner.CurrentHeroPos,transform.position) < distanceToFindHero ){
                     state = GierState.FindingNow;
+                    eyeRenderer.sprite = eyeFinding;
+                    eyeRenderer.flipX = HeroDefiner.CurrentHeroPos.x < transform.position.x;
                 }
                 MoveX_ConsideringGravity(walkSpeed);
                 HontaiSR.transform.Rotate(-normalRotateSpeed);
@@ -69,6 +71,8 @@ public class GierController : EnemyController
             case GierState.BeforeFindingL:
                 if( MyMath.DistanceXY(HeroDefiner.CurrentHeroPos,transform.position) < distanceToFindHero ){
                     state = GierState.FindingNow;
+                    eyeRenderer.sprite = eyeFinding;
+                    eyeRenderer.flipX = HeroDefiner.CurrentHeroPos.x < transform.position.x;
                 }
                 MoveX_ConsideringGravity(-walkSpeed);
                 HontaiSR.transform.Rotate(normalRotateSpeed);
@@ -78,6 +82,7 @@ public class GierController : EnemyController
                 findingCount ++;
                 if(findingCount > framesBeforeRun){
                     state = GierState.Running;
+                    eyeRenderer.sprite = eyeRunning;
                     findingCount = 0;
                 }
                 break;
@@ -86,15 +91,18 @@ public class GierController : EnemyController
                 if(HeroDefiner.CurrentHeroPos.x > transform.position.x + 10){
                     MoveX_ConsideringGravity( runSpeed);
                     HontaiSR.transform.Rotate(-runningRotateSpeed);
+                    eyeRenderer.flipX = false;
                 }
                 if(HeroDefiner.CurrentHeroPos.x < transform.position.x - 10){
                     MoveX_ConsideringGravity(-runSpeed);
                     HontaiSR.transform.Rotate(runningRotateSpeed);
+                    eyeRenderer.flipX = true;
                 }
 
                 if( MyMath.DistanceXY(HeroDefiner.CurrentHeroPos,transform.position) > distanceToMissHero ){
                     if(rBody.velocity.x > 0) state = GierState.BeforeFindingR;
                     else                     state = GierState.BeforeFindingL;
+                    eyeRenderer.sprite = eyeNormal;
                 }
                 break;
         }
@@ -106,7 +114,13 @@ public class GierController : EnemyController
     }
 
     void Turn(object sender, EventArgs e){
-        if(state==GierState.BeforeFindingL) state = GierState.BeforeFindingR;
-        else if(state==GierState.BeforeFindingR) state = GierState.BeforeFindingL;
+        if(state==GierState.BeforeFindingL){
+            state = GierState.BeforeFindingR;
+            eyeRenderer.flipX = false;
+        }
+        else if(state==GierState.BeforeFindingR){
+            state = GierState.BeforeFindingL;
+            eyeRenderer.flipX = true;
+        }
     }
 }
