@@ -38,19 +38,18 @@ public class KennerController : EnemyController
     [SerializeField] float downAngle = 70;
     [SerializeField] float num_tamaPerShoot = 5;
 
-    GroundChecker groundChecker;
-
     [Header("--弾のパラメータ--")]
     [SerializeField] GameObject tama = null;
 
     [SerializeField] float tamaSpeed = 10;
 
     [SerializeField] int tamaLife = 100;
+    [Header("--子オブジェクト類--")]
+    [SerializeField] GroundChecker groundChecker = null;
 
     new void Start()
     {
         base.Start();
-        groundChecker = transform.Find("GroundChecker").GetComponent<GroundChecker>();
     }
 
     new void Update()
