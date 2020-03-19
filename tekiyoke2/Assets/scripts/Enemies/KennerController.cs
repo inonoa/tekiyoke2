@@ -54,6 +54,9 @@ public class KennerController : EnemyController
     [SerializeField] Transform gazosTF = null;
     [SerializeField] Transform baneTF = null;
     [SerializeField] Transform dodaiTF = null;
+    [SerializeField] SpriteRenderer hontaiSR = null;
+    [SerializeField] Sprite hontaiSpriteActive = null;
+    [SerializeField] Sprite hontaiSpriteInactive = null;
 
     new void Start()
     {
@@ -69,6 +72,7 @@ public class KennerController : EnemyController
             case State.Wait:
                 if(MyMath.DistanceXY(transform.position, HeroDefiner.CurrentHeroPos) < distanceToFindHero){
                     Jump();
+                    hontaiSR.sprite = hontaiSpriteActive;
                 }
                 break;
             
@@ -106,7 +110,10 @@ public class KennerController : EnemyController
                     if(MyMath.DistanceXY(transform.position, HeroDefiner.CurrentHeroPos) < distanceToFindHero){
                         Jump();
                     }
-                    else state = State.Wait;
+                    else{
+                        state = State.Wait;
+                        hontaiSR.sprite = hontaiSpriteInactive;
+                    }
 
                 }else if(groundChecker.IsOnGround) rBody.velocity = new Vector2();
 
