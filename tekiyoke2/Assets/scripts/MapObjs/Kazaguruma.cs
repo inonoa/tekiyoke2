@@ -6,6 +6,9 @@ using System;
 
 public class Kazaguruma : MonoBehaviour{
     [SerializeField] Transform kuruma;
+    [SerializeField] SpriteRenderer kurumaSR;
+    Material mat;
+    float edgeLightVolMax;
     [SerializeField] float rotateVelFirst = 0.1f;
     [SerializeField] float nextRotateVelRate = 0.9f;
     [SerializeField] float rotatingThreshold = 0.02f;
@@ -15,6 +18,12 @@ public class Kazaguruma : MonoBehaviour{
     }
     public event EventHandler Rotated;
     public event EventHandler OnSlow;
+
+    void Start(){
+        mat = kurumaSR.material;
+        edgeLightVolMax = mat.GetFloat("_Volume");
+        mat.SetFloat("_Volume", 0);
+    }
 
     void OnTriggerEnter2D(Collider2D other){
         if(other.gameObject.tag=="Wind"){
@@ -27,15 +36,17 @@ public class Kazaguruma : MonoBehaviour{
     {
         if(rotateVel > 0){
 
-            kuruma.Rotate(0,0,rotateVel);
+            kuruma.Rotate(0,0,-rotateVel);
 
             float nextVel = rotateVel * nextRotateVelRate;
 
             if(rotateVel >= rotatingThreshold && nextVel < rotatingThreshold){
+                mat.SetFloat("_Volume", 0);
                 OnSlow?.Invoke(this, EventArgs.Empty);
             }
 
             rotateVel = nextVel;
+            if(rotateVel >= rotatingThreshold) mat.SetFloat("_Volume", rotateVel / rotateVelFirst * edgeLightVolMax);
             if(rotateVel < 0.1f){
                 rotateVel = 0;
             }

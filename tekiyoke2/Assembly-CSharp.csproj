@@ -112,6 +112,7 @@
      <Compile Include="Assets\Scripts\MainManagers\Tokitome.cs" />
      <Compile Include="Assets\Scripts\MapObjs\BaneController.cs" />
      <Compile Include="Assets\Scripts\MapObjs\BaneYokoController.cs" />
+     <Compile Include="Assets\Scripts\MapObjs\BGFogMover.cs" />
      <Compile Include="Assets\Scripts\MapObjs\DPCD.cs" />
      <Compile Include="Assets\Scripts\MapObjs\DropTileController.cs" />
      <Compile Include="Assets\Scripts\MapObjs\Goal.cs" />
@@ -152,9 +153,12 @@
      <None Include="Assets\Materials\Bane.shader" />
      <None Include="Assets\Demigiant\DOTweenPro\readme.txt" />
      <None Include="Assets\Materials\Vignette.shader" />
+     <None Include="Assets\Materials\EdgeLight.shader" />
+     <None Include="Assets\Materials\FogBlur.shader" />
      <None Include="Assets\Materials\Blur.shader" />
      <None Include="Assets\Materials\Idouyuka.shader" />
      <None Include="Assets\Materials\BlurEdge2.shader" />
+     <None Include="Assets\Materials\Light.shader" />
      <None Include="Assets\Materials\BlurEdge1.shader" />
      <None Include="Assets\Demigiant\DOTween\readme.txt" />
      <None Include="Assets\Materials\Noise.shader" />

@@ -127,7 +127,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 4baad0a6a86f2cf49bea8e6ae14b3bf8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -147,7 +147,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7690c64374ca1e64fba302e0cfd092fd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5d41189923cff1f4ab21e58ba3a6a3e6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -205,6 +205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kuruma: {fileID: 6190435699541397385}
+  kurumaSR: {fileID: 6190435699541397398}
   rotateVelFirst: 20
   nextRotateVelRate: 0.99
   rotatingThreshold: 2

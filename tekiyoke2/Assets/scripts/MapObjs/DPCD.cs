@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class DPCD : MonoBehaviour
 {
-    static readonly int rotateInterval = 10;
+    [SerializeField] int rotateInterval = 10;
     int rotateCount = 0;
-    [SerializeField]
-    int DPperDPCD = 1;
+    [SerializeField] float rotateSpeed = 20;
+    [SerializeField] int DPperDPCD = 1;
 
     void Update()
     {
         rotateCount ++;
         rotateCount %= rotateInterval;
-        if(rotateCount==0) transform.Rotate(new Vector3(0,0,45));
+        if(rotateCount==0) transform.Rotate(new Vector3(0,0,rotateSpeed));
     }
 
     void OnTriggerEnter2D(Collider2D other){

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using DG.Tweening;
 
 public class TamaController : MonoBehaviour
 {
@@ -30,7 +31,10 @@ public class TamaController : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D other){
-        if(other.gameObject.tag == "Terrain" || other.gameObject.tag == "Ultrathin" || other.gameObject.tag == "Player") Destroy(gameObject);
+        if(other.gameObject.tag == "Terrain" || other.gameObject.tag == "Ultrathin" || other.gameObject.tag == "Player"){
+            GetComponent<SpriteRenderer>().DOFade(0, 0.1f);
+            DOVirtual.DelayedCall(0.1f, () => Destroy(gameObject));
+        }
         if(other.gameObject.tag == "Player") HeroDefiner.currentHero.Damage(1);
     }
 }
