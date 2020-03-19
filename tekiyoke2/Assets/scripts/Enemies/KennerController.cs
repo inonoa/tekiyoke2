@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class KennerController : EnemyController
 {
@@ -51,6 +52,8 @@ public class KennerController : EnemyController
     [Header("--子オブジェクト類--")]
     [SerializeField] GroundChecker groundChecker = null;
     [SerializeField] Transform gazosTF = null;
+    [SerializeField] Transform baneTF = null;
+    [SerializeField] Transform dodaiTF = null;
 
     new void Start()
     {
@@ -65,8 +68,7 @@ public class KennerController : EnemyController
 
             case State.Wait:
                 if(MyMath.DistanceXY(transform.position, HeroDefiner.CurrentHeroPos) < distanceToFindHero){
-                    rBody.velocity = new Vector2(0,jumpForce);
-                    state = State.Jump;
+                    Jump();
                 }
                 break;
             
@@ -75,6 +77,8 @@ public class KennerController : EnemyController
                     state = State.Shoot;
                     framesToShootNow = 1;
                     howManyShootsNow = howManyShoots;
+                    baneTF.DOScaleY(0.3f, 0.5f);
+                    dodaiTF.DOLocalMoveY(-23,0.5f);
                 }
                 break;
             
@@ -100,8 +104,7 @@ public class KennerController : EnemyController
                 if(restFramesNow==restFrames){
                     restFramesNow = 0;
                     if(MyMath.DistanceXY(transform.position, HeroDefiner.CurrentHeroPos) < distanceToFindHero){
-                        rBody.velocity = new Vector2(0,jumpForce);
-                        state = State.Jump;
+                        Jump();
                     }
                     else state = State.Wait;
 
@@ -111,9 +114,16 @@ public class KennerController : EnemyController
         }
     }
 
+    void Jump(){
+        rBody.velocity = new Vector2(0,jumpForce);
+        state = State.Jump;
+        baneTF.DOScaleY(1, 0.3f).SetEase(Ease.InOutSine);
+        dodaiTF.DOLocalMoveY(-46,0.3f).SetEase(Ease.InOutSine);
+    }
+
     void Shoot(){
         for(int i=0; i<num_tamaPerShoot; i++){
-            Vector3 offset = EyeToRight ? new Vector3(60,-50) : new Vector3(-60,-50);
+            Vector3 offset = EyeToRight ? new Vector3(70,-30) : new Vector3(-70,-30);
             TamaController imatama = Instantiate(tama, transform.position + offset, Quaternion.identity, transform.parent);
 
             float angle = - upAngle - i * (downAngle - upAngle) / (num_tamaPerShoot - 1);
