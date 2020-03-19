@@ -39,7 +39,7 @@ public class KennerController : EnemyController
     [SerializeField] float num_tamaPerShoot = 5;
 
     [Header("--弾のパラメータ--")]
-    [SerializeField] GameObject tama = null;
+    [SerializeField] TamaController tama = null;
 
     [SerializeField] float tamaSpeed = 10;
 
@@ -109,15 +109,15 @@ public class KennerController : EnemyController
     void Shoot(){
         for(int i=0; i<num_tamaPerShoot; i++){
             Vector3 offset = EyeToRight ? new Vector3(60,-50) : new Vector3(-60,-50);
-            GameObject imatama = Instantiate(tama, transform.position + offset, Quaternion.identity, transform.parent);
+            TamaController imatama = Instantiate(tama, transform.position + offset, Quaternion.identity, transform.parent);
 
             float angle = - upAngle - i * (downAngle - upAngle) / (num_tamaPerShoot - 1);
             if(!EyeToRight) angle = - 180 - angle;
-            imatama.GetComponent<TamaController>().angle = angle;
+            imatama.angle = angle;
             imatama.transform.Rotate(new Vector3(0,0,angle));
 
-            imatama.GetComponent<TamaController>().speed = tamaSpeed;
-            imatama.GetComponent<TamaController>().life = tamaLife;
+            imatama.speed = tamaSpeed;
+            imatama.life = tamaLife;
         }
     }
 }

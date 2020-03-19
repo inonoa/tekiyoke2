@@ -380,8 +380,8 @@ MonoBehaviour:
   howManyShoots: 3
   upAngle: 15
   downAngle: 60
-  num_tamaPerShoot: 10
-  tama: {fileID: 1695468421560617688, guid: 83ebf111c7aef5a4c9a70696bd32b809, type: 3}
+  num_tamaPerShoot: 5
+  tama: {fileID: 3841027521711200733, guid: 83ebf111c7aef5a4c9a70696bd32b809, type: 3}
   tamaSpeed: 10
   tamaLife: 50
   groundChecker: {fileID: 4320011673456935144}
