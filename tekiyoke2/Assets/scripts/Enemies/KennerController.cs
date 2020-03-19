@@ -11,8 +11,12 @@ public class KennerController : EnemyController
     bool EyeToRight{
         get { return _EyeToRight; }
         set {
-            if( _EyeToRight && !value) { }
-            if(!_EyeToRight &&  value) { }
+            if( _EyeToRight && !value) {
+                gazosTF.localScale = new Vector3(-1,1,1);
+            }
+            if(!_EyeToRight &&  value) {
+                gazosTF.localScale = new Vector3(1,1,1);
+            }
 
             _EyeToRight = value;
         }
@@ -46,6 +50,7 @@ public class KennerController : EnemyController
     [SerializeField] int tamaLife = 100;
     [Header("--子オブジェクト類--")]
     [SerializeField] GroundChecker groundChecker = null;
+    [SerializeField] Transform gazosTF = null;
 
     new void Start()
     {

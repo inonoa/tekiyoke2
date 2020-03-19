@@ -385,6 +385,7 @@ MonoBehaviour:
   tamaSpeed: 10
   tamaLife: 50
   groundChecker: {fileID: 4320011673456935144}
+  gazosTF: {fileID: 3937189948388958045}
 --- !u!50 &2367615471163150896
 Rigidbody2D:
   serializedVersion: 4
