@@ -9,28 +9,18 @@ public class GierController : EnemyController
     GierState state;
     int findingCount = 0;
 
-    [SerializeField]
-    float walkSpeed = 2;
+    [SerializeField] float walkSpeed = 2;
 
-    [SerializeField]
-    float runSpeed = 5;
+    [SerializeField] float runSpeed = 5;
 
-    [SerializeField]
-    float distanceToFindHero = 200;
-    [SerializeField]
-    float distanceToMissHero = 500;
+    [SerializeField] float distanceToFindHero = 200;
+    [SerializeField] float distanceToMissHero = 500;
 
-    [SerializeField]
-    float framesBeforeRun = 60;
-    [SerializeField]
-    float jumpForce = 500;
-    [SerializeField]
-    bool toRightFirst = true;
+    [SerializeField] float framesBeforeRun = 60;
+    [SerializeField] float jumpForce = 500;
+    [SerializeField] bool toRightFirst = true;
 
     GroundChecker groundChecker;
-
-    [SerializeField]
-    ContactFilter2D filter;
 
     [SerializeField] SpriteRenderer HontaiSR = null;
     [SerializeField] Vector3 normalRotateSpeed = Vector3.zero;
@@ -47,7 +37,7 @@ public class GierController : EnemyController
         groundChecker = transform.Find("GroundChecker").GetComponent<GroundChecker>();
         transform.Find("DontWannaFallR").GetComponent<DontWannaFall>().about2fall += Turn;
         transform.Find("DontWannaFallL").GetComponent<DontWannaFall>().about2fall += Turn;
-        transform.Find("Collider2Wall").GetComponent<EnemyCollider2Wall>().touched2Wall += Turn;
+        transform.Find("Collider2Wall").GetComponent<Collider2Wall>().touched2Wall += Turn;
         state = toRightFirst ? GierState.BeforeFindingR : GierState.BeforeFindingL;
     }
 
@@ -58,22 +48,15 @@ public class GierController : EnemyController
         switch(state){
 
             case GierState.BeforeFindingR:
-                //なんでColliderつけてないんだこれ… -> 判定の広さ調整が若干楽になるとかか(融通は利かないけど…)
-                if( MyMath.DistanceXY(HeroDefiner.CurrentHeroPos,transform.position) < distanceToFindHero ){
-                    state = GierState.FindingNow;
-                    eyeRenderer.sprite = eyeFinding;
-                    eyeRenderer.flipX = HeroDefiner.CurrentHeroPos.x < transform.position.x;
-                }
+                if( NearHero() ) Find();
+
                 MoveX_ConsideringGravity(walkSpeed);
                 HontaiSR.transform.Rotate(-normalRotateSpeed);
                 break;
 
             case GierState.BeforeFindingL:
-                if( MyMath.DistanceXY(HeroDefiner.CurrentHeroPos,transform.position) < distanceToFindHero ){
-                    state = GierState.FindingNow;
-                    eyeRenderer.sprite = eyeFinding;
-                    eyeRenderer.flipX = HeroDefiner.CurrentHeroPos.x < transform.position.x;
-                }
+                if( NearHero() ) Find();
+                
                 MoveX_ConsideringGravity(-walkSpeed);
                 HontaiSR.transform.Rotate(normalRotateSpeed);
             break;
@@ -106,6 +89,17 @@ public class GierController : EnemyController
                 }
                 break;
         }
+    }
+
+    bool NearHero(){
+        //なんでColliderつけてないんだこれ… -> 判定の広さ調整が若干楽になるとかか(融通は利かないけど…)
+        return MyMath.DistanceXY(HeroDefiner.CurrentHeroPos,transform.position) < distanceToFindHero;
+    }
+
+    void Find(){
+        state = GierState.FindingNow;
+        eyeRenderer.sprite = eyeFinding;
+        eyeRenderer.flipX = HeroDefiner.CurrentHeroPos.x < transform.position.x;
     }
 
     void HeroJumped(object sender, EventArgs e){

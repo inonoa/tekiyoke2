@@ -12,13 +12,9 @@ public class KennerController : EnemyController
     bool EyeToRight{
         get { return _EyeToRight; }
         set {
-            if( _EyeToRight && !value) {
-                gazosTF.localScale = new Vector3(-1,1,1);
+            if(value != _EyeToRight){
+                gazosTF.localScale = new Vector3( value ? 1 : -1, 1, 1);
             }
-            if(!_EyeToRight &&  value) {
-                gazosTF.localScale = new Vector3(1,1,1);
-            }
-
             _EyeToRight = value;
         }
     }
