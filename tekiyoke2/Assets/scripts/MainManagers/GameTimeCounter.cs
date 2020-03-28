@@ -6,11 +6,13 @@ using UnityEngine.Timeline;
 
 public class GameTimeCounter : MonoBehaviour
 {
-    public static GameTimeCounter CurrentInstance{ get; set; }
+    public static GameTimeCounter CurrentInstance{ get; private set; }
 
     public float Seconds{ get; set; } = 0;
-    Text txt;
-    public bool DoesTick { get; set; } = true;
+    public bool DoesTick{ get; set; } = true;
+
+    [SerializeField] Image[] numImages;
+    [SerializeField] Sprite[] numSprites;
 
     void Awake(){
         CurrentInstance = this;
@@ -18,16 +20,39 @@ public class GameTimeCounter : MonoBehaviour
 
     void Start()
     {
-        txt = GetComponent<Text>();
+
+    }
+
+    Sprite Char2NumSprite(char dgt){
+        switch(dgt){
+
+            case '0': return numSprites[0];
+            case '1': return numSprites[1];
+            case '2': return numSprites[2];
+            case '3': return numSprites[3];
+            case '4': return numSprites[4];
+            case '5': return numSprites[5];
+            case '6': return numSprites[6];
+            case '7': return numSprites[7];
+            case '8': return numSprites[8];
+            case '9': return numSprites[9];
+
+            case ':': return numSprites[10]; //区切りは':'
+            default : return numSprites[15];
+        }
     }
 
     void Update()
     {
-        int secInt = (int)Seconds;
-        int secs    = secInt % 60;
-        int minutes = secInt / 60;
-        int comma__ = (int) ((Seconds - secInt) * 100);
-        txt.text = minutes.ToString("00") + ":" + secs.ToString("00") + ":" + comma__.ToString("00");
+        int mins = ((int)Seconds) / 60 % 99; //UIに2けたしか出せない
+        int secs = ((int)Seconds) % 60;
+        int csec = (int)(Seconds % 1 * 100);
+
+        string timeStr = mins.ToString("00") + ":" + secs.ToString("00") + ":" + csec.ToString("00");
+
+        for(int i=0;i<8;i++){
+            numImages[i].sprite = Char2NumSprite(timeStr[i]);
+        }
 
         if(DoesTick) Seconds += Time.timeScale * Time.deltaTime;
     }
