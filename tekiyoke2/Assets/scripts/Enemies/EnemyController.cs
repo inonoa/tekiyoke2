@@ -1,10 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Timeline;
 using System;
 
-//メモ: 主人公が近づいてきてから動き出すほうがレベルデザインしやすい
 public class EnemyController : MonoBehaviour
 {
     protected Rigidbody2D rBody;
@@ -13,9 +11,7 @@ public class EnemyController : MonoBehaviour
     protected float fallSpeedMax = 300;
 
     int groundCount = 0;
-    protected bool IsOnGround{
-        get{ return groundCount > 0; }
-    }
+    protected bool IsOnGround => groundCount > 0;
 
     protected void MovePos(float v_x, float v_y) =>
         rBody.MovePosition(new Vector2(rBody.transform.position.x + v_x*Time.timeScale,

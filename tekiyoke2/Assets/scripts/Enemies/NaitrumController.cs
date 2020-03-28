@@ -8,7 +8,7 @@ public class NaitrumController : EnemyController
 {
     [SerializeField] float moveSpeed = 1;
     [SerializeField] bool toRight = false;
-    EnemyCollider2Wall col;
+    Collider2Wall col;
 
     [SerializeField] SpriteRenderer[] spriteRenderers;
     
@@ -21,7 +21,7 @@ public class NaitrumController : EnemyController
     new void Start()
     {
         base.Start();
-        col = GetComponent<EnemyCollider2Wall>();
+        col = GetComponent<Collider2Wall>();
         col.touched2Wall += Turn;
         foreach(SpriteRenderer sr in spriteRenderers) sr.flipX = toRight;
     }
