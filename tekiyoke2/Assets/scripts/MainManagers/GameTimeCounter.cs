@@ -13,6 +13,8 @@ public class GameTimeCounter : MonoBehaviour
 
     [SerializeField] Image[] numImages;
     [SerializeField] Sprite[] numSprites;
+    [SerializeField] float watchRadius = 300;
+    [SerializeField] float digit2digit = 25;
 
     void Awake(){
         CurrentInstance = this;
@@ -20,7 +22,13 @@ public class GameTimeCounter : MonoBehaviour
 
     void Start()
     {
-
+        for(int i=0;i<8;i++){
+            numImages[i].material = new Material(numImages[i].material);
+        }
+        for(int i=0;i<8;i++){
+            numImages[i].material.SetFloat("_CenterX", digit2digit * (i - 3.5f));
+            numImages[i].material.SetFloat("_Radius", watchRadius);
+        }
     }
 
     Sprite Char2NumSprite(char dgt){

@@ -4,6 +4,9 @@
     {
         _MainTex ("Base", 2D) = "white" {}
         _Radius ("Radius", float) = 1
+        _CenterX ("Center X", float) = 0
+        _ImageWidth ("ImageWidth", float) = 1
+        _ImageHeight ("ImageHeight", float) = 1
     }
 
     SubShader
@@ -42,6 +45,9 @@
 
             sampler2D _MainTex;
             float _Radius;
+            float _CenterX;
+            float _ImageWidth;
+            float _ImageHeight;
 
             OutputStruct vert (InputStruct input)
             {
@@ -56,10 +62,11 @@
 
             fixed4 frag (OutputStruct output) : SV_Target
             {
+                float actualX = _CenterX + ((output.uv.x % 0.125) - 0.0625) * 8 * _ImageWidth;
 
-                float down = _Radius - sqrt( _Radius * _Radius - (output.uv.x - 0.5) * (output.uv.x - 0.5) );
+                float down = _Radius - sqrt( _Radius * _Radius - actualX * actualX );
 
-                float2 newUV = output.uv + float2(0, down);
+                float2 newUV = output.uv + float2(0, down) / _ImageHeight;
                 newUV.y = saturate(newUV.y);
 
                 return tex2D(_MainTex, newUV);
