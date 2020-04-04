@@ -2,21 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 
 public class DPManager : MonoBehaviour
 {
-    public static DPManager Instance{ get; set; }
-    RectTransform rTransform;
+    public static DPManager Instance{ get; private set; }
 
     public int DP{ get; private set; } = 0;
+    static readonly int maxDP = 100;
 
-    [SerializeField]
-    int displayInterval = 3;
-    int frames2Display = 1;
+
 
     ///<summary>1Pずつたまっていく感じにしたいので、内部的なDPとは別に見かけのDPを用意してこれをもとに描画</summary>
     int DPonDisplay = 0;
-    static readonly int maxDP = 100;
+    [SerializeField] int displayInterval = 3;
+    int frames2Display = 1;
+    Material material;
+    [SerializeField] Image uiImage;
 
     public void AddDP(int delta){
         if(delta > 0){
@@ -34,10 +36,12 @@ public class DPManager : MonoBehaviour
         }
     }
 
+    void Awake(){
+        Instance = this;
+    }
     void Start()
     {
-        Instance = this;
-        rTransform = GetComponent<RectTransform>();
+        material = uiImage.material;
     }
 
     void Update()
@@ -50,7 +54,7 @@ public class DPManager : MonoBehaviour
             if(DPonDisplay > DP)      DPonDisplay -= 1 + (DPonDisplay - DP) / 5;
             else if(DPonDisplay < DP) DPonDisplay += 1 + (DP - DPonDisplay) / 5;
 
-            rTransform.sizeDelta = new Vector2(1000.0f * DPonDisplay / maxDP, 50);
+            material.SetFloat("_WidthNormalized", DP / (float)maxDP);
         }
     }
 }

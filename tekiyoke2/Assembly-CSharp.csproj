@@ -167,6 +167,7 @@
      <None Include="Assets\Materials\DefaultShader.shader" />
      <None Include="Assets\Demigiant\readme_DOTweenPro.txt" />
      <None Include="Assets\Materials\Aberration.shader" />
+     <None Include="Assets\Materials\DPOverlay.shader" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/Users/inonoa/Documents/ino_game/tekiyoke2/tekiyoke2/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>

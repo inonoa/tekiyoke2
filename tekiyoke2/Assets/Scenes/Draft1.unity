@@ -137453,6 +137453,26 @@ PrefabInstance:
       propertyPath: watchRadius
       value: 500
       objectReference: {fileID: 0}
+    - target: {fileID: 2783582464764908243, guid: e5394696252735242920aa9fa21a9d5f,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2783582464764908243, guid: e5394696252735242920aa9fa21a9d5f,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2783582464764908243, guid: e5394696252735242920aa9fa21a9d5f,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2783582464764908243, guid: e5394696252735242920aa9fa21a9d5f,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5394696252735242920aa9fa21a9d5f, type: 3}
 --- !u!224 &1443148826 stripped
