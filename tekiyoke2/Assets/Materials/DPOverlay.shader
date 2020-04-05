@@ -8,6 +8,7 @@
         _OverlayColorOffset ("Overlay Color Offset (0 ~ 1)", float) = 0
         _BGAlpha ("BG Alpha", float) = 0.4
         _MainAlpha ("Main Alpha", float) = 0.7
+        _GradationWidth ("Gradation Width", float) = 0.05
     }
     SubShader
     {
@@ -47,6 +48,7 @@
             float _OverlayColorOffset;
             float _BGAlpha;
             float _MainAlpha;
+            float _GradationWidth;
 
             VertToFrag vert (VertInput vert)
             {
@@ -78,24 +80,16 @@
             {
                 fixed4 baseColor = tex2D(_MainTex, input.uv);
 
-                if(input.uv.x > _WidthNormalized){
-                    baseColor.a *= _BGAlpha;
-                    return baseColor;
-                }
-
+                //たまった部分の色を決める
                 float phase = input.uv.x - _OverlayColorOffset;
                 float phase_0_1 = (phase < 0) ? phase+1 : phase;
                 fixed4 overlayColor = phase2OverlayColor(phase_0_1);
-
-                float baseMeido = (baseColor.r + baseColor.g + baseColor.b) / 3;
-
-                // fixed4 laidcolor = (baseMeido < 0.5)
-                //                    ? (2 * baseColor * overlayColor)
-                //                    : (fixed4(1,1,1,1) - 2 * (fixed4(1,1,1,1) - baseColor) * (fixed4(1,1,1,1) - overlayColor));
                 fixed4 laidcolor = baseColor + overlayColor;
-                laidcolor.a = baseColor.a * _MainAlpha;
 
-                fixed4 color = _OverlayAlpha * laidcolor + (1 - _OverlayAlpha) * baseColor;
+                float a_x = saturate((_WidthNormalized * (1 + _GradationWidth) - input.uv.x) / _GradationWidth);
+
+                fixed4 color = _OverlayAlpha * a_x * laidcolor + (1 - _OverlayAlpha * a_x) * baseColor;
+                color.a = (a_x * _MainAlpha + (1 - a_x) * _BGAlpha) * baseColor.a;
 
                 return color;
             }
