@@ -45,12 +45,12 @@ public class StateJet : IHeroState
                 jetVelocities[i] = fullDist * ( EasingFunc((i+1)/(float)jetFramesMax) - EasingFunc(i/(float)jetFramesMax) );
             }
             posWhenJet = hero.transform.position;
-            jetStream = GameObject.Instantiate(hero.jetStreamPrefab, hero.transform.parent /* ->GameMaster(うーん) */);
+            jetStream = GameObject.Instantiate(hero.objsHolderForStates.jetstreamPrefab, hero.transform.parent /* ->GameMaster(うーん) */);
             jetStream.transform.position = hero.transform.position;
             jsCol = jetStream.GetComponent<BoxCollider2D>();
 
             //風エフェクト
-            trailTF = GameObject.Instantiate(hero.jetTrail, hero.transform.parent /* ->GameMaster(うーん) */).transform;
+            trailTF = GameObject.Instantiate(hero.objsHolderForStates.jetTrail, hero.transform.parent /* ->GameMaster(うーん) */).transform;
             trailTF.position = hero.transform.position;
             trailTF.GetComponent<TrailRenderer>().time = jetFramesMax / 60f;
 

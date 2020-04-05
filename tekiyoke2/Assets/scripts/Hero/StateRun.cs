@@ -43,11 +43,11 @@ public class StateRun : IHeroState
     }
 
     IEnumerator Tsuchihokori(){
-        Debug.Log("Run!");
+        GameObject.Instantiate(hero.objsHolderForStates.tsuchihokoriForRun, hero.transform).transform.SetParent(GameObject.Find("GameMaster").transform);
 
         while(true){
             yield return new WaitForSeconds(tsuchihokoriInterval);
-            Debug.Log("tsuchihokori");
+            GameObject.Instantiate(hero.objsHolderForStates.tsuchihokoriForRun, hero.transform).transform.SetParent(GameObject.Find("GameMaster").transform);
         }
     }
 

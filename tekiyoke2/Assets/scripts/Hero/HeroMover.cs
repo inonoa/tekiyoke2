@@ -137,6 +137,7 @@ public class HeroMover : MonoBehaviour
     IHeroState lastState;
     [HideInInspector] public CameraController cmrCntr;
     [HideInInspector] public HpCntr hpcntr;
+    [HideInInspector] public HeroObjsHolder4States objsHolderForStates;
     [SerializeField] GroundChecker groundChecker;
     SakamichiChecker sakamichiChecker;
     [SerializeField] WallCheckerL wallCheckerL;
@@ -149,10 +150,6 @@ public class HeroMover : MonoBehaviour
     [HideInInspector] public Animator anim;
     [HideInInspector] public new Rigidbody2D rigidbody;
     Chishibuki chishibuki;
-
-    //Jet用(Jet用なんだからJetに書くべきだがインスペクタに表示しづらいため…)
-    public GameObject jetStreamPrefab;
-    public TrailRenderer jetTrail;
     
     #endregion
 
@@ -230,6 +227,7 @@ public class HeroMover : MonoBehaviour
         hpcntr              = GetComponent<HpCntr>();
         sakamichiChecker    = GetComponent<SakamichiChecker>();
         savePositionManager = GetComponent<SavePositionManager>();
+        objsHolderForStates = GetComponent<HeroObjsHolder4States>();
 
         hpcntr.die     += ReceiveDeath;
         hpcntr.damaged += BendBack;

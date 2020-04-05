@@ -259,6 +259,7 @@ GameObject:
   - component: {fileID: 3106219250084253372}
   - component: {fileID: 3106219250084253370}
   - component: {fileID: 3106219250084253401}
+  - component: {fileID: 1862551108992817783}
   m_Layer: 8
   m_Name: Hero
   m_TagString: Player
@@ -391,16 +392,13 @@ MonoBehaviour:
   isInDebug: 0
   cmrCntr: {fileID: 0}
   hpcntr: {fileID: 0}
+  objsHolderForStates: {fileID: 0}
   groundChecker: {fileID: 3106219250714267053}
   wallCheckerL: {fileID: 3106219248715147193}
   wallCheckerR: {fileID: 3106219249542638149}
   spriteRenderer: {fileID: 0}
   anim: {fileID: 0}
   rigidbody: {fileID: 0}
-  jetStreamPrefab: {fileID: 8900711695561503522, guid: 06218cdfbbedd5d44a9e274110518bb5,
-    type: 3}
-  jetTrail: {fileID: 7456876022590087109, guid: fc1c627a062e5f5498ce124a28c35929,
-    type: 3}
 --- !u!114 &3106219250084253372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -476,6 +474,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   saveCostDP: 10
   dialogImg: {fileID: 0}
+--- !u!114 &1862551108992817783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3106219250084253351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b7d326109741384a828c643abee3170, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jetstreamPrefab: {fileID: 8900711695561503522, guid: 06218cdfbbedd5d44a9e274110518bb5,
+    type: 3}
+  jetTrail: {fileID: 7456876022590087109, guid: fc1c627a062e5f5498ce124a28c35929,
+    type: 3}
+  tsuchihokoriForRun: {fileID: 2582749541743534778, guid: f0d8a2804f7a437418585fd69d3ac587,
+    type: 3}
 --- !u!1 &3106219250170215766
 GameObject:
   m_ObjectHideFlags: 0
