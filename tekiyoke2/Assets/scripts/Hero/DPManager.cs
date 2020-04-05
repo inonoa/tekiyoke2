@@ -15,9 +15,8 @@ public class DPManager : MonoBehaviour
 
 
     ///<summary>1Pずつたまっていく感じにしたいので、内部的なDPとは別に見かけのDPを用意してこれをもとに描画</summary>
-    int DPonDisplay = 0;
-    [SerializeField] float displayInterval = 0.05f;
-    float frames2Display = 0.02f;
+    float DPonDisplay = 0;
+    [SerializeField] float displaySpeed = 0.05f;
     Material material;
     [SerializeField] Image uiImage;
     [SerializeField] float lightLifeSeconds = 1;
@@ -52,17 +51,15 @@ public class DPManager : MonoBehaviour
 
     void Update()
     {
-        frames2Display -= Time.deltaTime;
-        if(frames2Display <= 0){
-            frames2Display = displayInterval;
-
-            if(DPonDisplay != DP){
-                //急速にDPが増えたら急速に追いついてほしい
-                DPonDisplay = (DPonDisplay > DP) ? (DPonDisplay - 1 - (DPonDisplay - DP) / 5) : (DPonDisplay + 1 + (DP - DPonDisplay) / 5);
-                material.SetFloat("_WidthNormalized", DPonDisplay / (float)maxDP);
-                LightGauge();
-                secondsAfterDPChanged = 0;
-            }
+        if(DPonDisplay != DP){
+            //急速にDPが増えたら急速に追いついてほしい
+            float dpDelta = (DPonDisplay > DP) ? - 1 - (DPonDisplay - DP) / 5 : 1 + (DP - DPonDisplay) / 5;
+            dpDelta *= displaySpeed;
+            dpDelta = dpDelta > 0 ? Mathf.Min(dpDelta, DP - DPonDisplay) : Mathf.Max(dpDelta, DP - DPonDisplay);
+            DPonDisplay = DPonDisplay + dpDelta;
+            material.SetFloat("_WidthNormalized", DPonDisplay / (float)maxDP);
+            LightGauge();
+            secondsAfterDPChanged = 0;
         }
 
         secondsAfterDPChanged += Time.deltaTime;
