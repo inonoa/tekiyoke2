@@ -66,12 +66,12 @@
             fixed4 phase2OverlayColor(float phase){
                 float phase_6 = (phase * 6) % 1;
 
-                if(phase < (1/6.0)) return fixed4(1,0,0,1) * (1 - phase_6) + fixed4(1,1,0,1) * phase_6;
-                if(phase < (2/6.0)) return fixed4(1,1,0,1) * (1 - phase_6) + fixed4(0,1,0,1) * phase_6;
-                if(phase < (3/6.0)) return fixed4(0,1,0,1) * (1 - phase_6) + fixed4(0,1,1,1) * phase_6;
-                if(phase < (4/6.0)) return fixed4(0,1,1,1) * (1 - phase_6) + fixed4(0,0,1,1) * phase_6;
-                if(phase < (5/6.0)) return fixed4(0,0,1,1) * (1 - phase_6) + fixed4(1,0,1,1) * phase_6;
-                                    return fixed4(1,0,1,1) * (1 - phase_6) + fixed4(1,0,0,1) * phase_6;
+                if(phase < (1/6.0)) return fixed4(1,0.3,0.3,1) * (1 - phase_6) + fixed4(1,1,0.3,1) * phase_6;
+                if(phase < (2/6.0)) return fixed4(1,1,0.3,1) * (1 - phase_6) + fixed4(0.3,1,0.3,1) * phase_6;
+                if(phase < (3/6.0)) return fixed4(0.3,1,0.3,1) * (1 - phase_6) + fixed4(0.3,1,1,1) * phase_6;
+                if(phase < (4/6.0)) return fixed4(0.3,1,1,1) * (1 - phase_6) + fixed4(0.3,0.3,1,1) * phase_6;
+                if(phase < (5/6.0)) return fixed4(0.3,0.3,1,1) * (1 - phase_6) + fixed4(1,0.3,1,1) * phase_6;
+                                    return fixed4(1,0.3,1,1) * (1 - phase_6) + fixed4(1,0.3,0.3,1) * phase_6;
             }
 
             fixed4 frag (VertToFrag input) : SV_Target
@@ -89,10 +89,10 @@
 
                 float baseMeido = (baseColor.r + baseColor.g + baseColor.b) / 3;
 
-                fixed4 laidcolor = (baseMeido < 0.5)
-                                   ? (2 * baseColor * overlayColor)
-                                   : (fixed4(1,1,1,1) - 2 * (fixed4(1,1,1,1) - baseColor) * (fixed4(1,1,1,1) - overlayColor));
-                // fixed4 laidcolor = baseColor + overlayColor;
+                // fixed4 laidcolor = (baseMeido < 0.5)
+                //                    ? (2 * baseColor * overlayColor)
+                //                    : (fixed4(1,1,1,1) - 2 * (fixed4(1,1,1,1) - baseColor) * (fixed4(1,1,1,1) - overlayColor));
+                fixed4 laidcolor = baseColor + overlayColor;
                 laidcolor.a = baseColor.a * _MainAlpha;
 
                 fixed4 color = _OverlayAlpha * laidcolor + (1 - _OverlayAlpha) * baseColor;
