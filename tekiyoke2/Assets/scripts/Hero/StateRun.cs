@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class StateRun : IHeroState
 {
+    //こういうのをScriptableObjectにしたらいじりやすくなるな確かに
     static readonly float sakamichiSpeedRate = 1.5f;
+    static readonly float tsuchihokoriInterval = 0.25f; //アニメと一致させたいな～～～
     HeroMover hero;
+
+    Coroutine tsuchihokoriCoroutine;
     public StateRun(HeroMover hero){
         this.hero = hero;
     }
@@ -35,7 +39,18 @@ public class StateRun : IHeroState
         hero.velocity.x = hero.EyeToRight ? HeroMover.moveSpeed : -HeroMover.moveSpeed;
         hero.velocity.y = 0;
         hero.anim.SetTrigger(hero.EyeToRight ? "runr" : "runl");
+        tsuchihokoriCoroutine = hero.StartCoroutine(Tsuchihokori());
     }
+
+    IEnumerator Tsuchihokori(){
+        Debug.Log("Run!");
+
+        while(true){
+            yield return new WaitForSeconds(tsuchihokoriInterval);
+            Debug.Log("tsuchihokori");
+        }
+    }
+
     public void Update(){
         if(!hero.IsOnGround) hero.States.Push(new StateFall(hero));
 
@@ -68,5 +83,7 @@ public class StateRun : IHeroState
         }
     }
 
-    public void Exit(){ }
+    public void Exit(){
+        hero.StopCoroutine(tsuchihokoriCoroutine);
+    }
 }
