@@ -823,8 +823,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac079396c4b6a644fae87bf6bc3a8526, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayInterval: 5
+  displayInterval: 0.05
   uiImage: {fileID: 2783582464764908243}
+  lightLifeSeconds: 1
 --- !u!1 &2783582464480372022
 GameObject:
   m_ObjectHideFlags: 0

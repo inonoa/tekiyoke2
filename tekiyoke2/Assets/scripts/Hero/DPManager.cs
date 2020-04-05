@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class DPManager : MonoBehaviour
 {
@@ -15,10 +16,15 @@ public class DPManager : MonoBehaviour
 
     ///<summary>1Pずつたまっていく感じにしたいので、内部的なDPとは別に見かけのDPを用意してこれをもとに描画</summary>
     int DPonDisplay = 0;
-    [SerializeField] int displayInterval = 3;
-    int frames2Display = 1;
+    [SerializeField] float displayInterval = 0.05f;
+    float frames2Display = 0.02f;
     Material material;
     [SerializeField] Image uiImage;
+    [SerializeField] float lightLifeSeconds = 1;
+    float secondsAfterDPChanged = 10;
+
+    Sequence lightSeq;
+    Sequence unlightSeq;
 
     public void AddDP(int delta){
         if(delta > 0){
@@ -46,15 +52,46 @@ public class DPManager : MonoBehaviour
 
     void Update()
     {
-        frames2Display --;
-        if(frames2Display==0){
+        frames2Display -= Time.deltaTime;
+        if(frames2Display <= 0){
             frames2Display = displayInterval;
 
-            //急速にDPが増えたら急速に追いついてほしい
-            if(DPonDisplay > DP)      DPonDisplay -= 1 + (DPonDisplay - DP) / 5;
-            else if(DPonDisplay < DP) DPonDisplay += 1 + (DP - DPonDisplay) / 5;
+            if(DPonDisplay != DP){
+                //急速にDPが増えたら急速に追いついてほしい
+                DPonDisplay = (DPonDisplay > DP) ? (DPonDisplay - 1 - (DPonDisplay - DP) / 5) : (DPonDisplay + 1 + (DP - DPonDisplay) / 5);
+                material.SetFloat("_WidthNormalized", DPonDisplay / (float)maxDP);
+                LightGauge();
+                secondsAfterDPChanged = 0;
+            }
+        }
 
-            material.SetFloat("_WidthNormalized", DP / (float)maxDP);
+        secondsAfterDPChanged += Time.deltaTime;
+        if(secondsAfterDPChanged >= lightLifeSeconds){
+            UnlightGauge();
+        }
+    }
+
+    void LightGauge(){
+        if(unlightSeq!=null && unlightSeq.IsPlaying()) unlightSeq.Pause();
+        
+        if(lightSeq==null || !lightSeq.IsPlaying()){
+            lightSeq = DOTween.Sequence();
+            lightSeq.Append(DOTween.To(() => material.GetFloat("_Light"),
+                                       lt => material.SetFloat("_Light", lt),
+                                       1, 0.2f))
+                                       .SetEase(Ease.InOutSine);
+        }
+    }
+
+    void UnlightGauge(){
+        if(lightSeq!=null && lightSeq.IsPlaying()) lightSeq.Pause();
+
+        if(unlightSeq==null || !unlightSeq.IsPlaying()){
+            unlightSeq = DOTween.Sequence();
+            unlightSeq.Append(DOTween.To(() => material.GetFloat("_Light"),
+                                         lt => material.SetFloat("_Light", lt),
+                                         0, 0.2f))
+                                         .SetEase(Ease.InOutSine);
         }
     }
 }

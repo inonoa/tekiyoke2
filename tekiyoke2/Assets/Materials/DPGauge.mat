@@ -25,6 +25,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _BGAlpha: 0.3
+    - _GradationWidth: 0.02
     - _MainAlpha: 0.8
     - _OverlayAlpha: 0.4
     - _OverlayColorOffset: 0.45

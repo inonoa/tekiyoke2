@@ -9,6 +9,7 @@
         _BGAlpha ("BG Alpha", float) = 0.4
         _MainAlpha ("Main Alpha", float) = 0.7
         _GradationWidth ("Gradation Width", float) = 0.05
+        _Light ("Light", float) = 0
     }
     SubShader
     {
@@ -49,6 +50,7 @@
             float _BGAlpha;
             float _MainAlpha;
             float _GradationWidth;
+            float _Light;
 
             VertToFrag vert (VertInput vert)
             {
@@ -91,7 +93,7 @@
                 fixed4 color = _OverlayAlpha * a_x * laidcolor + (1 - _OverlayAlpha * a_x) * baseColor;
                 color.a = (a_x * _MainAlpha + (1 - a_x) * _BGAlpha) * baseColor.a;
 
-                return color;
+                return fixed4(_Light, _Light, _Light, 1); //return color;
             }
             ENDCG
         }
