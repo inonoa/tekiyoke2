@@ -8,5 +8,11 @@ public class HeroObjsHolder4States : MonoBehaviour
     public GameObject jetstreamPrefab;
     public TrailRenderer jetTrail;
 
-    public GameObject tsuchihokoriForRun;
+    static readonly int tsuchihokoriMaxNum = 10;
+    public ObjectPool<Tsuchihokori> TsuchihokoriPool{ get; private set; }
+    [SerializeField] Tsuchihokori tsuchihokoriForRun;
+
+    void Start(){
+        TsuchihokoriPool = new ObjectPool<Tsuchihokori>(tsuchihokoriForRun, 8, transform.parent);
+    }
 }

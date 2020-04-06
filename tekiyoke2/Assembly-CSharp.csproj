@@ -99,10 +99,12 @@
      <Compile Include="Assets\Scripts\Hero\StateRun.cs" />
      <Compile Include="Assets\Scripts\Hero\StateUseless.cs" />
      <Compile Include="Assets\Scripts\Hero\StateWait.cs" />
+     <Compile Include="Assets\Scripts\Hero\Tsuchihokori.cs" />
      <Compile Include="Assets\Scripts\Hero\WallCheckerL.cs" />
      <Compile Include="Assets\Scripts\Hero\WallCheckerR.cs" />
      <Compile Include="Assets\Scripts\Input\IAskedInput.cs" />
      <Compile Include="Assets\Scripts\Input\InputManager.cs" />
+     <Compile Include="Assets\Scripts\IReusable.cs" />
      <Compile Include="Assets\Scripts\MainManagers\BGMover.cs" />
      <Compile Include="Assets\Scripts\MainManagers\Camera\AfterEffects.cs" />
      <Compile Include="Assets\Scripts\MainManagers\Camera\CameraController.cs" />
@@ -128,6 +130,7 @@
      <Compile Include="Assets\Scripts\MapObjs\TogeDropRespawner.cs" />
      <Compile Include="Assets\Scripts\MapObjs\UltraThinTileController.cs" />
      <Compile Include="Assets\Scripts\MyMath.cs" />
+     <Compile Include="Assets\Scripts\ObjectPool.cs" />
      <Compile Include="Assets\Scripts\Pause\Pauser.cs" />
      <Compile Include="Assets\Scripts\Pause\PauseUIMover.cs" />
      <Compile Include="Assets\Scripts\ResultScene\CursorMove.cs" />

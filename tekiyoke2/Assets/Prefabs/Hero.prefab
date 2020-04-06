@@ -490,7 +490,7 @@ MonoBehaviour:
     type: 3}
   jetTrail: {fileID: 7456876022590087109, guid: fc1c627a062e5f5498ce124a28c35929,
     type: 3}
-  tsuchihokoriForRun: {fileID: 2582749541743534778, guid: f0d8a2804f7a437418585fd69d3ac587,
+  tsuchihokoriForRun: {fileID: 5060664383085159206, guid: f0d8a2804f7a437418585fd69d3ac587,
     type: 3}
 --- !u!1 &3106219250170215766
 GameObject:
