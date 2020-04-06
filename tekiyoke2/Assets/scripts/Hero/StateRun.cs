@@ -6,7 +6,7 @@ public class StateRun : IHeroState
 {
     //こういうのをScriptableObjectにしたらいじりやすくなるな確かに
     static readonly float sakamichiSpeedRate = 1.5f;
-    static readonly float tsuchihokoriInterval = 0.25f; //アニメと一致させたいな～～～
+    static readonly float tsuchihokoriInterval = 0.15f; //アニメと一致させたいな～～～
     HeroMover hero;
 
     Coroutine tsuchihokoriCoroutine;
@@ -39,17 +39,23 @@ public class StateRun : IHeroState
         hero.velocity.x = hero.EyeToRight ? HeroMover.moveSpeed : -HeroMover.moveSpeed;
         hero.velocity.y = 0;
         hero.anim.SetTrigger(hero.EyeToRight ? "runr" : "runl");
-        tsuchihokoriCoroutine = hero.StartCoroutine(Tsuchihokori());
+        tsuchihokoriCoroutine = hero.StartCoroutine(Tsuchihokoris());
     }
 
-    IEnumerator Tsuchihokori(){
-        hero.objsHolderForStates.TsuchihokoriPool.ActivateOne();
+    IEnumerator Tsuchihokoris(){
+        Tsuchihokori();
 
         while(true){
             yield return new WaitForSeconds(tsuchihokoriInterval);
 
-            hero.objsHolderForStates.TsuchihokoriPool.ActivateOne();
+            Tsuchihokori();
         }
+    }
+
+    void Tsuchihokori(){
+        Tsuchihokori th = hero.objsHolderForStates.TsuchihokoriPool.ActivateOne();
+        th.transform.localScale = new Vector3(hero.EyeToRight ? 1 : -1, 1,1);
+        if(!hero.EyeToRight) th.transform.position -= new Vector3(2 * th.positionFromHero.x, 0, 0);
     }
 
     public void Update(){

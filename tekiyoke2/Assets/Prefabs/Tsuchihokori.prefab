@@ -45,7 +45,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7215700c1ce1b184fa1912142510d006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positionFromHero: {x: 0, y: 0, z: 0}
+  tsuchi: {fileID: 4359361624521553823}
+  tsuchiSprites:
+  - {fileID: 21300000, guid: 4780c7232d195f54fa82b697d7a0214c, type: 3}
+  - {fileID: 21300000, guid: 02a0befe299810f4a92d42f0be2d52da, type: 3}
+  - {fileID: 21300000, guid: 3e44bab1b409fda4289a7237ca4293e8, type: 3}
+  - {fileID: 21300000, guid: 38648a417c4b09445ab97e4fd47b770e, type: 3}
+  kemuri: {fileID: 7545655918834483168}
+  kemuriSprites:
+  - {fileID: 21300000, guid: 8ee086410853c7f4aac70431f4e48555, type: 3}
+  - {fileID: 21300000, guid: ad3702767671e2a4d959426517d89df3, type: 3}
+  - {fileID: 21300000, guid: e4f1513192b36b8419dab3c93691cf89, type: 3}
+  - {fileID: 21300000, guid: 3789bb01b2b0a8542b4d4e31a6b707cc, type: 3}
+  positionFromHero: {x: -30, y: 0, z: 0}
 --- !u!1 &3421506758059871955
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,7 +148,7 @@ GameObject:
   - component: {fileID: 2935874356926199552}
   - component: {fileID: 4359361624521553823}
   m_Layer: 8
-  m_Name: Hokori
+  m_Name: Tsuchi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
