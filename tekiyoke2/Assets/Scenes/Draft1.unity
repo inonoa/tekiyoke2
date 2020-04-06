@@ -129242,6 +129242,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RespawnPosition
       objectReference: {fileID: 0}
+    - target: {fileID: 7887051045746081597, guid: 0da114ced5b37eb42b690e34ce53db5a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7887051045746081598, guid: 0da114ced5b37eb42b690e34ce53db5a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -129255,7 +129260,7 @@ PrefabInstance:
     - target: {fileID: 7887051045746081598, guid: 0da114ced5b37eb42b690e34ce53db5a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 19
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7887051045746081598, guid: 0da114ced5b37eb42b690e34ce53db5a,
         type: 3}

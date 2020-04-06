@@ -166,6 +166,7 @@
      <None Include="Assets\Materials\BlurEdge1.shader" />
      <None Include="Assets\Demigiant\DOTween\readme.txt" />
      <None Include="Assets\Materials\Noise.shader" />
+     <None Include="Assets\Materials\RespawnPosition.shader" />
      <None Include="Assets\Demigiant\DemiLib\Core\DemiLib.xml" />
      <None Include="Assets\Materials\DefaultShader.shader" />
      <None Include="Assets\Demigiant\readme_DOTweenPro.txt" />
