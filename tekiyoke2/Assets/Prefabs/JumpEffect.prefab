@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5451118112482125389}
   - component: {fileID: 5451118112482125390}
+  - component: {fileID: 449506118173707159}
   m_Layer: 0
   m_Name: Kaze
   m_TagString: Untagged
@@ -79,6 +80,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &449506118173707159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5451118112482125388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dad04902c6d6b9949b8d9fba5acf68f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: 4b5abfb140186c241bd9cf1d1f337d14, type: 3}
+  - {fileID: 21300000, guid: 5b8f84a42fc0b6347bf31a1cd9c57d56, type: 3}
+  - {fileID: 21300000, guid: 6036c018ed376d44d99b7852f5ab2a83, type: 3}
+  changeSec: 0.15
 --- !u!1 &5451118112985529684
 GameObject:
   m_ObjectHideFlags: 0
@@ -89,6 +107,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5451118112985529685}
   - component: {fileID: 5451118112985529686}
+  - component: {fileID: 1433036700158148080}
   m_Layer: 0
   m_Name: Tsuchi
   m_TagString: Untagged
@@ -158,6 +177,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1433036700158148080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5451118112985529684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dad04902c6d6b9949b8d9fba5acf68f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: 7ff7406ac44f9cc4ba83477f99415ae2, type: 3}
+  - {fileID: 21300000, guid: 9f0a6b5ec316f474f92b07eadb89745d, type: 3}
+  - {fileID: 21300000, guid: 11bbabd58c3378040b298bcbb191a8b1, type: 3}
+  changeSec: 0.15
 --- !u!1 &5451118112989018097
 GameObject:
   m_ObjectHideFlags: 0
@@ -204,13 +240,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionFromHero: {x: 0, y: 0, z: 0}
-  tsuchi: {fileID: 5451118112985529686}
-  tsuchiSprites:
-  - {fileID: 21300000, guid: 7ff7406ac44f9cc4ba83477f99415ae2, type: 3}
-  - {fileID: 21300000, guid: 9f0a6b5ec316f474f92b07eadb89745d, type: 3}
-  - {fileID: 21300000, guid: 11bbabd58c3378040b298bcbb191a8b1, type: 3}
-  kaze: {fileID: 5451118112482125390}
-  kazeSprites:
-  - {fileID: 21300000, guid: 4b5abfb140186c241bd9cf1d1f337d14, type: 3}
-  - {fileID: 21300000, guid: 5b8f84a42fc0b6347bf31a1cd9c57d56, type: 3}
-  - {fileID: 21300000, guid: 6036c018ed376d44d99b7852f5ab2a83, type: 3}
+  anims:
+  - {fileID: 1433036700158148080}
+  - {fileID: 449506118173707159}
