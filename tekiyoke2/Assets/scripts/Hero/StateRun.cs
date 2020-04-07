@@ -53,9 +53,7 @@ public class StateRun : IHeroState
     }
 
     void Tsuchihokori(){
-        Tsuchihokori th = hero.objsHolderForStates.TsuchihokoriPool.ActivateOne();
-        th.transform.localScale = new Vector3(hero.EyeToRight ? 1 : -1, 1,1);
-        if(!hero.EyeToRight) th.transform.position -= new Vector3(2 * th.positionFromHero.x, 0, 0);
+        hero.objsHolderForStates.TsuchihokoriPool.ActivateOne(hero.EyeToRight ? "r" : "l");
     }
 
     public void Update(){

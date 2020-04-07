@@ -18,12 +18,12 @@ public class ObjectPool<T> where T : MonoBehaviour, IReusable
         }
     }
 
-    public T ActivateOne(){
+    public T ActivateOne(string paramsStr){
         int tmp = nextIndex;
         nextIndex = (nextIndex+1) % Capacity;
 
         pool[tmp].gameObject.SetActive(true);
-        pool[tmp].Activate();
+        pool[tmp].Activate(paramsStr);
         return pool[tmp];
     }
 }

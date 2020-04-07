@@ -12,14 +12,23 @@ public class Tsuchihokori : MonoBehaviour, IReusable
     [SerializeField] Sprite[] kemuriSprites;
 
     public Vector3 positionFromHero;
-    public void Activate(){
+    public void Activate(string heroDirStr){
 
         InUse = true;
-        transform.position = HeroDefiner.CurrentHeroPos + positionFromHero;
+        transform.position = HeroDefiner.CurrentHeroPos + new Vector3(
+            heroDirStr=="r" ? positionFromHero.x : - positionFromHero.x,
+            positionFromHero.y,
+            positionFromHero.z
+        );
+        transform.localScale = new Vector3(heroDirStr=="r" ? 1 : -1, 1, 1);
         tsuchi.sprite = tsuchiSprites[0];
         kemuri.sprite = kemuriSprites[0];
         kemuri.color = new Color(1,1,1, 0.5f);
         kemuri.transform.localPosition = new Vector3(0,0,0);
+
+        //主人公の向きによって向きが変わる
+
+
 
         //つちのアニメ
 

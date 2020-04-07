@@ -4,6 +4,6 @@ using UnityEngine;
 
 public interface IReusable
 {
-    void Activate();
+    void Activate(string paramsStr);
     bool InUse{ get; }
 }
