@@ -492,6 +492,8 @@ MonoBehaviour:
     type: 3}
   tsuchihokoriForRun: {fileID: 5060664383085159206, guid: f0d8a2804f7a437418585fd69d3ac587,
     type: 3}
+  jumpEffectPrefab: {fileID: 2452598055227466275, guid: 5ac54ff365b071a4d88a2fc3ac1b0cb5,
+    type: 3}
 --- !u!1 &3106219250170215766
 GameObject:
   m_ObjectHideFlags: 0

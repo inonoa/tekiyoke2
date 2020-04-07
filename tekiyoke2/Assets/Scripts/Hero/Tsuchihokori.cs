@@ -73,5 +73,5 @@ public class Tsuchihokori : MonoBehaviour, IReusable
         foreach(Tween tw in tweensNot2restart) tw.Kill();
     }
 
-    public bool InUse{ get; private set; }
+    public bool InUse{ get; private set; } = false;
 }

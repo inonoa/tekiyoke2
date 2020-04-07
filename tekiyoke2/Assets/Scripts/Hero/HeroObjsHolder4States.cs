@@ -11,8 +11,11 @@ public class HeroObjsHolder4States : MonoBehaviour
     static readonly int tsuchihokoriMaxNum = 10;
     public ObjectPool<Tsuchihokori> TsuchihokoriPool{ get; private set; }
     [SerializeField] Tsuchihokori tsuchihokoriForRun;
+    public ObjectPool<JumpEffect> JumpEffectPool{ get; private set; }
+    [SerializeField] JumpEffect jumpEffectPrefab;
 
     void Start(){
         TsuchihokoriPool = new ObjectPool<Tsuchihokori>(tsuchihokoriForRun, 8, transform.parent);
+        JumpEffectPool = new ObjectPool<JumpEffect>(jumpEffectPrefab, 8, transform.parent);
     }
 }
