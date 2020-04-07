@@ -6,7 +6,7 @@ public class StateRun : IHeroState
 {
     //こういうのをScriptableObjectにしたらいじりやすくなるな確かに
     static readonly float sakamichiSpeedRate = 1.5f;
-    static readonly float tsuchihokoriInterval = 0.15f; //アニメと一致させたいな～～～
+    static readonly float tsuchihokoriInterval = 0.1f; //アニメと一致させたいな～～～
     HeroMover hero;
 
     Coroutine tsuchihokoriCoroutine;

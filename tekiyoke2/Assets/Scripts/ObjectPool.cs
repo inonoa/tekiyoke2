@@ -22,6 +22,7 @@ public class ObjectPool<T> where T : MonoBehaviour, IReusable
         int tmp = nextIndex;
         nextIndex = (nextIndex+1) % Capacity;
 
+        if(pool[tmp].InUse) Debug.Log(pool[tmp] + " was in use.");
         pool[tmp].gameObject.SetActive(true);
         pool[tmp].Activate(paramsStr);
         return pool[tmp];
