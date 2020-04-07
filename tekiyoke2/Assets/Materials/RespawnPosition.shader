@@ -3,8 +3,6 @@
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
-        _Volume ("Volume", float) = 0.2
-        _Density("Density", float) = 0.025
     }
     SubShader
     {
@@ -75,7 +73,7 @@
                 fixed4 col = tex2D(_MainTex, input.uv);
                 float zureness = 1 - col.r;
 
-                fixed4 light = fixed4(random(_SinTime.x) * 0.5, 0, random(_SinTime.z), 0) * hashi(1-col.r);
+                fixed4 light = fixed4(0, random(_SinTime.x) * 0.5, random(_SinTime.z), 0) * hashi(1-col.r);
 
                 return zureness * bgZureCol + (1 - zureness) * bgCol + light;
             }
