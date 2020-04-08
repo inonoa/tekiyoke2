@@ -22,12 +22,14 @@ public class Kabezuri : MonoBehaviour, IReusable
 
         foreach(Tween tw in tweensToKill) tw?.Kill();
 
+        bool dir_is_R = wallDirStr=="r";
+
         transform.position = HeroDefiner.CurrentHeroPos + new Vector3(
-            wallDirStr=="r" ? positionFromHero.x : -positionFromHero.x,
+            dir_is_R ? positionFromHero.x : -positionFromHero.x,
             positionFromHero.y,
             positionFromHero.z
         );
-        transform.localScale = new Vector3(wallDirStr=="r" ? 1 : -1, 1, 1);
+        transform.localScale = new Vector3(dir_is_R ? 1 : -1, 1, 1);
         spriteRenderer.color = new Color(1,1,1,1);
 
         anim.ResetAndStartAnim(() => {

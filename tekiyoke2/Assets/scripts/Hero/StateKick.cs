@@ -26,6 +26,7 @@ public class StateKick : IHeroState
         else                    hero.anim.SetTrigger(toRight ? "fallr"  : "falll");
         hero.EyeToRight = toRight;
 
+        hero.objsHolderForStates.JumpEffectPool.ActivateOne(toRight ? "kr" : "kl");
         kabezuriCoroutine = hero.StartCoroutine(SpawnKabezuris());
 
         hero.velocity.x = toRight ? HeroMover.moveSpeed : -HeroMover.moveSpeed;
