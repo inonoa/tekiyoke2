@@ -13,9 +13,12 @@ public class HeroObjsHolder4States : MonoBehaviour
     [SerializeField] Tsuchihokori tsuchihokoriForRun;
     public ObjectPool<JumpEffect> JumpEffectPool{ get; private set; }
     [SerializeField] JumpEffect jumpEffectPrefab;
+    public ObjectPool<JumpEffect> JumpEffectInAirPool{ get; private set; }
+    [SerializeField] JumpEffect jumpEffectInAirPrefab;
 
     void Start(){
         TsuchihokoriPool = new ObjectPool<Tsuchihokori>(tsuchihokoriForRun, 8, transform.parent);
         JumpEffectPool = new ObjectPool<JumpEffect>(jumpEffectPrefab, 8, transform.parent);
+        JumpEffectInAirPool = new ObjectPool<JumpEffect>(jumpEffectInAirPrefab, 8, transform.parent);
     }
 }

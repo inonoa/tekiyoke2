@@ -9,7 +9,7 @@
         Tags { "Queue" = "Transparent" }
         LOD 100
 
-        GrabPass { }
+        GrabPass { "_BGTexture" }
 
         Pass
         {
@@ -37,7 +37,7 @@
             sampler2D _MainTex;
             float _Volume;
             float _Density;
-            sampler2D _GrabTexture;
+            sampler2D _BGTexture;
 
             VertToFrag vert (VertInput vert)
             {
@@ -67,8 +67,8 @@
             {
                 float2 grabUv = (input.bgPos.xy / input.bgPos.w);
                 float2 uvZure = float2(random(_SinTime.w), random(_SinTime.y));
-                fixed4 bgCol = tex2D(_GrabTexture, grabUv);
-                fixed4 bgZureCol = tex2D(_GrabTexture, grabUv + uvZure / 200);
+                fixed4 bgCol = tex2D(_BGTexture, grabUv);
+                fixed4 bgZureCol = tex2D(_BGTexture, grabUv + uvZure / 200);
 
                 fixed4 col = tex2D(_MainTex, input.uv);
                 float zureness = 1 - col.r;

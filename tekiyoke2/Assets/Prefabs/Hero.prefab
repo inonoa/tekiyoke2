@@ -494,6 +494,8 @@ MonoBehaviour:
     type: 3}
   jumpEffectPrefab: {fileID: 2452598055227466275, guid: 5ac54ff365b071a4d88a2fc3ac1b0cb5,
     type: 3}
+  jumpEffectInAirPrefab: {fileID: 1505752056437686429, guid: bfc8b84789d4d964b90627dc259d3f65,
+    type: 3}
 --- !u!1 &3106219250170215766
 GameObject:
   m_ObjectHideFlags: 0
