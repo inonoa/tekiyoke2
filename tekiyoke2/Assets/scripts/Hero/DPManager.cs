@@ -47,6 +47,7 @@ public class DPManager : MonoBehaviour
     void Start()
     {
         material = uiImage.material;
+        material.SetFloat("_WidthNormalized", 0);
     }
 
     void Update()
