@@ -59,7 +59,7 @@
             fixed4 frag (VertToFrag input) : SV_Target
             {
                 fixed4 col = tex2D(_MainTex, input.uv);
-                float rd = random( floor(input.uv * 100) + _Time * 7);
+                float rd = random( floor(input.uv * 100) + _Time * 7 % 100);
                 col -= fixed4(1,1,1,0) * _Volume * (odoriba(rd) - 0.5);
 
                 return col;
