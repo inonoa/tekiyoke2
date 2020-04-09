@@ -127,7 +127,7 @@ public class KennerController : EnemyController
     void Shoot(){
         for(int i=0; i<num_tamaPerShoot; i++){
             Vector3 offset = EyeToRight ? new Vector3(70,-30) : new Vector3(-70,-30);
-            TamaController imatama = Instantiate(tama, transform.position + offset, Quaternion.identity, transform.parent);
+            TamaController imatama = Instantiate(tama, transform.position + offset, Quaternion.identity, DraftManager.CurrentInstance.GameMasterTF);
 
             float angle = - upAngle - i * (downAngle - upAngle) / (num_tamaPerShoot - 1);
             if(!EyeToRight) angle = - 180 - angle;

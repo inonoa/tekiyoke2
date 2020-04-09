@@ -112,6 +112,7 @@
      <Compile Include="Assets\Scripts\MainManagers\Camera\CameraController.cs" />
      <Compile Include="Assets\Scripts\MainManagers\Camera\ScShoController.cs" />
      <Compile Include="Assets\Scripts\MainManagers\Camera\ScShoOutOfWindController.cs" />
+     <Compile Include="Assets\Scripts\MainManagers\DraftManager.cs" />
      <Compile Include="Assets\Scripts\MainManagers\GameTimeCounter.cs" />
      <Compile Include="Assets\Scripts\MainManagers\MemoryOverDeath.cs" />
      <Compile Include="Assets\Scripts\MainManagers\Tokitome.cs" />

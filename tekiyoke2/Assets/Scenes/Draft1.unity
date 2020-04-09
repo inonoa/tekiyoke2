@@ -137659,6 +137659,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1515455045}
   - component: {fileID: 1515455044}
+  - component: {fileID: 1515455046}
   m_Layer: 0
   m_Name: PauserDepauser
   m_TagString: Untagged
@@ -137695,6 +137696,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1515455046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515455043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d18c155e1953fd438bf229bf89482e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _GameMasterTF: {fileID: 289413201}
+  _PauseMasterTF: {fileID: 975853696}
 --- !u!4 &1524192831 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4422211888311780033, guid: f29781e6832b4eb4b8c9215aa67e039f,

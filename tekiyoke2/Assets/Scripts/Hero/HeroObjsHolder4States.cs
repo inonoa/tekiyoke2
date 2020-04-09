@@ -19,9 +19,10 @@ public class HeroObjsHolder4States : MonoBehaviour
     [SerializeField] Kabezuri kabezuriPrefab;
 
     void Start(){
-        TsuchihokoriPool = new ObjectPool<Tsuchihokori>(tsuchihokoriForRun, 8, transform.parent);
-        JumpEffectPool = new ObjectPool<JumpEffect>(jumpEffectPrefab, 8, transform.parent);
-        JumpEffectInAirPool = new ObjectPool<JumpEffect>(jumpEffectInAirPrefab, 8, transform.parent);
-        kabezuriPool = new ObjectPool<Kabezuri>(kabezuriPrefab, 8, transform.parent);
+        Transform gmTF = DraftManager.CurrentInstance.GameMasterTF;
+        TsuchihokoriPool = new ObjectPool<Tsuchihokori>(tsuchihokoriForRun, 8, gmTF);
+        JumpEffectPool = new ObjectPool<JumpEffect>(jumpEffectPrefab, 8, gmTF);
+        JumpEffectInAirPool = new ObjectPool<JumpEffect>(jumpEffectInAirPrefab, 8, gmTF);
+        kabezuriPool = new ObjectPool<Kabezuri>(kabezuriPrefab, 8, gmTF);
     }
 }

@@ -22,7 +22,7 @@ public class MemoryOverDeath
         //今は初期位置でセーブする意味が無いのであれだがしょうらい……
         if(heroPosition!=(0,0)){
             HeroDefiner.currentHero.WarpPos(heroPosition.x, heroPosition.y);
-            GameObject resPos = GameObject.Find("GameMaster").transform.Find("RespawnPosition").gameObject; //苦しい
+            GameObject resPos = DraftManager.CurrentInstance.GameMasterTF.transform.Find("RespawnPosition").gameObject; //苦しい
             resPos.SetActive(true);
             resPos.transform.position = new Vector3(heroPosition.x, heroPosition.y, resPos.transform.position.z);
         }
