@@ -56,6 +56,10 @@ public class StateRun : IHeroState
         hero.objsHolderForStates.TsuchihokoriPool.ActivateOne(hero.EyeToRight ? "r" : "l");
     }
 
+    public void Resume(){
+        hero.anim.SetTrigger(hero.EyeToRight ? "runr" : "runl");
+    }
+
     public void Update(){
         if(!hero.IsOnGround) hero.States.Push(new StateFall(hero));
 

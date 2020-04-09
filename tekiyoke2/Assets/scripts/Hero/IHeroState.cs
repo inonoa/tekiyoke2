@@ -8,6 +8,7 @@ using UnityEngine;
 public interface IHeroState
 {
     void Start();
+    void Resume();
     void Update();
     void Try2StartJet();
     ///<summary>EndJetなのにここでジェットが始まるようになっていて命名が良くなさすぎる</summary>

@@ -5,6 +5,7 @@ using UnityEngine;
 public class StateUseless : IHeroState
 {
     public void Start(){ }
+    public void Resume(){ }
     public void Update(){ }
     public void Try2StartJet(){ }
     public void Try2EndJet(){ }

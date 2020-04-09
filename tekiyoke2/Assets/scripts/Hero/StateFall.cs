@@ -66,6 +66,10 @@ public class StateFall : IHeroState
         InputManager.Instance.SetInputLatency(ButtonCode.Jump, inputLatency4Kick);
     }
 
+    public void Resume(){
+        hero.anim.SetTrigger(hero.EyeToRight ? "fallr" : "falll");
+    }
+
     IEnumerator SpawnKabezuris(){
         Try2SpawnKabezuri();
 

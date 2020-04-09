@@ -24,6 +24,10 @@ public class StateBaneYoko : IHeroState
         hero.EyeToRight = toRight;
     }
 
+    public void Resume(){
+        hero.anim.SetTrigger(toRight ? "runr" : "runl");
+    }
+
     public void Update(){
 
         if(unstoppable){

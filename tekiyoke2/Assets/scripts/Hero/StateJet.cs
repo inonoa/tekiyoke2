@@ -84,6 +84,12 @@ public class StateJet : IHeroState
         hero.cmrCntr.StartZoomForDash();
         clouds.StartClouds();
     }
+
+    public void Resume(){
+        if(state==State.Jetting) hero.anim.SetTrigger(jet2Right ? "runr" : "runl");
+        // else書きたいがどうしよね、そもそもJetの遷移のタイミング変じゃないか？
+    }
+
     public void Update(){
         switch(state){
 

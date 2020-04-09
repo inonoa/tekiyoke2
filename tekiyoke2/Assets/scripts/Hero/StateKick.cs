@@ -22,8 +22,7 @@ public class StateKick : IHeroState
     public void Start(){
         hero.Jumped(false, true);
 
-        if(hero.velocity.y > 0) hero.anim.SetTrigger(toRight ? "jumprf" : "jumplf");
-        else                    hero.anim.SetTrigger(toRight ? "fallr"  : "falll");
+        hero.anim.SetTrigger(toRight ? "jumprf" : "jumplf");
         hero.EyeToRight = toRight;
 
         hero.objsHolderForStates.JumpEffectPool.ActivateOne(toRight ? "kr" : "kl");
@@ -55,6 +54,11 @@ public class StateKick : IHeroState
         else return;
 
         hero.objsHolderForStates.kabezuriPool.ActivateOne(dir_is_R ? "r" : "l");
+    }
+
+    public void Resume(){
+        if(hero.velocity.y > 0) hero.anim.SetTrigger(toRight ? "jumprf" : "jumplf");
+        else                    hero.anim.SetTrigger(toRight ? "fallr"  : "falll");
     }
 
     public void Update(){
