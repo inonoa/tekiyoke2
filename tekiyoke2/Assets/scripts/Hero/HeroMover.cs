@@ -26,6 +26,7 @@ public class HeroMover : MonoBehaviour
     #region 移動関係の(だいたい)定数
     public static float moveSpeed = 15;
     public static readonly float gravity = 1.7f;
+    public static readonly float blinkPeriodSec = 0.2f;
 
     #endregion
 
@@ -178,6 +179,24 @@ public class HeroMover : MonoBehaviour
         ParticleSystem ps = transform.Find("Particle System").GetComponent<ParticleSystem>();
         ps.Play();
         chishibuki.StartCoroutine("StartChishibuki");
+        StartCoroutine(Blink());
+    }
+
+    IEnumerator Blink(){
+        yield return new WaitForSeconds(0.3f);
+
+        while(true){
+
+            if(hpcntr.CanBeDamaged) yield break;
+            spriteRenderer.color = new Color(1,1,1,0.2f);
+
+            yield return new WaitForSeconds(blinkPeriodSec/2);
+
+            spriteRenderer.color = new Color(1,1,1,1);
+            if(hpcntr.CanBeDamaged) yield break;
+
+            yield return new WaitForSeconds(blinkPeriodSec/2);
+        }
     }
 
     ///<summary>リスポーン</summary>
