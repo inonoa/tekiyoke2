@@ -63,7 +63,7 @@ public class StateKick : IHeroState
 
     public void Update(){
 
-        if(hero.IsOnGround){
+        if(hero.IsOnGround && hero.velocity.y <= 0){
             hero.States.Push(new StateWait(hero));
             return;
         }
