@@ -137453,6 +137453,11 @@ PrefabInstance:
       propertyPath: firstState
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8098112588018061361, guid: e5394696252735242920aa9fa21a9d5f,
+        type: 3}
+      propertyPath: watchRadius
+      value: 500
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5394696252735242920aa9fa21a9d5f, type: 3}
 --- !u!224 &1443148826 stripped

@@ -168,6 +168,7 @@
      <None Include="Assets\Materials\PostEffects\BlurEdge2.shader" />
      <None Include="Assets\Materials\Light.shader" />
      <None Include="Assets\Materials\PostEffects\BlurEdge1.shader" />
+     <None Include="Assets\Materials\TimeText.shader" />
      <None Include="Assets\Demigiant\DOTween\readme.txt" />
      <None Include="Assets\Materials\PostEffects\Noise.shader" />
      <None Include="Assets\Materials\RespawnPosition.shader" />
@@ -175,6 +176,7 @@
      <None Include="Assets\Materials\DefaultShader.shader" />
      <None Include="Assets\Demigiant\readme_DOTweenPro.txt" />
      <None Include="Assets\Materials\PostEffects\Aberration.shader" />
+     <None Include="Assets\Materials\DPOverlay.shader" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/Users/inonoa/Documents/ino_game/tekiyoke2/tekiyoke2/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
