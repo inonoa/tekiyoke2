@@ -188,11 +188,11 @@ public class HeroMover : MonoBehaviour
         while(true){
 
             if(hpcntr.CanBeDamaged) yield break;
-            spriteRenderer.color = new Color(1,1,1,0.2f);
+            spriteRenderer.material.SetFloat("_Alpha", 0);
 
             yield return new WaitForSeconds(blinkPeriodSec/2);
 
-            spriteRenderer.color = new Color(1,1,1,1);
+            spriteRenderer.material.SetFloat("_Alpha", 1);
             if(hpcntr.CanBeDamaged) yield break;
 
             yield return new WaitForSeconds(blinkPeriodSec/2);

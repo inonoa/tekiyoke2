@@ -10,7 +10,7 @@ public class AfterEffects : MonoBehaviour
 
     RenderTexture[] rTexs;
 
-    void Start(){
+    void Awake(){
 
         rTexs = new RenderTexture[mats.Length - 1];
 

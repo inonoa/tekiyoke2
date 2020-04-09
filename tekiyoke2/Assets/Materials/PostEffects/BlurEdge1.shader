@@ -10,6 +10,7 @@
     {
         Tags { "RenderType"="Opaque" }
         LOD 100
+        Blend One Zero
 
         Pass
         {
@@ -59,7 +60,7 @@
                 for(int i = -_ResolutionMax; i < 1+_ResolutionMax; i++ ){
                     col += tex2D(_MainTex, input.uv + float2(i, 0) * _GapMax/_ResolutionMax * edge(input.uv.x)) * (_ResolutionMax - abs(i) + 1);
                 }
-                col /= col.a;
+                col /= (_ResolutionMax+1)*(_ResolutionMax+1);
 
                 return col;
             }

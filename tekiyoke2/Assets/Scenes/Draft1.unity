@@ -135899,7 +135899,7 @@ PrefabInstance:
     - target: {fileID: 1472872603020283857, guid: 95d3e8075a941f348803e6df2c824c6d,
         type: 3}
       propertyPath: appliesMat.Array.data[0]
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1472872603020283857, guid: 95d3e8075a941f348803e6df2c824c6d,
         type: 3}

@@ -163,6 +163,7 @@
      <None Include="Assets\Materials\MapObjs\EdgeLight.shader" />
      <None Include="Assets\Materials\FogBlur.shader" />
      <None Include="Assets\Materials\Blur.shader" />
+     <None Include="Assets\Materials\Hero.shader" />
      <None Include="Assets\Materials\MapObjs\Idouyuka.shader" />
      <None Include="Assets\Materials\PostEffects\BlurEdge2.shader" />
      <None Include="Assets\Materials\Light.shader" />
