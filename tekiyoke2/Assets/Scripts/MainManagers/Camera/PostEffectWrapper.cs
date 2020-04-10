@@ -1,27 +1,16 @@
 ﻿using UnityEngine;
 using System;
 
+[Serializable]
 public class PostEffectWrapper {
 
-    public bool IsActive{ get; private set; } = false;
+    public bool isActive = false;
 
-    public event EventHandler ActiveChanged;
-    public void SetActive(bool val){
-        IsActive = val;
-        ActiveChanged?.Invoke(val, EventArgs.Empty);
-    }
+    [SerializeField] Material material;
+    public Material Material => material;
+    [SerializeField] string volumePropertyName;
+    [SerializeField] float defaultVolume;
 
-    public readonly Material material;
-    public readonly string volumePropertyName;
-    public readonly float defaultVolume;
-
-    public PostEffectWrapper(Material mat, string volumePropertyName, float defaultVolume, bool IsActive = false){
-        (this.material, this.volumePropertyName, this.defaultVolume, this.IsActive) = (mat, volumePropertyName, defaultVolume, IsActive);
-    }
-
-    public void SetVolume(float volumeRate){
-        material.SetFloat(volumePropertyName, defaultVolume * volumeRate);
-    }
-
+    public void SetVolume(float volumeRate) => material.SetFloat(volumePropertyName, defaultVolume * volumeRate);
     public float GetVolume() => material.GetFloat(volumePropertyName) / defaultVolume;
 }

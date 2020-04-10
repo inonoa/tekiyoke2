@@ -69,15 +69,15 @@ public class StateJet : IHeroState
 
             vignetteTween.Kill();
             vignetteTween = DOTween.To(vignette.GetVolume, vignette.SetVolume, 0, 0.5f).SetEase(Ease.OutSine);
-            vignetteTween.onComplete += () => vignette.SetActive(false);
+            vignetteTween.onComplete += () => vignette.isActive = false;
 
             blurYTween.Kill();
             blurYTween = DOTween.To(blurY.GetVolume, blurY.SetVolume, 0, 0.1f);
-            blurYTween.onComplete += () => blurY.SetActive(false);
+            blurYTween.onComplete += () => blurY.isActive = false;
 
             blurTTween.Kill();
             blurTTween = DOTween.To(blurT.GetVolume, blurT.SetVolume, 0, 0.1f);
-            blurTTween.onComplete += () => blurT.SetActive(false);
+            blurTTween.onComplete += () => blurT.isActive = false;
             
             hero.cmrCntr.Dash(jetFramesMax); //今は何も起こってなさそう
         }
@@ -150,20 +150,20 @@ public class StateJet : IHeroState
         hero.cmrCntr.StartZoomForDash();
         clouds.StartClouds();
 
-        vignette.SetActive(true);
+        vignette.isActive = true;
         vignette.SetVolume(0);
         vignetteTween?.Kill();
-        vignetteTween = DOTween.To(vignette.GetVolume, vignette.SetVolume, 2, 0.6f);
+        vignetteTween = DOTween.To(vignette.GetVolume, vignette.SetVolume, 3, 0.6f);
 
-        blurY.SetActive(true);
+        blurY.isActive = true;
         blurY.SetVolume(0);
         blurYTween?.Kill();
-        blurYTween = DOTween.To(blurY.GetVolume, blurY.SetVolume, 1, 0.6f);
+        blurYTween = DOTween.To(blurY.GetVolume, blurY.SetVolume, 2, 0.6f);
 
-        blurT.SetActive(true);
+        blurT.isActive = true;
         blurT.SetVolume(0);
         blurTTween?.Kill();
-        blurTTween = DOTween.To(blurT.GetVolume, blurT.SetVolume, 1, 0.6f);
+        blurTTween = DOTween.To(blurT.GetVolume, blurT.SetVolume, 2, 0.6f);
     }
 
     public void Resume(){
@@ -214,7 +214,7 @@ public class StateJet : IHeroState
         GameObject.Destroy(jetStream);
         clouds.EndClouds();
         foreach(PostEffectWrapper pe in new PostEffectWrapper[]{vignette, blurT, blurY}){
-            pe?.SetActive(false);
+            pe.isActive = false;
         }
     }
 }

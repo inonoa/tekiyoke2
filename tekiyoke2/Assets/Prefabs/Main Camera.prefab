@@ -597,25 +597,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34b8407a2366315419b5205bf12d0cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mats:
-  - {fileID: 2100000, guid: b44d5e1b94e9555479bf7043874f3d73, type: 2}
-  - {fileID: 2100000, guid: 6886e0a0d51b82b47bdd1056b011e355, type: 2}
-  - {fileID: 2100000, guid: 8891854324b8a054885468f38c66e24f, type: 2}
-  - {fileID: 2100000, guid: 5d9be4c929bb3194abade386ad68ad46, type: 2}
-  - {fileID: 2100000, guid: e779650aa70293d41aa0c21b8bfafb57, type: 2}
-  appliesMat: 0001000000
-  volumePropertyNames:
-  - _Volume
-  - _Volume
-  - _Gap
-  - _GapMax
-  - _GapMax
-  defaultVolumes:
-  - 0.3
-  - 0.5
-  - 0.01
-  - 0.01
-  - 0.01
+  effects:
+  - isActive: 1
+    material: {fileID: 2100000, guid: b44d5e1b94e9555479bf7043874f3d73, type: 2}
+    volumePropertyName: _Volume
+    defaultVolume: 0.3
+  - isActive: 0
+    material: {fileID: 2100000, guid: 6886e0a0d51b82b47bdd1056b011e355, type: 2}
+    volumePropertyName: _Volume
+    defaultVolume: 0.2
+  - isActive: 0
+    material: {fileID: 2100000, guid: 8891854324b8a054885468f38c66e24f, type: 2}
+    volumePropertyName: _Gap
+    defaultVolume: 0.01
+  - isActive: 0
+    material: {fileID: 2100000, guid: 5d9be4c929bb3194abade386ad68ad46, type: 2}
+    volumePropertyName: _GapMax
+    defaultVolume: 0.01
+  - isActive: 0
+    material: {fileID: 2100000, guid: e779650aa70293d41aa0c21b8bfafb57, type: 2}
+    volumePropertyName: _GapMax
+    defaultVolume: 0.01
   matThatDoesNothing: {fileID: 2100000, guid: 0e00109b90ba7484b82247c4fd8753d6, type: 2}
 --- !u!1 &3423410219917244378
 GameObject:
