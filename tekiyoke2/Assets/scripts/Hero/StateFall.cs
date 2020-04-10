@@ -88,7 +88,7 @@ public class StateFall : IHeroState
         else if(hero.CanKickFromWallL)                     dir_is_R = false;
         else return;
 
-        hero.objsHolderForStates.kabezuriPool.ActivateOne(dir_is_R ? "r" : "l");
+        hero.objsHolderForStates.KabezuriPool.ActivateOne(dir_is_R ? "r" : "l");
     }
 
     public void Update(){

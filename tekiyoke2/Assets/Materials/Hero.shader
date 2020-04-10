@@ -7,6 +7,7 @@
         _DisThreshold0 ("Dissolve Threshold 0", float) = 0
         _DisThreshold1 ("Dissolve Threshold 1", float) = 1
         _Alpha ("Alpha", float) = 1
+        _EdgeColor ("Edge Color", Color) = (0,1,1,1)
     }
     SubShader
     {
@@ -42,6 +43,7 @@
             float _DisThreshold0;
             float _DisThreshold1;
             float _Alpha;
+            fixed4 _EdgeColor;
 
             VertToFrag vert (VertInput vert)
             {
@@ -60,7 +62,7 @@
             }
 
             float hashi(float v){
-                return v > 0.5 ? 3 - 2 * v : 2 * v;
+                return v > 0.5 ? 2 - 2 * v : 2 * v;
             }
 
             fixed4 frag (VertToFrag input) : SV_Target
@@ -71,6 +73,8 @@
                 fixed4 dissolveCol = tex2D(_DissolveTex, input.uv);
                 float dissolveAlpha = saturate((dissolveCol.r - _DisThreshold0) / (_DisThreshold1 - _DisThreshold0));
                 col.a *= dissolveAlpha * _Alpha;
+
+                col += _EdgeColor * hashi(dissolveAlpha) * mainCol.a;
 
                 return col;
             }

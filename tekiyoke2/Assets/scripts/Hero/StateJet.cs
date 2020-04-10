@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class StateJet : IHeroState
 {
@@ -33,9 +34,10 @@ public class StateJet : IHeroState
         if(state==State.Ready){
             hero.CanBeDamaged = false;
             state = State.Jetting;
+            PhantomAndDissolve();
             hero.anim.SetTrigger(jet2Right ? "runr" : "runl");
             Tokitome.SetTime(1);
-            hero.spriteRenderer.color = new Color(1,1,1,0.3f);
+            //hero.spriteRenderer.color = new Color(1,1,1,0.3f);
 
             //Jetする距離を計算
             int fullDist = (int)(MyMath.FloorAndCeil(10,tameFrames,30) * 25);
@@ -55,12 +57,55 @@ public class StateJet : IHeroState
             trailTF.GetComponent<TrailRenderer>().time = jetFramesMax / 60f;
 
             clouds.EndClouds();
-
-            //ちょっと待って…
-            // phantom.SetActive(false);
+            
             hero.cmrCntr.Dash(jetFramesMax); //今は何も起こってなさそう
         }
     }
+
+    void PhantomAndDissolve(){
+        SpriteRenderer phantom = hero.objsHolderForStates.PhantomRenderer;
+        phantom.gameObject.SetActive(true);
+        phantom.transform.position = hero.transform.position;
+        phantom.sprite = hero.spriteRenderer.sprite;
+
+        Material heroMat = hero.spriteRenderer.material;
+        Material phantomMat = phantom.material;
+        heroMat.SetFloat("_DisThreshold0", 1);
+        heroMat.SetFloat("_DisThreshold1", 1.1f);
+        phantomMat.SetFloat("_DisThreshold0", -1);
+        phantomMat.SetFloat("_DisThreshold1", 0);
+
+        float heroAppearSec = 0.3f;
+        DOVirtual.DelayedCall(0.2f, () => {
+            DOTween.To(
+                () => heroMat.GetFloat("_DisThreshold0"),
+                t0 => heroMat.SetFloat("_DisThreshold0", t0),
+                -1,
+                heroAppearSec
+            );
+            DOTween.To(
+                () => heroMat.GetFloat("_DisThreshold1"),
+                t1 => heroMat.SetFloat("_DisThreshold1", t1),
+                0,
+                heroAppearSec
+            );
+        });
+
+        float phantomDisappearSec = 0.3f;
+        DOTween.To(
+            () => phantomMat.GetFloat("_DisThreshold0"),
+            t0 => phantomMat.SetFloat("_DisThreshold0", t0),
+            1,
+            phantomDisappearSec
+        );
+        DOTween.To(
+            () => phantomMat.GetFloat("_DisThreshold1"),
+            t1 => phantomMat.SetFloat("_DisThreshold1", t1),
+            1.1f,
+            phantomDisappearSec
+        ).onComplete = () => phantom.gameObject.SetActive(false);
+    }
+
     public void Try2Jump(){ }
     public void Try2StartMove(bool toRight){
         if(state==State.Ready) jet2Right = toRight;
@@ -128,7 +173,7 @@ public class StateJet : IHeroState
 
     public void Exit(){
         hero.CanBeDamaged = true;
-        hero.spriteRenderer.color = new Color(1,1,1,1);
+        //hero.spriteRenderer.color = new Color(1,1,1,1);
         hero.cmrCntr.EndDash();
         GameObject.Destroy(jetStream);
         clouds.EndClouds();

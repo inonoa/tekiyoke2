@@ -498,6 +498,8 @@ MonoBehaviour:
     type: 3}
   kabezuriPrefab: {fileID: 3180092373609156, guid: 142cc2d7268e4a34d857a12335ac1286,
     type: 3}
+  phantomRendererPrefab: {fileID: 8498910980884920797, guid: e85b92dd564d2dc4ebbcab1ff5f68c4c,
+    type: 3}
 --- !u!1 &3106219250170215766
 GameObject:
   m_ObjectHideFlags: 0
