@@ -70,9 +70,9 @@ public class DPManager : MonoBehaviour
     }
 
     void LightGauge(){
-        if(unlightSeq!=null && unlightSeq.IsPlaying()) unlightSeq.Pause();
+        if(unlightSeq!=null && unlightSeq.IsActive() && unlightSeq.IsPlaying()) unlightSeq.Pause();
         
-        if(lightSeq==null || !lightSeq.IsPlaying()){
+        if(lightSeq==null || !lightSeq.IsActive() || !lightSeq.IsPlaying()){
             lightSeq = DOTween.Sequence();
             lightSeq.Append(DOTween.To(() => material.GetFloat("_Light"),
                                        lt => material.SetFloat("_Light", lt),
@@ -82,9 +82,9 @@ public class DPManager : MonoBehaviour
     }
 
     void UnlightGauge(){
-        if(lightSeq!=null && lightSeq.IsPlaying()) lightSeq.Pause();
+        if(lightSeq!=null && lightSeq.IsActive() && lightSeq.IsPlaying()) lightSeq.Pause();
 
-        if(unlightSeq==null || !unlightSeq.IsPlaying()){
+        if(unlightSeq==null || !unlightSeq.IsActive() || !unlightSeq.IsPlaying()){
             unlightSeq = DOTween.Sequence();
             unlightSeq.Append(DOTween.To(() => material.GetFloat("_Light"),
                                          lt => material.SetFloat("_Light", lt),

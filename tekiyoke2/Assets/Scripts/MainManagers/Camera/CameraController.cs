@@ -14,6 +14,7 @@ public class CameraController : MonoBehaviour
 
     [SerializeField] ScShoOutOfWindController scShoOutOfWindController;
     [SerializeField] ScShoController scShoController;
+    public AfterEffects AfterEffects{ get; private set; }
 
     [SerializeField] Canvas canvas;
 
@@ -61,6 +62,7 @@ public class CameraController : MonoBehaviour
     void Start()
     {
         cmr = GetComponent<Camera>();
+        AfterEffects = GetComponent<AfterEffects>();
         defaultSize = cmr.orthographicSize;
         targetPosition = HeroDefiner.CurrentHeroPos + new Vector3(0,100,-500);
         scShoOutOfWindController.canvas = canvas;

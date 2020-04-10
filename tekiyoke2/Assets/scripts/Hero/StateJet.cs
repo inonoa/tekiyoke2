@@ -14,6 +14,12 @@ public class StateJet : IHeroState
     Transform trailTF;
 
     JetCloudManager clouds;
+    PostEffectWrapper vignette;
+    Tween vignetteTween;
+    PostEffectWrapper blurY;
+    Tween blurYTween;
+    PostEffectWrapper blurT;
+    Tween blurTTween;
 
     enum State { Ready, Jetting }
     State state = State.Ready;
@@ -28,6 +34,9 @@ public class StateJet : IHeroState
     public StateJet(HeroMover hero){
         this.hero = hero;
         clouds = GameUIManager.CurrentInstance.JetCloud;
+        vignette = CameraController.CurrentCamera.AfterEffects.Find("Vignette");
+        blurY = CameraController.CurrentCamera.AfterEffects.Find("BlurEdge1");
+        blurT = CameraController.CurrentCamera.AfterEffects.Find("BlurEdge2");
     }
     public void Try2StartJet(){ }
     public void Try2EndJet(){
@@ -57,6 +66,18 @@ public class StateJet : IHeroState
             trailTF.GetComponent<TrailRenderer>().time = jetFramesMax / 60f;
 
             clouds.EndClouds();
+
+            vignetteTween.Kill();
+            vignetteTween = DOTween.To(vignette.GetVolume, vignette.SetVolume, 0, 0.5f).SetEase(Ease.OutSine);
+            vignetteTween.onComplete += () => vignette.SetActive(false);
+
+            blurYTween.Kill();
+            blurYTween = DOTween.To(blurY.GetVolume, blurY.SetVolume, 0, 0.1f);
+            blurYTween.onComplete += () => blurY.SetActive(false);
+
+            blurTTween.Kill();
+            blurTTween = DOTween.To(blurT.GetVolume, blurT.SetVolume, 0, 0.1f);
+            blurTTween.onComplete += () => blurT.SetActive(false);
             
             hero.cmrCntr.Dash(jetFramesMax); //今は何も起こってなさそう
         }
@@ -128,6 +149,21 @@ public class StateJet : IHeroState
 
         hero.cmrCntr.StartZoomForDash();
         clouds.StartClouds();
+
+        vignette.SetActive(true);
+        vignette.SetVolume(0);
+        vignetteTween?.Kill();
+        vignetteTween = DOTween.To(vignette.GetVolume, vignette.SetVolume, 2, 0.6f);
+
+        blurY.SetActive(true);
+        blurY.SetVolume(0);
+        blurYTween?.Kill();
+        blurYTween = DOTween.To(blurY.GetVolume, blurY.SetVolume, 1, 0.6f);
+
+        blurT.SetActive(true);
+        blurT.SetVolume(0);
+        blurTTween?.Kill();
+        blurTTween = DOTween.To(blurT.GetVolume, blurT.SetVolume, 1, 0.6f);
     }
 
     public void Resume(){
@@ -177,5 +213,8 @@ public class StateJet : IHeroState
         hero.cmrCntr.EndDash();
         GameObject.Destroy(jetStream);
         clouds.EndClouds();
+        foreach(PostEffectWrapper pe in new PostEffectWrapper[]{vignette, blurT, blurY}){
+            pe?.SetActive(false);
+        }
     }
 }

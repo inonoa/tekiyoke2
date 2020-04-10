@@ -603,14 +603,20 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8891854324b8a054885468f38c66e24f, type: 2}
   - {fileID: 2100000, guid: 5d9be4c929bb3194abade386ad68ad46, type: 2}
   - {fileID: 2100000, guid: e779650aa70293d41aa0c21b8bfafb57, type: 2}
-  appliesMat: 0101000101
-  matThatDoesNothing: {fileID: 2100000, guid: 0e00109b90ba7484b82247c4fd8753d6, type: 2}
+  appliesMat: 0001000000
   volumePropertyNames:
   - _Volume
   - _Volume
   - _Gap
   - _GapMax
   - _GapMax
+  defaultVolumes:
+  - 0.3
+  - 0.5
+  - 0.01
+  - 0.01
+  - 0.01
+  matThatDoesNothing: {fileID: 2100000, guid: 0e00109b90ba7484b82247c4fd8753d6, type: 2}
 --- !u!1 &3423410219917244378
 GameObject:
   m_ObjectHideFlags: 0

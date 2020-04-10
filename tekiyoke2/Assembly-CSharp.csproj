@@ -110,6 +110,7 @@
      <Compile Include="Assets\Scripts\MainManagers\BGMover.cs" />
      <Compile Include="Assets\Scripts\MainManagers\Camera\AfterEffects.cs" />
      <Compile Include="Assets\Scripts\MainManagers\Camera\CameraController.cs" />
+     <Compile Include="Assets\Scripts\MainManagers\Camera\PostEffectWrapper.cs" />
      <Compile Include="Assets\Scripts\MainManagers\Camera\ScShoController.cs" />
      <Compile Include="Assets\Scripts\MainManagers\Camera\ScShoOutOfWindController.cs" />
      <Compile Include="Assets\Scripts\MainManagers\DraftManager.cs" />
