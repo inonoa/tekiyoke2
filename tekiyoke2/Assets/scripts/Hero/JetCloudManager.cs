@@ -36,7 +36,7 @@ public class JetCloudManager : MonoBehaviour
                 clouds[i].transform.DOLocalMoveX(cloudsDstX[i], durationSec).SetEase(Ease.OutSine)
             );
             seqs[i].Join(
-                clouds[i].DOFade(1, durationSec)
+                clouds[i].DOFade(1, durationSec / 2)
             );
         }
     }
