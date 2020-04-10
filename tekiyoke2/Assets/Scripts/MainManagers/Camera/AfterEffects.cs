@@ -52,35 +52,12 @@ public class AfterEffects : MonoBehaviour
 
     void OnRenderImage(RenderTexture src, RenderTexture dst){
 
-        int numActiveMats = 0;
         for(int i=0; i<effects.Length; i++){
             effects[i].SetActive(appliesMat[i]);
-            if(effects[i].IsActive) numActiveMats ++;
-        }
 
-        if(numActiveMats==0){
-            Graphics.Blit(src, dst, matThatDoesNothing);
-        }
-        else if(numActiveMats==1){
-            for(int i=0; i<effects.Length; i++){
-                if(effects[i].IsActive){
-                    Graphics.Blit(src, dst, effects[i].material);
-                    break;
-                }
-            }
-        }
-        else{
-            int rtidx = 0;
-
-            for(int i=0; i<effects.Length; i++){
-                if(effects[i].IsActive){
-                    if(rtidx==0)                      Graphics.Blit(src,            rTexs[0],     effects[i].material);
-                    else if(rtidx != numActiveMats-1) Graphics.Blit(rTexs[rtidx-1], rTexs[rtidx], effects[i].material);
-                    else                              Graphics.Blit(rTexs[rtidx-1], dst,          effects[i].material);
-
-                    rtidx ++;
-                }
-            }
+            if(i==0)                       Graphics.Blit(src,        rTexs[0], effects[i].IsActive ? effects[i].material : matThatDoesNothing);
+            else if(i != effects.Length-1) Graphics.Blit(rTexs[i-1], rTexs[i], effects[i].IsActive ? effects[i].material : matThatDoesNothing);
+            else                           Graphics.Blit(rTexs[i-1], dst,      effects[i].IsActive ? effects[i].material : matThatDoesNothing);
         }
     }
 }
