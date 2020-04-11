@@ -30,13 +30,15 @@ public class Goal : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other){
         if(other.tag=="Player" && !goaled){
             goaled = true;
-            HeroDefiner.currentHero.gameObject.SetActive(false);
-            HeroDefiner.currentHero.spriteRenderer.enabled = false;
-            HeroDefiner.currentHero.IsFrozen = true;
+            // HeroDefiner.currentHero.spriteRenderer.enabled = false;
+            // HeroDefiner.currentHero.IsFrozen = true;
+            HeroDefiner.currentHero.States.Push(new StateRun(HeroDefiner.currentHero));
+            HeroDefiner.currentHero.CanMove = false;
+            CameraController.CurrentCamera.Freeze(50 * 10);
             GameTimeCounter.CurrentInstance.DoesTick = false;
             ScoreHolder.Instance.clearTimesLast[stageIdx] = GameTimeCounter.CurrentInstance.Seconds;
             MemoryOverDeath.Instance.Clear();
-            doubleAnim.gameObject.SetActive(true);
+            // doubleAnim.gameObject.SetActive(true);
 
             SceneTransition.Start2ChangeState("ResultScene", SceneTransition.TransitionType.WindAndBlur);
 
