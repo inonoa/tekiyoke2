@@ -30,6 +30,7 @@ public class Goal : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other){
         if(other.tag=="Player" && !goaled){
             goaled = true;
+            HeroDefiner.currentHero.gameObject.SetActive(false);
             HeroDefiner.currentHero.spriteRenderer.enabled = false;
             HeroDefiner.currentHero.IsFrozen = true;
             GameTimeCounter.CurrentInstance.DoesTick = false;
