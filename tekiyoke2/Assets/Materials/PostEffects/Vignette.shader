@@ -54,7 +54,7 @@
             fixed4 frag (VertToFrag input) : SV_Target
             {
                 fixed4 col = tex2D(_MainTex, input.uv);
-                col -= float4(0.5,0.6,1,0) * ( edge(input.uv.x) / 1.5 + edge(input.uv.y) / 3 ) * _Volume;
+                col -= float4(0.7,0.8,0.95,0) * ( edge(input.uv.x) / 1.5 + edge(input.uv.y) / 3 ) * _Volume;
                 return col;
             }
             ENDCG

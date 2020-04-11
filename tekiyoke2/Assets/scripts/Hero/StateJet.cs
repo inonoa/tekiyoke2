@@ -67,9 +67,14 @@ public class StateJet : IHeroState
 
             clouds.EndClouds();
 
+            //この辺どうにかならんか……
+
             vignetteTween.Kill();
-            vignetteTween = DOTween.To(vignette.GetVolume, vignette.SetVolume, 0, 0.5f).SetEase(Ease.OutSine);
-            vignetteTween.onComplete += () => vignette.isActive = false;
+            Sequence endSeq_tmp = DOTween.Sequence();
+            endSeq_tmp.Append(DOTween.To(vignette.GetVolume, vignette.SetVolume, -0.3f - vignette.GetVolume() / 2, 0.2f).SetEase(Ease.OutSine));
+            endSeq_tmp.Append(DOTween.To(vignette.GetVolume, vignette.SetVolume, 0, 0.3f).SetEase(Ease.InOutSine));
+            endSeq_tmp.onComplete += () => vignette.isActive = false;
+            vignetteTween = endSeq_tmp;
 
             blurYTween.Kill();
             blurYTween = DOTween.To(blurY.GetVolume, blurY.SetVolume, 0, 0.1f);
@@ -153,7 +158,7 @@ public class StateJet : IHeroState
         vignette.isActive = true;
         vignette.SetVolume(0);
         vignetteTween?.Kill();
-        vignetteTween = DOTween.To(vignette.GetVolume, vignette.SetVolume, 3, 0.6f);
+        vignetteTween = DOTween.To(vignette.GetVolume, vignette.SetVolume, 2, 0.6f);
 
         blurY.isActive = true;
         blurY.SetVolume(0);
