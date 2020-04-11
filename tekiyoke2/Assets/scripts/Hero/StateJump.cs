@@ -55,11 +55,21 @@ public class StateJump : IHeroState
         else if(hero.velocity.x < 0) hero.anim.SetTrigger("jumplf");
         else if(hero.EyeToRight)     hero.anim.SetTrigger("jumpru");
         else                         hero.anim.SetTrigger("jumplu");
+
+        if(canJump) hero.objsHolderForStates.JumpEffectPool.ActivateOne(hero.EyeToRight ? "r" : "l");
+        else        hero.objsHolderForStates.JumpEffectInAirPool.ActivateOne(hero.EyeToRight ? "r" : "l");
         
         InputManager.Instance.SetInputLatency(ButtonCode.Right,inputLatency4Kick);
         InputManager.Instance.SetInputLatency(ButtonCode.Left, inputLatency4Kick);
         InputManager.Instance.SetInputLatency(ButtonCode.Jump, inputLatency4Kick);
     }
+    public void Resume(){
+        if     (hero.velocity.x > 0) hero.anim.SetTrigger("jumprf");
+        else if(hero.velocity.x < 0) hero.anim.SetTrigger("jumplf");
+        else if(hero.EyeToRight)     hero.anim.SetTrigger("jumpru");
+        else                         hero.anim.SetTrigger("jumplu");
+    }
+
     public void Update(){
         hero.velocity.y -= HeroMover.gravity * Time.timeScale;
         if(hero.velocity.y < 0) hero.States.Push(new StateFall(hero, canJump));

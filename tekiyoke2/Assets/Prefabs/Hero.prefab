@@ -259,6 +259,7 @@ GameObject:
   - component: {fileID: 3106219250084253372}
   - component: {fileID: 3106219250084253370}
   - component: {fileID: 3106219250084253401}
+  - component: {fileID: 1862551108992817783}
   m_Layer: 8
   m_Name: Hero
   m_TagString: Player
@@ -305,7 +306,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 2365881fb0b5e7f42a1c9fe9e3664488, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -391,16 +392,13 @@ MonoBehaviour:
   isInDebug: 0
   cmrCntr: {fileID: 0}
   hpcntr: {fileID: 0}
+  objsHolderForStates: {fileID: 0}
   groundChecker: {fileID: 3106219250714267053}
   wallCheckerL: {fileID: 3106219248715147193}
   wallCheckerR: {fileID: 3106219249542638149}
   spriteRenderer: {fileID: 0}
   anim: {fileID: 0}
   rigidbody: {fileID: 0}
-  jetStreamPrefab: {fileID: 8900711695561503522, guid: 06218cdfbbedd5d44a9e274110518bb5,
-    type: 3}
-  jetTrail: {fileID: 7456876022590087109, guid: fc1c627a062e5f5498ce124a28c35929,
-    type: 3}
 --- !u!114 &3106219250084253372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -476,6 +474,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   saveCostDP: 10
   dialogImg: {fileID: 0}
+--- !u!114 &1862551108992817783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3106219250084253351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b7d326109741384a828c643abee3170, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jetstreamPrefab: {fileID: 8900711695561503522, guid: 06218cdfbbedd5d44a9e274110518bb5,
+    type: 3}
+  jetTrail: {fileID: 7456876022590087109, guid: fc1c627a062e5f5498ce124a28c35929,
+    type: 3}
+  tsuchihokoriForRun: {fileID: 5060664383085159206, guid: f0d8a2804f7a437418585fd69d3ac587,
+    type: 3}
+  jumpEffectPrefab: {fileID: 2452598055227466275, guid: 5ac54ff365b071a4d88a2fc3ac1b0cb5,
+    type: 3}
+  jumpEffectInAirPrefab: {fileID: 1505752056437686429, guid: bfc8b84789d4d964b90627dc259d3f65,
+    type: 3}
+  kabezuriPrefab: {fileID: 3180092373609156, guid: 142cc2d7268e4a34d857a12335ac1286,
+    type: 3}
+  phantomRendererPrefab: {fileID: 8498910980884920797, guid: e85b92dd564d2dc4ebbcab1ff5f68c4c,
+    type: 3}
 --- !u!1 &3106219250170215766
 GameObject:
   m_ObjectHideFlags: 0

@@ -40,6 +40,6 @@ public class SavePositionManager : MonoBehaviour
 
     void Start()
     {
-        resPos = transform.parent.Find("RespawnPosition").gameObject;
+        resPos = DraftManager.CurrentInstance.GameMasterTF.Find("RespawnPosition").gameObject;
     }
 }

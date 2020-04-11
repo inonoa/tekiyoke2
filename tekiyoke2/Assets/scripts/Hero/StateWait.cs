@@ -26,13 +26,19 @@ public class StateWait : IHeroState
         hero.velocity = (0,0);
         hero.anim.SetTrigger(hero.EyeToRight ? "standr" : "standl");
     }
+
+    public void Resume(){
+        hero.anim.SetTrigger(hero.EyeToRight ? "standr" : "standl");
+    }
     public void Update(){
+        if(!hero.IsOnGround){
+            hero.States.Push(new StateFall(hero));
+            return;
+        }
         if(hero.KeyDirection != 0){
             hero.States.Push(new StateRun(hero));
             return;
         }
-        
-        if(!hero.IsOnGround) hero.States.Push(new StateFall(hero));
     }
 
     public void Exit(){ }

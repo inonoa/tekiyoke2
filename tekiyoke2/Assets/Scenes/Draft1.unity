@@ -129242,6 +129242,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RespawnPosition
       objectReference: {fileID: 0}
+    - target: {fileID: 7887051045746081597, guid: 0da114ced5b37eb42b690e34ce53db5a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7887051045746081598, guid: 0da114ced5b37eb42b690e34ce53db5a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -129255,7 +129260,7 @@ PrefabInstance:
     - target: {fileID: 7887051045746081598, guid: 0da114ced5b37eb42b690e34ce53db5a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 19
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7887051045746081598, guid: 0da114ced5b37eb42b690e34ce53db5a,
         type: 3}
@@ -135893,18 +135898,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1472872603020283857, guid: 95d3e8075a941f348803e6df2c824c6d,
         type: 3}
+      propertyPath: effects.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1472872603020283857, guid: 95d3e8075a941f348803e6df2c824c6d,
+        type: 3}
       propertyPath: appliesMat.Array.data[0]
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1472872603020283857, guid: 95d3e8075a941f348803e6df2c824c6d,
         type: 3}
       propertyPath: appliesMat.Array.data[1]
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1472872603020283857, guid: 95d3e8075a941f348803e6df2c824c6d,
         type: 3}
       propertyPath: appliesMat.Array.data[2]
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1472872603020283857, guid: 95d3e8075a941f348803e6df2c824c6d,
         type: 3}
@@ -135915,6 +135925,11 @@ PrefabInstance:
         type: 3}
       propertyPath: appliesMat.Array.data[4]
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1472872603020283857, guid: 95d3e8075a941f348803e6df2c824c6d,
+        type: 3}
+      propertyPath: effects.Array.data[0].isActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3423410219917244377, guid: 95d3e8075a941f348803e6df2c824c6d,
         type: 3}
@@ -137448,6 +137463,11 @@ PrefabInstance:
       propertyPath: firstState
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8098112588018061361, guid: e5394696252735242920aa9fa21a9d5f,
+        type: 3}
+      propertyPath: watchRadius
+      value: 500
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5394696252735242920aa9fa21a9d5f, type: 3}
 --- !u!224 &1443148826 stripped
@@ -137649,6 +137669,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1515455045}
   - component: {fileID: 1515455044}
+  - component: {fileID: 1515455046}
   m_Layer: 0
   m_Name: PauserDepauser
   m_TagString: Untagged
@@ -137685,6 +137706,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1515455046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515455043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d18c155e1953fd438bf229bf89482e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _GameMasterTF: {fileID: 289413201}
+  _PauseMasterTF: {fileID: 975853696}
 --- !u!4 &1524192831 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4422211888311780033, guid: f29781e6832b4eb4b8c9215aa67e039f,

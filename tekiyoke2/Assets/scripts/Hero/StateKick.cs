@@ -10,6 +10,9 @@ public class StateKick : IHeroState
     int frames2BeFreeNow = frames2BeFree;
     readonly bool toRight;
     readonly bool canJump;
+
+    static readonly float kabezuriInterval = 0.1f;
+    Coroutine kabezuriCoroutine;
     HeroMover hero;
     public StateKick(HeroMover hero, bool kick2Right, bool canJump){
         this.hero = hero;
@@ -19,16 +22,48 @@ public class StateKick : IHeroState
     public void Start(){
         hero.Jumped(false, true);
 
-        if(hero.velocity.y > 0) hero.anim.SetTrigger(toRight ? "jumprf" : "jumplf");
-        else                    hero.anim.SetTrigger(toRight ? "fallr"  : "falll");
+        hero.anim.SetTrigger(toRight ? "jumprf" : "jumplf");
         hero.EyeToRight = toRight;
+
+        hero.objsHolderForStates.JumpEffectPool.ActivateOne(toRight ? "kr" : "kl");
+        kabezuriCoroutine = hero.StartCoroutine(SpawnKabezuris());
 
         hero.velocity.x = toRight ? HeroMover.moveSpeed : -HeroMover.moveSpeed;
         hero.velocity.y = kickForceY;
     }
+
+
+    IEnumerator SpawnKabezuris(){
+        Try2SpawnKabezuri();
+
+        while(true){
+            yield return new WaitForSeconds(kabezuriInterval);
+
+            Try2SpawnKabezuri();
+        }
+    }
+
+    void Try2SpawnKabezuri(){
+        if(hero.velocity.y > 0) return;
+
+        bool dir_is_R;
+
+        if(hero.CanKickFromWallR && hero.CanKickFromWallL) dir_is_R = hero.EyeToRight;
+        else if(hero.CanKickFromWallR)                     dir_is_R = true;
+        else if(hero.CanKickFromWallL)                     dir_is_R = false;
+        else return;
+
+        hero.objsHolderForStates.KabezuriPool.ActivateOne(dir_is_R ? "r" : "l");
+    }
+
+    public void Resume(){
+        if(hero.velocity.y > 0) hero.anim.SetTrigger(toRight ? "jumprf" : "jumplf");
+        else                    hero.anim.SetTrigger(toRight ? "fallr"  : "falll");
+    }
+
     public void Update(){
 
-        if(hero.IsOnGround){
+        if(hero.IsOnGround && hero.velocity.y <= 0){
             hero.States.Push(new StateWait(hero));
             return;
         }
@@ -37,6 +72,7 @@ public class StateKick : IHeroState
         if(hero.velocity.y < 0){
             if(frames2BeFreeNow > 0) hero.anim.SetTrigger(toRight         ? "fallr" : "falll");
             else                     hero.anim.SetTrigger(hero.EyeToRight ? "fallr" : "falll");
+            //これ単にFallに遷移するほうがいいんじゃないの……？
         }
 
         if(frames2BeFreeNow > 0) frames2BeFreeNow --;
@@ -76,5 +112,7 @@ public class StateKick : IHeroState
     }
     public void Try2StartMove(bool toRight){ }
     public void Try2EndMove(){ }
-    public void Exit(){ }
+    public void Exit(){
+        hero.StopCoroutine(kabezuriCoroutine);
+    }
 }

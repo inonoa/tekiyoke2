@@ -25,8 +25,8 @@ public class Pauser : MonoBehaviour
 
     void Start()
     {
-        gameMaster = transform.Find("GameMaster").gameObject;
-        pauseMaster = transform.Find("PauseMaster").gameObject;
+        gameMaster = DraftManager.CurrentInstance.GameMasterTF.gameObject;
+        pauseMaster = DraftManager.CurrentInstance.PauseMasterTF.gameObject;
         uiMover = pauseMaster.GetComponent<PauseUIMover>();
         scshoImg = pauseMaster.transform.Find("Canvas").Find("ScSho").GetComponent<Image>();
 

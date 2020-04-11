@@ -8,6 +8,9 @@ public class StateFall : IHeroState
     readonly bool canJump;
     static readonly int coyoteTime = 10;
 
+    static readonly float kabezuriInterval = 0.1f;
+    Coroutine kabezuriCoroutine;
+
     HeroMover hero;
 
     public StateFall(HeroMover hero, bool canJump = true){
@@ -52,6 +55,7 @@ public class StateFall : IHeroState
     }
     public void Start(){
         hero.anim.SetTrigger(hero.EyeToRight ? "fallr" : "falll");
+        kabezuriCoroutine = hero.StartCoroutine(SpawnKabezuris());
         switch(hero.KeyDirection){
             case 1 : hero.velocity.x = HeroMover.moveSpeed;  break;
             case 0 : hero.velocity.x = 0;                    break;
@@ -61,6 +65,32 @@ public class StateFall : IHeroState
         InputManager.Instance.SetInputLatency(ButtonCode.Left, inputLatency4Kick);
         InputManager.Instance.SetInputLatency(ButtonCode.Jump, inputLatency4Kick);
     }
+
+    public void Resume(){
+        hero.anim.SetTrigger(hero.EyeToRight ? "fallr" : "falll");
+    }
+
+    IEnumerator SpawnKabezuris(){
+        Try2SpawnKabezuri();
+
+        while(true){
+            yield return new WaitForSeconds(kabezuriInterval);
+
+            Try2SpawnKabezuri();
+        }
+    }
+
+    void Try2SpawnKabezuri(){
+        bool dir_is_R;
+
+        if(hero.CanKickFromWallR && hero.CanKickFromWallL) dir_is_R = hero.EyeToRight;
+        else if(hero.CanKickFromWallR)                     dir_is_R = true;
+        else if(hero.CanKickFromWallL)                     dir_is_R = false;
+        else return;
+
+        hero.objsHolderForStates.KabezuriPool.ActivateOne(dir_is_R ? "r" : "l");
+    }
+
     public void Update(){
         hero.velocity.y -= HeroMover.gravity * Time.timeScale;
         if(hero.IsOnGround){
@@ -70,6 +100,8 @@ public class StateFall : IHeroState
     }
 
     public void Exit(){
+        hero.StopCoroutine(kabezuriCoroutine);
+
         InputManager.Instance.SetInputLatency(ButtonCode.Right,0);
         InputManager.Instance.SetInputLatency(ButtonCode.Left,0);
         InputManager.Instance.SetInputLatency(ButtonCode.Jump,0);

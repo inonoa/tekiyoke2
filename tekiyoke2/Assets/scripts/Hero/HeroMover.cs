@@ -26,6 +26,7 @@ public class HeroMover : MonoBehaviour
     #region 移動関係の(だいたい)定数
     public static float moveSpeed = 15;
     public static readonly float gravity = 1.7f;
+    public static readonly float blinkPeriodSec = 0.2f;
 
     #endregion
 
@@ -137,6 +138,7 @@ public class HeroMover : MonoBehaviour
     IHeroState lastState;
     [HideInInspector] public CameraController cmrCntr;
     [HideInInspector] public HpCntr hpcntr;
+    [HideInInspector] public HeroObjsHolder4States objsHolderForStates;
     [SerializeField] GroundChecker groundChecker;
     SakamichiChecker sakamichiChecker;
     [SerializeField] WallCheckerL wallCheckerL;
@@ -149,10 +151,6 @@ public class HeroMover : MonoBehaviour
     [HideInInspector] public Animator anim;
     [HideInInspector] public new Rigidbody2D rigidbody;
     Chishibuki chishibuki;
-
-    //Jet用(Jet用なんだからJetに書くべきだがインスペクタに表示しづらいため…)
-    public GameObject jetStreamPrefab;
-    public TrailRenderer jetTrail;
     
     #endregion
 
@@ -181,6 +179,24 @@ public class HeroMover : MonoBehaviour
         ParticleSystem ps = transform.Find("Particle System").GetComponent<ParticleSystem>();
         ps.Play();
         chishibuki.StartCoroutine("StartChishibuki");
+        StartCoroutine(Blink());
+    }
+
+    IEnumerator Blink(){
+        yield return new WaitForSeconds(0.3f);
+
+        while(true){
+
+            if(hpcntr.CanBeDamaged) yield break;
+            spriteRenderer.material.SetFloat("_Alpha", 0);
+
+            yield return new WaitForSeconds(blinkPeriodSec/2);
+
+            spriteRenderer.material.SetFloat("_Alpha", 1);
+            if(hpcntr.CanBeDamaged) yield break;
+
+            yield return new WaitForSeconds(blinkPeriodSec/2);
+        }
     }
 
     ///<summary>リスポーン</summary>
@@ -230,6 +246,7 @@ public class HeroMover : MonoBehaviour
         hpcntr              = GetComponent<HpCntr>();
         sakamichiChecker    = GetComponent<SakamichiChecker>();
         savePositionManager = GetComponent<SavePositionManager>();
+        objsHolderForStates = GetComponent<HeroObjsHolder4States>();
 
         hpcntr.die     += ReceiveDeath;
         hpcntr.damaged += BendBack;
@@ -237,7 +254,7 @@ public class HeroMover : MonoBehaviour
 
     ///<summary>SetActive(false)するとアニメーションの状態がリセットされるようなのでとりあえず主人公はステートだけ反映しなおす</summary>
     void OnEnable(){
-        if(States.Count>0) States.Peek().Start();
+        if(States.Count>0) States.Peek().Resume();
     }
 
     void Update()

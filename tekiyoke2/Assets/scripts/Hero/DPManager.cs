@@ -2,21 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
+using DG.Tweening;
 
 public class DPManager : MonoBehaviour
 {
-    public static DPManager Instance{ get; set; }
-    RectTransform rTransform;
+    public static DPManager Instance{ get; private set; }
 
     public int DP{ get; private set; } = 0;
+    static readonly int maxDP = 100;
 
-    [SerializeField]
-    int displayInterval = 3;
-    int frames2Display = 1;
+
 
     ///<summary>1Pずつたまっていく感じにしたいので、内部的なDPとは別に見かけのDPを用意してこれをもとに描画</summary>
-    int DPonDisplay = 0;
-    static readonly int maxDP = 100;
+    float DPonDisplay = 0;
+    [SerializeField] float displaySpeed = 0.05f;
+    Material material;
+    [SerializeField] Image uiImage;
+    [SerializeField] float lightLifeSeconds = 1;
+    float secondsAfterDPChanged = 10;
+
+    Sequence lightSeq;
+    Sequence unlightSeq;
 
     public void AddDP(int delta){
         if(delta > 0){
@@ -34,23 +41,55 @@ public class DPManager : MonoBehaviour
         }
     }
 
+    void Awake(){
+        Instance = this;
+    }
     void Start()
     {
-        Instance = this;
-        rTransform = GetComponent<RectTransform>();
+        material = uiImage.material;
+        material.SetFloat("_WidthNormalized", 0);
     }
 
     void Update()
     {
-        frames2Display --;
-        if(frames2Display==0){
-            frames2Display = displayInterval;
-
+        if(DPonDisplay != DP){
             //急速にDPが増えたら急速に追いついてほしい
-            if(DPonDisplay > DP)      DPonDisplay -= 1 + (DPonDisplay - DP) / 5;
-            else if(DPonDisplay < DP) DPonDisplay += 1 + (DP - DPonDisplay) / 5;
+            float dpDelta = (DPonDisplay > DP) ? - 1 - (DPonDisplay - DP) / 5 : 1 + (DP - DPonDisplay) / 5;
+            dpDelta *= displaySpeed;
+            dpDelta = dpDelta > 0 ? Mathf.Min(dpDelta, DP - DPonDisplay) : Mathf.Max(dpDelta, DP - DPonDisplay);
+            DPonDisplay = DPonDisplay + dpDelta;
+            material.SetFloat("_WidthNormalized", DPonDisplay / (float)maxDP);
+            LightGauge();
+            secondsAfterDPChanged = 0;
+        }
 
-            rTransform.sizeDelta = new Vector2(1000.0f * DPonDisplay / maxDP, 50);
+        secondsAfterDPChanged += Time.deltaTime;
+        if(secondsAfterDPChanged >= lightLifeSeconds){
+            UnlightGauge();
+        }
+    }
+
+    void LightGauge(){
+        if(unlightSeq!=null && unlightSeq.IsActive() && unlightSeq.IsPlaying()) unlightSeq.Pause();
+        
+        if(lightSeq==null || !lightSeq.IsActive() || !lightSeq.IsPlaying()){
+            lightSeq = DOTween.Sequence();
+            lightSeq.Append(DOTween.To(() => material.GetFloat("_Light"),
+                                       lt => material.SetFloat("_Light", lt),
+                                       1, 0.2f))
+                                       .SetEase(Ease.InOutSine);
+        }
+    }
+
+    void UnlightGauge(){
+        if(lightSeq!=null && lightSeq.IsActive() && lightSeq.IsPlaying()) lightSeq.Pause();
+
+        if(unlightSeq==null || !unlightSeq.IsActive() || !unlightSeq.IsPlaying()){
+            unlightSeq = DOTween.Sequence();
+            unlightSeq.Append(DOTween.To(() => material.GetFloat("_Light"),
+                                         lt => material.SetFloat("_Light", lt),
+                                         0, 0.2f))
+                                         .SetEase(Ease.InOutSine);
         }
     }
 }
