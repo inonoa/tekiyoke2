@@ -61,7 +61,6 @@ TrailRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
-  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -73,7 +72,6 @@ TrailRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -184,49 +182,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delaySecAfterScSho: 0.2
   moveSec: 0.5
-  pathStr: '550,350
-
-    420,280
-
-    370,220
-
-    350,120
-
-    380,0
-
-    410,-90
-
-    410,-180
-
-    360,-260
-
-    260,-290
-
-    200,-300
-
-    70,-270
-
-    -40,-240
-
-    -200,-200
-
-    -280,-170
-
-    -300,-100
-
-    -200,-60
-
-    -110,-100
-
-    -130,-170
-
-    -300,-200
-
-    -440,-230
-
-    -600,-300
-
-    -800,-300'
+  pathStr: "550,350\r\n420,280\r\n370,220\r\n350,120\r\n380,0\r\n410,-90\r\n410,-180\r\n360,-260\r\n260,-290\r\n200,-300\r\n70,-270\r\n-40,-240\r\n-200,-200\r\n-280,-170\n-300,-100\n-200,-60\n-110,-100\n-130,-170\n-300,-200\r\n-440,-230\r\n-600,-300\n-800,-300"
 --- !u!1 &873441159376900034
 GameObject:
   m_ObjectHideFlags: 0
@@ -288,7 +244,6 @@ TrailRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
-  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -300,7 +255,6 @@ TrailRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -493,7 +447,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blur: {fileID: 1606713849422059986, guid: f9e36102840328248b818bd4ee1faa46, type: 3}
   blue: {fileID: 158019399742677529, guid: 330a2452203af6b4a95b17da53a51023, type: 3}
-  secondsToBlur: 1.5
+  secondsToBlur: 1.1
   secondsToBeReadyToChange: 2.2
 --- !u!1 &7750489329463781463
 GameObject:
@@ -556,7 +510,6 @@ TrailRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
-  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -568,7 +521,6 @@ TrailRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -767,7 +719,6 @@ TrailRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
-  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -779,7 +730,6 @@ TrailRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
