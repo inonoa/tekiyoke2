@@ -35,7 +35,6 @@ public class Goal : MonoBehaviour
             HeroDefiner.currentHero.States.Push(new StateRun(HeroDefiner.currentHero));
             HeroDefiner.currentHero.CanMove = false;
             CameraController.CurrentCamera.Freeze(50 * 10);
-            HeroDefiner.currentHero.spriteRenderer.enabled = false;
             GameTimeCounter.CurrentInstance.DoesTick = false;
             ScoreHolder.Instance.clearTimesLast[stageIdx] = GameTimeCounter.CurrentInstance.Seconds;
             MemoryOverDeath.Instance.Clear();
