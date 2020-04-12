@@ -82,6 +82,8 @@ public class SceneTransition : MonoBehaviour
             
             case TransitionType.WindAndBlur:
                 SceneTransition.State = SceneTransitState.WindAndBlur;
+                PostEffectWrapper noise = CameraController.CurrentCamera?.AfterEffects?.Find("Noise");
+                if(noise!=null) DOTween.To(noise.GetVolume, noise.SetVolume, 0, 1);
                 DOVirtual.DelayedCall(1.2f, () =>
                 {
                     var windblur = Instantiate(currentInstance.windAndBlur, currentInstance.transform.parent);
@@ -104,6 +106,9 @@ public class SceneTransition : MonoBehaviour
             SceneTransition.State = firstState;
             firstSceneLoaded = true;
         }
+
+        PostEffectWrapper noise = CameraController.CurrentCamera?.AfterEffects?.Find("Noise");
+        if(noise!=null) DOTween.To(noise.GetVolume, noise.SetVolume, 1, 1);
 
         switch(SceneTransition.State){
             case SceneTransitState.None:
