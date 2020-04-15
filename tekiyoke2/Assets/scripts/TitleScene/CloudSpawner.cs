@@ -22,7 +22,7 @@ public class CloudSpawner : MonoBehaviour
     private int countWhileWind = 0;
     public int count2Title = 40;
     public int count2Spawn = 100;
-    public int moveSpeed = 3;
+    public float moveSpeed = 3;
 
     private System.Random random = new System.Random();
 
