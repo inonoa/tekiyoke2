@@ -16,7 +16,7 @@ public class Title2Stages : MonoBehaviour
         if(!buttonPushed){
             count ++;
             if(count==40){
-                pressaAnyKey.SetActive(false);
+                //pressaAnyKey.SetActive(false);
             }else if(count==80){
                 pressaAnyKey.SetActive(true);
                 count = 0;

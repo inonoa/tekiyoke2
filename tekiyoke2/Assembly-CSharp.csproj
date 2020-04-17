@@ -170,6 +170,7 @@
      <None Include="Assets\Materials\PostEffects\BlurEdge2.shader" />
      <None Include="Assets\Materials\Light.shader" />
      <None Include="Assets\Materials\PostEffects\BlurEdge1.shader" />
+     <None Include="Assets\Materials\Glitch.shader" />
      <None Include="Assets\Materials\TimeText.shader" />
      <None Include="Assets\Demigiant\DOTween\readme.txt" />
      <None Include="Assets\Materials\PostEffects\Noise.shader" />
