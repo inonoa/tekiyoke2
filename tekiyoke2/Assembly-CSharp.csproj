@@ -155,6 +155,7 @@
      <Compile Include="Assets\Scripts\TitleScene\AnyKeyToStart.cs" />
      <Compile Include="Assets\Scripts\TitleScene\CloudSpawner.cs" />
      <Compile Include="Assets\Scripts\TitleScene\Title2Stages.cs" />
+     <Compile Include="Assets\Scripts\Utils\ShaderProperties.cs" />
      <Compile Include="Assets\Scripts\Utils\SimpleAnim.cs" />
      <Compile Include="Assets\Scripts\Warp\WarpController.cs" />
      <Compile Include="Assets\Scripts\Warp\WarpEvent.cs" />
@@ -164,6 +165,7 @@
      <None Include="Assets\Materials\PostEffects\Vignette.shader" />
      <None Include="Assets\Materials\MapObjs\EdgeLight.shader" />
      <None Include="Assets\Materials\FogBlur.shader" />
+     <None Include="Assets\Materials\LogoDissolve.shader" />
      <None Include="Assets\Materials\Blur.shader" />
      <None Include="Assets\Materials\Hero.shader" />
      <None Include="Assets\Materials\MapObjs\Idouyuka.shader" />

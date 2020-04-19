@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class CloudSpawner : MonoBehaviour
 {
     public enum State{
-        Active, Wind, Inactive
+        In, Active, Wind, Inactive
     }
 
-    public State state = State.Active;
+    public State state = State.In;
 
     public List<GameObject> clouds2Spawn = new List<GameObject>();
     private List<GameObject> cloudsExisting = new List<GameObject>();
@@ -33,11 +34,38 @@ public class CloudSpawner : MonoBehaviour
             Vector3 position2Spawn = new Vector3(random.Next(-600,600),random.Next(-400,400),random.Next(-3,0));
             cloudsExisting.Add(Instantiate(clouds2Spawn[idx2Spawn],position2Spawn,Quaternion.identity));
         }
+
+        Material titleMat = title.GetComponent<SpriteRenderer>().material;
+
+        const float duration = 1f;
+
+        DOVirtual.DelayedCall(0.5f, () => {
+    
+            ShaderPropertyFloat dissolveThreshold0 = new ShaderPropertyFloat(titleMat, "_DissolveThreshold0");
+            ShaderPropertyFloat dissolveThreshold1 = new ShaderPropertyFloat(titleMat, "_DissolveThreshold1");
+            DOTween.To(dissolveThreshold0.GetVal, dissolveThreshold0.SetVal, -0.2f, duration);
+            DOTween.To(dissolveThreshold1.GetVal, dissolveThreshold1.SetVal, 0, duration);
+    
+            ShaderPropertyFloat gradThreshold0 = new ShaderPropertyFloat(titleMat, "_GradationThreshold0");
+            ShaderPropertyFloat gradThreshold1 = new ShaderPropertyFloat(titleMat, "_GradationThreshold1");
+            DOTween.To(gradThreshold0.GetVal, gradThreshold0.SetVal, -0.2f, duration).SetEase(Ease.OutQuint);
+            DOTween.To(gradThreshold1.GetVal, gradThreshold1.SetVal, 0, duration).SetEase(Ease.OutQuint);
+        });
+
+        DOVirtual.DelayedCall(0.5f + duration + 0.35f, () => {
+            ShaderPropertyFloat black2spriteCol = new ShaderPropertyFloat(titleMat, "_Black2SpriteCol");
+            DOTween.To(black2spriteCol.GetVal, black2spriteCol.SetVal, 1, 1f).SetEase(Ease.OutQuint)
+                .onComplete = () => state = State.Active;
+        });
+
+        DOVirtual.DelayedCall(0.5f + duration + 1, () => {
+            AnyKey2Start.GetComponent<SpriteRenderer>().DOFade(1, 0.35f).SetEase(Ease.OutQuint);
+        });
     }
 
     void Update()
     {
-        if(state==State.Active){
+        if(state==State.In || state==State.Active){
             //追加
             countWhileActive ++;
             if(countWhileActive==count2Spawn){
@@ -76,3 +104,4 @@ public class CloudSpawner : MonoBehaviour
         }
     }
 }
+
