@@ -155,6 +155,7 @@
      <Compile Include="Assets\Scripts\TitleScene\AnyKeyToStart.cs" />
      <Compile Include="Assets\Scripts\TitleScene\CloudSpawner.cs" />
      <Compile Include="Assets\Scripts\TitleScene\Title2Stages.cs" />
+     <Compile Include="Assets\Scripts\Utils\ShaderProperties.cs" />
      <Compile Include="Assets\Scripts\Utils\SimpleAnim.cs" />
      <Compile Include="Assets\Scripts\Warp\WarpController.cs" />
      <Compile Include="Assets\Scripts\Warp\WarpEvent.cs" />
@@ -164,12 +165,14 @@
      <None Include="Assets\Materials\PostEffects\Vignette.shader" />
      <None Include="Assets\Materials\MapObjs\EdgeLight.shader" />
      <None Include="Assets\Materials\FogBlur.shader" />
+     <None Include="Assets\Materials\LogoDissolve.shader" />
      <None Include="Assets\Materials\Blur.shader" />
      <None Include="Assets\Materials\Hero.shader" />
      <None Include="Assets\Materials\MapObjs\Idouyuka.shader" />
      <None Include="Assets\Materials\PostEffects\BlurEdge2.shader" />
      <None Include="Assets\Materials\Light.shader" />
      <None Include="Assets\Materials\PostEffects\BlurEdge1.shader" />
+     <None Include="Assets\Materials\Glitch.shader" />
      <None Include="Assets\Materials\TimeText.shader" />
      <None Include="Assets\Demigiant\DOTween\readme.txt" />
      <None Include="Assets\Materials\PostEffects\Noise.shader" />
@@ -180,19 +183,19 @@
      <None Include="Assets\Materials\PostEffects\Aberration.shader" />
      <None Include="Assets\Materials\DPOverlay.shader" />
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>C:/Users/inonoa/Documents/ino_game/tekiyoke2 - コピー/tekiyoke2/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.CollabProxy.Editor">
- <HintPath>C:/Users/inonoa/Documents/ino_game/tekiyoke2 - コピー/tekiyoke2/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.TextMeshPro">
- <HintPath>C:/Users/inonoa/Documents/ino_game/tekiyoke2 - コピー/tekiyoke2/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Analytics.DataPrivacy">
- <HintPath>C:/Users/inonoa/Documents/ino_game/tekiyoke2 - コピー/tekiyoke2/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+ <HintPath>C:/Users/inonoa/Documents/ino_game/tekiyoke2/tekiyoke2/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.PackageManagerUI.Editor">
- <HintPath>C:/Users/inonoa/Documents/ino_game/tekiyoke2 - コピー/tekiyoke2/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+ <HintPath>C:/Users/inonoa/Documents/ino_game/tekiyoke2/tekiyoke2/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.CollabProxy.Editor">
+ <HintPath>C:/Users/inonoa/Documents/ino_game/tekiyoke2/tekiyoke2/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.TextMeshPro">
+ <HintPath>C:/Users/inonoa/Documents/ino_game/tekiyoke2/tekiyoke2/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Analytics.DataPrivacy">
+ <HintPath>C:/Users/inonoa/Documents/ino_game/tekiyoke2/tekiyoke2/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2018.3.12f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -396,22 +399,22 @@
  <HintPath>C:/Program Files/Unity/Hub/Editor/2018.3.12f1/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
  </Reference>
  <Reference Include="DemiLib">
- <HintPath>C:/Users/inonoa/Documents/ino_game/tekiyoke2 - コピー/tekiyoke2/Assets/Demigiant/DemiLib/Core/DemiLib.dll</HintPath>
+ <HintPath>C:/Users/inonoa/Documents/ino_game/tekiyoke2/tekiyoke2/Assets/Demigiant/DemiLib/Core/DemiLib.dll</HintPath>
  </Reference>
  <Reference Include="DOTween">
- <HintPath>C:/Users/inonoa/Documents/ino_game/tekiyoke2 - コピー/tekiyoke2/Assets/Demigiant/DOTween/DOTween.dll</HintPath>
+ <HintPath>C:/Users/inonoa/Documents/ino_game/tekiyoke2/tekiyoke2/Assets/Demigiant/DOTween/DOTween.dll</HintPath>
  </Reference>
  <Reference Include="DOTweenPro">
- <HintPath>C:/Users/inonoa/Documents/ino_game/tekiyoke2 - コピー/tekiyoke2/Assets/Demigiant/DOTweenPro/DOTweenPro.dll</HintPath>
+ <HintPath>C:/Users/inonoa/Documents/ino_game/tekiyoke2/tekiyoke2/Assets/Demigiant/DOTweenPro/DOTweenPro.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.Editor">
- <HintPath>C:/Users/inonoa/Documents/ino_game/tekiyoke2 - コピー/tekiyoke2/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
+ <HintPath>C:/Users/inonoa/Documents/ino_game/tekiyoke2/tekiyoke2/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.StandardEvents">
- <HintPath>C:/Users/inonoa/Documents/ino_game/tekiyoke2 - コピー/tekiyoke2/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
+ <HintPath>C:/Users/inonoa/Documents/ino_game/tekiyoke2/tekiyoke2/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.Tracker">
- <HintPath>C:/Users/inonoa/Documents/ino_game/tekiyoke2 - コピー/tekiyoke2/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
+ <HintPath>C:/Users/inonoa/Documents/ino_game/tekiyoke2/tekiyoke2/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
  </Reference>
  <Reference Include="netstandard">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2018.3.12f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>

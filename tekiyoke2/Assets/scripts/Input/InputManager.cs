@@ -58,8 +58,12 @@ public class InputManager : MonoBehaviour, IAskedInput
     ///<summary>何らかのButtonに登録されているキーが押されたFにtrue</summary>
     public bool AnyButtonDown(){
 
-        foreach(ButtonCode b in Enum.GetValues(typeof(ButtonCode)))
-            if(GetButtonDown(b)) return true;
+        foreach(KeyCode kc in Enum.GetValues(typeof(KeyCode))){
+            if(Input.GetKeyDown(kc)){
+                if(kc.ToString().Contains("Mouse")) continue;
+                return true;
+            }
+        }
         return false;
     }
 
