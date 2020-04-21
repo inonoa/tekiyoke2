@@ -71,17 +71,18 @@ public class StageSelector : MonoBehaviour
         switch(state){
             case State.Entering:
                 //手作業での位置調整で厳しい(不透明度を徐々に上げていきある程度上がったら次フェイズへ)
+                const float targetAlpha = 0.7f;
                 for(int i=0;i<stages.Length;i++){
-                    stRenderer[i].color += new Color(0,0,0,0.06f);
+                    stRenderer[i].color += new Color(0,0,0,targetAlpha * 0.1f);
                     stages[i].transform.position -= new Vector3((float)System.Math.Sqrt(stages[i].transform.position.x),0,0);
                 }
                 dsRenderer.color += new Color(0,0,0,0.1f);
 
-                if(stRenderer[0].color.a>=0.6f){
+                if(stRenderer[0].color.a >= targetAlpha){
                     state = State.WakuAppearing;
     
                     for(int i=0;i<stages.Length;i++){
-                        stRenderer[i].color = new Color(stRenderer[i].color.r,stRenderer[i].color.g,stRenderer[i].color.b,0.6f);
+                        stRenderer[i].color = new Color(stRenderer[i].color.r,stRenderer[i].color.g,stRenderer[i].color.b,targetAlpha);
                         stages[i].transform.position = new Vector3(0,stages[i].transform.position.y,stages[i].transform.position.z);
                     }
                 }

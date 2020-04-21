@@ -48,8 +48,8 @@ public class CloudSpawner : MonoBehaviour
     
             ShaderPropertyFloat gradThreshold0 = new ShaderPropertyFloat(titleMat, "_GradationThreshold0");
             ShaderPropertyFloat gradThreshold1 = new ShaderPropertyFloat(titleMat, "_GradationThreshold1");
-            DOTween.To(gradThreshold0.GetVal, gradThreshold0.SetVal, -0.2f, duration).SetEase(Ease.OutQuint);
-            DOTween.To(gradThreshold1.GetVal, gradThreshold1.SetVal, 0, duration).SetEase(Ease.OutQuint);
+            DOTween.To(gradThreshold0.GetVal, gradThreshold0.SetVal, -0.4f, duration);
+            DOTween.To(gradThreshold1.GetVal, gradThreshold1.SetVal, 0, duration);
         });
 
         DOVirtual.DelayedCall(0.5f + duration + 0.35f, () => {
