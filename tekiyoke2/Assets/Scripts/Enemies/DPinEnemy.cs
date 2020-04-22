@@ -40,7 +40,7 @@ public class DPinEnemy : MonoBehaviour
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        light = new ShaderPropertyFloat(spriteRenderer.material, "_Light");
+        light = new ShaderPropertyFloat(spriteRenderer.material, "_Volume");
 
         DOVirtual.DelayedCall(10f, Light);
         DOVirtual.DelayedCall(15f, FadeOut);

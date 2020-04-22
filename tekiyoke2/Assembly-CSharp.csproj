@@ -179,6 +179,7 @@
      <None Include="Assets\Materials\PostEffects\Noise.shader" />
      <None Include="Assets\Materials\RespawnPosition.shader" />
      <None Include="Assets\Demigiant\DemiLib\Core\DemiLib.xml" />
+     <None Include="Assets\Materials\DPinEnemy.shader" />
      <None Include="Assets\Materials\DefaultShader.shader" />
      <None Include="Assets\Demigiant\readme_DOTweenPro.txt" />
      <None Include="Assets\Materials\PostEffects\Aberration.shader" />
