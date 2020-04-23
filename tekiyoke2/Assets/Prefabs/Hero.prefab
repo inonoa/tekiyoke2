@@ -397,6 +397,7 @@ MonoBehaviour:
   groundChecker: {fileID: 3106219250714267053}
   wallCheckerL: {fileID: 3106219248715147193}
   wallCheckerR: {fileID: 3106219249542638149}
+  getDPinEnemy: {fileID: 6866835775026479289}
   spriteRenderer: {fileID: 0}
   anim: {fileID: 0}
   rigidbody: {fileID: 0}

@@ -146,6 +146,8 @@ public class HeroMover : MonoBehaviour
     SavePositionManager savePositionManager;
     IAskedInput input;
 
+    [SerializeField] GetDPinEnemy getDPinEnemy;
+
 
     [HideInInspector] public SpriteRenderer spriteRenderer;
     [HideInInspector] public Animator anim;
@@ -250,6 +252,7 @@ public class HeroMover : MonoBehaviour
 
         hpcntr.die     += ReceiveDeath;
         hpcntr.damaged += BendBack;
+        getDPinEnemy.gotDP += (dp, e) => DPManager.Instance.AddDP((float)dp);
     }
 
     ///<summary>SetActive(false)するとアニメーションの状態がリセットされるようなのでとりあえず主人公はステートだけ反映しなおす</summary>

@@ -18,7 +18,9 @@ public class NearToEnemyChecker : MonoBehaviour
     void Update()
     {
         if(nearEnemy){
-            if(DPCount==0) DPManager.Instance.AddDP(1);
+            if(DPCount==0){
+                //DPManager.Instance.AddDP(1);
+            }
             DPCount ++;
             DPCount %= DPInterval;
         }else{
