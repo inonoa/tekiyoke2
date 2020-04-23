@@ -21,7 +21,9 @@ public class DPinEnemy : MonoBehaviour
     }
 
     public void Light(){
-        if(IsActive) StartCoroutine(LightCoroutine());
+        if(IsActive){
+            StartCoroutine(LightCoroutine());
+        }
     }
 
     IEnumerator LightCoroutine(){
@@ -33,7 +35,7 @@ public class DPinEnemy : MonoBehaviour
     }
 
     public void FadeOut(){
-        if(IsActive) spriteRenderer.DOFade(0, fadeoutDuration);
+        spriteRenderer.DOFade(0, fadeoutDuration);
     }
 
 
@@ -41,9 +43,6 @@ public class DPinEnemy : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         light = new ShaderPropertyFloat(spriteRenderer.material, "_Volume");
-
-        DOVirtual.DelayedCall(10f, Light);
-        DOVirtual.DelayedCall(15f, FadeOut);
     }
 
 
