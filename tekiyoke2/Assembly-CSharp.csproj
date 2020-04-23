@@ -79,6 +79,7 @@
      <Compile Include="Assets\Scripts\Hero\BaneResidue.cs" />
      <Compile Include="Assets\Scripts\Hero\Chishibuki.cs" />
      <Compile Include="Assets\Scripts\Hero\DPManager.cs" />
+     <Compile Include="Assets\Scripts\Hero\GetDPinEnemy.cs" />
      <Compile Include="Assets\Scripts\Hero\HeroCollider2Enemy.cs" />
      <Compile Include="Assets\Scripts\Hero\HeroDefiner.cs" />
      <Compile Include="Assets\Scripts\Hero\HeroEventArgs.cs" />
