@@ -50,7 +50,7 @@
                 fixed4 col = tex2D(_MainTex, input.uv);
                 col.r = col.r / 2;
                 col.g = col.g * col.g * 2 - col.r;
-                col.b = col.b * col.b * 2 - col.r;
+                col.b = col.b * col.b * 1.7 - col.r;
 
 
                 return col;

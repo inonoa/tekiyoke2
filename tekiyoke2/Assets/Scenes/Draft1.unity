@@ -127830,6 +127830,11 @@ PrefabInstance:
       propertyPath: dialogImg
       value: 
       objectReference: {fileID: 2072922539}
+    - target: {fileID: 6866835775026479289, guid: 54534ce791a58cf43a9e47340b5f951e,
+        type: 3}
+      propertyPath: freezeFrames
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 6473240483101330362, guid: 54534ce791a58cf43a9e47340b5f951e,
         type: 3}
       propertyPath: m_IsActive
@@ -135889,6 +135894,11 @@ PrefabInstance:
     - target: {fileID: 1472872603020283857, guid: 95d3e8075a941f348803e6df2c824c6d,
         type: 3}
       propertyPath: appliesMat.Array.data[4]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1472872603020283857, guid: 95d3e8075a941f348803e6df2c824c6d,
+        type: 3}
+      propertyPath: effects.Array.data[5].isActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3423410219917244377, guid: 95d3e8075a941f348803e6df2c824c6d,
