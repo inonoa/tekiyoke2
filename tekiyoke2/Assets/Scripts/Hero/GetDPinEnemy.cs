@@ -11,7 +11,7 @@ public class GetDPinEnemy : MonoBehaviour
     [SerializeField] int freezeFrames = 7;
 
     HeroMover hero;
-    BoxCollider2D col;
+    PolygonCollider2D col;
 
     ///<summary>敵のソウル的なのからDPを奪う、光ってからフェードアウトする</summary>
     void OnTriggerEnter2D(Collider2D other){
@@ -46,15 +46,20 @@ public class GetDPinEnemy : MonoBehaviour
 
     void Start(){
         hero = GetComponentInParent<HeroMover>();
-        col = GetComponent<BoxCollider2D>();
+        col = GetComponent<PolygonCollider2D>();
     }
 
-    void Update(){
-        Vector2 lastPos = HeroDefiner.CurrentHeroPos;
-        Vector2 currentPos = HeroDefiner.CurrentHeroExpectedPos;
+    void FixedUpdate(){
+        Vector2 lastPos = HeroDefiner.CurrentHeroPastPos[1];
+        Vector2 currentPos = HeroDefiner.CurrentHeroPastPos[0];
         Vector2 posDist = currentPos - lastPos;
 
-        col.offset = -new Vector2(posDist.x / 2, 0);
-        col.size = new Vector2(Mathf.Abs(posDist.x), 30);
+        Vector2[] colPoints = new Vector2[4]{
+            new Vector2(0,25),
+            new Vector2(0,-25),
+            new Vector2(0,-25) - posDist,
+            new Vector2(0,25) - posDist
+        };
+        col.SetPath(0, colPoints);
     }
 }

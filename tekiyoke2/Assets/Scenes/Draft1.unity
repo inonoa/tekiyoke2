@@ -127835,6 +127835,11 @@ PrefabInstance:
       propertyPath: freezeFrames
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 5533205109090503487, guid: 54534ce791a58cf43a9e47340b5f951e,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54534ce791a58cf43a9e47340b5f951e, type: 3}
 --- !u!4 &435040675 stripped
