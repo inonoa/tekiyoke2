@@ -20,22 +20,28 @@ public class GetDPinEnemy : MonoBehaviour
             var dPinEnemy = other.GetComponentInParent<EnemyController>().DPCD;
             if(dPinEnemy.IsActive){
                 dPinEnemy.Light();
-                StartCoroutine(FreezeAndMelt());
-                DOVirtual.DelayedCall(1f,() => dPinEnemy.FadeOut());
+                StartCoroutine(FreezeAndMelt(dPinEnemy));
                 float dp = dPinEnemy.CollectDP();
                 gotDP?.Invoke(dp, EventArgs.Empty);
             }
         }
     }
 
-    IEnumerator FreezeAndMelt(){
+    IEnumerator FreezeAndMelt(DPinEnemy die){
         yield return null;
 
         Tokitome.SetTime(0);
+        var colReversed = CameraController.CurrentCamera.AfterEffects.Find("ColorReversed");
+        var noise = CameraController.CurrentCamera.AfterEffects.Find("Noise");
+        colReversed.isActive = true;
+        noise.isActive = false;
         for(int i=0; i<freezeFrames-1; i++){
             yield return null;
         }
         Tokitome.SetTime(1);
+        colReversed.isActive = false;
+        noise.isActive = true;
+        die.FadeOut();
     }
 
     void Start(){

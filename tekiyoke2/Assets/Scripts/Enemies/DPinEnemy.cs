@@ -8,7 +8,7 @@ public class DPinEnemy : MonoBehaviour
     public bool IsActive{ get; private set; } = true;
     [SerializeField] float dp = 1;
     [SerializeField] float rotateSpeed = 1;
-    readonly float lightDurationFrames = 6;
+    readonly float lightDurationFrames = 1;
     readonly float fadeoutDuration = 0.5f;
 
     SpriteRenderer spriteRenderer;

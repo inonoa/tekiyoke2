@@ -127830,6 +127830,11 @@ PrefabInstance:
       propertyPath: dialogImg
       value: 
       objectReference: {fileID: 2072922539}
+    - target: {fileID: 6866835775026479289, guid: 54534ce791a58cf43a9e47340b5f951e,
+        type: 3}
+      propertyPath: freezeFrames
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54534ce791a58cf43a9e47340b5f951e, type: 3}
 --- !u!4 &435040675 stripped
@@ -135861,21 +135866,6 @@ PrefabInstance:
       propertyPath: canvas
       value: 
       objectReference: {fileID: 903752015}
-    - target: {fileID: 6478240744771120916, guid: 95d3e8075a941f348803e6df2c824c6d,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6478240744771120906, guid: 95d3e8075a941f348803e6df2c824c6d,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1472872603020283857, guid: 95d3e8075a941f348803e6df2c824c6d,
-        type: 3}
-      propertyPath: effects.Array.size
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 1472872603020283857, guid: 95d3e8075a941f348803e6df2c824c6d,
         type: 3}
       propertyPath: appliesMat.Array.data[0]
@@ -135901,15 +135891,15 @@ PrefabInstance:
       propertyPath: appliesMat.Array.data[4]
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1472872603020283857, guid: 95d3e8075a941f348803e6df2c824c6d,
-        type: 3}
-      propertyPath: effects.Array.data[0].isActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3423410219917244377, guid: 95d3e8075a941f348803e6df2c824c6d,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6478240744771120916, guid: 95d3e8075a941f348803e6df2c824c6d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 3423410219917244376, guid: 95d3e8075a941f348803e6df2c824c6d,
         type: 3}
@@ -135930,6 +135920,11 @@ PrefabInstance:
         type: 3}
       propertyPath: zure.z
       value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 6478240744771120906, guid: 95d3e8075a941f348803e6df2c824c6d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95d3e8075a941f348803e6df2c824c6d, type: 3}

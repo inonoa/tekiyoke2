@@ -2394,21 +2394,6 @@ PrefabInstance:
       propertyPath: canvas
       value: 
       objectReference: {fileID: 1293708703}
-    - target: {fileID: 1472872603020283857, guid: 95d3e8075a941f348803e6df2c824c6d,
-        type: 3}
-      propertyPath: effects.Array.data[0].isActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1472872603020283857, guid: 95d3e8075a941f348803e6df2c824c6d,
-        type: 3}
-      propertyPath: effects.Array.data[0].defaultVolume
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1472872603020283857, guid: 95d3e8075a941f348803e6df2c824c6d,
-        type: 3}
-      propertyPath: effects.Array.data[1].isActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95d3e8075a941f348803e6df2c824c6d, type: 3}
 --- !u!1001 &6737016868259894809
@@ -2498,6 +2483,11 @@ PrefabInstance:
       propertyPath: cmrCntr
       value: 
       objectReference: {fileID: 8531278768275885902}
+    - target: {fileID: 6866835775026479289, guid: 54534ce791a58cf43a9e47340b5f951e,
+        type: 3}
+      propertyPath: freezeFrames
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54534ce791a58cf43a9e47340b5f951e, type: 3}
 --- !u!1001 &7340302858367928122
