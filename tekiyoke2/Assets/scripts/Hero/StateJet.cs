@@ -12,6 +12,7 @@ public class StateJet : IHeroState
     GameObject jetStream;
     BoxCollider2D jsCol;
     Transform trailTF;
+    Collider2D col2DP;
 
     JetCloudManager clouds;
     PostEffectWrapper vignette;
@@ -59,6 +60,9 @@ public class StateJet : IHeroState
             jetStream = GameObject.Instantiate(hero.objsHolderForStates.jetstreamPrefab, DraftManager.CurrentInstance.GameMasterTF);
             jetStream.transform.position = hero.transform.position;
             jsCol = jetStream.GetComponent<BoxCollider2D>();
+
+            col2DP = hero.GetDPinEnemy.GetComponent<Collider2D>();
+            col2DP.enabled = true;
 
             //風エフェクト
             trailTF = GameObject.Instantiate(hero.objsHolderForStates.jetTrail, DraftManager.CurrentInstance.GameMasterTF).transform;
@@ -217,6 +221,7 @@ public class StateJet : IHeroState
         //hero.spriteRenderer.color = new Color(1,1,1,1);
         hero.cmrCntr.EndDash();
         GameObject.Destroy(jetStream);
+        if(col2DP!=null) col2DP.enabled = false;
         clouds.EndClouds();
         foreach(PostEffectWrapper pe in new PostEffectWrapper[]{vignette, blurT, blurY}){
             pe.isActive = false;

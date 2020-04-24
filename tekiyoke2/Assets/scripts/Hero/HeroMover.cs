@@ -147,6 +147,7 @@ public class HeroMover : MonoBehaviour
     IAskedInput input;
 
     [SerializeField] GetDPinEnemy getDPinEnemy;
+    public GetDPinEnemy GetDPinEnemy => getDPinEnemy;
 
 
     [HideInInspector] public SpriteRenderer spriteRenderer;
@@ -252,7 +253,10 @@ public class HeroMover : MonoBehaviour
 
         hpcntr.die     += ReceiveDeath;
         hpcntr.damaged += BendBack;
-        getDPinEnemy.gotDP += (dp, e) => DPManager.Instance.AddDP((float)dp);
+        getDPinEnemy.gotDP += (dp, e) => {
+            DPManager.Instance.AddDP((float)dp);
+            DPManager.Instance.LightGaugePulse();
+        };
     }
 
     ///<summary>SetActive(false)するとアニメーションの状態がリセットされるようなのでとりあえず主人公はステートだけ反映しなおす</summary>

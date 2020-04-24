@@ -127830,14 +127830,9 @@ PrefabInstance:
       propertyPath: dialogImg
       value: 
       objectReference: {fileID: 2072922539}
-    - target: {fileID: 6866835775026479289, guid: 54534ce791a58cf43a9e47340b5f951e,
+    - target: {fileID: 6473240483101330362, guid: 54534ce791a58cf43a9e47340b5f951e,
         type: 3}
-      propertyPath: freezeFrames
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 5533205109090503487, guid: 54534ce791a58cf43a9e47340b5f951e,
-        type: 3}
-      propertyPath: m_IsTrigger
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

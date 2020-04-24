@@ -28,7 +28,7 @@ public class GetDPinEnemy : MonoBehaviour
     }
 
     IEnumerator FreezeAndMelt(DPinEnemy die){
-        yield return null;
+        yield return new WaitForSecondsRealtime(0.05f);
 
         Tokitome.SetTime(0);
         var colReversed = CameraController.CurrentCamera.AfterEffects.Find("ColorReversed");

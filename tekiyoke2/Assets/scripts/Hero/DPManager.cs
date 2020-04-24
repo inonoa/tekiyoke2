@@ -81,6 +81,10 @@ public class DPManager : MonoBehaviour
         }
     }
 
+    public void LightGaugePulse(){
+        material.SetFloat("_Light", 1);
+    }
+
     void UnlightGauge(){
         if(lightSeq!=null && lightSeq.IsActive() && lightSeq.IsPlaying()) lightSeq.Pause();
 

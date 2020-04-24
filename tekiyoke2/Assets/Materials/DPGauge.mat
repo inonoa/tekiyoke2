@@ -30,6 +30,6 @@ Material:
     - _MainAlpha: 0.8
     - _OverlayAlpha: 0.4
     - _OverlayColorOffset: 0.45
-    - _WidthNormalized: 0.05
+    - _WidthNormalized: 0.44
     m_Colors:
     - _LightColor: {r: 0, g: 0.7924528, b: 0.768437, a: 0}
