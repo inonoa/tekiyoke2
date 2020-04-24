@@ -82,7 +82,7 @@ MonoBehaviour:
   - {fileID: 21300026, guid: 1a76780c0a471e84a92e28e449653c9c, type: 3}
   - {fileID: 21300028, guid: 1a76780c0a471e84a92e28e449653c9c, type: 3}
   - {fileID: 21300030, guid: 1a76780c0a471e84a92e28e449653c9c, type: 3}
-  watchRadius: 300
+  watchRadius: 500
   digit2digit: 25
 --- !u!1 &685972739436665957
 GameObject:
@@ -771,10 +771,10 @@ Canvas:
   m_GameObject: {fileID: 2783582464668264381}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
-  m_PixelPerfect: 1
+  m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0

@@ -168,7 +168,7 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
-  shaderSpriteRenderer: {fileID: 0}
+  shaderSpriteRenderer: {fileID: 4107557728690301892}
 --- !u!1 &8559951623883670294
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,6 +5,9 @@ using System;
 
 public class EnemyController : MonoBehaviour
 {
+    [SerializeField] DPinEnemy dpcd;
+    public DPinEnemy DPCD => dpcd;
+
     protected Rigidbody2D rBody;
 
     [SerializeField]

@@ -618,6 +618,10 @@ MonoBehaviour:
     material: {fileID: 2100000, guid: e779650aa70293d41aa0c21b8bfafb57, type: 2}
     volumePropertyName: _GapMax
     defaultVolume: 0.01
+  - isActive: 0
+    material: {fileID: 2100000, guid: 5b837e0c584052949ae5c8737f31ce42, type: 2}
+    volumePropertyName: "\u305D\u3093\u306A\u3082\u306E\u306F\u306A\u3044"
+    defaultVolume: 0
   matThatDoesNothing: {fileID: 2100000, guid: 0e00109b90ba7484b82247c4fd8753d6, type: 2}
 --- !u!1 &3423410219917244378
 GameObject:

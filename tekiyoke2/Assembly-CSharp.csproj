@@ -66,6 +66,7 @@
      <Compile Include="Assets\Demigiant\DOTweenPro\DOTweenTk2d.cs" />
      <Compile Include="Assets\Scripts\Enemies\Collider2Wall.cs" />
      <Compile Include="Assets\Scripts\Enemies\DontWannaFall.cs" />
+     <Compile Include="Assets\Scripts\Enemies\DPinEnemy.cs" />
      <Compile Include="Assets\Scripts\Enemies\EnemyController.cs" />
      <Compile Include="Assets\Scripts\Enemies\EnemySpawner.cs" />
      <Compile Include="Assets\Scripts\Enemies\GierController.cs" />
@@ -78,6 +79,7 @@
      <Compile Include="Assets\Scripts\Hero\BaneResidue.cs" />
      <Compile Include="Assets\Scripts\Hero\Chishibuki.cs" />
      <Compile Include="Assets\Scripts\Hero\DPManager.cs" />
+     <Compile Include="Assets\Scripts\Hero\GetDPinEnemy.cs" />
      <Compile Include="Assets\Scripts\Hero\HeroCollider2Enemy.cs" />
      <Compile Include="Assets\Scripts\Hero\HeroDefiner.cs" />
      <Compile Include="Assets\Scripts\Hero\HeroEventArgs.cs" />
@@ -172,12 +174,14 @@
      <None Include="Assets\Materials\PostEffects\BlurEdge2.shader" />
      <None Include="Assets\Materials\Light.shader" />
      <None Include="Assets\Materials\PostEffects\BlurEdge1.shader" />
+     <None Include="Assets\Materials\PostEffects\ColorReversed.shader" />
      <None Include="Assets\Materials\Glitch.shader" />
      <None Include="Assets\Materials\TimeText.shader" />
      <None Include="Assets\Demigiant\DOTween\readme.txt" />
      <None Include="Assets\Materials\PostEffects\Noise.shader" />
      <None Include="Assets\Materials\RespawnPosition.shader" />
      <None Include="Assets\Demigiant\DemiLib\Core\DemiLib.xml" />
+     <None Include="Assets\Materials\DPinEnemy.shader" />
      <None Include="Assets\Materials\DefaultShader.shader" />
      <None Include="Assets\Demigiant\readme_DOTweenPro.txt" />
      <None Include="Assets\Materials\PostEffects\Aberration.shader" />

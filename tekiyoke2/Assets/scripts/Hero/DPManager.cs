@@ -9,7 +9,7 @@ public class DPManager : MonoBehaviour
 {
     public static DPManager Instance{ get; private set; }
 
-    public int DP{ get; private set; } = 0;
+    public float DP{ get; private set; } = 0;
     static readonly int maxDP = 100;
 
 
@@ -25,14 +25,14 @@ public class DPManager : MonoBehaviour
     Sequence lightSeq;
     Sequence unlightSeq;
 
-    public void AddDP(int delta){
+    public void AddDP(float delta){
         if(delta > 0){
             DP = Math.Min(maxDP, DP + delta);
         }
         else print("負のDPは得られません");
     }
 
-    public bool UseDP(int dp2Use){
+    public bool UseDP(float dp2Use){
         if(DP >= dp2Use){
             DP -= dp2Use;
             return true;
@@ -79,6 +79,10 @@ public class DPManager : MonoBehaviour
                                        1, 0.2f))
                                        .SetEase(Ease.InOutSine);
         }
+    }
+
+    public void LightGaugePulse(){
+        material.SetFloat("_Light", 1);
     }
 
     void UnlightGauge(){
