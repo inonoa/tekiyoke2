@@ -140,6 +140,7 @@
      <Compile Include="Assets\Scripts\Pause\Pauser.cs" />
      <Compile Include="Assets\Scripts\Pause\PauseUIMover.cs" />
      <Compile Include="Assets\Scripts\ResultScene\CursorMove.cs" />
+     <Compile Include="Assets\Scripts\ResultScene\NumberSpritesHolder.cs" />
      <Compile Include="Assets\Scripts\ResultScene\PressZToReturn.cs" />
      <Compile Include="Assets\Scripts\ResultScene\ScoresToText.cs" />
      <Compile Include="Assets\Scripts\ResultScene\SlideFadeIn.cs" />
