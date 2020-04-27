@@ -132,7 +132,7 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0, g: 1, b: 0.8431506, a: 1}
+      key0: {r: 0.27033645, g: 0.764151, b: 0.68668985, a: 1}
       key1: {r: 0, g: 1, b: 0.8367977, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
@@ -315,7 +315,7 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0, g: 1, b: 0.8431506, a: 1}
+      key0: {r: 0.27033645, g: 0.764151, b: 0.68668985, a: 1}
       key1: {r: 0, g: 1, b: 0.8367977, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
@@ -581,7 +581,7 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0, g: 1, b: 0.8431506, a: 1}
+      key0: {r: 0.27033645, g: 0.764151, b: 0.68668985, a: 1}
       key1: {r: 0, g: 1, b: 0.8367977, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
@@ -790,7 +790,7 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0, g: 1, b: 0.8431506, a: 1}
+      key0: {r: 0.27033645, g: 0.764151, b: 0.68668985, a: 1}
       key1: {r: 0, g: 1, b: 0.8367977, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}

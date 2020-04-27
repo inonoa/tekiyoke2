@@ -4,9 +4,21 @@ using UnityEngine;
 
 public class ScoreHolder
 {
-    int numStages = 3;
+    readonly int numStages = 3;
     public float[] clearTimesLast;
     public float[] clearTimesBestExceptLast;
+
+    public bool BestTimeExists(int index){
+        return (index!=-1) ? (clearTimesBestExceptLast[index] >= 0) : false;
+    }
+
+    public void ApplyLastTime2Best(){
+        for(int i=0;i<numStages;i++){
+            if(clearTimesBestExceptLast[i] < 0 || clearTimesLast[i] < clearTimesBestExceptLast[i]){
+                clearTimesBestExceptLast[i] = clearTimesLast[i];
+            }
+        }
+    }
 
 
     #region Singleton
@@ -22,6 +34,10 @@ public class ScoreHolder
     private ScoreHolder(){
         clearTimesLast = new float[numStages];
         clearTimesBestExceptLast = new float[numStages];
+        for(int i=0;i<numStages;i++){
+            clearTimesLast[i] = -1;
+            clearTimesBestExceptLast[i] = -1;
+        }
     }
 
     #endregion

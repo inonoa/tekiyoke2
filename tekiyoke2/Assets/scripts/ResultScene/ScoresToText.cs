@@ -5,19 +5,44 @@ using UnityEngine.UI;
 
 public class ScoresToText : MonoBehaviour
 {
-    [SerializeField] Text timeTxt;
-
+    [SerializeField] Image[] timeImages;
+    [SerializeField] Image[] bestTimeImages;
     void Start()
     {
-        int stgIdx = SceneTransition.LastStageIndex();
-        float time;
-        if(stgIdx==-1) time = 69.86f;
-        else           time = ScoreHolder.Instance.clearTimesLast[stgIdx];
+        var scores = ScoreHolder.Instance;
 
-        int minutes = ((int) time) / 60;
-        int seconds = ((int) time) % 60;
-        int comma__ = (int) ((time - (int) time) * 100);
-        timeTxt.text = "time: " + minutes.ToString("00") + ":" + seconds.ToString("00") + ":" + comma__.ToString("00");
+        int lastDraft = SceneTransition.LastStageIndex();
+
+        float timeLast = (lastDraft!=-1 ? scores.clearTimesLast[lastDraft] : 55 * 60 + 55.55f);
+        int[] timeDigitsLast = TimeFloat2Ints(timeLast);
+
+        float timeBest = (scores.BestTimeExists(lastDraft) ? scores.clearTimesBestExceptLast[lastDraft] : 11 * 60 + 11.111f);
+        int[] timeDigitsBest = TimeFloat2Ints(timeBest);
+
+        for(int i=0;i<6;i++){
+            timeImages[i].sprite = NumberSpritesHolder.Instance.NumberSprites[timeDigitsLast[i]];
+            bestTimeImages[i].sprite = NumberSpritesHolder.Instance.NumberSprites[timeDigitsBest[i]];
+        }
+
+        scores.ApplyLastTime2Best();
+    }
+
+    int[] TimeFloat2Ints(float timeSecs){
+        int[] digits = new int[6];
+
+        int csc = (int)((timeSecs - (int)timeSecs) * 100);
+        digits[4] = csc / 10;
+        digits[5] = csc % 10;
+
+        int sec = ((int)timeSecs)%60;
+        digits[2] = sec / 10;
+        digits[3] = sec % 10;
+
+        int min = ((int)timeSecs) / 60 % 100;
+        digits[0] = min / 10;
+        digits[1] = min % 10;
+
+        return digits;
     }
 
 }
