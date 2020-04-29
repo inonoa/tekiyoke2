@@ -124,6 +124,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d3362a6873280643925d790102454f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gazo: {fileID: 4346075600049819222}
+  wavePeriod: 2
+  waveWidth: 10
 --- !u!61 &4346075600696523893
 BoxCollider2D:
   m_ObjectHideFlags: 0
