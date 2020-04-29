@@ -115,7 +115,7 @@ public class HpCntr : MonoBehaviour
 
         if(framesAfterRecover < framesAfterDamage){
 
-            if (framesAfterRecover == 20){
+            if (framesAfterRecover == 40){
                 if(HP==2)      spr.sprite = img2;
                 else if(HP==3) spr.sprite = img3;
 
