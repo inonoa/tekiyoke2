@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StateFall : HeroState
+public class StateFall : HeroState, IAskCanJump
 {
     static readonly int inputLatency4Kick = 3;
     readonly bool canJump;
+    public bool CanJump => canJump;
     static readonly int coyoteTime = 10;
 
     static readonly float kabezuriInterval = 0.1f;

@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StateJump : HeroState
+public class StateJump : HeroState, IAskCanJump
 {
     static readonly int inputLatency4Kick = 3;
     float jumpForce;
     HeroMover hero;
     readonly bool canJump;
+    public bool CanJump => canJump;
     public StateJump(HeroMover hero, bool canJump = true, float jumpForce = 30){
         this.hero = hero;
         this.canJump = canJump;

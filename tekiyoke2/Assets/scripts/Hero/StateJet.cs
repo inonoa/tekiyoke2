@@ -199,7 +199,24 @@ public class StateJet : HeroState
                 trailTF.position = hero.transform.position;
 
                 jetFrames ++;
-                if(jetFrames == jetFramesMax) hero.States.Push(new StateWait(hero));
+                if(jetFrames == jetFramesMax){
+
+                    if(hero.IsOnGround){
+                        hero.States.Push(new StateWait(hero));
+
+                    }else{
+                        // 空中にいる場合に二段目のジャンプができるかどうかが以前の状態に依存しているので聞きに行く
+                        bool canJump = true;
+
+                        HeroState tmp = hero.States.Pop(); //これは自分自身
+                        if(hero.States.Peek() is IAskCanJump state2ask){
+                            canJump = state2ask.CanJump;
+                        }
+                        hero.States.Push(tmp);
+
+                        hero.States.Push(new StateFall(hero, canJump));
+                    }
+                }
                 break;
         }
     }

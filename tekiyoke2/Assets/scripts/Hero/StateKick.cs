@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StateKick : HeroState
+public class StateKick : HeroState, IAskCanJump
 {
     static readonly float kickForceY = 30;
     static readonly float moveForce = 0.38f;
@@ -10,6 +10,7 @@ public class StateKick : HeroState
     int frames2BeFreeNow = frames2BeFree;
     readonly bool toRight;
     readonly bool canJump;
+    public bool CanJump => canJump;
 
     static readonly float kabezuriInterval = 0.1f;
     Coroutine kabezuriCoroutine;
