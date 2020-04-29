@@ -2,35 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StateWait : IHeroState
+public class StateWait : HeroState
 {
     HeroMover hero;
     public StateWait(HeroMover hero){
         this.hero = hero;
     }
-    public void Try2StartJet(){
+    public override void Try2StartJet(){
         hero.States.Push(new StateJet(hero));
     }
-    public void Try2EndJet(){ }
-    public void Try2Jump(){
+    public override void Try2EndJet(){ }
+    public override void Try2Jump(){
         hero.States.Push(new StateJump(hero));
     }
-    public void Try2StartMove(bool toRight){
+    public override void Try2StartMove(bool toRight){
         hero.States.Push(new StateRun(hero));
         if(toRight) hero.velocity.x =  HeroMover.moveSpeed;
         else        hero.velocity.x = -HeroMover.moveSpeed;
     }
-    public void Try2EndMove(){ }
-    public void Start(){
+    public override void Try2EndMove(){ }
+    public override void Start(){
 
         hero.velocity = (0,0);
         hero.anim.SetTrigger(hero.EyeToRight ? "standr" : "standl");
     }
 
-    public void Resume(){
+    public override void Resume(){
         hero.anim.SetTrigger(hero.EyeToRight ? "standr" : "standl");
     }
-    public void Update(){
+    public override void Update(){
         if(!hero.IsOnGround){
             hero.States.Push(new StateFall(hero));
             return;
@@ -41,5 +41,5 @@ public class StateWait : IHeroState
         }
     }
 
-    public void Exit(){ }
+    public override void Exit(){ }
 }

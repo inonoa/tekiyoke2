@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StateBend : IHeroState
+public class StateBend : HeroState
 {
     HeroMover hero;
     static readonly (float x, float y) bendForce = (15, 10);
@@ -13,7 +13,7 @@ public class StateBend : IHeroState
     public StateBend(HeroMover hero){ // 引き数にtoRight入れる？
         this.hero = hero;
     }
-    public void Start(){
+    public override void Start(){
         if(hero.velocity.x != 0)
             hero.velocity.x = (hero.velocity.x > 0) ? -bendForce.x : bendForce.x;
         else
@@ -28,11 +28,11 @@ public class StateBend : IHeroState
         CameraController.CurrentCamera.Freeze(num_frames: 20);
     }
 
-    public void Resume(){
+    public override void Resume(){
         hero.anim.SetTrigger( (hero.velocity.x > 0) ? "jumprf" : "jumplf" );
     }
 
-    public void Update(){
+    public override void Update(){
 
         if(framesAfterBent == frames_CantUpdate){
             if(hero.IsOnGround) hero.States.Push(new StateWait(hero));
@@ -46,12 +46,12 @@ public class StateBend : IHeroState
             framesAfterBent ++;
         }
     }
-    public void Try2StartJet(){ }
-    public void Try2EndJet(){ }
-    public void Try2Jump(){ }
-    public void Try2StartMove(bool toRight){ }
-    public void Try2EndMove(){ }
-    public void Exit(){ 
+    public override void Try2StartJet(){ }
+    public override void Try2EndJet(){ }
+    public override void Try2Jump(){ }
+    public override void Try2StartMove(bool toRight){ }
+    public override void Try2EndMove(){ }
+    public override void Exit(){ 
         hero.CanMove = true;
         hero.CanBeDamaged = true;
     }

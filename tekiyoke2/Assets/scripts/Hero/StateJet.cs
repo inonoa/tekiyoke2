@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class StateJet : IHeroState
+public class StateJet : HeroState
 {
     static readonly float timeScaleBeforeJet = 0.2f;
 
@@ -39,8 +39,8 @@ public class StateJet : IHeroState
         blurY = CameraController.CurrentCamera.AfterEffects.Find("BlurEdge1");
         blurT = CameraController.CurrentCamera.AfterEffects.Find("BlurEdge2");
     }
-    public void Try2StartJet(){ }
-    public void Try2EndJet(){
+    public override void Try2StartJet(){ }
+    public override void Try2EndJet(){
         if(state==State.Ready){
             hero.CanBeDamaged = false;
             state = State.Jetting;
@@ -136,12 +136,12 @@ public class StateJet : IHeroState
         ).onComplete = () => phantom.gameObject.SetActive(false);
     }
 
-    public void Try2Jump(){ }
-    public void Try2StartMove(bool toRight){
+    public override void Try2Jump(){ }
+    public override void Try2StartMove(bool toRight){
         if(state==State.Ready) jet2Right = toRight;
     }
-    public void Try2EndMove(){ }
-    public void Start(){
+    public override void Try2EndMove(){ }
+    public override void Start(){
         Tokitome.SetTime(timeScaleBeforeJet);
 
         switch(hero.KeyDirection){
@@ -175,12 +175,12 @@ public class StateJet : IHeroState
         blurTTween = DOTween.To(blurT.GetVolume, blurT.SetVolume, 2, 0.6f);
     }
 
-    public void Resume(){
+    public override void Resume(){
         if(state==State.Jetting) hero.anim.SetTrigger(jet2Right ? "runr" : "runl");
         // else書きたいがどうしよね、そもそもJetの遷移のタイミング変じゃないか？
     }
 
-    public void Update(){
+    public override void Update(){
         switch(state){
 
             case State.Ready:
@@ -216,7 +216,7 @@ public class StateJet : IHeroState
             return 0.8f + 0.25f * (zero2one - 0.2f);
     }
 
-    public void Exit(){
+    public override void Exit(){
         hero.CanBeDamaged = true;
         //hero.spriteRenderer.color = new Color(1,1,1,1);
         hero.cmrCntr.EndDash();

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StateKick : IHeroState
+public class StateKick : HeroState
 {
     static readonly float kickForceY = 30;
     static readonly float moveForce = 0.38f;
@@ -19,7 +19,7 @@ public class StateKick : IHeroState
         toRight = kick2Right;
         this.canJump = canJump;
     }
-    public void Start(){
+    public override void Start(){
         hero.Jumped(false, true);
 
         hero.anim.SetTrigger(toRight ? "jumprf" : "jumplf");
@@ -56,12 +56,12 @@ public class StateKick : IHeroState
         hero.objsHolderForStates.KabezuriPool.ActivateOne(dir_is_R ? "r" : "l");
     }
 
-    public void Resume(){
+    public override void Resume(){
         if(hero.velocity.y > 0) hero.anim.SetTrigger(toRight ? "jumprf" : "jumplf");
         else                    hero.anim.SetTrigger(toRight ? "fallr"  : "falll");
     }
 
-    public void Update(){
+    public override void Update(){
 
         if(hero.IsOnGround && hero.velocity.y <= 0){
             hero.States.Push(new StateWait(hero));
@@ -97,11 +97,11 @@ public class StateKick : IHeroState
             }
         }
     }
-    public void Try2StartJet(){
+    public override void Try2StartJet(){
         if(frames2BeFreeNow == 0) hero.States.Push(new StateJet(hero));
     }
-    public void Try2EndJet(){ }
-    public void Try2Jump(){
+    public override void Try2EndJet(){ }
+    public override void Try2Jump(){
         if(frames2BeFreeNow == 0){
 
             if(hero.CanKickFromWallL)      hero.States.Push(new StateKick(hero, true,  canJump));
@@ -110,9 +110,9 @@ public class StateKick : IHeroState
             else if(canJump) hero.States.Push(new StateJump(hero, false));
         }
     }
-    public void Try2StartMove(bool toRight){ }
-    public void Try2EndMove(){ }
-    public void Exit(){
+    public override void Try2StartMove(bool toRight){ }
+    public override void Try2EndMove(){ }
+    public override void Exit(){
         hero.StopCoroutine(kabezuriCoroutine);
     }
 }
