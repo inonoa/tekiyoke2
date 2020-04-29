@@ -1,9 +1,12 @@
 fileFormatVersion: 2
-guid: dde47b519505f504f87d40c82ad0036c
+guid: ad53947faa8fb0347bacdb4de236883b
 TextureImporter:
   fileIDToRecycleName:
-    21300000: droptile_0
-    21300002: droptile_1
+    21300000: droptile_cross_0
+    21300002: droptile_cross_1
+    21300004: droptile_cross_2
+    21300006: droptile_cross_3
+    21300008: droptile_cross_4
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -33,7 +36,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: -1
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -65,7 +68,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -76,7 +79,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -87,7 +90,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -97,7 +100,31 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: droptile_0
+      name: droptile_cross_0
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 100
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -23, y: -23}
+        - {x: -23, y: 25}
+        - {x: 25, y: 25}
+        - {x: 25, y: -23}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81db6131329d96c47ac9f5fae8ca16a1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: droptile_cross_1
       rect:
         serializedVersion: 2
         x: 0
@@ -115,16 +142,64 @@ TextureImporter:
         - {x: 25, y: -23}
       tessellationDetail: 0
       bones: []
-      spriteID: 7e6a928ac581e86458fa093306555b0e
+      spriteID: 83d7785cbf1dde44697416f84b1e4eb1
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: droptile_1
+      name: droptile_cross_2
       rect:
         serializedVersion: 2
-        x: 0
+        x: 50
+        y: 50
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -23, y: -23}
+        - {x: -23, y: 25}
+        - {x: 25, y: 25}
+        - {x: 25, y: -23}
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6a4c976a2f91044080bcea5ba19a6f0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: droptile_cross_3
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 50
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -23, y: -23}
+        - {x: -23, y: 25}
+        - {x: 25, y: 25}
+        - {x: 25, y: -23}
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab1b1db56e47cc74d94ac35985df7dfa
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: droptile_cross_4
+      rect:
+        serializedVersion: 2
+        x: 50
         y: 0
         width: 50
         height: 50
@@ -139,7 +214,7 @@ TextureImporter:
         - {x: 25, y: -23}
       tessellationDetail: 0
       bones: []
-      spriteID: 2931bb6569bf03447b9fc758e29fa36f
+      spriteID: b573b60ea96b9094391a477c4b6b23ad
       vertices: []
       indices: 
       edges: []
@@ -147,7 +222,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5ae57faf948bc7a478dfae41df9d56fd
+    spriteID: 0cba85cf52f090d4386a1d538cfce887
     vertices: []
     indices: 
     edges: []
