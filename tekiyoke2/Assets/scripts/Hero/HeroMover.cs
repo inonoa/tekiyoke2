@@ -159,7 +159,7 @@ public class HeroMover : MonoBehaviour
 
     #region ダメージとか
 
-    ///<summary>HPの増減はすべてここから。(全部HPCntrに通します)</summary>
+    ///<summary>HPの増減はすべてここから。(全部HPCntrに通します) (これ何のためにプロパティやめたのかわかんねえな)</summary>
     private int HP{
         get => hpcntr.HP;
         set => hpcntr.ChangeHP(value);
@@ -219,11 +219,6 @@ public class HeroMover : MonoBehaviour
 
     ///<summary>HPCntrからの死亡イベントをこう良い感じに…</summary>
     void ReceiveDeath(object sender, EventArgs e) => Die();
-
-    void Respawn(object sender, EventArgs e){
-        transform.position = new Vector3(0,-200);
-        hpcntr.FullRecover();
-    }
 
     #endregion
 
