@@ -420,6 +420,8 @@ MonoBehaviour:
   img3_2: {fileID: 21300000, guid: 18d0d2f98db55a54d89e0ce60dd3e18f, type: 3}
   img2_1: {fileID: 21300000, guid: 37d119dbadb5c0149bd1715dfabe90a0, type: 3}
   img1_0: {fileID: 21300000, guid: 5973a019c7a99c245a6acc64e95f5d34, type: 3}
+  img2_3: {fileID: 21300000, guid: ac9c435e7af456f4387916ff4c462462, type: 3}
+  img1_2: {fileID: 21300000, guid: 12f3a275d5f45e94b8b019d9cef3d0f6, type: 3}
   spr: {fileID: 0}
 --- !u!114 &3106219250084253370
 MonoBehaviour:
