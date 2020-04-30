@@ -85,6 +85,7 @@
      <Compile Include="Assets\Scripts\Hero\HeroEventArgs.cs" />
      <Compile Include="Assets\Scripts\Hero\HeroMover.cs" />
      <Compile Include="Assets\Scripts\Hero\HeroObjsHolder4States.cs" />
+     <Compile Include="Assets\Scripts\Hero\HeroVelocity.cs" />
      <Compile Include="Assets\Scripts\Hero\HpCntr.cs" />
      <Compile Include="Assets\Scripts\Hero\IAskCanJump.cs" />
      <Compile Include="Assets\Scripts\Hero\IHeroState.cs" />

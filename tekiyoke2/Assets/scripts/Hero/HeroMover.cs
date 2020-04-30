@@ -50,7 +50,7 @@ public class HeroMover : MonoBehaviour
     public bool EyeToRight{ get; set; } = true;
 
     ///<summary>実際に移動している方向(ワープした場合は知らん) (EyeToright, KeyDiretion参照)</summary>
-    public (float x, float y) velocity = (0,0);
+    public HeroVelocity velocity = new HeroVelocity(0,0);
 
     ///<summary>過去1000フレーム分の位置を記録</summary>
     public readonly RingBuffer<Vector3> pastPoss = new RingBuffer<Vector3>(new Vector3());
@@ -213,7 +213,7 @@ public class HeroMover : MonoBehaviour
         Damage(3);
         if(CanBeDamaged){
             CanMove = false;
-            velocity = (0, -15);
+            velocity = new HeroVelocity(0, -15);
         }
     }
 
@@ -308,8 +308,8 @@ public class HeroMover : MonoBehaviour
                 States.Peek().Update(); //ここかこれ？
             }
 
-            float vx = velocity.x;
-            float vy = velocity.y;
+            float vx = velocity.X;
+            float vy = velocity.Y;
             foreach(Vector2 vi in additionalVelocities.Values){
                 vx += vi.x;
                 vy += vi.y;
@@ -334,7 +334,7 @@ public class HeroMover : MonoBehaviour
         if(col.gameObject.tag=="Terrain" && !IsFrozen){
             foreach(ContactPoint2D contact in col.contacts){
                 if(contact.normal.y<0){
-                    velocity.y = 0;
+                    velocity.Y = 0;
                     return;
                 }
             }

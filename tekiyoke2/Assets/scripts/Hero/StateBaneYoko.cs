@@ -19,7 +19,7 @@ public class StateBaneYoko : HeroState
     }
 
     public override void Start(){
-        hero.velocity.x = toRight ? pushSpeed : -pushSpeed;
+        hero.velocity.X = toRight ? pushSpeed : -pushSpeed;
         hero.anim.SetTrigger(toRight ? "runr" : "runl");
         hero.EyeToRight = toRight;
     }
@@ -37,53 +37,53 @@ public class StateBaneYoko : HeroState
         }else{
             if(!hero.IsOnGround){
                 hero.States.Push(new StateFall(hero));
-                hero.speedResidues.Add(new BaneResidue(hero.velocity.x, speedBreak));
+                hero.speedResidues.Add(new BaneResidue(hero.velocity.X, speedBreak));
             }
 
             //この辺全部BaneResidueに移管してもいいかもね
             if(toRight){
                 switch(hero.KeyDirection){
                     case 1:
-                        hero.velocity.x -= speedBreak / 2;
+                        hero.velocity.X -= speedBreak / 2;
                         //これでは一瞬右に行って状態戻してから左に行くムーブが(引き返すには)最適になるぞ！！！！
                         //RTAで変態挙動出来そうだし(誰がやるの？？)まあいいか……
-                        if(hero.velocity.x <= HeroMover.moveSpeed) hero.States.Push(new StateRun(hero));
+                        if(hero.velocity.X <= HeroMover.moveSpeed) hero.States.Push(new StateRun(hero));
                         break;
 
                     case 0:
-                        hero.velocity.x -= speedBreak;
-                        if(hero.velocity.x <= 0){
-                            hero.velocity.x = 0;
+                        hero.velocity.X -= speedBreak;
+                        if(hero.velocity.X <= 0){
+                            hero.velocity.X = 0;
                             hero.States.Push(new StateWait(hero));
                         }
                         break;
 
                     case -1:
-                        hero.velocity.x -= speedBreak * 2;
-                        if(hero.velocity.x <= 0) hero.States.Push(new StateRun(hero));
+                        hero.velocity.X -= speedBreak * 2;
+                        if(hero.velocity.X <= 0) hero.States.Push(new StateRun(hero));
                         break;
                 }
             }
             else{
                 switch(hero.KeyDirection){
                     case 1:
-                        hero.velocity.x += speedBreak * 2;
+                        hero.velocity.X += speedBreak * 2;
                         //これでは一瞬右に行って状態戻してから左に行くムーブが(引き返すには)最適になるぞ！！！！
                         //RTAで変態挙動出来そうだし(誰がやるの？？)まあいいか……
-                        if(hero.velocity.x >= 0) hero.States.Push(new StateRun(hero));
+                        if(hero.velocity.X >= 0) hero.States.Push(new StateRun(hero));
                         break;
 
                     case 0:
-                        hero.velocity.x += speedBreak;
-                        if(hero.velocity.x >= 0){
-                            hero.velocity.x = 0;
+                        hero.velocity.X += speedBreak;
+                        if(hero.velocity.X >= 0){
+                            hero.velocity.X = 0;
                             hero.States.Push(new StateWait(hero));
                         }
                         break;
 
                     case -1:
-                        hero.velocity.x += speedBreak / 2;
-                        if(hero.velocity.x >= -HeroMover.moveSpeed) hero.States.Push(new StateRun(hero));
+                        hero.velocity.X += speedBreak / 2;
+                        if(hero.velocity.X >= -HeroMover.moveSpeed) hero.States.Push(new StateRun(hero));
                         break;
                 }
             }
@@ -93,14 +93,14 @@ public class StateBaneYoko : HeroState
     public override void Try2StartJet(){
         if(!unstoppable){
             hero.States.Push(new StateJet(hero));
-            hero.speedResidues.Add(new BaneResidue(hero.velocity.x, speedBreak));
+            hero.speedResidues.Add(new BaneResidue(hero.velocity.X, speedBreak));
         }
     }
     public override void Try2EndJet(){ }
     public override void Try2Jump(){
         if(!unstoppable){
             hero.States.Push(new StateJump(hero));
-            hero.speedResidues.Add(new BaneResidue(hero.velocity.x, speedBreak));
+            hero.speedResidues.Add(new BaneResidue(hero.velocity.X, speedBreak));
         }
     }
     public override void Try2StartMove(bool toRight){ }

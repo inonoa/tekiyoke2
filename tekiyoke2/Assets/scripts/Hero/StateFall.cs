@@ -40,27 +40,27 @@ public class StateFall : HeroState, IAskCanJump
             if(hero.CanKickFromWallL && InputManager.Instance.ButtonsDownSimultaneously(ButtonCode.Right,ButtonCode.Jump))
                 hero.States.Push(new StateKick(hero, true,  canJump));
 
-            hero.velocity.x =  HeroMover.moveSpeed;
+            hero.velocity.X =  HeroMover.moveSpeed;
             hero.anim.SetTrigger("fallr");
 
         }else{
             if(hero.CanKickFromWallR && InputManager.Instance.ButtonsDownSimultaneously(ButtonCode.Left,ButtonCode.Jump))
                 hero.States.Push(new StateKick(hero, false, canJump));
                 
-            hero.velocity.x = -HeroMover.moveSpeed;
+            hero.velocity.X = -HeroMover.moveSpeed;
             hero.anim.SetTrigger("falll");
         }
     }
     public override void Try2EndMove(){
-        hero.velocity.x = 0;
+        hero.velocity.X = 0;
     }
     public override void Start(){
         hero.anim.SetTrigger(hero.EyeToRight ? "fallr" : "falll");
         kabezuriCoroutine = hero.StartCoroutine(SpawnKabezuris());
         switch(hero.KeyDirection){
-            case 1 : hero.velocity.x = HeroMover.moveSpeed;  break;
-            case 0 : hero.velocity.x = 0;                    break;
-            case -1: hero.velocity.x = -HeroMover.moveSpeed; break;
+            case 1 : hero.velocity.X = HeroMover.moveSpeed;  break;
+            case 0 : hero.velocity.X = 0;                    break;
+            case -1: hero.velocity.X = -HeroMover.moveSpeed; break;
         }
         InputManager.Instance.SetInputLatency(ButtonCode.Right,inputLatency4Kick);
         InputManager.Instance.SetInputLatency(ButtonCode.Left, inputLatency4Kick);
@@ -93,7 +93,7 @@ public class StateFall : HeroState, IAskCanJump
     }
 
     public override void Update(){
-        hero.velocity.y -= HeroMover.gravity * Time.timeScale;
+        hero.velocity.Y -= HeroMover.gravity * Time.timeScale;
         if(hero.IsOnGround){
             if(hero.KeyDirection==0) hero.States.Push(new StateWait(hero));
             else hero.States.Push(new StateRun(hero));

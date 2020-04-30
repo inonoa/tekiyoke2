@@ -5,7 +5,7 @@ using UnityEngine;
 public class StateBend : HeroState
 {
     HeroMover hero;
-    static readonly (float x, float y) bendForce = (15, 10);
+    static readonly (float X, float Y) bendForce = (15, 10);
     static readonly int bendFrames = 100;
     int bendFramesNow = bendFrames;
     static readonly int frames_CantUpdate = 3;
@@ -14,14 +14,14 @@ public class StateBend : HeroState
         this.hero = hero;
     }
     public override void Start(){
-        if(hero.velocity.x != 0)
-            hero.velocity.x = (hero.velocity.x > 0) ? -bendForce.x : bendForce.x;
+        if(hero.velocity.X != 0)
+            hero.velocity.X = (hero.velocity.X > 0) ? -bendForce.X : bendForce.X;
         else
-            hero.velocity.x =  hero.EyeToRight      ? -bendForce.x : bendForce.x;
+            hero.velocity.X =  hero.EyeToRight      ? -bendForce.X : bendForce.X;
         
-        hero.velocity.y = bendForce.y;
+        hero.velocity.Y = bendForce.Y;
 
-        hero.anim.SetTrigger( (hero.velocity.x > 0) ? "jumprf" : "jumplf" );
+        hero.anim.SetTrigger( (hero.velocity.X > 0) ? "jumprf" : "jumplf" );
 
         hero.CanBeDamaged = false;
 
@@ -29,7 +29,7 @@ public class StateBend : HeroState
     }
 
     public override void Resume(){
-        hero.anim.SetTrigger( (hero.velocity.x > 0) ? "jumprf" : "jumplf" );
+        hero.anim.SetTrigger( (hero.velocity.X > 0) ? "jumprf" : "jumplf" );
     }
 
     public override void Update(){
@@ -40,7 +40,7 @@ public class StateBend : HeroState
             bendFramesNow --;
             if(bendFramesNow == 0) hero.States.Push(new StateWait(hero));
 
-            hero.velocity.y -= HeroMover.gravity * Time.timeScale;
+            hero.velocity.Y -= HeroMover.gravity * Time.timeScale;
 
         }else{
             framesAfterBent ++;
