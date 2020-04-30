@@ -33,27 +33,27 @@ public class StateJump : HeroState, IAskCanJump
             if(hero.CanKickFromWallL && InputManager.Instance.ButtonsDownSimultaneously(ButtonCode.Right,ButtonCode.Jump))
                 hero.States.Push(new StateKick(hero, true,  canJump));
 
-            hero.velocity.x =  HeroMover.moveSpeed;
+            hero.velocity.X =  HeroMover.moveSpeed;
             hero.anim.SetTrigger("jumprf");
 
         }else{
             if(hero.CanKickFromWallR && InputManager.Instance.ButtonsDownSimultaneously(ButtonCode.Left,ButtonCode.Jump))
                 hero.States.Push(new StateKick(hero, false, canJump));
 
-            hero.velocity.x = -HeroMover.moveSpeed;
+            hero.velocity.X = -HeroMover.moveSpeed;
             hero.anim.SetTrigger("jumplf");
         }
     }
     public override void Try2EndMove(){
-        hero.velocity.x = 0;
+        hero.velocity.X = 0;
         hero.anim.SetTrigger(hero.EyeToRight ? "jumpru" : "jumplu");
     }
     public override void Start(){
-        hero.velocity.y = jumpForce;
+        hero.velocity.Y = jumpForce;
         hero.Jumped(canJump, false);
 
-        if     (hero.velocity.x > 0) hero.anim.SetTrigger("jumprf");
-        else if(hero.velocity.x < 0) hero.anim.SetTrigger("jumplf");
+        if     (hero.velocity.X > 0) hero.anim.SetTrigger("jumprf");
+        else if(hero.velocity.X < 0) hero.anim.SetTrigger("jumplf");
         else if(hero.EyeToRight)     hero.anim.SetTrigger("jumpru");
         else                         hero.anim.SetTrigger("jumplu");
 
@@ -65,15 +65,15 @@ public class StateJump : HeroState, IAskCanJump
         InputManager.Instance.SetInputLatency(ButtonCode.Jump, inputLatency4Kick);
     }
     public override void Resume(){
-        if     (hero.velocity.x > 0) hero.anim.SetTrigger("jumprf");
-        else if(hero.velocity.x < 0) hero.anim.SetTrigger("jumplf");
+        if     (hero.velocity.X > 0) hero.anim.SetTrigger("jumprf");
+        else if(hero.velocity.X < 0) hero.anim.SetTrigger("jumplf");
         else if(hero.EyeToRight)     hero.anim.SetTrigger("jumpru");
         else                         hero.anim.SetTrigger("jumplu");
     }
 
     public override void Update(){
-        hero.velocity.y -= HeroMover.gravity * Time.timeScale;
-        if(hero.velocity.y < 0) hero.States.Push(new StateFall(hero, canJump));
+        hero.velocity.Y -= HeroMover.gravity * Time.timeScale;
+        if(hero.velocity.Y < 0) hero.States.Push(new StateFall(hero, canJump));
     }
 
     public override void Exit(){

@@ -17,13 +17,13 @@ public class StateWait : HeroState
     }
     public override void Try2StartMove(bool toRight){
         hero.States.Push(new StateRun(hero));
-        if(toRight) hero.velocity.x =  HeroMover.moveSpeed;
-        else        hero.velocity.x = -HeroMover.moveSpeed;
+        if(toRight) hero.velocity.X =  HeroMover.moveSpeed;
+        else        hero.velocity.X = -HeroMover.moveSpeed;
     }
     public override void Try2EndMove(){ }
     public override void Start(){
 
-        hero.velocity = (0,0);
+        hero.velocity = new HeroVelocity(0,0);
         hero.anim.SetTrigger(hero.EyeToRight ? "standr" : "standl");
     }
 

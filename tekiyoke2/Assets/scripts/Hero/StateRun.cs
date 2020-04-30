@@ -19,16 +19,16 @@ public class StateRun : HeroState
     public override void Try2EndJet(){ }
     public override void Try2Jump(){
         hero.States.Push(new StateJump(hero));
-        if(hero.EyeToRight) hero.velocity.x = HeroMover.moveSpeed;
-        else hero.velocity.x = -HeroMover.moveSpeed;
+        if(hero.EyeToRight) hero.velocity.X = HeroMover.moveSpeed;
+        else hero.velocity.X = -HeroMover.moveSpeed;
     }
     public override void Try2StartMove(bool toRight){
         if(toRight){
-            hero.velocity.x =  HeroMover.moveSpeed;
+            hero.velocity.X =  HeroMover.moveSpeed;
             hero.anim.SetTrigger("runr");
         }
         else{
-            hero.velocity.x = -HeroMover.moveSpeed;
+            hero.velocity.X = -HeroMover.moveSpeed;
             hero.anim.SetTrigger("runl");
         }
     }
@@ -36,8 +36,8 @@ public class StateRun : HeroState
         hero.States.Push(new StateWait(hero));
     }
     public override void Start(){
-        hero.velocity.x = hero.EyeToRight ? HeroMover.moveSpeed : -HeroMover.moveSpeed;
-        hero.velocity.y = 0;
+        hero.velocity.X = hero.EyeToRight ? HeroMover.moveSpeed : -HeroMover.moveSpeed;
+        hero.velocity.Y = 0;
         hero.anim.SetTrigger(hero.EyeToRight ? "runr" : "runl");
         tsuchihokoriCoroutine = hero.StartCoroutine(Tsuchihokoris());
     }
@@ -66,29 +66,29 @@ public class StateRun : HeroState
         //坂を右向きに上っているときは数値上若干加速し、下っているときは下に落とすことで接地し続けさせる
         if(hero.IsOnSakamichiR){
             if(hero.KeyDirection==1){
-                hero.velocity.x =  HeroMover.moveSpeed * sakamichiSpeedRate;
-                hero.velocity.y = 0;
+                hero.velocity.X =  HeroMover.moveSpeed * sakamichiSpeedRate;
+                hero.velocity.Y = 0;
             }
             else{
-                hero.velocity.x = -HeroMover.moveSpeed;
-                hero.velocity.y = -20;
+                hero.velocity.X = -HeroMover.moveSpeed;
+                hero.velocity.Y = -20;
             }
 
         //坂を左向きに上っているときは数値上若干加速し、下っているときは下に落とすことで接地し続けさせる
         }else if(hero.IsOnSakamichiL){
             if(!(hero.KeyDirection==1)){
-                hero.velocity.x = -HeroMover.moveSpeed * sakamichiSpeedRate;
-                hero.velocity.y = 0;
+                hero.velocity.X = -HeroMover.moveSpeed * sakamichiSpeedRate;
+                hero.velocity.Y = 0;
             }else{
-                hero.velocity.x = HeroMover.moveSpeed;
-                hero.velocity.y = -20;
+                hero.velocity.X = HeroMover.moveSpeed;
+                hero.velocity.Y = -20;
             }
 
         //そうでなければまあ良しなに
         }else{
-            if(hero.KeyDirection==1) hero.velocity.x = HeroMover.moveSpeed;
-            else hero.velocity.x = -HeroMover.moveSpeed;
-            hero.velocity.y = 0;
+            if(hero.KeyDirection==1) hero.velocity.X = HeroMover.moveSpeed;
+            else hero.velocity.X = -HeroMover.moveSpeed;
+            hero.velocity.Y = 0;
         }
     }
 

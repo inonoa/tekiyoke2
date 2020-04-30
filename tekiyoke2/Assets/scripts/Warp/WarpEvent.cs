@@ -13,11 +13,11 @@ public class WarpEvent : MonoBehaviour
 
             if(msg=="XL" || msg=="YL"){
                 //右から来たらイベント発生
-                if(HeroDefiner.currentHero.velocity.x < 0) warpStart?.Invoke(msg, EventArgs.Empty);
+                if(HeroDefiner.currentHero.velocity.X < 0) warpStart?.Invoke(msg, EventArgs.Empty);
 
             }else if(msg=="XR" || msg=="YR"){
                 //左から来たらイベント発生
-                if(HeroDefiner.currentHero.velocity.x > 0) warpStart?.Invoke(msg, EventArgs.Empty);
+                if(HeroDefiner.currentHero.velocity.X > 0) warpStart?.Invoke(msg, EventArgs.Empty);
 
             }else{
                 Debug.Log("WarpEventへの不明な衝突");

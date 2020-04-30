@@ -186,11 +186,11 @@ public class StateJet : HeroState
             case State.Ready:
                 //ためすぎるとエンスト？してダメージ受けるとかしたいね
                 tameFrames ++;
-                if(!hero.IsOnGround) hero.velocity.y -= HeroMover.gravity;
+                if(!hero.IsOnGround) hero.velocity.Y -= HeroMover.gravity;
                 break;
 
             case State.Jetting:
-                hero.velocity = (jet2Right ? jetVelocities[jetFrames] : -jetVelocities[jetFrames] , 0);
+                hero.velocity = new HeroVelocity(jet2Right ? jetVelocities[jetFrames] : -jetVelocities[jetFrames] , 0);
 
                 jetStream.transform.position = (posWhenJet + hero.transform.position) / 2;
                 float colWidth  = Mathf.Abs(hero.transform.position.x - posWhenJet.x);

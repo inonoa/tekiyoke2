@@ -29,8 +29,8 @@ public class StateKick : HeroState, IAskCanJump
         hero.objsHolderForStates.JumpEffectPool.ActivateOne(toRight ? "kr" : "kl");
         kabezuriCoroutine = hero.StartCoroutine(SpawnKabezuris());
 
-        hero.velocity.x = toRight ? HeroMover.moveSpeed : -HeroMover.moveSpeed;
-        hero.velocity.y = kickForceY;
+        hero.velocity.X = toRight ? HeroMover.moveSpeed : -HeroMover.moveSpeed;
+        hero.velocity.Y = kickForceY;
     }
 
 
@@ -45,7 +45,7 @@ public class StateKick : HeroState, IAskCanJump
     }
 
     void Try2SpawnKabezuri(){
-        if(hero.velocity.y > 0) return;
+        if(hero.velocity.Y > 0) return;
 
         bool dir_is_R;
 
@@ -58,19 +58,19 @@ public class StateKick : HeroState, IAskCanJump
     }
 
     public override void Resume(){
-        if(hero.velocity.y > 0) hero.anim.SetTrigger(toRight ? "jumprf" : "jumplf");
+        if(hero.velocity.Y > 0) hero.anim.SetTrigger(toRight ? "jumprf" : "jumplf");
         else                    hero.anim.SetTrigger(toRight ? "fallr"  : "falll");
     }
 
     public override void Update(){
 
-        if(hero.IsOnGround && hero.velocity.y <= 0){
+        if(hero.IsOnGround && hero.velocity.Y <= 0){
             hero.States.Push(new StateWait(hero));
             return;
         }
 
-        hero.velocity.y -= HeroMover.gravity * Time.timeScale;
-        if(hero.velocity.y < 0){
+        hero.velocity.Y -= HeroMover.gravity * Time.timeScale;
+        if(hero.velocity.Y < 0){
             if(frames2BeFreeNow > 0) hero.anim.SetTrigger(toRight         ? "fallr" : "falll");
             else                     hero.anim.SetTrigger(hero.EyeToRight ? "fallr" : "falll");
             //これ単にFallに遷移するほうがいいんじゃないの……？
@@ -82,18 +82,18 @@ public class StateKick : HeroState, IAskCanJump
             switch(hero.KeyDirection){
 
                 case 1:
-                    if(toRight) hero.velocity.x = HeroMover.moveSpeed;
-                    else        hero.velocity.x = System.Math.Min( HeroMover.moveSpeed, hero.velocity.x + moveForce);
+                    if(toRight) hero.velocity.X = HeroMover.moveSpeed;
+                    else        hero.velocity.X = System.Math.Min( HeroMover.moveSpeed, hero.velocity.X + moveForce);
                     break;
 
                 case -1:
-                    if(toRight) hero.velocity.x = System.Math.Max(-HeroMover.moveSpeed, hero.velocity.x - moveForce);
-                    else        hero.velocity.x = -HeroMover.moveSpeed;
+                    if(toRight) hero.velocity.X = System.Math.Max(-HeroMover.moveSpeed, hero.velocity.X - moveForce);
+                    else        hero.velocity.X = -HeroMover.moveSpeed;
                     break;
 
                 case 0:
-                    if(toRight) hero.velocity.x = System.Math.Max(0, hero.velocity.x - moveForce / 2);
-                    else        hero.velocity.x = System.Math.Min(0, hero.velocity.x + moveForce / 2);
+                    if(toRight) hero.velocity.X = System.Math.Max(0, hero.velocity.X - moveForce / 2);
+                    else        hero.velocity.X = System.Math.Min(0, hero.velocity.X + moveForce / 2);
                     break;
             }
         }
