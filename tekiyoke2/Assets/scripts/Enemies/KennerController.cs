@@ -54,9 +54,21 @@ public class KennerController : EnemyController
     [SerializeField] Sprite hontaiSpriteActive = null;
     [SerializeField] Sprite hontaiSpriteInactive = null;
 
+    static bool inNewScene; //なんかあほらしいな……
+    static ObjectPool<TamaController> tamaPool;
+
+    void Awake(){
+        inNewScene = true;
+    }
+
     new void Start()
     {
         base.Start();
+        if(inNewScene){
+            //これがどのタイミングで呼ばれるのか分からん(主人公が近づいてきてから呼ばれてたらつらい)
+            tamaPool = new ObjectPool<TamaController>(tama, 128, DraftManager.CurrentInstance.GameMasterTF);
+            inNewScene = false;
+        }
     }
 
     new void Update()
@@ -126,16 +138,17 @@ public class KennerController : EnemyController
 
     void Shoot(){
         for(int i=0; i<num_tamaPerShoot; i++){
-            Vector3 offset = EyeToRight ? new Vector3(70,-30) : new Vector3(-70,-30);
-            TamaController imatama = Instantiate(tama, transform.position + offset, Quaternion.identity, DraftManager.CurrentInstance.GameMasterTF);
 
             float angle = - upAngle - i * (downAngle - upAngle) / (num_tamaPerShoot - 1);
             if(!EyeToRight) angle = - 180 - angle;
-            imatama.angle = angle;
-            imatama.transform.Rotate(new Vector3(0,0,angle));
-
-            imatama.speed = tamaSpeed;
-            imatama.life = tamaLife;
+            TamaController imatama = tamaPool.ActivateOne(
+                angle.ToString()
+                + " " + tamaSpeed.ToString()
+                + " " + tamaLife.ToString()
+            );
+            
+            Vector3 offset = EyeToRight ? new Vector3(70,-30) : new Vector3(-70,-30);
+            imatama.transform.position = transform.position + offset;
         }
     }
 }
