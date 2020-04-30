@@ -61,7 +61,7 @@ public class KennerController : EnemyController
 
     new void Update()
     {
-        EyeToRight = transform.position.x < HeroDefiner.CurrentHeroPos.x;
+        if(groundChecker.IsOnGround) EyeToRight = transform.position.x < HeroDefiner.CurrentHeroPos.x;
 
         switch(state){
 
