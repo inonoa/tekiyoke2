@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StateRun : IHeroState
+public class StateRun : HeroState
 {
     //こういうのをScriptableObjectにしたらいじりやすくなるな確かに
     static readonly float sakamichiSpeedRate = 1.5f;
@@ -13,16 +13,16 @@ public class StateRun : IHeroState
     public StateRun(HeroMover hero){
         this.hero = hero;
     }
-    public void Try2StartJet(){
+    public override void Try2StartJet(){
         hero.States.Push(new StateJet(hero));
     }
-    public void Try2EndJet(){ }
-    public void Try2Jump(){
+    public override void Try2EndJet(){ }
+    public override void Try2Jump(){
         hero.States.Push(new StateJump(hero));
         if(hero.EyeToRight) hero.velocity.x = HeroMover.moveSpeed;
         else hero.velocity.x = -HeroMover.moveSpeed;
     }
-    public void Try2StartMove(bool toRight){
+    public override void Try2StartMove(bool toRight){
         if(toRight){
             hero.velocity.x =  HeroMover.moveSpeed;
             hero.anim.SetTrigger("runr");
@@ -32,10 +32,10 @@ public class StateRun : IHeroState
             hero.anim.SetTrigger("runl");
         }
     }
-    public void Try2EndMove(){
+    public override void Try2EndMove(){
         hero.States.Push(new StateWait(hero));
     }
-    public void Start(){
+    public override void Start(){
         hero.velocity.x = hero.EyeToRight ? HeroMover.moveSpeed : -HeroMover.moveSpeed;
         hero.velocity.y = 0;
         hero.anim.SetTrigger(hero.EyeToRight ? "runr" : "runl");
@@ -56,11 +56,11 @@ public class StateRun : IHeroState
         hero.objsHolderForStates.TsuchihokoriPool.ActivateOne(hero.EyeToRight ? "r" : "l");
     }
 
-    public void Resume(){
+    public override void Resume(){
         hero.anim.SetTrigger(hero.EyeToRight ? "runr" : "runl");
     }
 
-    public void Update(){
+    public override void Update(){
         if(!hero.IsOnGround) hero.States.Push(new StateFall(hero));
 
         //坂を右向きに上っているときは数値上若干加速し、下っているときは下に落とすことで接地し続けさせる
@@ -92,7 +92,7 @@ public class StateRun : IHeroState
         }
     }
 
-    public void Exit(){
+    public override void Exit(){
         hero.StopCoroutine(tsuchihokoriCoroutine);
     }
 }

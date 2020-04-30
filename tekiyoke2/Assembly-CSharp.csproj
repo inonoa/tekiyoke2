@@ -86,6 +86,7 @@
      <Compile Include="Assets\Scripts\Hero\HeroMover.cs" />
      <Compile Include="Assets\Scripts\Hero\HeroObjsHolder4States.cs" />
      <Compile Include="Assets\Scripts\Hero\HpCntr.cs" />
+     <Compile Include="Assets\Scripts\Hero\IAskCanJump.cs" />
      <Compile Include="Assets\Scripts\Hero\IHeroState.cs" />
      <Compile Include="Assets\Scripts\Hero\ISpeedResidue.cs" />
      <Compile Include="Assets\Scripts\Hero\JetCloudManager.cs" />

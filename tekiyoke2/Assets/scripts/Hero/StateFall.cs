@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StateFall : IHeroState
+public class StateFall : HeroState, IAskCanJump
 {
     static readonly int inputLatency4Kick = 3;
     readonly bool canJump;
+    public bool CanJump => canJump;
     static readonly int coyoteTime = 10;
 
     static readonly float kabezuriInterval = 0.1f;
@@ -17,11 +18,11 @@ public class StateFall : IHeroState
         this.hero = hero;
         this.canJump = canJump;
     }
-    public void Try2StartJet(){
+    public override void Try2StartJet(){
         hero.States.Push(new StateJet(hero));
     }
-    public void Try2EndJet(){ }
-    public void Try2Jump(){
+    public override void Try2EndJet(){ }
+    public override void Try2Jump(){
         if(hero.CanKickFromWallL && InputManager.Instance.ButtonsDownSimultaneously(ButtonCode.Right,ButtonCode.Jump))
             hero.States.Push(new StateKick(hero, true,  canJump));
             
@@ -33,7 +34,7 @@ public class StateFall : IHeroState
             else hero.States.Push(new StateJump(hero, false));
         }
     }
-    public void Try2StartMove(bool toRight){
+    public override void Try2StartMove(bool toRight){
 
         if(toRight){
             if(hero.CanKickFromWallL && InputManager.Instance.ButtonsDownSimultaneously(ButtonCode.Right,ButtonCode.Jump))
@@ -50,10 +51,10 @@ public class StateFall : IHeroState
             hero.anim.SetTrigger("falll");
         }
     }
-    public void Try2EndMove(){
+    public override void Try2EndMove(){
         hero.velocity.x = 0;
     }
-    public void Start(){
+    public override void Start(){
         hero.anim.SetTrigger(hero.EyeToRight ? "fallr" : "falll");
         kabezuriCoroutine = hero.StartCoroutine(SpawnKabezuris());
         switch(hero.KeyDirection){
@@ -66,7 +67,7 @@ public class StateFall : IHeroState
         InputManager.Instance.SetInputLatency(ButtonCode.Jump, inputLatency4Kick);
     }
 
-    public void Resume(){
+    public override void Resume(){
         hero.anim.SetTrigger(hero.EyeToRight ? "fallr" : "falll");
     }
 
@@ -91,7 +92,7 @@ public class StateFall : IHeroState
         hero.objsHolderForStates.KabezuriPool.ActivateOne(dir_is_R ? "r" : "l");
     }
 
-    public void Update(){
+    public override void Update(){
         hero.velocity.y -= HeroMover.gravity * Time.timeScale;
         if(hero.IsOnGround){
             if(hero.KeyDirection==0) hero.States.Push(new StateWait(hero));
@@ -99,7 +100,7 @@ public class StateFall : IHeroState
         }
     }
 
-    public void Exit(){
+    public override void Exit(){
         hero.StopCoroutine(kabezuriCoroutine);
 
         InputManager.Instance.SetInputLatency(ButtonCode.Right,0);

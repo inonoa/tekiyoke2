@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StateUseless : IHeroState
+public class StateUseless : HeroState
 {
-    public void Start(){ }
-    public void Resume(){ }
-    public void Update(){ }
-    public void Try2StartJet(){ }
-    public void Try2EndJet(){ }
-    public void Try2Jump(){ }
-    public void Try2StartMove(bool toRight){ }
-    public void Try2EndMove(){ }
-    public void Exit(){ }
+    public override void Start(){ }
+    public override void Resume(){ }
+    public override void Update(){ }
+    public override void Try2StartJet(){ }
+    public override void Try2EndJet(){ }
+    public override void Try2Jump(){ }
+    public override void Try2StartMove(bool toRight){ }
+    public override void Try2EndMove(){ }
+    public override void Exit(){ }
 }

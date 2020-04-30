@@ -5,16 +5,16 @@ using UnityEngine;
 ///<summary>「ジャンプ中」などの主人公の状態はこのインターフェースを実装したクラスの形で記述します
 ///それはそうとメソッド作りすぎたかもな… / OnLand() みたいなのあってもいいかもな…
 /// / Stateの配列をScriptableObjectにしてそこから拾ってくるみたいな実装にしたらStateにPrefabとか持てそう？</summary>
-public interface IHeroState
+public abstract class HeroState
 {
-    void Start();
-    void Resume();
-    void Update();
-    void Try2StartJet();
+    public abstract void Start();
+    public abstract void Resume();
+    public abstract void Update();
+    public abstract void Try2StartJet();
     ///<summary>EndJetなのにここでジェットが始まるようになっていて命名が良くなさすぎる</summary>
-    void Try2EndJet();
-    void Try2Jump();
-    void Try2StartMove(bool toRight);
-    void Try2EndMove();
-    void Exit();
+    public abstract void Try2EndJet();
+    public abstract void Try2Jump();
+    public abstract void Try2StartMove(bool toRight);
+    public abstract void Try2EndMove();
+    public abstract void Exit();
 }

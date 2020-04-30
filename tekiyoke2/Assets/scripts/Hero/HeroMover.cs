@@ -133,9 +133,9 @@ public class HeroMover : MonoBehaviour
     #region 別クラスで持っている情報
 
     ///<summary>一応過去の(特に直前の)状態を見るためにStackに積んでるけど必要か…？</summary>
-    public Stack<IHeroState> States { get; set; } = new Stack<IHeroState>();
+    public Stack<HeroState> States { get; set; } = new Stack<HeroState>();
     ///<summary>直前フレームの状態が入っているはず(大半の場合現在の状態と同じ)</summary>
-    IHeroState lastState;
+    HeroState lastState;
     [HideInInspector] public CameraController cmrCntr;
     [HideInInspector] public HpCntr hpcntr;
     [HideInInspector] public HeroObjsHolder4States objsHolderForStates;

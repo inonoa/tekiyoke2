@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StateBaneYoko : IHeroState
+public class StateBaneYoko : HeroState
 {
     static readonly float speedBreak = 0.5f;
     bool unstoppable = true;
@@ -18,17 +18,17 @@ public class StateBaneYoko : IHeroState
         this.frames2BeStoppable = frames2BeStoppable;
     }
 
-    public void Start(){
+    public override void Start(){
         hero.velocity.x = toRight ? pushSpeed : -pushSpeed;
         hero.anim.SetTrigger(toRight ? "runr" : "runl");
         hero.EyeToRight = toRight;
     }
 
-    public void Resume(){
+    public override void Resume(){
         hero.anim.SetTrigger(toRight ? "runr" : "runl");
     }
 
-    public void Update(){
+    public override void Update(){
 
         if(unstoppable){
             frames2BeStoppable --;
@@ -90,22 +90,22 @@ public class StateBaneYoko : IHeroState
         }
     }
 
-    public void Try2StartJet(){
+    public override void Try2StartJet(){
         if(!unstoppable){
             hero.States.Push(new StateJet(hero));
             hero.speedResidues.Add(new BaneResidue(hero.velocity.x, speedBreak));
         }
     }
-    public void Try2EndJet(){ }
-    public void Try2Jump(){
+    public override void Try2EndJet(){ }
+    public override void Try2Jump(){
         if(!unstoppable){
             hero.States.Push(new StateJump(hero));
             hero.speedResidues.Add(new BaneResidue(hero.velocity.x, speedBreak));
         }
     }
-    public void Try2StartMove(bool toRight){ }
-    public void Try2EndMove(){ }
-    public void Exit(){
+    public override void Try2StartMove(bool toRight){ }
+    public override void Try2EndMove(){ }
+    public override void Exit(){
         if(hero.KeyDirection != 0) hero.EyeToRight = (hero.KeyDirection == 1);
     }
 }
