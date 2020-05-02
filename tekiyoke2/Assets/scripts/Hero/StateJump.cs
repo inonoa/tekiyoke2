@@ -59,6 +59,8 @@ public class StateJump : HeroState, IAskCanJump
 
         if(canJump) hero.ObjsHolderForStates.JumpEffectPool.ActivateOne(hero.EyeToRight ? "r" : "l");
         else        hero.ObjsHolderForStates.JumpEffectInAirPool.ActivateOne(hero.EyeToRight ? "r" : "l");
+
+        hero.SoundGroup.Play("Jump");
         
         InputManager.Instance.SetInputLatency(ButtonCode.Right,inputLatency4Kick);
         InputManager.Instance.SetInputLatency(ButtonCode.Left, inputLatency4Kick);

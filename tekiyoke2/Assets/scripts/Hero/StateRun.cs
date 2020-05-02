@@ -40,7 +40,7 @@ public class StateRun : HeroState
         hero.velocity.Y = 0;
         hero.Anim.SetTrigger(hero.EyeToRight ? "runr" : "runl");
         tsuchihokoriCoroutine = hero.StartCoroutine(Tsuchihokoris());
-        hero.AudioSource.PlayOneShot(hero.SoundGroup.Find("Run"));
+        hero.SoundGroup.Play("Run");
     }
 
     IEnumerator Tsuchihokoris(){
@@ -95,5 +95,6 @@ public class StateRun : HeroState
 
     public override void Exit(){
         hero.StopCoroutine(tsuchihokoriCoroutine);
+        hero.SoundGroup.Stop("Run");
     }
 }

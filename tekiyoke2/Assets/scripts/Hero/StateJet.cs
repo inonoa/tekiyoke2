@@ -47,6 +47,7 @@ public class StateJet : HeroState
             PhantomAndDissolve();
             hero.Anim.SetTrigger(jet2Right ? "runr" : "runl");
             Tokitome.SetTime(1);
+            hero.SoundGroup.Play("Jet");
             //hero.spriteRenderer.color = new Color(1,1,1,0.3f);
 
             //Jetする距離を計算

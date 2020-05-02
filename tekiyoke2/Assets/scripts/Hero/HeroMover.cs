@@ -155,8 +155,6 @@ public class HeroMover : MonoBehaviour
     public SpriteRenderer SpriteRenderer{ get; private set; }
     public Animator Anim{ get; private set; }
     public Rigidbody2D Rigidbody{ get; private set; }
-    [SerializeField] AudioSource _AudioSource;
-    public AudioSource AudioSource => _AudioSource;
 
     Chishibuki chishibuki;
     

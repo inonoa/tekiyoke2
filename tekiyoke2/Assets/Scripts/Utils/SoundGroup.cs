@@ -2,17 +2,40 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using DG.Tweening;
 
 public class SoundGroup : MonoBehaviour
 {
     [SerializeField] SoundEffect[] ses;
 
-    public AudioClip Find(string name){
+    void Start(){
+        AudioSource source4SE = gameObject.AddComponent<AudioSource>();
+
         foreach(SoundEffect se in ses){
-            if(se.Name==name) return se.Clip;
+            if(se.CanLoopAndStop){
+                se.Initialize(gameObject.AddComponent<AudioSource>());
+            }else{
+                se.Initialize(source4SE);
+            }
+        }
+    }
+
+    public void Play(string soundName){
+        for(int i=0; i<ses.Length; i++){
+            if(ses[i].Name == soundName){
+                ses[i].Play();
+            }
         }
         Debug.LogError("そんなSEはない");
-        return null;
+    }
+
+    public void Stop(string soundName){
+        for(int i=0; i<ses.Length; i++){
+            if(ses[i].Name == soundName){
+                ses[i].Stop();
+            }
+        }
+        Debug.LogError("そんなSEはない");
     }
 }
 
@@ -24,4 +47,36 @@ public class SoundEffect{
 
     [SerializeField] AudioClip _Clip;
     public AudioClip Clip => _Clip;
+
+    [SerializeField] [Range(0, 1)] float _Volume = 1;
+    public float Volume => _Volume;
+
+    [SerializeField] bool _CanLoopAndStop = false;
+    public bool CanLoopAndStop => _CanLoopAndStop;
+
+    AudioSource source;
+
+    public void Initialize(AudioSource source){
+        this.source = source;
+        if(CanLoopAndStop){
+            source.volume = Volume;
+            source.clip = Clip;
+            source.loop = true;
+        }
+    }
+
+    public void Play(){
+        if(CanLoopAndStop){
+            source.Play();
+        }else{
+            source.PlayOneShot(Clip, Volume);
+        }
+    }
+
+    public void Stop(){
+        if(CanLoopAndStop){
+            source.Stop();
+        }
+        else Debug.LogError("止まらない！！");
+    }
 }
