@@ -178,6 +178,7 @@ public class HeroMover : MonoBehaviour
             Tokitome.SetTime(1);
             HP = HP - damage;
             CmrCntr.Reset();
+            SoundGroup.Play("Damage");
         }
     }
     public void BendBack(object sender, EventArgs e){

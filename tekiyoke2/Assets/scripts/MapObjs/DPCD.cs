@@ -27,6 +27,7 @@ public class DPCD : MonoBehaviour
             DPManager.Instance.AddDP(DPperDPCD);
 
             GottenAnimation();
+            GetComponent<SoundGroup>().Play("Got");
         }
     }
 

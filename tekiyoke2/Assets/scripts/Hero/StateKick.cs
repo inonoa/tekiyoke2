@@ -25,6 +25,7 @@ public class StateKick : HeroState, IAskCanJump
 
         hero.Anim.SetTrigger(toRight ? "jumprf" : "jumplf");
         hero.EyeToRight = toRight;
+        hero.SoundGroup.Play("Jump");
 
         hero.ObjsHolderForStates.JumpEffectPool.ActivateOne(toRight ? "kr" : "kl");
         kabezuriCoroutine = hero.StartCoroutine(SpawnKabezuris());

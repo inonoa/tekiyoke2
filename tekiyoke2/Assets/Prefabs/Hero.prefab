@@ -772,6 +772,10 @@ MonoBehaviour:
     _Clip: {fileID: 8300000, guid: 93d0d67a99f6b734486acb2a25945f57, type: 3}
     _Volume: 0.468
     _CanLoopAndStop: 0
+  - _Name: Damage
+    _Clip: {fileID: 8300000, guid: 730bc689a0eccdd4dbc07f7f01b1d501, type: 3}
+    _Volume: 0.468
+    _CanLoopAndStop: 0
 --- !u!1 &6473240483101330362
 GameObject:
   m_ObjectHideFlags: 0
