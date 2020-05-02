@@ -163,6 +163,7 @@
      <Compile Include="Assets\Scripts\TitleScene\Title2Stages.cs" />
      <Compile Include="Assets\Scripts\Utils\ShaderProperties.cs" />
      <Compile Include="Assets\Scripts\Utils\SimpleAnim.cs" />
+     <Compile Include="Assets\Scripts\Utils\SoundGroup.cs" />
      <Compile Include="Assets\Scripts\Warp\WarpController.cs" />
      <Compile Include="Assets\Scripts\Warp\WarpEvent.cs" />
      <Compile Include="Assets\Scripts\ZatsuTest.cs" />

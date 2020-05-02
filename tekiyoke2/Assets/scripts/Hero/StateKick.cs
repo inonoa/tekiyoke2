@@ -23,10 +23,10 @@ public class StateKick : HeroState, IAskCanJump
     public override void Start(){
         hero.Jumped(false, true);
 
-        hero.anim.SetTrigger(toRight ? "jumprf" : "jumplf");
+        hero.Anim.SetTrigger(toRight ? "jumprf" : "jumplf");
         hero.EyeToRight = toRight;
 
-        hero.objsHolderForStates.JumpEffectPool.ActivateOne(toRight ? "kr" : "kl");
+        hero.ObjsHolderForStates.JumpEffectPool.ActivateOne(toRight ? "kr" : "kl");
         kabezuriCoroutine = hero.StartCoroutine(SpawnKabezuris());
 
         hero.velocity.X = toRight ? HeroMover.moveSpeed : -HeroMover.moveSpeed;
@@ -54,12 +54,12 @@ public class StateKick : HeroState, IAskCanJump
         else if(hero.CanKickFromWallL)                     dir_is_R = false;
         else return;
 
-        hero.objsHolderForStates.KabezuriPool.ActivateOne(dir_is_R ? "r" : "l");
+        hero.ObjsHolderForStates.KabezuriPool.ActivateOne(dir_is_R ? "r" : "l");
     }
 
     public override void Resume(){
-        if(hero.velocity.Y > 0) hero.anim.SetTrigger(toRight ? "jumprf" : "jumplf");
-        else                    hero.anim.SetTrigger(toRight ? "fallr"  : "falll");
+        if(hero.velocity.Y > 0) hero.Anim.SetTrigger(toRight ? "jumprf" : "jumplf");
+        else                    hero.Anim.SetTrigger(toRight ? "fallr"  : "falll");
     }
 
     public override void Update(){
@@ -71,8 +71,8 @@ public class StateKick : HeroState, IAskCanJump
 
         hero.velocity.Y -= HeroMover.gravity * Time.timeScale;
         if(hero.velocity.Y < 0){
-            if(frames2BeFreeNow > 0) hero.anim.SetTrigger(toRight         ? "fallr" : "falll");
-            else                     hero.anim.SetTrigger(hero.EyeToRight ? "fallr" : "falll");
+            if(frames2BeFreeNow > 0) hero.Anim.SetTrigger(toRight         ? "fallr" : "falll");
+            else                     hero.Anim.SetTrigger(hero.EyeToRight ? "fallr" : "falll");
             //これ単にFallに遷移するほうがいいんじゃないの……？
         }
 

@@ -24,11 +24,11 @@ public class StateWait : HeroState
     public override void Start(){
 
         hero.velocity = new HeroVelocity(0,0);
-        hero.anim.SetTrigger(hero.EyeToRight ? "standr" : "standl");
+        hero.Anim.SetTrigger(hero.EyeToRight ? "standr" : "standl");
     }
 
     public override void Resume(){
-        hero.anim.SetTrigger(hero.EyeToRight ? "standr" : "standl");
+        hero.Anim.SetTrigger(hero.EyeToRight ? "standr" : "standl");
     }
     public override void Update(){
         if(!hero.IsOnGround){

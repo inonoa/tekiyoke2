@@ -21,7 +21,7 @@ public class StateBend : HeroState
         
         hero.velocity.Y = bendForce.Y;
 
-        hero.anim.SetTrigger( (hero.velocity.X > 0) ? "jumprf" : "jumplf" );
+        hero.Anim.SetTrigger( (hero.velocity.X > 0) ? "jumprf" : "jumplf" );
 
         hero.CanBeDamaged = false;
 
@@ -29,7 +29,7 @@ public class StateBend : HeroState
     }
 
     public override void Resume(){
-        hero.anim.SetTrigger( (hero.velocity.X > 0) ? "jumprf" : "jumplf" );
+        hero.Anim.SetTrigger( (hero.velocity.X > 0) ? "jumprf" : "jumplf" );
     }
 
     public override void Update(){

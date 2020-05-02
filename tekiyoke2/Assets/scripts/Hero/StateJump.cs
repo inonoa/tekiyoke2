@@ -34,41 +34,41 @@ public class StateJump : HeroState, IAskCanJump
                 hero.States.Push(new StateKick(hero, true,  canJump));
 
             hero.velocity.X =  HeroMover.moveSpeed;
-            hero.anim.SetTrigger("jumprf");
+            hero.Anim.SetTrigger("jumprf");
 
         }else{
             if(hero.CanKickFromWallR && InputManager.Instance.ButtonsDownSimultaneously(ButtonCode.Left,ButtonCode.Jump))
                 hero.States.Push(new StateKick(hero, false, canJump));
 
             hero.velocity.X = -HeroMover.moveSpeed;
-            hero.anim.SetTrigger("jumplf");
+            hero.Anim.SetTrigger("jumplf");
         }
     }
     public override void Try2EndMove(){
         hero.velocity.X = 0;
-        hero.anim.SetTrigger(hero.EyeToRight ? "jumpru" : "jumplu");
+        hero.Anim.SetTrigger(hero.EyeToRight ? "jumpru" : "jumplu");
     }
     public override void Start(){
         hero.velocity.Y = jumpForce;
         hero.Jumped(canJump, false);
 
-        if     (hero.velocity.X > 0) hero.anim.SetTrigger("jumprf");
-        else if(hero.velocity.X < 0) hero.anim.SetTrigger("jumplf");
-        else if(hero.EyeToRight)     hero.anim.SetTrigger("jumpru");
-        else                         hero.anim.SetTrigger("jumplu");
+        if     (hero.velocity.X > 0) hero.Anim.SetTrigger("jumprf");
+        else if(hero.velocity.X < 0) hero.Anim.SetTrigger("jumplf");
+        else if(hero.EyeToRight)     hero.Anim.SetTrigger("jumpru");
+        else                         hero.Anim.SetTrigger("jumplu");
 
-        if(canJump) hero.objsHolderForStates.JumpEffectPool.ActivateOne(hero.EyeToRight ? "r" : "l");
-        else        hero.objsHolderForStates.JumpEffectInAirPool.ActivateOne(hero.EyeToRight ? "r" : "l");
+        if(canJump) hero.ObjsHolderForStates.JumpEffectPool.ActivateOne(hero.EyeToRight ? "r" : "l");
+        else        hero.ObjsHolderForStates.JumpEffectInAirPool.ActivateOne(hero.EyeToRight ? "r" : "l");
         
         InputManager.Instance.SetInputLatency(ButtonCode.Right,inputLatency4Kick);
         InputManager.Instance.SetInputLatency(ButtonCode.Left, inputLatency4Kick);
         InputManager.Instance.SetInputLatency(ButtonCode.Jump, inputLatency4Kick);
     }
     public override void Resume(){
-        if     (hero.velocity.X > 0) hero.anim.SetTrigger("jumprf");
-        else if(hero.velocity.X < 0) hero.anim.SetTrigger("jumplf");
-        else if(hero.EyeToRight)     hero.anim.SetTrigger("jumpru");
-        else                         hero.anim.SetTrigger("jumplu");
+        if     (hero.velocity.X > 0) hero.Anim.SetTrigger("jumprf");
+        else if(hero.velocity.X < 0) hero.Anim.SetTrigger("jumplf");
+        else if(hero.EyeToRight)     hero.Anim.SetTrigger("jumpru");
+        else                         hero.Anim.SetTrigger("jumplu");
     }
 
     public override void Update(){

@@ -45,7 +45,7 @@ public class StateJet : HeroState
             hero.CanBeDamaged = false;
             state = State.Jetting;
             PhantomAndDissolve();
-            hero.anim.SetTrigger(jet2Right ? "runr" : "runl");
+            hero.Anim.SetTrigger(jet2Right ? "runr" : "runl");
             Tokitome.SetTime(1);
             //hero.spriteRenderer.color = new Color(1,1,1,0.3f);
 
@@ -57,7 +57,7 @@ public class StateJet : HeroState
                 jetVelocities[i] = fullDist * ( EasingFunc((i+1)/(float)jetFramesMax) - EasingFunc(i/(float)jetFramesMax) );
             }
             posWhenJet = hero.transform.position;
-            jetStream = GameObject.Instantiate(hero.objsHolderForStates.jetstreamPrefab, DraftManager.CurrentInstance.GameMasterTF);
+            jetStream = GameObject.Instantiate(hero.ObjsHolderForStates.jetstreamPrefab, DraftManager.CurrentInstance.GameMasterTF);
             jetStream.transform.position = hero.transform.position;
             jsCol = jetStream.GetComponent<BoxCollider2D>();
 
@@ -65,7 +65,7 @@ public class StateJet : HeroState
             col2DP.enabled = true;
 
             //風エフェクト
-            trailTF = GameObject.Instantiate(hero.objsHolderForStates.jetTrail, DraftManager.CurrentInstance.GameMasterTF).transform;
+            trailTF = GameObject.Instantiate(hero.ObjsHolderForStates.jetTrail, DraftManager.CurrentInstance.GameMasterTF).transform;
             trailTF.position = hero.transform.position;
             trailTF.GetComponent<TrailRenderer>().time = jetFramesMax / 60f;
 
@@ -88,17 +88,17 @@ public class StateJet : HeroState
             blurTTween = DOTween.To(blurT.GetVolume, blurT.SetVolume, 0, 0.1f);
             blurTTween.onComplete += () => blurT.isActive = false;
             
-            hero.cmrCntr.Dash(jetFramesMax); //今は何も起こってなさそう
+            hero.CmrCntr.Dash(jetFramesMax); //今は何も起こってなさそう
         }
     }
 
     void PhantomAndDissolve(){
-        SpriteRenderer phantom = hero.objsHolderForStates.PhantomRenderer;
+        SpriteRenderer phantom = hero.ObjsHolderForStates.PhantomRenderer;
         phantom.gameObject.SetActive(true);
         phantom.transform.position = hero.transform.position;
-        phantom.sprite = hero.spriteRenderer.sprite;
+        phantom.sprite = hero.SpriteRenderer.sprite;
 
-        Material heroMat = hero.spriteRenderer.material;
+        Material heroMat = hero.SpriteRenderer.material;
         Material phantomMat = phantom.material;
         heroMat.SetFloat("_DisThreshold0", 1);
         heroMat.SetFloat("_DisThreshold1", 1.1f);
@@ -156,7 +156,7 @@ public class StateJet : HeroState
                 break;
         }
 
-        hero.cmrCntr.StartZoomForDash();
+        hero.CmrCntr.StartZoomForDash();
         clouds.StartClouds();
 
         vignette.isActive = true;
@@ -176,7 +176,7 @@ public class StateJet : HeroState
     }
 
     public override void Resume(){
-        if(state==State.Jetting) hero.anim.SetTrigger(jet2Right ? "runr" : "runl");
+        if(state==State.Jetting) hero.Anim.SetTrigger(jet2Right ? "runr" : "runl");
         // else書きたいがどうしよね、そもそもJetの遷移のタイミング変じゃないか？
     }
 
@@ -236,7 +236,7 @@ public class StateJet : HeroState
     public override void Exit(){
         hero.CanBeDamaged = true;
         //hero.spriteRenderer.color = new Color(1,1,1,1);
-        hero.cmrCntr.EndDash();
+        hero.CmrCntr.EndDash();
         GameObject.Destroy(jetStream);
         if(col2DP!=null) col2DP.enabled = false;
         clouds.EndClouds();

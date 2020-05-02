@@ -69,7 +69,7 @@ public class HeroMover : MonoBehaviour
 
     ///<summary>指定した値だけ位置をずらす。timeScaleの影響を受けます</summary>
     public void MovePos(float vx, float vy){
-        rigidbody.MovePosition(new Vector2(
+        Rigidbody.MovePosition(new Vector2(
             transform.position.x + vx*Time.timeScale,
             transform.position.y + vy*Time.timeScale
         ));
@@ -136,9 +136,11 @@ public class HeroMover : MonoBehaviour
     public Stack<HeroState> States { get; set; } = new Stack<HeroState>();
     ///<summary>直前フレームの状態が入っているはず(大半の場合現在の状態と同じ)</summary>
     HeroState lastState;
-    [HideInInspector] public CameraController cmrCntr;
-    [HideInInspector] public HpCntr hpcntr;
-    [HideInInspector] public HeroObjsHolder4States objsHolderForStates;
+    public CameraController CmrCntr{ get; private set; }
+    public HpCntr HpCntr{ get; private set; }
+    public HeroObjsHolder4States ObjsHolderForStates{ get; private set; }
+    [SerializeField] SoundGroup _SoundGroup;
+    public SoundGroup SoundGroup => _SoundGroup;
     [SerializeField] GroundChecker groundChecker;
     SakamichiChecker sakamichiChecker;
     [SerializeField] WallCheckerL wallCheckerL;
@@ -150,9 +152,12 @@ public class HeroMover : MonoBehaviour
     public GetDPinEnemy GetDPinEnemy => getDPinEnemy;
 
 
-    [HideInInspector] public SpriteRenderer spriteRenderer;
-    [HideInInspector] public Animator anim;
-    [HideInInspector] public new Rigidbody2D rigidbody;
+    public SpriteRenderer SpriteRenderer{ get; private set; }
+    public Animator Anim{ get; private set; }
+    public Rigidbody2D Rigidbody{ get; private set; }
+    [SerializeField] AudioSource _AudioSource;
+    public AudioSource AudioSource => _AudioSource;
+
     Chishibuki chishibuki;
     
     #endregion
@@ -161,12 +166,12 @@ public class HeroMover : MonoBehaviour
 
     ///<summary>HPの増減はすべてここから。(全部HPCntrに通します) (これ何のためにプロパティやめたのかわかんねえな)</summary>
     private int HP{
-        get => hpcntr.HP;
-        set => hpcntr.ChangeHP(value);
+        get => HpCntr.HP;
+        set => HpCntr.ChangeHP(value);
     }
 
     ///<summary>falseだと無敵になる</summary>
-    public bool CanBeDamaged{ get => hpcntr.CanBeDamaged; set => hpcntr.CanBeDamaged = value; }
+    public bool CanBeDamaged{ get => HpCntr.CanBeDamaged; set => HpCntr.CanBeDamaged = value; }
     
     ///<summary>敵からのダメージ等。ノックバックなどが入る予定(あれ？)</summary>
     ///<param name="damage">与えるダメージを書く。1を指定すると100->99,1->0になったりします</param>
@@ -174,7 +179,7 @@ public class HeroMover : MonoBehaviour
         if(CanBeDamaged){
             Tokitome.SetTime(1);
             HP = HP - damage;
-            cmrCntr.Reset();
+            CmrCntr.Reset();
         }
     }
     public void BendBack(object sender, EventArgs e){
@@ -190,13 +195,13 @@ public class HeroMover : MonoBehaviour
 
         while(true){
 
-            if(hpcntr.CanBeDamaged) yield break;
-            spriteRenderer.material.SetFloat("_Alpha", 0);
+            if(HpCntr.CanBeDamaged) yield break;
+            SpriteRenderer.material.SetFloat("_Alpha", 0);
 
             yield return new WaitForSeconds(blinkPeriodSec/2);
 
-            spriteRenderer.material.SetFloat("_Alpha", 1);
-            if(hpcntr.CanBeDamaged) yield break;
+            SpriteRenderer.material.SetFloat("_Alpha", 1);
+            if(HpCntr.CanBeDamaged) yield break;
 
             yield return new WaitForSeconds(blinkPeriodSec/2);
         }
@@ -235,19 +240,19 @@ public class HeroMover : MonoBehaviour
         States.Push(new StateWait(this));
         lastState = States.Peek();
 
-        cmrCntr = CameraController.CurrentCamera;
+        CmrCntr = CameraController.CurrentCamera;
         input   = InputManager.Instance;
         chishibuki = GameUIManager.CurrentInstance.Chishibuki;
-        spriteRenderer      = GetComponent<SpriteRenderer>();
-        anim                = GetComponent<Animator>();
-        rigidbody           = GetComponent<Rigidbody2D>();
-        hpcntr              = GetComponent<HpCntr>();
+        SpriteRenderer      = GetComponent<SpriteRenderer>();
+        Anim                = GetComponent<Animator>();
+        Rigidbody           = GetComponent<Rigidbody2D>();
+        HpCntr              = GetComponent<HpCntr>();
         sakamichiChecker    = GetComponent<SakamichiChecker>();
         savePositionManager = GetComponent<SavePositionManager>();
-        objsHolderForStates = GetComponent<HeroObjsHolder4States>();
+        ObjsHolderForStates = GetComponent<HeroObjsHolder4States>();
 
-        hpcntr.die     += ReceiveDeath;
-        hpcntr.damaged += BendBack;
+        HpCntr.die     += ReceiveDeath;
+        HpCntr.damaged += BendBack;
         getDPinEnemy.gotDP += (dp, e) => {
             DPManager.Instance.AddDP((float)dp);
             DPManager.Instance.LightGaugePulse();
