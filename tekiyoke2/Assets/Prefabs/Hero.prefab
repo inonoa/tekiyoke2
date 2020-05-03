@@ -762,20 +762,24 @@ MonoBehaviour:
   ses:
   - _Name: Run
     _Clip: {fileID: 8300000, guid: 0e1988f57499b6e4da904c08c51c2097, type: 3}
-    _Volume: 0.784
+    _Volume: 1
     _CanLoopAndStop: 1
+    <Loop>k__BackingField: 1
   - _Name: Jump
     _Clip: {fileID: 8300000, guid: 0b6030ca3be28f341902e6bcc6d4761b, type: 3}
     _Volume: 0.462
     _CanLoopAndStop: 0
+    <Loop>k__BackingField: 0
   - _Name: Jet
     _Clip: {fileID: 8300000, guid: 93d0d67a99f6b734486acb2a25945f57, type: 3}
     _Volume: 0.468
-    _CanLoopAndStop: 0
+    _CanLoopAndStop: 1
+    <Loop>k__BackingField: 0
   - _Name: Damage
     _Clip: {fileID: 8300000, guid: 730bc689a0eccdd4dbc07f7f01b1d501, type: 3}
     _Volume: 0.468
     _CanLoopAndStop: 0
+    <Loop>k__BackingField: 0
 --- !u!1 &6473240483101330362
 GameObject:
   m_ObjectHideFlags: 0

@@ -41,6 +41,7 @@ public class RecoverItem : MonoBehaviour
             waveSeq.Pause();
 
             GottenAnimation();
+            GetComponent<SoundGroup>().Play("Got");
         }
     }
 

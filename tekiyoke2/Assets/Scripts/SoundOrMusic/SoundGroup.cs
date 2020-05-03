@@ -24,6 +24,7 @@ public class SoundGroup : MonoBehaviour
         for(int i=0; i<ses.Length; i++){
             if(ses[i].Name == soundName){
                 ses[i].Play();
+                return;
             }
         }
         Debug.LogError("そんなSEはない");
@@ -33,9 +34,18 @@ public class SoundGroup : MonoBehaviour
         for(int i=0; i<ses.Length; i++){
             if(ses[i].Name == soundName){
                 ses[i].Stop();
+                return;
             }
         }
         Debug.LogError("そんなSEはない");
+    }
+
+    public void StopAll(){
+        for(int i=0; i<ses.Length; i++){
+            if(ses[i].CanLoopAndStop){
+                ses[i].Stop();
+            }
+        }
     }
 }
 
@@ -54,6 +64,11 @@ public class SoundEffect{
     [SerializeField] bool _CanLoopAndStop = false;
     public bool CanLoopAndStop => _CanLoopAndStop;
 
+
+    [field: SerializeField] [field: RenameField("Loop")]
+    public bool Loop{ get; private set; }
+    
+
     AudioSource source;
 
     public void Initialize(AudioSource source){
@@ -61,7 +76,7 @@ public class SoundEffect{
         if(CanLoopAndStop){
             source.volume = Volume;
             source.clip = Clip;
-            source.loop = true;
+            source.loop = Loop;
         }
     }
 

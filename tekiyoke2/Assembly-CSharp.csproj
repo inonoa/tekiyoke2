@@ -156,14 +156,15 @@
      <Compile Include="Assets\Scripts\SceneTransition\WindAndBlur.cs" />
      <Compile Include="Assets\Scripts\SceneTransition\WindPath.cs" />
      <Compile Include="Assets\Scripts\ScoreHolder.cs" />
+     <Compile Include="Assets\Scripts\SoundOrMusic\SoundGroup.cs" />
      <Compile Include="Assets\Scripts\StageSelectScene\StageSelector.cs" />
      <Compile Include="Assets\Scripts\StageSelectScene\WakuLightMover.cs" />
      <Compile Include="Assets\Scripts\TitleScene\AnyKeyToStart.cs" />
      <Compile Include="Assets\Scripts\TitleScene\CloudSpawner.cs" />
      <Compile Include="Assets\Scripts\TitleScene\Title2Stages.cs" />
+     <Compile Include="Assets\Scripts\Utils\RenameFieldAttribute.cs" />
      <Compile Include="Assets\Scripts\Utils\ShaderProperties.cs" />
      <Compile Include="Assets\Scripts\Utils\SimpleAnim.cs" />
-     <Compile Include="Assets\Scripts\Utils\SoundGroup.cs" />
      <Compile Include="Assets\Scripts\Warp\WarpController.cs" />
      <Compile Include="Assets\Scripts\Warp\WarpEvent.cs" />
      <Compile Include="Assets\Scripts\ZatsuTest.cs" />

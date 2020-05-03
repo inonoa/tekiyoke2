@@ -249,6 +249,7 @@ GameObject:
   - component: {fileID: 2362030087005365157}
   - component: {fileID: 2362030087005365162}
   - component: {fileID: 2362030087005365163}
+  - component: {fileID: 4969168666705533977}
   m_Layer: 0
   m_Name: Gate
   m_TagString: Untagged
@@ -340,3 +341,21 @@ SortingGroup:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &4969168666705533977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2362030087005365166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 575125d316743164095ca4d7fc3e0d78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ses:
+  - _Name: Move
+    _Clip: {fileID: 8300000, guid: 1078f2ff05f14314b97e52c2e02a54e0, type: 3}
+    _Volume: 0.5
+    _CanLoopAndStop: 1
+    <Loop>k__BackingField: 0

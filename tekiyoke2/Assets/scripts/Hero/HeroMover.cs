@@ -263,6 +263,10 @@ public class HeroMover : MonoBehaviour
         if(States.Count>0) States.Peek().Resume();
     }
 
+    void OnDisable(){
+        SoundGroup.StopAll();
+    }
+
     void Update()
     {
 

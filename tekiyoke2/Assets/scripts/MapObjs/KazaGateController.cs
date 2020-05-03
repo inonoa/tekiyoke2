@@ -7,21 +7,26 @@ public class KazaGateController : MonoBehaviour
 {
     [SerializeField] Transform gate;
     SpriteRenderer spRenderer;
+    SoundGroup soundGroup;
     BoxCollider2D col;
     [SerializeField] float openVel = 1;
     [SerializeField] float closeVel = 2;
     Vector3 defPos;
-    enum State{ Wait, Opening, Closing }
+    enum State{ Wait, Opening, Open, Closing }
     State state = State.Wait;
     void Start()
     {
+        soundGroup = GetComponent<SoundGroup>();
         KazagurumaObserver ko = GetComponent<KazagurumaObserver>();
-        ko.AllRotated += (s, e) => state = State.Opening;
+        ko.AllRotated += (s, e) => {
+            soundGroup.Play("Move");
+            state = State.Opening;
+        };
         ko.NotAllRotated += (s, e) => {
+            soundGroup.Play("Move");
             state = State.Closing;
             col.enabled = true;
         };
-
         spRenderer = gate.GetComponent<SpriteRenderer>();
         col = GetComponent<BoxCollider2D>();
         defPos = gate.position;
@@ -46,8 +51,14 @@ public class KazaGateController : MonoBehaviour
                     if(gate.position.y >= defPos.y + 100){
                         gate.position = new Vector3(gate.position.x, defPos.y + 100, gate.position.z);
                         col.enabled = false;
+                        state = State.Open;
+                        soundGroup.Stop("Move");
                     }
                 }
+                break;
+            
+            case State.Open:
+
                 break;
             
             case State.Closing:
@@ -60,6 +71,7 @@ public class KazaGateController : MonoBehaviour
                 if(gate.position.y <= defPos.y){
                     gate.position = new Vector3(gate.position.x, defPos.y, gate.position.z);
                     state = State.Wait;
+                    soundGroup.Stop("Move");
                 }
                 break;
         }
