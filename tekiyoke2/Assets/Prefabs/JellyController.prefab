@@ -59,6 +59,7 @@ MonoBehaviour:
   kasaSpriteDown: {fileID: 21300000, guid: 581e95807d5ff974380c59ad35c534b2, type: 3}
   asiSpriteDown: {fileID: 21300000, guid: 1800a40f9688f0a4cbf70a5d71ff2f55, type: 3}
   lightSR: {fileID: 8051017778602194855}
+  soundGroup: {fileID: 1064551741753863839}
 --- !u!1 &1714998046919143152
 GameObject:
   m_ObjectHideFlags: 0
@@ -289,6 +290,7 @@ GameObject:
   - component: {fileID: 8250815653927083530}
   - component: {fileID: 7215245720141097645}
   - component: {fileID: 8207341088589106508}
+  - component: {fileID: 1064551741753863839}
   m_Layer: 0
   m_Name: Kasa
   m_TagString: Enemy
@@ -408,6 +410,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 36, y: 50}
   m_EdgeRadius: 0
+--- !u!114 &1064551741753863839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6374538274858410329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 575125d316743164095ca4d7fc3e0d78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ses:
+  - _Name: Kaze
+    _Clip: {fileID: 8300000, guid: ce409aaf3a1e0ec46ba213fe6b3bcb28, type: 3}
+    _Volume: 0.414
+    _CanLoopAndStop: 0
+    <Loop>k__BackingField: 0
 --- !u!1001 &3177080600696046018
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -16,7 +16,6 @@ public class GetDPinEnemy : MonoBehaviour
     ///<summary>敵のソウル的なのからDPを奪う、光ってからフェードアウトする</summary>
     void OnTriggerEnter2D(Collider2D other){
         if(other.tag=="Enemy"){
-            print("dpppp");
             var dPinEnemy = other.GetComponentInParent<EnemyController>().DPCD;
             if(dPinEnemy.IsActive){
                 dPinEnemy.Light();

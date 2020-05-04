@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using System;
 using DG.Tweening;
 
@@ -12,7 +13,7 @@ public class SoundGroup : MonoBehaviour
         AudioSource source4SE = gameObject.AddComponent<AudioSource>();
 
         foreach(SoundEffect se in ses){
-            if(se.CanLoopAndStop){
+            if(se.RequireComponent){
                 se.Initialize(gameObject.AddComponent<AudioSource>());
             }else{
                 se.Initialize(source4SE);
@@ -42,10 +43,20 @@ public class SoundGroup : MonoBehaviour
 
     public void StopAll(){
         for(int i=0; i<ses.Length; i++){
-            if(ses[i].CanLoopAndStop){
+            if(ses[i].RequireComponent){
                 ses[i].Stop();
             }
         }
+    }
+
+    public void FadeOut(string soundName, float DurationSec){
+        for(int i=0; i<ses.Length; i++){
+            if(ses[i].Name == soundName){
+                DOTween.To(() => ses[i].Volume, v => ses[i].Volume = v, 0, DurationSec);
+                return;
+            }
+        }
+        Debug.LogError("そんなSEはない");
     }
 }
 
@@ -59,10 +70,16 @@ public class SoundEffect{
     public AudioClip Clip => _Clip;
 
     [SerializeField] [Range(0, 1)] float _Volume = 1;
-    public float Volume => _Volume;
+    public float Volume{
+        get => _Volume;
+        set{
+            _Volume = Mathf.Clamp01(value);
+            source.volume = _Volume;
+        }
+    }
 
-    [SerializeField] bool _CanLoopAndStop = false;
-    public bool CanLoopAndStop => _CanLoopAndStop;
+    [SerializeField] [FormerlySerializedAs("_CanLoopAndStop")] bool _RequireComponent = false;
+    public bool RequireComponent => _RequireComponent;
 
 
     [field: SerializeField] [field: RenameField("Loop")]
@@ -73,7 +90,8 @@ public class SoundEffect{
 
     public void Initialize(AudioSource source){
         this.source = source;
-        if(CanLoopAndStop){
+        source.playOnAwake = false;
+        if(RequireComponent){
             source.volume = Volume;
             source.clip = Clip;
             source.loop = Loop;
@@ -81,7 +99,7 @@ public class SoundEffect{
     }
 
     public void Play(){
-        if(CanLoopAndStop){
+        if(RequireComponent){
             source.Play();
         }else{
             source.PlayOneShot(Clip, Volume);
@@ -89,7 +107,7 @@ public class SoundEffect{
     }
 
     public void Stop(){
-        if(CanLoopAndStop){
+        if(RequireComponent){
             source.Stop();
         }
         else Debug.LogError("止まらない！！");

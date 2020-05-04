@@ -24,6 +24,7 @@ public class DPinEnemy : MonoBehaviour
         if(IsActive){
             StartCoroutine(LightCoroutine());
         }
+        GetComponent<SoundGroup>().Play("Got");
     }
 
     IEnumerator LightCoroutine(){

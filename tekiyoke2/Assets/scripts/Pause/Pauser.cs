@@ -23,12 +23,15 @@ public class Pauser : MonoBehaviour
 
     PauseUIMover uiMover;
 
+    SoundGroup soundGroup;
+
     void Start()
     {
         gameMaster = DraftManager.CurrentInstance.GameMasterTF.gameObject;
         pauseMaster = DraftManager.CurrentInstance.PauseMasterTF.gameObject;
         uiMover = pauseMaster.GetComponent<PauseUIMover>();
         scshoImg = pauseMaster.transform.Find("Canvas").Find("ScSho").GetComponent<Image>();
+        soundGroup = GetComponent<SoundGroup>();
 
         uiMover.pauseEnd += PauseEnded;
     }
@@ -50,6 +53,8 @@ public class Pauser : MonoBehaviour
                     //フラグ？書き換え
                     inPause = true;
                 });
+
+                soundGroup.Play("Pause");
             }
 
         }

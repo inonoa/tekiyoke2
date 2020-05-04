@@ -11,6 +11,7 @@ public class SavePositionManager : MonoBehaviour
     [SerializeField]
     int saveCostDP = 10;
     [SerializeField] Image dialogImg;
+    [SerializeField] SoundGroup soundGroup;
 
     public void Try2Save(){
         if(DPManager.Instance.DP >= saveCostDP){
@@ -19,6 +20,8 @@ public class SavePositionManager : MonoBehaviour
             MemoryOverDeath.Instance.Save();
             resPos.SetActive(true);
             resPos.transform.position = new Vector3(transform.position.x, transform.position.y, resPos.transform.position.z);
+
+            soundGroup.Play("Save");
 
             //応急
             Sequence dialogSeq = DOTween.Sequence();

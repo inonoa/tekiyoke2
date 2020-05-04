@@ -25,6 +25,8 @@ public class WindAndBlur : MonoBehaviour
         //ステージのスクショを撮る(まだ表示してない)
         CameraController.CurrentCamera.ScShoOutOfWind(ss => scsho = ss);
 
+        StartCoroutine(PlayWindSound());
+
         DOVirtual.DelayedCall(secondsToBlur, () =>
         {
             Instantiate(blue, transform).transform.SetAsFirstSibling();
@@ -42,5 +44,11 @@ public class WindAndBlur : MonoBehaviour
                 SceneManager.LoadScene(NextSceneName);
             });
         });
+    }
+
+    IEnumerator PlayWindSound(){
+        //StartでやるとSEの準備より先に呼ばれてぬるぽが出る
+        yield return new WaitForEndOfFrame();
+        GetComponent<SoundGroup>().Play("Wind");
     }
 }

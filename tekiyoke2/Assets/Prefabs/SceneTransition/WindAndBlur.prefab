@@ -395,6 +395,7 @@ GameObject:
   - component: {fileID: 9190860623369389567}
   - component: {fileID: 6163793901049510254}
   - component: {fileID: 1855145380354302208}
+  - component: {fileID: 4403768779205997372}
   m_Layer: 11
   m_Name: WindAndBlur
   m_TagString: Untagged
@@ -449,6 +450,24 @@ MonoBehaviour:
   blue: {fileID: 158019399742677529, guid: 330a2452203af6b4a95b17da53a51023, type: 3}
   secondsToBlur: 1.1
   secondsToBeReadyToChange: 2.2
+--- !u!114 &4403768779205997372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3113870350591193420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 575125d316743164095ca4d7fc3e0d78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ses:
+  - _Name: Wind
+    _Clip: {fileID: 8300000, guid: 520c6e6fa4a82d9498a2476f65efbd77, type: 3}
+    _Volume: 0.174
+    _RequireComponent: 0
+    <Loop>k__BackingField: 0
 --- !u!1 &7750489329463781463
 GameObject:
   m_ObjectHideFlags: 0

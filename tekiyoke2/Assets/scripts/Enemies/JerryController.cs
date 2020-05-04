@@ -30,6 +30,10 @@ public class JerryController : EnemyController
     [SerializeField] Sprite kasaSpriteDown;
     [SerializeField] Sprite asiSpriteDown;
     [SerializeField] SpriteRenderer lightSR;
+    [SerializeField] SoundGroup soundGroup;
+
+    //定数シュッと置いとく方法を探している
+    static readonly (string _Volume, string Kaze) c = ("_Volume", "Kaze");
 
 
     new void Start(){
@@ -42,7 +46,7 @@ public class JerryController : EnemyController
 
         kasaSR.sprite = IsGoingUp ? kasaSpriteUp : kasaSpriteDown;
         asiSR.sprite = IsGoingUp ? asiSpriteUp : asiSpriteDown;
-        lightSR.material.SetFloat("_Volume", IsGoingUp ? 1 : 0);
+        lightSR.material.SetFloat(c._Volume, IsGoingUp ? 1 : 0);
     }
 
     new void Update()
@@ -90,6 +94,7 @@ public class JerryController : EnemyController
                     kasaSR.sprite = kasaSpriteUp;
                     asiSR.sprite = asiSpriteUp;
                     StartCoroutine("Light");
+                    soundGroup.Play(c.Kaze);
                 }
             }
         }
@@ -98,14 +103,14 @@ public class JerryController : EnemyController
     IEnumerator Light(){
 
         for(int i=0;i<lightFrames;i++){
-            lightSR.material.SetFloat("_Volume", (i+1)/(float)lightFrames);
+            lightSR.material.SetFloat(c._Volume, (i+1)/(float)lightFrames);
             yield return null;
         }
     }
     IEnumerator Unlight(){
 
         for(int i=0;i<unlightFrames;i++){
-            lightSR.material.SetFloat("_Volume", (unlightFrames-1-i)/(float)unlightFrames);
+            lightSR.material.SetFloat(c._Volume, (unlightFrames-1-i)/(float)unlightFrames);
             yield return null;
         }
     }

@@ -474,6 +474,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   saveCostDP: 10
   dialogImg: {fileID: 0}
+  soundGroup: {fileID: 5836125009105332007}
 --- !u!114 &1862551108992817783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -777,6 +778,11 @@ MonoBehaviour:
     <Loop>k__BackingField: 0
   - _Name: Damage
     _Clip: {fileID: 8300000, guid: 730bc689a0eccdd4dbc07f7f01b1d501, type: 3}
+    _Volume: 0.468
+    _CanLoopAndStop: 0
+    <Loop>k__BackingField: 0
+  - _Name: Save
+    _Clip: {fileID: 8300000, guid: 902e403441eefc04a995b026251c14bb, type: 3}
     _Volume: 0.468
     _CanLoopAndStop: 0
     <Loop>k__BackingField: 0

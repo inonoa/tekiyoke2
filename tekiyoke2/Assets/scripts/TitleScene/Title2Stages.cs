@@ -11,7 +11,10 @@ public class Title2Stages : MonoBehaviour
     {
 
         if(InputManager.Instance.AnyButtonDown()){
-            if(clouds.state==CloudSpawner.State.Active) clouds.state = CloudSpawner.State.Wind;
+            if(clouds.state==CloudSpawner.State.Active){
+                clouds.state = CloudSpawner.State.Wind;
+                GetComponent<SoundGroup>().Play("Push");
+            }
         }
     }
 }

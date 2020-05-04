@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7173967767944688376}
   - component: {fileID: 222728814081989520}
   - component: {fileID: 4602767616656774132}
+  - component: {fileID: 6321361883057268985}
   m_Layer: 0
   m_Name: DPinEnemy
   m_TagString: Untagged
@@ -94,3 +95,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dp: 1
   rotateSpeed: 1
+--- !u!114 &6321361883057268985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2538558144954372343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 575125d316743164095ca4d7fc3e0d78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ses:
+  - _Name: Got
+    _Clip: {fileID: 8300000, guid: 613a9bd1b55103e4f97c1e4213da3ce0, type: 3}
+    _Volume: 0.503
+    _CanLoopAndStop: 0
+    <Loop>k__BackingField: 0
