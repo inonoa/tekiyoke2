@@ -13,6 +13,7 @@ public class PressZToReturn : MonoBehaviour
         if(InputManager.Instance.GetButtonDown(ButtonCode.Enter) && canPress){
             SceneTransition.Start2ChangeState("StageChoiceScene", SceneTransition.TransitionType.Normal);
             cursor.OnPushed();
+            GetComponent<SoundGroup>().Play("Put");
         }
     }
 }

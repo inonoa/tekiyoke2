@@ -503,6 +503,7 @@ GameObject:
   m_Component:
   - component: {fileID: 877431674}
   - component: {fileID: 877431675}
+  - component: {fileID: 877431676}
   m_Layer: 0
   m_Name: CloudSpawner
   m_TagString: Untagged
@@ -546,6 +547,24 @@ MonoBehaviour:
   count2Title: 35
   count2Spawn: 100
   moveSpeed: 1
+--- !u!114 &877431676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 877431673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 575125d316743164095ca4d7fc3e0d78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ses:
+  - _Name: TitleIn
+    _Clip: {fileID: 8300000, guid: 4875aa7bd46a3a34ba06d53c1cd0d511, type: 3}
+    _Volume: 0.504
+    _RequireComponent: 0
+    <Loop>k__BackingField: 0
 --- !u!1 &916736743
 GameObject:
   m_ObjectHideFlags: 0
@@ -686,7 +705,7 @@ MonoBehaviour:
   - _Name: Push
     _Clip: {fileID: 8300000, guid: 754757de7496855449eba613dc632c02, type: 3}
     _Volume: 0.407
-    _CanLoopAndStop: 0
+    _RequireComponent: 0
     <Loop>k__BackingField: 0
 --- !u!1001 &1904920721
 PrefabInstance:
