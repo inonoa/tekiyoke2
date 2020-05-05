@@ -47,17 +47,17 @@ MonoBehaviour:
   ses:
   - _Name: Wind0
     _Clip: {fileID: 8300000, guid: 520c6e6fa4a82d9498a2476f65efbd77, type: 3}
-    _Volume: 0.25
+    _Volume: 0.1
     _RequireComponent: 1
     <Loop>k__BackingField: 1
   - _Name: Wind1
     _Clip: {fileID: 8300000, guid: 2642184f1e8f0054b89093952e747ea0, type: 3}
-    _Volume: 0.25
+    _Volume: 0.1
     _RequireComponent: 1
     <Loop>k__BackingField: 1
   - _Name: Wind2
     _Clip: {fileID: 8300000, guid: ce409aaf3a1e0ec46ba213fe6b3bcb28, type: 3}
-    _Volume: 0.25
+    _Volume: 0.1
     _RequireComponent: 1
     <Loop>k__BackingField: 1
 --- !u!114 &6267704590824942824
@@ -72,6 +72,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8a7127fed564124087c66cd38c915fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  volumeMinMaxsDependingOnHP:
+  - <Min>k__BackingField: 0
+    <Max>k__BackingField: 0
+  - <Min>k__BackingField: 0.25
+    <Max>k__BackingField: 0.5
+  - <Min>k__BackingField: 0.05
+    <Max>k__BackingField: 0.2
+  - <Min>k__BackingField: 0
+    <Max>k__BackingField: 0.1
+  heroCheckPeriodSec: 0.5
+  actualVal: 0
 --- !u!1 &3106219248715147175
 GameObject:
   m_ObjectHideFlags: 0

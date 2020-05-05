@@ -21,24 +21,27 @@ public class SoundGroup : MonoBehaviour
         }
     }
 
-    public void Play(string soundName){
+    SoundEffect Find(string name){
         for(int i=0; i<ses.Length; i++){
-            if(ses[i].Name == soundName){
-                ses[i].Play();
-                return;
+            if(ses[i].Name == name){
+                return ses[i];
             }
         }
         Debug.LogError("そんなSEはない");
+        return null;
+    }
+
+    public void Play(string soundName){
+        Find(soundName)?.Play();
+    }
+    public void PlayAll(){
+        for(int i=0; i<ses.Length; i++){
+            ses[i].Play();
+        }
     }
 
     public void Stop(string soundName){
-        for(int i=0; i<ses.Length; i++){
-            if(ses[i].Name == soundName){
-                ses[i].Stop();
-                return;
-            }
-        }
-        Debug.LogError("そんなSEはない");
+        Find(soundName)?.Stop();
     }
 
     public void StopAll(){
@@ -49,24 +52,19 @@ public class SoundGroup : MonoBehaviour
         }
     }
 
+    public void SetVolume(string soundName, float volume){
+        SoundEffect se = Find(soundName);
+        if(se != null) se.Volume = volume;
+    }
+
     public void FadeOut(string soundName, float durationSec){
-        for(int i=0; i<ses.Length; i++){
-            if(ses[i].Name == soundName){
-                DOTween.To(() => ses[i].Volume, v => ses[i].Volume = v, 0, durationSec);
-                return;
-            }
-        }
-        Debug.LogError("そんなSEはない");
+        SoundEffect se = Find(soundName);
+        if(se != null) DOTween.To(() => se.Volume, v => se.Volume = v, 0, durationSec);
     }
 
     public void VolumeTo(string soundName, float endValue, float durationSec){
-        for(int i=0; i<ses.Length; i++){
-            if(ses[i].Name == soundName){
-                DOTween.To(() => ses[i].Volume, v => ses[i].Volume = v, endValue, durationSec);
-                return;
-            }
-        }
-        Debug.LogError("そんなSEはない");
+        SoundEffect se = Find(soundName);
+        if(se != null) DOTween.To(() => se.Volume, v => se.Volume = v, endValue, durationSec);
     }
 }
 
