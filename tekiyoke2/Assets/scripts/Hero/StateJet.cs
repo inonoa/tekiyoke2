@@ -48,6 +48,7 @@ public class StateJet : HeroState
             hero.Anim.SetTrigger(jet2Right ? "runr" : "runl");
             Tokitome.SetTime(1);
             hero.SoundGroup.Play("Jet");
+            hero.SoundGroup.Stop("Tame");
             //hero.spriteRenderer.color = new Color(1,1,1,0.3f);
 
             //Jetする距離を計算
@@ -159,6 +160,9 @@ public class StateJet : HeroState
 
         hero.CmrCntr.StartZoomForDash();
         clouds.StartClouds();
+        hero.SoundGroup.SetVolume("Tame", 0);
+        hero.SoundGroup.Play("Tame");
+        hero.SoundGroup.VolumeTo("Tame", 1, 0.7f);
 
         vignette.isActive = true;
         vignette.SetVolume(0);
@@ -241,6 +245,7 @@ public class StateJet : HeroState
         GameObject.Destroy(jetStream);
         if(col2DP!=null) col2DP.enabled = false;
         clouds.EndClouds();
+        hero.SoundGroup.Stop("Tame");
         foreach(PostEffectWrapper pe in new PostEffectWrapper[]{vignette, blurT, blurY}){
             pe.isActive = false;
         }

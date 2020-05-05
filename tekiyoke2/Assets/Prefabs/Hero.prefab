@@ -875,6 +875,11 @@ MonoBehaviour:
     _Volume: 0.179
     _RequireComponent: 0
     <Loop>k__BackingField: 0
+  - _Name: Tame
+    _Clip: {fileID: 8300000, guid: 651a48fa23688054eb04a3323f3622f8, type: 3}
+    _Volume: 0
+    _RequireComponent: 1
+    <Loop>k__BackingField: 0
 --- !u!1 &6473240483101330362
 GameObject:
   m_ObjectHideFlags: 0
