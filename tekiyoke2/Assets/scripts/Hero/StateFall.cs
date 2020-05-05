@@ -95,6 +95,7 @@ public class StateFall : HeroState, IAskCanJump
     public override void Update(){
         hero.velocity.Y -= HeroMover.gravity * Time.timeScale;
         if(hero.IsOnGround){
+            hero.SoundGroup.Play("Land");
             if(hero.KeyDirection==0) hero.States.Push(new StateWait(hero));
             else hero.States.Push(new StateRun(hero));
         }
