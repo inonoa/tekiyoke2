@@ -880,6 +880,11 @@ MonoBehaviour:
     _Volume: 0
     _RequireComponent: 1
     <Loop>k__BackingField: 0
+  - _Name: Die
+    _Clip: {fileID: 8300000, guid: 06868255e8e23dd47a1327d7f16068a1, type: 3}
+    _Volume: 0.321
+    _RequireComponent: 0
+    <Loop>k__BackingField: 0
 --- !u!1 &6473240483101330362
 GameObject:
   m_ObjectHideFlags: 0
