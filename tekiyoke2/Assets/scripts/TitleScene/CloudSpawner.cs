@@ -36,12 +36,7 @@ public class CloudSpawner : MonoBehaviour
         }
 
         Material titleMat = title.GetComponent<SpriteRenderer>().material;
-
-        IEnumerator PlaySound(){
-            yield return new WaitForEndOfFrame();
-            GetComponent<SoundGroup>().Play("TitleIn");
-        }
-        StartCoroutine(PlaySound());
+        GetComponent<SoundGroup>().Play("TitleIn");
 
         const float duration = 1f;
 
