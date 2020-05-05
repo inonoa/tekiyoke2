@@ -20,12 +20,12 @@ public class StateBaneYoko : HeroState
 
     public override void Start(){
         hero.velocity.X = toRight ? pushSpeed : -pushSpeed;
-        hero.anim.SetTrigger(toRight ? "runr" : "runl");
+        hero.Anim.SetTrigger(toRight ? "runr" : "runl");
         hero.EyeToRight = toRight;
     }
 
     public override void Resume(){
-        hero.anim.SetTrigger(toRight ? "runr" : "runl");
+        hero.Anim.SetTrigger(toRight ? "runr" : "runl");
     }
 
     public override void Update(){

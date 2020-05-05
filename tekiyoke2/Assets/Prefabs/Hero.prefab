@@ -1,5 +1,88 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &814373423353619972
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 19290618873766293}
+  - component: {fileID: 6090055108830092062}
+  - component: {fileID: 6267704590824942824}
+  m_Layer: 8
+  m_Name: WindSounds
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &19290618873766293
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814373423353619972}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 9112195498496488884}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6090055108830092062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814373423353619972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 575125d316743164095ca4d7fc3e0d78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ses:
+  - _Name: Wind0
+    _Clip: {fileID: 8300000, guid: 520c6e6fa4a82d9498a2476f65efbd77, type: 3}
+    _Volume: 0.1
+    _RequireComponent: 1
+    <Loop>k__BackingField: 1
+  - _Name: Wind1
+    _Clip: {fileID: 8300000, guid: 2642184f1e8f0054b89093952e747ea0, type: 3}
+    _Volume: 0.1
+    _RequireComponent: 1
+    <Loop>k__BackingField: 1
+  - _Name: Wind2
+    _Clip: {fileID: 8300000, guid: ce409aaf3a1e0ec46ba213fe6b3bcb28, type: 3}
+    _Volume: 0.1
+    _RequireComponent: 1
+    <Loop>k__BackingField: 1
+--- !u!114 &6267704590824942824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814373423353619972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8a7127fed564124087c66cd38c915fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeMinMaxsDependingOnHP:
+  - <Min>k__BackingField: 0
+    <Max>k__BackingField: 0
+  - <Min>k__BackingField: 0.25
+    <Max>k__BackingField: 0.5
+  - <Min>k__BackingField: 0.05
+    <Max>k__BackingField: 0.2
+  - <Min>k__BackingField: 0
+    <Max>k__BackingField: 0.1
+  heroCheckPeriodSec: 0.5
+  actualVal: 0
 --- !u!1 &3106219248715147175
 GameObject:
   m_ObjectHideFlags: 0
@@ -287,6 +370,7 @@ Transform:
   - {fileID: 6737016868785315497}
   - {fileID: 6737016867947660164}
   - {fileID: 2620188123922105851}
+  - {fileID: 9112195498496488884}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -391,16 +475,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInDebug: 0
-  cmrCntr: {fileID: 0}
-  hpcntr: {fileID: 0}
-  objsHolderForStates: {fileID: 0}
+  _SoundGroup: {fileID: 5836125009105332007}
   groundChecker: {fileID: 3106219250714267053}
   wallCheckerL: {fileID: 3106219248715147193}
   wallCheckerR: {fileID: 3106219249542638149}
   getDPinEnemy: {fileID: 6866835775026479289}
-  spriteRenderer: {fileID: 0}
-  anim: {fileID: 0}
-  rigidbody: {fileID: 0}
 --- !u!114 &3106219250084253372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -478,6 +557,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   saveCostDP: 10
   dialogImg: {fileID: 0}
+  soundGroup: {fileID: 5836125009105332007}
 --- !u!114 &1862551108992817783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -720,6 +800,91 @@ MonoBehaviour:
     minNormalAngle: 0
     maxNormalAngle: 0
   collider: {fileID: 0}
+--- !u!1 &4829837832728388578
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9112195498496488884}
+  - component: {fileID: 5836125009105332007}
+  m_Layer: 8
+  m_Name: Sounds
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9112195498496488884
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4829837832728388578}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 19290618873766293}
+  m_Father: {fileID: 3106219250084253368}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5836125009105332007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4829837832728388578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 575125d316743164095ca4d7fc3e0d78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ses:
+  - _Name: Run
+    _Clip: {fileID: 8300000, guid: 0e1988f57499b6e4da904c08c51c2097, type: 3}
+    _Volume: 1
+    _RequireComponent: 1
+    <Loop>k__BackingField: 1
+  - _Name: Jump
+    _Clip: {fileID: 8300000, guid: 0b6030ca3be28f341902e6bcc6d4761b, type: 3}
+    _Volume: 0.462
+    _RequireComponent: 0
+    <Loop>k__BackingField: 0
+  - _Name: Jet
+    _Clip: {fileID: 8300000, guid: 93d0d67a99f6b734486acb2a25945f57, type: 3}
+    _Volume: 0.468
+    _RequireComponent: 1
+    <Loop>k__BackingField: 0
+  - _Name: Damage
+    _Clip: {fileID: 8300000, guid: 730bc689a0eccdd4dbc07f7f01b1d501, type: 3}
+    _Volume: 0.468
+    _RequireComponent: 0
+    <Loop>k__BackingField: 0
+  - _Name: Save
+    _Clip: {fileID: 8300000, guid: 902e403441eefc04a995b026251c14bb, type: 3}
+    _Volume: 0.468
+    _RequireComponent: 0
+    <Loop>k__BackingField: 0
+  - _Name: Land
+    _Clip: {fileID: 8300000, guid: c4aa5c2ebf1ef1a45aa3a14777fe41dc, type: 3}
+    _Volume: 0.179
+    _RequireComponent: 0
+    <Loop>k__BackingField: 0
+  - _Name: Tame
+    _Clip: {fileID: 8300000, guid: 651a48fa23688054eb04a3323f3622f8, type: 3}
+    _Volume: 0
+    _RequireComponent: 1
+    <Loop>k__BackingField: 0
+  - _Name: Die
+    _Clip: {fileID: 8300000, guid: 06868255e8e23dd47a1327d7f16068a1, type: 3}
+    _Volume: 0.321
+    _RequireComponent: 0
+    <Loop>k__BackingField: 0
 --- !u!1 &6473240483101330362
 GameObject:
   m_ObjectHideFlags: 0

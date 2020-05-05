@@ -58,6 +58,8 @@ public class CameraController : MonoBehaviour
         return true;
     }
 
+    void OnEnable() => gameObject.AddComponent<AudioListener>();
+    void OnDisable() => Destroy(GetComponent<AudioListener>());
 
     void Start()
     {

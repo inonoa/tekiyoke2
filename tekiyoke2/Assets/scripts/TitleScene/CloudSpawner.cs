@@ -11,19 +11,19 @@ public class CloudSpawner : MonoBehaviour
         In, Active, Wind, Inactive
     }
 
-    public State state = State.In;
+    [HideInInspector] public State state = State.In;
 
-    public List<GameObject> clouds2Spawn = new List<GameObject>();
+    [SerializeField] List<GameObject> clouds2Spawn = new List<GameObject>();
     private List<GameObject> cloudsExisting = new List<GameObject>();
 
-    public GameObject title;
-    public GameObject AnyKey2Start;
+    [SerializeField] GameObject title;
+    [SerializeField] GameObject AnyKey2Start;
 
-    private int countWhileActive = 0;
-    private int countWhileWind = 0;
-    public int count2Title = 40;
-    public int count2Spawn = 100;
-    public float moveSpeed = 3;
+    int countWhileActive = 0;
+    int countWhileWind = 0;
+    [SerializeField] int count2Title = 40;
+    [SerializeField] int count2Spawn = 100;
+    [SerializeField] float moveSpeed = 3;
 
     private System.Random random = new System.Random();
 
@@ -36,6 +36,8 @@ public class CloudSpawner : MonoBehaviour
         }
 
         Material titleMat = title.GetComponent<SpriteRenderer>().material;
+
+        GetComponent<SoundGroup>().Play("TitleIn");
 
         const float duration = 1f;
 
@@ -50,6 +52,7 @@ public class CloudSpawner : MonoBehaviour
             ShaderPropertyFloat gradThreshold1 = new ShaderPropertyFloat(titleMat, "_GradationThreshold1");
             DOTween.To(gradThreshold0.GetVal, gradThreshold0.SetVal, -0.4f, duration);
             DOTween.To(gradThreshold1.GetVal, gradThreshold1.SetVal, 0, duration);
+
         });
 
         DOVirtual.DelayedCall(0.5f + duration + 0.35f, () => {

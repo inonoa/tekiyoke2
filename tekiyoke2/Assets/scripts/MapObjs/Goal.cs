@@ -41,6 +41,7 @@ public class Goal : MonoBehaviour
             SceneTransition.Start2ChangeState("ResultScene", SceneTransition.TransitionType.WindAndBlur);
 
             doubleAnim.SetTrigger("runr");
+            HeroDefiner.currentHero.SoundGroup.FadeOut("Run", 2f);
         }
     }
 }

@@ -121,6 +121,7 @@
      <Compile Include="Assets\Scripts\MainManagers\GameTimeCounter.cs" />
      <Compile Include="Assets\Scripts\MainManagers\MemoryOverDeath.cs" />
      <Compile Include="Assets\Scripts\MainManagers\Tokitome.cs" />
+     <Compile Include="Assets\Scripts\MainManagers\WindSoundController.cs" />
      <Compile Include="Assets\Scripts\MapObjs\BaneController.cs" />
      <Compile Include="Assets\Scripts\MapObjs\BaneYokoController.cs" />
      <Compile Include="Assets\Scripts\MapObjs\BGFogMover.cs" />
@@ -140,6 +141,7 @@
      <Compile Include="Assets\Scripts\MapObjs\UltraThinTileController.cs" />
      <Compile Include="Assets\Scripts\MyMath.cs" />
      <Compile Include="Assets\Scripts\ObjectPool.cs" />
+     <Compile Include="Assets\Scripts\Pause\PauseCameraController.cs" />
      <Compile Include="Assets\Scripts\Pause\Pauser.cs" />
      <Compile Include="Assets\Scripts\Pause\PauseUIMover.cs" />
      <Compile Include="Assets\Scripts\ResultScene\CursorMove.cs" />
@@ -156,11 +158,13 @@
      <Compile Include="Assets\Scripts\SceneTransition\WindAndBlur.cs" />
      <Compile Include="Assets\Scripts\SceneTransition\WindPath.cs" />
      <Compile Include="Assets\Scripts\ScoreHolder.cs" />
+     <Compile Include="Assets\Scripts\SoundOrMusic\SoundGroup.cs" />
      <Compile Include="Assets\Scripts\StageSelectScene\StageSelector.cs" />
      <Compile Include="Assets\Scripts\StageSelectScene\WakuLightMover.cs" />
      <Compile Include="Assets\Scripts\TitleScene\AnyKeyToStart.cs" />
      <Compile Include="Assets\Scripts\TitleScene\CloudSpawner.cs" />
      <Compile Include="Assets\Scripts\TitleScene\Title2Stages.cs" />
+     <Compile Include="Assets\Scripts\Utils\RenameFieldAttribute.cs" />
      <Compile Include="Assets\Scripts\Utils\ShaderProperties.cs" />
      <Compile Include="Assets\Scripts\Utils\SimpleAnim.cs" />
      <Compile Include="Assets\Scripts\Warp\WarpController.cs" />

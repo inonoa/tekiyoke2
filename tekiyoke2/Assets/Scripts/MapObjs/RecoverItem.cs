@@ -37,10 +37,11 @@ public class RecoverItem : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other){
         if(other.tag=="Player" && !gotten){
             gotten = true;
-            HeroDefiner.currentHero.hpcntr.ChangeHP(HeroDefiner.currentHero.hpcntr.HP + 1);
+            HeroDefiner.currentHero.HpCntr.ChangeHP(HeroDefiner.currentHero.HpCntr.HP + 1);
             waveSeq.Pause();
 
             GottenAnimation();
+            GetComponent<SoundGroup>().Play("Got");
         }
     }
 

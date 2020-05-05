@@ -41,21 +41,21 @@ public class StateFall : HeroState, IAskCanJump
                 hero.States.Push(new StateKick(hero, true,  canJump));
 
             hero.velocity.X =  HeroMover.moveSpeed;
-            hero.anim.SetTrigger("fallr");
+            hero.Anim.SetTrigger("fallr");
 
         }else{
             if(hero.CanKickFromWallR && InputManager.Instance.ButtonsDownSimultaneously(ButtonCode.Left,ButtonCode.Jump))
                 hero.States.Push(new StateKick(hero, false, canJump));
                 
             hero.velocity.X = -HeroMover.moveSpeed;
-            hero.anim.SetTrigger("falll");
+            hero.Anim.SetTrigger("falll");
         }
     }
     public override void Try2EndMove(){
         hero.velocity.X = 0;
     }
     public override void Start(){
-        hero.anim.SetTrigger(hero.EyeToRight ? "fallr" : "falll");
+        hero.Anim.SetTrigger(hero.EyeToRight ? "fallr" : "falll");
         kabezuriCoroutine = hero.StartCoroutine(SpawnKabezuris());
         switch(hero.KeyDirection){
             case 1 : hero.velocity.X = HeroMover.moveSpeed;  break;
@@ -68,7 +68,7 @@ public class StateFall : HeroState, IAskCanJump
     }
 
     public override void Resume(){
-        hero.anim.SetTrigger(hero.EyeToRight ? "fallr" : "falll");
+        hero.Anim.SetTrigger(hero.EyeToRight ? "fallr" : "falll");
     }
 
     IEnumerator SpawnKabezuris(){
@@ -89,12 +89,13 @@ public class StateFall : HeroState, IAskCanJump
         else if(hero.CanKickFromWallL)                     dir_is_R = false;
         else return;
 
-        hero.objsHolderForStates.KabezuriPool.ActivateOne(dir_is_R ? "r" : "l");
+        hero.ObjsHolderForStates.KabezuriPool.ActivateOne(dir_is_R ? "r" : "l");
     }
 
     public override void Update(){
         hero.velocity.Y -= HeroMover.gravity * Time.timeScale;
         if(hero.IsOnGround){
+            hero.SoundGroup.Play("Land");
             if(hero.KeyDirection==0) hero.States.Push(new StateWait(hero));
             else hero.States.Push(new StateRun(hero));
         }

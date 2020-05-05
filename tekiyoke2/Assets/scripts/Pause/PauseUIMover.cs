@@ -7,14 +7,15 @@ using System;
 
 public class PauseUIMover : MonoBehaviour
 {
-    public int selected = 0; //0:続ける 1:?? 2:やめる
-    public Image draftName;
-    public Image pausePause;
-    public Image options;
-    public Image mark;
+    [SerializeField] int selected = 0; //0:続ける 1:?? 2:やめる
+    [SerializeField] Image draftName;
+    [SerializeField] Image pausePause;
+    [SerializeField] Image options;
+    [SerializeField] Image mark;
     RectTransform markRTF;
+    SoundGroup soundGroup;
     float alphaDelta = 1/(float)moveFrames;
-    public float[] moveDists = new float[moveFrames];
+    float[] moveDists = new float[moveFrames];
     static readonly int moveFrames = 15;
     static readonly float totalMoveDist = 40;
     int framesFromStart = 0;
@@ -39,6 +40,7 @@ public class PauseUIMover : MonoBehaviour
                             - ( totalMoveDist - totalMoveDist * (i - moveFrames)*(i - moveFrames) / (float)moveFrames / (float)moveFrames );
         }
         markRTF = mark.GetComponent<RectTransform>();
+        soundGroup = GetComponent<SoundGroup>();
     }
 
     void Update()
@@ -60,15 +62,18 @@ public class PauseUIMover : MonoBehaviour
             if(selected<2){
                 selected ++;
                 mark.transform.localPosition += new Vector3(-40,-127);
+                soundGroup.Play("Move");
             }
         }
         if(InputManager.Instance.GetButtonDown(ButtonCode.Up)){
             if(selected>0){
                 selected --;
                 mark.transform.localPosition -= new Vector3(-40,-127);
+                soundGroup.Play("Move");
             }
         }
         if(InputManager.Instance.GetButtonDown(ButtonCode.Enter)){
+            soundGroup.Play("Enter");
             if(selected==0){
                 Reset();
                 pauseEnd?.Invoke(this,EventArgs.Empty);

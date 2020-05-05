@@ -22,6 +22,8 @@ public class StageSelector : MonoBehaviour
     public Sprite[] bgs;
     public WakuLightMover wakuLight;
 
+    SoundGroup soundGroup;
+
     #endregion
 
     #region States
@@ -41,6 +43,7 @@ public class StageSelector : MonoBehaviour
         }
         dsRenderer = draftselect.GetComponent<SpriteRenderer>();
         wakuRenderer = waku.GetComponent<SpriteRenderer>();
+        soundGroup = GetComponent<SoundGroup>();
     }
 
     void Update()
@@ -101,6 +104,7 @@ public class StageSelector : MonoBehaviour
                         selected--;
                         bgbg.sprite = bgs[selected-1];
                         bg.color = new Color(1,1,1,0.99f);
+                        soundGroup.Play("Move");
                     }
                 }
                 if(InputManager.Instance.GetButtonDown(ButtonCode.Down)){
@@ -108,6 +112,7 @@ public class StageSelector : MonoBehaviour
                         selected++;
                         bgbg.sprite = bgs[selected-1];
                         bg.color = new Color(1,1,1,0.99f);
+                        soundGroup.Play("Move");
                     }
                 }
                 if(InputManager.Instance.GetButtonDown(ButtonCode.Enter)){
@@ -115,6 +120,7 @@ public class StageSelector : MonoBehaviour
                         state = State.Selected;
                         wakuLight.Stop();
                         SceneTransition.Start2ChangeState("Draft1",SceneTransition.TransitionType.Normal);
+                        soundGroup.Play("Enter");
                     }
                 }
                 break;

@@ -56,6 +56,7 @@ public class KennerController : EnemyController
 
     static bool inNewScene; //なんかあほらしいな……
     static ObjectPool<TamaController> tamaPool;
+    SoundGroup soundGroup;
 
     void Awake(){
         inNewScene = true;
@@ -69,6 +70,7 @@ public class KennerController : EnemyController
             tamaPool = new ObjectPool<TamaController>(tama, 128, DraftManager.CurrentInstance.GameMasterTF);
             inNewScene = false;
         }
+        soundGroup = GetComponent<SoundGroup>();
     }
 
     new void Update()
@@ -134,6 +136,7 @@ public class KennerController : EnemyController
         state = State.Jump;
         baneTF.DOScaleY(1, 0.3f).SetEase(Ease.InOutSine);
         dodaiTF.DOLocalMoveY(-46,0.3f).SetEase(Ease.InOutSine);
+        soundGroup.Play("Jump");
     }
 
     void Shoot(){
@@ -150,5 +153,7 @@ public class KennerController : EnemyController
             Vector3 offset = EyeToRight ? new Vector3(70,-30) : new Vector3(-70,-30);
             imatama.transform.position = transform.position + offset;
         }
+
+        soundGroup.Play("Shoot");
     }
 }

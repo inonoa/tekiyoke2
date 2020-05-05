@@ -30,6 +30,7 @@ public class HpCntr : MonoBehaviour
 
     public event EventHandler die;
     public event EventHandler damaged;
+    public event EventHandler hpChanged;
     private float[,] damagemove = {{20,0},{0,0},{0,0},{-40,10},{0,0},{0,0},{10,-30},{0,0},{0,0},{15,30},{0,0},{0,0},{-5,-10}};
 
     new CameraController camera;
@@ -54,6 +55,8 @@ public class HpCntr : MonoBehaviour
                 if(value==1)      spr.sprite = img2_1;
                 else if(value==2) spr.sprite = img3_2;
             }
+            hpChanged?.Invoke(this, EventArgs.Empty);
+            
         }else if(HP < value){
 
             if(value >= 3){
@@ -67,6 +70,7 @@ public class HpCntr : MonoBehaviour
                 framesAfterRecover = 0;
                 spr.color = new Color(1,1,1,1);
             }
+            hpChanged?.Invoke(this, EventArgs.Empty);
         }
 
         void OnDamaged(){

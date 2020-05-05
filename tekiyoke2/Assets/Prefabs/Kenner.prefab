@@ -336,6 +336,7 @@ GameObject:
   - component: {fileID: 4320011674289920440}
   - component: {fileID: 2367615471163150896}
   - component: {fileID: 8372941407065831062}
+  - component: {fileID: 2301389000736403306}
   m_Layer: 9
   m_Name: Kenner
   m_TagString: Untagged
@@ -440,6 +441,29 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 20, y: 50}
   m_EdgeRadius: 0
+--- !u!114 &2301389000736403306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4320011674289920435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 575125d316743164095ca4d7fc3e0d78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ses:
+  - _Name: Jump
+    _Clip: {fileID: 8300000, guid: c80aba607832a07488849c2fc2cdaeac, type: 3}
+    _Volume: 0.186
+    _CanLoopAndStop: 0
+    <Loop>k__BackingField: 0
+  - _Name: Shoot
+    _Clip: {fileID: 8300000, guid: b82190e31b4ba754899cfe595197ba7d, type: 3}
+    _Volume: 0.386
+    _CanLoopAndStop: 0
+    <Loop>k__BackingField: 0
 --- !u!1 &4320011674365100249
 GameObject:
   m_ObjectHideFlags: 0
