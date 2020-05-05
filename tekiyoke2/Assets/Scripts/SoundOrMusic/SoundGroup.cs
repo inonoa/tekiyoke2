@@ -49,10 +49,20 @@ public class SoundGroup : MonoBehaviour
         }
     }
 
-    public void FadeOut(string soundName, float DurationSec){
+    public void FadeOut(string soundName, float durationSec){
         for(int i=0; i<ses.Length; i++){
             if(ses[i].Name == soundName){
-                DOTween.To(() => ses[i].Volume, v => ses[i].Volume = v, 0, DurationSec);
+                DOTween.To(() => ses[i].Volume, v => ses[i].Volume = v, 0, durationSec);
+                return;
+            }
+        }
+        Debug.LogError("そんなSEはない");
+    }
+
+    public void VolumeTo(string soundName, float endValue, float durationSec){
+        for(int i=0; i<ses.Length; i++){
+            if(ses[i].Name == soundName){
+                DOTween.To(() => ses[i].Volume, v => ses[i].Volume = v, endValue, durationSec);
                 return;
             }
         }
