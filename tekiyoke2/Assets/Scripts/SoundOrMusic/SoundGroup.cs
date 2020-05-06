@@ -62,6 +62,15 @@ public class SoundGroup : MonoBehaviour
         if(se != null) DOTween.To(() => se.Volume, v => se.Volume = v, 0, durationSec);
     }
 
+    public void FadeoutAll(float durationSec){
+        for(int i=0; i<ses.Length; i++){
+            int i_ = i;
+            if(ses[i].RequireComponent){
+                DOTween.To(() => ses[i_].Volume, v => ses[i_].Volume = v, 0, durationSec);
+            }
+        }
+    }
+
     public void VolumeTo(string soundName, float endValue, float durationSec){
         SoundEffect se = Find(soundName);
         if(se != null) DOTween.To(() => se.Volume, v => se.Volume = v, endValue, durationSec);

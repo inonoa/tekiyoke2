@@ -141,6 +141,10 @@ public class HeroMover : MonoBehaviour
     public HeroObjsHolder4States ObjsHolderForStates{ get; private set; }
     [SerializeField] SoundGroup _SoundGroup;
     public SoundGroup SoundGroup => _SoundGroup;
+
+    [field: SerializeField] [field: RenameField("WindSounds")]
+    public WindSoundController WindSounds{ get; private set; }
+    
     [SerializeField] GroundChecker groundChecker;
     SakamichiChecker sakamichiChecker;
     [SerializeField] WallCheckerL wallCheckerL;

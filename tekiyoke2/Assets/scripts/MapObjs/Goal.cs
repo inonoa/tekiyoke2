@@ -42,6 +42,7 @@ public class Goal : MonoBehaviour
 
             doubleAnim.SetTrigger("runr");
             HeroDefiner.currentHero.SoundGroup.FadeOut("Run", 2f);
+            HeroDefiner.currentHero.WindSounds.FadeOut(2f);
         }
     }
 }

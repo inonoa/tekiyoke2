@@ -47,6 +47,11 @@ public class WindSoundController : MonoBehaviour
         }
     }
 
+    public void FadeOut(float durationSec){
+        if(changingVolumes != null) StopCoroutine(changingVolumes);
+        soundGroup.FadeoutAll(durationSec);
+    }
+
 
     void OnDisable() => soundGroup.StopAll();
 
