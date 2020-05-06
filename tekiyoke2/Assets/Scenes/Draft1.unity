@@ -147,6 +147,11 @@ PrefabInstance:
       propertyPath: rotatingThreshold
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6190435699727606753, guid: 2ef5b7655ae234743bbe3b399ff8b764,
+        type: 3}
+      propertyPath: nextRotateVelRate
+      value: 0.995
+      objectReference: {fileID: 0}
     - target: {fileID: 6190435699727606766, guid: 2ef5b7655ae234743bbe3b399ff8b764,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -71099,6 +71104,11 @@ PrefabInstance:
       propertyPath: rotatingThreshold
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6190435699727606753, guid: 2ef5b7655ae234743bbe3b399ff8b764,
+        type: 3}
+      propertyPath: nextRotateVelRate
+      value: 0.995
+      objectReference: {fileID: 0}
     - target: {fileID: 6190435699727606766, guid: 2ef5b7655ae234743bbe3b399ff8b764,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -74736,6 +74746,11 @@ PrefabInstance:
         type: 3}
       propertyPath: rotatingThreshold
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6190435699727606753, guid: 2ef5b7655ae234743bbe3b399ff8b764,
+        type: 3}
+      propertyPath: nextRotateVelRate
+      value: 0.995
       objectReference: {fileID: 0}
     - target: {fileID: 6190435699727606766, guid: 2ef5b7655ae234743bbe3b399ff8b764,
         type: 3}
