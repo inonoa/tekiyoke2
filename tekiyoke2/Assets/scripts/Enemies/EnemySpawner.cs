@@ -15,12 +15,6 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    void OnTriggerExit2D(Collider2D other){
-        if(other.gameObject.tag=="CanSeeEnemy"){
-            foreach(EnemyController enemy in enemies) enemy.gameObject.SetActive(false);
-        }
-    }
-
     // Start is called before the first frame update
     void Start()
     {

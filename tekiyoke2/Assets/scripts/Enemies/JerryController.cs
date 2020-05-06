@@ -94,7 +94,7 @@ public class JerryController : EnemyController
                     kasaSR.sprite = kasaSpriteUp;
                     asiSR.sprite = asiSpriteUp;
                     StartCoroutine("Light");
-                    soundGroup.Play(c.Kaze);
+                    if(MyMath.DistanceXY(transform.position, HeroDefiner.CurrentHeroPos) < 625) soundGroup.Play(c.Kaze);
                 }
             }
         }

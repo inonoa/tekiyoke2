@@ -426,7 +426,7 @@ MonoBehaviour:
   - _Name: Kaze
     _Clip: {fileID: 8300000, guid: ce409aaf3a1e0ec46ba213fe6b3bcb28, type: 3}
     _Volume: 0.414
-    _CanLoopAndStop: 0
+    _RequireComponent: 0
     <Loop>k__BackingField: 0
 --- !u!1001 &3177080600696046018
 PrefabInstance:
