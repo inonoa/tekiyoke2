@@ -23,15 +23,21 @@ public static class MyMath
         else      return Math.Min(0, x + thresholdAbs);
     }
 
-    public static Vector2 ToVector2(this Vector3 vec3) => new Vector2(vec3.x, vec3.y);
-    public static Vector3 ToVector3(this Vector2 vec2) => new Vector3(vec2.x, vec2.y, 0);
+    public static bool ExceedB(Vector2 vecX, Vector2 vecA, Vector2 vecB){
+        if(vecA.y == vecB.y) return (vecB.x > vecA.x ? vecX.x > vecB.x : vecX.x < vecB.x);
+
+        return (vecB.x - vecA.x) * (vecX.x - vecB.x) + (vecB.y - vecA.y) * (vecX.y - vecB.y) > 0;
+    }
+
+    public static Vector2 ToVec2(this Vector3 vec3) => new Vector2(vec3.x, vec3.y);
+    public static Vector3 ToVec3(this Vector2 vec2) => new Vector3(vec2.x, vec2.y, 0);
 
     ///<summary>v1 - v2</summary>
     public static Vector2 DistAsVector2(Vector2 v1, Vector2 v2) => v1 - v2;
     ///<summary>v1 - v2</summary>
-    public static Vector2 DistAsVector2(Vector2 v1, Vector3 v2) => v1 - v2.ToVector2();
+    public static Vector2 DistAsVector2(Vector2 v1, Vector3 v2) => v1 - v2.ToVec2();
     ///<summary>v1 - v2</summary>
-    public static Vector2 DistAsVector2(Vector3 v1, Vector2 v2) => v1.ToVector2() - v2;
+    public static Vector2 DistAsVector2(Vector3 v1, Vector2 v2) => v1.ToVec2() - v2;
     ///<summary>v1 - v2</summary>
-    public static Vector2 DistAsVector2(Vector3 v1, Vector3 v2) => v1.ToVector2() - v2.ToVector2();
+    public static Vector2 DistAsVector2(Vector3 v1, Vector3 v2) => v1.ToVec2() - v2.ToVec2();
 }

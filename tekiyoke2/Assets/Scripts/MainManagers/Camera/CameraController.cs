@@ -119,7 +119,7 @@ public class CameraController : MonoBehaviour
             else                       positionGap += dist2Gap * positionGapChangeSpeed;
 
 
-            transform.position = targetPosition.ToVector3() + positionGap.ToVector3() + new Vector3(0,0,-500);
+            transform.position = targetPosition.ToVec3() + positionGap.ToVec3() + new Vector3(0,0,-500);
         }
     }
 

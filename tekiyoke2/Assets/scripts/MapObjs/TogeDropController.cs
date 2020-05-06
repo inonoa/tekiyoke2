@@ -53,7 +53,7 @@ public class TogeDropController : MonoBehaviour
 
             case State.Drop:
                 velocityY -= gravity;
-                rigidbody.MovePosition(transform.position.ToVector2() + new Vector2(0, velocityY));
+                rigidbody.MovePosition(transform.position.ToVec2() + new Vector2(0, velocityY));
                 //地面に接触したら死ぬ、はOnTriggerEnter2Dで
                 break;
 

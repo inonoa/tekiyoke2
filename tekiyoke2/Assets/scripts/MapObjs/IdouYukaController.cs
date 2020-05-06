@@ -35,14 +35,15 @@ public class IdouYukaController : MonoBehaviour
         moveVec = ( positionB - positionA ).normalized * moveSpeed;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         bool isTouchedByHero = col.IsTouching(filter2Hero);
 
         switch(state){
 
             case State.AtoB:
-                if(MyMath.DistanceXY(yukaTF.position, positionB) < 10){
+                if(MyMath.DistanceXY(yukaTF.position, positionB) <= moveSpeed ||
+                    MyMath.ExceedB(yukaTF.position.ToVec2(), positionA.ToVec2(), positionB.ToVec2())){
                     if(isTouchedByHero)
                         HeroDefiner.currentHero.additionalVelocities[this] = positionB - yukaTF.position + new Vector3(0,-100,0);
                     else
@@ -67,7 +68,8 @@ public class IdouYukaController : MonoBehaviour
                 break;
 
             case State.BtoA:
-                if(MyMath.DistanceXY(yukaTF.position, positionA) < 10){
+                if(MyMath.DistanceXY(yukaTF.position, positionA) <= moveSpeed ||
+                    MyMath.ExceedB(yukaTF.position.ToVec2(), positionB.ToVec2(), positionA.ToVec2())){
                     if(isTouchedByHero)
                         HeroDefiner.currentHero.additionalVelocities[this] = positionA - yukaTF.position + new Vector3(0,-1,0);
                     else
