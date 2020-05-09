@@ -198,7 +198,7 @@ public class StateJet : HeroState
                 hero.velocity = new HeroVelocity(jet2Right ? jetVelocities[jetFrames] : -jetVelocities[jetFrames] , 0);
 
                 jetStream.transform.position = (posWhenJet + hero.transform.position) / 2;
-                float colWidth  = Mathf.Abs(hero.transform.position.x - posWhenJet.x);
+                float colWidth  = Mathf.Abs(hero.transform.position.x - posWhenJet.x) + 20;
                 float colHeight = Mathf.Abs(hero.transform.position.y - posWhenJet.y) + 80;
                 jsCol.size = new Vector2(colWidth, colHeight);
                 trailTF.position = hero.transform.position;
