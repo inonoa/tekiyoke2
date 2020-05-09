@@ -135,6 +135,7 @@
      <Compile Include="Assets\Scripts\MapObjs\KieruYuka.cs" />
      <Compile Include="Assets\Scripts\MapObjs\KieruYukaCntr.cs" />
      <Compile Include="Assets\Scripts\MapObjs\RecoverItem.cs" />
+     <Compile Include="Assets\Scripts\MapObjs\Sasayaki.cs" />
      <Compile Include="Assets\Scripts\MapObjs\TogeController.cs" />
      <Compile Include="Assets\Scripts\MapObjs\TogeDropController.cs" />
      <Compile Include="Assets\Scripts\MapObjs\TogeDropRespawner.cs" />
@@ -164,6 +165,7 @@
      <Compile Include="Assets\Scripts\TitleScene\AnyKeyToStart.cs" />
      <Compile Include="Assets\Scripts\TitleScene\CloudSpawner.cs" />
      <Compile Include="Assets\Scripts\TitleScene\Title2Stages.cs" />
+     <Compile Include="Assets\Scripts\Utils\ArrayForEach.cs" />
      <Compile Include="Assets\Scripts\Utils\RenameFieldAttribute.cs" />
      <Compile Include="Assets\Scripts\Utils\ShaderProperties.cs" />
      <Compile Include="Assets\Scripts\Utils\SimpleAnim.cs" />
