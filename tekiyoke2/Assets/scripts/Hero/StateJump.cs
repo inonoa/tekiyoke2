@@ -19,26 +19,29 @@ public class StateJump : HeroState, IAskCanJump
     }
     public override void Try2EndJet(){ }
     public override void Try2Jump(){
-        if(hero.CanKickFromWallL && InputManager.Instance.ButtonsDownSimultaneously(ButtonCode.Right,ButtonCode.Jump))
-            hero.States.Push(new StateKick(hero, true,  canJump));
+        IAskedInput input = InputManager.Instance;
 
-        else if(hero.CanKickFromWallR && InputManager.Instance.ButtonsDownSimultaneously(ButtonCode.Left,ButtonCode.Jump))
+        if(hero.CanKickFromWallL && input.GetButton(ButtonCode.Left) && input.GetButtonDown(ButtonCode.Jump)){
+            hero.States.Push(new StateKick(hero, true,  canJump));
+            
+        }else if(hero.CanKickFromWallR && input.GetButton(ButtonCode.Right) && input.GetButtonDown(ButtonCode.Jump)){
             hero.States.Push(new StateKick(hero, false, canJump));
 
-        else if(canJump) hero.States.Push(new StateJump(hero, false));
+        }else if(canJump) hero.States.Push(new StateJump(hero, false));
     }
     public override void Try2StartMove(bool toRight){
+        IAskedInput input = InputManager.Instance;
 
         if(toRight){
-            if(hero.CanKickFromWallL && InputManager.Instance.ButtonsDownSimultaneously(ButtonCode.Right,ButtonCode.Jump))
-                hero.States.Push(new StateKick(hero, true,  canJump));
+            if(hero.CanKickFromWallR && input.GetButton(ButtonCode.Right) && input.GetButtonDown(ButtonCode.Jump))
+                hero.States.Push(new StateKick(hero, false, canJump));
 
             hero.velocity.X =  HeroMover.moveSpeed;
             hero.Anim.SetTrigger("jumprf");
 
         }else{
-            if(hero.CanKickFromWallR && InputManager.Instance.ButtonsDownSimultaneously(ButtonCode.Left,ButtonCode.Jump))
-                hero.States.Push(new StateKick(hero, false, canJump));
+            if(hero.CanKickFromWallL && input.GetButton(ButtonCode.Left) && input.GetButtonDown(ButtonCode.Jump))
+                hero.States.Push(new StateKick(hero, true,  canJump));
 
             hero.velocity.X = -HeroMover.moveSpeed;
             hero.Anim.SetTrigger("jumplf");
