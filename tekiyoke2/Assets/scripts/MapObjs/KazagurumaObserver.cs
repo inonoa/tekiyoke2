@@ -15,7 +15,7 @@ public class KazagurumaObserver : MonoBehaviour
 
     void Update()
     {
-        bool alro = kazagurumas.All(kg => kg.IsRotating);
+        bool alro = kazagurumas.All(kg => kg.IsRotatingEnough);
         if( alro && !AllRotating) AllRotated?.Invoke(this, EventArgs.Empty);
         if(!alro &&  AllRotating) NotAllRotated?.Invoke(this, EventArgs.Empty);
         AllRotating = alro;

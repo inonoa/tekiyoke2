@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-///<summary>「ジャンプ中」などの主人公の状態はこのインターフェースを実装したクラスの形で記述します
+///<summary>「ジャンプ中」などの主人公の状態はこれを継承したクラスの形で記述します
 ///それはそうとメソッド作りすぎたかもな… / OnLand() みたいなのあってもいいかもな…
 /// / Stateの配列をScriptableObjectにしてそこから拾ってくるみたいな実装にしたらStateにPrefabとか持てそう？</summary>
 public abstract class HeroState
@@ -17,4 +17,9 @@ public abstract class HeroState
     public abstract void Try2StartMove(bool toRight);
     public abstract void Try2EndMove();
     public abstract void Exit();
+
+    public void Print(string msg){
+        Debug.Log(msg);
+    }
 }
+

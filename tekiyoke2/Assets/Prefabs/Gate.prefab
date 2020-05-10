@@ -298,7 +298,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 30, y: 100}
+  m_Size: {x: 50, y: 100}
   m_EdgeRadius: 0
 --- !u!114 &2362030087005365157
 MonoBehaviour:
@@ -357,5 +357,5 @@ MonoBehaviour:
   - _Name: Move
     _Clip: {fileID: 8300000, guid: 1078f2ff05f14314b97e52c2e02a54e0, type: 3}
     _Volume: 0.5
-    _CanLoopAndStop: 1
+    _RequireComponent: 1
     <Loop>k__BackingField: 0

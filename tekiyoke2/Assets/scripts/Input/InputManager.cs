@@ -138,7 +138,7 @@ public class InputManager : MonoBehaviour, IAskedInput
         {ButtonCode.Down,   new[]{ KeyCode.S, KeyCode.DownArrow }},
 
         {ButtonCode.Jump,   new[]{ KeyCode.W, KeyCode.I }},
-        {ButtonCode.JetLR,  new[]{ KeyCode.J, KeyCode.L }},
+        {ButtonCode.JetLR,  new[]{ /*KeyCode.J,*/ KeyCode.L }},
         {ButtonCode.JetL,   new[]{ KeyCode.L }},
         {ButtonCode.JetR,   new[]{ KeyCode.J }},
         {ButtonCode.Zone,   new[]{ KeyCode.Return }},
