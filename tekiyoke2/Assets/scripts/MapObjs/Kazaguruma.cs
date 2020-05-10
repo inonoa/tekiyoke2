@@ -9,13 +9,23 @@ public class Kazaguruma : MonoBehaviour{
     [SerializeField] SpriteRenderer kurumaSR;
     Material mat;
     float edgeLightVolMax;
-    [SerializeField] float rotateVelFirst = 0.1f;
-    [SerializeField] float nextRotateVelRate = 0.9f;
-    [SerializeField] float rotatingThreshold = 0.02f;
-    float rotateVel;
-    public bool IsRotating{
-        get => rotateVel > rotatingThreshold;
-    }
+
+    //速度に関するパラメータ
+    [SerializeField] float rotateVelPerSecFirst = 500;
+    [SerializeField] float secsUntilSlow = 5;
+    static readonly float rotatingThresholdPerSec = 100;
+
+    public bool IsRotatingEnough => logRotateVel >= logVelThreshold;
+
+    //内部的なもの
+    float logRotateVel;
+    float logVelFirst;
+    float logVelDecay;
+    readonly float logVelThreshold = Mathf.Log(rotatingThresholdPerSec);
+    static readonly float logVelEpsilon = 0;
+
+    //おわり
+
     public event EventHandler Rotated;
     public event EventHandler OnSlow;
 
@@ -23,33 +33,38 @@ public class Kazaguruma : MonoBehaviour{
         mat = kurumaSR.material;
         edgeLightVolMax = mat.GetFloat("_Volume");
         mat.SetFloat("_Volume", 0);
+
+        logVelFirst = Mathf.Log(rotateVelPerSecFirst);
+        logVelDecay = (logVelFirst - logVelThreshold) / secsUntilSlow;
     }
 
     void OnTriggerEnter2D(Collider2D other){
         if(other.gameObject.tag=="Wind"){
-            rotateVel = rotateVelFirst;
+            logRotateVel = logVelFirst;
             Rotated?.Invoke(this, EventArgs.Empty);
         }
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        if(rotateVel > 0){
+        if(logRotateVel > logVelEpsilon){
 
-            kuruma.Rotate(0,0,-rotateVel);
+            float actualVelocity = Mathf.Exp(logRotateVel) * Time.deltaTime * Time.timeScale;
+            kuruma.Rotate(0,0, - actualVelocity );
 
-            float nextVel = rotateVel * nextRotateVelRate;
+            if(IsRotatingEnough){
+                float velFirst = rotateVelPerSecFirst * Time.deltaTime * Time.timeScale;
+                mat.SetFloat("_Volume", actualVelocity / velFirst * edgeLightVolMax);
+            }
 
-            if(rotateVel >= rotatingThreshold && nextVel < rotatingThreshold){
+            float tmpNextVel = logRotateVel - logVelDecay * Time.timeScale * Time.deltaTime;
+
+            if(logRotateVel >= logVelThreshold && tmpNextVel < logVelThreshold){
                 mat.SetFloat("_Volume", 0);
                 OnSlow?.Invoke(this, EventArgs.Empty);
             }
 
-            rotateVel = nextVel;
-            if(rotateVel >= rotatingThreshold) mat.SetFloat("_Volume", rotateVel / rotateVelFirst * edgeLightVolMax);
-            if(rotateVel < 0.1f){
-                rotateVel = 0;
-            }
+            logRotateVel = tmpNextVel;
         }
     }
 }
