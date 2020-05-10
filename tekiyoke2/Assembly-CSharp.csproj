@@ -120,6 +120,8 @@
      <Compile Include="Assets\Scripts\MainManagers\DraftManager.cs" />
      <Compile Include="Assets\Scripts\MainManagers\GameTimeCounter.cs" />
      <Compile Include="Assets\Scripts\MainManagers\MemoryOverDeath.cs" />
+     <Compile Include="Assets\Scripts\MainManagers\ScriptableObjectsHolder.cs" />
+     <Compile Include="Assets\Scripts\MainManagers\ScriptableObjectsLoader.cs" />
      <Compile Include="Assets\Scripts\MainManagers\Tokitome.cs" />
      <Compile Include="Assets\Scripts\MainManagers\WindSoundController.cs" />
      <Compile Include="Assets\Scripts\MapObjs\BaneController.cs" />

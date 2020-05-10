@@ -61,7 +61,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _Gap: 0.002
-    - _GapMax: 0
+    - _GapMax: 0.0015375934
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
