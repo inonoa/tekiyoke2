@@ -24,7 +24,14 @@ public class KazaGateController : MonoBehaviour
             state = State.Opening;
         };
         ko.NotAllRotated += (s, e) => {
-            soundGroup.Play("Move");
+            if(state==State.Opening){
+                soundGroup.Stop("Move");
+                soundGroup.Play("Stop", () =>
+                    soundGroup.Play("Move")
+                );
+            }else{
+                soundGroup.Play("Move");
+            }
             state = State.Closing;
             col.enabled = true;
         };
@@ -42,20 +49,17 @@ public class KazaGateController : MonoBehaviour
             
             case State.Opening:
 
-                if(gate.position.y < defPos.y + 100){
-
-                    gate.position += Vector3.up * openVel;
-                    //当たり判定縮めてる
-                    col.offset += Vector2.up * openVel / 2;
-                    col.size -= new Vector2(0, 1) * openVel;
-
-                    if(gate.position.y >= defPos.y + 100){
-                        gate.position = new Vector3(gate.position.x, defPos.y + 100, gate.position.z);
-                        col.enabled = false;
-                        state = State.Open;
-                        soundGroup.Stop("Move");
-                        soundGroup.Play("Open");
-                    }
+                gate.position += Vector3.up * openVel;
+                //当たり判定縮めてる
+                col.offset += Vector2.up * openVel / 2;
+                col.size -= new Vector2(0, 1) * openVel;
+                
+                if(gate.position.y >= defPos.y + 100){
+                    gate.position = new Vector3(gate.position.x, defPos.y + 100, gate.position.z);
+                    col.enabled = false;
+                    state = State.Open;
+                    soundGroup.Stop("Move");
+                    soundGroup.Play("Stop");
                 }
                 break;
             
@@ -74,7 +78,7 @@ public class KazaGateController : MonoBehaviour
                     gate.position = new Vector3(gate.position.x, defPos.y, gate.position.z);
                     state = State.Wait;
                     soundGroup.Stop("Move");
-                    soundGroup.Play("Close");
+                    soundGroup.Play("Stop");
                 }
                 break;
         }

@@ -359,3 +359,8 @@ MonoBehaviour:
     _Volume: 0.5
     _RequireComponent: 1
     <Loop>k__BackingField: 0
+  - _Name: Stop
+    _Clip: {fileID: 8300000, guid: 012df6efc81f5944b8b3d92dfcd75f9a, type: 3}
+    _Volume: 0.5
+    _RequireComponent: 1
+    <Loop>k__BackingField: 0
