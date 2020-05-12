@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.Timeline;
+using DG.Tweening;
 
 public class JerryController : EnemyController
 {
@@ -94,7 +95,10 @@ public class JerryController : EnemyController
                     kasaSR.sprite = kasaSpriteUp;
                     asiSR.sprite = asiSpriteUp;
                     StartCoroutine("Light");
-                    if(MyMath.DistanceXY(transform.position, HeroDefiner.CurrentHeroPos) < 625) soundGroup.Play(c.Kaze);
+                    if(MyMath.DistanceXY(transform.position, HeroDefiner.CurrentHeroPos) < 625){
+                        DOVirtual.DelayedCall(UnityEngine.Random.Range(0f, 0.5f), () =>
+                            soundGroup.Play(c.Kaze));
+                    }
                 }
             }
         }

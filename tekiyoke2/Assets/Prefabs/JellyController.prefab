@@ -424,7 +424,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ses:
   - _Name: Kaze
-    _Clip: {fileID: 8300000, guid: ce409aaf3a1e0ec46ba213fe6b3bcb28, type: 3}
+    _Clip: {fileID: 8300000, guid: f043d54d468669f4d9bc673686f67277, type: 3}
     _Volume: 0.414
     _RequireComponent: 0
     <Loop>k__BackingField: 0
