@@ -75,12 +75,12 @@ MonoBehaviour:
   volumeMinMaxsDependingOnHP:
   - <Min>k__BackingField: 0
     <Max>k__BackingField: 0
-  - <Min>k__BackingField: 0.25
-    <Max>k__BackingField: 0.5
-  - <Min>k__BackingField: 0.05
-    <Max>k__BackingField: 0.2
-  - <Min>k__BackingField: 0
+  - <Min>k__BackingField: 0.125
+    <Max>k__BackingField: 0.25
+  - <Min>k__BackingField: 0.025
     <Max>k__BackingField: 0.1
+  - <Min>k__BackingField: 0
+    <Max>k__BackingField: 0.05
   heroCheckPeriodSec: 0.5
   actualVal: 0
 --- !u!1 &3106219248715147175

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+
 public class KazaGateController : MonoBehaviour
 {
     [SerializeField] Transform gate;
@@ -53,6 +54,7 @@ public class KazaGateController : MonoBehaviour
                         col.enabled = false;
                         state = State.Open;
                         soundGroup.Stop("Move");
+                        soundGroup.Play("Open");
                     }
                 }
                 break;
@@ -72,6 +74,7 @@ public class KazaGateController : MonoBehaviour
                     gate.position = new Vector3(gate.position.x, defPos.y, gate.position.z);
                     state = State.Wait;
                     soundGroup.Stop("Move");
+                    soundGroup.Play("Close");
                 }
                 break;
         }
