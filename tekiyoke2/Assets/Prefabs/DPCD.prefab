@@ -209,6 +209,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ses:
   - _Name: Got
-    _Clip: {fileID: 8300000, guid: 5a9ba8f0f021a5a49beda57425a879af, type: 3}
-    _Volume: 0.53
-    _CanLoopAndStop: 0
+    _Clip: {fileID: 8300000, guid: 4e5562e4d6bd36a4aa40dc4b84a12063, type: 3}
+    _Volume: 0.2
+    _RequireComponent: 0
+    <Loop>k__BackingField: 0

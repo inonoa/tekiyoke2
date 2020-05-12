@@ -8,6 +8,8 @@ using DG.Tweening;
 public class SoundGroup : MonoBehaviour
 {
     [SerializeField] SoundEffect[] ses;
+    bool[] wasPlayingLastMoment;
+    public Action[] finished;
 
     void Start(){
         AudioSource source4SE = gameObject.AddComponent<AudioSource>();
@@ -19,61 +21,83 @@ public class SoundGroup : MonoBehaviour
                 se.Initialize(source4SE);
             }
         }
+
+        wasPlayingLastMoment = new bool[ses.Length];
+        finished = new Action[ses.Length];
     }
 
-    SoundEffect Find(string name){
+    void Update(){
+        for(int i=0; i<ses.Length; i++){
+            if(wasPlayingLastMoment[i] && !ses[i].IsPlaying){
+                finished[i]?.Invoke();
+                finished[i] = null;
+            }
+            wasPlayingLastMoment[i] = ses[i].IsPlaying;
+        }
+    }
+
+    int Find(string name){
         for(int i=0; i<ses.Length; i++){
             if(ses[i].Name == name){
-                return ses[i];
+                return i;
             }
         }
         Debug.LogError("そんなSEはない");
-        return null;
+        return -1;
     }
 
-    public void Play(string soundName){
-        Find(soundName)?.Play();
+    public void Play(string soundName, Action callBack = null){
+        int idx = Find(soundName);
+        if(idx>-1){
+            ses[idx].Play();
+            wasPlayingLastMoment[idx] = true;
+            finished[idx] += callBack;
+        }
     }
     public void PlayAll(){
         for(int i=0; i<ses.Length; i++){
             ses[i].Play();
+            wasPlayingLastMoment[i] = true;
         }
     }
 
     public void Stop(string soundName){
-        Find(soundName)?.Stop();
+        int idx = Find(soundName);
+        if(idx > -1 && ses[idx].RequireComponent){
+            ses[idx].Stop();
+            wasPlayingLastMoment[idx] = false;
+        }
     }
 
     public void StopAll(){
         for(int i=0; i<ses.Length; i++){
             if(ses[i].RequireComponent){
                 ses[i].Stop();
+                wasPlayingLastMoment[i] = false;
             }
         }
     }
 
     public void SetVolume(string soundName, float volume){
-        SoundEffect se = Find(soundName);
-        if(se != null) se.Volume = volume;
+        int idx = Find(soundName);
+        if(idx > -1) ses[idx].Volume = volume;
     }
 
     public void FadeOut(string soundName, float durationSec){
-        SoundEffect se = Find(soundName);
-        if(se != null) DOTween.To(() => se.Volume, v => se.Volume = v, 0, durationSec);
+        int idx = Find(soundName);
+        if(idx > -1) DOTween.To(() => ses[idx].Volume, v => ses[idx].Volume = v, 0, durationSec);
     }
 
     public void FadeoutAll(float durationSec){
-        for(int i=0; i<ses.Length; i++){
-            int i_ = i;
-            if(ses[i].RequireComponent){
-                DOTween.To(() => ses[i_].Volume, v => ses[i_].Volume = v, 0, durationSec);
-            }
-        }
+        ses.ForEach(
+            se => DOTween.To(() => se.Volume, v => se.Volume = v, 0, durationSec),
+            where: se => se.RequireComponent
+        );
     }
 
     public void VolumeTo(string soundName, float endValue, float durationSec){
-        SoundEffect se = Find(soundName);
-        if(se != null) DOTween.To(() => se.Volume, v => se.Volume = v, endValue, durationSec);
+        int idx = Find(soundName);
+        if(idx > -1) DOTween.To(() => ses[idx].Volume, v => ses[idx].Volume = v, endValue, durationSec);
     }
 }
 
@@ -101,6 +125,15 @@ public class SoundEffect{
 
     [field: SerializeField] [field: RenameField("Loop")]
     public bool Loop{ get; private set; }
+
+    public bool IsPlaying => source.isPlaying;
+
+    public float timeFromStart{
+        get => RequireComponent ? source.time : -1;
+        set{
+            if(RequireComponent) source.time = value;
+        }
+    }
     
 
     AudioSource source;
