@@ -30,6 +30,7 @@ public class SoundGroup : MonoBehaviour
         for(int i=0; i<ses.Length; i++){
             if(wasPlayingLastMoment[i] && !ses[i].IsPlaying){
                 finished[i]?.Invoke();
+                finished[i] = null;
             }
             wasPlayingLastMoment[i] = ses[i].IsPlaying;
         }
