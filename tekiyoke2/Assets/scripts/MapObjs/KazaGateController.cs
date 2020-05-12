@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-
+using DG.Tweening;
 
 public class KazaGateController : MonoBehaviour
 {
@@ -26,9 +26,8 @@ public class KazaGateController : MonoBehaviour
         ko.NotAllRotated += (s, e) => {
             if(state==State.Opening){
                 soundGroup.Stop("Move");
-                soundGroup.Play("Stop", () =>
-                    soundGroup.Play("Move")
-                );
+                soundGroup.Play("Stop");
+                DOVirtual.DelayedCall(0.1f, () => soundGroup.Play("Move"));
             }else{
                 soundGroup.Play("Move");
             }
@@ -53,7 +52,7 @@ public class KazaGateController : MonoBehaviour
                 //当たり判定縮めてる
                 col.offset += Vector2.up * openVel / 2;
                 col.size -= new Vector2(0, 1) * openVel;
-                
+
                 if(gate.position.y >= defPos.y + 100){
                     gate.position = new Vector3(gate.position.x, defPos.y + 100, gate.position.z);
                     col.enabled = false;
