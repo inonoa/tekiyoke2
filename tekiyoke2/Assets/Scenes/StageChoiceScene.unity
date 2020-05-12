@@ -1090,12 +1090,12 @@ MonoBehaviour:
   - _Name: Move
     _Clip: {fileID: 8300000, guid: 77ae3dd25654066459dc02f9673cd782, type: 3}
     _Volume: 0.357
-    _CanLoopAndStop: 0
+    _RequireComponent: 0
     <Loop>k__BackingField: 0
   - _Name: Enter
     _Clip: {fileID: 8300000, guid: 754757de7496855449eba613dc632c02, type: 3}
     _Volume: 0.636
-    _CanLoopAndStop: 0
+    _RequireComponent: 0
     <Loop>k__BackingField: 0
 --- !u!1 &1988778058
 GameObject:
@@ -1154,7 +1154,7 @@ Camera:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_RenderingPath: -1
+  m_RenderingPath: 1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3

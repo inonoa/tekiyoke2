@@ -214,7 +214,7 @@ public class HeroMover : MonoBehaviour
     void Die(){
         MemoryOverDeath.Instance.SaveOnDeath();
         GameTimeCounter.CurrentInstance.DoesTick = false;
-        SceneTransition.Start2ChangeState(SceneManager.GetActiveScene().name, SceneTransition.TransitionType.HeroDied);
+        SceneTransition.Start2ChangeScene(SceneManager.GetActiveScene().name, SceneTransition.TransitionType.HeroDied);
     }
     ///<summary>落下死、実装が強引でうーん</summary>
     public void Drop(){

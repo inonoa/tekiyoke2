@@ -11,7 +11,7 @@ public class PressZToReturn : MonoBehaviour
     void Update()
     {
         if(InputManager.Instance.GetButtonDown(ButtonCode.Enter) && canPress){
-            SceneTransition.Start2ChangeState("StageChoiceScene", SceneTransition.TransitionType.Normal);
+            SceneTransition.Start2ChangeScene("StageChoiceScene", SceneTransition.TransitionType.Normal);
             cursor.OnPushed();
             GetComponent<SoundGroup>().Play("Put");
         }

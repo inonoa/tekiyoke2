@@ -119,7 +119,7 @@ public class StageSelector : MonoBehaviour
                     if(selected==1){
                         state = State.Selected;
                         wakuLight.Stop();
-                        SceneTransition.Start2ChangeState("Draft1",SceneTransition.TransitionType.Normal);
+                        SceneTransition.Start2ChangeScene("Draft1",SceneTransition.TransitionType.Normal);
                         soundGroup.Play("Enter");
                     }
                 }

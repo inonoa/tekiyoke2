@@ -11,3 +11,35 @@ public static class ArrayForEach
         }
     }
 }
+
+public static class FindByName{
+    public static T Find<T>(this IEnumerable<T> collection, string name)
+        where T : INamable
+    {
+        foreach(T elm in collection){
+            if(elm.Name == name){
+                return elm;
+            }
+        }
+        Debug.LogError("そんな" + typeof(T).ToString() + "はない");
+        return default(T);
+    }
+
+    public static int FindIndex<T>(this IEnumerable<T> collection, string name)
+        where T : INamable
+    {
+        int i=0;
+        foreach(T elm in collection){
+            if(elm.Name == name){
+                return i;
+            }
+            i++;
+        }
+        Debug.LogError("そんな" + typeof(T).ToString() + "はない");
+        return -1;
+    }
+}
+
+public interface INamable{
+    string Name{ get; }
+}

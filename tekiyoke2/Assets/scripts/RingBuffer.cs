@@ -70,12 +70,12 @@ public class RingBuffer<T>
     ///<summary>はじめに入れたほうから数えてi番目です</summary>
     public T this[int i]{
         get{
-            if(i < 0 || i >= Count) Debug.Log("Index Out Of Range");
+            //if(i < 0 || i >= Count) Debug.Log("Index Out Of Range");
             return array[(i + firstIndex) .Mod (array.Length)];
         }
 
         set{
-            if(i < 0 || i >= Count) Debug.Log("Index Out Of Range");
+            //if(i < 0 || i >= Count) Debug.Log("Index Out Of Range");
             array[(i + firstIndex) .Mod (array.Length)] = value;
         }
     }

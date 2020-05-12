@@ -49,8 +49,8 @@ public class GetDPinEnemy : MonoBehaviour
     }
 
     void FixedUpdate(){
-        Vector2 lastPos = HeroDefiner.CurrentHeroPastPos[1];
-        Vector2 currentPos = HeroDefiner.CurrentHeroPastPos[0];
+        Vector2 lastPos = (HeroDefiner.CurrentHeroPastPos[1] != null ? HeroDefiner.CurrentHeroPastPos[1] : new Vector3());
+        Vector2 currentPos = (HeroDefiner.CurrentHeroPastPos[0] != null ? HeroDefiner.CurrentHeroPastPos[0] : new Vector3());
         Vector2 posDist = currentPos - lastPos;
 
         Vector2[] colPoints = new Vector2[4]{

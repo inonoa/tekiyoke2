@@ -57,8 +57,8 @@ public class SceneTransition : MonoBehaviour
         , WindAndBlur
     }
 
-    ///<summary>シーンを変えることを試みる、短時間に複数回遷移させるみたいなことにならないようによしなにする(StateじゃなくてSceneじゃねこれ)</summary>
-    public static void Start2ChangeState(string sceneName, TransitionType transitionType){
+    ///<summary>シーンを変えることを試みる、短時間に複数回遷移させるみたいなことにならないようによしなにする</summary>
+    public static void Start2ChangeScene(string sceneName, TransitionType transitionType){
         if(SceneTransition.State != SceneTransitState.None) return;
 
         switch(transitionType){

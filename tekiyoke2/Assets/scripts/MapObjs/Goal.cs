@@ -38,7 +38,7 @@ public class Goal : MonoBehaviour
             MemoryOverDeath.Instance.Clear();
             //doubleAnim.gameObject.SetActive(true);
 
-            SceneTransition.Start2ChangeState("ResultScene", SceneTransition.TransitionType.WindAndBlur);
+            SceneTransition.Start2ChangeScene("ResultScene", SceneTransition.TransitionType.WindAndBlur);
 
             doubleAnim.SetTrigger("runr");
             HeroDefiner.currentHero.SoundGroup.FadeOut("Run", 2f);
