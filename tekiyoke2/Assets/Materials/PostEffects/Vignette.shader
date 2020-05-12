@@ -41,12 +41,14 @@
                 VertToFrag output;
 
                 output.vertex = UnityObjectToClipPos(vert.vertex);
+
                 // プラットフォームによってはUVの上下が逆になるので補正をいれる
                 #if UNITY_UV_STARTS_AT_TOP 
                 output.uv = float2(vert.uv.x, 1.0 - vert.uv.y); 
                 #else
-                output.uv     = vert.uv;
+                output.uv = vert.uv;
                 #endif
+                
                 output.color  = vert.color;
 
                 return output;
