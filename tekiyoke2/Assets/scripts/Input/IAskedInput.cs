@@ -18,5 +18,6 @@ public interface IAskedInput
 public enum ButtonCode{
     Right, Left, Up, Down,
     Jump, JetL, JetR, JetLR,
-    Zone, Save, Pause, Enter, Cancel
+    Zone, Save, Pause, Enter, Cancel,
+    Tweet
 }

@@ -16,16 +16,17 @@ public class ScoresToText : MonoBehaviour
         float timeLast = (lastDraft!=-1 ? scores.clearTimesLast[lastDraft] : 55 * 60 + 55.55f);
         int[] timeDigitsLast = TimeFloat2Ints(timeLast);
 
-        float timeBest = (scores.BestTimeExists(lastDraft) ? scores.clearTimesBestExceptLast[lastDraft] : 11 * 60 + 11.111f);
+        float timeBest = (scores.BestTimeExists(lastDraft) ? scores.clearTimesBestExceptLast[lastDraft] : 99 * 60 + 59.995f);
         int[] timeDigitsBest = TimeFloat2Ints(timeBest);
 
         for(int i=0;i<6;i++){
             timeImages[i].sprite = NumberSpritesHolder.Instance.NumberSprites[timeDigitsLast[i]];
             bestTimeImages[i].sprite = NumberSpritesHolder.Instance.NumberSprites[timeDigitsBest[i]];
         }
-
-        scores.ApplyLastTime2Best();
     }
+
+    ///<summary>ツイートとかに使うのでStart時にはApplyできない</summary>
+    void OnDestroy() => ScoreHolder.Instance.ApplyLastTime2Best();
 
     int[] TimeFloat2Ints(float timeSecs){
         int[] digits = new int[6];
