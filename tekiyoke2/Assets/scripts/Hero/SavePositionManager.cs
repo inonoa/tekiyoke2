@@ -11,6 +11,7 @@ public class SavePositionManager : MonoBehaviour
     [SerializeField]
     int saveCostDP = 10;
     [SerializeField] Image dialogImg;
+    [SerializeField] Image failDialogImg;
     [SerializeField] SoundGroup soundGroup;
 
     public void Try2Save(){
@@ -23,21 +24,26 @@ public class SavePositionManager : MonoBehaviour
 
             soundGroup.Play("Save");
 
-            //応急
-            Sequence dialogSeq = DOTween.Sequence();
-
-            dialogSeq.Append(dialogImg.DOFade(1, 0.5f));
-            dialogSeq.Join  (dialogImg.transform.DOLocalMoveX(0, 0.5f).SetEase(Ease.OutSine));
-
-            dialogSeq.Append(dialogImg.transform.DOLocalMoveX(0, 1f));
-
-            dialogSeq.Append(dialogImg.DOFade(0, 0.5f));
-            dialogSeq.Join  (dialogImg.transform.DOLocalMoveX(-100, 0.5f).SetEase(Ease.InSine));
-
-            dialogSeq.Append(dialogImg.transform.DOLocalMoveX(100, 0f));
+            FadeInOut(dialogImg, 200);
 
         }else{
-            print("セーブに失敗しました。");
+            FadeInOut(failDialogImg, 50);
+        }
+
+        void FadeInOut(Image img, float moveX){
+
+            img.color = new Color(1,1,1,0);
+            { Vector3 pos = img.transform.localPosition; pos.x = moveX; img.transform.localPosition = pos; }
+
+            Sequence dialogSeq = DOTween.Sequence();
+
+            dialogSeq.Append(img.DOFade(1, 0.5f));
+            dialogSeq.Join  (img.transform.DOLocalMoveX(0, 0.5f).SetEase(Ease.OutSine));
+
+            dialogSeq.Append(img.transform.DOLocalMoveX(0, 1f));
+
+            dialogSeq.Append(img.DOFade(0, 0.5f));
+            dialogSeq.Join  (img.transform.DOLocalMoveX(-moveX, 0.5f).SetEase(Ease.InSine));
         }
     }
 
