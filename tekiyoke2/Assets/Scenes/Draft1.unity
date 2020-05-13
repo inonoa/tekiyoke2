@@ -1080,7 +1080,7 @@ PrefabInstance:
     - target: {fileID: 4853683882473637851, guid: 7da4e3246f320944788c858e2600c115,
         type: 3}
       propertyPath: spritesExceptBG.Array.size
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4853683882473637851, guid: 7da4e3246f320944788c858e2600c115,
         type: 3}
