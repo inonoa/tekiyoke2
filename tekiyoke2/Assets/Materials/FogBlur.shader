@@ -63,29 +63,9 @@
 
             fixed4 frag (VertToFrag input) : SV_Target
             {
-                fixed4 col = fixed4(0,0,0,0);
-
-                //縦横二回やるのこれだと不適切感あるな……
-                for(int i = -_ResolutionMax; i < 1+_ResolutionMax; i++ ){
-                    float2 uv_yoko = input.uv + float2(i, 0) * _GapMax/_ResolutionMax;
-                    fixed4 yoko = tex2D(_MainTex, uv_yoko);
-                    float rdRange = saturate(0.4-abs(yoko.a - 0.5));
-                    yoko.a += random(uv_yoko + _SinTime.xy) * rdRange * 2 - rdRange;
-                    yoko.a = saturate(yoko.a);
-                    col += yoko;
-                }
-                for(int j = -_ResolutionMax; j < 1+_ResolutionMax; j++ ){
-                    float2 uv_tate = input.uv + float2(0, j) * _GapMax/_ResolutionMax;
-                    fixed4 tate = tex2D(_MainTex, uv_tate);
-                    float rdRange = saturate(0.4-abs(tate.a - 0.5));
-                    tate.a += random(uv_tate + _SinTime.xy) * rdRange * 2 - rdRange;
-                    tate.a = saturate(tate.a);
-                    col += tate;
-                }
-                col /= 2 + 4 * _ResolutionMax;
-                col.a *= _AlphaRate;
-                //col.rgb *= col.a;
+                fixed4 col = tex2D(_MainTex, input.uv);
                 col *= _Color;
+                col.a += (random(input.uv + _Time.xy) - 0.5) * (0.3 - abs(col.a - 0.5));
 
                 return col;
             }
