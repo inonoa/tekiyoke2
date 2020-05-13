@@ -35,6 +35,12 @@ public class StageSelector : MonoBehaviour
 
     #endregion
 
+    #region 依存
+
+    IAskedInput input;
+
+    #endregion
+
     void Start()
     {
         stRenderer = new SpriteRenderer[stages.Length];
@@ -44,6 +50,8 @@ public class StageSelector : MonoBehaviour
         dsRenderer = draftselect.GetComponent<SpriteRenderer>();
         wakuRenderer = waku.GetComponent<SpriteRenderer>();
         soundGroup = GetComponent<SoundGroup>();
+
+        input = ServicesLocator.Instance.GetInput();
     }
 
     void Update()
@@ -99,7 +107,7 @@ public class StageSelector : MonoBehaviour
                 break;
     
             case State.Active:
-                if(InputManager.Instance.GetButtonDown(ButtonCode.Up)){
+                if(input.GetButtonDown(ButtonCode.Up)){
                     if(selected>1){
                         selected--;
                         bgbg.sprite = bgs[selected-1];
@@ -107,7 +115,7 @@ public class StageSelector : MonoBehaviour
                         soundGroup.Play("Move");
                     }
                 }
-                if(InputManager.Instance.GetButtonDown(ButtonCode.Down)){
+                if(input.GetButtonDown(ButtonCode.Down)){
                     if(selected<3){
                         selected++;
                         bgbg.sprite = bgs[selected-1];
@@ -115,7 +123,7 @@ public class StageSelector : MonoBehaviour
                         soundGroup.Play("Move");
                     }
                 }
-                if(InputManager.Instance.GetButtonDown(ButtonCode.Enter)){
+                if(input.GetButtonDown(ButtonCode.Enter)){
                     if(selected==1){
                         state = State.Selected;
                         wakuLight.Stop();

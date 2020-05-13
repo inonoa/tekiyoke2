@@ -24,6 +24,7 @@ public class Pauser : MonoBehaviour
     PauseUIMover uiMover;
 
     SoundGroup soundGroup;
+    IAskedInput input;
 
     void Start()
     {
@@ -34,12 +35,14 @@ public class Pauser : MonoBehaviour
         soundGroup = GetComponent<SoundGroup>();
 
         uiMover.pauseEnd += PauseEnded;
+
+        input = ServicesLocator.Instance.GetInput();
     }
 
     void Update()
     {
         // 押したら画面切り替え
-        if(InputManager.Instance.GetButtonDown(ButtonCode.Pause)){
+        if(input.GetButtonDown(ButtonCode.Pause)){
 
             //ポーズに移行(実際にはフレーム終了後に移行)
             if(!inPause){

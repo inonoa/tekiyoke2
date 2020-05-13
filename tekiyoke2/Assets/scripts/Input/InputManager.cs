@@ -149,5 +149,3 @@ public class InputManager : MonoBehaviour, IAskedInput
         {ButtonCode.Cancel, new[]{ KeyCode.Backspace, KeyCode.X }}
     };
 }
-
-

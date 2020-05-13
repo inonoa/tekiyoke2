@@ -23,7 +23,7 @@ public class StateFall : HeroState, IAskCanJump
     }
     public override void Try2EndJet(){ }
     public override void Try2Jump(){
-        IAskedInput input = InputManager.Instance;
+        IAskedInput input = hero.Input;
 
         if(hero.CanKickFromWallL && input.GetButton(ButtonCode.Left) && input.GetButtonDown(ButtonCode.Jump)){
             hero.States.Push(new StateKick(hero, true,  canJump));
@@ -37,7 +37,7 @@ public class StateFall : HeroState, IAskCanJump
         }
     }
     public override void Try2StartMove(bool toRight){
-        IAskedInput input = InputManager.Instance;
+        IAskedInput input = hero.Input;
 
         if(toRight){
             if(hero.CanKickFromWallR && input.GetButton(ButtonCode.Right) && input.GetButtonDown(ButtonCode.Jump))
@@ -65,9 +65,9 @@ public class StateFall : HeroState, IAskCanJump
             case 0 : hero.velocity.X = 0;                    break;
             case -1: hero.velocity.X = -HeroMover.moveSpeed; break;
         }
-        InputManager.Instance.SetInputLatency(ButtonCode.Right,inputLatency4Kick);
-        InputManager.Instance.SetInputLatency(ButtonCode.Left, inputLatency4Kick);
-        InputManager.Instance.SetInputLatency(ButtonCode.Jump, inputLatency4Kick);
+        hero.Input.SetInputLatency(ButtonCode.Right,inputLatency4Kick);
+        hero.Input.SetInputLatency(ButtonCode.Left, inputLatency4Kick);
+        hero.Input.SetInputLatency(ButtonCode.Jump, inputLatency4Kick);
     }
 
     public override void Resume(){
@@ -107,8 +107,8 @@ public class StateFall : HeroState, IAskCanJump
     public override void Exit(){
         hero.StopCoroutine(kabezuriCoroutine);
 
-        InputManager.Instance.SetInputLatency(ButtonCode.Right,0);
-        InputManager.Instance.SetInputLatency(ButtonCode.Left,0);
-        InputManager.Instance.SetInputLatency(ButtonCode.Jump,0);
+        hero.Input.SetInputLatency(ButtonCode.Right,0);
+        hero.Input.SetInputLatency(ButtonCode.Left,0);
+        hero.Input.SetInputLatency(ButtonCode.Jump,0);
     }
 }

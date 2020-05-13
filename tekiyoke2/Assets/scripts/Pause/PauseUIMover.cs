@@ -21,6 +21,8 @@ public class PauseUIMover : MonoBehaviour
     int framesFromStart = 0;
     public event EventHandler pauseEnd;
 
+    IAskedInput input;
+
     public void Reset(){
         draftName.transform.localPosition -= new Vector3(totalMoveDist,0);
         draftName.color = new Color(1,1,1,0);
@@ -41,6 +43,7 @@ public class PauseUIMover : MonoBehaviour
         }
         markRTF = mark.GetComponent<RectTransform>();
         soundGroup = GetComponent<SoundGroup>();
+        input = ServicesLocator.Instance.GetInput();
     }
 
     void Update()
@@ -58,21 +61,21 @@ public class PauseUIMover : MonoBehaviour
             framesFromStart ++;
         }
         markRTF.Rotate(new Vector3(0,0,3));
-        if(InputManager.Instance.GetButtonDown(ButtonCode.Down)){
+        if(input.GetButtonDown(ButtonCode.Down)){
             if(selected<2){
                 selected ++;
                 mark.transform.localPosition += new Vector3(-40,-127);
                 soundGroup.Play("Move");
             }
         }
-        if(InputManager.Instance.GetButtonDown(ButtonCode.Up)){
+        if(input.GetButtonDown(ButtonCode.Up)){
             if(selected>0){
                 selected --;
                 mark.transform.localPosition -= new Vector3(-40,-127);
                 soundGroup.Play("Move");
             }
         }
-        if(InputManager.Instance.GetButtonDown(ButtonCode.Enter)){
+        if(input.GetButtonDown(ButtonCode.Enter)){
             soundGroup.Play("Enter");
             if(selected==0){
                 Reset();
