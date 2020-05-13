@@ -65,7 +65,7 @@
             {
                 fixed4 col = tex2D(_MainTex, input.uv);
                 col *= _Color;
-                col.a += (random(input.uv + _Time.xy) - 0.5) * (0.3 - abs(col.a - 0.5));
+                col.a += (random(input.uv + _Time.xy) - 0.5) * saturate(0.3 - abs(col.a - 0.5));
 
                 return col;
             }
