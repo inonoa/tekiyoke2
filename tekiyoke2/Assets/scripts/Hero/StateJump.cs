@@ -19,7 +19,7 @@ public class StateJump : HeroState, IAskCanJump
     }
     public override void Try2EndJet(){ }
     public override void Try2Jump(){
-        IAskedInput input = InputManager.Instance;
+        IAskedInput input = hero.Input;
 
         if(hero.CanKickFromWallL && input.GetButton(ButtonCode.Left) && input.GetButtonDown(ButtonCode.Jump)){
             hero.States.Push(new StateKick(hero, true,  canJump));
@@ -30,7 +30,7 @@ public class StateJump : HeroState, IAskCanJump
         }else if(canJump) hero.States.Push(new StateJump(hero, false));
     }
     public override void Try2StartMove(bool toRight){
-        IAskedInput input = InputManager.Instance;
+        IAskedInput input = hero.Input;
 
         if(toRight){
             if(hero.CanKickFromWallR && input.GetButton(ButtonCode.Right) && input.GetButtonDown(ButtonCode.Jump))
@@ -65,9 +65,9 @@ public class StateJump : HeroState, IAskCanJump
 
         hero.SoundGroup.Play("Jump");
         
-        InputManager.Instance.SetInputLatency(ButtonCode.Right,inputLatency4Kick);
-        InputManager.Instance.SetInputLatency(ButtonCode.Left, inputLatency4Kick);
-        InputManager.Instance.SetInputLatency(ButtonCode.Jump, inputLatency4Kick);
+        hero.Input.SetInputLatency(ButtonCode.Right,inputLatency4Kick);
+        hero.Input.SetInputLatency(ButtonCode.Left, inputLatency4Kick);
+        hero.Input.SetInputLatency(ButtonCode.Jump, inputLatency4Kick);
     }
     public override void Resume(){
         if     (hero.velocity.X > 0) hero.Anim.SetTrigger("jumprf");
@@ -82,8 +82,8 @@ public class StateJump : HeroState, IAskCanJump
     }
 
     public override void Exit(){
-        InputManager.Instance.SetInputLatency(ButtonCode.Right,0);
-        InputManager.Instance.SetInputLatency(ButtonCode.Left,0);
-        InputManager.Instance.SetInputLatency(ButtonCode.Jump,0);
+        hero.Input.SetInputLatency(ButtonCode.Right,0);
+        hero.Input.SetInputLatency(ButtonCode.Left,0);
+        hero.Input.SetInputLatency(ButtonCode.Jump,0);
     }
 }

@@ -84,21 +84,21 @@ public class HeroMover : MonoBehaviour
         if(CanMove){
             
             //右ボタンを押したとき右に動く
-            if(input.GetButtonDown(ButtonCode.Right) && KeyDirection!=1){
+            if(Input.GetButtonDown(ButtonCode.Right) && KeyDirection!=1){
                 States.Peek().Try2StartMove(true);
                 KeyDirection = 1;
                 EyeToRight = true;
     
             //左ボタンを押したときに左に動く
-            }else if(input.GetButtonDown(ButtonCode.Left) && KeyDirection!=-1){
+            }else if(Input.GetButtonDown(ButtonCode.Left) && KeyDirection!=-1){
                 States.Peek().Try2StartMove(false);
                 KeyDirection = -1;
                 EyeToRight = false;
     
             //右ボタンを離したときはさっきまで動いていた向きによって挙動が変わる
-            }else if(input.GetButtonUp(ButtonCode.Right) && KeyDirection==1){
+            }else if(Input.GetButtonUp(ButtonCode.Right) && KeyDirection==1){
             
-                if(input.GetButton(ButtonCode.Left)){
+                if(Input.GetButton(ButtonCode.Left)){
                     States.Peek().Try2StartMove(false);
                     KeyDirection = -1;
                     EyeToRight = false;
@@ -109,9 +109,9 @@ public class HeroMover : MonoBehaviour
                 }
     
             //左ボタンを離したときはさっきまで動いていた向きによって挙動が変わる
-            }else if(input.GetButtonUp(ButtonCode.Left) && KeyDirection==-1){
+            }else if(Input.GetButtonUp(ButtonCode.Left) && KeyDirection==-1){
             
-                if(input.GetButton(ButtonCode.Right)){
+                if(Input.GetButton(ButtonCode.Right)){
                     States.Peek().Try2StartMove(true);
                     KeyDirection = 1;
                     EyeToRight = true;
@@ -150,7 +150,7 @@ public class HeroMover : MonoBehaviour
     [SerializeField] WallCheckerL wallCheckerL;
     [SerializeField] WallCheckerR wallCheckerR;
     SavePositionManager savePositionManager;
-    IAskedInput input;
+    public IAskedInput Input{ get; private set; }
 
     [SerializeField] GetDPinEnemy getDPinEnemy;
     public GetDPinEnemy GetDPinEnemy => getDPinEnemy;
@@ -244,7 +244,7 @@ public class HeroMover : MonoBehaviour
         lastState = States.Peek();
 
         CmrCntr = CameraController.CurrentCamera;
-        input   = InputManager.Instance;
+        Input   = ServicesLocator.Instance.GetInput();
         chishibuki = GameUIManager.CurrentInstance.Chishibuki;
         SpriteRenderer      = GetComponent<SpriteRenderer>();
         Anim                = GetComponent<Animator>();
@@ -279,20 +279,20 @@ public class HeroMover : MonoBehaviour
             if(CanMove){
 
                 //なんとなく入力をまとめて置きたくてここにしているがあまり意味がないような…
-                if(input.GetNagaoshiFrames(ButtonCode.Save) == 70) savePositionManager.Try2Save();
+                if(Input.GetNagaoshiFrames(ButtonCode.Save) == 70) savePositionManager.Try2Save();
 
 
                 UpdateMoveDirection();
 
-                if(input.GetButtonDown(ButtonCode.Jump)){
+                if(Input.GetButtonDown(ButtonCode.Jump)){
                     States.Peek().Try2Jump();
                 }
 
                 //面倒だし向きは移動方向と同じでいいからキーは1つでいい気がするが…
-                if(input.GetButtonDown(ButtonCode.JetLR)){
+                if(Input.GetButtonDown(ButtonCode.JetLR)){
                     States.Peek().Try2StartJet();
                 }
-                if(input.GetButtonUp(ButtonCode.JetLR)){
+                if(Input.GetButtonUp(ButtonCode.JetLR)){
                     States.Peek().Try2EndJet();
                 }
             }
