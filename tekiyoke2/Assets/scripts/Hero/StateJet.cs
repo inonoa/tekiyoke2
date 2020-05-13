@@ -79,16 +79,16 @@ public class StateJet : HeroState
             Sequence endSeq_tmp = DOTween.Sequence();
             endSeq_tmp.Append(DOTween.To(vignette.GetVolume, vignette.SetVolume, -0.3f - vignette.GetVolume() / 2, 0.2f).SetEase(Ease.OutSine));
             endSeq_tmp.Append(DOTween.To(vignette.GetVolume, vignette.SetVolume, 0, 0.3f).SetEase(Ease.InOutSine));
-            endSeq_tmp.onComplete += () => vignette.isActive = false;
+            endSeq_tmp.onComplete += () => vignette.IsActive = false;
             vignetteTween = endSeq_tmp;
 
             blurYTween.Kill();
             blurYTween = DOTween.To(blurY.GetVolume, blurY.SetVolume, 0, 0.1f);
-            blurYTween.onComplete += () => blurY.isActive = false;
+            blurYTween.onComplete += () => blurY.IsActive = false;
 
             blurTTween.Kill();
             blurTTween = DOTween.To(blurT.GetVolume, blurT.SetVolume, 0, 0.1f);
-            blurTTween.onComplete += () => blurT.isActive = false;
+            blurTTween.onComplete += () => blurT.IsActive = false;
             
             hero.CmrCntr.Dash(jetFramesMax); //今は何も起こってなさそう
         }
@@ -164,17 +164,17 @@ public class StateJet : HeroState
         hero.SoundGroup.Play("Tame");
         hero.SoundGroup.VolumeTo("Tame", 1, 0.7f);
 
-        vignette.isActive = true;
+        vignette.IsActive = true;
         vignette.SetVolume(0);
         vignetteTween?.Kill();
         vignetteTween = DOTween.To(vignette.GetVolume, vignette.SetVolume, 2, 0.6f);
 
-        blurY.isActive = true;
+        blurY.IsActive = true;
         blurY.SetVolume(0);
         blurYTween?.Kill();
         blurYTween = DOTween.To(blurY.GetVolume, blurY.SetVolume, 2, 0.6f);
 
-        blurT.isActive = true;
+        blurT.IsActive = true;
         blurT.SetVolume(0);
         blurTTween?.Kill();
         blurTTween = DOTween.To(blurT.GetVolume, blurT.SetVolume, 2, 0.6f);
@@ -247,7 +247,7 @@ public class StateJet : HeroState
         clouds.EndClouds();
         hero.SoundGroup.Stop("Tame");
         foreach(PostEffectWrapper pe in new PostEffectWrapper[]{vignette, blurT, blurY}){
-            pe.isActive = false;
+            pe.IsActive = false;
         }
     }
 }
