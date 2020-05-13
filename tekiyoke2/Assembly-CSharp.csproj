@@ -153,6 +153,7 @@
      <Compile Include="Assets\Scripts\ResultScene\PressZToReturn.cs" />
      <Compile Include="Assets\Scripts\ResultScene\ScoresToText.cs" />
      <Compile Include="Assets\Scripts\ResultScene\SlideFadeIn.cs" />
+     <Compile Include="Assets\Scripts\ResultScene\Tweeter.cs" />
      <Compile Include="Assets\Scripts\RingBuffer.cs" />
      <Compile Include="Assets\Scripts\SceneTransition\BlueSlideIn.cs" />
      <Compile Include="Assets\Scripts\SceneTransition\BlurTrans.cs" />

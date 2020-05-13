@@ -146,6 +146,8 @@ public class InputManager : MonoBehaviour, IAskedInput
 
         {ButtonCode.Pause,  new[]{ KeyCode.Escape }},
         {ButtonCode.Enter,  new[]{ KeyCode.Return, KeyCode.Z }},
-        {ButtonCode.Cancel, new[]{ KeyCode.Backspace, KeyCode.X }}
+        {ButtonCode.Cancel, new[]{ KeyCode.Backspace, KeyCode.X }},
+
+        {ButtonCode.Tweet,  new[]{KeyCode.X}}
     };
 }
