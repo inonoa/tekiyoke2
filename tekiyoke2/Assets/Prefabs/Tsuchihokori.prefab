@@ -57,7 +57,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ad3702767671e2a4d959426517d89df3, type: 3}
   - {fileID: 21300000, guid: e4f1513192b36b8419dab3c93691cf89, type: 3}
   - {fileID: 21300000, guid: 3789bb01b2b0a8542b4d4e31a6b707cc, type: 3}
-  positionFromHero: {x: -30, y: 0, z: 0}
+  positionFromHero: {x: -70, y: 0, z: 0}
 --- !u!1 &3421506758059871955
 GameObject:
   m_ObjectHideFlags: 0
