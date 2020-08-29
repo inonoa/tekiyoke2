@@ -37,7 +37,7 @@ public class RecoverItem : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other){
         if(other.tag=="Player" && !gotten){
             gotten = true;
-            HeroDefiner.currentHero.HpCntr.ChangeHP(HeroDefiner.currentHero.HpCntr.HP + 1);
+            HeroDefiner.currentHero.RecoverHP(1);
             waveSeq.Pause();
 
             GottenAnimation();
