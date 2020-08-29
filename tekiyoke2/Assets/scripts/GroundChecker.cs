@@ -10,7 +10,6 @@ public class GroundChecker : MonoBehaviour
 
     [SerializeField]
     ContactFilter2D filter = new ContactFilter2D();
-    [SerializeField]
     new PolygonCollider2D collider;
     void Start() => collider = GetComponent<PolygonCollider2D>();
     void Update(){
