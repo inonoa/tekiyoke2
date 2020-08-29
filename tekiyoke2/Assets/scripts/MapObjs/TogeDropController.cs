@@ -32,7 +32,7 @@ public class TogeDropController : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D other){
-        if(other.gameObject.tag=="Player")  HeroDefiner.currentHero.Damage(1);
+        if(other.gameObject.tag=="Player")  HeroDefiner.currentHero.Damage(1, DamageType.Normal);
         if(other.gameObject.tag=="Terrain" || other.gameObject.tag=="Ultrathin") state = State.Die;
     }
 

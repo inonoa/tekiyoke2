@@ -177,12 +177,30 @@ public class HeroMover : MonoBehaviour
     
     ///<summary>敵からのダメージ等。ノックバックなどが入る予定(あれ？)</summary>
     ///<param name="damage">与えるダメージを書く。1を指定すると100->99,1->0になったりします</param>
-    public void Damage(int damage){
+    public void Damage(int damage, DamageType type)
+    {
         if(CanBeDamaged){
             Tokitome.SetTime(1);
             HP = HP - damage;
             CmrCntr.Reset();
             SoundGroup.Play(HP==0 ? "Die" : "Damage");
+        }
+
+        switch(type)
+        {
+        case DamageType.Normal:
+        {
+            //
+        }
+        break;
+        case DamageType.Drop:
+        {
+            if(CanBeDamaged){
+                CanMove = false;
+                velocity = new HeroVelocity(0, -15);
+            }
+        }
+        break;
         }
     }
     public void BendBack(object sender, EventArgs e){
@@ -215,14 +233,6 @@ public class HeroMover : MonoBehaviour
         MemoryOverDeath.Instance.SaveOnDeath();
         GameTimeCounter.CurrentInstance.DoesTick = false;
         SceneTransition.Start2ChangeScene(SceneManager.GetActiveScene().name, SceneTransition.TransitionType.HeroDied);
-    }
-    ///<summary>落下死、実装が強引でうーん</summary>
-    public void Drop(){
-        Damage(3);
-        if(CanBeDamaged){
-            CanMove = false;
-            velocity = new HeroVelocity(0, -15);
-        }
     }
 
     ///<summary>HPCntrからの死亡イベントをこう良い感じに…</summary>
