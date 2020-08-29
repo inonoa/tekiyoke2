@@ -14,5 +14,6 @@ public class DraftManager : MonoBehaviour
     void Awake()
     {
         CurrentInstance = this;
+        Tokitome.SetTime(1); //ここなんかなあ
     }
 }

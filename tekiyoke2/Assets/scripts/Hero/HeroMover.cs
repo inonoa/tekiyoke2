@@ -228,6 +228,7 @@ public class HeroMover : MonoBehaviour
     void Die(){
         MemoryOverDeath.Instance.SaveOnDeath();
         GameTimeCounter.CurrentInstance.DoesTick = false;
+        Tokitome.SetTime(0.2f);
         SceneTransition.Start2ChangeScene(SceneManager.GetActiveScene().name, SceneTransition.TransitionType.HeroDied);
     }
 
