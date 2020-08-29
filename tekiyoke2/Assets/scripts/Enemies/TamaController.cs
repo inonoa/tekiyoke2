@@ -39,7 +39,7 @@ public class TamaController : MonoBehaviour, IReusable
             GetComponent<SpriteRenderer>().DOFade(0, 0.1f);
             DOVirtual.DelayedCall(0.1f, Die);
         }
-        if(other.gameObject.tag == "Player") HeroDefiner.currentHero.Damage(1);
+        if(other.gameObject.tag == "Player") HeroDefiner.currentHero.Damage(1, DamageType.Normal);
     }
 
     void Die(){

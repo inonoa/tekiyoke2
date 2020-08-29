@@ -165,34 +165,48 @@ public class HeroMover : MonoBehaviour
     #endregion
 
     #region ダメージとか
-
-    ///<summary>HPの増減はすべてここから。(全部HPCntrに通します) (これ何のためにプロパティやめたのかわかんねえな)</summary>
-    private int HP{
-        get => HpCntr.HP;
-        set => HpCntr.ChangeHP(value);
-    }
+    void ChangeHP(int value) => HpCntr.ChangeHP(value);
+    public int HP => HpCntr.HP;
 
     ///<summary>falseだと無敵になる</summary>
     public bool CanBeDamaged{ get => HpCntr.CanBeDamaged; set => HpCntr.CanBeDamaged = value; }
     
     ///<summary>敵からのダメージ等。ノックバックなどが入る予定(あれ？)</summary>
     ///<param name="damage">与えるダメージを書く。1を指定すると100->99,1->0になったりします</param>
-    public void Damage(int damage){
-        if(CanBeDamaged){
-            Tokitome.SetTime(1);
-            HP = HP - damage;
-            CmrCntr.Reset();
-            SoundGroup.Play(HP==0 ? "Die" : "Damage");
+    public void Damage(int damage, DamageType type)
+    {
+        if(! CanBeDamaged) return;
+
+        Tokitome.SetTime(1);
+        ChangeHP(HP - damage);
+        CmrCntr.Reset();
+        SoundGroup.Play(HP==0 ? "Die" : "Damage");
+        BendBack();
+
+        if(HP <= 0) Die();
+
+        switch(type)
+        {
+        case DamageType.Normal:
+        {
+            //
+        }
+        break;
+        case DamageType.Drop:
+        {
+            CanMove = false;
+            velocity = new HeroVelocity(0, -15);
+        }
+        break;
         }
     }
-    public void BendBack(object sender, EventArgs e){
+    void BendBack(){
         States.Push(new StateBend(this));
         ParticleSystem ps = transform.Find("Particle System").GetComponent<ParticleSystem>();
         ps.Play();
         chishibuki.StartCoroutine("StartChishibuki");
         StartCoroutine(Blink());
     }
-
     IEnumerator Blink(){
         yield return new WaitForSeconds(0.3f);
 
@@ -214,19 +228,11 @@ public class HeroMover : MonoBehaviour
     void Die(){
         MemoryOverDeath.Instance.SaveOnDeath();
         GameTimeCounter.CurrentInstance.DoesTick = false;
+        Tokitome.SetTime(0.2f);
         SceneTransition.Start2ChangeScene(SceneManager.GetActiveScene().name, SceneTransition.TransitionType.HeroDied);
     }
-    ///<summary>落下死、実装が強引でうーん</summary>
-    public void Drop(){
-        Damage(3);
-        if(CanBeDamaged){
-            CanMove = false;
-            velocity = new HeroVelocity(0, -15);
-        }
-    }
 
-    ///<summary>HPCntrからの死亡イベントをこう良い感じに…</summary>
-    void ReceiveDeath(object sender, EventArgs e) => Die();
+    public void RecoverHP(int amount) => ChangeHP(HP + amount);
 
     #endregion
 
@@ -254,8 +260,6 @@ public class HeroMover : MonoBehaviour
         savePositionManager = GetComponent<SavePositionManager>();
         ObjsHolderForStates = GetComponent<HeroObjsHolder4States>();
 
-        HpCntr.die     += ReceiveDeath;
-        HpCntr.damaged += BendBack;
         getDPinEnemy.gotDP += (dp, e) => {
             DPManager.Instance.AddDP((float)dp);
             DPManager.Instance.LightGaugePulse();

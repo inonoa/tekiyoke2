@@ -51,8 +51,11 @@ public class StateBend : HeroState
     public override void Try2Jump(){ }
     public override void Try2StartMove(bool toRight){ }
     public override void Try2EndMove(){ }
-    public override void Exit(){ 
-        hero.CanMove = true;
-        hero.CanBeDamaged = true;
+    public override void Exit(){
+
+        if(hero.HpCntr.HP > 0){
+            hero.CanMove = true;
+            hero.CanBeDamaged = true;
+        }
     }
 }
