@@ -510,6 +510,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7853625885354214327}
   - component: {fileID: 7853625885354214326}
+  - component: {fileID: 4829329981426416816}
   m_Layer: 0
   m_Name: PauseMaster
   m_TagString: Untagged
@@ -550,6 +551,29 @@ MonoBehaviour:
   pausePause: {fileID: 7853625885206564765}
   options: {fileID: 7853625883639580574}
   mark: {fileID: 7853625884679158563}
+--- !u!114 &4829329981426416816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7853625885354214324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 575125d316743164095ca4d7fc3e0d78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ses:
+  - _Name: Move
+    _Clip: {fileID: 8300000, guid: 77ae3dd25654066459dc02f9673cd782, type: 3}
+    _Volume: 0.342
+    _RequireComponent: 0
+    <Loop>k__BackingField: 0
+  - _Name: Enter
+    _Clip: {fileID: 8300000, guid: 754757de7496855449eba613dc632c02, type: 3}
+    _Volume: 0.633
+    _RequireComponent: 0
+    <Loop>k__BackingField: 0
 --- !u!1 &7853625885700082266
 GameObject:
   m_ObjectHideFlags: 0
