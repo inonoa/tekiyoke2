@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 using UnityEngine.SceneManagement;
+using UniRx;
 
 ///<summary>最終的には各機能をまとめる役割と渉外担当みたいな役割とだけを持たせたい</summary>
 public class HeroMover : MonoBehaviour
@@ -200,6 +201,7 @@ public class HeroMover : MonoBehaviour
         break;
         }
     }
+
     void BendBack(){
         States.Push(new StateBend(this));
         ParticleSystem ps = transform.Find("Particle System").GetComponent<ParticleSystem>();
@@ -207,6 +209,7 @@ public class HeroMover : MonoBehaviour
         chishibuki.StartCoroutine("StartChishibuki");
         StartCoroutine(Blink());
     }
+
     IEnumerator Blink(){
         yield return new WaitForSeconds(0.3f);
 
@@ -264,6 +267,16 @@ public class HeroMover : MonoBehaviour
             DPManager.Instance.AddDP((float)dp);
             DPManager.Instance.LightGaugePulse();
         };
+
+        //ポーズ対応してない
+        Observable.Interval(TimeSpan.FromSeconds(0.075f)) //即値
+            .Subscribe(_ =>
+            {
+                ObjsHolderForStates.AfterimagePool.ActivateOne("")
+                    .GetComponent<SpriteRenderer>()
+                    .sprite = SpriteRenderer.sprite;
+            })
+            .AddTo(this);
     }
 
     ///<summary>SetActive(false)するとアニメーションの状態がリセットされるようなのでとりあえず主人公はステートだけ反映しなおす</summary>

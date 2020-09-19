@@ -558,6 +558,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   saveCostDP: 10
   dialogImg: {fileID: 0}
+  failDialogImg: {fileID: 0}
   soundGroup: {fileID: 5836125009105332007}
 --- !u!114 &1862551108992817783
 MonoBehaviour:
@@ -584,6 +585,8 @@ MonoBehaviour:
   kabezuriPrefab: {fileID: 3180092373609156, guid: 142cc2d7268e4a34d857a12335ac1286,
     type: 3}
   phantomRendererPrefab: {fileID: 8498910980884920797, guid: e85b92dd564d2dc4ebbcab1ff5f68c4c,
+    type: 3}
+  afterimagePrefab: {fileID: 5083419689122770704, guid: 428356fffc73be54580b0abe1abdea9b,
     type: 3}
 --- !u!1 &3106219250170215766
 GameObject:
@@ -800,7 +803,6 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
-  collider: {fileID: 0}
 --- !u!1 &4829837832728388578
 GameObject:
   m_ObjectHideFlags: 0
