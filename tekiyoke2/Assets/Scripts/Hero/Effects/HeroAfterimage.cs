@@ -6,7 +6,7 @@ using DG.Tweening;
 public class HeroAfterimage : MonoBehaviour, IReusable
 {
     [SerializeField] float fadeDuration = 0.5f;
-    [SerializeField] float posZ;
+    [SerializeField] float posZFromHero;
 
     public bool InUse{ get; private set; } = false;
     public void Activate(string _)
@@ -15,7 +15,7 @@ public class HeroAfterimage : MonoBehaviour, IReusable
         (
             HeroDefiner.CurrentHeroPos.x,
             HeroDefiner.CurrentHeroPos.y,
-            posZ
+            HeroDefiner.CurrentHeroPos.z + posZFromHero
         );
 
         SpriteRenderer renderer = GetComponent<SpriteRenderer>();

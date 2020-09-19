@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// GetButton系以外は切り離せそう
 public interface IAskedInput
 {
     void SetInputLatency(ButtonCode b, int latency);

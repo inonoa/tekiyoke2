@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeDuration: 0.5
-  posZ: 1
+  posZFromHero: 1
 --- !u!212 &7060212004303009396
 SpriteRenderer:
   m_ObjectHideFlags: 0
