@@ -76,9 +76,11 @@
      <Compile Include="Assets\Scripts\Enemies\TamaController.cs" />
      <Compile Include="Assets\Scripts\GameUIManager.cs" />
      <Compile Include="Assets\Scripts\GroundChecker.cs" />
+     <Compile Include="Assets\Scripts\Hero\Actions\HeroParameters.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\SakamichiChecker.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\States\HeroState.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\States\HeroStateBase.cs" />
+     <Compile Include="Assets\Scripts\Hero\Actions\States\new\StateFall_.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\States\new\StateJump_.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\States\new\StateRun_.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\States\new\StateWait_.cs" />
@@ -109,6 +111,7 @@
      <Compile Include="Assets\Scripts\Hero\HeroEventArgs.cs" />
      <Compile Include="Assets\Scripts\Hero\HeroMover.cs" />
      <Compile Include="Assets\Scripts\Hero\HeroObjsHolder4States.cs" />
+     <Compile Include="Assets\Scripts\Hero\HeroPhysics.cs" />
      <Compile Include="Assets\Scripts\Hero\HeroVelocity.cs" />
      <Compile Include="Assets\Scripts\Hero\HpCntr.cs" />
      <Compile Include="Assets\Scripts\Hero\IAskCanJump.cs" />

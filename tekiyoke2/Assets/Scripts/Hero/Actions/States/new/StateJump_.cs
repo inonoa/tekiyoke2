@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class StateJump_ : HeroStateBase
 {
-    float jumpForce = 30f;
-    float gravity = 80f;
-    float horizontalMoveForce = 150f;
-    float horizontalMoveSpeed = 15f;
-
     enum Dir{ FR, UR, FL, UL }
     Dir _dir = Dir.UR;
     void SetDir(Dir dir, HeroMover hero)
@@ -34,7 +29,7 @@ public class StateJump_ : HeroStateBase
 
     public override void Enter(HeroMover hero)
     {
-        hero.velocity.Y = jumpForce;
+        hero.velocity.Y = hero.Parameters.JumpForce;
 
         Start(hero);
     }
@@ -57,19 +52,13 @@ public class StateJump_ : HeroStateBase
     }
     public override HeroStateBase Update_(HeroMover hero, float deltatime)
     {
-        hero.velocity.X = Mathf.Clamp(
-            hero.velocity.X + hero.KeyDirection * horizontalMoveForce * deltatime,
-            -horizontalMoveSpeed,
-             horizontalMoveSpeed
-        );
-        hero.velocity.Y -= gravity * deltatime;
+        hero.HorizontalMoveInAir(hero.Parameters.MoveInAirParams, deltatime);
 
-        if(hero.IsOnGround && hero.velocity.Y < 0)
+        hero.ApplyGravity(hero.Parameters.MoveInAirParams, deltatime);
+
+        if(hero.velocity.Y < 0)
         {
-            //共通化したい
-            hero.SoundGroup.Play("Land");
-            if(hero.KeyDirection==0) return new StateWait_();
-            else                     return new StateRun_();
+            return new StateFall_();
         }
 
         return this;

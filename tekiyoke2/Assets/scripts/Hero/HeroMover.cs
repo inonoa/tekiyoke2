@@ -151,6 +151,9 @@ public class HeroMover : MonoBehaviour
     [SerializeField] GetDPinEnemy getDPinEnemy;
     public GetDPinEnemy GetDPinEnemy => getDPinEnemy;
 
+    [SerializeField] HeroParameters _Parameters;
+    public HeroParameters Parameters => _Parameters;
+
     HeroStateBase currrentState;
 
 
