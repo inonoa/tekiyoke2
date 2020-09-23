@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StateWait_ : HeroStateBase
 {
-    float friction = 30f;
+    float friction = 100f;
 
     public override void Enter(HeroMover hero)
     {

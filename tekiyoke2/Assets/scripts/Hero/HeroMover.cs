@@ -14,13 +14,15 @@ public class HeroMover : MonoBehaviour
     [SerializeField]
     bool isInDebug = false;
     void Log4Debug(){
-        string txt = States.Peek().ToString() + "\n"
+        string txt = currrentState.ToString() + "\n"
                    + "Velocity: " + velocity.ToString() + "\n"
                    + "KeyDirection: " + KeyDirection.ToString() + "\n"
                    + "EyeToRight: " + EyeToRight.ToString() + "\n"
                    + "IsOnGround: " + IsOnGround.ToString() + "\n";
         Debug.Log(txt);
     }
+
+    public Stack<HeroState> States;
 
     #endregion
 
@@ -80,51 +82,50 @@ public class HeroMover : MonoBehaviour
     public void WarpPos(float x, float y){
         transform.position = new Vector3(x,y,transform.position.z);
     }
-    ///<summary>前フレームでの向きと今フレームの入力から移動方向を決定</summary>
-    void UpdateMoveDirection(){
-        if(CanMove){
-            
-            //右ボタンを押したとき右に動く
-            if(Input.GetButtonDown(ButtonCode.Right) && KeyDirection!=1){
-                States.Peek().Try2StartMove(true);
-                KeyDirection = 1;
-                EyeToRight = true;
     
-            //左ボタンを押したときに左に動く
-            }else if(Input.GetButtonDown(ButtonCode.Left) && KeyDirection!=-1){
-                States.Peek().Try2StartMove(false);
+
+    void UpdateMoveDirection()
+    {
+        if(!CanMove) return;
+        
+        if(Input.GetButtonDown(ButtonCode.Right)      && KeyDirection != 1)
+        {
+            KeyDirection = 1;
+            EyeToRight = true;
+        }
+        else if(Input.GetButtonDown(ButtonCode.Left)  && KeyDirection != -1)
+        {
+            KeyDirection = -1;
+            EyeToRight = false;
+        }
+
+        //ボタンを離したときはさっきまで動いていた向きによって挙動が変わる
+        else if(Input.GetButtonUp(ButtonCode.Right) && KeyDirection == 1)
+        {
+            if(Input.GetButton(ButtonCode.Left))
+            {
                 KeyDirection = -1;
                 EyeToRight = false;
-    
-            //右ボタンを離したときはさっきまで動いていた向きによって挙動が変わる
-            }else if(Input.GetButtonUp(ButtonCode.Right) && KeyDirection==1){
-            
-                if(Input.GetButton(ButtonCode.Left)){
-                    States.Peek().Try2StartMove(false);
-                    KeyDirection = -1;
-                    EyeToRight = false;
-    
-                }else{
-                    States.Peek().Try2EndMove();
-                    KeyDirection = 0;
-                }
-    
-            //左ボタンを離したときはさっきまで動いていた向きによって挙動が変わる
-            }else if(Input.GetButtonUp(ButtonCode.Left) && KeyDirection==-1){
-            
-                if(Input.GetButton(ButtonCode.Right)){
-                    States.Peek().Try2StartMove(true);
-                    KeyDirection = 1;
-                    EyeToRight = true;
-    
-                }else{
-                    States.Peek().Try2EndMove();
-                    KeyDirection = 0;
-                }
             }
-
+            else
+            {
+                KeyDirection = 0;
+            }
+        }
+        else if(Input.GetButtonUp(ButtonCode.Left)  && KeyDirection == -1)
+        {
+            if(Input.GetButton(ButtonCode.Right))
+            {
+                KeyDirection = 1;
+                EyeToRight = true;
+            }
+            else
+            {
+                KeyDirection = 0;
+            }
         }
     }
+
     public event EventHandler jumped;
     public void Jumped(bool isFromGround ,bool isKick)
         => jumped?.Invoke(this, new HeroJumpedEventArgs(isFromGround, isKick));
@@ -132,11 +133,6 @@ public class HeroMover : MonoBehaviour
     #endregion
 
     #region 別クラスで持っている情報
-
-    ///<summary>一応過去の(特に直前の)状態を見るためにStackに積んでるけど必要か…？</summary>
-    public Stack<HeroState> States { get; set; } = new Stack<HeroState>();
-    ///<summary>直前フレームの状態が入っているはず(大半の場合現在の状態と同じ)</summary>
-    HeroState lastState;
     public CameraController CmrCntr{ get; private set; }
     public HpCntr HpCntr{ get; private set; }
     public HeroObjsHolder4States ObjsHolderForStates{ get; private set; }
@@ -155,6 +151,8 @@ public class HeroMover : MonoBehaviour
 
     [SerializeField] GetDPinEnemy getDPinEnemy;
     public GetDPinEnemy GetDPinEnemy => getDPinEnemy;
+
+    HeroStateBase currrentState;
 
 
     public SpriteRenderer SpriteRenderer{ get; private set; }
@@ -203,7 +201,7 @@ public class HeroMover : MonoBehaviour
     }
 
     void BendBack(){
-        States.Push(new StateBend(this));
+        //States.Push(new StateBend(this));
         ParticleSystem ps = transform.Find("Particle System").GetComponent<ParticleSystem>();
         ps.Play();
         chishibuki.StartCoroutine("StartChishibuki");
@@ -249,8 +247,6 @@ public class HeroMover : MonoBehaviour
 
     void Start()
     {
-        States.Push(new StateWait(this));
-        lastState = States.Peek();
 
         CmrCntr = CameraController.CurrentCamera;
         Input   = ServicesLocator.Instance.GetInput();
@@ -262,6 +258,9 @@ public class HeroMover : MonoBehaviour
         sakamichiChecker    = GetComponent<SakamichiChecker>();
         savePositionManager = GetComponent<SavePositionManager>();
         ObjsHolderForStates = GetComponent<HeroObjsHolder4States>();
+
+        currrentState = new StateWait_();
+        currrentState.Enter(this);
 
         getDPinEnemy.gotDP += (dp, e) => {
             DPManager.Instance.AddDP((float)dp);
@@ -281,7 +280,7 @@ public class HeroMover : MonoBehaviour
 
     ///<summary>SetActive(false)するとアニメーションの状態がリセットされるようなのでとりあえず主人公はステートだけ反映しなおす</summary>
     void OnEnable(){
-        if(States.Count>0) States.Peek().Resume();
+        //if(States.Count > 0) States.Peek().Resume();
     }
 
     void OnDisable(){
@@ -291,9 +290,11 @@ public class HeroMover : MonoBehaviour
     void Update()
     {
 
-        if(!IsFrozen){
+        if(!IsFrozen)
+        {
 
-            if(CanMove){
+            if(CanMove)
+            {
 
                 //なんとなく入力をまとめて置きたくてここにしているがあまり意味がないような…
                 if(Input.GetNagaoshiFrames(ButtonCode.Save) == 70) savePositionManager.Try2Save();
@@ -301,16 +302,12 @@ public class HeroMover : MonoBehaviour
 
                 UpdateMoveDirection();
 
-                if(Input.GetButtonDown(ButtonCode.Jump)){
-                    States.Peek().Try2Jump();
-                }
-
-                //面倒だし向きは移動方向と同じでいいからキーは1つでいい気がするが…
-                if(Input.GetButtonDown(ButtonCode.JetLR)){
-                    States.Peek().Try2StartJet();
-                }
-                if(Input.GetButtonUp(ButtonCode.JetLR)){
-                    States.Peek().Try2EndJet();
+                HeroStateBase next = currrentState.HandleInput(this, Input);
+                if(next != currrentState)
+                {
+                    currrentState.Exit(this);
+                    currrentState = next;
+                    currrentState.Enter(this);
                 }
             }
         }
@@ -326,15 +323,15 @@ public class HeroMover : MonoBehaviour
 
         if(!IsFrozen){
 
-            if(CanMove){
-
-                if(States.Peek() != lastState){
-                    lastState.Exit();
-                    States.Peek().Start();
-                    lastState = States.Peek();
+            if(CanMove)
+            {
+                HeroStateBase next = currrentState.Update_(this, Time.fixedDeltaTime);
+                if(next != currrentState)
+                {
+                    currrentState.Exit(this);
+                    currrentState = next;
+                    currrentState.Enter(this);
                 }
-
-                States.Peek().Update(); //ここかこれ？
             }
 
             float vx = velocity.X;

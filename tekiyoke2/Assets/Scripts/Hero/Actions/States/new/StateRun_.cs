@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class StateRun_ : HeroStateBase
 {
-    float speed = 5f;
-    float runForce = 30f;
+    float speed = 10f;
+    float runForce = 100f;
 
     bool runRight = true;
 
@@ -33,13 +33,13 @@ public class StateRun_ : HeroStateBase
             return new StateWait_();
         }
 
-        if(hero.KeyDirection == 1)
+        if(     hero.KeyDirection == 1)
         {
-            hero.velocity.X = Mathf.Max(hero.velocity.X + runForce * deltatime, speed);
+            hero.velocity.X = Mathf.Min(hero.velocity.X + runForce * deltatime,  speed);
         }
         else if(hero.KeyDirection == -1)
         {
-            hero.velocity.X = Mathf.Min(hero.velocity.X - runForce * deltatime, speed);
+            hero.velocity.X = Mathf.Max(hero.velocity.X - runForce * deltatime, -speed);
         }
         return this;
     }

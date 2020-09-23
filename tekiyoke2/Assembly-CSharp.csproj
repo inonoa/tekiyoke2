@@ -79,6 +79,8 @@
      <Compile Include="Assets\Scripts\Hero\Actions\SakamichiChecker.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\States\HeroState.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\States\HeroStateBase.cs" />
+     <Compile Include="Assets\Scripts\Hero\Actions\States\new\StateRun_.cs" />
+     <Compile Include="Assets\Scripts\Hero\Actions\States\new\StateWait_.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\States\StateBaneYoko.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\States\StateBend.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\States\StateFall.cs" />
@@ -86,10 +88,8 @@
      <Compile Include="Assets\Scripts\Hero\Actions\States\StateJump.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\States\StateKick.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\States\StateRun.cs" />
-     <Compile Include="Assets\Scripts\Hero\Actions\States\StateRun_.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\States\StateUseless.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\States\StateWait.cs" />
-     <Compile Include="Assets\Scripts\Hero\Actions\States\StateWait_.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\WallCheckerL.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\WallCheckerR.cs" />
      <Compile Include="Assets\Scripts\Hero\BaneResidue.cs" />

@@ -23,6 +23,11 @@ public class HeroVelocity
         (X, Y) = (x, y);
     }
 
+    public override string ToString()
+    {
+        return $"({X}, {Y})";
+    }
+
     public float Magnitude()
     {
         return Mathf.Sqrt(X*X + Y*Y);
