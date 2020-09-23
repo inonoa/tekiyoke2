@@ -23,11 +23,25 @@ public class HeroVelocity
         (X, Y) = (x, y);
     }
 
+    public float Magnitude()
+    {
+        return Mathf.Sqrt(X*X + Y*Y);
+    }
+
     public static HeroVelocity operator + (HeroVelocity v1, HeroVelocity v2){
         return new HeroVelocity(v1.X + v2.X, v1.Y + v2.Y);
     }
 
     public static HeroVelocity operator - (HeroVelocity v1, HeroVelocity v2){
         return new HeroVelocity(v1.X - v2.X, v1.Y - v2.Y);
+    }
+
+    public static HeroVelocity operator * (HeroVelocity v, float a)
+    {
+        return new HeroVelocity(v.X * a, v.Y * a);
+    }
+    public static HeroVelocity operator * (float a, HeroVelocity v)
+    {
+        return v * a;
     }
 }
