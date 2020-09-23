@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class StateRun_ : HeroStateBase
 {
-    float speed = 15f;
-    float runForce = 150f;
-
     bool right = true;
 
     public override void Enter(HeroMover hero)
@@ -53,11 +50,15 @@ public class StateRun_ : HeroStateBase
 
         if(     hero.KeyDirection == 1)
         {
-            hero.velocity.X = Mathf.Min(hero.velocity.X + runForce * deltatime,  speed);
+            hero.velocity.X = Mathf.Min(
+                hero.velocity.X + hero.Parameters.ForceOnGround * deltatime,
+                hero.Parameters.GroundSpeedMax);
         }
         else if(hero.KeyDirection == -1)
         {
-            hero.velocity.X = Mathf.Max(hero.velocity.X - runForce * deltatime, -speed);
+            hero.velocity.X = Mathf.Max(
+                hero.velocity.X - hero.Parameters.ForceOnGround * deltatime,
+                -hero.Parameters.GroundSpeedMax);
         }
         return this;
     }

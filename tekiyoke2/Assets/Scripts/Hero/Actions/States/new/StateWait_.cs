@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class StateWait_ : HeroStateBase
 {
-    float friction = 150f;
-
     public override void Enter(HeroMover hero)
     {
         hero.SetAnim("stand");
@@ -29,8 +27,8 @@ public class StateWait_ : HeroStateBase
     }
     public override HeroStateBase Update_(HeroMover hero, float deltatime)
     {
-        if(hero.velocity.X > 0) hero.velocity.X = Mathf.Max(hero.velocity.X - friction * deltatime, 0);
-        if(hero.velocity.X < 0) hero.velocity.X = Mathf.Min(hero.velocity.X + friction * deltatime, 0);
+        if(hero.velocity.X > 0) hero.velocity.X = Mathf.Max(hero.velocity.X - hero.Parameters.Friction * deltatime, 0);
+        if(hero.velocity.X < 0) hero.velocity.X = Mathf.Min(hero.velocity.X + hero.Parameters.Friction * deltatime, 0);
 
         return this;
     }

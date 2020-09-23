@@ -9,8 +9,8 @@ public class HeroParameters : ScriptableObject
     [SerializeField] float _GroundSpeedMax = 15f;
     [SerializeField] float _ForceOnGround = 200f;
     [SerializeField] float _Friction = 150f;
-    [SerializeField] MoveInAirParams _MoveinAirParams;
-    [SerializeField] float _JumpForce = 30f;
+    [Space(5)] [SerializeField] MoveInAirParams _MoveinAirParams;
+    [Space(15)] [SerializeField] float _JumpForce = 30f;
 
     public float GroundSpeedMax => _GroundSpeedMax;
     public float ForceOnGround => _ForceOnGround;
