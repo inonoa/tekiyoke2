@@ -76,8 +76,8 @@
      <Compile Include="Assets\Scripts\Enemies\TamaController.cs" />
      <Compile Include="Assets\Scripts\GameUIManager.cs" />
      <Compile Include="Assets\Scripts\GroundChecker.cs" />
-     <Compile Include="Assets\Scripts\Hero\Actions\HeroState.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\SakamichiChecker.cs" />
+     <Compile Include="Assets\Scripts\Hero\Actions\States\HeroState.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\States\StateBaneYoko.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\States\StateBend.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\States\StateFall.cs" />
