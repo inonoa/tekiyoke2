@@ -5,6 +5,12 @@ using UnityEngine;
 public class StateFall_ : HeroStateBase
 {
     bool right = true;
+    bool canJump = true;
+
+    public StateFall_(bool canJump = true)
+    {
+        this.canJump = canJump;
+    }
 
     public override void Enter(HeroMover hero)
     {
@@ -23,6 +29,11 @@ public class StateFall_ : HeroStateBase
 
     public override HeroStateBase HandleInput(HeroMover hero, IAskedInput input)
     {
+        if(canJump && input.GetButtonDown(ButtonCode.Jump))
+        {
+            return new StateJump_(canJump: false);
+        }
+
         if(     hero.KeyDirection == 1  && !right)
         {
             right = true;

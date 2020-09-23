@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class StateJump_ : HeroStateBase
 {
+    bool canJump = true;
+    public StateJump_(bool canJump = true)
+    {
+        this.canJump = canJump;
+    }
+
     enum Dir{ FR, UR, FL, UL }
     Dir _dir = Dir.UR;
     void SetDir(Dir dir, HeroMover hero)
@@ -46,6 +52,11 @@ public class StateJump_ : HeroStateBase
 
     public override HeroStateBase HandleInput(HeroMover hero, IAskedInput input)
     {
+        if(canJump && input.GetButtonDown(ButtonCode.Jump))
+        {
+            return new StateJump_(canJump: false);
+        }
+
         SetDir(CalcDir(hero), hero);
 
         return this;
@@ -58,7 +69,7 @@ public class StateJump_ : HeroStateBase
 
         if(hero.velocity.Y < 0)
         {
-            return new StateFall_();
+            return new StateFall_(canJump);
         }
 
         return this;
