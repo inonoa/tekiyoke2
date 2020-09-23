@@ -9,19 +9,50 @@ public class StateJump_ : HeroStateBase
     float horizontalMoveForce = 150f;
     float horizontalMoveSpeed = 15f;
 
+    enum Dir{ FR, UR, FL, UL }
+    Dir _dir = Dir.UR;
+    void SetDir(Dir dir, HeroMover hero)
+    {
+        if(dir == _dir) return;
+
+        _dir = dir;
+        switch(dir)
+        {
+            case Dir.FR: hero.Anim.SetTrigger("jumpfr"); break;
+            case Dir.FL: hero.Anim.SetTrigger("jumpfl"); break;
+            case Dir.UR: hero.Anim.SetTrigger("jumpur"); break;
+            case Dir.UL: hero.Anim.SetTrigger("jumpul"); break;
+        }
+    }
+    Dir CalcDir(HeroMover hero)
+    {
+        if(hero.KeyDirection == 1)  return Dir.FR;
+        if(hero.KeyDirection == -1) return Dir.FL;
+        if(hero.WantsToGoRight)     return Dir.UR;
+                                    return Dir.UL;
+    }
+
     public override void Enter(HeroMover hero)
     {
         hero.velocity.Y = jumpForce;
-        hero.Rigidbody.velocity = new Vector2(0, 1);
-        hero.SetAnim("jumpu");
+
+        Start(hero);
     }
     public override void Resume(HeroMover hero)
     {
-        hero.SetAnim("jumpu");
+        Start(hero);
+    }
+
+    void Start(HeroMover hero)
+    {
+        hero.SetAnim(hero.KeyDirection == 0 ? "jumpu" : "jumpf");
+        _dir = CalcDir(hero);
     }
 
     public override HeroStateBase HandleInput(HeroMover hero, IAskedInput input)
     {
+        SetDir(CalcDir(hero), hero);
+
         return this;
     }
     public override HeroStateBase Update_(HeroMover hero, float deltatime)

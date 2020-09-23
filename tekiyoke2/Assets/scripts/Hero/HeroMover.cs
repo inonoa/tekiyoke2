@@ -17,7 +17,7 @@ public class HeroMover : MonoBehaviour
         string txt = currrentState.ToString() + "\n"
                    + "Velocity: " + velocity.ToString() + "\n"
                    + "KeyDirection: " + KeyDirection.ToString() + "\n"
-                   + "EyeToRight: " + EyeToRight.ToString() + "\n"
+                   + "EyeToRight: " + WantsToGoRight.ToString() + "\n"
                    + "IsOnGround: " + IsOnGround.ToString() + "\n";
         Debug.Log(txt);
     }
@@ -47,10 +47,6 @@ public class HeroMover : MonoBehaviour
     public bool CanKickFromWallL{ get => wallCheckerL.CanKick; }
     public bool CanKickFromWallR{ get => wallCheckerR.CanKick; }
 
-    ///<summary>主人公の目はどちらに向いているか(移動方向とは必ずしも一致しない)
-    ///(壁キック中は変則的かも…) (これKeyDirectionといい感じに統合したほうがいいかもな…)
-    ///(velocity, KeyDirection参照)</summary>
-    public bool EyeToRight{ get; set; } = true;
 
     ///<summary>実際に移動している方向(ワープした場合は知らん) (EyeToright, KeyDiretion参照)</summary>
     public HeroVelocity velocity = new HeroVelocity(0,0);
@@ -67,11 +63,14 @@ public class HeroMover : MonoBehaviour
     ///<summary>余韻と言うか一定時間引きずり続けるスピードをアレする</summary>
     public List<ISpeedResidue> speedResidues = new List<ISpeedResidue>();
 
-    ///<summary>このフレームで方向キーの押されている方向 (EyeToRight, velocity参照)</summary>
     public int KeyDirection{ get; private set; } = 0;
+    public bool WantsToGoRight{ get; private set; } = true;
+
+
 
     ///<summary>指定した値だけ位置をずらす。timeScaleの影響を受けます</summary>
-    public void MovePos(float vx, float vy){
+    void MovePos(float vx, float vy)
+    {
         Rigidbody.MovePosition(new Vector2(
             transform.position.x + vx*Time.timeScale,
             transform.position.y + vy*Time.timeScale
@@ -91,12 +90,12 @@ public class HeroMover : MonoBehaviour
         if(Input.GetButtonDown(ButtonCode.Right)      && KeyDirection != 1)
         {
             KeyDirection = 1;
-            EyeToRight = true;
+            WantsToGoRight = true;
         }
         else if(Input.GetButtonDown(ButtonCode.Left)  && KeyDirection != -1)
         {
             KeyDirection = -1;
-            EyeToRight = false;
+            WantsToGoRight = false;
         }
 
         //ボタンを離したときはさっきまで動いていた向きによって挙動が変わる
@@ -105,7 +104,7 @@ public class HeroMover : MonoBehaviour
             if(Input.GetButton(ButtonCode.Left))
             {
                 KeyDirection = -1;
-                EyeToRight = false;
+                WantsToGoRight = false;
             }
             else
             {
@@ -117,7 +116,7 @@ public class HeroMover : MonoBehaviour
             if(Input.GetButton(ButtonCode.Right))
             {
                 KeyDirection = 1;
-                EyeToRight = true;
+                WantsToGoRight = true;
             }
             else
             {
@@ -157,11 +156,6 @@ public class HeroMover : MonoBehaviour
 
     public SpriteRenderer SpriteRenderer{ get; private set; }
     public Animator Anim{ get; private set; } //いずれprivateにする
-    public void SetAnim(string id)
-    {
-        string trigger = id + (EyeToRight ? "r" : "l");
-        Anim.SetTrigger(trigger);
-    }
     public Rigidbody2D Rigidbody{ get; private set; }
 
     Chishibuki chishibuki;

@@ -154,7 +154,7 @@ public class StateJet : HeroState
                 jet2Right = false;
                 break;
             case 0:
-                jet2Right = hero.EyeToRight;
+                jet2Right = hero.WantsToGoRight;
                 break;
         }
 

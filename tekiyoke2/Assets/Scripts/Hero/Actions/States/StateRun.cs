@@ -19,7 +19,7 @@ public class StateRun : HeroState
     public override void Try2EndJet(){ }
     public override void Try2Jump(){
         hero.States.Push(new StateJump(hero));
-        if(hero.EyeToRight) hero.velocity.X = HeroMover.moveSpeed;
+        if(hero.WantsToGoRight) hero.velocity.X = HeroMover.moveSpeed;
         else hero.velocity.X = -HeroMover.moveSpeed;
     }
     public override void Try2StartMove(bool toRight){
@@ -36,9 +36,9 @@ public class StateRun : HeroState
         hero.States.Push(new StateWait(hero));
     }
     public override void Start(){
-        hero.velocity.X = hero.EyeToRight ? HeroMover.moveSpeed : -HeroMover.moveSpeed;
+        hero.velocity.X = hero.WantsToGoRight ? HeroMover.moveSpeed : -HeroMover.moveSpeed;
         hero.velocity.Y = 0;
-        hero.Anim.SetTrigger(hero.EyeToRight ? "runr" : "runl");
+        hero.Anim.SetTrigger(hero.WantsToGoRight ? "runr" : "runl");
         tsuchihokoriCoroutine = hero.StartCoroutine(Tsuchihokoris());
         hero.SoundGroup.Play("Run");
     }
@@ -54,11 +54,11 @@ public class StateRun : HeroState
     }
 
     void Tsuchihokori(){
-        hero.ObjsHolderForStates.TsuchihokoriPool.ActivateOne(hero.EyeToRight ? "r" : "l");
+        hero.ObjsHolderForStates.TsuchihokoriPool.ActivateOne(hero.WantsToGoRight ? "r" : "l");
     }
 
     public override void Resume(){
-        hero.Anim.SetTrigger(hero.EyeToRight ? "runr" : "runl");
+        hero.Anim.SetTrigger(hero.WantsToGoRight ? "runr" : "runl");
     }
 
     public override void Update(){
