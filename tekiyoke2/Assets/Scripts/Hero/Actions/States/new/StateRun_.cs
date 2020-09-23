@@ -4,22 +4,24 @@ using UnityEngine;
 
 public class StateRun_ : HeroStateBase
 {
-    float speed = 10f;
-    float runForce = 100f;
-
-    bool runRight = true;
+    float speed = 15f;
+    float runForce = 150f;
 
     public override void Enter(HeroMover hero)
     {
-        hero.Anim.SetTrigger("runr");
+        hero.SetAnim("run");
     }
     public override void Resume(HeroMover hero)
     {
-        hero.Anim.SetTrigger("runr");
+        hero.SetAnim("run");
     }
 
     public override HeroStateBase HandleInput(HeroMover hero, IAskedInput input)
     {
+        if(input.GetButtonDown(ButtonCode.Jump))
+        {
+            return new StateJump_();
+        }
         if(! (input.GetButton(ButtonCode.Right) || input.GetButton(ButtonCode.Left)))
         {
             return new StateWait_();

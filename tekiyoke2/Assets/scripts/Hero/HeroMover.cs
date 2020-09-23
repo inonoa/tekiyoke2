@@ -156,7 +156,12 @@ public class HeroMover : MonoBehaviour
 
 
     public SpriteRenderer SpriteRenderer{ get; private set; }
-    public Animator Anim{ get; private set; }
+    public Animator Anim{ get; private set; } //いずれprivateにする
+    public void SetAnim(string id)
+    {
+        string trigger = id + (EyeToRight ? "r" : "l");
+        Anim.SetTrigger(trigger);
+    }
     public Rigidbody2D Rigidbody{ get; private set; }
 
     Chishibuki chishibuki;

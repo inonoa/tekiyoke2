@@ -79,6 +79,7 @@
      <Compile Include="Assets\Scripts\Hero\Actions\SakamichiChecker.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\States\HeroState.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\States\HeroStateBase.cs" />
+     <Compile Include="Assets\Scripts\Hero\Actions\States\new\StateJump_.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\States\new\StateRun_.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\States\new\StateWait_.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\States\StateBaneYoko.cs" />
@@ -196,6 +197,7 @@
      <None Include="Assets\Materials\Light.shader" />
      <None Include="Assets\Materials\PostEffects\BlurEdge1.shader" />
      <None Include="Assets\Materials\PostEffects\ColorReversed.shader" />
+     <None Include="Assets\ScriptTemplates\81-C# NewState-NewBehaviourScript.cs.txt" />
      <None Include="Assets\Materials\Glitch.shader" />
      <None Include="Assets\Materials\TimeText.shader" />
      <None Include="Assets\Demigiant\DOTween\readme.txt" />
@@ -203,9 +205,7 @@
      <None Include="Assets\Materials\RespawnPosition.shader" />
      <None Include="Assets\Demigiant\DemiLib\Core\DemiLib.xml" />
      <None Include="Assets\Materials\DPinEnemy.shader" />
-     <None Include="Assets\ScriptTemplates\81-C# CustomScript-NewState.cs.txt" />
      <None Include="Assets\Materials\DefaultShader.shader" />
-     <None Include="Assets\ScriptTemplates\81-C# CustomScript-NewBehaviourScript.cs.txt" />
      <None Include="Assets\Materials\MapObjs\Idouyuka.shader" />
      <None Include="Assets\Demigiant\readme_DOTweenPro.txt" />
      <None Include="Assets\Materials\PostEffects\Aberration.shader" />

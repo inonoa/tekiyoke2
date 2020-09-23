@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class #SCRIPTNAME# : HeroStateBase
 {
+    
     public override void Enter(HeroMover hero)
     {
         //
@@ -13,7 +14,7 @@ public class #SCRIPTNAME# : HeroStateBase
         //
     }
 
-    public override HeroStateBase HandleInput(HeroMover hero, IaskedInput input)
+    public override HeroStateBase HandleInput(HeroMover hero, IAskedInput input)
     {
         return this;
     }

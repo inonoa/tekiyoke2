@@ -4,19 +4,23 @@ using UnityEngine;
 
 public class StateWait_ : HeroStateBase
 {
-    float friction = 100f;
+    float friction = 150f;
 
     public override void Enter(HeroMover hero)
     {
-        hero.Anim.SetTrigger("standr");
+        hero.SetAnim("stand");
     }
     public override void Resume(HeroMover hero)
     {
-        hero.Anim.SetTrigger("standr");
+        hero.SetAnim("stand");
     }
 
     public override HeroStateBase HandleInput(HeroMover hero, IAskedInput input)
     {
+        if(input.GetButtonDown(ButtonCode.Jump))
+        {
+            return new StateJump_();
+        }
         if(input.GetButton(ButtonCode.Right) || input.GetButton(ButtonCode.Left))
         {
             return new StateRun_();
