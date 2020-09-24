@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class StateWait_ : HeroStateBase
 {
+    float fromNoGround = 0f;
+
     public override void Enter(HeroMover hero)
     {
         hero.SetAnim("stand");
@@ -27,7 +29,15 @@ public class StateWait_ : HeroStateBase
     }
     public override HeroStateBase Update_(HeroMover hero, float deltatime)
     {
-        if(!hero.IsOnGround) return new StateFall_();
+        if(hero.IsOnGround)
+        {
+            fromNoGround = 0f;
+        }
+        else
+        {
+            fromNoGround += deltatime;
+            if(fromNoGround >= hero.Parameters.CoyoteTime) return new StateFall_();
+        }
 
         hero.velocity.Y = 0;
 

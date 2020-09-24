@@ -15,10 +15,15 @@ MonoBehaviour:
   _GroundSpeedMax: 15
   _ForceOnGround: 200
   _Friction: 150
-  _MoveinAirParams:
+  _CoyoteTime: 0.1
+  _MoveInAirParams:
     _HorizontalForce: 200
-    _HorizontalResistance: 30
+    _HorizontalResistance: 7
     _HorizontalSpeedMax: 15
     _Gravity: 80
     _FallSpeedMax: 50
   _JumpForce: 30
+  _KickParams:
+    _WallKickForce: {x: 15, y: 30}
+    _WallKickKey: 1
+    _FromKickToInputEnabled: 0.15

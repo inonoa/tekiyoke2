@@ -324,16 +324,13 @@ public class HeroMover : MonoBehaviour
         if(pastPoss.Count > 1000) pastPoss.PopLast();
 
         if(!IsFrozen){
-
-            if(CanMove)
+            
+            HeroStateBase next = currrentState.Update_(this, Time.fixedDeltaTime);
+            if(next != currrentState)
             {
-                HeroStateBase next = currrentState.Update_(this, Time.fixedDeltaTime);
-                if(next != currrentState)
-                {
-                    currrentState.Exit(this);
-                    currrentState = next;
-                    currrentState.Enter(this);
-                }
+                currrentState.Exit(this);
+                currrentState = next;
+                currrentState.Enter(this);
             }
 
             float vx = velocity.X;

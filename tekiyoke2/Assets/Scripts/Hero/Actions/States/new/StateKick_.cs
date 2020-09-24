@@ -2,29 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StateFall_ : HeroStateBase
+public class StateKick_ : HeroStateBase
 {
-    bool right = true;
     bool canJump = true;
+    bool right;
 
-    public StateFall_(bool canJump = true)
+    float fromKick = 0;
+
+    public StateKick_(bool toRight, bool canJump = true)
     {
+        this.right = toRight;
         this.canJump = canJump;
     }
 
     public override void Enter(HeroMover hero)
     {
-        Start(hero);
+        HeroVelocity firstSpeed = hero.Parameters.KickParams.KickForce.ToHeroVel();
+        if(!right) firstSpeed.X *= -1;
+        hero.velocity = firstSpeed;
+        hero.CanMove = false;
+
+        hero.SetAnim("jumpf");
     }
     public override void Resume(HeroMover hero)
     {
-        Start(hero);
-    }
-
-    void Start(HeroMover hero)
-    {
-        right = hero.WantsToGoRight;
-        hero.SetAnim("fall");
+        hero.SetAnim("jumpf");
     }
 
     public override HeroStateBase HandleInput(HeroMover hero, IAskedInput input)
@@ -37,31 +39,26 @@ public class StateFall_ : HeroStateBase
             if(canJump) return new StateJump_(canJump: false);
         }
 
-        if(     hero.KeyDirection == 1  && !right)
-        {
-            right = true;
-            hero.SetAnim("fall");
-        }
-        else if(hero.KeyDirection == -1 &&  right)
-        {
-            right = false;
-            hero.SetAnim("fall");
-        }
-
         return this;
     }
-
     public override HeroStateBase Update_(HeroMover hero, float deltatime)
     {
+        if(fromKick < hero.Parameters.KickParams.FromKickToInputEnabled)
+        {
+            fromKick += deltatime;
+            if(fromKick >= hero.Parameters.KickParams.FromKickToInputEnabled)
+            {
+                hero.CanMove = true;
+            }
+        }
+
         hero.HorizontalMoveInAir(hero.Parameters.MoveInAirParams, deltatime);
 
         hero.ApplyGravity(hero.Parameters.MoveInAirParams, deltatime);
 
-        if(hero.IsOnGround)
+        if(hero.velocity.Y < 0)
         {
-            hero.SoundGroup.Play("Land");
-            if(hero.KeyDirection == 0) return new StateWait_();
-            else                       return new StateRun_();
+            return new StateFall_(canJump);
         }
 
         return this;
@@ -69,6 +66,6 @@ public class StateFall_ : HeroStateBase
 
     public override void Exit(HeroMover hero)
     {
-        //
+        hero.CanMove = true; //これええんかな
     }
 }

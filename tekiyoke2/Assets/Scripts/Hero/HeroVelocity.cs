@@ -50,3 +50,8 @@ public class HeroVelocity
         return v * a;
     }
 }
+
+public static class HeroVelocityExtension
+{
+    public static HeroVelocity ToHeroVel(this Vector2 vec) => new HeroVelocity(vec.x, vec.y);
+}

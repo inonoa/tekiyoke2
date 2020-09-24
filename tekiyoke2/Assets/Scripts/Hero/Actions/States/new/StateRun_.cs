@@ -6,6 +6,8 @@ public class StateRun_ : HeroStateBase
 {
     bool right = true;
 
+    float fromNoGround = 0f;
+
     public override void Enter(HeroMover hero)
     {
         hero.SetAnim("run");
@@ -45,7 +47,15 @@ public class StateRun_ : HeroStateBase
     {
         hero.velocity.Y = 0;
 
-        if(!hero.IsOnGround) return new StateFall_();
+        if(hero.IsOnGround)
+        {
+            fromNoGround = 0f;
+        }
+        else
+        {
+            fromNoGround += deltatime;
+            if(fromNoGround >= hero.Parameters.CoyoteTime) return new StateFall_();
+        }
 
         if(hero.KeyDirection == 0)
         {

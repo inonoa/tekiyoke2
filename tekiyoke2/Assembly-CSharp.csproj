@@ -77,11 +77,13 @@
      <Compile Include="Assets\Scripts\GameUIManager.cs" />
      <Compile Include="Assets\Scripts\GroundChecker.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\HeroParameters.cs" />
+     <Compile Include="Assets\Scripts\Hero\Actions\HeroTransitions.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\SakamichiChecker.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\States\HeroState.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\States\HeroStateBase.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\States\new\StateFall_.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\States\new\StateJump_.cs" />
+     <Compile Include="Assets\Scripts\Hero\Actions\States\new\StateKick_.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\States\new\StateRun_.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\States\new\StateWait_.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\States\StateBaneYoko.cs" />
