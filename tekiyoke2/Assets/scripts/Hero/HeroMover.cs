@@ -269,6 +269,7 @@ public class HeroMover : MonoBehaviour
     ///<summary>SetActive(false)するとアニメーションの状態がリセットされるようなのでとりあえず主人公はステートだけ反映しなおす</summary>
     void OnEnable(){
         //if(States.Count > 0) States.Peek().Resume();
+        currrentState?.Resume(this);
     }
 
     void OnDisable(){
