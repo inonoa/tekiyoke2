@@ -109,8 +109,10 @@
      <Compile Include="Assets\Scripts\Hero\GetDPinEnemy.cs" />
      <Compile Include="Assets\Scripts\Hero\HeroAnim.cs" />
      <Compile Include="Assets\Scripts\Hero\HeroCollider2Enemy.cs" />
+     <Compile Include="Assets\Scripts\Hero\HeroDebugView.cs" />
      <Compile Include="Assets\Scripts\Hero\HeroDefiner.cs" />
      <Compile Include="Assets\Scripts\Hero\HeroEventArgs.cs" />
+     <Compile Include="Assets\Scripts\Hero\HeroLogParams.cs" />
      <Compile Include="Assets\Scripts\Hero\HeroMover.cs" />
      <Compile Include="Assets\Scripts\Hero\HeroObjsHolder4States.cs" />
      <Compile Include="Assets\Scripts\Hero\HeroPhysics.cs" />

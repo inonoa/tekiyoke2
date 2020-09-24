@@ -9,22 +9,8 @@ using UniRx;
 ///<summary>最終的には各機能をまとめる役割と渉外担当みたいな役割とだけを持たせたい</summary>
 public class HeroMover : MonoBehaviour
 {
-    #region デバッグ用
-
-    [SerializeField]
-    bool isInDebug = false;
-    void Log4Debug(){
-        string txt = currrentState.ToString() + "\n"
-                   + "Velocity: " + velocity.ToString() + "\n"
-                   + "KeyDirection: " + KeyDirection.ToString() + "\n"
-                   + "EyeToRight: " + WantsToGoRight.ToString() + "\n"
-                   + "IsOnGround: " + IsOnGround.ToString() + "\n";
-        Debug.Log(txt);
-    }
-
     public Stack<HeroState> States;
 
-    #endregion
 
     #region 移動関係の(だいたい)定数
     public static float moveSpeed = 15;
@@ -35,17 +21,16 @@ public class HeroMover : MonoBehaviour
 
     #region 操作・移動関係
 
-    ///<summary> trueだと一切動かない(落ちてる最中でもそこで浮き続ける) </summary>
     public bool IsFrozen { get; set; } = false;
-    ///<summary>操作を受け付けるかどうか。空中でfalseになってても落ちはする</summary>
     public bool CanMove { get; set; } = true;
-    public bool IsOnGround{ get => groundChecker.IsOnGround; }
-    public int FramesSinceTakeOff{ get => groundChecker.FramesSinceTakeOff; }
-    public bool IsOnSakamichi{ get => sakamichiChecker.OnSakamichi; }
-    public bool IsOnSakamichiR{ get => sakamichiChecker.OnSakamichiR; }
-    public bool IsOnSakamichiL{ get => sakamichiChecker.OnSakamichiL; }
-    public bool CanKickFromWallL{ get => wallCheckerL.CanKick; }
-    public bool CanKickFromWallR{ get => wallCheckerR.CanKick; }
+
+    public bool IsOnGround         => groundChecker.IsOnGround;
+    public int  FramesSinceTakeOff => groundChecker.FramesSinceTakeOff;
+    public bool IsOnSakamichi      => sakamichiChecker.OnSakamichi;
+    public bool IsOnSakamichiR     => sakamichiChecker.OnSakamichiR;
+    public bool IsOnSakamichiL     => sakamichiChecker.OnSakamichiL;
+    public bool CanKickFromWallL   => wallCheckerL.CanKick;
+    public bool CanKickFromWallR   => wallCheckerR.CanKick;
 
 
     ///<summary>実際に移動している方向(ワープした場合は知らん) (EyeToright, KeyDiretion参照)</summary>
@@ -155,6 +140,7 @@ public class HeroMover : MonoBehaviour
     public HeroParameters Parameters => _Parameters;
 
     HeroStateBase currrentState;
+    public string CurrentStateStr() => currrentState.ToString();
 
 
     public SpriteRenderer SpriteRenderer{ get; private set; }
@@ -313,8 +299,6 @@ public class HeroMover : MonoBehaviour
                 }
             }
         }
-
-        if(isInDebug) Log4Debug();
     }
 
 
@@ -324,7 +308,7 @@ public class HeroMover : MonoBehaviour
         if(pastPoss.Count > 1000) pastPoss.PopLast();
 
         if(!IsFrozen){
-            
+
             HeroStateBase next = currrentState.Update_(this, Time.fixedDeltaTime);
             if(next != currrentState)
             {

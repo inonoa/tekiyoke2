@@ -343,6 +343,7 @@ GameObject:
   - component: {fileID: 3106219250084253370}
   - component: {fileID: 3106219250084253401}
   - component: {fileID: 1862551108992817783}
+  - component: {fileID: 8407620554904460400}
   m_Layer: 8
   m_Name: Hero
   m_TagString: Player
@@ -474,7 +475,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7367abbafe31e1d46af2c3c11de1351b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInDebug: 0
   _SoundGroup: {fileID: 5836125009105332007}
   <WindSounds>k__BackingField: {fileID: 6267704590824942824}
   groundChecker: {fileID: 3106219250714267053}
@@ -589,6 +589,19 @@ MonoBehaviour:
     type: 3}
   afterimagePrefab: {fileID: 5083419689122770704, guid: 428356fffc73be54580b0abe1abdea9b,
     type: 3}
+--- !u!114 &8407620554904460400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3106219250084253351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4811bec29e5737b4d92e854789892276, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  params_: {fileID: 11400000, guid: 8ca1bce43f8d5804b9467476f9a39507, type: 2}
 --- !u!1 &3106219250170215766
 GameObject:
   m_ObjectHideFlags: 0
