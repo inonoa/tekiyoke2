@@ -27,6 +27,10 @@ public class StateWait_ : HeroStateBase
     }
     public override HeroStateBase Update_(HeroMover hero, float deltatime)
     {
+        if(!hero.IsOnGround) return new StateFall_();
+
+        hero.velocity.Y = 0;
+
         if(hero.velocity.X > 0) hero.velocity.X = Mathf.Max(hero.velocity.X - hero.Parameters.Friction * deltatime, 0);
         if(hero.velocity.X < 0) hero.velocity.X = Mathf.Min(hero.velocity.X + hero.Parameters.Friction * deltatime, 0);
 

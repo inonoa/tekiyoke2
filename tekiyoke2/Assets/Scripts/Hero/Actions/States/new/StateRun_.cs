@@ -43,6 +43,10 @@ public class StateRun_ : HeroStateBase
     }
     public override HeroStateBase Update_(HeroMover hero, float deltatime)
     {
+        hero.velocity.Y = 0;
+
+        if(!hero.IsOnGround) return new StateFall_();
+
         if(hero.KeyDirection == 0)
         {
             return new StateWait_();
