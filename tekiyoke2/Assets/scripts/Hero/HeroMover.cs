@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using System;
 using UnityEngine.SceneManagement;
 using UniRx;
+using DG.Tweening;
 
 ///<summary>最終的には各機能をまとめる役割と渉外担当みたいな役割とだけを持たせたい</summary>
 public class HeroMover : MonoBehaviour
@@ -246,6 +247,7 @@ public class HeroMover : MonoBehaviour
         sakamichiChecker    = GetComponent<SakamichiChecker>();
         savePositionManager = GetComponent<SavePositionManager>();
         ObjsHolderForStates = GetComponent<HeroObjsHolder4States>();
+        GetComponent<JetManager>().Init(Input, this);
 
         currrentState = new StateWait_();
         currrentState.Enter(this);
@@ -267,8 +269,8 @@ public class HeroMover : MonoBehaviour
     }
 
     ///<summary>SetActive(false)するとアニメーションの状態がリセットされるようなのでとりあえず主人公はステートだけ反映しなおす</summary>
-    void OnEnable(){
-        //if(States.Count > 0) States.Peek().Resume();
+    void OnEnable()
+    {
         currrentState?.Resume(this);
     }
 
@@ -336,6 +338,21 @@ public class HeroMover : MonoBehaviour
             expectedPosition.y = transform.position.y + vy*Time.timeScale;
 
         }
+    }
+
+    public IObservable<Unit> Jet(float distance)
+    {
+        Subject<Unit> jetEnded = new Subject<Unit>();
+
+        IsFrozen = true;
+        print($"JET: {distance}");
+        DOVirtual.DelayedCall(1f, () =>
+        {
+            IsFrozen = false;
+            jetEnded.OnNext(Unit.Default);
+        });
+
+        return jetEnded;
     }
 
     ///<summary>天井に衝突したときに天井に張り付かないようにする</summary>
