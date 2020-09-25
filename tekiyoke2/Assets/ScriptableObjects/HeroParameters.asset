@@ -28,8 +28,10 @@ MonoBehaviour:
     _WallKickKey: 1
     _FromKickToInputEnabled: 0.15
   _JetParams:
-    _MinDistance: 200
+    _MinDistance: 250
     _MaxDistance: 700
+    _JetSecondsMin: 0.2
+    _JetSecondsMax: 0.375
     _CargeSecondsFromMin: 0.3
     _ChargeSecondsToMax: 1
     _CoolTime: 0.5

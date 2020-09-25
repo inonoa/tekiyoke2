@@ -19,12 +19,6 @@ public class JetManager : MonoBehaviour
     {
         (this.input, this.hero) = (input, hero);
     }
-
-    void Start()
-    {
-        
-    }
-
     
     void Update()
     {
@@ -51,7 +45,17 @@ public class JetManager : MonoBehaviour
             if(input.GetButtonUp(ButtonCode.JetLR))
             {
                 state = State.Jetting;
-                hero.Jet(CalcJetDistance(chargeSeconds, hero.Parameters.JetParams))
+
+                JetParams params_ = hero.Parameters.JetParams;
+                float charge_0_1 = Mathf.Clamp01(
+                    Mathf.InverseLerp
+                    (
+                        params_.ChargeSecondFromMin,
+                        params_.ChargeSecondsToMax,
+                        chargeSeconds
+                    )
+                );
+                hero.Jet(charge_0_1)
                     .Subscribe(_ => 
                     {
                         coolTimeLeft = hero.Parameters.JetParams.CoolTime;
@@ -76,17 +80,6 @@ public class JetManager : MonoBehaviour
         }
         break;
         }
-    }
-
-    float CalcJetDistance(float chargeSecs, JetParams params_)
-    {
-        float chargeSecsNormalized = Mathf.InverseLerp
-        (
-            params_.ChargeSecondFromMin,
-            params_.ChargeSecondsToMax,
-            chargeSeconds
-        );
-        return Mathf.Lerp(params_.MinDistance, params_.MaxDistance, chargeSecsNormalized);
     }
 
 }

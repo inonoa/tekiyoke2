@@ -296,9 +296,7 @@ public class HeroMover : MonoBehaviour
                 HeroStateBase next = currrentState.HandleInput(this, Input);
                 if(next != currrentState)
                 {
-                    currrentState.Exit(this);
-                    currrentState = next;
-                    currrentState.Enter(this);
+                    ChangeState(next);
                 }
             }
         }
@@ -315,9 +313,7 @@ public class HeroMover : MonoBehaviour
             HeroStateBase next = currrentState.Update_(this, Time.fixedDeltaTime);
             if(next != currrentState)
             {
-                currrentState.Exit(this);
-                currrentState = next;
-                currrentState.Enter(this);
+                ChangeState(next);
             }
 
             float vx = velocity.X;
@@ -340,19 +336,19 @@ public class HeroMover : MonoBehaviour
         }
     }
 
-    public IObservable<Unit> Jet(float distance)
+    void ChangeState(HeroStateBase next)
     {
-        Subject<Unit> jetEnded = new Subject<Unit>();
+        currrentState.Exit(this);
+        currrentState = next;
+        currrentState.Enter(this);
+    }
 
-        IsFrozen = true;
-        print($"JET: {distance}");
-        DOVirtual.DelayedCall(1f, () =>
-        {
-            IsFrozen = false;
-            jetEnded.OnNext(Unit.Default);
-        });
-
-        return jetEnded;
+    public IObservable<Unit> Jet(float charge_0_1)
+    {
+        var state = new StateJet_(charge_0_1);
+        //Changeこれでええんかな
+        ChangeState(state);
+        return state.OnJetCompleted;
     }
 
     ///<summary>天井に衝突したときに天井に張り付かないようにする</summary>
