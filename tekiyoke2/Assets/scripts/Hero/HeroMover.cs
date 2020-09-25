@@ -169,7 +169,6 @@ public class HeroMover : MonoBehaviour
         ChangeHP(HP - damage);
         CmrCntr.Reset();
         SoundGroup.Play(HP==0 ? "Die" : "Damage");
-        BendBack();
 
         if(HP <= 0) Die();
 
@@ -177,7 +176,7 @@ public class HeroMover : MonoBehaviour
         {
         case DamageType.Normal:
         {
-            //
+            BendBack();
         }
         break;
         case DamageType.Drop:
@@ -190,7 +189,7 @@ public class HeroMover : MonoBehaviour
     }
 
     void BendBack(){
-        //States.Push(new StateBend(this));
+        ChangeState(new StateBend_());
         ParticleSystem ps = transform.Find("Particle System").GetComponent<ParticleSystem>();
         ps.Play();
         chishibuki.StartCoroutine("StartChishibuki");

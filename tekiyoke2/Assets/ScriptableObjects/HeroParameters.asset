@@ -35,3 +35,6 @@ MonoBehaviour:
     _CargeSecondsFromMin: 0.3
     _ChargeSecondsToMax: 1
     _CoolTime: 0.5
+    _TimeScaleBeforeJet: 0.15
+  _BendBackForce: {x: -15, y: 12}
+  _BendBackSeconds: 0.5

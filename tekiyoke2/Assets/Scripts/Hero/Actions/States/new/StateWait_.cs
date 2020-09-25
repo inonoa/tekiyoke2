@@ -41,8 +41,7 @@ public class StateWait_ : HeroStateBase
 
         hero.velocity.Y = 0;
 
-        if(hero.velocity.X > 0) hero.velocity.X = Mathf.Max(hero.velocity.X - hero.Parameters.Friction * deltatime, 0);
-        if(hero.velocity.X < 0) hero.velocity.X = Mathf.Min(hero.velocity.X + hero.Parameters.Friction * deltatime, 0);
+        hero.ApplyFriction(hero.Parameters.Friction, deltatime);
 
         return this;
     }

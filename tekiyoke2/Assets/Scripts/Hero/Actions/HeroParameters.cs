@@ -14,6 +14,8 @@ public class HeroParameters : ScriptableObject
     [Space(5)] [SerializeField] float _JumpForce = 30f;
     [Space(5)] [SerializeField] KickParams _KickParams;
     [Space(5)] [SerializeField] JetParams _JetParams;
+    [Space(5)] [SerializeField] Vector2 _BendBackForce = new Vector2(-15f, 20f);
+    [SerializeField] float _BendBackSeconds = 0.6f;
 
 
     public float GroundSpeedMax => _GroundSpeedMax;
@@ -24,6 +26,8 @@ public class HeroParameters : ScriptableObject
     public float JumpForce => _JumpForce;
     public KickParams KickParams => _KickParams;
     public JetParams JetParams => _JetParams;
+    public Vector2 BendBackForce => _BendBackForce;
+    public float BendBackSeconds => _BendBackSeconds;
 }
 
 public enum KickKey{ DirOfWall, DirAgainstWall }
@@ -67,6 +71,7 @@ public class JetParams
     [SerializeField] float _CargeSecondsFromMin = 0.3f;
     [SerializeField] float _ChargeSecondsToMax = 1.6f;
     [SerializeField] float _CoolTime = 0.5f;
+    [SerializeField] float _TimeScaleBeforeJet = 0.1f;
 
     public float MinDistance => _MinDistance;
     public float MaxDistance => _MaxDistance;
@@ -75,4 +80,5 @@ public class JetParams
     public float ChargeSecondFromMin => _CargeSecondsFromMin;
     public float ChargeSecondsToMax => _ChargeSecondsToMax;
     public float CoolTime => _CoolTime;
+    public float TimeScaleBeforeJet => _TimeScaleBeforeJet;
 }

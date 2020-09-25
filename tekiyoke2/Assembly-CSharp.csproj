@@ -82,6 +82,7 @@
      <Compile Include="Assets\Scripts\Hero\Actions\SakamichiChecker.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\States\HeroState.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\States\HeroStateBase.cs" />
+     <Compile Include="Assets\Scripts\Hero\Actions\States\new\StateBend_.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\States\new\StateFall_.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\States\new\StateJet_.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\States\new\StateJump_.cs" />

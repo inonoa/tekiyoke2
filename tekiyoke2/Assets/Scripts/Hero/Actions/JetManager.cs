@@ -28,6 +28,7 @@ public class JetManager : MonoBehaviour
         {
             if(hero.CanMove && input.GetButtonDown(ButtonCode.JetLR))
             {
+                Tokitome.SetTime(hero.Parameters.JetParams.TimeScaleBeforeJet);
                 state = State.Ready;
             }
         }
@@ -44,6 +45,7 @@ public class JetManager : MonoBehaviour
 
             if(input.GetButtonUp(ButtonCode.JetLR))
             {
+                Tokitome.SetTime(1);
                 state = State.Jetting;
 
                 JetParams params_ = hero.Parameters.JetParams;
