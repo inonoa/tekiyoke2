@@ -5,7 +5,8 @@ using DG.Tweening;
 
 public class StateBend_ : HeroStateBase
 {
-    bool needExit = false;
+
+    float secondsAfterEnter = 0;
     public override void Enter(HeroMover hero)
     {
         hero.CanMove = false;
@@ -13,11 +14,6 @@ public class StateBend_ : HeroStateBase
         HeroVelocity vel = hero.Parameters.BendBackForce.ToHeroVel();
         if(!hero.WantsToGoRight) vel.X *= -1;
         hero.velocity = vel;
-
-        DOVirtual.DelayedCall(
-            hero.Parameters.BendBackSeconds,
-            () => needExit = true
-        );
     }
     public override void Resume(HeroMover hero)
     {
@@ -33,8 +29,13 @@ public class StateBend_ : HeroStateBase
         hero.ApplyGravity(hero.Parameters.MoveInAirParams, deltatime);
 
         hero.ApplyFriction(hero.Parameters.Friction, deltatime);
-        
-        if(needExit) return new StateFall_();
+
+        secondsAfterEnter += deltatime;
+        if(secondsAfterEnter >= hero.Parameters.BendBackSeconds)
+        {
+            return new StateFall_();
+        }
+
         return this;
     }
 
