@@ -6,6 +6,7 @@ using System;
 using UnityEngine.SceneManagement;
 using UniRx;
 using DG.Tweening;
+using System.Linq;
 
 ///<summary>最終的には各機能をまとめる役割と渉外担当みたいな役割とだけを持たせたい</summary>
 public class HeroMover : MonoBehaviour
@@ -64,7 +65,8 @@ public class HeroMover : MonoBehaviour
     }
 
     ///<summary>指定した値に位置が移動。timeScaleの影響を受けません</summary>
-    public void WarpPos(float x, float y){
+    public void WarpPos(float x, float y)
+    {
         transform.position = new Vector3(x,y,transform.position.z);
     }
     
@@ -188,7 +190,8 @@ public class HeroMover : MonoBehaviour
         }
     }
 
-    void BendBack(){
+    void BendBack()
+    {
         ChangeState(new StateBend_());
         ParticleSystem ps = transform.Find("Particle System").GetComponent<ParticleSystem>();
         ps.Play();
@@ -196,7 +199,8 @@ public class HeroMover : MonoBehaviour
         StartCoroutine(Blink());
     }
 
-    IEnumerator Blink(){
+    IEnumerator Blink()
+    {
         yield return new WaitForSeconds(0.3f);
 
         while(true){
@@ -214,7 +218,8 @@ public class HeroMover : MonoBehaviour
     }
 
     ///<summary>リスポーン</summary>
-    void Die(){
+    void Die()
+    {
         MemoryOverDeath.Instance.SaveOnDeath();
         GameTimeCounter.CurrentInstance.DoesTick = false;
         Tokitome.SetTime(0.2f);
@@ -229,7 +234,8 @@ public class HeroMover : MonoBehaviour
 
     ///<summary>他のオブジェクトのStart()内でCurrentHeroを参照したい時があり、
     ///Start()内でcurrentHeroを設定すると実行順によっては前シーンのHeroを参照してしまうため</summary>
-    void Awake(){
+    void Awake()
+    {
         HeroDefiner.currentHero = this;
     }
 
@@ -273,7 +279,8 @@ public class HeroMover : MonoBehaviour
         currrentState?.Resume(this);
     }
 
-    void OnDisable(){
+    void OnDisable()
+    {
         SoundGroup.StopAll();
     }
 
@@ -302,37 +309,34 @@ public class HeroMover : MonoBehaviour
     }
 
 
-    void FixedUpdate(){
+    void FixedUpdate()
+    {
 
         pastPoss.PushFirst(transform.position);
         if(pastPoss.Count > 1000) pastPoss.PopLast();
 
-        if(!IsFrozen){
+        if(IsFrozen) return;
 
-            HeroStateBase next = currrentState.Update_(this, Time.fixedDeltaTime);
-            if(next != currrentState)
-            {
-                ChangeState(next);
-            }
-
-            float vx = velocity.X;
-            float vy = velocity.Y;
-            foreach(Vector2 vi in additionalVelocities.Values){
-                vx += vi.x;
-                vy += vi.y;
-            }
-
-            speedResidues.RemoveAll(residue => residue.UpdateSpeed(this));
-            foreach(ISpeedResidue residue in speedResidues){
-                vx += residue.SpeedX;
-                vy += residue.SpeedY;
-            }
-
-            MovePos(vx, vy);
-            expectedPosition.x = transform.position.x + vx*Time.timeScale;
-            expectedPosition.y = transform.position.y + vy*Time.timeScale;
-
+        HeroStateBase next = currrentState.Update_(this, Time.fixedDeltaTime);
+        if(next != currrentState)
+        {
+            ChangeState(next);
         }
+
+        Vector2 baseVel = velocity.ToVector2();
+
+        Vector2 added = additionalVelocities.Aggregate(baseVel, (cur, kvp) => cur + kvp.Value);
+
+        Vector2 residueApplied = speedResidues
+            .Aggregate(
+                added,
+                (cur, residue) => residue.UpdateVel(cur, Time.fixedDeltaTime, this)
+            );
+        speedResidues.RemoveAll(residue => !residue.IsActive);
+
+        MovePos(residueApplied.x, residueApplied.y);
+        expectedPosition.x = transform.position.x + residueApplied.x * Time.timeScale;
+        expectedPosition.y = transform.position.y + residueApplied.y * Time.timeScale;
     }
 
     void ChangeState(HeroStateBase next)
@@ -350,8 +354,19 @@ public class HeroMover : MonoBehaviour
         return state.OnJetCompleted;
     }
 
+    public void PushedByBaneYoko(bool toRight, float force)
+    {
+        if(KeyDirection == 0)
+        {
+            WantsToGoRight = toRight;
+            Anim.SetTrigger(toRight ? "runr" : "runl");
+        }
+        speedResidues.Add(new BaneResidue(toRight, force, 0.8f));
+    }
+
     ///<summary>天井に衝突したときに天井に張り付かないようにする</summary>
-    void OnCollisionStay2D(Collision2D col){
+    void OnCollisionStay2D(Collision2D col)
+    {
 
         if(col.gameObject.tag=="Terrain" && !IsFrozen){
             foreach(ContactPoint2D contact in col.contacts){

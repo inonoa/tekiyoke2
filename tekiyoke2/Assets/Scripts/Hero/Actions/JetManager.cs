@@ -6,6 +6,8 @@ using System;
 
 public class JetManager : MonoBehaviour
 {
+    public bool CanJet{ get; set; } = true;
+
     enum State{ Inactive, Ready, Jetting, CoolTime }
     State state = State.Inactive;
 

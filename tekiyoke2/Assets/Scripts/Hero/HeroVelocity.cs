@@ -54,4 +54,5 @@ public class HeroVelocity
 public static class HeroVelocityExtension
 {
     public static HeroVelocity ToHeroVel(this Vector2 vec) => new HeroVelocity(vec.x, vec.y);
+    public static Vector2 ToVector2(this HeroVelocity vel) => new Vector2(vel.X, vel.Y);
 }
