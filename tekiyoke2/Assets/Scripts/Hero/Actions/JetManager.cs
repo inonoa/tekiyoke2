@@ -35,6 +35,16 @@ public class JetManager : MonoBehaviour
     public void Init(IAskedInput input, HeroMover hero)
     {
         (this.input, this.hero) = (input, hero);
+        hero.OnDamaged.Subscribe(hp =>
+        {
+            if(state == State.Ready)
+            {
+                state = State.Inactive;
+                chargeSeconds = 0;
+                coolTimeLeft = 0;
+                EffectOnExit();
+            }
+        });
     }
     
     void Update()
@@ -68,8 +78,8 @@ public class JetManager : MonoBehaviour
                 float charge_0_1 = Mathf.Clamp01(
                     Mathf.InverseLerp
                     (
-                        params_.ChargeSecondFromMin,
-                        params_.ChargeSecondsToMax,
+                        params_.ChargeSecondsFromMin * params_.TimeScaleBeforeJet,
+                        params_.ChargeSecondsToMax   * params_.TimeScaleBeforeJet,
                         chargeSeconds
                     )
                 );
@@ -128,6 +138,7 @@ public class JetManager : MonoBehaviour
 
     void EffectOnExit()
     {
+        print("aaaaaaaaaaaa");
         jetPostEffect.Exit();
         clouds.EndClouds();
         hero.CmrCntr.EndDash();

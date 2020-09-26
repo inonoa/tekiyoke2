@@ -66,7 +66,6 @@ public class StateJet_ : HeroStateBase
         hero.velocity = new HeroVelocity(move, 0);
         if(completed)
         {
-            _OnJetCompleted.OnNext(Unit.Default);
             return new StateWait_();
         }
         return this;
@@ -77,6 +76,7 @@ public class StateJet_ : HeroStateBase
         hero.CanBeDamaged = true;
         hero.CanMove = true;
         hero.GetDPinEnemy.GetComponent<Collider2D>().enabled = false;
+        _OnJetCompleted.OnNext(Unit.Default);
     }
 
     void PhantomAndDissolve(HeroMover hero)

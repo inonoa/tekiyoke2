@@ -162,6 +162,9 @@ public class HeroMover : MonoBehaviour
 
     ///<summary>falseだと無敵になる</summary>
     public bool CanBeDamaged{ get => HpCntr.CanBeDamaged; set => HpCntr.CanBeDamaged = value; }
+
+    Subject<int> _OnDamaged = new Subject<int>();
+    public IObservable<int> OnDamaged => _OnDamaged;
     
     ///<summary>敵からのダメージ等。ノックバックなどが入る予定(あれ？)</summary>
     ///<param name="damage">与えるダメージを書く。1を指定すると100->99,1->0になったりします</param>
@@ -190,6 +193,8 @@ public class HeroMover : MonoBehaviour
         }
         break;
         }
+
+        _OnDamaged.OnNext(HP);
     }
 
     void BendBack()
@@ -255,7 +260,7 @@ public class HeroMover : MonoBehaviour
         savePositionManager = GetComponent<SavePositionManager>();
         ObjsHolderForStates = GetComponent<HeroObjsHolder4States>();
         JetManager          = GetComponent<JetManager>();
-        
+
         JetManager.Init(Input, this);
 
         currrentState = new StateWait_();
