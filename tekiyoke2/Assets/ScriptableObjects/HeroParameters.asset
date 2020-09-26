@@ -16,6 +16,7 @@ MonoBehaviour:
   _ForceOnGround: 200
   _Friction: 150
   _CoyoteTime: 0.1
+  _TsuchihokoriInterval: 0.12
   _MoveInAirParams:
     _HorizontalForce: 200
     _HorizontalResistance: 7

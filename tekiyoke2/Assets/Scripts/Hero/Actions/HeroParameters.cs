@@ -10,6 +10,7 @@ public class HeroParameters : ScriptableObject
     [SerializeField] float _ForceOnGround = 200f;
     [SerializeField] float _Friction = 150f;
     [SerializeField] float _CoyoteTime = 0.1f;
+    [SerializeField] float _TsuchihokoriInterval = 0.1f;
     [Space(5)] [SerializeField] MoveInAirParams _MoveInAirParams;
     [Space(5)] [SerializeField] float _JumpForce = 30f;
     [Space(5)] [SerializeField] KickParams _KickParams;
@@ -22,6 +23,7 @@ public class HeroParameters : ScriptableObject
     public float ForceOnGround => _ForceOnGround;
     public float Friction => _Friction;
     public float CoyoteTime => _CoyoteTime;
+    public float TsuchihokoriInterval => _TsuchihokoriInterval;
     public MoveInAirParams MoveInAirParams => _MoveInAirParams;
     public float JumpForce => _JumpForce;
     public KickParams KickParams => _KickParams;

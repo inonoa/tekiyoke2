@@ -8,15 +8,34 @@ public class StateRun_ : HeroStateBase
 
     float fromNoGround = 0f;
 
+    IEnumerator tsuchihokotiCoroutine;
+
     public override void Enter(HeroMover hero)
     {
-        hero.SetAnim("run");
-        right = hero.WantsToGoRight;
+        Init(hero);
     }
     public override void Resume(HeroMover hero)
     {
+        Init(hero);
+        hero.StartCoroutine(tsuchihokotiCoroutine);
+    }
+
+    void Init(HeroMover hero)
+    {
         hero.SetAnim("run");
         right = hero.WantsToGoRight;
+        hero.SoundGroup.Play("Run");
+        tsuchihokotiCoroutine = Tsuchihokori(hero.ObjsHolderForStates.TsuchihokoriPool, hero.Parameters);
+        hero.StartCoroutine(tsuchihokotiCoroutine);
+    }
+
+    IEnumerator Tsuchihokori(ObjectPool<Tsuchihokori> pool, HeroParameters params_)
+    {
+        while(true)
+        {
+            pool.ActivateOne(right ? "r" : "l");
+            yield return new WaitForSeconds(params_.TsuchihokoriInterval);
+        }
     }
 
     public override HeroStateBase HandleInput(HeroMover hero, IAskedInput input)
@@ -79,6 +98,6 @@ public class StateRun_ : HeroStateBase
 
     public override void Exit(HeroMover hero)
     {
-        //
+        hero.StopCoroutine(tsuchihokotiCoroutine);
     }
 }
