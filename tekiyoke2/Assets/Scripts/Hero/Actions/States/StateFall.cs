@@ -58,7 +58,7 @@ public class StateFall : HeroState, IAskCanJump
         hero.velocity.X = 0;
     }
     public override void Start(){
-        hero.Anim.SetTrigger(hero.EyeToRight ? "fallr" : "falll");
+        hero.Anim.SetTrigger(hero.WantsToGoRight ? "fallr" : "falll");
         kabezuriCoroutine = hero.StartCoroutine(SpawnKabezuris());
         switch(hero.KeyDirection){
             case 1 : hero.velocity.X = HeroMover.moveSpeed;  break;
@@ -71,7 +71,7 @@ public class StateFall : HeroState, IAskCanJump
     }
 
     public override void Resume(){
-        hero.Anim.SetTrigger(hero.EyeToRight ? "fallr" : "falll");
+        hero.Anim.SetTrigger(hero.WantsToGoRight ? "fallr" : "falll");
     }
 
     IEnumerator SpawnKabezuris(){
@@ -87,7 +87,7 @@ public class StateFall : HeroState, IAskCanJump
     void Try2SpawnKabezuri(){
         bool dir_is_R;
 
-        if(hero.CanKickFromWallR && hero.CanKickFromWallL) dir_is_R = hero.EyeToRight;
+        if(hero.CanKickFromWallR && hero.CanKickFromWallL) dir_is_R = hero.WantsToGoRight;
         else if(hero.CanKickFromWallR)                     dir_is_R = true;
         else if(hero.CanKickFromWallL)                     dir_is_R = false;
         else return;

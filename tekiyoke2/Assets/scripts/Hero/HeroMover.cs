@@ -5,24 +5,14 @@ using UnityEngine.UI;
 using System;
 using UnityEngine.SceneManagement;
 using UniRx;
+using DG.Tweening;
+using System.Linq;
 
 ///<summary>最終的には各機能をまとめる役割と渉外担当みたいな役割とだけを持たせたい</summary>
 public class HeroMover : MonoBehaviour
 {
-    #region デバッグ用
+    public Stack<HeroState> States;
 
-    [SerializeField]
-    bool isInDebug = false;
-    void Log4Debug(){
-        string txt = States.Peek().ToString() + "\n"
-                   + "Velocity: " + velocity.ToString() + "\n"
-                   + "KeyDirection: " + KeyDirection.ToString() + "\n"
-                   + "EyeToRight: " + EyeToRight.ToString() + "\n"
-                   + "IsOnGround: " + IsOnGround.ToString() + "\n";
-        Debug.Log(txt);
-    }
-
-    #endregion
 
     #region 移動関係の(だいたい)定数
     public static float moveSpeed = 15;
@@ -33,22 +23,17 @@ public class HeroMover : MonoBehaviour
 
     #region 操作・移動関係
 
-    ///<summary> trueだと一切動かない(落ちてる最中でもそこで浮き続ける) </summary>
     public bool IsFrozen { get; set; } = false;
-    ///<summary>操作を受け付けるかどうか。空中でfalseになってても落ちはする</summary>
     public bool CanMove { get; set; } = true;
-    public bool IsOnGround{ get => groundChecker.IsOnGround; }
-    public int FramesSinceTakeOff{ get => groundChecker.FramesSinceTakeOff; }
-    public bool IsOnSakamichi{ get => sakamichiChecker.OnSakamichi; }
-    public bool IsOnSakamichiR{ get => sakamichiChecker.OnSakamichiR; }
-    public bool IsOnSakamichiL{ get => sakamichiChecker.OnSakamichiL; }
-    public bool CanKickFromWallL{ get => wallCheckerL.CanKick; }
-    public bool CanKickFromWallR{ get => wallCheckerR.CanKick; }
 
-    ///<summary>主人公の目はどちらに向いているか(移動方向とは必ずしも一致しない)
-    ///(壁キック中は変則的かも…) (これKeyDirectionといい感じに統合したほうがいいかもな…)
-    ///(velocity, KeyDirection参照)</summary>
-    public bool EyeToRight{ get; set; } = true;
+    public bool IsOnGround         => groundChecker.IsOnGround;
+    public int  FramesSinceTakeOff => groundChecker.FramesSinceTakeOff;
+    public bool IsOnSakamichi      => sakamichiChecker.OnSakamichi;
+    public bool IsOnSakamichiR     => sakamichiChecker.OnSakamichiR;
+    public bool IsOnSakamichiL     => sakamichiChecker.OnSakamichiL;
+    public bool CanKickFromWallL   => wallCheckerL.CanKick;
+    public bool CanKickFromWallR   => wallCheckerR.CanKick;
+
 
     ///<summary>実際に移動している方向(ワープした場合は知らん) (EyeToright, KeyDiretion参照)</summary>
     public HeroVelocity velocity = new HeroVelocity(0,0);
@@ -65,11 +50,14 @@ public class HeroMover : MonoBehaviour
     ///<summary>余韻と言うか一定時間引きずり続けるスピードをアレする</summary>
     public List<ISpeedResidue> speedResidues = new List<ISpeedResidue>();
 
-    ///<summary>このフレームで方向キーの押されている方向 (EyeToRight, velocity参照)</summary>
     public int KeyDirection{ get; private set; } = 0;
+    public bool WantsToGoRight{ get; private set; } = true;
+
+
 
     ///<summary>指定した値だけ位置をずらす。timeScaleの影響を受けます</summary>
-    public void MovePos(float vx, float vy){
+    void MovePos(float vx, float vy)
+    {
         Rigidbody.MovePosition(new Vector2(
             transform.position.x + vx*Time.timeScale,
             transform.position.y + vy*Time.timeScale
@@ -77,54 +65,54 @@ public class HeroMover : MonoBehaviour
     }
 
     ///<summary>指定した値に位置が移動。timeScaleの影響を受けません</summary>
-    public void WarpPos(float x, float y){
+    public void WarpPos(float x, float y)
+    {
         transform.position = new Vector3(x,y,transform.position.z);
     }
-    ///<summary>前フレームでの向きと今フレームの入力から移動方向を決定</summary>
-    void UpdateMoveDirection(){
-        if(CanMove){
-            
-            //右ボタンを押したとき右に動く
-            if(Input.GetButtonDown(ButtonCode.Right) && KeyDirection!=1){
-                States.Peek().Try2StartMove(true);
-                KeyDirection = 1;
-                EyeToRight = true;
     
-            //左ボタンを押したときに左に動く
-            }else if(Input.GetButtonDown(ButtonCode.Left) && KeyDirection!=-1){
-                States.Peek().Try2StartMove(false);
-                KeyDirection = -1;
-                EyeToRight = false;
-    
-            //右ボタンを離したときはさっきまで動いていた向きによって挙動が変わる
-            }else if(Input.GetButtonUp(ButtonCode.Right) && KeyDirection==1){
-            
-                if(Input.GetButton(ButtonCode.Left)){
-                    States.Peek().Try2StartMove(false);
-                    KeyDirection = -1;
-                    EyeToRight = false;
-    
-                }else{
-                    States.Peek().Try2EndMove();
-                    KeyDirection = 0;
-                }
-    
-            //左ボタンを離したときはさっきまで動いていた向きによって挙動が変わる
-            }else if(Input.GetButtonUp(ButtonCode.Left) && KeyDirection==-1){
-            
-                if(Input.GetButton(ButtonCode.Right)){
-                    States.Peek().Try2StartMove(true);
-                    KeyDirection = 1;
-                    EyeToRight = true;
-    
-                }else{
-                    States.Peek().Try2EndMove();
-                    KeyDirection = 0;
-                }
-            }
 
+    void UpdateMoveDirection()
+    {
+        if(!CanMove) return;
+        
+        if(Input.GetButtonDown(ButtonCode.Right)      && KeyDirection != 1)
+        {
+            KeyDirection = 1;
+            WantsToGoRight = true;
+        }
+        else if(Input.GetButtonDown(ButtonCode.Left)  && KeyDirection != -1)
+        {
+            KeyDirection = -1;
+            WantsToGoRight = false;
+        }
+
+        //ボタンを離したときはさっきまで動いていた向きによって挙動が変わる
+        else if(Input.GetButtonUp(ButtonCode.Right) && KeyDirection == 1)
+        {
+            if(Input.GetButton(ButtonCode.Left))
+            {
+                KeyDirection = -1;
+                WantsToGoRight = false;
+            }
+            else
+            {
+                KeyDirection = 0;
+            }
+        }
+        else if(Input.GetButtonUp(ButtonCode.Left)  && KeyDirection == -1)
+        {
+            if(Input.GetButton(ButtonCode.Right))
+            {
+                KeyDirection = 1;
+                WantsToGoRight = true;
+            }
+            else
+            {
+                KeyDirection = 0;
+            }
         }
     }
+
     public event EventHandler jumped;
     public void Jumped(bool isFromGround ,bool isKick)
         => jumped?.Invoke(this, new HeroJumpedEventArgs(isFromGround, isKick));
@@ -132,11 +120,6 @@ public class HeroMover : MonoBehaviour
     #endregion
 
     #region 別クラスで持っている情報
-
-    ///<summary>一応過去の(特に直前の)状態を見るためにStackに積んでるけど必要か…？</summary>
-    public Stack<HeroState> States { get; set; } = new Stack<HeroState>();
-    ///<summary>直前フレームの状態が入っているはず(大半の場合現在の状態と同じ)</summary>
-    HeroState lastState;
     public CameraController CmrCntr{ get; private set; }
     public HpCntr HpCntr{ get; private set; }
     public HeroObjsHolder4States ObjsHolderForStates{ get; private set; }
@@ -156,9 +139,17 @@ public class HeroMover : MonoBehaviour
     [SerializeField] GetDPinEnemy getDPinEnemy;
     public GetDPinEnemy GetDPinEnemy => getDPinEnemy;
 
+    [SerializeField] HeroParameters _Parameters;
+    public HeroParameters Parameters => _Parameters;
+
+    public JetManager JetManager{ get; private set; }
+
+    HeroStateBase currrentState;
+    public string CurrentStateStr() => currrentState.ToString();
+
 
     public SpriteRenderer SpriteRenderer{ get; private set; }
-    public Animator Anim{ get; private set; }
+    public Animator Anim{ get; private set; } //いずれprivateにする
     public Rigidbody2D Rigidbody{ get; private set; }
 
     Chishibuki chishibuki;
@@ -171,6 +162,9 @@ public class HeroMover : MonoBehaviour
 
     ///<summary>falseだと無敵になる</summary>
     public bool CanBeDamaged{ get => HpCntr.CanBeDamaged; set => HpCntr.CanBeDamaged = value; }
+
+    Subject<int> _OnDamaged = new Subject<int>();
+    public IObservable<int> OnDamaged => _OnDamaged;
     
     ///<summary>敵からのダメージ等。ノックバックなどが入る予定(あれ？)</summary>
     ///<param name="damage">与えるダメージを書く。1を指定すると100->99,1->0になったりします</param>
@@ -182,7 +176,6 @@ public class HeroMover : MonoBehaviour
         ChangeHP(HP - damage);
         CmrCntr.Reset();
         SoundGroup.Play(HP==0 ? "Die" : "Damage");
-        BendBack();
 
         if(HP <= 0) Die();
 
@@ -190,7 +183,7 @@ public class HeroMover : MonoBehaviour
         {
         case DamageType.Normal:
         {
-            //
+            BendBack();
         }
         break;
         case DamageType.Drop:
@@ -200,17 +193,21 @@ public class HeroMover : MonoBehaviour
         }
         break;
         }
+
+        _OnDamaged.OnNext(HP);
     }
 
-    void BendBack(){
-        States.Push(new StateBend(this));
+    void BendBack()
+    {
+        ChangeState(new StateBend_());
         ParticleSystem ps = transform.Find("Particle System").GetComponent<ParticleSystem>();
         ps.Play();
         chishibuki.StartCoroutine("StartChishibuki");
         StartCoroutine(Blink());
     }
 
-    IEnumerator Blink(){
+    IEnumerator Blink()
+    {
         yield return new WaitForSeconds(0.3f);
 
         while(true){
@@ -228,7 +225,8 @@ public class HeroMover : MonoBehaviour
     }
 
     ///<summary>リスポーン</summary>
-    void Die(){
+    void Die()
+    {
         MemoryOverDeath.Instance.SaveOnDeath();
         GameTimeCounter.CurrentInstance.DoesTick = false;
         Tokitome.SetTime(0.2f);
@@ -243,14 +241,13 @@ public class HeroMover : MonoBehaviour
 
     ///<summary>他のオブジェクトのStart()内でCurrentHeroを参照したい時があり、
     ///Start()内でcurrentHeroを設定すると実行順によっては前シーンのHeroを参照してしまうため</summary>
-    void Awake(){
+    void Awake()
+    {
         HeroDefiner.currentHero = this;
     }
 
     void Start()
     {
-        States.Push(new StateWait(this));
-        lastState = States.Peek();
 
         CmrCntr = CameraController.CurrentCamera;
         Input   = ServicesLocator.Instance.GetInput();
@@ -262,6 +259,12 @@ public class HeroMover : MonoBehaviour
         sakamichiChecker    = GetComponent<SakamichiChecker>();
         savePositionManager = GetComponent<SavePositionManager>();
         ObjsHolderForStates = GetComponent<HeroObjsHolder4States>();
+        JetManager          = GetComponent<JetManager>();
+
+        JetManager.Init(Input, this);
+
+        currrentState = new StateWait_();
+        currrentState.Enter(this);
 
         getDPinEnemy.gotDP += (dp, e) => {
             DPManager.Instance.AddDP((float)dp);
@@ -280,20 +283,24 @@ public class HeroMover : MonoBehaviour
     }
 
     ///<summary>SetActive(false)するとアニメーションの状態がリセットされるようなのでとりあえず主人公はステートだけ反映しなおす</summary>
-    void OnEnable(){
-        if(States.Count>0) States.Peek().Resume();
+    void OnEnable()
+    {
+        currrentState?.Resume(this);
     }
 
-    void OnDisable(){
+    void OnDisable()
+    {
         SoundGroup.StopAll();
     }
 
     void Update()
     {
 
-        if(!IsFrozen){
+        if(!IsFrozen)
+        {
 
-            if(CanMove){
+            if(CanMove)
+            {
 
                 //なんとなく入力をまとめて置きたくてここにしているがあまり意味がないような…
                 if(Input.GetNagaoshiFrames(ButtonCode.Save) == 70) savePositionManager.Try2Save();
@@ -301,64 +308,79 @@ public class HeroMover : MonoBehaviour
 
                 UpdateMoveDirection();
 
-                if(Input.GetButtonDown(ButtonCode.Jump)){
-                    States.Peek().Try2Jump();
-                }
-
-                //面倒だし向きは移動方向と同じでいいからキーは1つでいい気がするが…
-                if(Input.GetButtonDown(ButtonCode.JetLR)){
-                    States.Peek().Try2StartJet();
-                }
-                if(Input.GetButtonUp(ButtonCode.JetLR)){
-                    States.Peek().Try2EndJet();
+                HeroStateBase next = currrentState.HandleInput(this, Input);
+                if(next != currrentState)
+                {
+                    ChangeState(next);
                 }
             }
         }
-
-        if(isInDebug) Log4Debug();
     }
 
 
-    void FixedUpdate(){
+    void FixedUpdate()
+    {
 
         pastPoss.PushFirst(transform.position);
         if(pastPoss.Count > 1000) pastPoss.PopLast();
 
-        if(!IsFrozen){
+        if(IsFrozen) return;
 
-            if(CanMove){
-
-                if(States.Peek() != lastState){
-                    lastState.Exit();
-                    States.Peek().Start();
-                    lastState = States.Peek();
-                }
-
-                States.Peek().Update(); //ここかこれ？
-            }
-
-            float vx = velocity.X;
-            float vy = velocity.Y;
-            foreach(Vector2 vi in additionalVelocities.Values){
-                vx += vi.x;
-                vy += vi.y;
-            }
-
-            speedResidues.RemoveAll(residue => residue.UpdateSpeed(this));
-            foreach(ISpeedResidue residue in speedResidues){
-                vx += residue.SpeedX;
-                vy += residue.SpeedY;
-            }
-
-            MovePos(vx, vy);
-            expectedPosition.x = transform.position.x + vx*Time.timeScale;
-            expectedPosition.y = transform.position.y + vy*Time.timeScale;
-
+        HeroStateBase next = currrentState.Update_(this, Time.fixedDeltaTime);
+        if(next != currrentState)
+        {
+            ChangeState(next);
         }
+
+        Vector2 baseVel = velocity.ToVector2();
+
+        Vector2 added = additionalVelocities.Aggregate(baseVel, (cur, kvp) => cur + kvp.Value);
+
+        Vector2 residueApplied = speedResidues
+            .Aggregate(
+                added,
+                (cur, residue) => residue.UpdateVel(cur, Time.fixedDeltaTime, this)
+            );
+        speedResidues.RemoveAll(residue => !residue.IsActive);
+
+        MovePos(residueApplied.x, residueApplied.y);
+        expectedPosition.x = transform.position.x + residueApplied.x * Time.timeScale;
+        expectedPosition.y = transform.position.y + residueApplied.y * Time.timeScale;
+    }
+
+    void ChangeState(HeroStateBase next)
+    {
+        currrentState.Exit(this);
+        currrentState = next;
+        currrentState.Enter(this);
+    }
+
+    public IObservable<Unit> Jet(float charge_0_1)
+    {
+        var state = new StateJet_(charge_0_1);
+        //Changeこれでええんかな
+        ChangeState(state);
+        return state.OnJetCompleted;
+    }
+
+    public void PushedByBaneYoko(bool toRight, float force)
+    {
+        if(KeyDirection == 0)
+        {
+            WantsToGoRight = toRight;
+            Anim.SetTrigger(toRight ? "runr" : "runl");
+        }
+        speedResidues.Add(new BaneResidue(toRight, force, 0.8f));
+    }
+
+    public void OnGoal()
+    {
+        ChangeState(new StateRun_());
     }
 
     ///<summary>天井に衝突したときに天井に張り付かないようにする</summary>
-    void OnCollisionStay2D(Collision2D col){
+    void OnCollisionStay2D(Collision2D col)
+    {
 
         if(col.gameObject.tag=="Terrain" && !IsFrozen){
             foreach(ContactPoint2D contact in col.contacts){

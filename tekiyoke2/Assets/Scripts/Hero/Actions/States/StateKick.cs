@@ -24,7 +24,7 @@ public class StateKick : HeroState, IAskCanJump
         hero.Jumped(false, true);
 
         hero.Anim.SetTrigger(toRight ? "jumprf" : "jumplf");
-        hero.EyeToRight = toRight;
+        //hero.EyeToRight = toRight;
         hero.SoundGroup.Play("Jump");
 
         hero.ObjsHolderForStates.JumpEffectPool.ActivateOne(toRight ? "kr" : "kl");
@@ -50,7 +50,7 @@ public class StateKick : HeroState, IAskCanJump
 
         bool dir_is_R;
 
-        if(hero.CanKickFromWallR && hero.CanKickFromWallL) dir_is_R = hero.EyeToRight;
+        if(hero.CanKickFromWallR && hero.CanKickFromWallL) dir_is_R = hero.WantsToGoRight;
         else if(hero.CanKickFromWallR)                     dir_is_R = true;
         else if(hero.CanKickFromWallL)                     dir_is_R = false;
         else return;
@@ -73,7 +73,7 @@ public class StateKick : HeroState, IAskCanJump
         hero.velocity.Y -= HeroMover.gravity * Time.timeScale;
         if(hero.velocity.Y < 0){
             if(frames2BeFreeNow > 0) hero.Anim.SetTrigger(toRight         ? "fallr" : "falll");
-            else                     hero.Anim.SetTrigger(hero.EyeToRight ? "fallr" : "falll");
+            else                     hero.Anim.SetTrigger(hero.WantsToGoRight ? "fallr" : "falll");
             //これ単にFallに遷移するほうがいいんじゃないの……？
         }
 

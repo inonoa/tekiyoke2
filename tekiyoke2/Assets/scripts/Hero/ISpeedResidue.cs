@@ -4,9 +4,6 @@ using UnityEngine;
 
 public interface ISpeedResidue
 {
-    float SpeedX{ get; }
-    float SpeedY{ get; }
-
-    ///<summary>捨てられたい場合にtrueを返してください！！</summary>
-    bool UpdateSpeed(HeroMover hero);
+    bool IsActive{ get; }
+    Vector2 UpdateVel(Vector2 currentVeclocity, float deltatime, HeroMover hero);
 }

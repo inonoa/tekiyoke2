@@ -21,7 +21,7 @@ public class StateBaneYoko : HeroState
     public override void Start(){
         hero.velocity.X = toRight ? pushSpeed : -pushSpeed;
         hero.Anim.SetTrigger(toRight ? "runr" : "runl");
-        hero.EyeToRight = toRight;
+        //hero.EyeToRight = toRight;
     }
 
     public override void Resume(){
@@ -37,7 +37,7 @@ public class StateBaneYoko : HeroState
         }else{
             if(!hero.IsOnGround){
                 hero.States.Push(new StateFall(hero));
-                hero.speedResidues.Add(new BaneResidue(hero.velocity.X, speedBreak));
+                //hero.speedResidues.Add(new BaneResidue(hero.velocity.X, speedBreak));
             }
 
             //この辺全部BaneResidueに移管してもいいかもね
@@ -93,19 +93,19 @@ public class StateBaneYoko : HeroState
     public override void Try2StartJet(){
         if(!unstoppable){
             hero.States.Push(new StateJet(hero));
-            hero.speedResidues.Add(new BaneResidue(hero.velocity.X, speedBreak));
+            //hero.speedResidues.Add(new BaneResidue(hero.velocity.X, speedBreak));
         }
     }
     public override void Try2EndJet(){ }
     public override void Try2Jump(){
         if(!unstoppable){
             hero.States.Push(new StateJump(hero));
-            hero.speedResidues.Add(new BaneResidue(hero.velocity.X, speedBreak));
+            //hero.speedResidues.Add(new BaneResidue(hero.velocity.X, speedBreak));
         }
     }
     public override void Try2StartMove(bool toRight){ }
     public override void Try2EndMove(){ }
     public override void Exit(){
-        if(hero.KeyDirection != 0) hero.EyeToRight = (hero.KeyDirection == 1);
+        if(hero.KeyDirection != 0);//hero.EyeToRight = (hero.KeyDirection == 1);
     }
 }

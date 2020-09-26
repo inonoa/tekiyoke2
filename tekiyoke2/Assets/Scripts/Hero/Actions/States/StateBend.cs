@@ -17,7 +17,7 @@ public class StateBend : HeroState
         if(hero.velocity.X != 0)
             hero.velocity.X = (hero.velocity.X > 0) ? -bendForce.X : bendForce.X;
         else
-            hero.velocity.X =  hero.EyeToRight      ? -bendForce.X : bendForce.X;
+            hero.velocity.X =  hero.WantsToGoRight      ? -bendForce.X : bendForce.X;
         
         hero.velocity.Y = bendForce.Y;
 

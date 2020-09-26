@@ -59,15 +59,15 @@ public class StateJet : HeroState
                 jetVelocities[i] = fullDist * ( EasingFunc((i+1)/(float)jetFramesMax) - EasingFunc(i/(float)jetFramesMax) );
             }
             posWhenJet = hero.transform.position;
-            jetStream = GameObject.Instantiate(hero.ObjsHolderForStates.jetstreamPrefab, DraftManager.CurrentInstance.GameMasterTF);
-            jetStream.transform.position = hero.transform.position;
+            // jetStream = GameObject.Instantiate(hero.ObjsHolderForStates.JetstreamPrefab, DraftManager.CurrentInstance.GameMasterTF);
+            // jetStream.transform.position = hero.transform.position;
             jsCol = jetStream.GetComponent<BoxCollider2D>();
 
             col2DP = hero.GetDPinEnemy.GetComponent<Collider2D>();
             col2DP.enabled = true;
 
             //風エフェクト
-            trailTF = GameObject.Instantiate(hero.ObjsHolderForStates.jetTrail, DraftManager.CurrentInstance.GameMasterTF).transform;
+            //trailTF = GameObject.Instantiate(hero.ObjsHolderForStates.JetTrail, DraftManager.CurrentInstance.GameMasterTF).transform;
             trailTF.position = hero.transform.position;
             trailTF.GetComponent<TrailRenderer>().time = jetFramesMax / 60f;
 
@@ -90,7 +90,7 @@ public class StateJet : HeroState
             blurTTween = DOTween.To(blurT.GetVolume, blurT.SetVolume, 0, 0.1f);
             blurTTween.onComplete += () => blurT.IsActive = false;
             
-            hero.CmrCntr.Dash(jetFramesMax); //今は何も起こってなさそう
+            //hero.CmrCntr.OnJet(jetFramesMax); //今は何も起こってなさそう
         }
     }
 
@@ -154,7 +154,7 @@ public class StateJet : HeroState
                 jet2Right = false;
                 break;
             case 0:
-                jet2Right = hero.EyeToRight;
+                jet2Right = hero.WantsToGoRight;
                 break;
         }
 

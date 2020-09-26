@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46fd59e3df9475144a8dd166609bb86e, type: 3}
+  m_Name: HeroParameters
+  m_EditorClassIdentifier: 
+  _GroundSpeedMax: 15
+  _ForceOnGround: 200
+  _Friction: 150
+  _CoyoteTime: 0.1
+  _TsuchihokoriInterval: 0.12
+  _MoveInAirParams:
+    _HorizontalForce: 200
+    _HorizontalResistance: 20
+    _HorizontalSpeedMax: 15
+    _Gravity: 80
+    _FallSpeedMax: 50
+    _KabezuriInterval: 0.1
+  _JumpForce: 30
+  _KickParams:
+    _WallKickForce: {x: 15, y: 30}
+    _WallKickKey: 1
+    _FromKickToInputEnabled: 0.15
+  _JetParams:
+    _MinDistance: 250
+    _MaxDistance: 700
+    _JetSecondsMin: 0.2
+    _JetSecondsMax: 0.375
+    _ChargeSecondsFromMin: 0.3
+    _ChargeSecondsToMax: 1
+    _CoolTime: 0.3
+    _TimeScaleBeforeJet: 0.15
+    _TweenLinearRate: 0.2
+  _BendBackForce: {x: -15, y: 12}
+  _BendBackSeconds: 0.5

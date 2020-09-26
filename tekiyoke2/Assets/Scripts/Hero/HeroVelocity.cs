@@ -23,6 +23,16 @@ public class HeroVelocity
         (X, Y) = (x, y);
     }
 
+    public override string ToString()
+    {
+        return $"({X}, {Y})";
+    }
+
+    public float Magnitude()
+    {
+        return Mathf.Sqrt(X*X + Y*Y);
+    }
+
     public static HeroVelocity operator + (HeroVelocity v1, HeroVelocity v2){
         return new HeroVelocity(v1.X + v2.X, v1.Y + v2.Y);
     }
@@ -30,4 +40,19 @@ public class HeroVelocity
     public static HeroVelocity operator - (HeroVelocity v1, HeroVelocity v2){
         return new HeroVelocity(v1.X - v2.X, v1.Y - v2.Y);
     }
+
+    public static HeroVelocity operator * (HeroVelocity v, float a)
+    {
+        return new HeroVelocity(v.X * a, v.Y * a);
+    }
+    public static HeroVelocity operator * (float a, HeroVelocity v)
+    {
+        return v * a;
+    }
+}
+
+public static class HeroVelocityExtension
+{
+    public static HeroVelocity ToHeroVel(this Vector2 vec) => new HeroVelocity(vec.x, vec.y);
+    public static Vector2 ToVector2(this HeroVelocity vel) => new Vector2(vel.X, vel.Y);
 }

@@ -49,7 +49,7 @@ public class StateJump : HeroState, IAskCanJump
     }
     public override void Try2EndMove(){
         hero.velocity.X = 0;
-        hero.Anim.SetTrigger(hero.EyeToRight ? "jumpru" : "jumplu");
+        hero.Anim.SetTrigger(hero.WantsToGoRight ? "jumpru" : "jumplu");
     }
     public override void Start(){
         hero.velocity.Y = jumpForce;
@@ -57,11 +57,11 @@ public class StateJump : HeroState, IAskCanJump
 
         if     (hero.velocity.X > 0) hero.Anim.SetTrigger("jumprf");
         else if(hero.velocity.X < 0) hero.Anim.SetTrigger("jumplf");
-        else if(hero.EyeToRight)     hero.Anim.SetTrigger("jumpru");
+        else if(hero.WantsToGoRight)     hero.Anim.SetTrigger("jumpru");
         else                         hero.Anim.SetTrigger("jumplu");
 
-        if(canJump) hero.ObjsHolderForStates.JumpEffectPool.ActivateOne(hero.EyeToRight ? "r" : "l");
-        else        hero.ObjsHolderForStates.JumpEffectInAirPool.ActivateOne(hero.EyeToRight ? "r" : "l");
+        if(canJump) hero.ObjsHolderForStates.JumpEffectPool.ActivateOne(hero.WantsToGoRight ? "r" : "l");
+        else        hero.ObjsHolderForStates.JumpEffectInAirPool.ActivateOne(hero.WantsToGoRight ? "r" : "l");
 
         hero.SoundGroup.Play("Jump");
         
@@ -72,7 +72,7 @@ public class StateJump : HeroState, IAskCanJump
     public override void Resume(){
         if     (hero.velocity.X > 0) hero.Anim.SetTrigger("jumprf");
         else if(hero.velocity.X < 0) hero.Anim.SetTrigger("jumplf");
-        else if(hero.EyeToRight)     hero.Anim.SetTrigger("jumpru");
+        else if(hero.WantsToGoRight)     hero.Anim.SetTrigger("jumpru");
         else                         hero.Anim.SetTrigger("jumplu");
     }
 

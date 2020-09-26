@@ -36,11 +36,14 @@ public class CameraController : MonoBehaviour
     enum CameraStateAboutDash{ Default, ZoomingForDash, Dashing, Retreating }
     CameraStateAboutDash dashState = CameraStateAboutDash.Default;
 
+    [SerializeField] int jetFreezeFrames = 20;
+
     //この辺必要か？？？
     public void StartZoomForDash() => dashState = CameraStateAboutDash.ZoomingForDash;
-    public void Dash(int jetFrames){
+    public void OnJet()
+    {
         dashState = CameraStateAboutDash.Dashing;
-        Freeze(jetFrames);
+        Freeze(jetFreezeFrames);
     }
     public void EndDash() => dashState = CameraStateAboutDash.Retreating;
     public void Reset() => dashState = CameraStateAboutDash.Retreating; //多分要改善。ダッシュ以外のズームが導入された場合とか
@@ -63,8 +66,6 @@ public class CameraController : MonoBehaviour
 
     void Start()
     {
-        cmr = GetComponent<Camera>();
-        AfterEffects = GetComponent<AfterEffects>();
         defaultSize = cmr.orthographicSize;
         targetPosition = HeroDefiner.CurrentHeroPos + new Vector3(0,100,-500);
         scShoOutOfWindController.canvas = canvas;
@@ -145,7 +146,12 @@ public class CameraController : MonoBehaviour
     public static CameraController CurrentCamera{ get => _CurrentCamera; }
     public static Vector3 CurrentCameraPos{ get => _CurrentCamera.transform.position; }
 
-    void Awake() => _CurrentCamera = this;
+    void Awake()
+    {
+        _CurrentCamera = this;
+        cmr = GetComponent<Camera>();
+        AfterEffects = GetComponent<AfterEffects>();
+    }
 
     #endregion
 }
