@@ -138,7 +138,6 @@ public class JetManager : MonoBehaviour
 
     void EffectOnExit()
     {
-        print("aaaaaaaaaaaa");
         jetPostEffect.Exit();
         clouds.EndClouds();
         hero.CmrCntr.EndDash();

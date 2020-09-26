@@ -46,7 +46,7 @@ public class StateJet_ : HeroStateBase
         hTween = new HeroTween(
             hero.WantsToGoRight ? jetDistance : -jetDistance,
             jetSeconds,
-            HeroTween.Ease.OutQuad //todo:最後の方速度ほぼ0になるの違和感ある
+            hero.Parameters.JetParams.TweenLinearRate
         );
     }
 

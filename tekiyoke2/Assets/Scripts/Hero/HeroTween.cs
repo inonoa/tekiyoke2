@@ -5,16 +5,15 @@ using DG.Tweening;
 
 public class HeroTween
 {
-    public enum Ease{ OutQuint, OutQuad }
-    Ease ease;
-    float duration;
-    float distance;
+    readonly float duration;
+    readonly float distance;
+    readonly float linearRate;
 
     float now_time_0_1 = 0;
 
-    public HeroTween(float distance, float duration, Ease ease)
+    public HeroTween(float distance, float duration, float linearRate)
     {
-        (this.distance, this.duration, this.ease) = (distance, duration, ease);
+        (this.distance, this.duration, this.linearRate) = (distance, duration, linearRate);
     }
 
     public (float move, bool completed) Update(float deltatime)
@@ -30,14 +29,8 @@ public class HeroTween
 
     float Calc(float t)
     {
-        switch(ease)
-        {
-        case Ease.OutQuint:
-            return 1 - Mathf.Pow(1 - t, 5);
-        case Ease.OutQuad:
-            return 1 - (1 - t) * (1 - t);
-        default:
-            return 0;
-        }
+        float quint = 1 - Mathf.Pow(1 - t, 5);
+        float linear = t;
+        return Mathf.Lerp(quint, linear, linearRate);
     }
 }

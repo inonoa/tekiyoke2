@@ -72,6 +72,7 @@ public class JetParams
     [SerializeField] float _ChargeSecondsToMax = 1.6f;
     [SerializeField] float _CoolTime = 0.5f;
     [SerializeField] float _TimeScaleBeforeJet = 0.1f;
+    [SerializeField] float _TweenLinearRate = 0.05f;
 
     public float MinDistance => _MinDistance;
     public float MaxDistance => _MaxDistance;
@@ -81,4 +82,5 @@ public class JetParams
     public float ChargeSecondsToMax => _ChargeSecondsToMax;
     public float CoolTime => _CoolTime;
     public float TimeScaleBeforeJet => _TimeScaleBeforeJet;
+    public float TweenLinearRate => _TweenLinearRate;
 }
