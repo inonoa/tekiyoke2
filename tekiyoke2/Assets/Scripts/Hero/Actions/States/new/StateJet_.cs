@@ -19,8 +19,16 @@ public class StateJet_ : HeroStateBase
     
     public override void Enter(HeroMover hero)
     {
+        hero.CanBeDamaged = false;
         hero.CanMove = false;
         hero.SetAnim("fall");
+
+        PhantomAndDissolve(hero);
+
+        GameObject.Instantiate(hero.ObjsHolderForStates.JetstreamPrefab, DraftManager.CurrentInstance.GameMasterTF)
+            .Init(hero);
+
+        hero.GetDPinEnemy.GetComponent<Collider2D>().enabled = true;
 
         JetParams params_ = hero.Parameters.JetParams;
 
@@ -66,6 +74,36 @@ public class StateJet_ : HeroStateBase
 
     public override void Exit(HeroMover hero)
     {
+        hero.CanBeDamaged = true;
         hero.CanMove = true;
+        hero.GetDPinEnemy.GetComponent<Collider2D>().enabled = false;
+    }
+
+    void PhantomAndDissolve(HeroMover hero)
+    {
+        SpriteRenderer phantom = hero.ObjsHolderForStates.PhantomRenderer;
+        phantom.gameObject.SetActive(true);
+        phantom.transform.position = hero.transform.position;
+        phantom.sprite = hero.SpriteRenderer.sprite;
+
+        Material heroMat = hero.SpriteRenderer.material;
+        Material phantomMat = phantom.material;
+
+        heroMat.SetFloat("_DisThreshold0", 1);
+        heroMat.SetFloat("_DisThreshold1", 1.1f);
+        phantomMat.SetFloat("_DisThreshold0", -1);
+        phantomMat.SetFloat("_DisThreshold1", 0);
+
+        DOVirtual.DelayedCall(0.2f, () =>
+        {
+            float heroAppearSec = 0.3f;
+            heroMat.To("_DisThreshold0", -1, heroAppearSec);
+            heroMat.To("_DisThreshold1", 0,  heroAppearSec);
+        });
+
+        float phantomDisappearSec = 0.3f;
+        phantomMat.To("_DisThreshold0", 1,    phantomDisappearSec);
+        phantomMat.To("_DisThreshold1", 1.1f, phantomDisappearSec)
+            .onComplete = () => phantom.gameObject.SetActive(false);
     }
 }

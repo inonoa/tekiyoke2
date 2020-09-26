@@ -142,6 +142,8 @@ public class HeroMover : MonoBehaviour
     [SerializeField] HeroParameters _Parameters;
     public HeroParameters Parameters => _Parameters;
 
+    public JetManager JetManager{ get; private set; }
+
     HeroStateBase currrentState;
     public string CurrentStateStr() => currrentState.ToString();
 
@@ -252,7 +254,9 @@ public class HeroMover : MonoBehaviour
         sakamichiChecker    = GetComponent<SakamichiChecker>();
         savePositionManager = GetComponent<SavePositionManager>();
         ObjsHolderForStates = GetComponent<HeroObjsHolder4States>();
-        GetComponent<JetManager>().Init(Input, this);
+        JetManager          = GetComponent<JetManager>();
+        
+        JetManager.Init(Input, this);
 
         currrentState = new StateWait_();
         currrentState.Enter(this);

@@ -106,6 +106,8 @@
      <Compile Include="Assets\Scripts\Hero\Effects\Chishibuki.cs" />
      <Compile Include="Assets\Scripts\Hero\Effects\HeroAfterimage.cs" />
      <Compile Include="Assets\Scripts\Hero\Effects\JetCloudManager.cs" />
+     <Compile Include="Assets\Scripts\Hero\Effects\JetPostEffect.cs" />
+     <Compile Include="Assets\Scripts\Hero\Effects\JetStream.cs" />
      <Compile Include="Assets\Scripts\Hero\Effects\JumpEffect.cs" />
      <Compile Include="Assets\Scripts\Hero\Effects\Kabezuri.cs" />
      <Compile Include="Assets\Scripts\Hero\Effects\Tsuchihokori.cs" />
@@ -188,6 +190,7 @@
      <Compile Include="Assets\Scripts\TitleScene\CloudSpawner.cs" />
      <Compile Include="Assets\Scripts\TitleScene\Title2Stages.cs" />
      <Compile Include="Assets\Scripts\Utils\ArrayForEach.cs" />
+     <Compile Include="Assets\Scripts\Utils\MaterialTween.cs" />
      <Compile Include="Assets\Scripts\Utils\RenameFieldAttribute.cs" />
      <Compile Include="Assets\Scripts\Utils\ShaderProperties.cs" />
      <Compile Include="Assets\Scripts\Utils\SimpleAnim.cs" />

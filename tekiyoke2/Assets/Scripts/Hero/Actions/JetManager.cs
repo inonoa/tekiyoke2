@@ -16,6 +16,21 @@ public class JetManager : MonoBehaviour
 
     IAskedInput input;
     HeroMover hero;
+    JetPostEffect jetPostEffect;
+    JetCloudManager clouds;
+
+    Subject<Unit> _JetEnded = new Subject<Unit>();
+    public IObservable<Unit> JetEnded => _JetEnded;
+
+    void Awake()
+    {
+        jetPostEffect = GetComponent<JetPostEffect>();
+    }
+
+    void Start()
+    {
+        clouds = GameUIManager.CurrentInstance.JetCloud;
+    }
 
     public void Init(IAskedInput input, HeroMover hero)
     {
@@ -30,8 +45,8 @@ public class JetManager : MonoBehaviour
         {
             if(hero.CanMove && input.GetButtonDown(ButtonCode.JetLR))
             {
-                Tokitome.SetTime(hero.Parameters.JetParams.TimeScaleBeforeJet);
                 state = State.Ready;
+                EffectOnReady();
             }
         }
         break;
@@ -47,7 +62,6 @@ public class JetManager : MonoBehaviour
 
             if(input.GetButtonUp(ButtonCode.JetLR))
             {
-                Tokitome.SetTime(1);
                 state = State.Jetting;
 
                 JetParams params_ = hero.Parameters.JetParams;
@@ -64,7 +78,12 @@ public class JetManager : MonoBehaviour
                     {
                         coolTimeLeft = hero.Parameters.JetParams.CoolTime;
                         state = State.CoolTime;
+                        EffectOnExit();
+                        _JetEnded.OnNext(Unit.Default);
                     });
+
+                EffectOnJet();
+
                 chargeSeconds = 0;
             }
         }
@@ -84,6 +103,35 @@ public class JetManager : MonoBehaviour
         }
         break;
         }
+    }
+
+    void EffectOnReady()
+    {
+        Tokitome.SetTime(hero.Parameters.JetParams.TimeScaleBeforeJet);
+        jetPostEffect.Ready();
+        clouds.StartClouds();
+        hero.CmrCntr.StartZoomForDash();
+        hero.SoundGroup.SetVolume("Tame", 0);
+        hero.SoundGroup.Play("Tame");
+        hero.SoundGroup.VolumeTo("Tame", 1, 0.7f);
+    }
+
+    void EffectOnJet()
+    {
+        Tokitome.SetTime(1);
+        jetPostEffect.OnJet();
+        clouds.EndClouds();
+        hero.CmrCntr.OnJet();
+        hero.SoundGroup.Play("Jet");
+        hero.SoundGroup.Stop("Tame");
+    }
+
+    void EffectOnExit()
+    {
+        jetPostEffect.Exit();
+        clouds.EndClouds();
+        hero.CmrCntr.EndDash();
+        hero.SoundGroup.Stop("Tame");
     }
 
 }

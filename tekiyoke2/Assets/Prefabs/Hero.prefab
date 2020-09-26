@@ -345,6 +345,7 @@ GameObject:
   - component: {fileID: 1862551108992817783}
   - component: {fileID: 8407620554904460400}
   - component: {fileID: 6582467827319375464}
+  - component: {fileID: 1793911700709453500}
   m_Layer: 8
   m_Name: Hero
   m_TagString: Player
@@ -574,9 +575,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b7d326109741384a828c643abee3170, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jetstreamPrefab: {fileID: 8900711695561503522, guid: 06218cdfbbedd5d44a9e274110518bb5,
-    type: 3}
-  jetTrail: {fileID: 7456876022590087109, guid: fc1c627a062e5f5498ce124a28c35929,
+  _JetstreamPrefab: {fileID: 8043225604314060004, guid: 06218cdfbbedd5d44a9e274110518bb5,
     type: 3}
   tsuchihokoriForRun: {fileID: 5060664383085159206, guid: f0d8a2804f7a437418585fd69d3ac587,
     type: 3}
@@ -613,6 +612,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe76345507c2b1a4f94358cd70cf89c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1793911700709453500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3106219250084253351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec310d8e16aa27d41aebad35c2f4d866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3106219250170215766
