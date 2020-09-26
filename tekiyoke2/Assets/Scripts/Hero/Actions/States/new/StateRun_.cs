@@ -93,6 +93,9 @@ public class StateRun_ : HeroStateBase
                 hero.velocity.X - hero.Parameters.ForceOnGround * deltatime,
                 -hero.Parameters.GroundSpeedMax);
         }
+
+        hero.ApplySakamichi();
+        
         return this;
     }
 

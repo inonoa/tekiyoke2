@@ -51,6 +51,19 @@ public static class HeroPhysics
         if(hero.velocity.X > 0) hero.velocity.X = Mathf.Max(hero.velocity.X - friction * deltatime, 0);
         if(hero.velocity.X < 0) hero.velocity.X = Mathf.Min(hero.velocity.X + friction * deltatime, 0);
     }
+
+    public static void ApplySakamichi(this HeroMover hero)
+    {
+        float absVx = Mathf.Abs(hero.velocity.X);
+        if(hero.IsOnSakamichiL)
+        {
+            hero.velocity.Y = hero.WantsToGoRight ? -absVx :  absVx;
+        }
+        else if(hero.IsOnSakamichiR)
+        {
+            hero.velocity.Y = hero.WantsToGoRight ?  absVx : -absVx;
+        }
+    }
 }
 
 

@@ -19,10 +19,11 @@ MonoBehaviour:
   _TsuchihokoriInterval: 0.12
   _MoveInAirParams:
     _HorizontalForce: 200
-    _HorizontalResistance: 7
+    _HorizontalResistance: 20
     _HorizontalSpeedMax: 15
     _Gravity: 80
     _FallSpeedMax: 50
+    _KabezuriInterval: 0.1
   _JumpForce: 30
   _KickParams:
     _WallKickForce: {x: 15, y: 30}

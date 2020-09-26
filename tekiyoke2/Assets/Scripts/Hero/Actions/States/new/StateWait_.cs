@@ -43,6 +43,8 @@ public class StateWait_ : HeroStateBase
 
         hero.ApplyFriction(hero.Parameters.Friction, deltatime);
 
+        hero.ApplySakamichi();
+
         return this;
     }
 
