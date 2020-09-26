@@ -373,6 +373,11 @@ public class HeroMover : MonoBehaviour
         speedResidues.Add(new BaneResidue(toRight, force, 0.8f));
     }
 
+    public void OnGoal()
+    {
+        ChangeState(new StateRun_());
+    }
+
     ///<summary>天井に衝突したときに天井に張り付かないようにする</summary>
     void OnCollisionStay2D(Collision2D col)
     {
