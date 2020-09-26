@@ -33,15 +33,26 @@ public class StateJump_ : HeroStateBase
                                     return Dir.UL;
     }
 
+    IEnumerator kabezuriCoroutine;
+
     public override void Enter(HeroMover hero)
     {
         hero.velocity.Y = hero.Parameters.JumpForce;
 
         Start(hero);
+
+        if(canJump) hero.ObjsHolderForStates.JumpEffectPool.ActivateOne(hero.WantsToGoRight ? "r" : "l");
+        else        hero.ObjsHolderForStates.JumpEffectInAirPool.ActivateOne(hero.WantsToGoRight ? "r" : "l");
+        kabezuriCoroutine = hero.SpawnKabezuris(hero.Parameters.MoveInAirParams);
+        hero.StartCoroutine(kabezuriCoroutine);
+
+        hero.Jumped(isFromGround:canJump, isKick:false);
     }
+
     public override void Resume(HeroMover hero)
     {
         Start(hero);
+        hero.StartCoroutine(kabezuriCoroutine);
     }
 
     void Start(HeroMover hero)
@@ -77,6 +88,6 @@ public class StateJump_ : HeroStateBase
 
     public override void Exit(HeroMover hero)
     {
-        //
+        hero.StopCoroutine(kabezuriCoroutine);
     }
 }

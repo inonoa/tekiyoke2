@@ -7,6 +7,8 @@ public class StateFall_ : HeroStateBase
     bool right = true;
     bool canJump = true;
 
+    IEnumerator kabezuriCoroutine;
+
     public StateFall_(bool canJump = true)
     {
         this.canJump = canJump;
@@ -15,10 +17,13 @@ public class StateFall_ : HeroStateBase
     public override void Enter(HeroMover hero)
     {
         Start(hero);
+        kabezuriCoroutine = hero.SpawnKabezuris(hero.Parameters.MoveInAirParams);
+        hero.StartCoroutine(kabezuriCoroutine);
     }
     public override void Resume(HeroMover hero)
     {
         Start(hero);
+        hero.StartCoroutine(kabezuriCoroutine);
     }
 
     void Start(HeroMover hero)
@@ -69,6 +74,6 @@ public class StateFall_ : HeroStateBase
 
     public override void Exit(HeroMover hero)
     {
-        //
+        hero.StopCoroutine(kabezuriCoroutine);
     }
 }

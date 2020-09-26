@@ -42,13 +42,14 @@ public class MoveInAirParams
     [SerializeField] float _HorizontalSpeedMax = 15f;
     [SerializeField] float _Gravity = 80f;
     [SerializeField] float _FallSpeedMax = 50f;
+    [SerializeField] float _KabezuriInterval = 0.1f;
 
     public float HorizontalForce => _HorizontalForce;
     public float HorizontalResistance => _HorizontalResistance;
     public float HorizontalSpeedMax => _HorizontalSpeedMax;
     public float Gravity => _Gravity;
     public float FallSpeedMax => _FallSpeedMax;
-    
+    public float KabezuriInterval => _KabezuriInterval;
 }
 
 [Serializable]

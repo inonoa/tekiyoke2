@@ -9,6 +9,8 @@ public class StateKick_ : HeroStateBase
 
     float fromKick = 0;
 
+    IEnumerator kabezuriCoroutine;
+
     public StateKick_(bool toRight, bool canJump = true)
     {
         this.right = toRight;
@@ -23,10 +25,16 @@ public class StateKick_ : HeroStateBase
         hero.CanMove = false;
 
         hero.SetAnim("jumpf");
+        hero.ObjsHolderForStates.JumpEffectPool.ActivateOne(right ? "kr" : "kl");
+        kabezuriCoroutine = hero.SpawnKabezuris(hero.Parameters.MoveInAirParams);
+        hero.StartCoroutine(kabezuriCoroutine);
+
+        hero.Jumped(isFromGround:false, isKick:true);
     }
     public override void Resume(HeroMover hero)
     {
         hero.SetAnim("jumpf");
+        hero.StartCoroutine(kabezuriCoroutine);
     }
 
     public override HeroStateBase HandleInput(HeroMover hero, IAskedInput input)
@@ -67,5 +75,6 @@ public class StateKick_ : HeroStateBase
     public override void Exit(HeroMover hero)
     {
         hero.CanMove = true; //これええんかな
+        hero.StopCoroutine(kabezuriCoroutine);
     }
 }

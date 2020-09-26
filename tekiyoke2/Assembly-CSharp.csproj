@@ -110,6 +110,7 @@
      <Compile Include="Assets\Scripts\Hero\Effects\JetStream.cs" />
      <Compile Include="Assets\Scripts\Hero\Effects\JumpEffect.cs" />
      <Compile Include="Assets\Scripts\Hero\Effects\Kabezuri.cs" />
+     <Compile Include="Assets\Scripts\Hero\Effects\SpawnKabezuris.cs" />
      <Compile Include="Assets\Scripts\Hero\Effects\Tsuchihokori.cs" />
      <Compile Include="Assets\Scripts\Hero\GetDPinEnemy.cs" />
      <Compile Include="Assets\Scripts\Hero\HeroAnim.cs" />
