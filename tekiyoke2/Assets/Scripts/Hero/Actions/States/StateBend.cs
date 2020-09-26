@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+namespace OldStates{
+
 public class StateBend : HeroState
 {
     HeroMover hero;
@@ -58,4 +60,6 @@ public class StateBend : HeroState
             hero.CanBeDamaged = true;
         }
     }
+}
+
 }

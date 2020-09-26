@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+namespace OldStates{
+
 public class StateWait : HeroState
 {
     HeroMover hero;
@@ -42,4 +44,6 @@ public class StateWait : HeroState
     }
 
     public override void Exit(){ }
+}
+
 }

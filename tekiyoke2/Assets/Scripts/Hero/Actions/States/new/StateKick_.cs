@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StateKick_ : HeroStateBase
+public class StateKick : HeroState
 {
     bool canJump = true;
     bool right;
@@ -11,7 +11,7 @@ public class StateKick_ : HeroStateBase
 
     IEnumerator kabezuriCoroutine;
 
-    public StateKick_(bool toRight, bool canJump = true)
+    public StateKick(bool toRight, bool canJump = true)
     {
         this.right = toRight;
         this.canJump = canJump;
@@ -37,19 +37,19 @@ public class StateKick_ : HeroStateBase
         hero.StartCoroutine(kabezuriCoroutine);
     }
 
-    public override HeroStateBase HandleInput(HeroMover hero, IAskedInput input)
+    public override HeroState HandleInput(HeroMover hero, IAskedInput input)
     {
-        if(hero.IsReady2Kick2Left(input))  return new StateKick_(toRight: false, canJump);
-        if(hero.IsReady2Kick2Right(input)) return new StateKick_(toRight: true,  canJump);
+        if(hero.IsReady2Kick2Left(input))  return new StateKick(toRight: false, canJump);
+        if(hero.IsReady2Kick2Right(input)) return new StateKick(toRight: true,  canJump);
 
         if(input.GetButtonDown(ButtonCode.Jump))
         {
-            if(canJump) return new StateJump_(canJump: false);
+            if(canJump) return new StateJump(canJump: false);
         }
 
         return this;
     }
-    public override HeroStateBase Update_(HeroMover hero, float deltatime)
+    public override HeroState Update_(HeroMover hero, float deltatime)
     {
         if(fromKick < hero.Parameters.KickParams.FromKickToInputEnabled)
         {
@@ -66,7 +66,7 @@ public class StateKick_ : HeroStateBase
 
         if(hero.velocity.Y < 0)
         {
-            return new StateFall_(canJump);
+            return new StateFall(canJump);
         }
 
         return this;

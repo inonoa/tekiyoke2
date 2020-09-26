@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+namespace OldStates{
+
 ///<summary>「ジャンプ中」などの主人公の状態はこれを継承したクラスの形で記述します
 ///それはそうとメソッド作りすぎたかもな… / OnLand() みたいなのあってもいいかもな…
 /// / Stateの配列をScriptableObjectにしてそこから拾ってくるみたいな実装にしたらStateにPrefabとか持てそう？</summary>
@@ -23,3 +25,4 @@ public abstract class HeroState
     }
 }
 
+}

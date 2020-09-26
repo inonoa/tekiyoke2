@@ -5,14 +5,14 @@ using System;
 using DG.Tweening;
 using UniRx;
 
-public class StateJet_ : HeroStateBase
+public class StateJet : HeroState
 {
     float charge_0_1;
     bool needExit = false;
     Subject<Unit> _OnJetCompleted = new Subject<Unit>();
     public IObservable<Unit> OnJetCompleted => _OnJetCompleted;
     HeroTween hTween;
-    public StateJet_(float charge_0_1)
+    public StateJet(float charge_0_1)
     {
         this.charge_0_1 = charge_0_1;
     }
@@ -56,17 +56,17 @@ public class StateJet_ : HeroStateBase
         hero.SetAnim("fall");
     }
 
-    public override HeroStateBase HandleInput(HeroMover hero, IAskedInput input)
+    public override HeroState HandleInput(HeroMover hero, IAskedInput input)
     {
         return this;
     }
-    public override HeroStateBase Update_(HeroMover hero, float deltatime)
+    public override HeroState Update_(HeroMover hero, float deltatime)
     {
         (float move, bool completed) = hTween.Update(deltatime);
         hero.velocity = new HeroVelocity(move, 0);
         if(completed)
         {
-            return new StateWait_();
+            return new StateWait();
         }
         return this;
     }

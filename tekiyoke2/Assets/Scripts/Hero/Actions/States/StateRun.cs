@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+namespace OldStates{
+
 public class StateRun : HeroState
 {
     //こういうのをScriptableObjectにしたらいじりやすくなるな確かに
@@ -97,4 +99,6 @@ public class StateRun : HeroState
         hero.StopCoroutine(tsuchihokoriCoroutine);
         hero.SoundGroup.Stop("Run");
     }
+}
+
 }

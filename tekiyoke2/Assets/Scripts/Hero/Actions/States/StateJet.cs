@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
+namespace OldStates{
+
 public class StateJet : HeroState
 {
     static readonly float timeScaleBeforeJet = 0.2f;
@@ -250,4 +252,6 @@ public class StateJet : HeroState
             pe.IsActive = false;
         }
     }
+}
+
 }

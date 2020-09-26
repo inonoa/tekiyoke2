@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+namespace OldStates{
+
 public class StateKick : HeroState, IAskCanJump
 {
     static readonly float kickForceY = 30;
@@ -117,4 +119,6 @@ public class StateKick : HeroState, IAskCanJump
     public override void Exit(){
         hero.StopCoroutine(kabezuriCoroutine);
     }
+}
+
 }

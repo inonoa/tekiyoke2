@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StateFall_ : HeroStateBase
+public class StateFall : HeroState
 {
     bool right = true;
     bool canJump = true;
 
     IEnumerator kabezuriCoroutine;
 
-    public StateFall_(bool canJump = true)
+    public StateFall(bool canJump = true)
     {
         this.canJump = canJump;
     }
@@ -32,14 +32,14 @@ public class StateFall_ : HeroStateBase
         hero.SetAnim("fall");
     }
 
-    public override HeroStateBase HandleInput(HeroMover hero, IAskedInput input)
+    public override HeroState HandleInput(HeroMover hero, IAskedInput input)
     {
-        if(hero.IsReady2Kick2Left(input))  return new StateKick_(toRight: false, canJump);
-        if(hero.IsReady2Kick2Right(input)) return new StateKick_(toRight: true,  canJump);
+        if(hero.IsReady2Kick2Left(input))  return new StateKick(toRight: false, canJump);
+        if(hero.IsReady2Kick2Right(input)) return new StateKick(toRight: true,  canJump);
 
         if(input.GetButtonDown(ButtonCode.Jump))
         {
-            if(canJump) return new StateJump_(canJump: false);
+            if(canJump) return new StateJump(canJump: false);
         }
 
         if(     hero.KeyDirection == 1  && !right)
@@ -56,7 +56,7 @@ public class StateFall_ : HeroStateBase
         return this;
     }
 
-    public override HeroStateBase Update_(HeroMover hero, float deltatime)
+    public override HeroState Update_(HeroMover hero, float deltatime)
     {
         hero.HorizontalMoveInAir(hero.Parameters.MoveInAirParams, deltatime);
 
@@ -65,8 +65,8 @@ public class StateFall_ : HeroStateBase
         if(hero.IsOnGround)
         {
             hero.SoundGroup.Play("Land");
-            if(hero.KeyDirection == 0) return new StateWait_();
-            else                       return new StateRun_();
+            if(hero.KeyDirection == 0) return new StateWait();
+            else                       return new StateRun();
         }
 
         return this;
