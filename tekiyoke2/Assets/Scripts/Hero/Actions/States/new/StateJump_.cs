@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StateJump_ : HeroStateBase
+public class StateJump : HeroState
 {
-    bool canJump = true;
-    public StateJump_(bool canJump = true)
+    bool canJump;
+    float force;
+    public StateJump(bool canJump = true, float force = -1)
     {
         this.canJump = canJump;
+        this.force   = force;
     }
 
     enum Dir{ FR, UR, FL, UL }
@@ -37,7 +39,7 @@ public class StateJump_ : HeroStateBase
 
     public override void Enter(HeroMover hero)
     {
-        hero.velocity.Y = hero.Parameters.JumpForce;
+        hero.velocity.Y = force == -1 ? hero.Parameters.JumpForce : force;
 
         Start(hero);
 
@@ -61,18 +63,18 @@ public class StateJump_ : HeroStateBase
         _dir = CalcDir(hero);
     }
 
-    public override HeroStateBase HandleInput(HeroMover hero, IAskedInput input)
+    public override HeroState HandleInput(HeroMover hero, IAskedInput input)
     {
         if(canJump && input.GetButtonDown(ButtonCode.Jump))
         {
-            return new StateJump_(canJump: false);
+            return new StateJump(canJump: false);
         }
 
         SetDir(CalcDir(hero), hero);
 
         return this;
     }
-    public override HeroStateBase Update_(HeroMover hero, float deltatime)
+    public override HeroState Update_(HeroMover hero, float deltatime)
     {
         hero.HorizontalMoveInAir(hero.Parameters.MoveInAirParams, deltatime);
 
@@ -80,7 +82,7 @@ public class StateJump_ : HeroStateBase
 
         if(hero.velocity.Y < 0)
         {
-            return new StateFall_(canJump);
+            return new StateFall(canJump);
         }
 
         return this;

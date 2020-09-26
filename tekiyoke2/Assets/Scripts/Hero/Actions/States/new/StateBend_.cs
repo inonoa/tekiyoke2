@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class StateBend_ : HeroStateBase
+public class StateBend : HeroState
 {
 
     float secondsAfterEnter = 0;
@@ -20,11 +20,11 @@ public class StateBend_ : HeroStateBase
         hero.CanMove = false;
     }
 
-    public override HeroStateBase HandleInput(HeroMover hero, IAskedInput input)
+    public override HeroState HandleInput(HeroMover hero, IAskedInput input)
     {
         return this;
     }
-    public override HeroStateBase Update_(HeroMover hero, float deltatime)
+    public override HeroState Update_(HeroMover hero, float deltatime)
     {
         hero.ApplyGravity(hero.Parameters.MoveInAirParams, deltatime);
 
@@ -33,7 +33,7 @@ public class StateBend_ : HeroStateBase
         secondsAfterEnter += deltatime;
         if(secondsAfterEnter >= hero.Parameters.BendBackSeconds)
         {
-            return new StateFall_();
+            return new StateFall();
         }
 
         return this;

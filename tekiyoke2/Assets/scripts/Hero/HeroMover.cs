@@ -8,10 +8,11 @@ using UniRx;
 using DG.Tweening;
 using System.Linq;
 
+
 ///<summary>最終的には各機能をまとめる役割と渉外担当みたいな役割とだけを持たせたい</summary>
 public class HeroMover : MonoBehaviour
 {
-    public Stack<HeroState> States;
+    public Stack<OldStates.HeroState> States;
 
 
     #region 移動関係の(だいたい)定数
@@ -144,7 +145,7 @@ public class HeroMover : MonoBehaviour
 
     public JetManager JetManager{ get; private set; }
 
-    HeroStateBase currrentState;
+    HeroState currrentState;
     public string CurrentStateStr() => currrentState.ToString();
 
 
@@ -199,7 +200,7 @@ public class HeroMover : MonoBehaviour
 
     void BendBack()
     {
-        ChangeState(new StateBend_());
+        ChangeState(new StateBend());
         ParticleSystem ps = transform.Find("Particle System").GetComponent<ParticleSystem>();
         ps.Play();
         chishibuki.StartCoroutine("StartChishibuki");
@@ -263,7 +264,7 @@ public class HeroMover : MonoBehaviour
 
         JetManager.Init(Input, this);
 
-        currrentState = new StateWait_();
+        currrentState = new StateWait();
         currrentState.Enter(this);
 
         getDPinEnemy.gotDP += (dp, e) => {
@@ -308,7 +309,7 @@ public class HeroMover : MonoBehaviour
 
                 UpdateMoveDirection();
 
-                HeroStateBase next = currrentState.HandleInput(this, Input);
+                HeroState next = currrentState.HandleInput(this, Input);
                 if(next != currrentState)
                 {
                     ChangeState(next);
@@ -326,7 +327,7 @@ public class HeroMover : MonoBehaviour
 
         if(IsFrozen) return;
 
-        HeroStateBase next = currrentState.Update_(this, Time.fixedDeltaTime);
+        HeroState next = currrentState.Update_(this, Time.fixedDeltaTime);
         if(next != currrentState)
         {
             ChangeState(next);
@@ -348,7 +349,7 @@ public class HeroMover : MonoBehaviour
         expectedPosition.y = transform.position.y + residueApplied.y * Time.timeScale;
     }
 
-    void ChangeState(HeroStateBase next)
+    void ChangeState(HeroState next)
     {
         currrentState.Exit(this);
         currrentState = next;
@@ -357,7 +358,7 @@ public class HeroMover : MonoBehaviour
 
     public IObservable<Unit> Jet(float charge_0_1)
     {
-        var state = new StateJet_(charge_0_1);
+        var state = new StateJet(charge_0_1);
         //Changeこれでええんかな
         ChangeState(state);
         return state.OnJetCompleted;
@@ -375,7 +376,12 @@ public class HeroMover : MonoBehaviour
 
     public void OnGoal()
     {
-        ChangeState(new StateRun_());
+        ChangeState(new StateRun());
+    }
+
+    public void ForceJump(float force = -1)
+    {
+        ChangeState(new StateJump(force: force));
     }
 
     ///<summary>天井に衝突したときに天井に張り付かないようにする</summary>

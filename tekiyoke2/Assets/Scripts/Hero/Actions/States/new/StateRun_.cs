@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StateRun_ : HeroStateBase
+public class StateRun : HeroState
 {
     bool right = true;
 
@@ -38,15 +38,15 @@ public class StateRun_ : HeroStateBase
         }
     }
 
-    public override HeroStateBase HandleInput(HeroMover hero, IAskedInput input)
+    public override HeroState HandleInput(HeroMover hero, IAskedInput input)
     {
         if(input.GetButtonDown(ButtonCode.Jump))
         {
-            return new StateJump_();
+            return new StateJump();
         }
         if(! (input.GetButton(ButtonCode.Right) || input.GetButton(ButtonCode.Left)))
         {
-            return new StateWait_();
+            return new StateWait();
         }
 
         if(hero.KeyDirection == 1  && !right)
@@ -62,7 +62,7 @@ public class StateRun_ : HeroStateBase
 
         return this;
     }
-    public override HeroStateBase Update_(HeroMover hero, float deltatime)
+    public override HeroState Update_(HeroMover hero, float deltatime)
     {
         hero.velocity.Y = 0;
 
@@ -73,12 +73,12 @@ public class StateRun_ : HeroStateBase
         else
         {
             fromNoGround += deltatime;
-            if(fromNoGround >= hero.Parameters.CoyoteTime) return new StateFall_();
+            if(fromNoGround >= hero.Parameters.CoyoteTime) return new StateFall();
         }
 
         if(hero.KeyDirection == 0)
         {
-            return new StateWait_();
+            return new StateWait();
         }
 
         if(     hero.KeyDirection == 1)

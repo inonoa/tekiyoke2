@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StateWait_ : HeroStateBase
+public class StateWait : HeroState
 {
     float fromNoGround = 0f;
 
@@ -15,19 +15,19 @@ public class StateWait_ : HeroStateBase
         hero.SetAnim("stand");
     }
 
-    public override HeroStateBase HandleInput(HeroMover hero, IAskedInput input)
+    public override HeroState HandleInput(HeroMover hero, IAskedInput input)
     {
         if(input.GetButtonDown(ButtonCode.Jump))
         {
-            return new StateJump_();
+            return new StateJump();
         }
         if(input.GetButton(ButtonCode.Right) || input.GetButton(ButtonCode.Left))
         {
-            return new StateRun_();
+            return new StateRun();
         }
         return this;
     }
-    public override HeroStateBase Update_(HeroMover hero, float deltatime)
+    public override HeroState Update_(HeroMover hero, float deltatime)
     {
         if(hero.IsOnGround)
         {
@@ -36,7 +36,7 @@ public class StateWait_ : HeroStateBase
         else
         {
             fromNoGround += deltatime;
-            if(fromNoGround >= hero.Parameters.CoyoteTime) return new StateFall_();
+            if(fromNoGround >= hero.Parameters.CoyoteTime) return new StateFall();
         }
 
         hero.velocity.Y = 0;

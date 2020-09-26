@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+namespace OldStates{
+
 public class StateBaneYoko : HeroState
 {
     static readonly float speedBreak = 0.5f;
@@ -108,4 +110,6 @@ public class StateBaneYoko : HeroState
     public override void Exit(){
         if(hero.KeyDirection != 0);//hero.EyeToRight = (hero.KeyDirection == 1);
     }
+}
+
 }

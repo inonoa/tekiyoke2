@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+namespace OldStates{
+
 public class StateJump : HeroState, IAskCanJump
 {
     static readonly int inputLatency4Kick = 3;
@@ -86,4 +88,6 @@ public class StateJump : HeroState, IAskCanJump
         hero.Input.SetInputLatency(ButtonCode.Left,0);
         hero.Input.SetInputLatency(ButtonCode.Jump,0);
     }
+}
+
 }

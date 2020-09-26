@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+namespace OldStates{
+
 public class StateUseless : HeroState
 {
     public override void Start(){ }
@@ -13,4 +15,6 @@ public class StateUseless : HeroState
     public override void Try2StartMove(bool toRight){ }
     public override void Try2EndMove(){ }
     public override void Exit(){ }
+}
+
 }
