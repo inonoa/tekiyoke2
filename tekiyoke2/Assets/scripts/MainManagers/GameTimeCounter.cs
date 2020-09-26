@@ -62,6 +62,6 @@ public class GameTimeCounter : MonoBehaviour
             numImages[i].sprite = Char2NumSprite(timeStr[i]);
         }
 
-        if(DoesTick) Seconds += Time.timeScale * Time.deltaTime;
+        if(DoesTick) Seconds += Time.deltaTime;
     }
 }
