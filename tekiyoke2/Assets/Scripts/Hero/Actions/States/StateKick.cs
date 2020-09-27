@@ -2,123 +2,79 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace OldStates{
-
-public class StateKick : HeroState, IAskCanJump
+public class StateKick : HeroState
 {
-    static readonly float kickForceY = 30;
-    static readonly float moveForce = 0.38f;
-    static readonly int frames2BeFree = 20;
-    int frames2BeFreeNow = frames2BeFree;
-    readonly bool toRight;
-    readonly bool canJump;
-    public bool CanJump => canJump;
+    bool canJump = true;
+    bool right;
 
-    static readonly float kabezuriInterval = 0.1f;
-    Coroutine kabezuriCoroutine;
-    HeroMover hero;
-    public StateKick(HeroMover hero, bool kick2Right, bool canJump){
-        this.hero = hero;
-        toRight = kick2Right;
+    float fromKick = 0;
+
+    IEnumerator kabezuriCoroutine;
+
+    public StateKick(bool toRight, bool canJump = true)
+    {
+        this.right = toRight;
         this.canJump = canJump;
     }
-    public override void Start(){
-        hero.Jumped(false, true);
 
-        hero.Anim.SetTrigger(toRight ? "jumprf" : "jumplf");
-        //hero.EyeToRight = toRight;
-        hero.SoundGroup.Play("Jump");
+    public override void Enter(HeroMover hero)
+    {
+        HeroVelocity firstSpeed = hero.Parameters.KickParams.KickForce.ToHeroVel();
+        if(!right) firstSpeed.X *= -1;
+        hero.velocity = firstSpeed;
+        hero.CanMove = false;
 
-        hero.ObjsHolderForStates.JumpEffectPool.ActivateOne(toRight ? "kr" : "kl");
-        kabezuriCoroutine = hero.StartCoroutine(SpawnKabezuris());
+        hero.SetAnim("jumpf");
+        hero.ObjsHolderForStates.JumpEffectPool.ActivateOne(right ? "kr" : "kl");
+        kabezuriCoroutine = hero.SpawnKabezuris(hero.Parameters.MoveInAirParams);
+        hero.StartCoroutine(kabezuriCoroutine);
 
-        hero.velocity.X = toRight ? HeroMover.moveSpeed : -HeroMover.moveSpeed;
-        hero.velocity.Y = kickForceY;
+        hero.Jumped(isFromGround:false, isKick:true);
+    }
+    public override void Resume(HeroMover hero)
+    {
+        hero.SetAnim("jumpf");
+        hero.StartCoroutine(kabezuriCoroutine);
     }
 
+    public override HeroState HandleInput(HeroMover hero, IAskedInput input)
+    {
+        if(hero.IsReady2Kick2Left(input))  return new StateKick(toRight: false, canJump);
+        if(hero.IsReady2Kick2Right(input)) return new StateKick(toRight: true,  canJump);
 
-    IEnumerator SpawnKabezuris(){
-        Try2SpawnKabezuri();
-
-        while(true){
-            yield return new WaitForSeconds(kabezuriInterval);
-
-            Try2SpawnKabezuri();
-        }
-    }
-
-    void Try2SpawnKabezuri(){
-        if(hero.velocity.Y > 0) return;
-
-        bool dir_is_R;
-
-        if(hero.CanKickFromWallR && hero.CanKickFromWallL) dir_is_R = hero.WantsToGoRight;
-        else if(hero.CanKickFromWallR)                     dir_is_R = true;
-        else if(hero.CanKickFromWallL)                     dir_is_R = false;
-        else return;
-
-        hero.ObjsHolderForStates.KabezuriPool.ActivateOne(dir_is_R ? "r" : "l");
-    }
-
-    public override void Resume(){
-        if(hero.velocity.Y > 0) hero.Anim.SetTrigger(toRight ? "jumprf" : "jumplf");
-        else                    hero.Anim.SetTrigger(toRight ? "fallr"  : "falll");
-    }
-
-    public override void Update(){
-
-        if(hero.IsOnGround && hero.velocity.Y <= 0){
-            hero.States.Push(new StateWait(hero));
-            return;
+        if(input.GetButtonDown(ButtonCode.Jump))
+        {
+            if(canJump) return new StateJump(canJump: false);
         }
 
-        hero.velocity.Y -= HeroMover.gravity * Time.timeScale;
-        if(hero.velocity.Y < 0){
-            if(frames2BeFreeNow > 0) hero.Anim.SetTrigger(toRight         ? "fallr" : "falll");
-            else                     hero.Anim.SetTrigger(hero.WantsToGoRight ? "fallr" : "falll");
-            //これ単にFallに遷移するほうがいいんじゃないの……？
-        }
-
-        if(frames2BeFreeNow > 0) frames2BeFreeNow --;
-
-        else{
-            switch(hero.KeyDirection){
-
-                case 1:
-                    if(toRight) hero.velocity.X = HeroMover.moveSpeed;
-                    else        hero.velocity.X = System.Math.Min( HeroMover.moveSpeed, hero.velocity.X + moveForce);
-                    break;
-
-                case -1:
-                    if(toRight) hero.velocity.X = System.Math.Max(-HeroMover.moveSpeed, hero.velocity.X - moveForce);
-                    else        hero.velocity.X = -HeroMover.moveSpeed;
-                    break;
-
-                case 0:
-                    if(toRight) hero.velocity.X = System.Math.Max(0, hero.velocity.X - moveForce / 2);
-                    else        hero.velocity.X = System.Math.Min(0, hero.velocity.X + moveForce / 2);
-                    break;
+        return this;
+    }
+    public override HeroState Update_(HeroMover hero, float deltatime)
+    {
+        if(fromKick < hero.Parameters.KickParams.FromKickToInputEnabled)
+        {
+            fromKick += deltatime;
+            if(fromKick >= hero.Parameters.KickParams.FromKickToInputEnabled)
+            {
+                hero.CanMove = true;
             }
         }
-    }
-    public override void Try2StartJet(){
-        if(frames2BeFreeNow == 0) hero.States.Push(new StateJet(hero));
-    }
-    public override void Try2EndJet(){ }
-    public override void Try2Jump(){
-        if(frames2BeFreeNow == 0){
 
-            if(hero.CanKickFromWallL)      hero.States.Push(new StateKick(hero, true,  canJump));
-            else if(hero.CanKickFromWallR) hero.States.Push(new StateKick(hero, false, canJump));
+        hero.HorizontalMoveInAir(hero.Parameters.MoveInAirParams, deltatime);
 
-            else if(canJump) hero.States.Push(new StateJump(hero, false));
+        hero.ApplyGravity(hero.Parameters.MoveInAirParams, deltatime);
+
+        if(hero.velocity.Y < 0)
+        {
+            return new StateFall(canJump);
         }
+
+        return this;
     }
-    public override void Try2StartMove(bool toRight){ }
-    public override void Try2EndMove(){ }
-    public override void Exit(){
+
+    public override void Exit(HeroMover hero)
+    {
+        hero.CanMove = true; //これええんかな
         hero.StopCoroutine(kabezuriCoroutine);
     }
-}
-
 }

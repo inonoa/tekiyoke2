@@ -1,65 +1,46 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-namespace OldStates{
+using DG.Tweening;
 
 public class StateBend : HeroState
 {
-    HeroMover hero;
-    static readonly (float X, float Y) bendForce = (15, 10);
-    static readonly int bendFrames = 100;
-    int bendFramesNow = bendFrames;
-    static readonly int frames_CantUpdate = 3;
-    int framesAfterBent = 0;
-    public StateBend(HeroMover hero){ // 引き数にtoRight入れる？
-        this.hero = hero;
+
+    float secondsAfterEnter = 0;
+    public override void Enter(HeroMover hero)
+    {
+        hero.CanMove = false;
+
+        HeroVelocity vel = hero.Parameters.BendBackForce.ToHeroVel();
+        if(!hero.WantsToGoRight) vel.X *= -1;
+        hero.velocity = vel;
     }
-    public override void Start(){
-        if(hero.velocity.X != 0)
-            hero.velocity.X = (hero.velocity.X > 0) ? -bendForce.X : bendForce.X;
-        else
-            hero.velocity.X =  hero.WantsToGoRight      ? -bendForce.X : bendForce.X;
-        
-        hero.velocity.Y = bendForce.Y;
-
-        hero.Anim.SetTrigger( (hero.velocity.X > 0) ? "jumprf" : "jumplf" );
-
-        hero.CanBeDamaged = false;
-
-        CameraController.CurrentCamera.Freeze(num_frames: 20);
+    public override void Resume(HeroMover hero)
+    {
+        hero.CanMove = false;
     }
 
-    public override void Resume(){
-        hero.Anim.SetTrigger( (hero.velocity.X > 0) ? "jumprf" : "jumplf" );
+    public override HeroState HandleInput(HeroMover hero, IAskedInput input)
+    {
+        return this;
     }
+    public override HeroState Update_(HeroMover hero, float deltatime)
+    {
+        hero.ApplyGravity(hero.Parameters.MoveInAirParams, deltatime);
 
-    public override void Update(){
+        hero.ApplyFriction(hero.Parameters.Friction, deltatime);
 
-        if(framesAfterBent == frames_CantUpdate){
-            if(hero.IsOnGround) hero.States.Push(new StateWait(hero));
-
-            bendFramesNow --;
-            if(bendFramesNow == 0) hero.States.Push(new StateWait(hero));
-
-            hero.velocity.Y -= HeroMover.gravity * Time.timeScale;
-
-        }else{
-            framesAfterBent ++;
+        secondsAfterEnter += deltatime;
+        if(secondsAfterEnter >= hero.Parameters.BendBackSeconds)
+        {
+            return new StateFall();
         }
-    }
-    public override void Try2StartJet(){ }
-    public override void Try2EndJet(){ }
-    public override void Try2Jump(){ }
-    public override void Try2StartMove(bool toRight){ }
-    public override void Try2EndMove(){ }
-    public override void Exit(){
 
-        if(hero.HpCntr.HP > 0){
-            hero.CanMove = true;
-            hero.CanBeDamaged = true;
-        }
+        return this;
     }
-}
 
+    public override void Exit(HeroMover hero)
+    {
+        hero.CanMove = true;
+    }
 }

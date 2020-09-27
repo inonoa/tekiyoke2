@@ -2,48 +2,54 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace OldStates{
-
 public class StateWait : HeroState
 {
-    HeroMover hero;
-    public StateWait(HeroMover hero){
-        this.hero = hero;
-    }
-    public override void Try2StartJet(){
-        hero.States.Push(new StateJet(hero));
-    }
-    public override void Try2EndJet(){ }
-    public override void Try2Jump(){
-        hero.States.Push(new StateJump(hero));
-    }
-    public override void Try2StartMove(bool toRight){
-        hero.States.Push(new StateRun(hero));
-        if(toRight) hero.velocity.X =  HeroMover.moveSpeed;
-        else        hero.velocity.X = -HeroMover.moveSpeed;
-    }
-    public override void Try2EndMove(){ }
-    public override void Start(){
+    float fromNoGround = 0f;
 
-        hero.velocity = new HeroVelocity(0,0);
-        hero.Anim.SetTrigger(hero.WantsToGoRight ? "standr" : "standl");
+    public override void Enter(HeroMover hero)
+    {
+        hero.SetAnim("stand");
+    }
+    public override void Resume(HeroMover hero)
+    {
+        hero.SetAnim("stand");
     }
 
-    public override void Resume(){
-        hero.Anim.SetTrigger(hero.WantsToGoRight ? "standr" : "standl");
-    }
-    public override void Update(){
-        if(!hero.IsOnGround){
-            hero.States.Push(new StateFall(hero));
-            return;
+    public override HeroState HandleInput(HeroMover hero, IAskedInput input)
+    {
+        if(input.GetButtonDown(ButtonCode.Jump))
+        {
+            return new StateJump();
         }
-        if(hero.KeyDirection != 0){
-            hero.States.Push(new StateRun(hero));
-            return;
+        if(input.GetButton(ButtonCode.Right) || input.GetButton(ButtonCode.Left))
+        {
+            return new StateRun();
         }
+        return this;
+    }
+    public override HeroState Update_(HeroMover hero, float deltatime)
+    {
+        if(hero.IsOnGround)
+        {
+            fromNoGround = 0f;
+        }
+        else
+        {
+            fromNoGround += deltatime;
+            if(fromNoGround >= hero.Parameters.CoyoteTime) return new StateFall();
+        }
+
+        hero.velocity.Y = 0;
+
+        hero.ApplyFriction(hero.Parameters.Friction, deltatime);
+
+        hero.ApplySakamichi();
+
+        return this;
     }
 
-    public override void Exit(){ }
-}
-
+    public override void Exit(HeroMover hero)
+    {
+        //
+    }
 }
