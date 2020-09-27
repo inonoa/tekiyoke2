@@ -117,8 +117,8 @@ public class HeroMover : MonoBehaviour
             }
         }
 
-        leftLast  = Input.GetButton(ButtonCode.Left);
-        rightLast = Input.GetButton(ButtonCode.Right);
+        leftLast  = left;
+        rightLast = right;
     }
 
     public event EventHandler jumped;
