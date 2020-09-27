@@ -101,6 +101,7 @@ public class StateRun : HeroState
 
     public override void Exit(HeroMover hero)
     {
+        hero.SoundGroup.Stop("Run");
         hero.StopCoroutine(tsuchihokotiCoroutine);
     }
 }
