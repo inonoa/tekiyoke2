@@ -71,26 +71,30 @@ public class HeroMover : MonoBehaviour
         transform.position = new Vector3(x,y,transform.position.z);
     }
     
-
+    bool leftLast  = false;
+    bool rightLast = false;
     void UpdateMoveDirection()
     {
         if(!CanMove) return;
+
+        bool left  = Input.GetButton(ButtonCode.Left);
+        bool right = Input.GetButton(ButtonCode.Right);
         
-        if(Input.GetButtonDown(ButtonCode.Right)      && KeyDirection != 1)
+        if(     !rightLast && right && KeyDirection != 1)
         {
             KeyDirection = 1;
             WantsToGoRight = true;
         }
-        else if(Input.GetButtonDown(ButtonCode.Left)  && KeyDirection != -1)
+        else if(!leftLast  && left  && KeyDirection != -1)
         {
             KeyDirection = -1;
             WantsToGoRight = false;
         }
 
         //ボタンを離したときはさっきまで動いていた向きによって挙動が変わる
-        else if(Input.GetButtonUp(ButtonCode.Right) && KeyDirection == 1)
+        else if(rightLast && !right && KeyDirection == 1)
         {
-            if(Input.GetButton(ButtonCode.Left))
+            if(left)
             {
                 KeyDirection = -1;
                 WantsToGoRight = false;
@@ -100,9 +104,9 @@ public class HeroMover : MonoBehaviour
                 KeyDirection = 0;
             }
         }
-        else if(Input.GetButtonUp(ButtonCode.Left)  && KeyDirection == -1)
+        else if(leftLast  && !left  && KeyDirection == -1)
         {
-            if(Input.GetButton(ButtonCode.Right))
+            if(right)
             {
                 KeyDirection = 1;
                 WantsToGoRight = true;
@@ -112,6 +116,9 @@ public class HeroMover : MonoBehaviour
                 KeyDirection = 0;
             }
         }
+
+        leftLast  = left;
+        rightLast = right;
     }
 
     public event EventHandler jumped;

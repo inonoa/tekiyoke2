@@ -2,92 +2,94 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace OldStates{
-
-public class StateJump : HeroState, IAskCanJump
+public class StateJump : HeroState
 {
-    static readonly int inputLatency4Kick = 3;
-    float jumpForce;
-    HeroMover hero;
-    readonly bool canJump;
-    public bool CanJump => canJump;
-    public StateJump(HeroMover hero, bool canJump = true, float jumpForce = 30){
-        this.hero = hero;
+    bool canJump;
+    float force;
+    public StateJump(bool canJump = true, float force = -1)
+    {
         this.canJump = canJump;
-        this.jumpForce = jumpForce;
+        this.force   = force;
     }
-    public override void Try2StartJet(){
-        hero.States.Push(new StateJet(hero));
-    }
-    public override void Try2EndJet(){ }
-    public override void Try2Jump(){
-        IAskedInput input = hero.Input;
 
-        if(hero.CanKickFromWallL && input.GetButton(ButtonCode.Left) && input.GetButtonDown(ButtonCode.Jump)){
-            hero.States.Push(new StateKick(hero, true,  canJump));
-            
-        }else if(hero.CanKickFromWallR && input.GetButton(ButtonCode.Right) && input.GetButtonDown(ButtonCode.Jump)){
-            hero.States.Push(new StateKick(hero, false, canJump));
+    enum Dir{ FR, UR, FL, UL }
+    Dir _dir = Dir.UR;
+    void SetDir(Dir dir, HeroMover hero)
+    {
+        if(dir == _dir) return;
 
-        }else if(canJump) hero.States.Push(new StateJump(hero, false));
-    }
-    public override void Try2StartMove(bool toRight){
-        IAskedInput input = hero.Input;
-
-        if(toRight){
-            if(hero.CanKickFromWallR && input.GetButton(ButtonCode.Right) && input.GetButtonDown(ButtonCode.Jump))
-                hero.States.Push(new StateKick(hero, false, canJump));
-
-            hero.velocity.X =  HeroMover.moveSpeed;
-            hero.Anim.SetTrigger("jumprf");
-
-        }else{
-            if(hero.CanKickFromWallL && input.GetButton(ButtonCode.Left) && input.GetButtonDown(ButtonCode.Jump))
-                hero.States.Push(new StateKick(hero, true,  canJump));
-
-            hero.velocity.X = -HeroMover.moveSpeed;
-            hero.Anim.SetTrigger("jumplf");
+        _dir = dir;
+        switch(dir)
+        {
+            case Dir.FR: hero.Anim.SetTrigger("jumpfr"); break;
+            case Dir.FL: hero.Anim.SetTrigger("jumpfl"); break;
+            case Dir.UR: hero.Anim.SetTrigger("jumpur"); break;
+            case Dir.UL: hero.Anim.SetTrigger("jumpul"); break;
         }
     }
-    public override void Try2EndMove(){
-        hero.velocity.X = 0;
-        hero.Anim.SetTrigger(hero.WantsToGoRight ? "jumpru" : "jumplu");
+    Dir CalcDir(HeroMover hero)
+    {
+        if(hero.KeyDirection == 1)  return Dir.FR;
+        if(hero.KeyDirection == -1) return Dir.FL;
+        if(hero.WantsToGoRight)     return Dir.UR;
+                                    return Dir.UL;
     }
-    public override void Start(){
-        hero.velocity.Y = jumpForce;
-        hero.Jumped(canJump, false);
 
-        if     (hero.velocity.X > 0) hero.Anim.SetTrigger("jumprf");
-        else if(hero.velocity.X < 0) hero.Anim.SetTrigger("jumplf");
-        else if(hero.WantsToGoRight)     hero.Anim.SetTrigger("jumpru");
-        else                         hero.Anim.SetTrigger("jumplu");
+    IEnumerator kabezuriCoroutine;
+
+    public override void Enter(HeroMover hero)
+    {
+        hero.velocity.Y = force == -1 ? hero.Parameters.JumpForce : force;
+
+        Start(hero);
 
         if(canJump) hero.ObjsHolderForStates.JumpEffectPool.ActivateOne(hero.WantsToGoRight ? "r" : "l");
         else        hero.ObjsHolderForStates.JumpEffectInAirPool.ActivateOne(hero.WantsToGoRight ? "r" : "l");
+        kabezuriCoroutine = hero.SpawnKabezuris(hero.Parameters.MoveInAirParams);
+        hero.StartCoroutine(kabezuriCoroutine);
 
-        hero.SoundGroup.Play("Jump");
-        
-        hero.Input.SetInputLatency(ButtonCode.Right,inputLatency4Kick);
-        hero.Input.SetInputLatency(ButtonCode.Left, inputLatency4Kick);
-        hero.Input.SetInputLatency(ButtonCode.Jump, inputLatency4Kick);
-    }
-    public override void Resume(){
-        if     (hero.velocity.X > 0) hero.Anim.SetTrigger("jumprf");
-        else if(hero.velocity.X < 0) hero.Anim.SetTrigger("jumplf");
-        else if(hero.WantsToGoRight)     hero.Anim.SetTrigger("jumpru");
-        else                         hero.Anim.SetTrigger("jumplu");
+        hero.Jumped(isFromGround:canJump, isKick:false);
     }
 
-    public override void Update(){
-        hero.velocity.Y -= HeroMover.gravity * Time.timeScale;
-        if(hero.velocity.Y < 0) hero.States.Push(new StateFall(hero, canJump));
+    public override void Resume(HeroMover hero)
+    {
+        Start(hero);
+        hero.StartCoroutine(kabezuriCoroutine);
     }
 
-    public override void Exit(){
-        hero.Input.SetInputLatency(ButtonCode.Right,0);
-        hero.Input.SetInputLatency(ButtonCode.Left,0);
-        hero.Input.SetInputLatency(ButtonCode.Jump,0);
+    void Start(HeroMover hero)
+    {
+        hero.SetAnim(hero.KeyDirection == 0 ? "jumpu" : "jumpf");
+        _dir = CalcDir(hero);
     }
-}
 
+    public override HeroState HandleInput(HeroMover hero, IAskedInput input)
+    {
+        if(canJump && input.GetButtonDown(ButtonCode.Jump))
+        {
+            return new StateJump(canJump: false);
+        }
+
+        SetDir(CalcDir(hero), hero);
+
+        return this;
+    }
+    public override HeroState Update_(HeroMover hero, float deltatime)
+    {
+        hero.HorizontalMoveInAir(hero.Parameters.MoveInAirParams, deltatime);
+
+        hero.ApplyGravity(hero.Parameters.MoveInAirParams, deltatime);
+
+        if(hero.velocity.Y < 0)
+        {
+            return new StateFall(canJump);
+        }
+
+        return this;
+    }
+
+    public override void Exit(HeroMover hero)
+    {
+        hero.StopCoroutine(kabezuriCoroutine);
+    }
 }

@@ -46,8 +46,6 @@ public static class HeroPhysics
 
     public static void ApplyFriction(this HeroMover hero, float friction, float deltatime)
     {
-        if(!hero.IsOnGround) return;
-
         if(hero.velocity.X > 0) hero.velocity.X = Mathf.Max(hero.velocity.X - friction * deltatime, 0);
         if(hero.velocity.X < 0) hero.velocity.X = Mathf.Min(hero.velocity.X + friction * deltatime, 0);
     }

@@ -2,118 +2,78 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-namespace OldStates{
-
-public class StateFall : HeroState, IAskCanJump
+public class StateFall : HeroState
 {
-    static readonly int inputLatency4Kick = 3;
-    readonly bool canJump;
-    public bool CanJump => canJump;
-    static readonly int coyoteTime = 10;
+    bool right = true;
+    bool canJump = true;
 
-    static readonly float kabezuriInterval = 0.1f;
-    Coroutine kabezuriCoroutine;
+    IEnumerator kabezuriCoroutine;
 
-    HeroMover hero;
-
-    public StateFall(HeroMover hero, bool canJump = true){
-        this.hero = hero;
+    public StateFall(bool canJump = true)
+    {
         this.canJump = canJump;
     }
-    public override void Try2StartJet(){
-        hero.States.Push(new StateJet(hero));
+
+    public override void Enter(HeroMover hero)
+    {
+        Start(hero);
+        kabezuriCoroutine = hero.SpawnKabezuris(hero.Parameters.MoveInAirParams);
+        hero.StartCoroutine(kabezuriCoroutine);
     }
-    public override void Try2EndJet(){ }
-    public override void Try2Jump(){
-        IAskedInput input = hero.Input;
+    public override void Resume(HeroMover hero)
+    {
+        Start(hero);
+        hero.StartCoroutine(kabezuriCoroutine);
+    }
 
-        if(hero.CanKickFromWallL && input.GetButton(ButtonCode.Left) && input.GetButtonDown(ButtonCode.Jump)){
-            hero.States.Push(new StateKick(hero, true,  canJump));
-            
-        }else if(hero.CanKickFromWallR && input.GetButton(ButtonCode.Right) && input.GetButtonDown(ButtonCode.Jump)){
-            hero.States.Push(new StateKick(hero, false, canJump));
+    void Start(HeroMover hero)
+    {
+        right = hero.WantsToGoRight;
+        hero.SetAnim("fall");
+    }
 
-        }else if(canJump){
-            if(hero.FramesSinceTakeOff < coyoteTime) hero.States.Push(new StateJump(hero, true));
-            else hero.States.Push(new StateJump(hero, false));
+    public override HeroState HandleInput(HeroMover hero, IAskedInput input)
+    {
+        if(hero.IsReady2Kick2Left(input))  return new StateKick(toRight: false, canJump);
+        if(hero.IsReady2Kick2Right(input)) return new StateKick(toRight: true,  canJump);
+
+        if(input.GetButtonDown(ButtonCode.Jump))
+        {
+            if(canJump) return new StateJump(canJump: false);
         }
-    }
-    public override void Try2StartMove(bool toRight){
-        IAskedInput input = hero.Input;
 
-        if(toRight){
-            if(hero.CanKickFromWallR && input.GetButton(ButtonCode.Right) && input.GetButtonDown(ButtonCode.Jump))
-                hero.States.Push(new StateKick(hero, false, canJump));
-
-            hero.velocity.X =  HeroMover.moveSpeed;
-            hero.Anim.SetTrigger("fallr");
-
-        }else{
-            if(hero.CanKickFromWallL && input.GetButton(ButtonCode.Left) && input.GetButtonDown(ButtonCode.Jump))
-                hero.States.Push(new StateKick(hero, true,  canJump));
-                
-            hero.velocity.X = -HeroMover.moveSpeed;
-            hero.Anim.SetTrigger("falll");
+        if(     hero.KeyDirection == 1  && !right)
+        {
+            right = true;
+            hero.SetAnim("fall");
         }
-    }
-    public override void Try2EndMove(){
-        hero.velocity.X = 0;
-    }
-    public override void Start(){
-        hero.Anim.SetTrigger(hero.WantsToGoRight ? "fallr" : "falll");
-        kabezuriCoroutine = hero.StartCoroutine(SpawnKabezuris());
-        switch(hero.KeyDirection){
-            case 1 : hero.velocity.X = HeroMover.moveSpeed;  break;
-            case 0 : hero.velocity.X = 0;                    break;
-            case -1: hero.velocity.X = -HeroMover.moveSpeed; break;
+        else if(hero.KeyDirection == -1 &&  right)
+        {
+            right = false;
+            hero.SetAnim("fall");
         }
-        hero.Input.SetInputLatency(ButtonCode.Right,inputLatency4Kick);
-        hero.Input.SetInputLatency(ButtonCode.Left, inputLatency4Kick);
-        hero.Input.SetInputLatency(ButtonCode.Jump, inputLatency4Kick);
+
+        return this;
     }
 
-    public override void Resume(){
-        hero.Anim.SetTrigger(hero.WantsToGoRight ? "fallr" : "falll");
-    }
+    public override HeroState Update_(HeroMover hero, float deltatime)
+    {
+        hero.HorizontalMoveInAir(hero.Parameters.MoveInAirParams, deltatime);
 
-    IEnumerator SpawnKabezuris(){
-        Try2SpawnKabezuri();
+        hero.ApplyGravity(hero.Parameters.MoveInAirParams, deltatime);
 
-        while(true){
-            yield return new WaitForSeconds(kabezuriInterval);
-
-            Try2SpawnKabezuri();
-        }
-    }
-
-    void Try2SpawnKabezuri(){
-        bool dir_is_R;
-
-        if(hero.CanKickFromWallR && hero.CanKickFromWallL) dir_is_R = hero.WantsToGoRight;
-        else if(hero.CanKickFromWallR)                     dir_is_R = true;
-        else if(hero.CanKickFromWallL)                     dir_is_R = false;
-        else return;
-
-        hero.ObjsHolderForStates.KabezuriPool.ActivateOne(dir_is_R ? "r" : "l");
-    }
-
-    public override void Update(){
-        hero.velocity.Y -= HeroMover.gravity * Time.timeScale;
-        if(hero.IsOnGround){
+        if(hero.IsOnGround)
+        {
             hero.SoundGroup.Play("Land");
-            if(hero.KeyDirection==0) hero.States.Push(new StateWait(hero));
-            else hero.States.Push(new StateRun(hero));
+            if(hero.KeyDirection == 0) return new StateWait();
+            else                       return new StateRun();
         }
+
+        return this;
     }
 
-    public override void Exit(){
+    public override void Exit(HeroMover hero)
+    {
         hero.StopCoroutine(kabezuriCoroutine);
-
-        hero.Input.SetInputLatency(ButtonCode.Right,0);
-        hero.Input.SetInputLatency(ButtonCode.Left,0);
-        hero.Input.SetInputLatency(ButtonCode.Jump,0);
     }
-}
-
 }
