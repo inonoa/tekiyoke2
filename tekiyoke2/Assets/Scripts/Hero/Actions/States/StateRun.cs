@@ -13,6 +13,8 @@ public class StateRun : HeroState
     public override void Enter(HeroMover hero)
     {
         Init(hero);
+        tsuchihokotiCoroutine = Tsuchihokori(hero.ObjsHolderForStates.TsuchihokoriPool, hero.Parameters);
+        hero.StartCoroutine(tsuchihokotiCoroutine);
     }
     public override void Resume(HeroMover hero)
     {
@@ -25,8 +27,6 @@ public class StateRun : HeroState
         hero.SetAnim("run");
         right = hero.WantsToGoRight;
         hero.SoundGroup.Play("Run");
-        tsuchihokotiCoroutine = Tsuchihokori(hero.ObjsHolderForStates.TsuchihokoriPool, hero.Parameters);
-        hero.StartCoroutine(tsuchihokotiCoroutine);
     }
 
     IEnumerator Tsuchihokori(ObjectPool<Tsuchihokori> pool, HeroParameters params_)
