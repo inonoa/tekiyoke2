@@ -28,7 +28,7 @@ public class StateBend : HeroState
     {
         hero.ApplyGravity(hero.Parameters.MoveInAirParams, deltatime);
 
-        hero.ApplyFriction(hero.Parameters.Friction, deltatime);
+        if(hero.IsOnGround) hero.ApplyFriction(hero.Parameters.Friction, deltatime);
 
         secondsAfterEnter += deltatime;
         if(secondsAfterEnter >= hero.Parameters.BendBackSeconds)
