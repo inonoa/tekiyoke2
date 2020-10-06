@@ -1,20 +1,25 @@
 ﻿using UnityEngine;
 using System;
 using UnityEngine.Rendering;
+using UniRx;
 
 [Serializable]
-public class PostEffectWrapper : INamable {
-    public bool IsActive{
-        get => _IsActive;
-        set{
-            if(value!=_IsActive){
-                if(value) ApplyCommandBuf();
-                else      RemoveCommandBuf();
-            }
+public class PostEffectWrapper : INamable
+{
+    bool commandBufApplied = false;
+    public bool IsActive => _IsActive;
+    [SerializeField] bool _IsActive = false;
+    public void SetActive(bool value)
+    {
+        if(value != _IsActive)
+        {
             _IsActive = value;
+            _BecomeDirty.OnNext(Unit.Default);
         }
     }
-    [SerializeField] bool _IsActive = false;
+
+    readonly Subject<Unit> _BecomeDirty = new Subject<Unit>();
+    public IObservable<Unit> BecomeDirty => _BecomeDirty;
 
     [SerializeField] Material _Material;
     public Material Material => _Material;
@@ -26,21 +31,23 @@ public class PostEffectWrapper : INamable {
     public void SetVolume(float volumeRate) => Material.SetFloat(volumePropertyName, defaultVolume * volumeRate);
     public float GetVolume() => Material.GetFloat(volumePropertyName) / defaultVolume;
 
-    public void Init(Camera cmr){
+    public void Init(Camera cmr)
+    {
         this.camera = cmr;
         this.buffer = CreateCommandBuf();
-        if(IsActive) ApplyCommandBuf();
     }
     CommandBuffer buffer;
     Camera camera;
-    void ApplyCommandBuf(){
+    public void ApplyCommandBuf(){
         camera.AddCommandBuffer(CameraEvent.AfterEverything, buffer);
+        commandBufApplied = true;
     }
-    void RemoveCommandBuf(){
+    public void RemoveCommandBuf(){
         camera.RemoveCommandBuffer(CameraEvent.AfterEverything, buffer);
+        commandBufApplied = false;
     }
-    CommandBuffer CreateCommandBuf(){
-
+    CommandBuffer CreateCommandBuf()
+    {
         CommandBuffer cBuffer = new CommandBuffer();
 
         int tmpRTID = Shader.PropertyToID("TmpRT" + Name);
@@ -59,5 +66,13 @@ public class PostEffectWrapper : INamable {
         cBuffer.ReleaseTemporaryRT(tmpRTID);
 
         return cBuffer;
+    }
+
+    public void Update_()
+    {
+        if(commandBufApplied != IsActive)
+        {
+            _BecomeDirty.OnNext(Unit.Default);
+        }
     }
 }
