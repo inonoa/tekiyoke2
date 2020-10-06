@@ -93,6 +93,7 @@ MonoBehaviour:
   scShoOutOfWindController: {fileID: 6478240744771120905}
   scShoController: {fileID: 7195403637980874227}
   canvas: {fileID: 0}
+  jetFreezeFrames: 20
 --- !u!114 &7195403637980874227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,6 +141,10 @@ MonoBehaviour:
     defaultVolume: 0.01
   - _IsActive: 0
     _Material: {fileID: 2100000, guid: 5b837e0c584052949ae5c8737f31ce42, type: 2}
+    volumePropertyName: "\u305D\u3093\u306A\u3082\u306E\u306F\u306A\u3044"
+    defaultVolume: 0
+  - _IsActive: 1
+    _Material: {fileID: 2100000, guid: 09cea17af43207542b7d62de0875c7f0, type: 2}
     volumePropertyName: "\u305D\u3093\u306A\u3082\u306E\u306F\u306A\u3044"
     defaultVolume: 0
 --- !u!1 &3423410219917244378
