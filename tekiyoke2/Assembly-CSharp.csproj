@@ -98,8 +98,7 @@
      <Compile Include="Assets\Scripts\Hero\Actions\States\StateKick.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\States\StateRun.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\States\StateWait.cs" />
-     <Compile Include="Assets\Scripts\Hero\Actions\WallCheckerL.cs" />
-     <Compile Include="Assets\Scripts\Hero\Actions\WallCheckerR.cs" />
+     <Compile Include="Assets\Scripts\Hero\Actions\WallChecker.cs" />
      <Compile Include="Assets\Scripts\Hero\BaneResidue.cs" />
      <Compile Include="Assets\Scripts\Hero\DamageType.cs" />
      <Compile Include="Assets\Scripts\Hero\DPManager.cs" />
