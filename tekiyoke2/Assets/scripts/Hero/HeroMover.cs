@@ -139,8 +139,8 @@ public class HeroMover : MonoBehaviour
     
     [SerializeField] GroundChecker groundChecker;
     SakamichiChecker sakamichiChecker;
-    [SerializeField] WallCheckerL wallCheckerL;
-    [SerializeField] WallCheckerR wallCheckerR;
+    [SerializeField] WallChecker wallCheckerL;
+    [SerializeField] WallChecker wallCheckerR;
     SavePositionManager savePositionManager;
     public IAskedInput Input{ get; private set; }
 

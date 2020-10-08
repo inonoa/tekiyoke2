@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WallCheckerR : MonoBehaviour
+public class WallChecker : MonoBehaviour
 {
 
     public bool CanKick { get; private set; } = false;
