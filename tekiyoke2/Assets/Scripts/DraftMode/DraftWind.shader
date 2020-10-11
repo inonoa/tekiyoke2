@@ -3,11 +3,22 @@
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
+        _Color ("Color", Color) = (1, 1, 1, 1)
     }
     SubShader
     {
-        Tags { "RenderType"="Opaque" }
+        Tags
+        {
+            "RenderType" = "Transparent"
+            "Queue"      = "Transparent"
+        }
+
+        // Tags{ "RenderType" = "Opaque" }
+
         LOD 100
+
+        ZWrite Off
+        Blend SrcAlpha One
 
         Pass
         {
@@ -33,11 +44,12 @@
 
             sampler2D _MainTex;
             float4 _MainTex_ST;
+            float4 _Color;
 
             struct Piece
             {
-                float3 pos;
-                float3 vel;
+                float2 pos;
+                float2 vel;
             };
 
             #ifdef UNITY_PROCEDURAL_INSTANCING_ENABLED
@@ -59,7 +71,7 @@
                 v2f o;
 
                 #ifdef UNITY_PROCEDURAL_INSTANCING_ENABLED
-                o.vertex = UnityObjectToClipPos(_Pieces[instanceID].pos + v.vertex);
+                o.vertex = UnityObjectToClipPos(float3(_Pieces[instanceID].pos, 0) + v.vertex);
                 #else
                 o.vertex = UnityObjectToClipPos(v.vertex);
                 #endif
@@ -70,7 +82,7 @@
 
             fixed4 frag (v2f i) : SV_Target
             {
-                fixed4 col = tex2D(_MainTex, i.uv);
+                fixed4 col = tex2D(_MainTex, i.uv) * _Color;
                 return col;
             }
             ENDCG

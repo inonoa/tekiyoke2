@@ -9,8 +9,8 @@ float randSimple(float2 v)
 
 struct Piece
 {
-    float3 pos;
-    float3 vel;
+    float2 pos;
+    float2 vel;
 };
 
 RWStructuredBuffer<Piece> _Pieces;
@@ -18,13 +18,12 @@ RWStructuredBuffer<Piece> _Pieces;
 [numthreads(PIECES_BLOCK_SIZE,1,1)]
 void Update (uint3 id : SV_DispatchThreadID)
 {
-    float3 pos = _Pieces[id.x].pos;
-    float3 vel = _Pieces[id.x].vel;
+    float2 pos = _Pieces[id.x].pos;
+    float2 vel = _Pieces[id.x].vel;
 
     //if文厳しいか？
-    if(pos.x > 100 || pos.x < -100) vel *= float3(-1,  1,  1);
-    if(pos.y > 100 || pos.y < -100) vel *= float3( 1, -1,  1);
-    if(pos.z > 100 || pos.z < -100) vel *= float3( 1,  1, -1);
+    if(pos.x > 500 || pos.x < -500) vel *= float2(-1,  1);
+    if(pos.y > 375 || pos.y < -375) vel *= float2( 1, -1);
 
     Piece newPiece;
 

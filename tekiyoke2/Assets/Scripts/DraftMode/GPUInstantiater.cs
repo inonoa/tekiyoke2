@@ -55,12 +55,10 @@ namespace Draft
             Vector3 pos = new Vector3
             (
                 Random.Range(-5f, 5f),
-                Random.Range(-5f, 5f),
                 Random.Range(-5f, 5f)
             );
             Vector3 vel = new Vector3
             (
-                Random.Range(-1f, 1f),
                 Random.Range(-1f, 1f),
                 Random.Range(-1f, 1f)
             );

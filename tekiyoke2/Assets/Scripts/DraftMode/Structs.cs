@@ -7,7 +7,7 @@ namespace Draft
 {
     public struct Piece
     {
-        public Vector3 pos;
-        public Vector3 vel;
+        public Vector2 pos;
+        public Vector2 vel;
     }
 }
