@@ -1,0 +1,35 @@
+﻿// Each #kernel tells which function to compile; you can have many kernels
+#pragma kernel Update
+#define PIECES_BLOCK_SIZE 64
+
+float randSimple(float2 v)
+{
+    return frac(sin(dot(v.xy, float2(12.9898, 78.233))) * 43758.5453);
+}
+
+struct Piece
+{
+    float3 pos;
+    float3 vel;
+};
+
+RWStructuredBuffer<Piece> _Pieces;
+
+[numthreads(PIECES_BLOCK_SIZE,1,1)]
+void Update (uint3 id : SV_DispatchThreadID)
+{
+    float3 pos = _Pieces[id.x].pos;
+    float3 vel = _Pieces[id.x].vel;
+
+    //if文厳しいか？
+    if(pos.x > 100 || pos.x < -100) vel *= float3(-1,  1,  1);
+    if(pos.y > 100 || pos.y < -100) vel *= float3( 1, -1,  1);
+    if(pos.z > 100 || pos.z < -100) vel *= float3( 1,  1, -1);
+
+    Piece newPiece;
+
+    newPiece.vel = vel;
+    newPiece.pos = pos + vel;
+
+    _Pieces[id.x] = newPiece;
+}
