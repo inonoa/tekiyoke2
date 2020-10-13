@@ -10,6 +10,7 @@ float randSimple(float2 v)
 struct Wind
 {
     int currentIndex;
+    float angle;
 };
 
 struct Node
@@ -42,7 +43,8 @@ void GenerateInput(uint id)
 {
     Input input;
     Node node = _Nodes[NodeIndex(id)];
-    input.pos = node.pos + float2(1, 1) * 100 * _DeltaTime;
+    input.pos = node.pos + float2(cos(_Winds[id].angle), sin(_Winds[id].angle)) * 500 * _DeltaTime;
+    //input.pos = node.pos + float2(randSimple(node.pos.xy) - 0.5, randSimple(node.pos.yx) - 0.5) * 500 * _DeltaTime;
 
     _Inputs[id] = input;
 }
@@ -52,6 +54,8 @@ void UpdateWind(uint id)
     int newIndex = (_Winds[id].currentIndex + 1) % _NumNodesPerWind;
     Wind wind = _Winds[id];
     wind.currentIndex = newIndex;
+    if(id%2==0) wind.angle = (wind.angle + _DeltaTime * 2) % 6.28;
+    else        wind.angle = (wind.angle - _DeltaTime * 2 + 6.28) % 6.28;
     _Winds[id] = wind;
 
     Node newNode;

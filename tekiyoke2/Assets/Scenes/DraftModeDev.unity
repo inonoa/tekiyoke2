@@ -397,12 +397,11 @@ MonoBehaviour:
   updates: 1
   renders: 1
   timeScale: 1
-  nearHeroThreshold: 200
-  inHeroThreshold: 150
-  pushForce: 1000
-  pullForce: 100
   meshSize: 30
-  numPieces: 512
+  numWinds: 4096
+  numNodesPerWind: 256
+  nodeLife: 2
+  windWidth: 10
   firstSpeedXMin: 0
   firstSpeedXMax: 300
   firstSpeedYMin: -30

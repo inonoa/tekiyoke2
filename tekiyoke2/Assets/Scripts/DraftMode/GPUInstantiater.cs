@@ -18,7 +18,9 @@ namespace Draft
 
         [SerializeField] float meshSize = 1;
         [SerializeField] int   numWinds = 1024;
-        [SerializeField] int   numNodesPerWind = 64;
+        [SerializeField] int   numNodesPerWind = 128;
+        [SerializeField] float nodeLife = 1;
+        [SerializeField] float windWidth = 10;
         [SerializeField] float firstSpeedXMin = -100;
         [SerializeField] float firstSpeedXMax = 100;
         [SerializeField] float firstSpeedYMin = -100;
@@ -31,7 +33,6 @@ namespace Draft
 
         ReactiveProperty<Mesh> _Mesh = new ReactiveProperty<Mesh>();
         public IObservable<Mesh> Mesh => _Mesh;
-        ComputeBuffer argsBuffer;
 
         void Start()
         {
@@ -48,30 +49,38 @@ namespace Draft
             ComputeBuffer windsBuffer = GenerateBuffer<Wind>(numWinds, _ => Wind.Create());
             updateCS.SetBuffer(updateID, "_Winds", windsBuffer);
             material.SetBuffer("_Winds", windsBuffer);
+            windsBuffer.AddTo(this);
 
             int numNodesTotal = numNodesPerWind * numWinds;
             ComputeBuffer nodesBuffer = GenerateBuffer<Node>(numNodesTotal, i => Node.Create(i % numNodesPerWind == 0));
             updateCS.SetBuffer(updateID, "_Nodes", nodesBuffer);
             material.SetBuffer("_Nodes", nodesBuffer);
+            nodesBuffer.AddTo(this);
 
             ComputeBuffer inputsBuffer = GenerateBuffer<Input>(numWinds, _ => new Input());
             updateCS.SetBuffer(updateID, "_Inputs", inputsBuffer);
+            inputsBuffer.AddTo(this);
 
-            argsBuffer = new ComputeBuffer(5, Marshal.SizeOf<uint>(), ComputeBufferType.IndirectArguments);
-            argsBuffer.SetData(new uint[]
-            {
-                (uint) _Mesh.Value.GetIndexCount(0),
-                (uint) numWinds,
-                (uint) _Mesh.Value.GetIndexStart(0),
-                (uint) _Mesh.Value.GetBaseVertex(0),
-                0
-            });
+            //Debug(nodesBuffer);
+        }
+
+        void Debug(ComputeBuffer buf) => StartCoroutine(DebugCor(buf));
+        IEnumerator DebugCor(ComputeBuffer buf)
+        {
+            yield return new WaitForSeconds(2);
+
+            var dt = new Node[numNodesPerWind * numWinds];
+            buf.GetData(dt);
+            string.Join("\n", dt.Select((node, i) => i%64==63 ? $"{node.pos}, {node.time}\n" : $"{node.pos}, {node.time}"))
+                .p();
         }
 
         void InitCSParams()
         {
             updateCS.SetInt("_NumNodesPerWind", numNodesPerWind);
             material.SetInt("_NumNodesPerWind", numNodesPerWind);
+            material.SetFloat("_NodeLife", nodeLife);
+            material.SetFloat("_Width",    windWidth);
         }
 
         ComputeBuffer GenerateBuffer<T>(int length, Func<int, T> generator)
@@ -89,13 +98,17 @@ namespace Draft
         void Update()
         {
             if(updates) UpdatePieces();
+        }
+
+        void OnRenderObject()
+        {
             if(renders) RenderPieces();
         }
 
         void UpdatePieces()
         {
             updateCS.SetFloat("_DeltaTime", Time.deltaTime * timeScale);
-            updateCS.SetFloat("_Time",      Time.time); //GameTimeCounterかなんか通したい
+            updateCS.SetFloat("_Time",      GetTime());
 
             var heroInfo = GetHeroInfo();
             Vector4 heroInfoVec = new Vector4
@@ -113,14 +126,21 @@ namespace Draft
 
         void RenderPieces()
         {
-            Graphics.DrawMeshInstancedIndirect
-            (
-                _Mesh.Value,
-                0,
-                material,
-                new Bounds(Vector3.zero, new Vector3(1, 1, 1) * 100),
-                argsBuffer
-            );
+            material.SetFloat("_Time_", GetTime());
+            if(material.SetPass(0))
+            {
+                Graphics.DrawProcedural
+                (
+                    MeshTopology.Points,
+                    numNodesPerWind,
+                    numWinds
+                );
+            }
+        }
+
+        float GetTime()
+        {
+            return Time.time; //GameTimeCounterかなんか通したい
         }
     }
 

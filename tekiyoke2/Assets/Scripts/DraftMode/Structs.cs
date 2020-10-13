@@ -8,12 +8,14 @@ namespace Draft
     public struct Wind
     {
         public int currentIndex;
+        public float angle;
 
         public static Wind Create()
         {
             return new Wind
             {
-                currentIndex = 0
+                currentIndex = 0,
+                angle = Random.Range(0f, Mathf.PI * 2)
             };
         }
     }
@@ -39,8 +41,6 @@ namespace Draft
             }
             return new Node{ time = -1 };
         }
-
-        static int i = 0;
     }
 
     public struct Input
