@@ -45,15 +45,22 @@
             sampler2D _MainTex;
             float4 _MainTex_ST;
             float4 _Color;
+            int _NumNodesPerWind;
 
-            struct Piece
+            struct Wind
             {
+                int currentIndex;
+            };
+
+            struct Node
+            {
+                float  time;
                 float2 pos;
-                float2 vel;
             };
 
             #ifdef UNITY_PROCEDURAL_INSTANCING_ENABLED
-            StructuredBuffer<Piece> _Pieces;
+            StructuredBuffer<Wind> _Winds;
+            StructuredBuffer<Node> _Nodes;
             #endif
 
             float random (fixed2 p)
@@ -71,7 +78,8 @@
                 v2f o;
 
                 #ifdef UNITY_PROCEDURAL_INSTANCING_ENABLED
-                o.vertex = UnityObjectToClipPos(float3(_Pieces[instanceID].pos, 0) + v.vertex);
+                uint id = _Winds[instanceID].currentIndex + _NumNodesPerWind * instanceID;
+                o.vertex = UnityObjectToClipPos(float3(_Nodes[id].pos, 0) + v.vertex);
                 #else
                 o.vertex = UnityObjectToClipPos(v.vertex);
                 #endif

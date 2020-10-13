@@ -396,8 +396,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   updates: 1
   renders: 1
+  timeScale: 1
+  nearHeroThreshold: 200
+  inHeroThreshold: 150
+  pushForce: 1000
+  pullForce: 100
   meshSize: 30
-  numPieces: 4096
+  numPieces: 512
+  firstSpeedXMin: 0
+  firstSpeedXMax: 300
+  firstSpeedYMin: -30
+  firstSpeedYMax: 30
   material: {fileID: 2100000, guid: 0d5c7ebca69d96e43adab3b142037347, type: 2}
   updateCS: {fileID: 7200000, guid: 3eda8cdad3b34be4aad25d8ec37ec655, type: 3}
 --- !u!1 &2057208419

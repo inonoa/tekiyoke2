@@ -7,28 +7,63 @@ float randSimple(float2 v)
     return frac(sin(dot(v.xy, float2(12.9898, 78.233))) * 43758.5453);
 }
 
-struct Piece
+struct Wind
 {
-    float2 pos;
-    float2 vel;
+    int currentIndex;
 };
 
-RWStructuredBuffer<Piece> _Pieces;
+struct Node
+{
+    float  time;
+    float2 pos;
+};
+
+struct Input
+{
+    float2 pos;
+};
+
+RWStructuredBuffer<Wind>  _Winds;
+RWStructuredBuffer<Node>  _Nodes;
+RWStructuredBuffer<Input> _Inputs;
+
+int _NumNodesPerWind;
+
+float _DeltaTime;
+float _Time;
+
+uint NodeIndex(uint id)
+{
+    uint currentNode = _Winds[id].currentIndex;
+    return id * _NumNodesPerWind + currentNode;
+}
+
+void GenerateInput(uint id)
+{
+    Input input;
+    Node node = _Nodes[NodeIndex(id)];
+    input.pos = node.pos + float2(1, 1) * 100 * _DeltaTime;
+
+    _Inputs[id] = input;
+}
+
+void UpdateWind(uint id)
+{
+    int newIndex = (_Winds[id].currentIndex + 1) % _NumNodesPerWind;
+    Wind wind = _Winds[id];
+    wind.currentIndex = newIndex;
+    _Winds[id] = wind;
+
+    Node newNode;
+    newNode.pos  = _Inputs[id].pos;
+    newNode.time = _Time;
+    _Nodes[NodeIndex(id)] = newNode;
+}
 
 [numthreads(PIECES_BLOCK_SIZE,1,1)]
 void Update (uint3 id : SV_DispatchThreadID)
 {
-    float2 pos = _Pieces[id.x].pos;
-    float2 vel = _Pieces[id.x].vel;
-
-    //if文厳しいか？
-    if(pos.x > 500 || pos.x < -500) vel *= float2(-1,  1);
-    if(pos.y > 375 || pos.y < -375) vel *= float2( 1, -1);
-
-    Piece newPiece;
-
-    newPiece.vel = vel;
-    newPiece.pos = pos + vel;
-
-    _Pieces[id.x] = newPiece;
+    GenerateInput(id.x);
+    UpdateWind(id.x);
 }
+
