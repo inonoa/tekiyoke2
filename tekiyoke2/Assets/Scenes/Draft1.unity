@@ -5980,6 +5980,11 @@ PrefabInstance:
       propertyPath: effects.Array.data[3]._IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1472872603020283857, guid: 95d3e8075a941f348803e6df2c824c6d,
+        type: 3}
+      propertyPath: effects.Array.data[6]._IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3423410219917244377, guid: 95d3e8075a941f348803e6df2c824c6d,
         type: 3}
       propertyPath: m_LocalPosition.z

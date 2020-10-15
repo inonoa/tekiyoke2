@@ -11,12 +11,15 @@ struct Wind
 {
     int currentIndex;
     float angle;
+    float velocity;
+    float timeOffset;
 };
 
 struct Node
 {
     float  time;
     float2 pos;
+    float4 col;
 };
 
 struct Input
@@ -43,24 +46,36 @@ void GenerateInput(uint id)
 {
     Input input;
     Node node = _Nodes[NodeIndex(id)];
-    input.pos = node.pos + float2(cos(_Winds[id].angle), sin(_Winds[id].angle)) * 500 * _DeltaTime;
-    //input.pos = node.pos + float2(randSimple(node.pos.xy) - 0.5, randSimple(node.pos.yx) - 0.5) * 500 * _DeltaTime;
+    input.pos = node.pos + float2(cos(_Winds[id].angle), sin(_Winds[id].angle)) * _Winds[id].velocity * _DeltaTime;
 
     _Inputs[id] = input;
 }
 
 void UpdateWind(uint id)
 {
+    int oldIndex =  _Winds[id].currentIndex;
     int newIndex = (_Winds[id].currentIndex + 1) % _NumNodesPerWind;
     Wind wind = _Winds[id];
     wind.currentIndex = newIndex;
-    if(id%2==0) wind.angle = (wind.angle + _DeltaTime * 2) % 6.28;
-    else        wind.angle = (wind.angle - _DeltaTime * 2 + 6.28) % 6.28;
+    if((_Time + wind.timeOffset) % 4 < 3)
+    {
+        wind.angle += -sin((_Time + wind.timeOffset) * 6.28) * _DeltaTime;
+    }
+    else
+    {
+        wind.angle -= 6.28 * _DeltaTime;
+    }
     _Winds[id] = wind;
 
     Node newNode;
     newNode.pos  = _Inputs[id].pos;
+    if(newNode.pos.x > 550)  newNode.pos.x -= 1100;
+    if(newNode.pos.x < -550) newNode.pos.x += 1100;
+    if(newNode.pos.y > 380)  newNode.pos.y -= 760;
+    if(newNode.pos.y < -380) newNode.pos.y += 760;
     newNode.time = _Time;
+    newNode.col = _Nodes[oldIndex + _NumNodesPerWind * id].col;
+
     _Nodes[NodeIndex(id)] = newNode;
 }
 
