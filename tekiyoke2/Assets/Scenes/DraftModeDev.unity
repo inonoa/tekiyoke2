@@ -398,10 +398,10 @@ MonoBehaviour:
   renders: 1
   timeScale: 1
   meshSize: 30
-  numWinds: 256
-  numNodesPerWind: 256
+  numWinds: 1024
+  numNodesPerWind: 64
   nodeLife: 1
-  windWidth: 50
+  windWidth: 64
   firstSpeedXMin: 0
   firstSpeedXMax: 300
   firstSpeedYMin: -30

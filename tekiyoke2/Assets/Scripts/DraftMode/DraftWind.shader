@@ -19,7 +19,7 @@
 
         Cull Off
         ZWrite Off
-        Blend SrcAlpha One
+        Blend SrcAlpha OneMinusSrcAlpha
 
         Pass
         {
