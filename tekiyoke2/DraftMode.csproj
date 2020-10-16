@@ -53,10 +53,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\DraftMode\DebugView.cs" />
-     <Compile Include="Assets\Scripts\DraftMode\GPUInstantiater.cs" />
      <Compile Include="Assets\Scripts\DraftMode\MeshMaker.cs" />
      <Compile Include="Assets\Scripts\DraftMode\Structs.cs" />
+     <Compile Include="Assets\Scripts\DraftMode\WindsMover.cs" />
+     <Compile Include="Assets\Scripts\DraftMode\WindsRenderer.cs" />
      <None Include="Assets\Scripts\DraftMode\DraftWind.shader" />
      <None Include="Assets\Scripts\DraftMode\UpdatePieces.compute" />
  <Reference Include="UnityEngine.AIModule">

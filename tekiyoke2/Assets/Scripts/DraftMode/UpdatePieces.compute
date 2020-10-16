@@ -22,16 +22,11 @@ struct Node
     float4 col;
 };
 
-struct Input
-{
-    float2 pos;
-};
-
 RWStructuredBuffer<Wind>  _Winds;
 RWStructuredBuffer<Node>  _Nodes;
-RWStructuredBuffer<Input> _Inputs;
 
 int _NumNodesPerWind;
+float2 _Area;
 
 float _DeltaTime;
 float _Time;
@@ -42,19 +37,13 @@ uint NodeIndex(uint id)
     return id * _NumNodesPerWind + currentNode;
 }
 
-void GenerateInput(uint id)
-{
-    Input input;
-    Node node = _Nodes[NodeIndex(id)];
-    input.pos = node.pos + float2(cos(_Winds[id].angle), sin(_Winds[id].angle)) * _Winds[id].velocity * _DeltaTime;
-
-    _Inputs[id] = input;
-}
-
 void UpdateWind(uint id)
 {
     int oldIndex =  _Winds[id].currentIndex;
     int newIndex = (_Winds[id].currentIndex + 1) % _NumNodesPerWind;
+    
+    float2 nextPos = _Nodes[NodeIndex(id)].pos + float2(cos(_Winds[id].angle), sin(_Winds[id].angle)) * _Winds[id].velocity * _DeltaTime;
+
     Wind wind = _Winds[id];
     wind.currentIndex = newIndex;
     if((_Time + wind.timeOffset) % 4 < 3)
@@ -66,13 +55,14 @@ void UpdateWind(uint id)
         wind.angle -= 6.28 * _DeltaTime;
     }
     _Winds[id] = wind;
+    
 
     Node newNode;
-    newNode.pos  = _Inputs[id].pos;
-    if(newNode.pos.x > 550)  newNode.pos.x -= 1100;
-    if(newNode.pos.x < -550) newNode.pos.x += 1100;
-    if(newNode.pos.y > 380)  newNode.pos.y -= 760;
-    if(newNode.pos.y < -380) newNode.pos.y += 760;
+    newNode.pos  = nextPos;
+    if(newNode.pos.x >   _Area.x / 2)  newNode.pos.x -= _Area.x;
+    if(newNode.pos.x < - _Area.x / 2)  newNode.pos.x += _Area.x;
+    if(newNode.pos.y >   _Area.y / 2)  newNode.pos.y -= _Area.y;
+    if(newNode.pos.y < - _Area.y / 2)  newNode.pos.y += _Area.y;
     newNode.time = _Time;
     newNode.col = _Nodes[oldIndex + _NumNodesPerWind * id].col;
 
@@ -82,7 +72,6 @@ void UpdateWind(uint id)
 [numthreads(PIECES_BLOCK_SIZE,1,1)]
 void Update (uint3 id : SV_DispatchThreadID)
 {
-    GenerateInput(id.x);
     UpdateWind(id.x);
 }
 
