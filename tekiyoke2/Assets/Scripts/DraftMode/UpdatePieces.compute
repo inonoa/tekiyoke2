@@ -1,6 +1,8 @@
 ﻿// Each #kernel tells which function to compile; you can have many kernels
 #pragma kernel Update
 #define PIECES_BLOCK_SIZE 64
+#define TAU 6.2831
+#define PI 3.1416
 
 float randSimple(float2 v)
 {
@@ -30,11 +32,17 @@ float2 _Area;
 
 float _DeltaTime;
 float _Time;
+float4 _HeroInfo;
 
 uint NodeIndex(uint id)
 {
     uint currentNode = _Winds[id].currentIndex;
     return id * _NumNodesPerWind + currentNode;
+}
+
+bool NearHero(float2 pos)
+{
+    return distance(_HeroInfo.xy, pos) < 100;
 }
 
 void UpdateWind(uint id)
@@ -48,14 +56,29 @@ void UpdateWind(uint id)
     wind.currentIndex = newIndex;
     if((_Time + wind.timeOffset) % 4 < 3)
     {
-        wind.angle += -sin((_Time + wind.timeOffset) * 6.28) * _DeltaTime;
+        wind.angle += -sin((_Time + wind.timeOffset) * TAU) * _DeltaTime;
     }
     else
     {
-        wind.angle -= 6.28 * _DeltaTime;
+        wind.angle -= TAU * _DeltaTime;
     }
+    wind.angle %= TAU;
+
+    //主人公を避ける
+    if(NearHero(nextPos))
+    {
+        float2 fromHero = nextPos - _HeroInfo.xy;
+        float angleFromHero = (atan2(fromHero.y, fromHero.x) + TAU) % TAU;
+        float distAngle = (angleFromHero - wind.angle + TAU) % TAU;
+
+        bool red_ = (distAngle > (PI))     && (distAngle < 1.5 * PI);
+        wind.angle = red_ ? wind.angle - _DeltaTime * 5 : wind.angle;
+        
+        bool add_ = (distAngle > (PI / 2)) && (distAngle < PI);
+        wind.angle = add_ ? wind.angle + _DeltaTime * 5 : wind.angle;
+    }
+
     _Winds[id] = wind;
-    
 
     Node newNode;
     newNode.pos  = nextPos;

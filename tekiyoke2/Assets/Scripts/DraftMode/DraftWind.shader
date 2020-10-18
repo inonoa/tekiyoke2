@@ -34,14 +34,11 @@
 
             struct appdata
             {
-                float4 vertex : POSITION;
-                float2 uv     : TEXCOORD0;
+                
             };
 
             struct v2g
             {
-                float4 vertex : POSITION;
-
                 float2 pos  : TEXCOORD0;
                 float2 dir  : TEXCOORD1;
                 float  uv_x : TEXCOORD2;
@@ -69,6 +66,7 @@
             float     _WindWidth;
 
             float     _Time_;
+            float4    _CenterPos;
 
             struct Wind
             {
@@ -93,9 +91,9 @@
                 return frac(sin(dot(p, fixed2(12.9898,78.233))) * 43758.5453);
             }
 
-            float4 toClipPos(float2 pos, float4 vertex)
+            float4 toClipPos(float2 pos)
             {
-                return UnityObjectToClipPos(float4(pos, 0, 0) + vertex);
+                return UnityObjectToClipPos(float4(pos, 0, 0) + _CenterPos);
             }
 
             bool invalidNode(uint idx)
@@ -111,7 +109,6 @@
             v2g vert (appdata v, uint nodeIdInWind : SV_VertexID, uint windID : SV_InstanceID)
             {
                 v2g o;
-                o.vertex = v.vertex;
 
                 uint nodeId           = nodeID( nodeIdInWind,                                            windID);
                 uint lastNodeId       = nodeID((nodeIdInWind - 1 + _NumNodesPerWind) % _NumNodesPerWind, windID);
@@ -151,22 +148,22 @@
 
                 g2f vert0;
                 vert0.uv  = float2(ip.uv_x, 0);
-                vert0.pos = toClipPos(ip.pos + widthOffset, ip.vertex);
+                vert0.pos = toClipPos(ip.pos + widthOffset);
                 vert0.col = ip.col;
 
                 g2f vert1;
                 vert1.uv  = float2(ip.uv_x, 1);
-                vert1.pos = toClipPos(ip.pos - widthOffset, ip.vertex);
+                vert1.pos = toClipPos(ip.pos - widthOffset);
                 vert1.col = ip.col;
 
                 g2f vertLast0;
                 vertLast0.uv  = float2(ip.lastUv_x, 0);
-                vertLast0.pos = toClipPos(ip.lastPos + widthOffsetLast, ip.vertex);
+                vertLast0.pos = toClipPos(ip.lastPos + widthOffsetLast);
                 vertLast0.col = ip.lastCol;
 
                 g2f vertLast1;
                 vertLast1.uv  = float2(ip.lastUv_x, 1);
-                vertLast1.pos = toClipPos(ip.lastPos - widthOffsetLast, ip.vertex);
+                vertLast1.pos = toClipPos(ip.lastPos - widthOffsetLast);
                 vertLast1.col = ip.lastCol;
             
                 output.Append(vertLast0);

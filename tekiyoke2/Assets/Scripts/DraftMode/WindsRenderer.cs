@@ -13,6 +13,7 @@ namespace Draft
         
 
         WindsMover mover;
+        Transform tf;
 
         void Start()
         {
@@ -30,11 +31,14 @@ namespace Draft
             material.SetInt(  "_NumNodesPerWind", mover.NumNodesPerWind);
             material.SetFloat("_NodeLife",        nodeLife);
             material.SetFloat("_WindWidth",       windWidth);
+
+            tf = transform;
         }
 
         void OnRenderObject() => RenderPieces();
         void RenderPieces()
         {
+            material.SetVector("_CenterPos", tf.position);
             material.SetFloat("_Time_", mover.GetTime());
             if(material.SetPass(0))
             {
