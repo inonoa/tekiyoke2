@@ -10,6 +10,8 @@ namespace Draft
         [SerializeField] float nodeLife = 1;
         [SerializeField] float windWidth = 64;
         [SerializeField] Material material;
+        [SerializeField] Texture windTexture;
+        Texture lastTex;
         
 
         WindsMover mover;
@@ -38,6 +40,12 @@ namespace Draft
         void OnRenderObject() => RenderPieces();
         void RenderPieces()
         {
+            if(windTexture != lastTex)
+            {
+                material.SetTexture("_MainTex", windTexture);
+            }
+            lastTex = windTexture;
+
             material.SetVector("_CenterPos", tf.position);
             material.SetFloat("_Time_", mover.GetTime());
             if(material.SetPass(0))

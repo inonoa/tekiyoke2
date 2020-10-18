@@ -391,7 +391,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeLife: 1
-  windWidth: 64
+  windWidth: 30
   material: {fileID: 2100000, guid: 0d5c7ebca69d96e43adab3b142037347, type: 2}
 --- !u!114 &1083075742
 MonoBehaviour:
@@ -406,7 +406,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   updates: 1
-  _NumWinds: 4096
+  _NumWinds: 64
   _NumNodesPerWind: 64
   area: {x: 2000, y: 1500}
   windParams:

@@ -80,7 +80,7 @@ void UpdateWind(uint id)
     //基本的な移動
     if(wind.state == STATE_STR)
     {
-        wind.angle += sin((_Time + id / 3678.67) * TAU) * 1.5 * _DeltaTime;
+        wind.angle += sin((_Time + id / 3678.67) * TAU) * 5 * _DeltaTime;
 
         wind.timeOffset -= _DeltaTime;
         if(wind.timeOffset <= 0)
@@ -117,7 +117,7 @@ void UpdateWind(uint id)
     }
 
     //主人公の移動方向の逆に近づく
-    float forceAgainstHeroVel = 2;
+    float forceAgainstHeroVel = 1;
 
     float heroVelAngle = (atan2(_HeroInfo.w, _HeroInfo.z) + TAU) % TAU;
     float windAngleFromHero = (wind.angle - heroVelAngle  + TAU) % TAU;
