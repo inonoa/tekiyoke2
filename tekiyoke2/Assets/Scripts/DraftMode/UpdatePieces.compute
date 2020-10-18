@@ -11,11 +11,15 @@ float randSimple(float2 v)
 
 struct Wind
 {
-    int currentIndex;
+    int   currentIndex;
     float angle;
     float velocity;
+    int   state;
     float timeOffset;
 };
+
+#define STATE_ROT 0
+#define STATE_STR 1
 
 struct Node
 {
@@ -45,22 +49,51 @@ bool NearHero(float2 pos)
     return distance(_HeroInfo.xy, pos) < 100;
 }
 
+float2 posInArea(float2 pos)
+{
+    float2 ans = pos;
+    if(ans.x >   _Area.x / 2)  ans.x -= _Area.x;
+    if(ans.x < - _Area.x / 2)  ans.x += _Area.x;
+    if(ans.y >   _Area.y / 2)  ans.y -= _Area.y;
+    if(ans.y < - _Area.y / 2)  ans.y += _Area.y;
+    return ans;
+}
+
+float2 Polar2Cartesian(float r, float theta)
+{
+    return float2(cos(theta), sin(theta)) * r;
+}
+
 void UpdateWind(uint id)
 {
     int oldIndex =  _Winds[id].currentIndex;
     int newIndex = (_Winds[id].currentIndex + 1) % _NumNodesPerWind;
     
-    float2 nextPos = _Nodes[NodeIndex(id)].pos + float2(cos(_Winds[id].angle), sin(_Winds[id].angle)) * _Winds[id].velocity * _DeltaTime;
+    float2 nextPos = _Nodes[NodeIndex(id)].pos + Polar2Cartesian(_Winds[id].velocity * _DeltaTime, _Winds[id].angle);
 
     Wind wind = _Winds[id];
     wind.currentIndex = newIndex;
-    if((_Time + wind.timeOffset) % 4 < 3)
+    if(wind.state == STATE_STR)
     {
-        wind.angle += -sin((_Time + wind.timeOffset) * TAU) * _DeltaTime;
+        wind.angle += -sin(_Time * TAU) * _DeltaTime;
+
+        wind.timeOffset -= _DeltaTime;
+        if(wind.timeOffset <= 0)
+        {
+            wind.state = STATE_ROT;
+            wind.timeOffset += 1;
+        }
     }
-    else
+    else if(wind.state == STATE_ROT)
     {
         wind.angle -= TAU * _DeltaTime;
+
+        wind.timeOffset -= _DeltaTime;
+        if(wind.timeOffset <= 0)
+        {
+            wind.state = STATE_STR;
+            wind.timeOffset += 3;
+        }
     }
     wind.angle %= TAU;
 
@@ -81,13 +114,9 @@ void UpdateWind(uint id)
     _Winds[id] = wind;
 
     Node newNode;
-    newNode.pos  = nextPos;
-    if(newNode.pos.x >   _Area.x / 2)  newNode.pos.x -= _Area.x;
-    if(newNode.pos.x < - _Area.x / 2)  newNode.pos.x += _Area.x;
-    if(newNode.pos.y >   _Area.y / 2)  newNode.pos.y -= _Area.y;
-    if(newNode.pos.y < - _Area.y / 2)  newNode.pos.y += _Area.y;
+    newNode.pos  = posInArea(nextPos);
     newNode.time = _Time;
-    newNode.col = _Nodes[oldIndex + _NumNodesPerWind * id].col;
+    newNode.col  = _Nodes[oldIndex + _NumNodesPerWind * id].col;
 
     _Nodes[NodeIndex(id)] = newNode;
 }

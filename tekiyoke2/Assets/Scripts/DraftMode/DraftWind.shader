@@ -73,6 +73,7 @@
                 int   currentIndex;
                 float angle;
                 float velocity;
+                int   state;
                 float timeOffset;
             };
 

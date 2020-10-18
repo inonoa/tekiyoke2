@@ -11,16 +11,20 @@ namespace Draft
         public int currentIndex;
         public float angle;
         public float velocity;
-        public float timeOffset;
+
+        public enum State : int{ Rotating, GoingStraight }
+        public State state;
+        public float timeOffsetForState;
 
         public static Wind Create(Params params_)
         {
             return new Wind
             {
-                currentIndex = 0,
-                angle        = Random.Range(params_.angleDegMin * Mathf.Deg2Rad, params_.angleDegMax * Mathf.Deg2Rad),
-                velocity     = Random.Range(params_.velocityMin,                 params_.velocityMax),
-                timeOffset   = Random.Range(params_.timeOffsetMin,               params_.timeOffsetMax)
+                currentIndex       = 0,
+                angle              = Random.Range(params_.angleDegMin * Mathf.Deg2Rad, params_.angleDegMax * Mathf.Deg2Rad),
+                velocity           = Random.Range(params_.velocityMin,                 params_.velocityMax),
+                state              = State.GoingStraight,
+                timeOffsetForState = Random.Range(params_.timeOffsetMin,               params_.timeOffsetMax),
             };
         }
 
