@@ -75,6 +75,8 @@
                 float velocity;
                 int   state;
                 float timeOffset;
+                float goStraightSec;
+                float rotateSec;
             };
 
             struct Node

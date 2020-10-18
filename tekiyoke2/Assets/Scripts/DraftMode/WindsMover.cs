@@ -89,7 +89,8 @@ namespace Draft
 
         (Vector2 pos, Vector2 vel) GetHeroInfo()
         {
-            return (new Vector2(0, 0), new Vector2(10, 10));
+            float angle = GetTime() * 1;
+            return (new Vector2(0, 0), new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * 10);
         }
 
         public float GetTime()

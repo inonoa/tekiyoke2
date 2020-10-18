@@ -16,6 +16,8 @@ struct Wind
     float velocity;
     int   state;
     float timeOffset;
+    float goStraightSec;
+    float rotateSec;
 };
 
 #define STATE_ROT 0
@@ -53,10 +55,10 @@ bool NearHero(float2 pos)
 float2 posInCamera(float2 pos)
 {
     float2 ans = pos;
-    if(ans.x > _CameraPos.x + _Area.x / 2) ans.x -= _Area.x;
-    if(ans.x < _CameraPos.x - _Area.x / 2) ans.x += _Area.x;
-    if(ans.y > _CameraPos.y + _Area.y / 2) ans.y -= _Area.y;
-    if(ans.y < _CameraPos.y - _Area.y / 2) ans.y += _Area.y;
+    if(pos.x > _CameraPos.x + _Area.x / 2){ ans.x -= _Area.x; ans.y = randSimple(ans) * _Area.y - _Area.y / 2; }
+    if(pos.x < _CameraPos.x - _Area.x / 2){ ans.x += _Area.x; ans.y = randSimple(ans) * _Area.y - _Area.y / 2; }
+    if(pos.y > _CameraPos.y + _Area.y / 2){ ans.y -= _Area.y; ans.x = randSimple(ans) * _Area.x - _Area.x / 2; }
+    if(pos.y < _CameraPos.y - _Area.y / 2){ ans.y += _Area.y; ans.x = randSimple(ans) * _Area.x - _Area.x / 2; }
     return ans;
 }
 
@@ -78,27 +80,27 @@ void UpdateWind(uint id)
     //基本的な移動
     if(wind.state == STATE_STR)
     {
-        wind.angle += -sin(_Time * TAU) * _DeltaTime;
+        wind.angle += sin((_Time + id / 3678.67) * TAU) * 1.5 * _DeltaTime;
 
         wind.timeOffset -= _DeltaTime;
         if(wind.timeOffset <= 0)
         {
             wind.state = STATE_ROT;
-            wind.timeOffset += 1;
+            wind.timeOffset += wind.rotateSec;
         }
     }
     else if(wind.state == STATE_ROT)
     {
-        wind.angle -= TAU * _DeltaTime;
+        wind.angle -= TAU * _DeltaTime / wind.rotateSec;
 
         wind.timeOffset -= _DeltaTime;
         if(wind.timeOffset <= 0)
         {
             wind.state = STATE_STR;
-            wind.timeOffset += 3;
+            wind.timeOffset += wind.goStraightSec;
         }
     }
-    wind.angle %= TAU;
+    wind.angle = (wind.angle + TAU) % TAU;
 
     //主人公を避ける
     if(NearHero(nextPos))
@@ -113,6 +115,18 @@ void UpdateWind(uint id)
         bool add_ = (distAngle > (PI / 2)) && (distAngle < PI);
         wind.angle = add_ ? wind.angle + _DeltaTime * 5 : wind.angle;
     }
+
+    //主人公の移動方向の逆に近づく
+    float forceAgainstHeroVel = 2;
+
+    float heroVelAngle = (atan2(_HeroInfo.w, _HeroInfo.z) + TAU) % TAU;
+    float windAngleFromHero = (wind.angle - heroVelAngle  + TAU) % TAU;
+
+    bool add_ = (windAngleFromHero >= 0) && (windAngleFromHero < 0.9 * PI);
+    wind.angle = add_ ? wind.angle + _DeltaTime * forceAgainstHeroVel : wind.angle;
+
+    bool red_ = (windAngleFromHero > 1.1 * PI) && (windAngleFromHero < TAU);
+    wind.angle = red_ ? wind.angle - _DeltaTime * forceAgainstHeroVel : wind.angle;
 
     _Winds[id] = wind;
 

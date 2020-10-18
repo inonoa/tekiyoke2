@@ -15,28 +15,31 @@ namespace Draft
         public enum State : int{ Rotating, GoingStraight }
         public State state;
         public float timeOffsetForState;
+        public float goStraightSec;
+        public float rotateSec;
 
         public static Wind Create(Params params_)
         {
             return new Wind
             {
                 currentIndex       = 0,
-                angle              = Random.Range(params_.angleDegMin * Mathf.Deg2Rad, params_.angleDegMax * Mathf.Deg2Rad),
-                velocity           = Random.Range(params_.velocityMin,                 params_.velocityMax),
+                angle              = params_.angle.GenerateRandom(),
+                velocity           = params_.velocity.GenerateRandom(),
                 state              = State.GoingStraight,
-                timeOffsetForState = Random.Range(params_.timeOffsetMin,               params_.timeOffsetMax),
+                timeOffsetForState = params_.timeOffset.GenerateRandom(),
+                goStraightSec      = params_.goStraightSec.GenerateRandom(),
+                rotateSec          = params_.rotateSec.GenerateRandom()
             };
         }
 
         [Serializable]
         public class Params
         {
-            public float angleDegMin = 160;
-            public float angleDegMax = 220;
-            public float velocityMin = 200f;
-            public float velocityMax = 600f;
-            public float timeOffsetMin = 0;
-            public float timeOffsetMax = 4;
+            public MinMaxFloat angle         = new MinMaxFloat{ min = 0, max = 360 };
+            public MinMaxFloat velocity      = new MinMaxFloat{ min = 200, max = 600 };
+            public MinMaxFloat timeOffset    = new MinMaxFloat{ min = 0, max = 3 };
+            public MinMaxFloat goStraightSec = new MinMaxFloat{ min = 2, max = 4 };
+            public MinMaxFloat rotateSec     = new MinMaxFloat{ min = 0.5f, max = 1.3f };
         }
     }
 
@@ -76,5 +79,17 @@ namespace Draft
     public struct Input
     {
         public Vector2 pos;
+    }
+
+    [Serializable]
+    public class MinMaxFloat
+    {
+        public float min;
+        public float max;
+
+        public float GenerateRandom()
+        {
+            return Random.Range(min, max);
+        }
     }
 }
