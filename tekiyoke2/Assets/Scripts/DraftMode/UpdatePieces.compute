@@ -33,6 +33,7 @@ RWStructuredBuffer<Node>  _Nodes;
 
 int _NumNodesPerWind;
 float2 _Area;
+float2 _CameraPos;
 
 float _DeltaTime;
 float _Time;
@@ -49,13 +50,13 @@ bool NearHero(float2 pos)
     return distance(_HeroInfo.xy, pos) < 100;
 }
 
-float2 posInArea(float2 pos)
+float2 posInCamera(float2 pos)
 {
     float2 ans = pos;
-    if(ans.x >   _Area.x / 2)  ans.x -= _Area.x;
-    if(ans.x < - _Area.x / 2)  ans.x += _Area.x;
-    if(ans.y >   _Area.y / 2)  ans.y -= _Area.y;
-    if(ans.y < - _Area.y / 2)  ans.y += _Area.y;
+    if(ans.x > _CameraPos.x + _Area.x / 2) ans.x -= _Area.x;
+    if(ans.x < _CameraPos.x - _Area.x / 2) ans.x += _Area.x;
+    if(ans.y > _CameraPos.y + _Area.y / 2) ans.y -= _Area.y;
+    if(ans.y < _CameraPos.y - _Area.y / 2) ans.y += _Area.y;
     return ans;
 }
 
@@ -73,6 +74,8 @@ void UpdateWind(uint id)
 
     Wind wind = _Winds[id];
     wind.currentIndex = newIndex;
+
+    //基本的な移動
     if(wind.state == STATE_STR)
     {
         wind.angle += -sin(_Time * TAU) * _DeltaTime;
@@ -114,7 +117,7 @@ void UpdateWind(uint id)
     _Winds[id] = wind;
 
     Node newNode;
-    newNode.pos  = posInArea(nextPos);
+    newNode.pos  = posInCamera(nextPos);
     newNode.time = _Time;
     newNode.col  = _Nodes[oldIndex + _NumNodesPerWind * id].col;
 

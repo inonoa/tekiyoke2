@@ -76,6 +76,7 @@ namespace Draft
         {
             updateCS.SetFloat("_DeltaTime", Time.deltaTime);
             updateCS.SetFloat("_Time",      GetTime());
+            updateCS.SetVector("_CameraPos", Camera.main.transform.position);
 
             var heroInfo = GetHeroInfo();
             Vector4 heroInfoVec = new Vector4
