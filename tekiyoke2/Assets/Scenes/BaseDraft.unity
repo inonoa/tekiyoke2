@@ -7994,5 +7994,10 @@ PrefabInstance:
       propertyPath: isInDebug
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5461740041823069374, guid: 7dbd9b0666f0a8941933da201068ad84,
+        type: 3}
+      propertyPath: effects.Array.data[6]._IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7dbd9b0666f0a8941933da201068ad84, type: 3}

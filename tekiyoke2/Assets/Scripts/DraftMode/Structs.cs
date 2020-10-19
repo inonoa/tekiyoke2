@@ -17,6 +17,7 @@ namespace Draft
         public float timeOffsetForState;
         public float goStraightSec;
         public float rotateSec;
+        public int   hueUp;
 
         public static Wind Create(Params params_)
         {
@@ -28,7 +29,8 @@ namespace Draft
                 state              = State.GoingStraight,
                 timeOffsetForState = params_.timeOffset.GenerateRandom(),
                 goStraightSec      = params_.goStraightSec.GenerateRandom(),
-                rotateSec          = params_.rotateSec.GenerateRandom()
+                rotateSec          = params_.rotateSec.GenerateRandom(),
+                hueUp              = Random.Range(0, 2)
             };
         }
 
@@ -55,7 +57,7 @@ namespace Draft
             {
                 (float h, float s, float v) hsv =
                 (
-                    Random.Range(0.4f, 0.75f),
+                    Random.Range(0.45f, 0.7f),
                     1f,
                     1f
                 );

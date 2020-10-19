@@ -53,6 +53,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\DraftMode\DraftWindsManager.cs" />
      <Compile Include="Assets\Scripts\DraftMode\MeshMaker.cs" />
      <Compile Include="Assets\Scripts\DraftMode\Structs.cs" />
      <Compile Include="Assets\Scripts\DraftMode\WindsMover.cs" />

@@ -19,7 +19,7 @@
 
         Cull Off
         ZWrite Off
-        Blend SrcAlpha One
+        Blend SrcAlpha OneMinusSrcAlpha
 
         Pass
         {
@@ -77,8 +77,9 @@
                 float timeOffset;
                 float goStraightSec;
                 float rotateSec;
+                int   hueUp;
             };
-
+            
             struct Node
             {
                 float  time;

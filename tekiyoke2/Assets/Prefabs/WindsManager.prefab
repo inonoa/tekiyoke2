@@ -1,0 +1,98 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4164993104681008459
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4164993104681008458}
+  - component: {fileID: 4164993104681008463}
+  - component: {fileID: 4164993104681008460}
+  - component: {fileID: 1958553779310569332}
+  m_Layer: 0
+  m_Name: WindsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4164993104681008458
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4164993104681008459}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4164993104681008463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4164993104681008459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63125fc5ed4703646b775f82a45ece46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  updates: 0
+  updatePerFrame: 3
+  _NumWinds: 2048
+  _NumNodesPerWind: 256
+  area: {x: 5000, y: 5000}
+  windParams:
+    angle:
+      min: 0
+      max: 360
+    velocity:
+      min: 1000
+      max: 2000
+    timeOffset:
+      min: 0
+      max: 3
+    goStraightSec:
+      min: 2
+      max: 4
+    rotateSec:
+      min: 0.1
+      max: 0.4
+  updateCS: {fileID: 7200000, guid: 3eda8cdad3b34be4aad25d8ec37ec655, type: 3}
+--- !u!114 &4164993104681008460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4164993104681008459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64dd708c711591346bdcf82fdb4bb2b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 0
+  nodeLife: 1
+  windWidth: 20
+  material: {fileID: 2100000, guid: 0d5c7ebca69d96e43adab3b142037347, type: 2}
+  windTexture: {fileID: 2800000, guid: 2d450f58aa995674baffbb6ca15e8d26, type: 3}
+--- !u!114 &1958553779310569332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4164993104681008459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97a812e13b4baa94bb919e46183dab47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

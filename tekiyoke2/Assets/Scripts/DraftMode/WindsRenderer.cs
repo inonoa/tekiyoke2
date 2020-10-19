@@ -5,8 +5,9 @@ using UniRx;
 
 namespace Draft
 {
-    public class WindsRenderer : MonoBehaviour
+    class WindsRenderer : MonoBehaviour
     {
+        public bool active = false;
         [SerializeField] float nodeLife = 1;
         [SerializeField] float windWidth = 64;
         [SerializeField] Material material;
@@ -37,7 +38,11 @@ namespace Draft
             tf = transform;
         }
 
-        void OnRenderObject() => RenderPieces();
+        void OnRenderObject()
+        {
+            if(active) RenderPieces();
+        }
+
         void RenderPieces()
         {
             if(windTexture != lastTex)

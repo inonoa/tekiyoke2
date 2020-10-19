@@ -8,9 +8,10 @@ using System.Runtime.InteropServices;
 
 namespace Draft
 {
-    public class WindsMover : MonoBehaviour
+    class WindsMover : MonoBehaviour
     {
-        [SerializeField] bool updates = true;
+        public bool updates = false;
+        [SerializeField][Range(1, 5)] int updatePerFrame = 1;
 
         [SerializeField] int   _NumWinds = 1024;
         public int NumWinds => _NumWinds;
@@ -27,6 +28,17 @@ namespace Draft
 
         public IObservable<ComputeBuffer> WindsBuffer => _WindsBuffer;
         public IObservable<ComputeBuffer> NodesBuffer => _NodesBuffer;
+
+        Func<HeroInfo> heroInfoGetter = () => new HeroInfo
+        {
+            pos      = Vector2.zero,
+            velocity = new Vector2(10, 10)
+        };
+
+        public void Init(Func<HeroInfo> heroInfoGetter)
+        {
+            this.heroInfoGetter = heroInfoGetter;
+        }
 
         void Start()
         {
@@ -70,27 +82,26 @@ namespace Draft
     
         void Update()
         {
-            if(updates) UpdatePieces();
+            if(!updates) return;
+
+            foreach(int _ in Enumerable.Range(0, updatePerFrame))
+            {
+                UpdatePieces();
+            }
         }
         void UpdatePieces()
         {
-            updateCS.SetFloat("_DeltaTime", Time.deltaTime);
+            updateCS.SetFloat("_DeltaTime", Time.deltaTime / updatePerFrame);
             updateCS.SetFloat("_Time",      GetTime());
             updateCS.SetVector("_CameraPos", Camera.main.transform.position);
 
-            var heroInfo = GetHeroInfo();
+            var heroInfo = heroInfoGetter.Invoke();
             Vector4 heroInfoVec = new Vector4
-                (heroInfo.pos.x, heroInfo.pos.y, heroInfo.vel.x, heroInfo.vel.y);
+                (heroInfo.pos.x, heroInfo.pos.y, heroInfo.velocity.x, heroInfo.velocity.y);
             updateCS.SetVector("_HeroInfo", heroInfoVec);
 
             int updateID = updateCS.FindKernel(Consts.UPDATE);
             updateCS.Dispatch(updateID, _NumWinds / 64, 1, 1);
-        }
-
-        (Vector2 pos, Vector2 vel) GetHeroInfo()
-        {
-            float angle = GetTime() * 1;
-            return (new Vector2(0, 0), new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * 10);
         }
 
         public float GetTime()
@@ -99,7 +110,13 @@ namespace Draft
         }
     }
 
-    public class Consts
+    public class HeroInfo
+    {
+        public Vector2 pos;
+        public Vector2 velocity;
+    }
+
+    class Consts
     {
         public const string UPDATE = "Update";
         public const string NODES = "_Nodes";

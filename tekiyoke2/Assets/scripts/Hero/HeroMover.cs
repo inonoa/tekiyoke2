@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 using UniRx;
 using DG.Tweening;
 using System.Linq;
+using Draft;
 
 
 ///<summary>最終的には各機能をまとめる役割と渉外担当みたいな役割とだけを持たせたい</summary>
@@ -152,6 +153,8 @@ public class HeroMover : MonoBehaviour
 
     public JetManager JetManager{ get; private set; }
 
+    [SerializeField] DraftWindsManager draftWindsManager;
+
     HeroState currrentState;
     public string CurrentStateStr() => currrentState.ToString();
 
@@ -159,6 +162,7 @@ public class HeroMover : MonoBehaviour
     public SpriteRenderer SpriteRenderer{ get; private set; }
     public Animator Anim{ get; private set; } //いずれprivateにする
     public Rigidbody2D Rigidbody{ get; private set; }
+    public Transform Transform{ get; private set; }
 
     Chishibuki chishibuki;
     
@@ -263,6 +267,7 @@ public class HeroMover : MonoBehaviour
         SpriteRenderer      = GetComponent<SpriteRenderer>();
         Anim                = GetComponent<Animator>();
         Rigidbody           = GetComponent<Rigidbody2D>();
+        Transform           = GetComponent<Transform>();
         HpCntr              = GetComponent<HpCntr>();
         sakamichiChecker    = GetComponent<SakamichiChecker>();
         savePositionManager = GetComponent<SavePositionManager>();
@@ -270,6 +275,8 @@ public class HeroMover : MonoBehaviour
         JetManager          = GetComponent<JetManager>();
 
         JetManager.Init(Input, this);
+
+        draftWindsManager.Init(GetHeroInfo);
 
         currrentState = new StateWait();
         currrentState.Enter(this);
@@ -288,6 +295,15 @@ public class HeroMover : MonoBehaviour
                     .sprite = SpriteRenderer.sprite;
             })
             .AddTo(this);
+        
+        HeroInfo GetHeroInfo()
+        {
+            return new HeroInfo
+            {
+                pos      = Transform.position,
+                velocity = velocity.ToVector2()
+            };
+        }
     }
 
     ///<summary>SetActive(false)するとアニメーションの状態がリセットされるようなのでとりあえず主人公はステートだけ反映しなおす</summary>
@@ -313,6 +329,10 @@ public class HeroMover : MonoBehaviour
                 //なんとなく入力をまとめて置きたくてここにしているがあまり意味がないような…
                 if(Input.GetNagaoshiFrames(ButtonCode.Save) == 70) savePositionManager.Try2Save();
 
+                if(Input.GetButtonDown(ButtonCode.Zone))
+                {
+                    draftWindsManager.SetActive(!draftWindsManager.IsActive());
+                }
 
                 UpdateMoveDirection();
 
