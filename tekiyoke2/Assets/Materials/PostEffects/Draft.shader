@@ -3,10 +3,12 @@
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
+        _Ryoiki("Ryoiki Texture", 2D) = "white" {}
         _EdgeColor ("Edge Color", Color) = (0, 0.8, 1, 1)
         _d_uv ("Delta UV", Range(0, 0.005)) = 0.003
         _BaseColorRate ("Base Color Rate", Range(0, 1)) = 0.2
-        [Toggle] _ReversesBaseColor ("Reverses Base Color", Int) = 0
+        _Threshold ("Ryoiki Threshold", Range(-0.05, 1.05)) = 0.5
+        _RyoikiEdgeCol ("Ryoiki Edge Col", Color) = (1, 1, 1, 1)
     }
     SubShader
     {
@@ -53,15 +55,19 @@
             float _d_uv;
             float _BaseColorRate;
             bool _ReversesBaseColor;
+            sampler2D _Ryoiki;
+            float _Threshold;
+            float4 _RyoikiEdgeCol;
 
             fixed4 frag (v2f i) : SV_Target
             {
+                float outRyoiki = tex2D(_Ryoiki, i.uv).r;
+
                 fixed4 col = tex2D(_MainTex, i.uv);
-                if(_ReversesBaseColor)
-                {
-                    col = fixed4(1, 1, 1, 1) - col;
-                    col.a = 1;
-                }
+                float green = saturate(col.g - col.r / 2 - col.b / 2);
+                float red   = saturate(col.r - col.g / 2 - col.b / 2);
+                float blue  = saturate(col.b - col.r / 2 - col.g / 2);
+                float4 baseCol = float4(red * 2, green * 2, blue * 2, 1);
 
                 fixed4 colur = tex2D(_MainTex, i.uv + fixed2( _d_uv,  _d_uv));
                 fixed4 colul = tex2D(_MainTex, i.uv + fixed2(-_d_uv,  _d_uv));
@@ -73,7 +79,12 @@
 
                 fixed4 edgeCol = _EdgeColor * (d_col_1 + d_col_2);
 
-                return col * _BaseColorRate + edgeCol;
+                fixed4 draftCol = baseCol * _BaseColorRate + edgeCol;
+
+                fixed4 colExceptEdge = outRyoiki < _Threshold ? draftCol : col;
+
+                fixed4 ryoikiEdgeColActual = _RyoikiEdgeCol * 20 * saturate(0.05 - abs(outRyoiki - _Threshold));
+                return ryoikiEdgeColActual + colExceptEdge;
             }
             ENDCG
         }
