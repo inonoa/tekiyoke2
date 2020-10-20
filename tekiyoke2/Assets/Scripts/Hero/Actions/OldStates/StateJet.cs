@@ -44,7 +44,7 @@ public class StateJet : HeroState
     public override void Try2StartJet(){ }
     public override void Try2EndJet(){
         if(state==State.Ready){
-            hero.CanBeDamaged = false;
+            //hero.CanBeDamaged = false;
             state = State.Jetting;
             PhantomAndDissolve();
             hero.Anim.SetTrigger(jet2Right ? "runr" : "runl");
@@ -241,7 +241,7 @@ public class StateJet : HeroState
     }
 
     public override void Exit(){
-        hero.CanBeDamaged = true;
+        //hero.CanBeDamaged = true;
         //hero.spriteRenderer.color = new Color(1,1,1,1);
         hero.CmrCntr.EndDash();
         GameObject.Destroy(jetStream);

@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 using UniRx;
 using DG.Tweening;
 using System.Linq;
-using Draft;
 
 
 ///<summary>最終的には各機能をまとめる役割と渉外担当みたいな役割とだけを持たせたい</summary>
@@ -149,11 +148,18 @@ public class HeroMover : MonoBehaviour
     public GetDPinEnemy GetDPinEnemy => getDPinEnemy;
 
     [SerializeField] HeroParameters _Parameters;
-    public HeroParameters Parameters => _Parameters;
+    [SerializeField] HeroParameters _ParametersInDraftMode;
+    public HeroParameters Parameters
+    {
+        get
+        {
+            return draftModeManager.InDraftMode ? _ParametersInDraftMode : _Parameters;
+        }
+    }
 
     public JetManager JetManager{ get; private set; }
 
-    [SerializeField] DraftWindsManager draftWindsManager;
+    DraftModeManager draftModeManager;
 
     HeroState currrentState;
     public string CurrentStateStr() => currrentState.ToString();
@@ -171,9 +177,10 @@ public class HeroMover : MonoBehaviour
     #region ダメージとか
     void ChangeHP(int value) => HpCntr.ChangeHP(value);
     public int HP => HpCntr.HP;
+    public bool IsLiving => HpCntr.HP > 0;
 
-    ///<summary>falseだと無敵になる</summary>
-    public bool CanBeDamaged{ get => HpCntr.CanBeDamaged; set => HpCntr.CanBeDamaged = value; }
+    
+    public bool CanBeDamaged => HpCntr.CanBeDamaged;
 
     Subject<int> _OnDamaged = new Subject<int>();
     public IObservable<int> OnDamaged => _OnDamaged;
@@ -182,7 +189,8 @@ public class HeroMover : MonoBehaviour
     ///<param name="damage">与えるダメージを書く。1を指定すると100->99,1->0になったりします</param>
     public void Damage(int damage, DamageType type)
     {
-        if(! CanBeDamaged) return;
+        if(! IsLiving) return;
+        if(! CanBeDamaged && type != DamageType.Drop) return;
 
         Tokitome.SetTime(1);
         ChangeHP(HP - damage);
@@ -236,6 +244,7 @@ public class HeroMover : MonoBehaviour
         }
     }
 
+
     ///<summary>リスポーン</summary>
     void Die()
     {
@@ -243,6 +252,7 @@ public class HeroMover : MonoBehaviour
         GameTimeCounter.CurrentInstance.DoesTick = false;
         Tokitome.SetTime(0.2f);
         SceneTransition.Start2ChangeScene(SceneManager.GetActiveScene().name, SceneTransition.TransitionType.HeroDied);
+        draftModeManager.Exit();
     }
 
     public void RecoverHP(int amount) => ChangeHP(HP + amount);
@@ -273,10 +283,9 @@ public class HeroMover : MonoBehaviour
         savePositionManager = GetComponent<SavePositionManager>();
         ObjsHolderForStates = GetComponent<HeroObjsHolder4States>();
         JetManager          = GetComponent<JetManager>();
+        draftModeManager    = GetComponent<DraftModeManager>();
 
         JetManager.Init(Input, this);
-
-        draftWindsManager.Init(GetHeroInfo);
 
         currrentState = new StateWait();
         currrentState.Enter(this);
@@ -295,15 +304,6 @@ public class HeroMover : MonoBehaviour
                     .sprite = SpriteRenderer.sprite;
             })
             .AddTo(this);
-        
-        HeroInfo GetHeroInfo()
-        {
-            return new HeroInfo
-            {
-                pos      = Transform.position,
-                velocity = velocity.ToVector2()
-            };
-        }
     }
 
     ///<summary>SetActive(false)するとアニメーションの状態がリセットされるようなのでとりあえず主人公はステートだけ反映しなおす</summary>
@@ -331,7 +331,8 @@ public class HeroMover : MonoBehaviour
 
                 if(Input.GetButtonDown(ButtonCode.Zone))
                 {
-                    draftWindsManager.SetActive(!draftWindsManager.IsActive());
+                    if(draftModeManager.InDraftMode) draftModeManager.Exit();
+                    else                             draftModeManager.Enter();
                 }
 
                 UpdateMoveDirection();

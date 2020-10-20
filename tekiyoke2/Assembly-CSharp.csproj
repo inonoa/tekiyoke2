@@ -102,6 +102,7 @@
      <Compile Include="Assets\Scripts\Hero\BaneResidue.cs" />
      <Compile Include="Assets\Scripts\Hero\DamageType.cs" />
      <Compile Include="Assets\Scripts\Hero\DPManager.cs" />
+     <Compile Include="Assets\Scripts\Hero\DraftModeManager.cs" />
      <Compile Include="Assets\Scripts\Hero\Effects\Chishibuki.cs" />
      <Compile Include="Assets\Scripts\Hero\Effects\HeroAfterimage.cs" />
      <Compile Include="Assets\Scripts\Hero\Effects\JetCloudManager.cs" />
