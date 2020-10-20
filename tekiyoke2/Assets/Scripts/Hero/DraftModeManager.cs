@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Draft;
 using DG.Tweening;
+using System.Linq;
+using UniRx;
 
 public class DraftModeManager : MonoBehaviour
 {
@@ -36,7 +38,8 @@ public class DraftModeManager : MonoBehaviour
             1.1f,
             enterDuration
         )
-        .SetUpdate(true));
+        .SetUpdate(true)
+        .OnComplete(() => currentTweens.Clear()));
     }
 
     public void Exit()
@@ -61,13 +64,27 @@ public class DraftModeManager : MonoBehaviour
             exitDuration
         )
         .SetUpdate(true)
-        .OnComplete(() => draftPEffect.SetActive(false)));
+        .OnComplete(() =>
+        {
+            draftPEffect.SetActive(false);
+            currentTweens.Clear();
+        }));
     }
 
     void KillAllTweens()
     {
         currentTweens.ForEach(tw => tw.Kill());
         currentTweens.Clear();
+    }
+
+    void OnPause()
+    {
+        currentTweens.ForEach(tw => tw.Pause());
+    }
+
+    void OnPauseEnd()
+    {
+        currentTweens.ForEach(tw => tw.TogglePause());
     }
 
     void Start()
@@ -79,5 +96,10 @@ public class DraftModeManager : MonoBehaviour
             pos      = hero.Transform.position,
             velocity = hero.velocity.ToVector2()
         });
+
+        Pauser.Instance.OnPause
+            .Subscribe(_ => OnPause());
+        Pauser.Instance.OnPauseEnd
+            .Subscribe(_ => OnPauseEnd());
     }
 }
