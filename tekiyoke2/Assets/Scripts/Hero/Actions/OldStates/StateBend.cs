@@ -25,7 +25,7 @@ public class StateBend : HeroState
 
         hero.Anim.SetTrigger( (hero.velocity.X > 0) ? "jumprf" : "jumplf" );
 
-        hero.CanBeDamaged = false;
+        //hero.CanBeDamaged = false;
 
         CameraController.CurrentCamera.Freeze(num_frames: 20);
     }
@@ -57,7 +57,7 @@ public class StateBend : HeroState
 
         if(hero.HpCntr.HP > 0){
             hero.CanMove = true;
-            hero.CanBeDamaged = true;
+            //hero.CanBeDamaged = true;
         }
     }
 }

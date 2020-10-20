@@ -32,14 +32,14 @@ public class GetDPinEnemy : MonoBehaviour
         Tokitome.SetTime(0);
         var colReversed = CameraController.CurrentCamera.AfterEffects.Find("ColorReversed");
         var noise = CameraController.CurrentCamera.AfterEffects.Find("Noise");
-        colReversed.IsActive = true;
-        noise.IsActive = false;
+        colReversed.SetActive(true);
+        noise.SetActive(false);
         for(int i=0; i<freezeFrames-1; i++){
             yield return null;
         }
         Tokitome.SetTime(1);
-        colReversed.IsActive = false;
-        noise.IsActive = true;
+        colReversed.SetActive(false);
+        noise.SetActive(true);
         die.FadeOut();
     }
 

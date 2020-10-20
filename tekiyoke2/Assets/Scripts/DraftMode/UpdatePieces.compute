@@ -1,0 +1,256 @@
+﻿// Each #kernel tells which function to compile; you can have many kernels
+#pragma kernel Update
+#define PIECES_BLOCK_SIZE 64
+#define TAU 6.2831
+#define PI 3.1416
+
+float3 rgb2hsv(float3 rgb)
+{
+    float3 hsv;
+
+    float maxValue = rgb.r;
+    int maxIdx = 0;
+    {
+        maxIdx = rgb.g > maxValue ? 1 : maxIdx;
+        maxValue = rgb.g > maxValue ? rgb.g : maxValue;
+        maxIdx = rgb.b > maxValue ? 2 : maxIdx;
+        maxValue = rgb.b > maxValue ? rgb.b : maxValue;
+    }
+    float minValue = rgb.r;
+    int minIdx = 0;
+    {
+        minIdx = rgb.g < minValue ? 1 : minIdx;
+        minValue = rgb.g < minValue ? rgb.g : minValue;
+        minIdx = rgb.b < minValue ? 2 : minIdx;
+        minValue = rgb.b < minValue ? rgb.b : minValue;
+    }
+    
+    float delta = maxValue - minValue;
+            
+    // V（明度）
+    // 一番強い色をV値にする
+    hsv.z = maxValue;
+            
+    // S（彩度）
+    // 最大値と最小値の差を正規化して求める
+    if(maxValue != 0.0){
+        hsv.y = delta / maxValue;
+    }else{
+        hsv.y = 0.0;
+    }
+            
+    // H（色相）
+    // RGBのうち最大値と最小値の差から求める
+    if (hsv.y > 0.0){
+        float delta_rev = ((delta == 0.0) ? 0.0 : 1.0 / delta);
+
+        if(maxIdx == 0){        hsv.x =     (rgb.g - rgb.b) * delta_rev;
+        }else if (maxIdx == 1){ hsv.x = 2.0 + (rgb.b - rgb.r) * delta_rev;
+        }else{                  hsv.x = 4.0 + (rgb.r - rgb.g) * delta_rev; }
+        if(hsv.x < 0.0){ hsv.x += 6.0; }
+        hsv.x *= 1.0/6.0;
+    }
+
+    return saturate(hsv);
+}
+
+float3 hsv2rgb(float3 hsv_)
+{
+    float3 hsv = hsv_;
+    float3 rgb;
+
+    if(hsv.y == 0){
+        rgb.r = rgb.g = rgb.b = hsv.z;
+        return rgb;
+    }
+
+    hsv.x *= 6.0;
+    float i = floor (hsv.x);
+    float f = hsv.x - i;
+    float aa = hsv.z * (1 - hsv.y);
+    float bb = hsv.z * (1 - (hsv.y * f));
+    float cc = hsv.z * (1 - (hsv.y * (1 - f)));
+
+    if( i < 0.5 ){       rgb.r = hsv.z; rgb.g = cc;    rgb.b = aa;
+    }else if( i < 1.5 ){ rgb.r = bb;    rgb.g = hsv.z; rgb.b = aa;
+    }else if( i < 2.5 ){ rgb.r = aa;    rgb.g = hsv.z; rgb.b = cc;
+    }else if( i < 3.5 ){ rgb.r = aa;    rgb.g = bb;    rgb.b = hsv.z;
+    }else if( i < 4.5 ){ rgb.r = cc;    rgb.g = aa;    rgb.b = hsv.z;
+    }else{               rgb.r = hsv.z; rgb.g = aa;    rgb.b = bb;
+    }
+
+    return rgb;
+}
+
+float randSimple(float2 v)
+{
+    return frac(sin(dot(v.xy, float2(12.9898, 78.233))) * 43758.5453);
+}
+
+struct Wind
+{
+    int   currentIndex;
+    float angle;
+    float velocity;
+    int   state;
+    float timeOffset;
+    float goStraightSec;
+    float rotateSec;
+    int  hueUp;
+};
+
+#define STATE_ROT 0
+#define STATE_STR 1
+
+struct Node
+{
+    float  time;
+    float2 pos;
+    float4 col;
+};
+
+RWStructuredBuffer<Wind>  _Winds;
+RWStructuredBuffer<Node>  _Nodes;
+
+int _NumNodesPerWind;
+float2 _Area;
+float2 _CameraPos;
+float _HueMin;
+float _HueMax;
+
+float _DeltaTime;
+float _Time;
+float4 _HeroInfo;
+
+uint NodeIndex(uint id)
+{
+    uint currentNode = _Winds[id].currentIndex;
+    return id * _NumNodesPerWind + currentNode;
+}
+
+bool NearHero(float2 pos)
+{
+    float width  = 150;
+    float height = 200;
+
+    float2 offset = _HeroInfo.zw * 50;
+
+    float left  = _HeroInfo.x - width  / 2 + offset.x;
+    float right = _HeroInfo.x + width  / 2 + offset.x;
+    float down  = _HeroInfo.y - height / 2 + offset.y;
+    float up    = _HeroInfo.y + height / 2 + offset.y;
+
+    return pos.x >= left && pos.x <= right && pos.y >= down && pos.y <= up;
+}
+
+float2 posInCamera(float2 pos)
+{
+    float2 ans = pos;
+    if(pos.x > _CameraPos.x + _Area.x / 2){ ans.x -= _Area.x; ans.y = randSimple(ans) * _Area.y - _Area.y / 2; }
+    if(pos.x < _CameraPos.x - _Area.x / 2){ ans.x += _Area.x; ans.y = randSimple(ans) * _Area.y - _Area.y / 2; }
+    if(pos.y > _CameraPos.y + _Area.y / 2){ ans.y -= _Area.y; ans.x = randSimple(ans) * _Area.x - _Area.x / 2; }
+    if(pos.y < _CameraPos.y - _Area.y / 2){ ans.y += _Area.y; ans.x = randSimple(ans) * _Area.x - _Area.x / 2; }
+    return ans;
+}
+
+float2 Polar2Cartesian(float r, float theta)
+{
+    return float2(cos(theta), sin(theta)) * r;
+}
+
+void UpdateWind(uint id)
+{
+    int oldIndex =  _Winds[id].currentIndex;
+    int newIndex = (_Winds[id].currentIndex + 1) % _NumNodesPerWind;
+    
+    float2 nextPos = _Nodes[NodeIndex(id)].pos + Polar2Cartesian(_Winds[id].velocity * _DeltaTime, _Winds[id].angle);
+
+    Wind wind = _Winds[id];
+    wind.currentIndex = newIndex;
+
+    //基本的な移動
+    if(wind.state == STATE_STR)
+    {
+        wind.angle += sin((_Time + id / 3678.67) * 2 * TAU) * 10 * _DeltaTime;
+
+        wind.timeOffset -= _DeltaTime;
+        if(wind.timeOffset <= 0)
+        {
+            wind.state = STATE_ROT;
+            wind.timeOffset += wind.rotateSec;
+        }
+    }
+    else if(wind.state == STATE_ROT)
+    {
+        wind.angle -= (TAU * _DeltaTime) * (1.5 - 2 * abs(wind.timeOffset/wind.rotateSec - 0.5)) / wind.rotateSec;
+
+        wind.timeOffset -= _DeltaTime;
+        if(wind.timeOffset <= 0)
+        {
+            wind.state = STATE_STR;
+            wind.timeOffset += wind.goStraightSec;
+        }
+    }
+    wind.angle = (wind.angle + TAU) % TAU;
+
+    //主人公を避ける
+    if(NearHero(nextPos))
+    {
+        float forceAgainstHero = 50;
+
+        float2 fromHero = nextPos - _HeroInfo.xy;
+        float angleFromHero = (atan2(fromHero.y, fromHero.x) + TAU) % TAU;
+        float distAngle = (angleFromHero - wind.angle + TAU) % TAU;
+
+        bool red_ = (distAngle > (PI))     && (distAngle < 1.5 * PI);
+        wind.angle = red_ ? wind.angle - _DeltaTime * forceAgainstHero : wind.angle;
+        
+        bool add_ = (distAngle > (PI / 2)) && (distAngle < PI);
+        wind.angle = add_ ? wind.angle + _DeltaTime * forceAgainstHero : wind.angle;
+    }
+
+    //主人公の移動方向の逆に近づく
+    float forceAgainstHeroVel = 10;
+
+    float heroVelAngle = (atan2(_HeroInfo.w, _HeroInfo.z) + TAU) % TAU;
+    float windAngleFromHero = (wind.angle - heroVelAngle  + TAU) % TAU;
+
+    bool add_ = (windAngleFromHero >= 0) && (windAngleFromHero < 0.9 * PI);
+    wind.angle = add_ ? wind.angle + _DeltaTime * forceAgainstHeroVel : wind.angle;
+
+    bool red_ = (windAngleFromHero > 1.1 * PI) && (windAngleFromHero < TAU);
+    wind.angle = red_ ? wind.angle - _DeltaTime * forceAgainstHeroVel : wind.angle;
+
+    _Winds[id] = wind;
+
+    Node newNode;
+    newNode.pos  = posInCamera(nextPos);
+    newNode.time = _Time;
+
+    float4 oldCol = _Nodes[oldIndex + _NumNodesPerWind * id].col;
+    float3 oldHSV = rgb2hsv(oldCol.rgb);
+    float3 newHSV = wind.hueUp ? oldHSV + float3(_DeltaTime * 2, 0, 0) : oldHSV - float3(_DeltaTime * 2, 0, 0);
+    newHSV.r = (newHSV.r + 1) % 1;
+    if(newHSV.r >= 0.7)
+    {
+        Wind w = _Winds[id];
+        w.hueUp = 0;
+        _Winds[id] = w;
+    }
+    if(newHSV.r <= 0.45)
+    {
+        Wind w = _Winds[id];
+        w.hueUp = 1;
+        _Winds[id] = w;
+    }
+    newNode.col = float4(hsv2rgb(newHSV), oldCol.a);
+
+    _Nodes[NodeIndex(id)] = newNode;
+}
+
+[numthreads(PIECES_BLOCK_SIZE,1,1)]
+void Update (uint3 id : SV_DispatchThreadID)
+{
+    UpdateWind(id.x);
+}
+

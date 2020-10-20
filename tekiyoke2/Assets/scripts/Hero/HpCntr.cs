@@ -18,12 +18,14 @@ public class HpCntr : MonoBehaviour
     private int framesAfterRecover = 0;
 
 
+    //なくしたい
     static readonly int mutekiFramesAfterDamage = 100;
-    private bool _CanBeDamaged = true;
-    public bool CanBeDamaged{
-        get => _CanBeDamaged && (framesAfterDamage > mutekiFramesAfterDamage);
-        set => _CanBeDamaged = value;
-    }
+
+    HashSet<string> mutekiFilters = new HashSet<string>();
+    public bool CanBeDamaged => mutekiFilters.Count == 0;
+    public void AddMutekiFilter(string key)    => mutekiFilters.Add(key);
+    public void RemoveMutekiFilter(string key) => mutekiFilters.Remove(key);
+    
 
     ///<summary>ここを直接書き換えない</summary>
     int hp = max_hp;
@@ -77,6 +79,7 @@ public class HpCntr : MonoBehaviour
             framesAfterDamage = 0;
             isDamaging = true;
             spr.color = new Color(1,1,1,1);
+            AddMutekiFilter("Damage");
         }
     }
 
@@ -116,6 +119,8 @@ public class HpCntr : MonoBehaviour
         }
 
         framesAfterDamage ++;
+
+        if(framesAfterDamage == mutekiFramesAfterDamage) RemoveMutekiFilter("Damage");
 
         if(framesAfterRecover < framesAfterDamage){
 

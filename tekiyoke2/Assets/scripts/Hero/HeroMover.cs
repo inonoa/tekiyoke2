@@ -148,9 +148,18 @@ public class HeroMover : MonoBehaviour
     public GetDPinEnemy GetDPinEnemy => getDPinEnemy;
 
     [SerializeField] HeroParameters _Parameters;
-    public HeroParameters Parameters => _Parameters;
+    [SerializeField] HeroParameters _ParametersInDraftMode;
+    public HeroParameters Parameters
+    {
+        get
+        {
+            return draftModeManager.InDraftMode ? _ParametersInDraftMode : _Parameters;
+        }
+    }
 
     public JetManager JetManager{ get; private set; }
+
+    DraftModeManager draftModeManager;
 
     HeroState currrentState;
     public string CurrentStateStr() => currrentState.ToString();
@@ -159,6 +168,7 @@ public class HeroMover : MonoBehaviour
     public SpriteRenderer SpriteRenderer{ get; private set; }
     public Animator Anim{ get; private set; } //いずれprivateにする
     public Rigidbody2D Rigidbody{ get; private set; }
+    public Transform Transform{ get; private set; }
 
     Chishibuki chishibuki;
     
@@ -167,9 +177,10 @@ public class HeroMover : MonoBehaviour
     #region ダメージとか
     void ChangeHP(int value) => HpCntr.ChangeHP(value);
     public int HP => HpCntr.HP;
+    public bool IsLiving => HpCntr.HP > 0;
 
-    ///<summary>falseだと無敵になる</summary>
-    public bool CanBeDamaged{ get => HpCntr.CanBeDamaged; set => HpCntr.CanBeDamaged = value; }
+    
+    public bool CanBeDamaged => HpCntr.CanBeDamaged;
 
     Subject<int> _OnDamaged = new Subject<int>();
     public IObservable<int> OnDamaged => _OnDamaged;
@@ -178,7 +189,8 @@ public class HeroMover : MonoBehaviour
     ///<param name="damage">与えるダメージを書く。1を指定すると100->99,1->0になったりします</param>
     public void Damage(int damage, DamageType type)
     {
-        if(! CanBeDamaged) return;
+        if(! IsLiving) return;
+        if(! CanBeDamaged && type != DamageType.Drop) return;
 
         Tokitome.SetTime(1);
         ChangeHP(HP - damage);
@@ -232,6 +244,7 @@ public class HeroMover : MonoBehaviour
         }
     }
 
+
     ///<summary>リスポーン</summary>
     void Die()
     {
@@ -239,6 +252,7 @@ public class HeroMover : MonoBehaviour
         GameTimeCounter.CurrentInstance.DoesTick = false;
         Tokitome.SetTime(0.2f);
         SceneTransition.Start2ChangeScene(SceneManager.GetActiveScene().name, SceneTransition.TransitionType.HeroDied);
+        draftModeManager.Exit();
     }
 
     public void RecoverHP(int amount) => ChangeHP(HP + amount);
@@ -263,11 +277,13 @@ public class HeroMover : MonoBehaviour
         SpriteRenderer      = GetComponent<SpriteRenderer>();
         Anim                = GetComponent<Animator>();
         Rigidbody           = GetComponent<Rigidbody2D>();
+        Transform           = GetComponent<Transform>();
         HpCntr              = GetComponent<HpCntr>();
         sakamichiChecker    = GetComponent<SakamichiChecker>();
         savePositionManager = GetComponent<SavePositionManager>();
         ObjsHolderForStates = GetComponent<HeroObjsHolder4States>();
         JetManager          = GetComponent<JetManager>();
+        draftModeManager    = GetComponent<DraftModeManager>();
 
         JetManager.Init(Input, this);
 
@@ -313,6 +329,11 @@ public class HeroMover : MonoBehaviour
                 //なんとなく入力をまとめて置きたくてここにしているがあまり意味がないような…
                 if(Input.GetNagaoshiFrames(ButtonCode.Save) == 70) savePositionManager.Try2Save();
 
+                if(Input.GetButtonDown(ButtonCode.Zone))
+                {
+                    if(draftModeManager.InDraftMode) draftModeManager.Exit();
+                    else                             draftModeManager.Enter();
+                }
 
                 UpdateMoveDirection();
 
