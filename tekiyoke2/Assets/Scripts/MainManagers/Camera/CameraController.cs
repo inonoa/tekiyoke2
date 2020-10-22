@@ -8,9 +8,9 @@ public class CameraController : MonoBehaviour
 {
     Camera cmr;
     private float defaultSize;
-    static readonly float zoomSizeMin = 300;
-    static readonly float zoomSpeed = 1;
-    static readonly float unzoomSpeed = 10;
+    [SerializeField] float zoomSizeMin = 300;
+    [SerializeField] float zoomSpeed   = 100f;
+    [SerializeField] float unzoomSpeed = 500f;
 
     [SerializeField] Vector2 fromCameraToHero = new Vector2(0, -100);
 
@@ -35,30 +35,31 @@ public class CameraController : MonoBehaviour
     ///<summary>positionGapが変化するスピード</summary>
     static readonly float positionGapChangeSpeed = 0.1f;
 
-    enum CameraStateAboutDash{ Default, ZoomingForDash, Dashing, Retreating }
-    CameraStateAboutDash dashState = CameraStateAboutDash.Default;
+    enum StateAboutJet{ Default, ZoomingForDash, Dashing, Retreating }
+    StateAboutJet jetState = StateAboutJet.Default;
 
-    [SerializeField] int jetFreezeFrames = 20;
+    [SerializeField] float jetFreezeSeconds = 0.3f;
 
     //この辺必要か？？？
-    public void StartZoomForDash() => dashState = CameraStateAboutDash.ZoomingForDash;
+    public void StartZoomForDash() => jetState = StateAboutJet.ZoomingForDash;
     public void OnJet()
     {
-        dashState = CameraStateAboutDash.Dashing;
-        Freeze(jetFreezeFrames);
+        jetState = StateAboutJet.Dashing;
+        Freeze(jetFreezeSeconds);
     }
-    public void EndDash() => dashState = CameraStateAboutDash.Retreating;
-    public void Reset() => dashState = CameraStateAboutDash.Retreating; //多分要改善。ダッシュ以外のズームが導入された場合とか
+    public void EndDash() => jetState = StateAboutJet.Retreating;
+    public void Reset() => jetState = StateAboutJet.Retreating; //多分要改善。ダッシュ以外のズームが導入された場合とか
 
 
 
-    int frames2freeze = 0;
+    float seconds2freeze = 0;
     Vector3 freezePosition;
 
-    public bool Freeze(int num_frames = 20){
-        if(frames2freeze > 0) return false;
+    public bool Freeze(float seconds = 0.3f)
+    {
+        if(seconds2freeze > 0) return false;
 
-        frames2freeze = num_frames;
+        seconds2freeze = seconds;
         freezePosition = transform.position;
         return true;
     }
@@ -73,56 +74,69 @@ public class CameraController : MonoBehaviour
         scShoOutOfWindController.canvas = canvas;
     }
 
-    void Update(){
-        if(Input.GetKeyDown(KeyCode.P)) ScShoOutOfWind(ss => print("SCSHO"));
-    }
-
     void FixedUpdate()
     {
-        switch(dashState){
-            case CameraStateAboutDash.Default: break;
+        switch(jetState)
+        {
+        case StateAboutJet.Default: break;
 
-            case CameraStateAboutDash.ZoomingForDash:
-                if(cmr.orthographicSize>zoomSizeMin){
-                    cmr.orthographicSize -= zoomSpeed;
-                }
-                break;
+        case StateAboutJet.ZoomingForDash:
 
-            case CameraStateAboutDash.Dashing: break;
+            if(cmr.orthographicSize > zoomSizeMin)
+            {
+                cmr.orthographicSize -= zoomSpeed * Time.unscaledDeltaTime;
+            }
+            break;
 
-            case CameraStateAboutDash.Retreating:
-                if(cmr.orthographicSize<defaultSize){
-                    cmr.orthographicSize += unzoomSpeed;
+        case StateAboutJet.Dashing: break;
 
-                    if(cmr.orthographicSize>defaultSize){
-                        cmr.orthographicSize = defaultSize;
-                        dashState = CameraStateAboutDash.Default;
-                    }
-                }
-                break;
+        case StateAboutJet.Retreating:
+            
+            cmr.orthographicSize += unzoomSpeed * Time.unscaledDeltaTime;
+
+            if(cmr.orthographicSize > defaultSize)
+            {
+                cmr.orthographicSize = defaultSize;
+                jetState = StateAboutJet.Default;
+            }
+            break;
         }
 
-        if(frames2freeze>0){
-            frames2freeze --;
-        }else{
-            //Update targetPosition
-            //単純に主人公の移動距離分追いかけたあと、Freeze中に置いてけぼりを喰らっていた分をちょっとずつ追い付く
-            targetPosition += MyMath.DistAsVector2(HeroDefiner.CurrentHeroPos,
-                HeroDefiner.CurrentHeroPastPos.Count > 1 ? HeroDefiner.CurrentHeroPastPos[1] : HeroDefiner.CurrentHeroPos);
-            targetPosition += (HeroDefiner.CurrentHeroExpectedPos - fromCameraToHero - targetPosition) * targetPosChangeSpeed;
+        if(seconds2freeze > 0)
+        {
+            seconds2freeze -= Time.unscaledDeltaTime;
+            return;
+        }
 
-            //Update positionGap
-            float velMX = HeroVelocityMean(100).x;
-            float zureX;
-            if     (velMX < - HeroDefiner.currentHero.Parameters.GroundSpeedMax * 0.6f) zureX = -1;
-            else if(velMX <   HeroDefiner.currentHero.Parameters.GroundSpeedMax * 0.6f) zureX = 0;
-            else                                                                        zureX = 1;
-            Vector2 dist2Gap = new Vector2(zureX,0) * positionGapWidth - positionGap;
-            if(dist2Gap.magnitude < 1) positionGap += Vector2.zero;
-            else                       positionGap += dist2Gap * positionGapChangeSpeed;
+        targetPosition = NextTartgetPosition(targetPosition);
+        positionGap    = NextPositionGap(positionGap);
 
+        transform.position = targetPosition.ToVec3() + positionGap.ToVec3() + new Vector3(0,0,-500);
 
-            transform.position = targetPosition.ToVec3() + positionGap.ToVec3() + new Vector3(0,0,-500);
+        //単純に主人公の移動距離分追いかけたあと、Freeze中に置いてけぼりを喰らっていた分をちょっとずつ追い付く
+        Vector2 NextTartgetPosition(Vector2 currentTargetPosition)
+        {
+            Vector2 lastPos   = HeroDefiner.CurrentHeroPastPos.Count > 1 ? HeroDefiner.CurrentHeroPastPos[1] : HeroDefiner.CurrentHeroPos;
+            Vector2 dist      = MyMath.DistAsVector2(HeroDefiner.CurrentHeroPos, lastPos);
+            Vector2 distAdded = currentTargetPosition + dist;
+
+            Vector2 catchUp = (HeroDefiner.CurrentHeroExpectedPos - fromCameraToHero - targetPosition) * targetPosChangeSpeed;
+            return distAdded + catchUp;
+        }
+
+        Vector2 NextPositionGap(Vector2 currentPositionGap)
+        {
+            float velocityMean      = HeroVelocityMean(100).x;
+            float velocityThreshold = HeroDefiner.currentHero.Parameters.GroundSpeedMax * 0.6f;
+
+            Vector2 targetGap;
+            if(velocityMean <  -velocityThreshold) targetGap = new Vector2(-positionGapWidth, 0);
+            if(velocityMean <=  velocityThreshold) targetGap = new Vector2( 0,                0);
+            else                                   targetGap = new Vector2( positionGapWidth, 0);
+            
+            Vector2 current2target = targetGap - positionGap;
+            if(current2target.magnitude < 1) return positionGap;
+            return positionGap + current2target * positionGapChangeSpeed;
         }
     }
 
@@ -151,8 +165,8 @@ public class CameraController : MonoBehaviour
     void Awake()
     {
         _CurrentCamera = this;
-        cmr = GetComponent<Camera>();
-        AfterEffects = GetComponent<AfterEffects>();
+        cmr            = GetComponent<Camera>();
+        AfterEffects   = GetComponent<AfterEffects>();
     }
 
     #endregion

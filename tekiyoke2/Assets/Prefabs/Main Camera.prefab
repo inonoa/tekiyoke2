@@ -90,11 +90,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1a68452afc6fb344b7eb02345c5b21c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zoomSizeMin: 300
+  zoomSpeed: 100
+  unzoomSpeed: 500
   fromCameraToHero: {x: 0, y: -130}
   scShoOutOfWindController: {fileID: 6478240744771120905}
   scShoController: {fileID: 7195403637980874227}
   canvas: {fileID: 0}
-  jetFreezeFrames: 20
+  jetFreezeSeconds: 0.45
 --- !u!114 &7195403637980874227
 MonoBehaviour:
   m_ObjectHideFlags: 0
