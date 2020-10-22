@@ -9,10 +9,10 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{A37ED314-5958-41F4-3BFA-CD793CADA6CA}</ProjectGuid>
+    <ProjectGuid>{18423607-B80E-C44F-E2A6-070EFBE8B7A9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <AssemblyName>DOTweenPro.Scripts</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>.</BaseDirectory>
@@ -53,183 +53,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Enemies\Collider2Wall.cs" />
-     <Compile Include="Assets\Scripts\Enemies\DontWannaFall.cs" />
-     <Compile Include="Assets\Scripts\Enemies\DPinEnemy.cs" />
-     <Compile Include="Assets\Scripts\Enemies\EnemyController.cs" />
-     <Compile Include="Assets\Scripts\Enemies\EnemySpawner.cs" />
-     <Compile Include="Assets\Scripts\Enemies\GierController.cs" />
-     <Compile Include="Assets\Scripts\Enemies\JerryController.cs" />
-     <Compile Include="Assets\Scripts\Enemies\KennerController.cs" />
-     <Compile Include="Assets\Scripts\Enemies\NaitrumController.cs" />
-     <Compile Include="Assets\Scripts\Enemies\TamaController.cs" />
-     <Compile Include="Assets\Scripts\GameUIManager.cs" />
-     <Compile Include="Assets\Scripts\GroundChecker.cs" />
-     <Compile Include="Assets\Scripts\Hero\Actions\HeroParameters.cs" />
-     <Compile Include="Assets\Scripts\Hero\Actions\HeroTransitions.cs" />
-     <Compile Include="Assets\Scripts\Hero\Actions\JetManager.cs" />
-     <Compile Include="Assets\Scripts\Hero\Actions\OldStates\HeroState.cs" />
-     <Compile Include="Assets\Scripts\Hero\Actions\OldStates\StateBaneYoko.cs" />
-     <Compile Include="Assets\Scripts\Hero\Actions\OldStates\StateBend.cs" />
-     <Compile Include="Assets\Scripts\Hero\Actions\OldStates\StateFall.cs" />
-     <Compile Include="Assets\Scripts\Hero\Actions\OldStates\StateJet.cs" />
-     <Compile Include="Assets\Scripts\Hero\Actions\OldStates\StateJump.cs" />
-     <Compile Include="Assets\Scripts\Hero\Actions\OldStates\StateKick.cs" />
-     <Compile Include="Assets\Scripts\Hero\Actions\OldStates\StateRun.cs" />
-     <Compile Include="Assets\Scripts\Hero\Actions\OldStates\StateUseless.cs" />
-     <Compile Include="Assets\Scripts\Hero\Actions\OldStates\StateWait.cs" />
-     <Compile Include="Assets\Scripts\Hero\Actions\SakamichiChecker.cs" />
-     <Compile Include="Assets\Scripts\Hero\Actions\States\HeroState.cs" />
-     <Compile Include="Assets\Scripts\Hero\Actions\States\StateBend.cs" />
-     <Compile Include="Assets\Scripts\Hero\Actions\States\StateFall.cs" />
-     <Compile Include="Assets\Scripts\Hero\Actions\States\StateJet.cs" />
-     <Compile Include="Assets\Scripts\Hero\Actions\States\StateJump.cs" />
-     <Compile Include="Assets\Scripts\Hero\Actions\States\StateKick.cs" />
-     <Compile Include="Assets\Scripts\Hero\Actions\States\StateRun.cs" />
-     <Compile Include="Assets\Scripts\Hero\Actions\States\StateWait.cs" />
-     <Compile Include="Assets\Scripts\Hero\Actions\WallChecker.cs" />
-     <Compile Include="Assets\Scripts\Hero\BaneResidue.cs" />
-     <Compile Include="Assets\Scripts\Hero\DamageType.cs" />
-     <Compile Include="Assets\Scripts\Hero\DPManager.cs" />
-     <Compile Include="Assets\Scripts\Hero\DraftModeManager.cs" />
-     <Compile Include="Assets\Scripts\Hero\Effects\Chishibuki.cs" />
-     <Compile Include="Assets\Scripts\Hero\Effects\HeroAfterimage.cs" />
-     <Compile Include="Assets\Scripts\Hero\Effects\JetCloudManager.cs" />
-     <Compile Include="Assets\Scripts\Hero\Effects\JetPostEffect.cs" />
-     <Compile Include="Assets\Scripts\Hero\Effects\JetStream.cs" />
-     <Compile Include="Assets\Scripts\Hero\Effects\JumpEffect.cs" />
-     <Compile Include="Assets\Scripts\Hero\Effects\Kabezuri.cs" />
-     <Compile Include="Assets\Scripts\Hero\Effects\SpawnKabezuris.cs" />
-     <Compile Include="Assets\Scripts\Hero\Effects\Tsuchihokori.cs" />
-     <Compile Include="Assets\Scripts\Hero\GetDPinEnemy.cs" />
-     <Compile Include="Assets\Scripts\Hero\HeroAnim.cs" />
-     <Compile Include="Assets\Scripts\Hero\HeroCollider2Enemy.cs" />
-     <Compile Include="Assets\Scripts\Hero\HeroDebugView.cs" />
-     <Compile Include="Assets\Scripts\Hero\HeroDefiner.cs" />
-     <Compile Include="Assets\Scripts\Hero\HeroEventArgs.cs" />
-     <Compile Include="Assets\Scripts\Hero\HeroLogParams.cs" />
-     <Compile Include="Assets\Scripts\Hero\HeroMover.cs" />
-     <Compile Include="Assets\Scripts\Hero\HeroObjsHolder4States.cs" />
-     <Compile Include="Assets\Scripts\Hero\HeroPhysics.cs" />
-     <Compile Include="Assets\Scripts\Hero\HeroTween.cs" />
-     <Compile Include="Assets\Scripts\Hero\HeroVelocity.cs" />
-     <Compile Include="Assets\Scripts\Hero\HpCntr.cs" />
-     <Compile Include="Assets\Scripts\Hero\IAskCanJump.cs" />
-     <Compile Include="Assets\Scripts\Hero\ISpeedResidue.cs" />
-     <Compile Include="Assets\Scripts\Hero\NearToEnemyChecker.cs" />
-     <Compile Include="Assets\Scripts\Hero\SavePositionManager.cs" />
-     <Compile Include="Assets\Scripts\Input\IAskedInput.cs" />
-     <Compile Include="Assets\Scripts\Input\InputManager.cs" />
-     <Compile Include="Assets\Scripts\IReusable.cs" />
-     <Compile Include="Assets\Scripts\MainManagers\BGMover.cs" />
-     <Compile Include="Assets\Scripts\MainManagers\Camera\AfterEffects.cs" />
-     <Compile Include="Assets\Scripts\MainManagers\Camera\CameraController.cs" />
-     <Compile Include="Assets\Scripts\MainManagers\Camera\PostEffectWrapper.cs" />
-     <Compile Include="Assets\Scripts\MainManagers\Camera\ScShoController.cs" />
-     <Compile Include="Assets\Scripts\MainManagers\Camera\ScShoOutOfWindController.cs" />
-     <Compile Include="Assets\Scripts\MainManagers\DraftManager.cs" />
-     <Compile Include="Assets\Scripts\MainManagers\GameTimeCounter.cs" />
-     <Compile Include="Assets\Scripts\MainManagers\MemoryOverDeath.cs" />
-     <Compile Include="Assets\Scripts\MainManagers\ScriptableObjectsHolder.cs" />
-     <Compile Include="Assets\Scripts\MainManagers\ScriptableObjectsLoader.cs" />
-     <Compile Include="Assets\Scripts\MainManagers\ServicesLocator.cs" />
-     <Compile Include="Assets\Scripts\MainManagers\Tokitome.cs" />
-     <Compile Include="Assets\Scripts\MainManagers\WindSoundController.cs" />
-     <Compile Include="Assets\Scripts\MapObjs\BaneController.cs" />
-     <Compile Include="Assets\Scripts\MapObjs\BaneYokoController.cs" />
-     <Compile Include="Assets\Scripts\MapObjs\BGFogMover.cs" />
-     <Compile Include="Assets\Scripts\MapObjs\DPCD.cs" />
-     <Compile Include="Assets\Scripts\MapObjs\DropTileController.cs" />
-     <Compile Include="Assets\Scripts\MapObjs\Goal.cs" />
-     <Compile Include="Assets\Scripts\MapObjs\IdouYukaController.cs" />
-     <Compile Include="Assets\Scripts\MapObjs\KazaGateController.cs" />
-     <Compile Include="Assets\Scripts\MapObjs\Kazaguruma.cs" />
-     <Compile Include="Assets\Scripts\MapObjs\KazagurumaObserver.cs" />
-     <Compile Include="Assets\Scripts\MapObjs\KieruYuka.cs" />
-     <Compile Include="Assets\Scripts\MapObjs\KieruYukaCntr.cs" />
-     <Compile Include="Assets\Scripts\MapObjs\RecoverItem.cs" />
-     <Compile Include="Assets\Scripts\MapObjs\Sasayaki.cs" />
-     <Compile Include="Assets\Scripts\MapObjs\TogeController.cs" />
-     <Compile Include="Assets\Scripts\MapObjs\TogeDropController.cs" />
-     <Compile Include="Assets\Scripts\MapObjs\TogeDropRespawner.cs" />
-     <Compile Include="Assets\Scripts\MapObjs\UltraThinTileController.cs" />
-     <Compile Include="Assets\Scripts\MyMath.cs" />
-     <Compile Include="Assets\Scripts\ObjectPool.cs" />
-     <Compile Include="Assets\Scripts\Pause\PauseCameraController.cs" />
-     <Compile Include="Assets\Scripts\Pause\Pauser.cs" />
-     <Compile Include="Assets\Scripts\Pause\PauseUIMover.cs" />
-     <Compile Include="Assets\Scripts\ResultScene\CursorMove.cs" />
-     <Compile Include="Assets\Scripts\ResultScene\NumberSpritesHolder.cs" />
-     <Compile Include="Assets\Scripts\ResultScene\PressZToReturn.cs" />
-     <Compile Include="Assets\Scripts\ResultScene\ScoresToText.cs" />
-     <Compile Include="Assets\Scripts\ResultScene\SlideFadeIn.cs" />
-     <Compile Include="Assets\Scripts\ResultScene\Tweeter.cs" />
-     <Compile Include="Assets\Scripts\RingBuffer.cs" />
-     <Compile Include="Assets\Scripts\SceneTransition\BlueSlideIn.cs" />
-     <Compile Include="Assets\Scripts\SceneTransition\BlurTrans.cs" />
-     <Compile Include="Assets\Scripts\SceneTransition\Curtain4SceneEndMover.cs" />
-     <Compile Include="Assets\Scripts\SceneTransition\Curtain4SceneStartMover.cs" />
-     <Compile Include="Assets\Scripts\SceneTransition\SceneTransition.cs" />
-     <Compile Include="Assets\Scripts\SceneTransition\WindAndBlur.cs" />
-     <Compile Include="Assets\Scripts\SceneTransition\WindPath.cs" />
-     <Compile Include="Assets\Scripts\ScoreHolder.cs" />
-     <Compile Include="Assets\Scripts\SoundOrMusic\SoundGroup.cs" />
-     <Compile Include="Assets\Scripts\StageSelectScene\StageSelector.cs" />
-     <Compile Include="Assets\Scripts\StageSelectScene\WakuLightMover.cs" />
-     <Compile Include="Assets\Scripts\TitleScene\AnyKeyToStart.cs" />
-     <Compile Include="Assets\Scripts\TitleScene\CloudSpawner.cs" />
-     <Compile Include="Assets\Scripts\TitleScene\Title2Stages.cs" />
-     <Compile Include="Assets\Scripts\Utils\ArrayForEach.cs" />
-     <Compile Include="Assets\Scripts\Utils\MaterialTween.cs" />
-     <Compile Include="Assets\Scripts\Utils\RenameFieldAttribute.cs" />
-     <Compile Include="Assets\Scripts\Utils\ShaderProperties.cs" />
-     <Compile Include="Assets\Scripts\Utils\SimpleAnim.cs" />
-     <Compile Include="Assets\Scripts\Warp\WarpController.cs" />
-     <Compile Include="Assets\Scripts\Warp\WarpEvent.cs" />
-     <Compile Include="Assets\Scripts\ZatsuTest.cs" />
-     <None Include="Assets\Images\BGs\MapObjs\Bane.shader" />
-     <None Include="Assets\Materials\MapObjs\Bane.shader" />
-     <None Include="Assets\Materials\PostEffects\Vignette.shader" />
-     <None Include="Assets\Materials\MapObjs\EdgeLight.shader" />
-     <None Include="Assets\Images\BGs\MapObjs\EdgeLight.shader" />
-     <None Include="Assets\Materials\FogBlur.shader" />
-     <None Include="Assets\Materials\LogoDissolve.shader" />
-     <None Include="Assets\Materials\Blur.shader" />
-     <None Include="Assets\Materials\Hero.shader" />
-     <None Include="Assets\Images\BGs\MapObjs\Idouyuka.shader" />
-     <None Include="Assets\Materials\PostEffects\BlurEdge2.shader" />
-     <None Include="Assets\Materials\Light.shader" />
-     <None Include="Assets\Materials\PostEffects\BlurEdge1.shader" />
-     <None Include="Assets\Materials\PostEffects\ColorReversed.shader" />
-     <None Include="Assets\ScriptTemplates\81-C# NewState-NewBehaviourScript.cs.txt" />
-     <None Include="Assets\Materials\Glitch.shader" />
-     <None Include="Assets\Materials\TimeText.shader" />
-     <None Include="Assets\Demigiant\DOTween\readme.txt" />
-     <None Include="Assets\Materials\PostEffects\Noise.shader" />
-     <None Include="Assets\Materials\RespawnPosition.shader" />
-     <None Include="Assets\Demigiant\DemiLib\Core\DemiLib.xml" />
-     <None Include="Assets\Materials\PostEffects\Draft.shader" />
-     <None Include="Assets\Materials\DPinEnemy.shader" />
-     <None Include="Assets\Materials\DefaultShader.shader" />
-     <None Include="Assets\Materials\MapObjs\Idouyuka.shader" />
-     <None Include="Assets\Demigiant\readme_DOTweenPro.txt" />
-     <None Include="Assets\Materials\PostEffects\Aberration.shader" />
-     <None Include="Assets\Materials\DPOverlay.shader" />
- <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>C:/Users/inonoa/Documents/ino_game/tekiyoke2/tekiyoke2/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.PackageManagerUI.Editor">
- <HintPath>C:/Users/inonoa/Documents/ino_game/tekiyoke2/tekiyoke2/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.CollabProxy.Editor">
- <HintPath>C:/Users/inonoa/Documents/ino_game/tekiyoke2/tekiyoke2/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.TextMeshPro">
- <HintPath>C:/Users/inonoa/Documents/ino_game/tekiyoke2/tekiyoke2/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Analytics.DataPrivacy">
- <HintPath>C:/Users/inonoa/Documents/ino_game/tekiyoke2/tekiyoke2/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
- </Reference>
+     <Compile Include="Assets\Demigiant\DOTweenPro\DOTweenAnimation.cs" />
+     <Compile Include="Assets\Demigiant\DOTweenPro\DOTweenProShortcuts.cs" />
+     <Compile Include="Assets\Demigiant\DOTweenPro\DOTweenTextMeshPro.cs" />
+     <Compile Include="Assets\Demigiant\DOTweenPro\DOTweenTk2d.cs" />
+     <None Include="Assets\Demigiant\DOTweenPro\readme.txt" />
  <Reference Include="UnityEngine.AIModule">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2018.3.12f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
  </Reference>
@@ -413,6 +241,12 @@
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2018.3.12f1/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
+ <Reference Include="UnityEditor.UI">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.3.12f1/Editor/Data/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.TestRunner">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.3.12f1/Editor/Data/UnityExtensions/Unity/TestRunner/Editor/UnityEditor.TestRunner.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.TestRunner">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2018.3.12f1/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
  </Reference>
@@ -422,23 +256,62 @@
  <Reference Include="UnityEngine.Timeline">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2018.3.12f1/Editor/Data/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll</HintPath>
  </Reference>
+ <Reference Include="UnityEditor.Timeline">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.3.12f1/Editor/Data/UnityExtensions/Unity/Timeline/Editor/UnityEditor.Timeline.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.Networking">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2018.3.12f1/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Networking">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.3.12f1/Editor/Data/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.GoogleAudioSpatializer">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.3.12f1/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/Editor/UnityEditor.GoogleAudioSpatializer.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.GoogleAudioSpatializer">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2018.3.12f1/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/RuntimeEditor/UnityEngine.GoogleAudioSpatializer.dll</HintPath>
  </Reference>
+ <Reference Include="UnityEditor.SpatialTracking">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.3.12f1/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/Editor/UnityEditor.SpatialTracking.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.SpatialTracking">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2018.3.12f1/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.VR">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.3.12f1/Editor/Data/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Graphs">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.3.12f1/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.WebGL.Extensions">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.3.12f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.LinuxStandalone.Extensions">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.3.12f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.WindowsStandalone.Extensions">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.3.12f1/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.OSXStandalone.Extensions">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2018.3.12f1/Editor/Data/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
  </Reference>
  <Reference Include="DemiLib">
  <HintPath>C:/Users/inonoa/Documents/ino_game/tekiyoke2/tekiyoke2/Assets/Demigiant/DemiLib/Core/DemiLib.dll</HintPath>
  </Reference>
+ <Reference Include="DemiEditor">
+ <HintPath>C:/Users/inonoa/Documents/ino_game/tekiyoke2/tekiyoke2/Assets/Demigiant/DemiLib/Core/Editor/DemiEditor.dll</HintPath>
+ </Reference>
  <Reference Include="DOTween">
  <HintPath>C:/Users/inonoa/Documents/ino_game/tekiyoke2/tekiyoke2/Assets/Demigiant/DOTween/DOTween.dll</HintPath>
  </Reference>
+ <Reference Include="DOTweenEditor">
+ <HintPath>C:/Users/inonoa/Documents/ino_game/tekiyoke2/tekiyoke2/Assets/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
+ </Reference>
  <Reference Include="DOTweenPro">
  <HintPath>C:/Users/inonoa/Documents/ino_game/tekiyoke2/tekiyoke2/Assets/Demigiant/DOTweenPro/DOTweenPro.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTweenProEditor">
+ <HintPath>C:/Users/inonoa/Documents/ino_game/tekiyoke2/tekiyoke2/Assets/Demigiant/DOTweenPro/Editor/DOTweenProEditor.dll</HintPath>
  </Reference>
  <Reference Include="Sirenix.OdinInspector.Attributes">
  <HintPath>C:/Users/inonoa/Documents/ino_game/tekiyoke2/tekiyoke2/Assets/Plugins/Sirenix/Assemblies/Sirenix.OdinInspector.Attributes.dll</HintPath>
@@ -458,6 +331,9 @@
  <Reference Include="Sirenix.Utilities.Editor">
  <HintPath>C:/Users/inonoa/Documents/ino_game/tekiyoke2/tekiyoke2/Assets/Plugins/Sirenix/Assemblies/Sirenix.Utilities.Editor.dll</HintPath>
  </Reference>
+ <Reference Include="UnityEditor.Advertisements">
+ <HintPath>C:/Users/inonoa/Documents/ino_game/tekiyoke2/tekiyoke2/Library/PackageCache/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.Analytics.Editor">
  <HintPath>C:/Users/inonoa/Documents/ino_game/tekiyoke2/tekiyoke2/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
  </Reference>
@@ -466,6 +342,9 @@
  </Reference>
  <Reference Include="Unity.Analytics.Tracker">
  <HintPath>C:/Users/inonoa/Documents/ino_game/tekiyoke2/tekiyoke2/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Purchasing">
+ <HintPath>C:/Users/inonoa/Documents/ino_game/tekiyoke2/tekiyoke2/Library/PackageCache/com.unity.purchasing@2.0.3/Editor/UnityEditor.Purchasing.dll</HintPath>
  </Reference>
  <Reference Include="netstandard">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2018.3.12f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
@@ -814,18 +693,8 @@
  </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="DraftMode.csproj">
-      <Project>{A80656E2-2542-7A44-3420-F3885BA39EBC}</Project>      <Name>DraftMode</Name>    </ProjectReference>
-    <ProjectReference Include="UniRx.csproj">
-      <Project>{913689B3-B639-9B10-E779-4A87F98340B9}</Project>      <Name>UniRx</Name>    </ProjectReference>
-    <ProjectReference Include="Sirenix.OdinInspector.CompatibilityLayer.Editor.csproj">
-      <Project>{B69AF395-EA05-9FF5-9AD5-31D18376A4C0}</Project>      <Name>Sirenix.OdinInspector.CompatibilityLayer.Editor</Name>    </ProjectReference>
-    <ProjectReference Include="Sirenix.OdinInspector.CompatibilityLayer.csproj">
-      <Project>{B8AB6B6C-E667-8F0B-41FC-05E193A3A5C4}</Project>      <Name>Sirenix.OdinInspector.CompatibilityLayer</Name>    </ProjectReference>
     <ProjectReference Include="DOTween.Modules.csproj">
       <Project>{12FDC6C4-5019-A1F9-3D13-F20359DB5948}</Project>      <Name>DOTween.Modules</Name>    </ProjectReference>
-    <ProjectReference Include="DOTweenPro.Scripts.csproj">
-      <Project>{18423607-B80E-C44F-E2A6-070EFBE8B7A9}</Project>      <Name>DOTweenPro.Scripts</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

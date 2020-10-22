@@ -9,10 +9,10 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{96B98AFA-D047-D5BB-CF27-5ADB17B34EAE}</ProjectGuid>
+    <ProjectGuid>{44FCCC19-AEC9-D67A-8CA7-6E8984311CDD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
+    <AssemblyName>DOTweenPro.EditorScripts</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>.</BaseDirectory>
@@ -55,22 +55,6 @@
   <ItemGroup>
      <Compile Include="Assets\Demigiant\DOTweenPro\Editor\DOTweenAnimationInspector.cs" />
      <Compile Include="Assets\Demigiant\DOTweenPro\Editor\DOTweenPreviewManager.cs" />
-     <None Include="Assets\Demigiant\DemiLib\Core\Editor\DemiEditor.xml" />
- <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>C:/Users/inonoa/Documents/ino_game/tekiyoke2/tekiyoke2/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.PackageManagerUI.Editor">
- <HintPath>C:/Users/inonoa/Documents/ino_game/tekiyoke2/tekiyoke2/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.CollabProxy.Editor">
- <HintPath>C:/Users/inonoa/Documents/ino_game/tekiyoke2/tekiyoke2/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.TextMeshPro">
- <HintPath>C:/Users/inonoa/Documents/ino_game/tekiyoke2/tekiyoke2/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Analytics.DataPrivacy">
- <HintPath>C:/Users/inonoa/Documents/ino_game/tekiyoke2/tekiyoke2/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
- </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2018.3.12f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
  </Reference>
@@ -718,18 +702,10 @@
  </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{A37ED314-5958-41F4-3BFA-CD793CADA6CA}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
-    <ProjectReference Include="DraftMode.csproj">
-      <Project>{A80656E2-2542-7A44-3420-F3885BA39EBC}</Project>      <Name>DraftMode</Name>    </ProjectReference>
-    <ProjectReference Include="UniRx.csproj">
-      <Project>{913689B3-B639-9B10-E779-4A87F98340B9}</Project>      <Name>UniRx</Name>    </ProjectReference>
-    <ProjectReference Include="Sirenix.OdinInspector.CompatibilityLayer.Editor.csproj">
-      <Project>{B69AF395-EA05-9FF5-9AD5-31D18376A4C0}</Project>      <Name>Sirenix.OdinInspector.CompatibilityLayer.Editor</Name>    </ProjectReference>
-    <ProjectReference Include="Sirenix.OdinInspector.CompatibilityLayer.csproj">
-      <Project>{B8AB6B6C-E667-8F0B-41FC-05E193A3A5C4}</Project>      <Name>Sirenix.OdinInspector.CompatibilityLayer</Name>    </ProjectReference>
     <ProjectReference Include="DOTween.Modules.csproj">
       <Project>{12FDC6C4-5019-A1F9-3D13-F20359DB5948}</Project>      <Name>DOTween.Modules</Name>    </ProjectReference>
+    <ProjectReference Include="DOTweenPro.Scripts.csproj">
+      <Project>{18423607-B80E-C44F-E2A6-070EFBE8B7A9}</Project>      <Name>DOTweenPro.Scripts</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
