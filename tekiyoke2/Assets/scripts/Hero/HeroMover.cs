@@ -12,15 +12,6 @@ using System.Linq;
 ///<summary>最終的には各機能をまとめる役割と渉外担当みたいな役割とだけを持たせたい</summary>
 public class HeroMover : MonoBehaviour
 {
-    public Stack<OldStates.HeroState> States;
-
-
-    #region 移動関係の(だいたい)定数
-    public static float moveSpeed = 15;
-    public static readonly float gravity = 1.7f;
-    public static readonly float blinkPeriodSec = 0.2f;
-
-    #endregion
 
     #region 操作・移動関係
 
@@ -28,7 +19,6 @@ public class HeroMover : MonoBehaviour
     public bool CanMove { get; set; } = true;
 
     public bool IsOnGround         => groundChecker.IsOnGround;
-    public int  FramesSinceTakeOff => groundChecker.FramesSinceTakeOff;
     public bool IsOnSakamichi      => sakamichiChecker.OnSakamichi;
     public bool IsOnSakamichiR     => sakamichiChecker.OnSakamichiR;
     public bool IsOnSakamichiL     => sakamichiChecker.OnSakamichiL;
@@ -226,6 +216,7 @@ public class HeroMover : MonoBehaviour
         StartCoroutine(Blink());
     }
 
+    static readonly float blinkPeriodSec = 0.2f;
     IEnumerator Blink()
     {
         yield return new WaitForSeconds(0.3f);
