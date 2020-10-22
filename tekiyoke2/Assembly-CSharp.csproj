@@ -55,6 +55,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\CheckPoint\CheckPoint.cs" />
      <Compile Include="Assets\Scripts\CheckPoint\CheckPointsManager.cs" />
+     <Compile Include="Assets\Scripts\CheckPoint\CheckPointUI.cs" />
      <Compile Include="Assets\Scripts\Enemies\Collider2Wall.cs" />
      <Compile Include="Assets\Scripts\Enemies\DontWannaFall.cs" />
      <Compile Include="Assets\Scripts\Enemies\DPinEnemy.cs" />

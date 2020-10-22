@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
 using Sirenix.OdinInspector;
+using System;
 
 public class CheckPointsManager : MonoBehaviour
 {
     [SerializeField] CheckPoint[] checkPoints;
     [SerializeField] [ReadOnly] int frontLine = -1;
+
+    Subject<CheckPoint> _Passed = new Subject<CheckPoint>();
+    public IObservable<CheckPoint> PassedNewCheckPoint => _Passed;
 
     public Vector2 GetPosition(int index)
     {
@@ -23,23 +27,11 @@ public class CheckPointsManager : MonoBehaviour
             int index = i;
             checkPoints[index].Passed.Subscribe(cp =>
             {
-                if(frontLine < index)
-                {
-                    frontLine = index;
-                    // "チェックポイント通過"
-                    print($"チェックポイント: {cp.Name} を通過");
-                    MemoryOverDeath.Instance.PassCheckPoint(index);
-                }
-                else if(frontLine > index)
-                {
-                    // "既に奥のチェックポイントを通過しています"
-                    // これ必要かなあ
-                    print($"チェックポイント: {cp.Name} より奥のチェックポイントを通過済み");
-                }
-                else
-                {
-                    Debug.LogError($"チェックポイント: {cp.Name} に二回目の通過！！");
-                }
+                Debug.Assert(frontLine < index, "不正なチェックポイントを通っています");
+                
+                frontLine = index;
+                MemoryOverDeath.Instance.PassCheckPoint(index);
+                _Passed.OnNext(cp);
             })
             .AddTo(this);
         }
