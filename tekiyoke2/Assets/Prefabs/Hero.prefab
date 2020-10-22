@@ -347,6 +347,7 @@ GameObject:
   - component: {fileID: 6582467827319375464}
   - component: {fileID: 1793911700709453500}
   - component: {fileID: 6378392078754932210}
+  - component: {fileID: 2512754790269566656}
   m_Layer: 8
   m_Name: Hero
   m_TagString: Player
@@ -478,6 +479,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7367abbafe31e1d46af2c3c11de1351b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <KeyDirection>k__BackingField: 0
+  <WantsToGoRight>k__BackingField: 1
   _SoundGroup: {fileID: 5836125009105332007}
   <WindSounds>k__BackingField: {fileID: 6267704590824942824}
   groundChecker: {fileID: 3106219250714267053}
@@ -487,6 +490,7 @@ MonoBehaviour:
   _Parameters: {fileID: 11400000, guid: 970728269f00073489c33066b7c7ee2e, type: 2}
   _ParametersInDraftMode: {fileID: 11400000, guid: 07fd272dd2e90f84cb6b0335d47e78ab,
     type: 2}
+  anim: {fileID: 2512754790269566656}
 --- !u!114 &3106219250084253372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -644,6 +648,19 @@ MonoBehaviour:
   enterDuration: 2
   exitDuration: 1.5
   windsManager: {fileID: 0}
+  hero: {fileID: 3106219250084253350}
+--- !u!114 &2512754790269566656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3106219250084253351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b3794681b14c3d4bab3ba96150b2eef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   hero: {fileID: 3106219250084253350}
 --- !u!1 &3106219250170215766
 GameObject:
