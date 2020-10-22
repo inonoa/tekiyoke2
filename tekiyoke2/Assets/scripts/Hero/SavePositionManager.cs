@@ -18,7 +18,7 @@ public class SavePositionManager : MonoBehaviour
         if(DPManager.Instance.DP >= saveCostDP){
             
             DPManager.Instance.UseDP(saveCostDP);
-            MemoryOverDeath.Instance.Save();
+            //MemoryOverDeath.Instance.Save();
             resPos.SetActive(true);
             resPos.transform.position = new Vector3(transform.position.x, transform.position.y, resPos.transform.position.z);
 

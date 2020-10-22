@@ -7,12 +7,18 @@ using Sirenix.OdinInspector;
 public class CheckPointsManager : MonoBehaviour
 {
     [SerializeField] CheckPoint[] checkPoints;
-
     [SerializeField] [ReadOnly] int frontLine = -1;
-    
-    void Start()
+
+    public Vector2 GetPosition(int index)
     {
-        for(int i = 0; i < checkPoints.Length; i++)
+        return checkPoints[index].transform.position;
+    }
+    
+    public void Init(int frontLineIndex)
+    {
+        frontLine = frontLineIndex;
+
+        for(int i = frontLine + 1; i < checkPoints.Length; i++)
         {
             int index = i;
             checkPoints[index].Passed.Subscribe(cp =>
@@ -21,7 +27,8 @@ public class CheckPointsManager : MonoBehaviour
                 {
                     frontLine = index;
                     // "チェックポイント通過"
-                    print($"チェックポイント: {cp.Name}");
+                    print($"チェックポイント: {cp.Name} を通過");
+                    MemoryOverDeath.Instance.PassCheckPoint(index);
                 }
                 else if(frontLine > index)
                 {
@@ -33,13 +40,14 @@ public class CheckPointsManager : MonoBehaviour
                 {
                     Debug.LogError($"チェックポイント: {cp.Name} に二回目の通過！！");
                 }
-            });
+            })
+            .AddTo(this);
         }
     }
 
-    
-    void Update()
+    void Awake()
     {
-        
+        Instance = this;
     }
+    public static CheckPointsManager Instance{ get; private set; }
 }

@@ -123,7 +123,6 @@ public class SceneTransition : MonoBehaviour
             
             case SceneTransitState.HeroDied:
                 Instantiate(curtain4SceneStart, transform);
-                MemoryOverDeath.Instance.Load();
                 break;
 
             case SceneTransitState.WindAndBlur:
