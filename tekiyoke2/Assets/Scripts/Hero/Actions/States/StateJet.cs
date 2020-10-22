@@ -8,7 +8,6 @@ using UniRx;
 public class StateJet : HeroState
 {
     float charge_0_1;
-    bool needExit = false;
     Subject<Unit> _OnJetCompleted = new Subject<Unit>();
     public IObservable<Unit> OnJetCompleted => _OnJetCompleted;
     HeroTween hTween;

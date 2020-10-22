@@ -21,10 +21,10 @@ public class StateJump : HeroState
         _dir = dir;
         switch(dir)
         {
-            case Dir.FR: hero.Anim.SetTrigger("jumpfr"); break;
-            case Dir.FL: hero.Anim.SetTrigger("jumpfl"); break;
-            case Dir.UR: hero.Anim.SetTrigger("jumpur"); break;
-            case Dir.UL: hero.Anim.SetTrigger("jumpul"); break;
+            case Dir.FR: hero.SetAnimManually("jumpfr"); break;
+            case Dir.FL: hero.SetAnimManually("jumpfl"); break;
+            case Dir.UR: hero.SetAnimManually("jumpur"); break;
+            case Dir.UL: hero.SetAnimManually("jumpul"); break;
         }
     }
     Dir CalcDir(HeroMover hero)

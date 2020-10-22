@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 using UniRx;
 using DG.Tweening;
 using System.Linq;
+using Sirenix.OdinInspector;
 
 
 ///<summary>最終的には各機能をまとめる役割と渉外担当みたいな役割とだけを持たせたい</summary>
@@ -40,8 +41,11 @@ public class HeroMover : MonoBehaviour
 
     ///<summary>余韻と言うか一定時間引きずり続けるスピードをアレする</summary>
     public List<ISpeedResidue> speedResidues = new List<ISpeedResidue>();
-
+    
+    [field: RenameField("Key Direction")]     [field: ReadOnly] [field: SerializeField]
     public int KeyDirection{ get; private set; } = 0;
+
+    [field: RenameField("Wants To Go Right")] [field: ReadOnly] [field: SerializeField]
     public bool WantsToGoRight{ get; private set; } = true;
 
 
@@ -156,9 +160,12 @@ public class HeroMover : MonoBehaviour
 
 
     public SpriteRenderer SpriteRenderer{ get; private set; }
-    public Animator Anim{ get; private set; } //いずれprivateにする
     public Rigidbody2D Rigidbody{ get; private set; }
     public Transform Transform{ get; private set; }
+
+    [SerializeField] HeroAnim anim;
+    public void SetAnim(string id)         => anim.SetTrigger(id);
+    public void SetAnimManually(string id) => anim.SetTriggerManually(id);
 
     Chishibuki chishibuki;
     
@@ -266,7 +273,6 @@ public class HeroMover : MonoBehaviour
         Input   = ServicesLocator.Instance.GetInput();
         chishibuki = GameUIManager.CurrentInstance.Chishibuki;
         SpriteRenderer      = GetComponent<SpriteRenderer>();
-        Anim                = GetComponent<Animator>();
         Rigidbody           = GetComponent<Rigidbody2D>();
         Transform           = GetComponent<Transform>();
         HpCntr              = GetComponent<HpCntr>();
@@ -388,7 +394,7 @@ public class HeroMover : MonoBehaviour
         if(KeyDirection == 0)
         {
             WantsToGoRight = toRight;
-            Anim.SetTrigger(toRight ? "runr" : "runl");
+            anim.SetTriggerManually(toRight ? "runr" : "runl");
         }
         speedResidues.Add(new BaneResidue(toRight, force, 0.8f));
     }
