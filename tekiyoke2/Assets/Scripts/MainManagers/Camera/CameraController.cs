@@ -12,6 +12,8 @@ public class CameraController : MonoBehaviour
     static readonly float zoomSpeed = 1;
     static readonly float unzoomSpeed = 10;
 
+    [SerializeField] Vector2 fromCameraToHero = new Vector2(0, -100);
+
     [SerializeField] ScShoOutOfWindController scShoOutOfWindController;
     [SerializeField] ScShoController scShoController;
     public AfterEffects AfterEffects{ get; private set; }
@@ -67,7 +69,7 @@ public class CameraController : MonoBehaviour
     void Start()
     {
         defaultSize = cmr.orthographicSize;
-        targetPosition = HeroDefiner.CurrentHeroPos + new Vector3(0,100,-500);
+        targetPosition = HeroDefiner.CurrentHeroPos - fromCameraToHero.ToVec3() + new Vector3(0, 0, -500);
         scShoOutOfWindController.canvas = canvas;
     }
 
@@ -107,7 +109,7 @@ public class CameraController : MonoBehaviour
             //単純に主人公の移動距離分追いかけたあと、Freeze中に置いてけぼりを喰らっていた分をちょっとずつ追い付く
             targetPosition += MyMath.DistAsVector2(HeroDefiner.CurrentHeroPos,
                 HeroDefiner.CurrentHeroPastPos.Count > 1 ? HeroDefiner.CurrentHeroPastPos[1] : HeroDefiner.CurrentHeroPos);
-            targetPosition += (HeroDefiner.CurrentHeroExpectedPos + new Vector2(0,100) - targetPosition) * targetPosChangeSpeed;
+            targetPosition += (HeroDefiner.CurrentHeroExpectedPos - fromCameraToHero - targetPosition) * targetPosChangeSpeed;
 
             //Update positionGap
             float velMX = HeroVelocityMean(100).x;
