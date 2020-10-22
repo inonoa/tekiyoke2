@@ -112,9 +112,9 @@ public class CameraController : MonoBehaviour
             //Update positionGap
             float velMX = HeroVelocityMean(100).x;
             float zureX;
-            if     (velMX < - HeroMover.moveSpeed * 0.6f) zureX = -1;
-            else if(velMX <   HeroMover.moveSpeed * 0.6f) zureX = 0;
-            else                                          zureX = 1;
+            if     (velMX < - HeroDefiner.currentHero.Parameters.GroundSpeedMax * 0.6f) zureX = -1;
+            else if(velMX <   HeroDefiner.currentHero.Parameters.GroundSpeedMax * 0.6f) zureX = 0;
+            else                                                                        zureX = 1;
             Vector2 dist2Gap = new Vector2(zureX,0) * positionGapWidth - positionGap;
             if(dist2Gap.magnitude < 1) positionGap += Vector2.zero;
             else                       positionGap += dist2Gap * positionGapChangeSpeed;

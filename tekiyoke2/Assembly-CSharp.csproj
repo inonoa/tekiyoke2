@@ -68,16 +68,6 @@
      <Compile Include="Assets\Scripts\Hero\Actions\HeroParameters.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\HeroTransitions.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\JetManager.cs" />
-     <Compile Include="Assets\Scripts\Hero\Actions\OldStates\HeroState.cs" />
-     <Compile Include="Assets\Scripts\Hero\Actions\OldStates\StateBaneYoko.cs" />
-     <Compile Include="Assets\Scripts\Hero\Actions\OldStates\StateBend.cs" />
-     <Compile Include="Assets\Scripts\Hero\Actions\OldStates\StateFall.cs" />
-     <Compile Include="Assets\Scripts\Hero\Actions\OldStates\StateJet.cs" />
-     <Compile Include="Assets\Scripts\Hero\Actions\OldStates\StateJump.cs" />
-     <Compile Include="Assets\Scripts\Hero\Actions\OldStates\StateKick.cs" />
-     <Compile Include="Assets\Scripts\Hero\Actions\OldStates\StateRun.cs" />
-     <Compile Include="Assets\Scripts\Hero\Actions\OldStates\StateUseless.cs" />
-     <Compile Include="Assets\Scripts\Hero\Actions\OldStates\StateWait.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\SakamichiChecker.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\States\HeroState.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\States\StateBend.cs" />
