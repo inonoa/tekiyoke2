@@ -32,7 +32,7 @@ public class Goal : MonoBehaviour
             goaled = true;
             HeroDefiner.currentHero.OnGoal();
             HeroDefiner.currentHero.CanMove = false;
-            CameraController.CurrentCamera.Freeze(50 * 10);
+            CameraController.CurrentCamera.Freeze(10);
             GameTimeCounter.CurrentInstance.DoesTick = false;
             ScoreHolder.Instance.clearTimesLast[stageIdx] = GameTimeCounter.CurrentInstance.Seconds;
             MemoryOverDeath.Instance.Clear();

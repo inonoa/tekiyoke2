@@ -5879,7 +5879,7 @@ PrefabInstance:
     - target: {fileID: 3423410218929363243, guid: 95d3e8075a941f348803e6df2c824c6d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -100
+      value: -70
       objectReference: {fileID: 0}
     - target: {fileID: 3423410218929363243, guid: 95d3e8075a941f348803e6df2c824c6d,
         type: 3}
@@ -7095,6 +7095,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 2783582464668264382, guid: e5394696252735242920aa9fa21a9d5f,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 2145599090}
     - target: {fileID: 2783582464668264369, guid: e5394696252735242920aa9fa21a9d5f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7215,11 +7220,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2783582464668264382, guid: e5394696252735242920aa9fa21a9d5f,
-        type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 2145599090}
     - target: {fileID: 1660706362605112842, guid: e5394696252735242920aa9fa21a9d5f,
         type: 3}
       propertyPath: m_Name

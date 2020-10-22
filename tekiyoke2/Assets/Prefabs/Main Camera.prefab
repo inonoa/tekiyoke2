@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3423410218929363415}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -100, z: -500}
+  m_LocalPosition: {x: 0, y: -130, z: -500}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3423410219917244377}
@@ -62,7 +62,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 375
+  orthographic size: 450
   m_Depth: 1
   m_CullingMask:
     serializedVersion: 2
@@ -90,10 +90,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1a68452afc6fb344b7eb02345c5b21c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zoomSizeMin: 350
+  zoomSpeed: 100
+  unzoomSpeed: 500
+  fromCameraToHero: {x: 0, y: -130}
   scShoOutOfWindController: {fileID: 6478240744771120905}
   scShoController: {fileID: 7195403637980874227}
   canvas: {fileID: 0}
-  jetFreezeFrames: 20
+  jetFreezeSeconds: 0.45
 --- !u!114 &7195403637980874227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,7 +303,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 375
+  orthographic size: 450
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
