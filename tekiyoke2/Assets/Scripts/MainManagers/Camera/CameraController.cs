@@ -48,7 +48,7 @@ public class CameraController : MonoBehaviour
         Freeze(jetFreezeSeconds);
     }
     public void EndDash() => jetState = StateAboutJet.Retreating;
-    public void Reset() => jetState = StateAboutJet.Retreating; //多分要改善。ダッシュ以外のズームが導入された場合とか
+    public void Reset()   => jetState = StateAboutJet.Retreating; //多分要改善。ダッシュ以外のズームが導入された場合とか
 
 
 
@@ -64,7 +64,7 @@ public class CameraController : MonoBehaviour
         return true;
     }
 
-    void OnEnable() => gameObject.AddComponent<AudioListener>();
+    void OnEnable()  => gameObject.AddComponent<AudioListener>();
     void OnDisable() => Destroy(GetComponent<AudioListener>());
 
     void Start()
@@ -127,12 +127,12 @@ public class CameraController : MonoBehaviour
         Vector2 NextPositionGap(Vector2 currentPositionGap)
         {
             float velocityMean      = HeroVelocityMean(100).x;
-            float velocityThreshold = HeroDefiner.currentHero.Parameters.GroundSpeedMax * 0.6f;
+            float velocityThreshold = HeroDefiner.currentHero.Parameters.GroundSpeedMax * 0.3f;
 
             Vector2 targetGap;
-            if(velocityMean <  -velocityThreshold) targetGap = new Vector2(-positionGapWidth, 0);
-            if(velocityMean <=  velocityThreshold) targetGap = new Vector2( 0,                0);
-            else                                   targetGap = new Vector2( positionGapWidth, 0);
+            if     (velocityMean <  -velocityThreshold) targetGap = new Vector2(-positionGapWidth, 0);
+            else if(velocityMean <=  velocityThreshold) targetGap = new Vector2( 0,                0);
+            else                                        targetGap = new Vector2( positionGapWidth, 0);
             
             Vector2 current2target = targetGap - positionGap;
             if(current2target.magnitude < 1) return positionGap;
