@@ -7,8 +7,14 @@ using UniRx;
 
 public class CheckPointUI : MonoBehaviour
 {
+    [SerializeField] float fadeInSecs    = 0.7f;
+    [SerializeField] float intervalSecs  = 1f;
+    [SerializeField] float fadeOutSecs   = 0.7f;
+    [SerializeField] float slideDistance = 100;
+
     [SerializeField] CheckPointsManager checkPointsManager;
     [SerializeField] Text text;
+    [SerializeField] CanvasGroup canvasGroup;
 
     Tween currentTween;
 
@@ -17,40 +23,36 @@ public class CheckPointUI : MonoBehaviour
     {
         checkPointsManager.PassedNewCheckPoint.Subscribe(checkPoint =>
         {
-            Vector3 defaultPos = text.transform.localPosition;
-            text.DOFade(0, 0);
-            text.text = $"チェックポイント: {checkPoint.Name} を通過";
+            canvasGroup.DOFade(0, 0);
+            canvasGroup.transform.DOLocalMoveX(slideDistance, 0);
+
+            text.text = $"checkpoint: {checkPoint.Name} passed";
 
             currentTween = DOTween.Sequence()
                 .Append
                 (
-                    text.transform
-                        .DOLocalMoveX(-100, 1f)
-                        .SetRelative()
+                    canvasGroup.transform
+                        .DOLocalMoveX(0, fadeInSecs)
                         .SetEase(Ease.OutQuint)
                 )
                 .Join
                 (
-                    text
-                        .DOFade(1, 1f)
+                    canvasGroup
+                        .DOFade(1, fadeInSecs)
                 )
-                .AppendInterval(1f)
+                .AppendInterval(intervalSecs)
                 .Append
                 (
-                    text.transform
-                        .DOLocalMoveX(-100, 1f)
+                    canvasGroup.transform
+                        .DOLocalMoveX(-slideDistance, fadeOutSecs)
                         .SetRelative()
                         .SetEase(Ease.InOutSine)
                 )
                 .Join
                 (
-                    text
-                        .DOFade(0, 1f)
-                )
-                .OnComplete(() =>
-                {
-                    text.transform.localPosition = defaultPos;
-                });
+                    canvasGroup
+                        .DOFade(0, fadeOutSecs)
+                );
         });
 
         Pauser.Instance.OnPause.Subscribe(_ =>
