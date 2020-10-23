@@ -36,6 +36,7 @@ public class CheckPointsManager : MonoBehaviour
             .AddTo(this);
         }
     }
+    
 
     void Awake()
     {

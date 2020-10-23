@@ -2490,12 +2490,12 @@ PrefabInstance:
     - target: {fileID: 3106219250084253368, guid: 54534ce791a58cf43a9e47340b5f951e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10500
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3106219250084253368, guid: 54534ce791a58cf43a9e47340b5f951e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2000
+      value: -200
       objectReference: {fileID: 0}
     - target: {fileID: 6473240483101330362, guid: 54534ce791a58cf43a9e47340b5f951e,
         type: 3}
@@ -7922,6 +7922,9 @@ MonoBehaviour:
   _GameMasterTF: {fileID: 289413201}
   _PauseMasterTF: {fileID: 975853696}
   hero: {fileID: 1333704110}
+  debugMode: 0
+  debugCheckPointIndex: 2
+  debugIgnoreMemory: 1
 --- !u!114 &1515455047
 MonoBehaviour:
   m_ObjectHideFlags: 0
