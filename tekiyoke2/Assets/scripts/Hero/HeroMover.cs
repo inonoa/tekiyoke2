@@ -323,8 +323,8 @@ public class HeroMover : MonoBehaviour
             if(CanMove)
             {
 
-                //なんとなく入力をまとめて置きたくてここにしているがあまり意味がないような…
-                if(Input.GetNagaoshiFrames(ButtonCode.Save) == 70) savePositionManager.Try2Save();
+                // なんとなく入力をまとめて置きたくてここにしているがあまり意味がないような…
+                // if(Input.GetNagaoshiFrames(ButtonCode.Save) == 70) savePositionManager.Try2Save();
 
                 if(Input.GetButtonDown(ButtonCode.Zone))
                 {

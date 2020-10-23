@@ -53,6 +53,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\CheckPoint\CheckPoint.cs" />
+     <Compile Include="Assets\Scripts\CheckPoint\CheckPointsManager.cs" />
+     <Compile Include="Assets\Scripts\CheckPoint\CheckPointUI.cs" />
      <Compile Include="Assets\Scripts\Enemies\Collider2Wall.cs" />
      <Compile Include="Assets\Scripts\Enemies\DontWannaFall.cs" />
      <Compile Include="Assets\Scripts\Enemies\DPinEnemy.cs" />
@@ -165,6 +168,7 @@
      <Compile Include="Assets\Scripts\SoundOrMusic\SoundGroup.cs" />
      <Compile Include="Assets\Scripts\StageSelectScene\StageSelector.cs" />
      <Compile Include="Assets\Scripts\StageSelectScene\WakuLightMover.cs" />
+     <Compile Include="Assets\Scripts\TagNames.cs" />
      <Compile Include="Assets\Scripts\TitleScene\AnyKeyToStart.cs" />
      <Compile Include="Assets\Scripts\TitleScene\CloudSpawner.cs" />
      <Compile Include="Assets\Scripts\TitleScene\Title2Stages.cs" />

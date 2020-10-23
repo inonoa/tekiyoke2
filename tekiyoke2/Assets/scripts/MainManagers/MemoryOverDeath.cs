@@ -4,33 +4,28 @@ using UnityEngine;
 
 public class MemoryOverDeath
 {
-    float time = 0;
-    (float x, float y) heroPosition = (0,0);
+    public float Time{ get; private set; } = 0;
+    public int CheckPointIndex{ get; private set; } = -1;
 
-    public void Save(){
-        time = GameTimeCounter.CurrentInstance.Seconds;
-        heroPosition = (HeroDefiner.CurrentHeroPos.x, HeroDefiner.CurrentHeroPos.y);
+    public void PassCheckPoint(int index)
+    {
+        CheckPointIndex = index;
     }
 
-    public void SaveOnDeath(){
-        time = GameTimeCounter.CurrentInstance.Seconds;
+    public void SaveOnDeath()
+    {
+        Time = GameTimeCounter.CurrentInstance.Seconds;
     }
 
-    public void Load(){
-        GameTimeCounter.CurrentInstance.Seconds = time;
-        GameTimeCounter.CurrentInstance.DoesTick = true;
-        //今は初期位置でセーブする意味が無いのであれだがしょうらい……
-        if(heroPosition!=(0,0)){
-            HeroDefiner.currentHero.WarpPos(heroPosition.x, heroPosition.y);
-            GameObject resPos = DraftManager.CurrentInstance.GameMasterTF.transform.Find("RespawnPosition").gameObject; //苦しい
-            resPos.SetActive(true);
-            resPos.transform.position = new Vector3(heroPosition.x, heroPosition.y, resPos.transform.position.z);
-        }
+    public void Clear()
+    {
+        Time            = 0;
+        CheckPointIndex = -1;
     }
 
-    public void Clear(){
-        time = 0;
-        heroPosition = (0, 0);
+    public bool HasData()
+    {
+        return Time > 0;
     }
 
 
