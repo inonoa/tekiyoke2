@@ -8,12 +8,16 @@ public class ObjectPool<T> where T : MonoBehaviour, IReusable
     int nextIndex = 0;
     public int Capacity{ get; private set; }
 
-    public ObjectPool(T prefab, int capacity, Transform parent){
+    public ObjectPool(T prefab, int capacity, Transform parent)
+    {
+        Transform poolTF = new GameObject(prefab.name + " Pool").transform;
+        poolTF.SetParent(parent);
         
         this.Capacity = capacity;
         pool = new T[capacity];
-        for(int i=0;i<capacity;i++){
-            pool[i] = GameObject.Instantiate(prefab, parent);
+        for(int i = 0; i < capacity; i++)
+        {
+            pool[i] = GameObject.Instantiate(prefab, poolTF);
             pool[i].gameObject.SetActive(false);
         }
     }
