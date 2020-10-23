@@ -50,8 +50,8 @@ public class JerryController : EnemyController
             currentTween = rBody
                 .DOMoveY(isGoingUp ? posU : posD, periodSecs)
                 .SetEase(Ease.InOutSine)
-                .OnComplete(() => Turn())
-                .SetLoops(-1, LoopType.Yoyo);
+                .SetLoops(-1, LoopType.Yoyo)
+                .OnStepComplete(() => Turn());
         });
 
 

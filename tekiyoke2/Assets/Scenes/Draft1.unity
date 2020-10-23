@@ -7922,8 +7922,8 @@ MonoBehaviour:
   _GameMasterTF: {fileID: 289413201}
   _PauseMasterTF: {fileID: 975853696}
   hero: {fileID: 1333704110}
-  debugMode: 0
-  debugCheckPointIndex: 2
+  debugMode: 1
+  debugCheckPointIndex: 3
   debugIgnoreMemory: 1
 --- !u!114 &1515455047
 MonoBehaviour:
