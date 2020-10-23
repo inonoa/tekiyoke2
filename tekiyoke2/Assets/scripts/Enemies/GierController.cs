@@ -30,9 +30,9 @@ public class GierController : EnemyController
     [SerializeField] Sprite eyeFinding;
     [SerializeField] Sprite eyeRunning;
 
-    new void Start()
+    void Start()
     {
-        base.Start();
+        base.Init();
         HeroDefiner.currentHero.jumped += HeroJumped;
         groundChecker = transform.Find("GroundChecker").GetComponent<GroundChecker>();
         transform.Find("DontWannaFallR").GetComponent<DontWannaFall>().about2fall += Turn;

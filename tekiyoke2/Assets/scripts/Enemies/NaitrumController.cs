@@ -18,9 +18,9 @@ public class NaitrumController : EnemyController
         foreach(SpriteRenderer sr in spriteRenderers) sr.flipX = toRight;
     }
 
-    new void Start()
+    void Start()
     {
-        base.Start();
+        base.Init();
         col = GetComponent<Collider2Wall>();
         col.touched2Wall += Turn;
         foreach(SpriteRenderer sr in spriteRenderers) sr.flipX = toRight;

@@ -4,24 +4,20 @@ using UnityEngine;
 using System;
 using UnityEngine.Timeline;
 using DG.Tweening;
+using Sirenix.OdinInspector;
 
 public class JerryController : EnemyController
 {
 
     float amplitude;
-
-    [SerializeField] float speedRate = 4;
-
     float centerPositionY;
 
-    [SerializeField] bool IsGoingUp = true;
-
-    float JellyPosY{ get => rBody.transform.position.y; }
+    [SerializeField] bool isGoingUp = true;
 
     static readonly float speedYEpsilon = 0.01f;
     static readonly float linear2Sin = 80;
 
-    [SerializeField] int lightFrames = 10;
+    [SerializeField] int lightSeconds = 10;
     [SerializeField] int unlightFrames = 30;
 
     [SerializeField] SpriteRenderer kasaSR;
@@ -36,75 +32,83 @@ public class JerryController : EnemyController
     //定数シュッと置いとく方法を探している
     static readonly (string _Volume, string Kaze) c = ("_Volume", "Kaze");
 
+    [SerializeField] [ReadOnly] float posU;
+    [SerializeField] [ReadOnly] float posD;
 
-    new void Start(){
+    Tween moveTweeen;
+
+    public override void OnSpawned()
+    {
         rBody = transform.Find("Kasa").GetComponent<Rigidbody2D>();
 
-        float posU = transform.Find("PositionU").position.y;
-        float posD = transform.Find("PositionD").position.y;
-        centerPositionY = (posU + posD) / 2;
-        amplitude       = (posU - posD) / 2;
+        posU = transform.Find("PositionU").position.y;
+        posD = transform.Find("PositionD").position.y;
+        amplitude = (posU - posD) / 2;
 
-        kasaSR.sprite = IsGoingUp ? kasaSpriteUp : kasaSpriteDown;
-        asiSR.sprite = IsGoingUp ? asiSpriteUp : asiSpriteDown;
-        lightSR.material.SetFloat(c._Volume, IsGoingUp ? 1 : 0);
+        kasaSR.sprite = isGoingUp ? kasaSpriteUp : kasaSpriteDown;
+        asiSR.sprite  = isGoingUp ? asiSpriteUp  : asiSpriteDown;
+        lightSR.material.SetFloat(c._Volume, isGoingUp ? 1 : 0);
+
+        Tween firstTween = rBody
+            .DOMoveY(isGoingUp ? posU : posD, 1.6f)
+            .SetEase(Ease.InOutSine) //goto的なの挟みたい
+            .OnComplete(() =>
+            {
+                DOTween.Sequence()
+                .Append
+                (
+                    rBody
+                        .DOMoveY(isGoingUp ? - amplitude * 2 : amplitude * 2, 1.6f)
+                        .SetRelative()
+                        .SetEase(Ease.InOutSine)
+                )
+                .AppendCallback(() =>
+                {
+                    rBody.MovePosition(new Vector2
+                    (
+                        rBody.transform.position.x,
+                        isGoingUp ? posD : posU
+                    ));
+                })
+                .Append
+                (
+                    rBody
+                        .DOMoveY(isGoingUp ? amplitude * 2 : - amplitude * 2, 1.6f)
+                        .SetRelative()
+                        .SetEase(Ease.InOutSine)
+                )
+                .AppendCallback(() =>
+                {
+                    rBody.MovePosition(new Vector2
+                    (
+                        rBody.transform.position.x,
+                        isGoingUp ? posU : posD
+                    ));
+                })
+                .SetLoops(-1);
+            });
     }
 
     new void Update()
     {
-        if(IsGoingUp){
-            if(JellyPosY > centerPositionY+amplitude-linear2Sin){
-                //上端
-                float v = (float)Math.Sqrt(Math.Max(centerPositionY+amplitude - JellyPosY, speedYEpsilon)) * speedRate/10;
-                base.MovePos(0,v);
-
-                if(JellyPosY >= centerPositionY+amplitude-1){
-                    IsGoingUp = false;
-                    kasaSR.sprite = kasaSpriteDown;
-                    asiSR.sprite = asiSpriteDown;
-                    StartCoroutine("Unlight");
-                }
-
-            }else if(JellyPosY > centerPositionY-amplitude+linear2Sin){
-                //中間
-                base.MovePos(0,speedRate);
-
-            }else{
-                //下端
-                float v = (float)Math.Sqrt(Math.Max(JellyPosY - centerPositionY+amplitude, speedYEpsilon)) * speedRate/10;
-                base.MovePos(0,v);
-
-            }
-        }else{
-            if(JellyPosY > centerPositionY+amplitude-linear2Sin){
-                //上端
-                float v = (float)Math.Sqrt(Math.Max(centerPositionY+amplitude - JellyPosY, speedYEpsilon)) * speedRate/10;
-                base.MovePos(0,-v);
-
-            }else if(JellyPosY > centerPositionY-amplitude+linear2Sin){
-                //中間
-                base.MovePos(0,-speedRate);
-
-            }else{
-                //下端
-                float v = (float)Math.Sqrt(Math.Max(JellyPosY - centerPositionY+amplitude, speedYEpsilon)) * speedRate/10;
-                base.MovePos(0,-v);
-
-                if(JellyPosY <= centerPositionY-amplitude+1){
-                    IsGoingUp = true;
-                    kasaSR.sprite = kasaSpriteUp;
-                    asiSR.sprite = asiSpriteUp;
-                    StartCoroutine("Light");
-                    if(MyMath.DistanceXY(transform.position, HeroDefiner.CurrentHeroPos) < 625){
-                        DOVirtual.DelayedCall(UnityEngine.Random.Range(0f, 0.5f), () =>
-                            soundGroup.Play(c.Kaze));
-                    }
-                }
-            }
-        }
+        
+        // if(JellyPosY <= centerPositionY - amplitude + 1)
+        // {
+        //     IsGoingUp = true;
+        //     kasaSR.sprite = kasaSpriteUp;
+        //     asiSR.sprite  = asiSpriteUp;
+        //     StartCoroutine(Light());
+        //     if(MyMath.DistanceXY(transform.position, HeroDefiner.CurrentHeroPos) < 625)
+        //     {
+        //         DOVirtual.DelayedCall(UnityEngine.Random.Range(0f, 0.5f), () =>
+        //             soundGroup.Play(c.Kaze));
+        //     }
+        // }
     }
 
     IEnumerator Light(){
+
+        int lightFrames = 10;
 
         for(int i=0;i<lightFrames;i++){
             lightSR.material.SetFloat(c._Volume, (i+1)/(float)lightFrames);

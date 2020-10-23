@@ -9,13 +9,18 @@ public class EnemySpawner : MonoBehaviour
 
     Vector3[] defaultPositions;
 
-    void OnTriggerEnter2D(Collider2D other){
-        if(other.gameObject.tag=="CanSeeEnemy"){
-            foreach(EnemyController enemy in enemies) enemy.gameObject.SetActive(true);
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject.tag=="CanSeeEnemy")
+        {
+            foreach(EnemyController enemy in enemies)
+            {
+                enemy.gameObject.SetActive(true);
+                enemy.OnSpawned();
+            }
         }
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         enemies = GetComponentsInChildren<EnemyController>(true);
