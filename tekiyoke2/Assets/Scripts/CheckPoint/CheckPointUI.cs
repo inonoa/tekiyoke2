@@ -16,8 +16,6 @@ public class CheckPointUI : MonoBehaviour
     [SerializeField] Text text;
     [SerializeField] CanvasGroup canvasGroup;
 
-    Tween currentTween;
-
     
     void Start()
     {
@@ -28,7 +26,7 @@ public class CheckPointUI : MonoBehaviour
 
             text.text = $"checkpoint: {checkPoint.Name} passed";
 
-            currentTween = DOTween.Sequence()
+            Tween fadeInOut = DOTween.Sequence()
                 .Append
                 (
                     canvasGroup.transform
@@ -53,21 +51,8 @@ public class CheckPointUI : MonoBehaviour
                     canvasGroup
                         .DOFade(0, fadeOutSecs)
                 );
-        });
 
-        Pauser.Instance.OnPause.Subscribe(_ =>
-        {
-            if(currentTween != null && currentTween.IsPlaying())
-            {
-                currentTween.Pause();
-            }
-        });
-        Pauser.Instance.OnPauseEnd.Subscribe(_ =>
-        {
-            if(currentTween != null && currentTween.IsActive())
-            {
-                currentTween.TogglePause();
-            }
+            fadeInOut.GetPausable().AddTo(this);
         });
     }
 }
