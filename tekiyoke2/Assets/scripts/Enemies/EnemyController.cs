@@ -24,7 +24,9 @@ public class EnemyController : MonoBehaviour
     protected void MoveX_ConsideringGravity(float v_x) =>
         rBody.velocity = new Vector2(v_x * Time.timeScale, Math.Max(rBody.velocity.y, -fallSpeedMax));
 
-    protected void Start() => rBody = GetComponent<Rigidbody2D>();
+    protected void Init() => rBody = GetComponent<Rigidbody2D>();
 
     protected void Update() => rBody.velocity = new Vector2(0, rBody.velocity.y);
+
+    public virtual void OnSpawned(){ }
 }

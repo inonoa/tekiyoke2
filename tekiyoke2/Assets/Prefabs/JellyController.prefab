@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1150860264478751886}
   - component: {fileID: 1150860264478751891}
+  - component: {fileID: 2265385295949967236}
   m_Layer: 0
   m_Name: JellyController
   m_TagString: Enemy
@@ -48,17 +49,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dpcd: {fileID: 1438637555183145526}
   fallSpeedMax: 300
-  speedRate: 4
-  IsGoingUp: 1
-  lightFrames: 10
-  unlightFrames: 30
+  isGoingUp: 1
+  periodSecs: 1.3
+  positionU: {fileID: 6322093379052263789}
+  positionD: {fileID: 5320545182661482509}
+--- !u!114 &2265385295949967236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150860264478751887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b03dea77fff9b24cae8880f582e98c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightSeconds: 0.2
+  unlightSeconds: 0.5
+  nearHeroThreshold: 625
   kasaSR: {fileID: 8250815653927083530}
   asiSR: {fileID: 6309000926960507845}
+  lightSR: {fileID: 8051017778602194855}
   kasaSpriteUp: {fileID: 21300000, guid: 1506bbc5987c2304b8c8d55230786000, type: 3}
   asiSpriteUp: {fileID: 21300000, guid: 28210bb0486130a4eb413492b2f62335, type: 3}
   kasaSpriteDown: {fileID: 21300000, guid: 581e95807d5ff974380c59ad35c534b2, type: 3}
   asiSpriteDown: {fileID: 21300000, guid: 1800a40f9688f0a4cbf70a5d71ff2f55, type: 3}
-  lightSR: {fileID: 8051017778602194855}
   soundGroup: {fileID: 1064551741753863839}
 --- !u!1 &1714998046919143152
 GameObject:

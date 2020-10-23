@@ -62,9 +62,9 @@ public class KennerController : EnemyController
         inNewScene = true;
     }
 
-    new void Start()
+    void Start()
     {
-        base.Start();
+        base.Init();
         if(inNewScene){
             //これがどのタイミングで呼ばれるのか分からん(主人公が近づいてきてから呼ばれてたらつらい)
             tamaPool = new ObjectPool<TamaController>(tama, 128, DraftManager.CurrentInstance.GameMasterTF);

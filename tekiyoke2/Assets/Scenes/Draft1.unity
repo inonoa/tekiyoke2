@@ -2271,6 +2271,11 @@ PrefabInstance:
       propertyPath: IsGoingUp
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1150860264478751891, guid: 26412986cdc868f4688b58548d47f0b7,
+        type: 3}
+      propertyPath: isGoingUp
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7436107929172630612, guid: 26412986cdc868f4688b58548d47f0b7,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -2485,12 +2490,12 @@ PrefabInstance:
     - target: {fileID: 3106219250084253368, guid: 54534ce791a58cf43a9e47340b5f951e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 10500
       objectReference: {fileID: 0}
     - target: {fileID: 3106219250084253368, guid: 54534ce791a58cf43a9e47340b5f951e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -200
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 6473240483101330362, guid: 54534ce791a58cf43a9e47340b5f951e,
         type: 3}
@@ -2690,6 +2695,11 @@ PrefabInstance:
     - target: {fileID: 1150860264478751891, guid: 26412986cdc868f4688b58548d47f0b7,
         type: 3}
       propertyPath: IsGoingUp
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1150860264478751891, guid: 26412986cdc868f4688b58548d47f0b7,
+        type: 3}
+      propertyPath: isGoingUp
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7436107929172630612, guid: 26412986cdc868f4688b58548d47f0b7,
@@ -4330,6 +4340,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CheckPoint (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5834251991238046594, guid: b391cb4373b93834aa8f1ff0bf9f7c27,
+        type: 3}
+      propertyPath: <Name>k__BackingField
+      value: "\u307F\u3063\u3064\u3081"
+      objectReference: {fileID: 0}
     - target: {fileID: 6831382561405156598, guid: b391cb4373b93834aa8f1ff0bf9f7c27,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4384,11 +4399,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5834251991238046594, guid: b391cb4373b93834aa8f1ff0bf9f7c27,
-        type: 3}
-      propertyPath: <Name>k__BackingField
-      value: "\u307F\u3063\u3064\u3081"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b391cb4373b93834aa8f1ff0bf9f7c27, type: 3}
@@ -6023,6 +6033,11 @@ PrefabInstance:
       propertyPath: IsGoingUp
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1150860264478751891, guid: 26412986cdc868f4688b58548d47f0b7,
+        type: 3}
+      propertyPath: isGoingUp
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7436107929172630612, guid: 26412986cdc868f4688b58548d47f0b7,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -7343,6 +7358,11 @@ PrefabInstance:
       propertyPath: IsGoingUp
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1150860264478751891, guid: 26412986cdc868f4688b58548d47f0b7,
+        type: 3}
+      propertyPath: isGoingUp
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7436107929172630612, guid: 26412986cdc868f4688b58548d47f0b7,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -7683,6 +7703,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CheckPoint (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5834251991238046594, guid: b391cb4373b93834aa8f1ff0bf9f7c27,
+        type: 3}
+      propertyPath: <Name>k__BackingField
+      value: "\u304B\u308F\u3059"
+      objectReference: {fileID: 0}
     - target: {fileID: 6831382561405156598, guid: b391cb4373b93834aa8f1ff0bf9f7c27,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7737,11 +7762,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5834251991238046594, guid: b391cb4373b93834aa8f1ff0bf9f7c27,
-        type: 3}
-      propertyPath: <Name>k__BackingField
-      value: "\u304B\u308F\u3059"
       objectReference: {fileID: 0}
     - target: {fileID: 7689516780599614185, guid: b391cb4373b93834aa8f1ff0bf9f7c27,
         type: 3}
@@ -9994,6 +10014,11 @@ PrefabInstance:
       propertyPath: IsGoingUp
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1150860264478751891, guid: 26412986cdc868f4688b58548d47f0b7,
+        type: 3}
+      propertyPath: isGoingUp
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7436107929172630612, guid: 26412986cdc868f4688b58548d47f0b7,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -10362,6 +10387,11 @@ PrefabInstance:
       propertyPath: IsGoingUp
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1150860264478751891, guid: 26412986cdc868f4688b58548d47f0b7,
+        type: 3}
+      propertyPath: isGoingUp
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7436107929172630612, guid: 26412986cdc868f4688b58548d47f0b7,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -10386,6 +10416,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CheckPoint (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5834251991238046594, guid: b391cb4373b93834aa8f1ff0bf9f7c27,
+        type: 3}
+      propertyPath: <Name>k__BackingField
+      value: "\u3055\u3044\u3054"
       objectReference: {fileID: 0}
     - target: {fileID: 6831382561405156598, guid: b391cb4373b93834aa8f1ff0bf9f7c27,
         type: 3}
@@ -10441,11 +10476,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5834251991238046594, guid: b391cb4373b93834aa8f1ff0bf9f7c27,
-        type: 3}
-      propertyPath: <Name>k__BackingField
-      value: "\u3055\u3044\u3054"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b391cb4373b93834aa8f1ff0bf9f7c27, type: 3}
