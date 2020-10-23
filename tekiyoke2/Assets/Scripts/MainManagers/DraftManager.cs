@@ -12,6 +12,11 @@ public class DraftManager : MonoBehaviour
     public Transform PauseMasterTF => _PauseMasterTF;
 
     [SerializeField] HeroMover hero;
+
+    [field: Space(30)]
+    [SerializeField] bool debugMode;
+    [SerializeField] int debugCheckPointIndex = -1;
+    [SerializeField] bool debugIgnoreMemory = false;
     
     void Awake()
     {
@@ -27,11 +32,13 @@ public class DraftManager : MonoBehaviour
             GameTimeCounter.CurrentInstance.Seconds  = memory.Time;
             GameTimeCounter.CurrentInstance.DoesTick = true;
 
-            CheckPointsManager.Instance.Init(memory.CheckPointIndex);
-            if(memory.CheckPointIndex != -1)
+            if(debugMode && debugIgnoreMemory)
             {
-                Vector2 respawnPos = CheckPointsManager.Instance.GetPosition(memory.CheckPointIndex);
-                hero.WarpPos(respawnPos.x, respawnPos.y);
+                ApplyCheckPointData(debugCheckPointIndex);
+            }
+            else
+            {
+                ApplyCheckPointData(memory.CheckPointIndex);
             }
         }
         else
@@ -39,7 +46,18 @@ public class DraftManager : MonoBehaviour
             GameTimeCounter.CurrentInstance.Seconds  = 0f;
             GameTimeCounter.CurrentInstance.DoesTick = true;
 
-            CheckPointsManager.Instance.Init(frontLineIndex: -1);
+            if(debugMode) ApplyCheckPointData(debugCheckPointIndex);
+            else          ApplyCheckPointData(-1);
+        }
+    }
+
+    void ApplyCheckPointData(int index)
+    {
+        CheckPointsManager.Instance.Init(index);
+        if(index != -1)
+        {
+            Vector2 respawnPos = CheckPointsManager.Instance.GetPosition(index);
+            hero.WarpPos(respawnPos.x, respawnPos.y);
         }
     }
 }
