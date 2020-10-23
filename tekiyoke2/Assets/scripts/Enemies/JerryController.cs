@@ -5,121 +5,72 @@ using System;
 using UnityEngine.Timeline;
 using DG.Tweening;
 using Sirenix.OdinInspector;
+using UniRx;
 
 public class JerryController : EnemyController
 {
+    [SerializeField] bool  isGoingUp  = true;
+    [SerializeField] float periodSecs = 1.3f;
 
-    float amplitude;
-    float centerPositionY;
+    [Space(10)]
+    [SerializeField] Transform positionU;
+    [SerializeField] Transform positionD;
 
-    [SerializeField] bool isGoingUp = true;
-
-    static readonly float speedYEpsilon = 0.01f;
-    static readonly float linear2Sin = 80;
-
-    [SerializeField] int lightSeconds = 10;
-    [SerializeField] int unlightFrames = 30;
-
-    [SerializeField] SpriteRenderer kasaSR;
-    [SerializeField] SpriteRenderer asiSR;
-    [SerializeField] Sprite kasaSpriteUp;
-    [SerializeField] Sprite asiSpriteUp;
-    [SerializeField] Sprite kasaSpriteDown;
-    [SerializeField] Sprite asiSpriteDown;
-    [SerializeField] SpriteRenderer lightSR;
-    [SerializeField] SoundGroup soundGroup;
-
-    //定数シュッと置いとく方法を探している
-    static readonly (string _Volume, string Kaze) c = ("_Volume", "Kaze");
-
-    [SerializeField] [ReadOnly] float posU;
-    [SerializeField] [ReadOnly] float posD;
-
-    Tween moveTweeen;
+    Tween currentTween;
+    JellyView view;
 
     public override void OnSpawned()
     {
         rBody = transform.Find("Kasa").GetComponent<Rigidbody2D>();
 
-        posU = transform.Find("PositionU").position.y;
-        posD = transform.Find("PositionD").position.y;
-        amplitude = (posU - posD) / 2;
+        view = GetComponent<JellyView>();
+        view.Init(isGoingUp);
 
-        kasaSR.sprite = isGoingUp ? kasaSpriteUp : kasaSpriteDown;
-        asiSR.sprite  = isGoingUp ? asiSpriteUp  : asiSpriteDown;
-        lightSR.material.SetFloat(c._Volume, isGoingUp ? 1 : 0);
+        float posU = positionU.position.y;
+        float posD = positionD.position.y;
+        float diameter = posU - posD;
 
-        Tween firstTween = rBody
-            .DOMoveY(isGoingUp ? posU : posD, 1.6f)
-            .SetEase(Ease.InOutSine) //goto的なの挟みたい
-            .OnComplete(() =>
-            {
-                DOTween.Sequence()
-                .Append
-                (
-                    rBody
-                        .DOMoveY(isGoingUp ? - amplitude * 2 : amplitude * 2, 1.6f)
-                        .SetRelative()
-                        .SetEase(Ease.InOutSine)
-                )
-                .AppendCallback(() =>
-                {
-                    rBody.MovePosition(new Vector2
-                    (
-                        rBody.transform.position.x,
-                        isGoingUp ? posD : posU
-                    ));
-                })
-                .Append
-                (
-                    rBody
-                        .DOMoveY(isGoingUp ? amplitude * 2 : - amplitude * 2, 1.6f)
-                        .SetRelative()
-                        .SetEase(Ease.InOutSine)
-                )
-                .AppendCallback(() =>
-                {
-                    rBody.MovePosition(new Vector2
-                    (
-                        rBody.transform.position.x,
-                        isGoingUp ? posU : posD
-                    ));
-                })
-                .SetLoops(-1);
-            });
-    }
-
-    new void Update()
-    {
+        currentTween = rBody
+                       .DOMoveY(isGoingUp ? posU : posD, periodSecs)
+                       .SetEase(Ease.InOutSine);
         
-        // if(JellyPosY <= centerPositionY - amplitude + 1)
-        // {
-        //     IsGoingUp = true;
-        //     kasaSR.sprite = kasaSpriteUp;
-        //     asiSR.sprite  = asiSpriteUp;
-        //     StartCoroutine(Light());
-        //     if(MyMath.DistanceXY(transform.position, HeroDefiner.CurrentHeroPos) < 625)
-        //     {
-        //         DOVirtual.DelayedCall(UnityEngine.Random.Range(0f, 0.5f), () =>
-        //             soundGroup.Play(c.Kaze));
-        //     }
-        // }
+        float currentTimeNormalized = Mathf.InverseLerp
+        (
+            isGoingUp ? posD : posU,
+            isGoingUp ? posU : posD,
+            rBody.position.y
+        );
+        float currentTime = (1 - Mathf.Acos(currentTimeNormalized)) * periodSecs;
+        currentTween.Goto(currentTime, andPlay: true);
+
+        currentTween.OnComplete(() =>
+        {
+            Turn();
+
+            currentTween = rBody
+                .DOMoveY(isGoingUp ? posU : posD, periodSecs)
+                .SetEase(Ease.InOutSine)
+                .OnComplete(() => Turn())
+                .SetLoops(-1, LoopType.Yoyo);
+        });
+
+
+        Pauser.Instance.OnPause.Subscribe(_ =>
+        {
+            currentTween.Pause();
+        })
+        .AddTo(this);
+        Pauser.Instance.OnPauseEnd.Subscribe(_ =>
+        {
+            currentTween.TogglePause();
+        })
+        .AddTo(this);
     }
 
-    IEnumerator Light(){
-
-        int lightFrames = 10;
-
-        for(int i=0;i<lightFrames;i++){
-            lightSR.material.SetFloat(c._Volume, (i+1)/(float)lightFrames);
-            yield return null;
-        }
-    }
-    IEnumerator Unlight(){
-
-        for(int i=0;i<unlightFrames;i++){
-            lightSR.material.SetFloat(c._Volume, (unlightFrames-1-i)/(float)unlightFrames);
-            yield return null;
-        }
+    void Turn()
+    {
+        isGoingUp = !isGoingUp;
+        if(isGoingUp) view.OnTurnUp();
+        else          view.OnTurnDown();
     }
 }
