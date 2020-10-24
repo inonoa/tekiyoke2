@@ -21,11 +21,12 @@ public class KennerController : EnemyController
 
     [Header("--Kennerのパラメータ？--")]
 
-    [SerializeField] int restFrames = 100;
-    int restFramesNow = 0;
+    [SerializeField] float restSeconds = 1;
+    float restSecondsNow = 0;
 
     [SerializeField] float distanceToFindHero = 200;
     [SerializeField] float jumpForce = 400;
+    [SerializeField] float gravity = 9.8f;
 
 
     [Header("--弾の撃ち方--")]
@@ -44,7 +45,7 @@ public class KennerController : EnemyController
 
     [SerializeField] float tamaSpeed = 10;
 
-    [SerializeField] int tamaLife = 100;
+    [SerializeField] float tamaLifeSeconds = 1.5f;
     [Header("--子オブジェクト類--")]
     [SerializeField] GroundChecker groundChecker = null;
     [SerializeField] Transform gazosTF = null;
@@ -77,8 +78,8 @@ public class KennerController : EnemyController
     {
         if(groundChecker.IsOnGround) EyeToRight = transform.position.x < HeroDefiner.CurrentHeroPos.x;
 
-        switch(state){
-
+        switch(state)
+        {
             case State.Wait:
                 if(MyMath.DistanceXY(transform.position, HeroDefiner.CurrentHeroPos) < distanceToFindHero){
                     Jump();
@@ -97,7 +98,6 @@ public class KennerController : EnemyController
                 break;
             
             case State.Shoot:
-                rBody.simulated = false;
                 framesToShootNow --;
 
                 if(framesToShootNow==0){
@@ -107,16 +107,18 @@ public class KennerController : EnemyController
                     howManyShootsNow --;
                     if(howManyShootsNow==0){
                         state = State.Rest;
-                        rBody.simulated = true;
                     }
                 }
                 break;
             
             case State.Rest:
-                restFramesNow ++;
+                restSecondsNow += TimeManager.DeltaTimeExceptHero;
 
-                if(restFramesNow==restFrames){
-                    restFramesNow = 0;
+                if(groundChecker.IsOnGround) rBody.velocity = new Vector2();
+
+                if(restSecondsNow >= restSeconds)
+                {
+                    restSecondsNow = 0f;
                     if(MyMath.DistanceXY(transform.position, HeroDefiner.CurrentHeroPos) < distanceToFindHero){
                         Jump();
                     }
@@ -124,15 +126,22 @@ public class KennerController : EnemyController
                         state = State.Wait;
                         hontaiSR.sprite = hontaiSpriteInactive;
                     }
-
-                }else if(groundChecker.IsOnGround) rBody.velocity = new Vector2();
+                }
 
                 break;
         }
     }
 
-    void Jump(){
-        rBody.velocity = new Vector2(0,jumpForce);
+    void FixedUpdate()
+    {
+        if(state == State.Shoot || groundChecker.IsOnGround) return;
+
+        rBody.velocity -= new Vector2(0, gravity * TimeManager.FixedDeltaTimeExceptHero);
+    }
+
+    void Jump()
+    {
+        rBody.velocity = new Vector2(0, jumpForce);
         state = State.Jump;
         baneTF.DOScaleY(1, 0.3f).SetEase(Ease.InOutSine);
         dodaiTF.DOLocalMoveY(-46,0.3f).SetEase(Ease.InOutSine);
@@ -147,7 +156,7 @@ public class KennerController : EnemyController
             TamaController imatama = tamaPool.ActivateOne(
                 angle.ToString()
                 + " " + tamaSpeed.ToString()
-                + " " + tamaLife.ToString()
+                + " " + tamaLifeSeconds.ToString()
             );
             
             Vector3 offset = EyeToRight ? new Vector3(70,-30) : new Vector3(-70,-30);
@@ -155,5 +164,6 @@ public class KennerController : EnemyController
         }
 
         soundGroup.Play("Shoot");
+        rBody.velocity = Vector2.zero;
     }
 }
