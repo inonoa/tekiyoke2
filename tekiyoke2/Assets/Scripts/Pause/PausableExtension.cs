@@ -32,17 +32,18 @@ public static class PausableExtension
     {
         CompositeDisposable disps = new CompositeDisposable();
 
-        IEnumerator wrappingIter = behav.NotifyComplete(iter, () => disps.Dispose());
+        IEnumerator wrappingIter = behav.NotifyComplete(iter, () =>
+        {
+            disps.Dispose();
+        });
         behav.StartCoroutine(wrappingIter);
 
         disps.Add(Pauser.Instance.OnPause.Subscribe(_ =>
         {
-            behav.StopCoroutine(iter);
             behav.StopCoroutine(wrappingIter);
         }));
         disps.Add(Pauser.Instance.OnPauseEnd.Subscribe(_ =>
         {
-            behav.StartCoroutine(iter);
             behav.StartCoroutine(wrappingIter);
         }));
 
@@ -51,7 +52,10 @@ public static class PausableExtension
 
     static IEnumerator NotifyComplete(this MonoBehaviour behav, IEnumerator wrapped, Action onCompleted)
     {
-        yield return behav.StartCoroutine(wrapped);
+        while(wrapped.MoveNext())
+        {
+            yield return wrapped.Current;
+        }
         onCompleted.Invoke();
     }
 }

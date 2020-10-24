@@ -8,48 +8,55 @@ public class GetDPinEnemy : MonoBehaviour
 {
     public event EventHandler gotDP;
 
-    [SerializeField] int freezeFrames = 7;
+    [SerializeField] float freezeSeconds = 0.25f;
 
     HeroMover hero;
     PolygonCollider2D col;
 
     ///<summary>敵のソウル的なのからDPを奪う、光ってからフェードアウトする</summary>
-    void OnTriggerEnter2D(Collider2D other){
-        if(other.tag=="Enemy"){
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.tag=="Enemy")
+        {
             var dPinEnemy = other.GetComponentInParent<EnemyController>().DPCD;
-            if(dPinEnemy.IsActive){
+            if(dPinEnemy.IsActive)
+            {
                 dPinEnemy.Light();
-                StartCoroutine(FreezeAndMelt(dPinEnemy));
+                this.StartPausableCoroutine(FreezeAndMelt(dPinEnemy));
                 float dp = dPinEnemy.CollectDP();
                 gotDP?.Invoke(dp, EventArgs.Empty);
             }
         }
     }
 
-    IEnumerator FreezeAndMelt(DPinEnemy die){
+    IEnumerator FreezeAndMelt(DPinEnemy die)
+    {
+        var colReversed = CameraController.CurrentCamera.AfterEffects.Find("ColorReversed");
+        var noise       = CameraController.CurrentCamera.AfterEffects.Find("Noise");
+
         yield return new WaitForSecondsRealtime(0.05f);
 
         Tokitome.SetTime(0);
-        var colReversed = CameraController.CurrentCamera.AfterEffects.Find("ColorReversed");
-        var noise = CameraController.CurrentCamera.AfterEffects.Find("Noise");
         colReversed.SetActive(true);
         noise.SetActive(false);
-        for(int i=0; i<freezeFrames-1; i++){
-            yield return null;
-        }
+
+        yield return new WaitForSecondsRealtime(freezeSeconds);
+
         Tokitome.SetTime(1);
         colReversed.SetActive(false);
         noise.SetActive(true);
         die.FadeOut();
     }
 
-    void Start(){
+    void Start()
+    {
         hero = GetComponentInParent<HeroMover>();
-        col = GetComponent<PolygonCollider2D>();
+        col  = GetComponent<PolygonCollider2D>();
     }
 
-    void FixedUpdate(){
-        Vector2 lastPos = (HeroDefiner.CurrentHeroPastPos[1] != null ? HeroDefiner.CurrentHeroPastPos[1] : new Vector3());
+    void FixedUpdate()
+    {
+        Vector2 lastPos    = (HeroDefiner.CurrentHeroPastPos[1] != null ? HeroDefiner.CurrentHeroPastPos[1] : new Vector3());
         Vector2 currentPos = (HeroDefiner.CurrentHeroPastPos[0] != null ? HeroDefiner.CurrentHeroPastPos[0] : new Vector3());
         Vector2 posDist = currentPos - lastPos;
 

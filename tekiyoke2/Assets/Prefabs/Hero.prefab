@@ -1006,7 +1006,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86d230e358d602549b19244cf937d750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  freezeFrames: 10
+  freezeFrames: 100
 --- !u!60 &5533205109090503487
 PolygonCollider2D:
   m_ObjectHideFlags: 0
