@@ -63,7 +63,7 @@ public class DPManager : MonoBehaviour
             secondsAfterDPChanged = 0;
         }
 
-        secondsAfterDPChanged += Time.deltaTime;
+        secondsAfterDPChanged += TimeManager.CurrentInstance.DeltaTimeAroundHero;
         if(secondsAfterDPChanged >= lightLifeSeconds){
             UnlightGauge();
         }

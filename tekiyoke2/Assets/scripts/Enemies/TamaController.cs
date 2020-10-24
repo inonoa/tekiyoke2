@@ -29,8 +29,8 @@ public class TamaController : MonoBehaviour, IReusable
 
     void Update()
     {
-        rBody.MovePosition(transform.position + speedVec * Time.timeScale);
-        lifeNow -= Time.timeScale;
+        rBody.MovePosition(transform.position + speedVec * TimeManager.CurrentInstance.TimeScaleExceptHero);
+        lifeNow -= TimeManager.CurrentInstance.DeltaTimeExceptHero;
         if(lifeNow <= 0) Die();
     }
 

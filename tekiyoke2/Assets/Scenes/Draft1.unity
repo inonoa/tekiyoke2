@@ -7868,6 +7868,7 @@ GameObject:
   - component: {fileID: 1515455044}
   - component: {fileID: 1515455046}
   - component: {fileID: 1515455047}
+  - component: {fileID: 1515455048}
   m_Layer: 0
   m_Name: PauserDepauser
   m_TagString: Untagged
@@ -7943,6 +7944,18 @@ MonoBehaviour:
     _Volume: 0.664
     _RequireComponent: 0
     <Loop>k__BackingField: 0
+--- !u!114 &1515455048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515455043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ffdb6aec63371949a9fbda4421ac603, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1520033660
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -11,8 +11,11 @@ public class Curtain4SceneStartMover : MonoBehaviour
 
     void Update()
     {
+        float dt    = TimeManager.CurrentInstance.DeltaTimeExceptHero;
+        float scale = TimeManager.CurrentInstance.TimeScaleExceptHero;
+
         //unscaledDeltaTimeにすると始めのフレームで凄いデカい値が返ってきてそうなのでこうした
-        time += Time.deltaTime / Time.timeScale;
+        time += dt / scale;
 
         while(time > secondsPerGrid)
         {

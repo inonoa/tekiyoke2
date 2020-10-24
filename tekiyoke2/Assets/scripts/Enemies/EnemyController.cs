@@ -17,12 +17,12 @@ public class EnemyController : MonoBehaviour
     protected bool IsOnGround => groundCount > 0;
 
     protected void MovePos(float v_x, float v_y) =>
-        rBody.MovePosition(new Vector2(rBody.transform.position.x + v_x*Time.timeScale,
-                                       rBody.transform.position.y + v_y*Time.timeScale));
+        rBody.MovePosition(new Vector2(rBody.transform.position.x + v_x * TimeManager.CurrentInstance.TimeScaleExceptHero,
+                                       rBody.transform.position.y + v_y * TimeManager.CurrentInstance.TimeScaleExceptHero));
 
     ///<summary>指定したv_xだけ横に移動する。y軸方向には重力のままに移動する。</summary>
     protected void MoveX_ConsideringGravity(float v_x) =>
-        rBody.velocity = new Vector2(v_x * Time.timeScale, Math.Max(rBody.velocity.y, -fallSpeedMax));
+        rBody.velocity = new Vector2(v_x * TimeManager.CurrentInstance.TimeScaleAroundHero, Math.Max(rBody.velocity.y, -fallSpeedMax));
 
     protected void Init() => rBody = GetComponent<Rigidbody2D>();
 
