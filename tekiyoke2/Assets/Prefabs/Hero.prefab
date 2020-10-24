@@ -645,8 +645,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48766a5416c269a438bcc7ba2f151fda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enterDuration: 2
-  exitDuration: 1.5
+  enterDuration: 1.3
+  exitDuration: 0.7
   windsManager: {fileID: 0}
   hero: {fileID: 3106219250084253350}
 --- !u!114 &2512754790269566656
