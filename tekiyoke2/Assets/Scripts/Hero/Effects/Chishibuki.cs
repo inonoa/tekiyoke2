@@ -2,38 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
+using UniRx;
 
 public class Chishibuki : MonoBehaviour
 {
     [SerializeField] int fadeinFrames = 10;
     [SerializeField] int chishibukiFrames = 30;
     [SerializeField] int fadeoutFrames = 30;
-    Image image;
+    [SerializeField] Image image;
 
     bool canChishibuki = true;
-    void Start() => image = transform.Find("Image").GetComponent<Image>();
-    public IEnumerator StartChishibuki(){
 
-        if(canChishibuki){
-            canChishibuki = false;
-            image.gameObject.SetActive(true);
-            image.color = new Color(1,1,1,0);
+    public void StartChishibuki()
+    {
+        if(!canChishibuki) return;
 
-            for(int i=0;i<fadeinFrames;i++){
-                image.color = new Color(1,1,1, image.color.a + 1.0f/fadeoutFrames);
-                yield return null;
-            }
-            image.color = new Color(1,1,1,1);
+        canChishibuki = false;
+        image.gameObject.SetActive(true);
+        image.color = new Color(1,1,1,0);
 
-            for(int i=0;i<chishibukiFrames;i++) yield return null;
-
-            for(int i=0;i<fadeoutFrames;i++){
-                image.color = new Color(1,1,1, image.color.a - 1.0f/fadeoutFrames);
-                yield return null;
-            }
-
-            image.gameObject.SetActive(false);
-            canChishibuki = true;
-        }
+        DOTween.Sequence()
+            .Append(image.DOFade(1, fadeinFrames  / 60f))
+            .AppendInterval(chishibukiFrames /  60f)
+            .Append(image.DOFade(0, fadeoutFrames / 60f))
+            .OnComplete(() =>
+            {
+                image.gameObject.SetActive(false);
+                canChishibuki = true;
+            })
+            .GetPausable().AddTo(this);
     }
 }

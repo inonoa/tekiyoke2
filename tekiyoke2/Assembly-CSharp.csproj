@@ -148,6 +148,7 @@
      <Compile Include="Assets\Scripts\MapObjs\UltraThinTileController.cs" />
      <Compile Include="Assets\Scripts\MyMath.cs" />
      <Compile Include="Assets\Scripts\ObjectPool.cs" />
+     <Compile Include="Assets\Scripts\Pause\PausableExtension.cs" />
      <Compile Include="Assets\Scripts\Pause\PauseCameraController.cs" />
      <Compile Include="Assets\Scripts\Pause\Pauser.cs" />
      <Compile Include="Assets\Scripts\Pause\PauseUIMover.cs" />

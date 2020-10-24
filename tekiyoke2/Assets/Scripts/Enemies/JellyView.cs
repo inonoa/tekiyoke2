@@ -33,17 +33,6 @@ public class JellyView : MonoBehaviour
         kasaSR.sprite = isGoingUp ? kasaSpriteUp : kasaSpriteDown;
         asiSR.sprite  = isGoingUp ? asiSpriteUp  : asiSpriteDown;
         lightMaterial.SetFloat("_Volume", isGoingUp ? 1 : 0);
-
-        Pauser.Instance.OnPause.Subscribe(_ => 
-        {
-            currentTween?.Pause();
-        })
-        .AddTo(this);
-        Pauser.Instance.OnPauseEnd.Subscribe(_ => 
-        {
-            currentTween?.TogglePause();
-        })
-        .AddTo(this);
     }
 
     public void OnTurnUp()
@@ -59,6 +48,7 @@ public class JellyView : MonoBehaviour
             1,
             lightSeconds
         );
+        currentTween.GetPausable().AddTo(this);
 
         if(MyMath.DistanceXY(transform.position, HeroDefiner.CurrentHeroPos) < nearHeroThreshold)
         {
@@ -82,5 +72,6 @@ public class JellyView : MonoBehaviour
             0,
             unlightSeconds
         );
+        currentTween.GetPausable().AddTo(this);
     }
 }

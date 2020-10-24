@@ -219,8 +219,8 @@ public class HeroMover : MonoBehaviour
         ChangeState(new StateBend());
         ParticleSystem ps = transform.Find("Particle System").GetComponent<ParticleSystem>();
         ps.Play();
-        chishibuki.StartCoroutine("StartChishibuki");
-        StartCoroutine(Blink());
+        chishibuki.StartChishibuki();
+        this.StartPausableCoroutine(Blink()).AddTo(this);
     }
 
     static readonly float blinkPeriodSec = 0.2f;

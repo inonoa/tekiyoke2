@@ -52,6 +52,7 @@ MonoBehaviour:
   fadeinFrames: 5
   chishibukiFrames: 30
   fadeoutFrames: 20
+  image: {fileID: 982473352013036492}
 --- !u!1 &982473352013036482
 GameObject:
   m_ObjectHideFlags: 0

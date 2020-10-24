@@ -16,7 +16,6 @@ public class JerryController : EnemyController
     [SerializeField] Transform positionU;
     [SerializeField] Transform positionD;
 
-    Tween currentTween;
     JellyView view;
 
     public override void OnSpawned()
@@ -30,9 +29,9 @@ public class JerryController : EnemyController
         float posD = positionD.position.y;
         float diameter = posU - posD;
 
-        currentTween = rBody
-                       .DOMoveY(isGoingUp ? posU : posD, periodSecs)
-                       .SetEase(Ease.InOutSine);
+        Tween firstTween = rBody.DOMoveY(isGoingUp ? posU : posD, periodSecs)
+                                .SetEase(Ease.InOutSine);
+        firstTween.GetPausable().AddTo(this);
         
         float currentTimeNormalized = Mathf.InverseLerp
         (
@@ -41,30 +40,20 @@ public class JerryController : EnemyController
             rBody.position.y
         );
         float currentTime = (1 - Mathf.Acos(currentTimeNormalized)) * periodSecs;
-        currentTween.Goto(currentTime, andPlay: true);
+        firstTween.Goto(currentTime, andPlay: true);
 
-        currentTween.OnComplete(() =>
+        firstTween.OnComplete(() =>
         {
             Turn();
 
-            currentTween = rBody
+            Tween mainTween = rBody
                 .DOMoveY(isGoingUp ? posU : posD, periodSecs)
                 .SetEase(Ease.InOutSine)
-                .OnComplete(() => Turn())
-                .SetLoops(-1, LoopType.Yoyo);
+                .SetLoops(-1, LoopType.Yoyo)
+                .OnStepComplete(() => Turn());
+                
+            mainTween.GetPausable().AddTo(this);
         });
-
-
-        Pauser.Instance.OnPause.Subscribe(_ =>
-        {
-            currentTween.Pause();
-        })
-        .AddTo(this);
-        Pauser.Instance.OnPauseEnd.Subscribe(_ =>
-        {
-            currentTween.TogglePause();
-        })
-        .AddTo(this);
     }
 
     void Turn()

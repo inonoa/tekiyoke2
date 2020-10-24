@@ -9,8 +9,12 @@ public class EnemySpawner : MonoBehaviour
 
     Vector3[] defaultPositions;
 
+    bool spawnedYet = false;
+
     void OnTriggerEnter2D(Collider2D other)
     {
+        if(spawnedYet) return;
+
         if(other.gameObject.tag=="CanSeeEnemy")
         {
             foreach(EnemyController enemy in enemies)
@@ -18,6 +22,7 @@ public class EnemySpawner : MonoBehaviour
                 enemy.gameObject.SetActive(true);
                 enemy.OnSpawned();
             }
+            spawnedYet = true;
         }
     }
 
