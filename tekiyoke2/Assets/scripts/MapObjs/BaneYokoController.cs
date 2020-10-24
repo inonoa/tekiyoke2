@@ -37,7 +37,7 @@ public class BaneYokoController : MonoBehaviour
             if(frames2Push==0){
                 HeroDefiner.currentHero.PushedByBaneYoko(push2Right, pushForce);
                 mat.SetInt("_Flash", 1);
-                DOVirtual.DelayedCall(0.2f, () => mat.SetInt("_Flash", 0));
+                DOVirtual.DelayedCall(0.2f, () => mat.SetInt("_Flash", 0)).FollowTimeScale(aroundHero: false);
             }
         }else{
             mat.SetInt("_HeroOn", 0);

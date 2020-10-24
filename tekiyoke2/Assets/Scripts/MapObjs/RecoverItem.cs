@@ -28,6 +28,7 @@ public class RecoverItem : MonoBehaviour
             .SetEase(Ease.InOutSine)
         );
         waveSeq.SetLoops(-1);
+        waveSeq.FollowTimeScale(aroundHero: false);
     }
 
     void OnDisable() => waveSeq.Pause();
@@ -62,6 +63,6 @@ public class RecoverItem : MonoBehaviour
         gotSeq.Append(gazoGhost.DOFade(0, dieSec));
         gotSeq.Join(transform.DOMoveY(moveInDie, dieSec).SetRelative());
 
-        gotSeq.OnComplete(() => Destroy(gameObject));
+        gotSeq.OnComplete(() => Destroy(gameObject)).FollowTimeScale(aroundHero: true);
     }
 }

@@ -123,7 +123,7 @@ public class JetManager : MonoBehaviour
         hero.CmrCntr.StartZoomForDash();
         hero.SoundGroup.SetVolume("Tame", 0);
         hero.SoundGroup.Play("Tame");
-        hero.SoundGroup.VolumeTo("Tame", 1, 0.7f);
+        hero.SoundGroup.VolumeTo("Tame", 1, 4f);
     }
 
     void EffectOnJet()

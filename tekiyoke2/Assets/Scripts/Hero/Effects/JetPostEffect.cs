@@ -24,17 +24,17 @@ public class JetPostEffect : MonoBehaviour
         vignette.SetActive(true);
         vignette.SetVolume(0);
         vignetteTween?.Kill();
-        vignetteTween = DOTween.To(vignette.GetVolume, vignette.SetVolume, 2, 0.6f);
+        vignetteTween = DOTween.To(vignette.GetVolume, vignette.SetVolume, 2, 4f);
 
         blurY.SetActive(true);
         blurY.SetVolume(0);
         blurYTween?.Kill();
-        blurYTween = DOTween.To(blurY.GetVolume, blurY.SetVolume, 2, 0.6f);
+        blurYTween = DOTween.To(blurY.GetVolume, blurY.SetVolume, 2, 4f);
 
         blurT.SetActive(true);
         blurT.SetVolume(0);
         blurTTween?.Kill();
-        blurTTween = DOTween.To(blurT.GetVolume, blurT.SetVolume, 2, 0.6f);
+        blurTTween = DOTween.To(blurT.GetVolume, blurT.SetVolume, 2, 4f);
     }
 
     public void OnJet()

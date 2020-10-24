@@ -40,7 +40,8 @@ public class DraftModeManager : MonoBehaviour
             enterDuration
         )
         .SetUpdate(true)
-        .OnComplete(() => currentTweens.Clear()));
+        .OnComplete(() => currentTweens.Clear())
+        .FollowTimeScale(aroundHero: true));
     }
 
     public void Exit()

@@ -27,7 +27,7 @@ public class BaneController : MonoBehaviour
             if(frames2Fly==0){
                 HeroDefiner.currentHero.ForceJump(jumpForce);
                 mat.SetInt("_Flash", 1);
-                DOVirtual.DelayedCall(0.2f, () => mat.SetInt("_Flash", 0));
+                DOVirtual.DelayedCall(0.2f, () => mat.SetInt("_Flash", 0)).FollowTimeScale(aroundHero: false);
             }
         }else{
             mat.SetInt("_HeroOn", 0);

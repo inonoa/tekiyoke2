@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
 
 //絶対に便利クラスを作ったほうがいい
 public class JumpEffect : MonoBehaviour, IReusable

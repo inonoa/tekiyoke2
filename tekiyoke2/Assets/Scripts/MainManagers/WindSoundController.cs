@@ -44,7 +44,7 @@ public class WindSoundController : MonoBehaviour
             actualVal = actualVolume;
 
             for(int i=0;i<3;i++){
-                soundGroup.VolumeTo(windNames[i], actualVolume, heroCheckPeriodSec);
+                soundGroup.VolumeTo(windNames[i], actualVolume, heroCheckPeriodSec).FollowTimeScale(aroundHero: true);
             }
         }
     }

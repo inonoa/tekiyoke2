@@ -38,6 +38,6 @@ public class HeroAnim : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
-        animator.FollowTimeScale(aroundhero: true);
+        animator.FollowTimeScale(aroundHero: true);
     }
 }

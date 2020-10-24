@@ -37,6 +37,7 @@ public class Sasayaki : MonoBehaviour
             spritesExceptBG.ForEach(
                 spr => tweens.Add(spr.DOFade(1, duration))
             );
+            tweens.ForEach(tw => tw.FollowTimeScale(aroundHero: false));
         }
     }
 
@@ -53,6 +54,7 @@ public class Sasayaki : MonoBehaviour
             spritesExceptBG.ForEach(
                 spr => tweens.Add(spr.DOFade(0, duration))
             );
+            tweens.ForEach(tw => tw.FollowTimeScale(aroundHero: false));
         }
     }
 }

@@ -373,6 +373,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dpcd: {fileID: 5092228798776572801}
+  rBody: {fileID: 2367615471163150896}
   fallSpeedMax: 300
   restSeconds: 1
   distanceToFindHero: 400

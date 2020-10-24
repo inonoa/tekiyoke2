@@ -28,7 +28,7 @@ public class NaitrumController : EnemyController
         col.touched2Wall += Turn;
         foreach(SpriteRenderer sr in spriteRenderers) sr.flipX = toRight;
 
-        anim.FollowTimeScale(aroundhero: false);
+        anim.FollowTimeScale(aroundHero: false);
     }
 
     new void Update() => MovePos( (toRight ? 1 : -1) * moveSpeed, 0);

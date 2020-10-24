@@ -37,8 +37,8 @@ public class TamaController : MonoBehaviour, IReusable
 
     void OnTriggerEnter2D(Collider2D other){
         if(other.gameObject.tag == "Terrain" || other.gameObject.tag == "Ultrathin" || other.gameObject.tag == "Player"){
-            GetComponent<SpriteRenderer>().DOFade(0, 0.1f);
-            DOVirtual.DelayedCall(0.1f, Die);
+            GetComponent<SpriteRenderer>().DOFade(0, 0.1f).FollowTimeScale(aroundHero: false);
+            DOVirtual.DelayedCall(0.1f, Die).FollowTimeScale(aroundHero: false);
         }
         if(other.gameObject.tag == "Player") HeroDefiner.currentHero.Damage(1, DamageType.Normal);
     }

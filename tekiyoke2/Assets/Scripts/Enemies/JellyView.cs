@@ -47,7 +47,8 @@ public class JellyView : MonoBehaviour
             v  => lightMaterial.SetFloat("_Volume", v),
             1,
             lightSeconds
-        );
+        )
+        .FollowTimeScale(aroundHero: false);
         currentTween.GetPausable().AddTo(this);
 
         if(MyMath.DistanceXY(transform.position, HeroDefiner.CurrentHeroPos) < nearHeroThreshold)
@@ -71,7 +72,8 @@ public class JellyView : MonoBehaviour
             v  => lightMaterial.SetFloat("_Volume", v),
             0,
             unlightSeconds
-        );
+        )
+        .FollowTimeScale(aroundHero: false);
         currentTween.GetPausable().AddTo(this);
     }
 }

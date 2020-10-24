@@ -50,6 +50,7 @@ public class Tsuchihokori : MonoBehaviour, IReusable
             {
                 tweens.Add(kemuri.DOFade(0, 0.6f));
             }))
+            .FollowTimeScale(aroundHero: true)
         );
 
         return tweens;

@@ -1507,7 +1507,7 @@ MonoBehaviour:
   - 200
   - -225
   - 175
-  durationSec: 0.4
+  durationSec: 2.7
 --- !u!1 &5819905632560877960
 GameObject:
   m_ObjectHideFlags: 0
