@@ -13,6 +13,8 @@ public class EnemyController : MonoBehaviour
     [SerializeField]
     protected float fallSpeedMax = 300;
 
+    protected TimeManager TimeManager{ get; private set; }
+
     int groundCount = 0;
     protected bool IsOnGround => groundCount > 0;
 
@@ -24,7 +26,11 @@ public class EnemyController : MonoBehaviour
     protected void MoveX_ConsideringGravity(float v_x) =>
         rBody.velocity = new Vector2(v_x * TimeManager.CurrentInstance.TimeScaleAroundHero, Math.Max(rBody.velocity.y, -fallSpeedMax));
 
-    protected void Init() => rBody = GetComponent<Rigidbody2D>();
+    protected void Init()
+    {
+        rBody = GetComponent<Rigidbody2D>();
+        TimeManager = TimeManager.CurrentInstance;
+    }
 
     protected void Update() => rBody.velocity = new Vector2(0, rBody.velocity.y);
 

@@ -882,6 +882,7 @@ MonoBehaviour:
   - {fileID: 4856608117662824495}
   - {fileID: 4856608118243476589}
   - {fileID: 4856608118754829434}
+  anim: {fileID: 8815917293978825198}
 --- !u!114 &5827355569240345888
 MonoBehaviour:
   m_ObjectHideFlags: 0
