@@ -66,11 +66,16 @@ public class TimeManager : MonoBehaviour
         TimeExceptHero += DeltaTimeExceptHero;
     }
 
-    float defaultFixedDeltaTime;
+    void OnDestroy()
+    {
+        CurrentInstance = null;
+    }
+
+    readonly float defaultFixedDeltaTime = 0.02f;
     void Awake()
     {
         Time.timeScale = 1;
-        defaultFixedDeltaTime = Time.fixedDeltaTime;
+        Time.fixedDeltaTime = defaultFixedDeltaTime;
         CurrentInstance = this;
     }
     public static TimeManager CurrentInstance{ get; private set; }
