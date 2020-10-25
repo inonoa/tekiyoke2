@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Timeline;
 using System;
-using UniRx;
 
 public class NaitrumController : EnemyController
 {
@@ -12,11 +11,9 @@ public class NaitrumController : EnemyController
     Collider2Wall col;
 
     [SerializeField] SpriteRenderer[] spriteRenderers;
-    [SerializeField] Animator anim;
     
 
-    private void Turn(object sender, EventArgs e)
-    {
+    private void Turn(object sender, EventArgs e){
         toRight = !toRight;
         foreach(SpriteRenderer sr in spriteRenderers) sr.flipX = toRight;
     }
@@ -27,8 +24,6 @@ public class NaitrumController : EnemyController
         col = GetComponent<Collider2Wall>();
         col.touched2Wall += Turn;
         foreach(SpriteRenderer sr in spriteRenderers) sr.flipX = toRight;
-
-        anim.FollowTimeScale(aroundhero: false);
     }
 
     new void Update() => MovePos( (toRight ? 1 : -1) * moveSpeed, 0);

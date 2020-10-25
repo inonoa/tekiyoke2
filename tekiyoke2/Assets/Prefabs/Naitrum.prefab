@@ -124,7 +124,6 @@ MonoBehaviour:
   toRight: 0
   spriteRenderers:
   - {fileID: 1421112567456498835}
-  anim: {fileID: 2358196632647051090}
 --- !u!61 &1421112567456498836
 BoxCollider2D:
   m_ObjectHideFlags: 0

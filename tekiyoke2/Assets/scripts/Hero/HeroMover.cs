@@ -348,6 +348,7 @@ public class HeroMover : MonoBehaviour
 
     void FixedUpdate()
     {
+
         pastPoss.PushFirst(transform.position);
         if(pastPoss.Count > 1000) pastPoss.PopLast();
 
