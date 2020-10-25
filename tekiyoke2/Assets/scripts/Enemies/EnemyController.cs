@@ -22,7 +22,7 @@ public class EnemyController : MonoBehaviour
 
     ///<summary>指定したv_xだけ横に移動する。y軸方向には重力のままに移動する。</summary>
     protected void MoveX_ConsideringGravity(float v_x) =>
-        rBody.velocity = new Vector2(v_x * TimeManager.CurrentInstance.TimeScaleAroundHero, Math.Max(rBody.velocity.y, -fallSpeedMax));
+        rBody.velocity = new Vector2(v_x * TimeManager.CurrentInstance.TimeScaleExceptHero, Math.Max(rBody.velocity.y, -fallSpeedMax));
 
     protected void Init() => rBody = GetComponent<Rigidbody2D>();
 

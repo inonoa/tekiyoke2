@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UniRx;
 
 public class HeroAnim : MonoBehaviour
 {
@@ -38,5 +38,10 @@ public class HeroAnim : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        hero.TimeManager.HeroTimeScaleRelative
+            .Subscribe(scale =>
+            {
+                animator.speed = scale;
+            });
     }
 }

@@ -117,7 +117,7 @@ public class JetManager : MonoBehaviour
 
     void EffectOnReady()
     {
-        hero.TimeManager.SetTimeScale(hero.Parameters.JetParams.TimeScaleBeforeJet);
+        hero.TimeManager.SetTimeScale(TimeEffectType.ReadyToJet, hero.Parameters.JetParams.TimeScaleBeforeJet);
         jetPostEffect.Ready();
         clouds.StartClouds();
         hero.CmrCntr.StartZoomForDash();
@@ -128,7 +128,7 @@ public class JetManager : MonoBehaviour
 
     void EffectOnJet()
     {
-        hero.TimeManager.SetTimeScale(1);
+        hero.TimeManager.SetTimeScale(TimeEffectType.ReadyToJet, 1);
         jetPostEffect.OnJet();
         clouds.EndClouds();
         hero.CmrCntr.OnJet();

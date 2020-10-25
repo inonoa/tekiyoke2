@@ -190,7 +190,7 @@ public class HeroMover : MonoBehaviour
         if(! IsLiving) return;
         if(! CanBeDamaged && type != DamageType.Drop) return;
 
-        TimeManager.SetTimeScale(1);
+        TimeManager.Reset();
         ChangeHP(HP - damage);
         CmrCntr.Reset();
         SoundGroup.Play(HP==0 ? "Die" : "Damage");
@@ -249,7 +249,7 @@ public class HeroMover : MonoBehaviour
     {
         MemoryOverDeath.Instance.SaveOnDeath();
         GameTimeCounter.CurrentInstance.DoesTick = false;
-        TimeManager.SetTimeScale(0.2f);
+        TimeManager.SetTimeScale(TimeEffectType.Die, 0.2f);
         SceneTransition.Start2ChangeScene(SceneManager.GetActiveScene().name, SceneTransition.TransitionType.HeroDied);
         draftModeManager.Exit();
     }
