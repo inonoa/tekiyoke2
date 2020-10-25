@@ -11,14 +11,13 @@ public class TamaController : MonoBehaviour, IReusable
     float lifeNow;
     public bool InUse{ get; private set; }
 
-    public void Activate(string angle_speed_life)
-    {
+    public void Activate(string angle_speed_life){
         string[] a_s_l = angle_speed_life.Split();
         float angle = float.Parse(a_s_l[0]);
         transform.rotation = Quaternion.identity;
         transform.Rotate(0,0, angle);
         speedVec = float.Parse(a_s_l[1]) * new Vector3((float)Math.Cos(angle * Math.PI / 180), (float)Math.Sin(angle * Math.PI / 180));
-        lifeNow = float.Parse(a_s_l[2]);
+        lifeNow = int.Parse(a_s_l[2]);
         InUse = true;
         GetComponent<SpriteRenderer>().color = new Color(1,1,1,1);
     }
@@ -30,7 +29,7 @@ public class TamaController : MonoBehaviour, IReusable
 
     void Update()
     {
-        rBody.MovePosition(transform.position + speedVec * TimeManager.CurrentInstance.DeltaTimeExceptHero);
+        rBody.MovePosition(transform.position + speedVec * TimeManager.CurrentInstance.TimeScaleExceptHero);
         lifeNow -= TimeManager.CurrentInstance.DeltaTimeExceptHero;
         if(lifeNow <= 0) Die();
     }

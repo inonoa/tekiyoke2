@@ -323,6 +323,7 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
+  collider: {fileID: 0}
 --- !u!1 &4320011674289920435
 GameObject:
   m_ObjectHideFlags: 0
@@ -374,18 +375,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dpcd: {fileID: 5092228798776572801}
   fallSpeedMax: 300
-  restSeconds: 1
+  restFrames: 70
   distanceToFindHero: 400
-  jumpForce: 700
-  gravity: 1000
+  jumpForce: 1200
   framesPerShoot: 10
   howManyShoots: 3
   upAngle: 15
   downAngle: 60
   num_tamaPerShoot: 5
   tama: {fileID: 3841027521711200733, guid: 83ebf111c7aef5a4c9a70696bd32b809, type: 3}
-  tamaSpeed: 300
-  tamaLifeSeconds: 1.5
+  tamaSpeed: 10
+  tamaLife: 50
   groundChecker: {fileID: 4320011673456935144}
   gazosTF: {fileID: 3937189948388958045}
   baneTF: {fileID: 2001699173235129490}
@@ -409,7 +409,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0
-  m_GravityScale: 0
+  m_GravityScale: 200
   m_Material: {fileID: 6200000, guid: 6a8dea704b8665742911f386d932fbba, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -457,12 +457,12 @@ MonoBehaviour:
   - _Name: Jump
     _Clip: {fileID: 8300000, guid: c80aba607832a07488849c2fc2cdaeac, type: 3}
     _Volume: 0.186
-    _RequireComponent: 0
+    _CanLoopAndStop: 0
     <Loop>k__BackingField: 0
   - _Name: Shoot
     _Clip: {fileID: 8300000, guid: b82190e31b4ba754899cfe595197ba7d, type: 3}
     _Volume: 0.386
-    _RequireComponent: 0
+    _CanLoopAndStop: 0
     <Loop>k__BackingField: 0
 --- !u!1 &4320011674365100249
 GameObject:
