@@ -31,9 +31,13 @@ public class JetCloudManager : MonoBehaviour
 
         for(int i=0; i<clouds.Length; i++){
 
-            seqs[i] = DOTween.Sequence()
-                .Append(clouds[i].transform.DOLocalMoveX(cloudsDstX[i], durationSec).SetEase(Ease.OutSine))
-                .Join(clouds[i].DOFade(1, durationSec / 2));
+            seqs[i] = DOTween.Sequence();
+            seqs[i].Append(
+                clouds[i].transform.DOLocalMoveX(cloudsDstX[i], durationSec).SetEase(Ease.OutSine)
+            );
+            seqs[i].Join(
+                clouds[i].DOFade(1, durationSec / 2)
+            );
         }
     }
 

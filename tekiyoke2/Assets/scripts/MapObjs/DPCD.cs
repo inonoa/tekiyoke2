@@ -41,6 +41,6 @@ public class DPCD : MonoBehaviour
         float dieSec = 0.2f;
         gottenSeq.Append(lightRenderer.DOFade(0, dieSec));
         gottenSeq.Join(spriteRenderer.DOFade(0, dieSec));
-        gottenSeq.OnComplete(() => Destroy(gameObject)).FollowTimeScale(aroundHero: true);
+        gottenSeq.OnComplete(() => Destroy(gameObject));
     }
 }

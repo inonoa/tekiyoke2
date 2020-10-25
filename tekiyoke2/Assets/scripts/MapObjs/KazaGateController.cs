@@ -27,7 +27,7 @@ public class KazaGateController : MonoBehaviour
             if(state==State.Opening){
                 soundGroup.Stop("Move");
                 soundGroup.Play("Stop");
-                DOVirtual.DelayedCall(0.1f, () => soundGroup.Play("Move")).FollowTimeScale(aroundHero: false);
+                DOVirtual.DelayedCall(0.1f, () => soundGroup.Play("Move"));
             }else{
                 soundGroup.Play("Move");
             }

@@ -95,9 +95,9 @@ public class SoundGroup : MonoBehaviour
         );
     }
 
-    public Tween VolumeTo(string soundName, float endValue, float durationSec){
+    public void VolumeTo(string soundName, float endValue, float durationSec){
         int idx = Find(soundName);
-        return DOTween.To(() => ses[idx].Volume, v => ses[idx].Volume = v, endValue, durationSec);
+        if(idx > -1) DOTween.To(() => ses[idx].Volume, v => ses[idx].Volume = v, endValue, durationSec);
     }
 }
 

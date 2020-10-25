@@ -96,14 +96,13 @@ public class StateJet : HeroState
         DOVirtual.DelayedCall(0.2f, () =>
         {
             float heroAppearSec = 0.3f;
-            heroMat.To("_DisThreshold0", -1, heroAppearSec).FollowTimeScale(aroundHero: true);
-            heroMat.To("_DisThreshold1", 0,  heroAppearSec).FollowTimeScale(aroundHero: true);
-        })
-        .FollowTimeScale(aroundHero: true);
+            heroMat.To("_DisThreshold0", -1, heroAppearSec);
+            heroMat.To("_DisThreshold1", 0,  heroAppearSec);
+        });
 
         float phantomDisappearSec = 0.3f;
-        phantomMat.To("_DisThreshold0", 1,    phantomDisappearSec).FollowTimeScale(aroundHero: true);
-        phantomMat.To("_DisThreshold1", 1.1f, phantomDisappearSec).FollowTimeScale(aroundHero: true)
+        phantomMat.To("_DisThreshold0", 1,    phantomDisappearSec);
+        phantomMat.To("_DisThreshold1", 1.1f, phantomDisappearSec)
             .onComplete = () => phantom.gameObject.SetActive(false);
     }
 }

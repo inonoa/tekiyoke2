@@ -868,7 +868,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dpcd: {fileID: 342393335470035306}
-  rBody: {fileID: 5827355569240345890}
   fallSpeedMax: 300
   moveSpeed: 1
   toRight: 0

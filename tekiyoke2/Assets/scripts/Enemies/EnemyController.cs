@@ -8,7 +8,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] DPinEnemy dpcd;
     public DPinEnemy DPCD => dpcd;
 
-    [SerializeField] protected Rigidbody2D rBody;
+    protected Rigidbody2D rBody;
 
     [SerializeField]
     protected float fallSpeedMax = 300;
@@ -29,6 +29,7 @@ public class EnemyController : MonoBehaviour
 
     protected void Init()
     {
+        rBody = GetComponent<Rigidbody2D>();
         TimeManager = TimeManager.CurrentInstance;
     }
 

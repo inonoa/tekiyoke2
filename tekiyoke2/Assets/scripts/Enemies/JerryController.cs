@@ -30,8 +30,7 @@ public class JerryController : EnemyController
         float diameter = posU - posD;
 
         Tween firstTween = rBody.DOMoveY(isGoingUp ? posU : posD, periodSecs)
-                                .SetEase(Ease.InOutSine)
-                                .FollowTimeScale(aroundHero: false);
+                                .SetEase(Ease.InOutSine);
         firstTween.GetPausable().AddTo(this);
         
         float currentTimeNormalized = Mathf.InverseLerp
@@ -51,8 +50,7 @@ public class JerryController : EnemyController
                 .DOMoveY(isGoingUp ? posU : posD, periodSecs)
                 .SetEase(Ease.InOutSine)
                 .SetLoops(-1, LoopType.Yoyo)
-                .OnStepComplete(() => Turn())
-                .FollowTimeScale(aroundHero: false);
+                .OnStepComplete(() => Turn());
                 
             mainTween.GetPausable().AddTo(this);
         });

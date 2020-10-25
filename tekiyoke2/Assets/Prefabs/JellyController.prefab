@@ -48,7 +48,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dpcd: {fileID: 1438637555183145526}
-  rBody: {fileID: 7215245720141097645}
   fallSpeedMax: 300
   isGoingUp: 1
   periodSecs: 1.3

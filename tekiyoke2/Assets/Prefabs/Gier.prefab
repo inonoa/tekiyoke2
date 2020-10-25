@@ -236,6 +236,7 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
+  collider: {fileID: 0}
 --- !u!1 &4422211888181375507
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,7 +348,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dpcd: {fileID: 8995851440116626034}
-  rBody: {fileID: 4422211888311780093}
   fallSpeedMax: 300
   walkSpeed: 100
   runSpeed: 400

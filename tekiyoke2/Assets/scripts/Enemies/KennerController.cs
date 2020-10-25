@@ -92,8 +92,8 @@ public class KennerController : EnemyController
                     state = State.Shoot;
                     framesToShootNow = 1;
                     howManyShootsNow = howManyShoots;
-                    baneTF.DOScaleY(0.3f, 0.5f).FollowTimeScale(aroundHero: false);
-                    dodaiTF.DOLocalMoveY(-23,0.5f).FollowTimeScale(aroundHero: false);
+                    baneTF.DOScaleY(0.3f, 0.5f);
+                    dodaiTF.DOLocalMoveY(-23,0.5f);
                 }
                 break;
             
@@ -143,8 +143,8 @@ public class KennerController : EnemyController
     {
         rBody.velocity = new Vector2(0, jumpForce);
         state = State.Jump;
-        baneTF.DOScaleY(1, 0.3f).SetEase(Ease.InOutSine).FollowTimeScale(aroundHero: false);
-        dodaiTF.DOLocalMoveY(-46,0.3f).SetEase(Ease.InOutSine).FollowTimeScale(aroundHero: false);
+        baneTF.DOScaleY(1, 0.3f).SetEase(Ease.InOutSine);
+        dodaiTF.DOLocalMoveY(-46,0.3f).SetEase(Ease.InOutSine);
         soundGroup.Play("Jump");
     }
 

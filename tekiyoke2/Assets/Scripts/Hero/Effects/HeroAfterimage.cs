@@ -33,7 +33,6 @@ public class HeroAfterimage : MonoBehaviour, IReusable
             {
                 InUse = false;
                 gameObject.SetActive(false);
-            })
-            .FollowTimeScale(aroundHero: true);
+            });
     }
 }
