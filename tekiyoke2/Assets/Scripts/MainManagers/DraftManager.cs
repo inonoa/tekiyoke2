@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Sirenix.OdinInspector;
 
 public class DraftManager : MonoBehaviour
 {
@@ -59,5 +60,12 @@ public class DraftManager : MonoBehaviour
             Vector2 respawnPos = CheckPointsManager.Instance.GetPosition(index);
             hero.WarpPos(respawnPos.x, respawnPos.y);
         }
+    }
+
+    [Button]
+    void WarpToCheckPoint(int index)
+    {
+        Vector2 respawnPos = CheckPointsManager.Instance.GetPosition(index);
+        hero.WarpPos(respawnPos.x, respawnPos.y);
     }
 }

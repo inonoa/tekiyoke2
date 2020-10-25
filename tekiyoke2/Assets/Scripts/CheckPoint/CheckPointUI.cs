@@ -50,7 +50,8 @@ public class CheckPointUI : MonoBehaviour
                 (
                     canvasGroup
                         .DOFade(0, fadeOutSecs)
-                );
+                )
+                .SetUpdate(true);
 
             fadeInOut.GetPausable().AddTo(this);
         });

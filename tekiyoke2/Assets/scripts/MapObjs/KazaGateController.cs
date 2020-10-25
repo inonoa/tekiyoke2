@@ -48,10 +48,12 @@ public class KazaGateController : MonoBehaviour
             
             case State.Opening:
 
-                gate.position += Vector3.up * openVel;
+                float dt = TimeManager.CurrentInstance.DeltaTimeExceptHero;
+
+                gate.position += Vector3.up * openVel * dt;
                 //当たり判定縮めてる
-                col.offset += Vector2.up * openVel / 2;
-                col.size -= new Vector2(0, 1) * openVel;
+                col.offset += Vector2.up * openVel / 2 * dt;
+                col.size -= new Vector2(0, 1) * openVel * dt;
 
                 if(gate.position.y >= defPos.y + 100){
                     gate.position = new Vector3(gate.position.x, defPos.y + 100, gate.position.z);
@@ -68,10 +70,12 @@ public class KazaGateController : MonoBehaviour
             
             case State.Closing:
 
-                gate.position -= Vector3.up * closeVel;
+                float dt_ = TimeManager.CurrentInstance.DeltaTimeExceptHero;
+
+                gate.position -= Vector3.up * closeVel * dt_;
                 //当たり判定広げてる
-                col.offset -= Vector2.up * closeVel / 2;
-                col.size += new Vector2(0, 1) * closeVel;
+                col.offset -= Vector2.up * closeVel / 2 * dt_;
+                col.size += new Vector2(0, 1) * closeVel * dt_;
 
                 if(gate.position.y <= defPos.y){
                     gate.position = new Vector3(gate.position.x, defPos.y, gate.position.z);

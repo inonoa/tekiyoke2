@@ -1486,7 +1486,7 @@ PrefabInstance:
     - target: {fileID: 4320011674289920440, guid: da3788cce2ad5944bb792a9f59a8108d,
         type: 3}
       propertyPath: tamaLife
-      value: 70
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4320011674289920440, guid: da3788cce2ad5944bb792a9f59a8108d,
         type: 3}
@@ -1497,6 +1497,11 @@ PrefabInstance:
         type: 3}
       propertyPath: downAngle
       value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4320011674289920440, guid: da3788cce2ad5944bb792a9f59a8108d,
+        type: 3}
+      propertyPath: tamaSpeedPerSec
+      value: 350
       objectReference: {fileID: 0}
     - target: {fileID: 3937189948388958045, guid: da3788cce2ad5944bb792a9f59a8108d,
         type: 3}
@@ -5286,7 +5291,7 @@ PrefabInstance:
     - target: {fileID: 2362030087005365162, guid: 55ae9ebebeefa9747875c0edb68876ef,
         type: 3}
       propertyPath: openVel
-      value: 1
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2362030085944155550, guid: 55ae9ebebeefa9747875c0edb68876ef,
         type: 3}
@@ -5383,7 +5388,7 @@ PrefabInstance:
     - target: {fileID: 4320011674289920440, guid: da3788cce2ad5944bb792a9f59a8108d,
         type: 3}
       propertyPath: tamaLife
-      value: 70
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 4320011674289920440, guid: da3788cce2ad5944bb792a9f59a8108d,
         type: 3}
@@ -5394,6 +5399,11 @@ PrefabInstance:
         type: 3}
       propertyPath: downAngle
       value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4320011674289920440, guid: da3788cce2ad5944bb792a9f59a8108d,
+        type: 3}
+      propertyPath: tamaSpeedPerSec
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 3937189948388958045, guid: da3788cce2ad5944bb792a9f59a8108d,
         type: 3}
@@ -5780,7 +5790,7 @@ PrefabInstance:
     - target: {fileID: 4320011674289920440, guid: da3788cce2ad5944bb792a9f59a8108d,
         type: 3}
       propertyPath: tamaLife
-      value: 70
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 4320011674289920440, guid: da3788cce2ad5944bb792a9f59a8108d,
         type: 3}
@@ -5801,6 +5811,11 @@ PrefabInstance:
         type: 3}
       propertyPath: upAngle
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4320011674289920440, guid: da3788cce2ad5944bb792a9f59a8108d,
+        type: 3}
+      propertyPath: tamaSpeedPerSec
+      value: 350
       objectReference: {fileID: 0}
     - target: {fileID: 3937189948388958045, guid: da3788cce2ad5944bb792a9f59a8108d,
         type: 3}
@@ -7869,6 +7884,7 @@ GameObject:
   - component: {fileID: 1515455046}
   - component: {fileID: 1515455047}
   - component: {fileID: 1515455048}
+  - component: {fileID: 1515455049}
   m_Layer: 0
   m_Name: PauserDepauser
   m_TagString: Untagged
@@ -7923,8 +7939,8 @@ MonoBehaviour:
   _GameMasterTF: {fileID: 289413201}
   _PauseMasterTF: {fileID: 975853696}
   hero: {fileID: 1333704110}
-  debugMode: 0
-  debugCheckPointIndex: 2
+  debugMode: 1
+  debugCheckPointIndex: 3
   debugIgnoreMemory: 1
 --- !u!114 &1515455047
 MonoBehaviour:
@@ -7956,6 +7972,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ffdb6aec63371949a9fbda4421ac603, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1515455049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515455043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2452c6ebc7e08844887804ac879da8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 1515455048}
 --- !u!1001 &1520033660
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9666,7 +9695,7 @@ PrefabInstance:
     - target: {fileID: 2362030087005365162, guid: 55ae9ebebeefa9747875c0edb68876ef,
         type: 3}
       propertyPath: openVel
-      value: 1
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2362030085944155550, guid: 55ae9ebebeefa9747875c0edb68876ef,
         type: 3}
@@ -9756,7 +9785,7 @@ PrefabInstance:
     - target: {fileID: 2362030087005365162, guid: 55ae9ebebeefa9747875c0edb68876ef,
         type: 3}
       propertyPath: openVel
-      value: 1
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2362030085944155550, guid: 55ae9ebebeefa9747875c0edb68876ef,
         type: 3}
@@ -10591,7 +10620,7 @@ PrefabInstance:
     - target: {fileID: 2362030087005365162, guid: 55ae9ebebeefa9747875c0edb68876ef,
         type: 3}
       propertyPath: openVel
-      value: 1
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2362030085944155550, guid: 55ae9ebebeefa9747875c0edb68876ef,
         type: 3}

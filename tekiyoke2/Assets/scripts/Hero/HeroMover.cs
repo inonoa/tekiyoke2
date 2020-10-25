@@ -258,6 +258,8 @@ public class HeroMover : MonoBehaviour
 
     #endregion
 
+    List<Tween> tweens = new List<Tween>();
+
     #region 勝手に呼ばれる関数群
 
     ///<summary>他のオブジェクトのStart()内でCurrentHeroを参照したい時があり、
@@ -294,15 +296,21 @@ public class HeroMover : MonoBehaviour
             DPManager.Instance.LightGaugePulse();
         };
 
-        //ポーズ対応してない
-        Observable.Interval(TimeSpan.FromSeconds(0.075f)) //即値
-            .Subscribe(_ =>
-            {
-                ObjsHolderForStates.AfterimagePool.ActivateOne("")
-                    .GetComponent<SpriteRenderer>()
-                    .sprite = SpriteRenderer.sprite;
-            })
-            .AddTo(this);
+        InitEffect();
+    }
+
+    void InitEffect()
+    {
+        Tween afterImages = DOVirtual.DelayedCall(0.075f, () =>
+        {
+            ObjsHolderForStates.AfterimagePool.ActivateOne("")
+                .GetComponent<SpriteRenderer>()
+                .sprite = SpriteRenderer.sprite;
+        }, ignoreTimeScale: false)
+        .SetLoops(-1)
+        .AsHeros();
+        afterImages.GetPausable().AddTo(this);
+        tweens.Add(afterImages);
     }
 
     ///<summary>SetActive(false)するとアニメーションの状態がリセットされるようなのでとりあえず主人公はステートだけ反映しなおす</summary>
@@ -314,6 +322,11 @@ public class HeroMover : MonoBehaviour
     void OnDisable()
     {
         SoundGroup.StopAll();
+    }
+
+    void OnDestroy()
+    {
+        tweens.ForEach(tw => tw.Kill());
     }
 
     void Update()
@@ -404,6 +417,7 @@ public class HeroMover : MonoBehaviour
     public void OnGoal()
     {
         ChangeState(new StateRun());
+        draftModeManager.Exit();
     }
 
     public void ForceJump(float force = -1)

@@ -100,7 +100,8 @@ public class DraftModeManager : MonoBehaviour
                 pos      = hero.Transform.position,
                 velocity = hero.velocity.ToVector2()
             },
-            () => hero.TimeManager.DeltaTimeAroundHero
+            () => hero.TimeManager.DeltaTimeAroundHero,
+            () => hero.TimeManager.TimeAroundHero
         );
 
         Pauser.Instance.OnPause

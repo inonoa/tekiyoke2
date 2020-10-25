@@ -33,12 +33,12 @@ public class Kabezuri : MonoBehaviour, IReusable
         spriteRenderer.color = new Color(1,1,1,1);
 
         anim.ResetAndStartAnim(() => {
-            tweensToKill[0] = transform.DOMoveY(100,0.5f).SetRelative();
-            tweensToKill[1] = spriteRenderer.DOFade(0, 0.5f);
+            tweensToKill[0] = transform.DOMoveY(100,0.5f).SetRelative().AsHeros();
+            tweensToKill[1] = spriteRenderer.DOFade(0, 0.5f).AsHeros();
             tweensToKill[2] = DOVirtual.DelayedCall(0.5f, () => {
                 gameObject.SetActive(false);
                 InUse = false;
-            });
+            }, ignoreTimeScale: false).AsHeros();
         });
     }
 

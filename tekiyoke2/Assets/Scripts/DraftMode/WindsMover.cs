@@ -36,11 +36,13 @@ namespace Draft
         };
 
         Func<float> deltaTimeGetter = () => 0.02f;
+        Func<float> timeGetter = () => Time.time;
 
-        public void Init(Func<HeroInfo> heroInfoGetter, Func<float> deltaTimeGetter)
+        public void Init(Func<HeroInfo> heroInfoGetter, Func<float> deltaTimeGetter, Func<float> timeGetter) 
         {
             this.heroInfoGetter  = heroInfoGetter;
             this.deltaTimeGetter = deltaTimeGetter;
+            this.timeGetter      = timeGetter;
         }
 
         void Start()
@@ -109,7 +111,7 @@ namespace Draft
 
         public float GetTime()
         {
-            return Time.time; //GameTimeCounterかなんか通したい
+            return timeGetter.Invoke();
         }
     }
 

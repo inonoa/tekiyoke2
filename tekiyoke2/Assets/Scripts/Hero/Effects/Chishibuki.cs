@@ -31,6 +31,7 @@ public class Chishibuki : MonoBehaviour
                 image.gameObject.SetActive(false);
                 canChishibuki = true;
             })
+            .SetUpdate(true)
             .GetPausable().AddTo(this);
     }
 }

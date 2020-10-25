@@ -31,7 +31,7 @@ public class TimeManager : MonoBehaviour
 
     void ReCalcurateTimeScales()
     {
-        Time.timeScale = effects.Concat(new []{effectExceptHero}).Min();
+        Time.timeScale = effects.Min() * effectExceptHero;
         if(Time.timeScale != 0) Time.fixedDeltaTime = defaultFixedDeltaTime * Time.timeScale;
 
         _HeroTimeScaleRelative.Value = 1 / effectExceptHero;
@@ -56,6 +56,15 @@ public class TimeManager : MonoBehaviour
     public float DeltaTimeAroundHero => Time.deltaTime / effectExceptHero;
     public float FixedDeltaTimeExceptHero => Time.fixedDeltaTime;
     public float FixedDeltaTimeAroundHero => Time.fixedDeltaTime / effectExceptHero;
+
+    public float TimeExceptHero{ get; private set; } = 0;
+    public float TimeAroundHero{ get; private set; } = 0;
+
+    void Update()
+    {
+        TimeAroundHero += DeltaTimeAroundHero;
+        TimeExceptHero += DeltaTimeExceptHero;
+    }
 
     float defaultFixedDeltaTime;
     void Awake()

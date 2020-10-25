@@ -27,12 +27,18 @@ public class Tsuchihokori : MonoBehaviour, IReusable
             {
                 tsuchi.sprite = tsuchiSprites[1];
                 kemuri.sprite = kemuriSprites[1];
-            }))
+            },
+            ignoreTimeScale: false)
+            .AsHeros()
+            )
             .Append(DOVirtual.DelayedCall(spriteChangeSec, () =>
             {
                 tsuchi.sprite = tsuchiSprites[2];
                 kemuri.sprite = kemuriSprites[2];
-            }))
+            },
+            ignoreTimeScale: false)
+            .AsHeros()
+            )
             .Append(DOVirtual.DelayedCall(spriteChangeSec, () =>
             {
                 tsuchi.sprite = tsuchiSprites[3];
@@ -44,12 +50,20 @@ public class Tsuchihokori : MonoBehaviour, IReusable
                         gameObject.SetActive(false);
                         InUse = false;
                     })
+                    .AsHeros()
                 );
-            }))
+            }, 
+            ignoreTimeScale: false)
+            .AsHeros()
+            )
             .Append(DOVirtual.DelayedCall(0.1f, () =>
             {
-                tweens.Add(kemuri.DOFade(0, 0.6f));
-            }))
+                tweens.Add(kemuri.DOFade(0, 0.6f).AsHeros());
+            },
+            ignoreTimeScale: false)
+            .AsHeros()
+            )
+            .AsHeros()
         );
 
         return tweens;

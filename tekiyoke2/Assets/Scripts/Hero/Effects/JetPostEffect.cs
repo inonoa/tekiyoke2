@@ -24,17 +24,17 @@ public class JetPostEffect : MonoBehaviour
         vignette.SetActive(true);
         vignette.SetVolume(0);
         vignetteTween?.Kill();
-        vignetteTween = DOTween.To(vignette.GetVolume, vignette.SetVolume, 2, 0.6f);
+        vignetteTween = DOTween.To(vignette.GetVolume, vignette.SetVolume, 2, 0.6f).AsHeros();
 
         blurY.SetActive(true);
         blurY.SetVolume(0);
         blurYTween?.Kill();
-        blurYTween = DOTween.To(blurY.GetVolume, blurY.SetVolume, 2, 0.6f);
+        blurYTween = DOTween.To(blurY.GetVolume, blurY.SetVolume, 2, 0.6f).AsHeros();
 
         blurT.SetActive(true);
         blurT.SetVolume(0);
         blurTTween?.Kill();
-        blurTTween = DOTween.To(blurT.GetVolume, blurT.SetVolume, 2, 0.6f);
+        blurTTween = DOTween.To(blurT.GetVolume, blurT.SetVolume, 2, 0.6f).AsHeros();
     }
 
     public void OnJet()
@@ -44,14 +44,15 @@ public class JetPostEffect : MonoBehaviour
         endSeq_tmp.Append(DOTween.To(vignette.GetVolume, vignette.SetVolume, -0.3f - vignette.GetVolume() / 2, 0.2f).SetEase(Ease.OutSine));
         endSeq_tmp.Append(DOTween.To(vignette.GetVolume, vignette.SetVolume, 0, 0.3f).SetEase(Ease.InOutSine));
         endSeq_tmp.onComplete += () => vignette.SetActive(false);
+        endSeq_tmp.AsHeros();
         vignetteTween = endSeq_tmp;
 
         blurYTween.Kill();
-        blurYTween = DOTween.To(blurY.GetVolume, blurY.SetVolume, 0, 0.1f);
+        blurYTween = DOTween.To(blurY.GetVolume, blurY.SetVolume, 0, 0.1f).AsHeros();
         blurYTween.onComplete += () => blurY.SetActive(false);
 
         blurTTween.Kill();
-        blurTTween = DOTween.To(blurT.GetVolume, blurT.SetVolume, 0, 0.1f);
+        blurTTween = DOTween.To(blurT.GetVolume, blurT.SetVolume, 0, 0.1f).AsHeros();
         blurTTween.onComplete += () => blurT.SetActive(false);
     }
 
