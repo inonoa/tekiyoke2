@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 using UniRx;
 using System.Linq;
 using Sirenix.OdinInspector;
-using DG.Tweening;
 
 
 ///<summary>最終的には各機能をまとめる役割と渉外担当みたいな役割とだけを持たせたい</summary>
@@ -227,19 +226,19 @@ public class HeroMover : MonoBehaviour
     static readonly float blinkPeriodSec = 0.2f;
     IEnumerator Blink()
     {
-        yield return new WaitForSeconds(0.3f / TimeManager.TimeScaleAroundHero);
+        yield return new WaitForSeconds(0.3f);
 
-        while(true)
-        {
+        while(true){
+
             if(HpCntr.CanBeDamaged) yield break;
             SpriteRenderer.material.SetFloat("_Alpha", 0);
 
-            yield return new WaitForSeconds(blinkPeriodSec / 2 / TimeManager.TimeScaleAroundHero);
+            yield return new WaitForSeconds(blinkPeriodSec/2);
 
             SpriteRenderer.material.SetFloat("_Alpha", 1);
             if(HpCntr.CanBeDamaged) yield break;
 
-            yield return new WaitForSeconds(blinkPeriodSec / 2 / TimeManager.TimeScaleAroundHero);
+            yield return new WaitForSeconds(blinkPeriodSec/2);
         }
     }
 
@@ -293,16 +292,16 @@ public class HeroMover : MonoBehaviour
             DPManager.Instance.AddDP((float)dp);
             DPManager.Instance.LightGaugePulse();
         };
-        
-        DOVirtual.DelayedCall(0.075f, () =>
-        {
-            ObjsHolderForStates.AfterimagePool.ActivateOne("")
-                .GetComponent<SpriteRenderer>()
-                .sprite = SpriteRenderer.sprite;
-        })
-        .SetLoops(-1)
-        .FollowTimeScale(aroundHero: true)
-        .GetPausable();
+
+        //ポーズ対応してない
+        Observable.Interval(TimeSpan.FromSeconds(0.075f)) //即値
+            .Subscribe(_ =>
+            {
+                ObjsHolderForStates.AfterimagePool.ActivateOne("")
+                    .GetComponent<SpriteRenderer>()
+                    .sprite = SpriteRenderer.sprite;
+            })
+            .AddTo(this);
     }
 
     ///<summary>SetActive(false)するとアニメーションの状態がリセットされるようなのでとりあえず主人公はステートだけ反映しなおす</summary>

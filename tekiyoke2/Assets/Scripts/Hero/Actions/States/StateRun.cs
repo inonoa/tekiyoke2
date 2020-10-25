@@ -34,7 +34,7 @@ public class StateRun : HeroState
         while(true)
         {
             pool.ActivateOne(right ? "r" : "l");
-            yield return new WaitForSeconds(params_.TsuchihokoriInterval / TimeManager.CurrentInstance.TimeScaleAroundHero);
+            yield return new WaitForSeconds(params_.TsuchihokoriInterval);
         }
     }
 

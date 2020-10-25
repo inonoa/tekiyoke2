@@ -28,7 +28,7 @@ public class WindSoundController : MonoBehaviour
 
     IEnumerator ChangeVolumes(){
         while(true){
-            yield return new WaitForSeconds(heroCheckPeriodSec / TimeManager.CurrentInstance.TimeScaleAroundHero);
+            yield return new WaitForSeconds(heroCheckPeriodSec);
 
             FloatPair vol_hp = volumeMinMaxsDependingOnHP[HeroDefiner.currentHero.HpCntr.HP];
             Vector3 pastPos = HeroDefiner.CurrentHeroPastPos.Count > 0 ?
