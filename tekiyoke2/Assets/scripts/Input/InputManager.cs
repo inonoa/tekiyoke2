@@ -141,13 +141,13 @@ public class InputManager : MonoBehaviour, IAskedInput
         {ButtonCode.JetLR,  new[]{ /*KeyCode.J,*/ KeyCode.L }},
         {ButtonCode.JetL,   new[]{ KeyCode.L }},
         {ButtonCode.JetR,   new[]{ KeyCode.J }},
-        {ButtonCode.Zone,   new[]{ KeyCode.Return }},
-        {ButtonCode.Save,   new[]{ KeyCode.Space }},
+        {ButtonCode.Zone,   new[]{ KeyCode.Space }},
+        {ButtonCode.Save,   new[]{ KeyCode.Return }},
 
         {ButtonCode.Pause,  new[]{ KeyCode.Escape }},
         {ButtonCode.Enter,  new[]{ KeyCode.Return, KeyCode.Z }},
         {ButtonCode.Cancel, new[]{ KeyCode.Backspace, KeyCode.X }},
 
-        {ButtonCode.Tweet,  new[]{KeyCode.X}}
+        {ButtonCode.Tweet,  new[]{ KeyCode.X }}
     };
 }
