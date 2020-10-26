@@ -20,18 +20,18 @@ public class HeroParameters : ScriptableObject
     [SerializeField] float _BendBackSeconds = 0.6f;
 
 
-    public float GroundSpeedMax => _GroundSpeedMax;
-    public float ForceOnGround => _ForceOnGround;
-    public float Friction => _Friction;
-    public float CoyoteTime => _CoyoteTime;
-    public float TsuchihokoriInterval => _TsuchihokoriInterval;
+    public float GroundSpeedMax            => _GroundSpeedMax;
+    public float ForceOnGround             => _ForceOnGround;
+    public float Friction                  => _Friction;
+    public float CoyoteTime                => _CoyoteTime;
+    public float TsuchihokoriInterval      => _TsuchihokoriInterval;
     public MoveInAirParams MoveInAirParams => _MoveInAirParams;
-    public float JumpForce => _JumpForce;
-    public KickParams KickParams => _KickParams;
-    public JetParams JetParams => _JetParams;
+    public float JumpForce                 => _JumpForce;
+    public KickParams KickParams           => _KickParams;
+    public JetParams JetParams             => _JetParams;
     public DraftModeParams DraftModeParams => _DraftModeParams;
-    public Vector2 BendBackForce => _BendBackForce;
-    public float BendBackSeconds => _BendBackSeconds;
+    public Vector2 BendBackForce           => _BendBackForce;
+    public float BendBackSeconds           => _BendBackSeconds;
 }
 
 public enum KickKey{ DirOfWall, DirAgainstWall }
@@ -39,12 +39,12 @@ public enum KickKey{ DirOfWall, DirAgainstWall }
 [Serializable]
 public class MoveInAirParams
 {
-    [SerializeField] float _HorizontalForce = 200f;
+    [SerializeField] float _HorizontalForce      = 200f;
     [SerializeField] float _HorizontalResistance = 7f;
-    [SerializeField] float _HorizontalSpeedMax = 15f;
-    [SerializeField] float _Gravity = 80f;
-    [SerializeField] float _FallSpeedMax = 50f;
-    [SerializeField] float _KabezuriInterval = 0.1f;
+    [SerializeField] float _HorizontalSpeedMax   = 15f;
+    [SerializeField] float _Gravity              = 80f;
+    [SerializeField] float _FallSpeedMax         = 50f;
+    [SerializeField] float _KabezuriInterval     = 0.1f;
 
     public float HorizontalForce => _HorizontalForce;
     public float HorizontalResistance => _HorizontalResistance;
@@ -57,45 +57,47 @@ public class MoveInAirParams
 [Serializable]
 public class KickParams
 {
-    [SerializeField] Vector2 _WallKickForce = new Vector2(15f, 30f);
-    [SerializeField] KickKey _WallKickKey = KickKey.DirAgainstWall;
+    [SerializeField] Vector2 _WallKickForce        = new Vector2(15f, 30f);
+    [SerializeField] KickKey _WallKickKey          = KickKey.DirAgainstWall;
     [SerializeField] float _FromKickToInputEnabled = 0.3f;
 
-    public Vector2 KickForce => _WallKickForce;
-    public KickKey KickKey => _WallKickKey;
+    public Vector2 KickForce            => _WallKickForce;
+    public KickKey KickKey              => _WallKickKey;
     public float FromKickToInputEnabled => _FromKickToInputEnabled;
 }
 
 [Serializable]
 public class JetParams
 {
-    [SerializeField] float _MinDistance = 200;
-    [SerializeField] float _MaxDistance = 700;
-    [SerializeField] float _JetSecondsMin = 0.2f;
-    [SerializeField] float _JetSecondsMax = 0.5f;
+    [SerializeField] float _MinDistance          = 200;
+    [SerializeField] float _MaxDistance          = 700;
+    [SerializeField] float _JetSecondsMin        = 0.2f;
+    [SerializeField] float _JetSecondsMax        = 0.5f;
     [SerializeField] float _ChargeSecondsFromMin = 0.3f;
-    [SerializeField] float _ChargeSecondsToMax = 1.6f;
-    [SerializeField] float _CoolTime = 0.5f;
-    [SerializeField] float _TimeScaleBeforeJet = 0.1f;
-    [SerializeField] float _TweenLinearRate = 0.05f;
+    [SerializeField] float _ChargeSecondsToMax   = 1.6f;
+    [SerializeField] float _CoolTime             = 0.5f;
+    [SerializeField] float _TimeScaleBeforeJet   = 0.1f;
+    [SerializeField] float _TweenLinearRate      = 0.05f;
 
-    public float MinDistance => _MinDistance;
-    public float MaxDistance => _MaxDistance;
-    public float JetSecondsMax => _JetSecondsMax;
-    public float JetSecondsMin => _JetSecondsMin;
+    public float MinDistance          => _MinDistance;
+    public float MaxDistance          => _MaxDistance;
+    public float JetSecondsMax        => _JetSecondsMax;
+    public float JetSecondsMin        => _JetSecondsMin;
     public float ChargeSecondsFromMin => _ChargeSecondsFromMin;
-    public float ChargeSecondsToMax => _ChargeSecondsToMax;
-    public float CoolTime => _CoolTime;
-    public float TimeScaleBeforeJet => _TimeScaleBeforeJet;
-    public float TweenLinearRate => _TweenLinearRate;
+    public float ChargeSecondsToMax   => _ChargeSecondsToMax;
+    public float CoolTime             => _CoolTime;
+    public float TimeScaleBeforeJet   => _TimeScaleBeforeJet;
+    public float TweenLinearRate      => _TweenLinearRate;
 }
 
 [Serializable]
 public class DraftModeParams
 {
-    [SerializeField] float _TimeScaleInDraftMode = 0.2f;
-    [SerializeField] float _DpPerSecondInDraftMode = 3;
+    [SerializeField] float _TimeScale   = 0.2f;
+    [SerializeField] float _DpPerSecond = 3;
+    [SerializeField] float _GotDpRate   = 3;
 
-    public float TimeScaleInDraftMode => _TimeScaleInDraftMode;
-    public float DpPerSecondInDraftMode => _DpPerSecondInDraftMode;
+    public float TimeScale   => _TimeScale;
+    public float DpPerSecond => _DpPerSecond;
+    public float GotDpRate   => _GotDpRate;
 }

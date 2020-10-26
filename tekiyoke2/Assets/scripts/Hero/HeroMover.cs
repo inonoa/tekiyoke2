@@ -293,11 +293,17 @@ public class HeroMover : MonoBehaviour
         currrentState.Enter(this);
 
         getDPinEnemy.gotDP += (dp, e) => {
-            DPManager.Instance.AddDP((float)dp);
+            GetDP((float)dp);
             DPManager.Instance.LightGaugePulse();
         };
 
         InitEffect();
+    }
+
+    public void GetDP(float dp)
+    {
+        float actualDP = draftModeManager.InDraftMode ? dp * Parameters.DraftModeParams.GotDpRate : dp;
+        DPManager.Instance.AddDP(actualDP);
     }
 
     void InitEffect()

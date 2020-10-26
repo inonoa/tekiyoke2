@@ -190,8 +190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dfe3eaeb68d47f4382adf5522cdb30f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateInterval: 2
-  rotateSpeed: 3
+  rotateDegreePerSec: 80
   DPperDPCD: 1
   spriteRenderer: {fileID: 5968962424875183126}
   lightRenderer: {fileID: 6249391850288176403}
