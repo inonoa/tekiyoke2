@@ -14,8 +14,8 @@ public class Curtain4SceneEndMover : MonoBehaviour
 
     void Update()
     {
-        float dt    = TimeManager.CurrentInstance.DeltaTimeExceptHero;
-        float scale = TimeManager.CurrentInstance.TimeScaleExceptHero;
+        float dt    = Time.deltaTime;
+        float scale = Time.timeScale;
 
         //unscaledDeltaTimeにすると始めのフレームで凄いデカい値が返ってきてそうなのでこうした
         time += dt / scale;

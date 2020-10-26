@@ -46,6 +46,13 @@ public class JetManager : MonoBehaviour
             }
         });
     }
+
+    public void Cancel()
+    {
+        state = State.Inactive;
+        chargeSeconds = 0;
+        EffectOnCancel();
+    }
     
     void Update()
     {
@@ -142,6 +149,12 @@ public class JetManager : MonoBehaviour
         clouds.EndClouds();
         hero.CmrCntr.EndDash();
         hero.SoundGroup.Stop("Tame");
+    }
+
+    void EffectOnCancel()
+    {
+        hero.TimeManager.SetTimeScale(TimeEffectType.ReadyToJet, 1);
+        EffectOnExit();
     }
 
 }

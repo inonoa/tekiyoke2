@@ -418,6 +418,7 @@ public class HeroMover : MonoBehaviour
     {
         ChangeState(new StateRun());
         draftModeManager.Exit();
+        JetManager.Cancel();
     }
 
     public void ForceJump(float force = -1)
