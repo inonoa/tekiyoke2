@@ -15,6 +15,7 @@ public class HeroParameters : ScriptableObject
     [Space(5)] [SerializeField] float _JumpForce = 30f;
     [Space(5)] [SerializeField] KickParams _KickParams;
     [Space(5)] [SerializeField] JetParams _JetParams;
+    [Space(5)] [SerializeField] DraftModeParams _DraftModeParams;
     [Space(5)] [SerializeField] Vector2 _BendBackForce = new Vector2(-15f, 20f);
     [SerializeField] float _BendBackSeconds = 0.6f;
 
@@ -28,6 +29,7 @@ public class HeroParameters : ScriptableObject
     public float JumpForce => _JumpForce;
     public KickParams KickParams => _KickParams;
     public JetParams JetParams => _JetParams;
+    public DraftModeParams DraftModeParams => _DraftModeParams;
     public Vector2 BendBackForce => _BendBackForce;
     public float BendBackSeconds => _BendBackSeconds;
 }
@@ -86,4 +88,14 @@ public class JetParams
     public float CoolTime => _CoolTime;
     public float TimeScaleBeforeJet => _TimeScaleBeforeJet;
     public float TweenLinearRate => _TweenLinearRate;
+}
+
+[Serializable]
+public class DraftModeParams
+{
+    [SerializeField] float _TimeScaleInDraftMode = 0.2f;
+    [SerializeField] float _DpPerSecondInDraftMode = 3;
+
+    public float TimeScaleInDraftMode => _TimeScaleInDraftMode;
+    public float DpPerSecondInDraftMode => _DpPerSecondInDraftMode;
 }

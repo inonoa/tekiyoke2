@@ -41,6 +41,17 @@ public class DPManager : MonoBehaviour
         }
     }
 
+    public bool ForceUseDP(float dp2Use)
+    {
+        if(DP >= dp2Use){
+            DP -= dp2Use;
+            return true;
+        }else{
+            DP = 0;
+            return false;
+        }
+    }
+
     void Awake(){
         Instance = this;
     }

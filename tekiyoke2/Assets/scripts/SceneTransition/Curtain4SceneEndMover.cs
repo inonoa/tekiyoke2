@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Sirenix.OdinInspector;
 
 public class Curtain4SceneEndMover : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class Curtain4SceneEndMover : MonoBehaviour
 
     [SerializeField] float gridSize = 50f;
 
-    float time = 0;
+    [SerializeField] [ReadOnly] float time = 0;
     [SerializeField] float secondsPerGrid = 0.025f;
 
     void Update()

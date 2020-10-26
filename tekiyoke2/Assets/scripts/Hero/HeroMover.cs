@@ -193,6 +193,7 @@ public class HeroMover : MonoBehaviour
         TimeManager.Reset();
         ChangeHP(HP - damage);
         CmrCntr.Reset();
+        draftModeManager.TryExit();
         SoundGroup.Play(HP==0 ? "Die" : "Damage");
 
         if(HP <= 0) Die();
@@ -251,7 +252,7 @@ public class HeroMover : MonoBehaviour
         GameTimeCounter.CurrentInstance.DoesTick = false;
         TimeManager.SetTimeScale(TimeEffectType.Die, 0.2f);
         SceneTransition.Start2ChangeScene(SceneManager.GetActiveScene().name, SceneTransition.TransitionType.HeroDied);
-        draftModeManager.Exit();
+        draftModeManager.TryExit();
     }
 
     public void RecoverHP(int amount) => ChangeHP(HP + amount);
@@ -343,8 +344,8 @@ public class HeroMover : MonoBehaviour
 
                 if(Input.GetButtonDown(ButtonCode.Zone))
                 {
-                    if(draftModeManager.InDraftMode) draftModeManager.Exit();
-                    else                             draftModeManager.Enter();
+                    if(draftModeManager.InDraftMode) draftModeManager.TryExit();
+                    else                             draftModeManager.TryEnter();
                 }
 
                 UpdateMoveDirection();
@@ -417,7 +418,7 @@ public class HeroMover : MonoBehaviour
     public void OnGoal()
     {
         ChangeState(new StateRun());
-        draftModeManager.Exit();
+        draftModeManager.TryExit();
         JetManager.Cancel();
     }
 
