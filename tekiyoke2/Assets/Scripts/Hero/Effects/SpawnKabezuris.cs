@@ -10,7 +10,12 @@ public static class SpawnKabezurisExtension
 
         while(true)
         {
-            yield return new WaitForSeconds(params_.KabezuriInterval);
+            float time = 0;
+            yield return null;
+            while((time += hero.TimeManager.DeltaTimeAroundHero) < params_.KabezuriInterval)
+            {
+                yield return null;
+            }
 
             Try2SpawnKabezuri(hero);
         }

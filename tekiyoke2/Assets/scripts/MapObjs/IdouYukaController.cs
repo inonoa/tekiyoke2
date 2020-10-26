@@ -13,12 +13,12 @@ public class IdouYukaController : MonoBehaviour
     State state = State.AtoB;
 
     [SerializeField]
-    float moveSpeed = 10;
+    float moveSpeedPerSec = 400;
     Vector3 moveVec = new Vector3();
 
     [SerializeField]
-    int StopFrames = 60;
-    int frames2StopNow = 0;
+    float StopSeconds = 1;
+    float seconds2StopNow = 0;
 
     [SerializeField]
     ContactFilter2D filter2Hero = new ContactFilter2D();
@@ -32,63 +32,71 @@ public class IdouYukaController : MonoBehaviour
         yukaRB    = yukaTF.GetComponent<Rigidbody2D>();
         col       = yukaTF.GetComponent<Collider2D>();
 
-        moveVec = ( positionB - positionA ).normalized * moveSpeed;
+        moveVec = ( positionB - positionA ).normalized * moveSpeedPerSec;
     }
 
     void FixedUpdate()
     {
         bool isTouchedByHero = col.IsTouching(filter2Hero);
 
+        float dt = TimeManager.CurrentInstance.FixedDeltaTimeExceptHero;
+
         switch(state){
 
             case State.AtoB:
-                if(MyMath.DistanceXY(yukaTF.position, positionB) <= moveSpeed ||
-                    MyMath.ExceedB(yukaTF.position.ToVec2(), positionA.ToVec2(), positionB.ToVec2())){
+                if(MyMath.DistanceXY(yukaTF.position, positionB) <= moveSpeedPerSec / 50 ||
+                    MyMath.ExceedB(yukaTF.position.ToVec2(), positionA.ToVec2(), positionB.ToVec2()))
+                {
                     if(isTouchedByHero)
                         HeroDefiner.currentHero.additionalVelocities[this] = positionB - yukaTF.position + new Vector3(0,-100,0);
                     else
                         HeroDefiner.currentHero.additionalVelocities.Remove(this);
 
                     yukaRB.MovePosition(positionB);
-                    frames2StopNow = StopFrames;
+                    seconds2StopNow = StopSeconds;
                     state = State.B;
 
-                }else{
-                    yukaRB.MovePosition(yukaTF.position + moveVec);
+                }
+                else
+                {
+                    yukaRB.MovePosition(yukaTF.position + moveVec * dt);
 
-                    if(isTouchedByHero) HeroDefiner.currentHero.additionalVelocities[this] = moveVec + new Vector3(0,-1,0);
+                    if(isTouchedByHero) HeroDefiner.currentHero.additionalVelocities[this] = moveVec * dt + new Vector3(0,-1,0);
                     else                HeroDefiner.currentHero.additionalVelocities.Remove(this);
                 }
                 break;
 
             case State.B:   
-                frames2StopNow --;
-                if(frames2StopNow==0) state = State.BtoA;
+                seconds2StopNow -= TimeManager.CurrentInstance.DeltaTimeExceptHero;
+                if(seconds2StopNow <= 0) state = State.BtoA;
                 HeroDefiner.currentHero.additionalVelocities.Remove(this);
                 break;
 
             case State.BtoA:
-                if(MyMath.DistanceXY(yukaTF.position, positionA) <= moveSpeed ||
-                    MyMath.ExceedB(yukaTF.position.ToVec2(), positionB.ToVec2(), positionA.ToVec2())){
+                if(MyMath.DistanceXY(yukaTF.position, positionA) <= moveSpeedPerSec / 50 ||
+                    MyMath.ExceedB(yukaTF.position.ToVec2(), positionB.ToVec2(), positionA.ToVec2()))
+                {
                     if(isTouchedByHero)
                         HeroDefiner.currentHero.additionalVelocities[this] = positionA - yukaTF.position + new Vector3(0,-1,0);
                     else
                         HeroDefiner.currentHero.additionalVelocities.Remove(this);
 
                     yukaRB.MovePosition(positionA);
-                    frames2StopNow = StopFrames;
+                    seconds2StopNow = StopSeconds;
                     state = State.A;
-                }else{
-                    yukaRB.MovePosition(yukaTF.position - moveVec);
+                }
+                else
+                {
+                    yukaRB.MovePosition(yukaTF.position - moveVec * dt);
                     
-                    if(isTouchedByHero) HeroDefiner.currentHero.additionalVelocities[this] = -moveVec + new Vector3(0,-1,0);
+                    if(isTouchedByHero) HeroDefiner.currentHero.additionalVelocities[this] = - moveVec * dt + new Vector3(0,-1,0);
                     else                HeroDefiner.currentHero.additionalVelocities.Remove(this);
                 }
                 break;
 
             case State.A:
-                frames2StopNow --;
-                if(frames2StopNow==0) state = State.AtoB;
+                seconds2StopNow -= TimeManager.CurrentInstance.DeltaTimeExceptHero;
+                if(seconds2StopNow <= 0) state = State.AtoB;
                 HeroDefiner.currentHero.additionalVelocities.Remove(this);
                 break;
         }

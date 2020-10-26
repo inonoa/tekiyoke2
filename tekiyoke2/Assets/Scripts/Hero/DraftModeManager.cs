@@ -26,6 +26,7 @@ public class DraftModeManager : MonoBehaviour
         InDraftMode = true;
 
         hero.HpCntr.AddMutekiFilter("DraftMode");
+        hero.TimeManager.SetTimeScaleExceptHero(0.2f);
 
         windsManager.SetActive(true);
 
@@ -49,6 +50,7 @@ public class DraftModeManager : MonoBehaviour
         InDraftMode = false;
 
         hero.HpCntr.RemoveMutekiFilter("DraftMode");
+        hero.TimeManager.SetTimeScaleExceptHero(1);
 
         currentTweens.Add(DOVirtual.DelayedCall(
             exitDuration / 2,
@@ -91,11 +93,16 @@ public class DraftModeManager : MonoBehaviour
     {
         draftPEffect = CameraController.CurrentCamera.AfterEffects.Find("Draft");
 
-        windsManager.Init(() => new HeroInfo
-        {
-            pos      = hero.Transform.position,
-            velocity = hero.velocity.ToVector2()
-        });
+        windsManager.Init
+        (
+            () => new HeroInfo
+            {
+                pos      = hero.Transform.position,
+                velocity = hero.velocity.ToVector2()
+            },
+            () => hero.TimeManager.DeltaTimeAroundHero,
+            () => hero.TimeManager.TimeAroundHero
+        );
 
         Pauser.Instance.OnPause
             .Subscribe(_ => OnPause());

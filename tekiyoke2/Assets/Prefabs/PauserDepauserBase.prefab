@@ -102,6 +102,7 @@ GameObject:
   - component: {fileID: 6898193520115495228}
   - component: {fileID: 6898193520115495203}
   - component: {fileID: 1488385947436402368}
+  - component: {fileID: 2112207943369035082}
   m_Layer: 0
   m_Name: PauserDepauserBase
   m_TagString: Untagged
@@ -156,6 +157,9 @@ MonoBehaviour:
   _GameMasterTF: {fileID: 6898193520125713730}
   _PauseMasterTF: {fileID: 3694888298360955732}
   hero: {fileID: 8403945080353875374}
+  debugMode: 0
+  debugCheckPointIndex: -1
+  debugIgnoreMemory: 0
 --- !u!114 &1488385947436402368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,6 +178,18 @@ MonoBehaviour:
     _Volume: 0.664
     _RequireComponent: 0
     <Loop>k__BackingField: 0
+--- !u!114 &2112207943369035082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6898193520115495202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ffdb6aec63371949a9fbda4421ac603, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6898193520125713729
 GameObject:
   m_ObjectHideFlags: 0
@@ -315,7 +331,7 @@ PrefabInstance:
     - target: {fileID: 9144346041708945188, guid: f462921263c3311438507932e8158d97,
         type: 3}
       propertyPath: checkPoints.Array.size
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9144346041708945188, guid: f462921263c3311438507932e8158d97,
         type: 3}
@@ -335,6 +351,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1397316840081339687}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7891285137952320003 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9144346041708945188, guid: f462921263c3311438507932e8158d97,
+    type: 3}
+  m_PrefabInstance: {fileID: 1397316840081339687}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5550deb33ada144ea0465a4209efc40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1571886267288796705
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -760,12 +788,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6898193520206848227}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &3694888298360955732 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7853625885354214327, guid: f687e9cc818562943a7fc281aff71120,
-    type: 3}
-  m_PrefabInstance: {fileID: 6898193520206848227}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &3694888298341060228 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7853625885239897703, guid: f687e9cc818562943a7fc281aff71120,
@@ -778,6 +800,12 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &3694888298360955732 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7853625885354214327, guid: f687e9cc818562943a7fc281aff71120,
+    type: 3}
+  m_PrefabInstance: {fileID: 6898193520206848227}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6898193520446178215
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -900,6 +928,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6325793726051636946, guid: e5394696252735242920aa9fa21a9d5f,
+        type: 3}
+      propertyPath: checkPointsManager
+      value: 
+      objectReference: {fileID: 7891285137952320003}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5394696252735242920aa9fa21a9d5f, type: 3}
 --- !u!224 &8726300377086321686 stripped

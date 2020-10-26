@@ -98,11 +98,12 @@ public class StateJet : HeroState
             float heroAppearSec = 0.3f;
             heroMat.To("_DisThreshold0", -1, heroAppearSec);
             heroMat.To("_DisThreshold1", 0,  heroAppearSec);
-        });
+        }, ignoreTimeScale: false)
+        .AsHeros();
 
         float phantomDisappearSec = 0.3f;
-        phantomMat.To("_DisThreshold0", 1,    phantomDisappearSec);
-        phantomMat.To("_DisThreshold1", 1.1f, phantomDisappearSec)
+        phantomMat.To("_DisThreshold0", 1,    phantomDisappearSec).AsHeros();
+        phantomMat.To("_DisThreshold1", 1.1f, phantomDisappearSec).AsHeros()
             .onComplete = () => phantom.gameObject.SetActive(false);
     }
 }

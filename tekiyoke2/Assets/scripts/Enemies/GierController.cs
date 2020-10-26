@@ -43,7 +43,7 @@ public class GierController : EnemyController
 
     new void Update()
     {
-        base.Update();
+        base.Update_();
 
         switch(state){
 

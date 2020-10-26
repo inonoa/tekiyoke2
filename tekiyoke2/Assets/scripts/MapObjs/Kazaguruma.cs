@@ -47,17 +47,19 @@ public class Kazaguruma : MonoBehaviour{
 
     void FixedUpdate()
     {
-        if(logRotateVel > logVelEpsilon){
+        if(logRotateVel > logVelEpsilon)
+        {
+            float deltaTime = TimeManager.CurrentInstance.FixedDeltaTimeExceptHero;
 
-            float actualVelocity = Mathf.Exp(logRotateVel) * Time.deltaTime * Time.timeScale;
+            float actualVelocity = Mathf.Exp(logRotateVel) * deltaTime;
             kuruma.Rotate(0,0, - actualVelocity );
 
             if(IsRotatingEnough){
-                float velFirst = rotateVelPerSecFirst * Time.deltaTime * Time.timeScale;
+                float velFirst = rotateVelPerSecFirst * deltaTime;
                 mat.SetFloat("_Volume", actualVelocity / velFirst * edgeLightVolMax);
             }
 
-            float tmpNextVel = logRotateVel - logVelDecay * Time.timeScale * Time.deltaTime;
+            float tmpNextVel = logRotateVel - logVelDecay * deltaTime;
 
             if(logRotateVel >= logVelThreshold && tmpNextVel < logVelThreshold){
                 mat.SetFloat("_Volume", 0);

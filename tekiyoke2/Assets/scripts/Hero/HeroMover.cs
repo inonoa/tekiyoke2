@@ -54,8 +54,8 @@ public class HeroMover : MonoBehaviour
     void MovePos(float vx, float vy)
     {
         Rigidbody.MovePosition(new Vector2(
-            transform.position.x + vx*Time.timeScale,
-            transform.position.y + vy*Time.timeScale
+            transform.position.x + vx * TimeManager.TimeScaleAroundHero,
+            transform.position.y + vy * TimeManager.TimeScaleAroundHero
         ));
     }
 
@@ -123,6 +123,7 @@ public class HeroMover : MonoBehaviour
 
     #region 別クラスで持っている情報
     public CameraController CmrCntr{ get; private set; }
+    public TimeManager TimeManager{ get; private set; }
     public HpCntr HpCntr{ get; private set; }
     public HeroObjsHolder4States ObjsHolderForStates{ get; private set; }
     [SerializeField] SoundGroup _SoundGroup;
@@ -189,7 +190,7 @@ public class HeroMover : MonoBehaviour
         if(! IsLiving) return;
         if(! CanBeDamaged && type != DamageType.Drop) return;
 
-        Tokitome.SetTime(1);
+        TimeManager.Reset();
         ChangeHP(HP - damage);
         CmrCntr.Reset();
         SoundGroup.Play(HP==0 ? "Die" : "Damage");
@@ -248,7 +249,7 @@ public class HeroMover : MonoBehaviour
     {
         MemoryOverDeath.Instance.SaveOnDeath();
         GameTimeCounter.CurrentInstance.DoesTick = false;
-        Tokitome.SetTime(0.2f);
+        TimeManager.SetTimeScale(TimeEffectType.Die, 0.2f);
         SceneTransition.Start2ChangeScene(SceneManager.GetActiveScene().name, SceneTransition.TransitionType.HeroDied);
         draftModeManager.Exit();
     }
@@ -256,6 +257,8 @@ public class HeroMover : MonoBehaviour
     public void RecoverHP(int amount) => ChangeHP(HP + amount);
 
     #endregion
+
+    List<Tween> tweens = new List<Tween>();
 
     #region 勝手に呼ばれる関数群
 
@@ -270,6 +273,7 @@ public class HeroMover : MonoBehaviour
     {
 
         CmrCntr = CameraController.CurrentCamera;
+        TimeManager = TimeManager.CurrentInstance;
         Input   = ServicesLocator.Instance.GetInput();
         chishibuki = GameUIManager.CurrentInstance.Chishibuki;
         SpriteRenderer      = GetComponent<SpriteRenderer>();
@@ -292,15 +296,21 @@ public class HeroMover : MonoBehaviour
             DPManager.Instance.LightGaugePulse();
         };
 
-        //ポーズ対応してない
-        Observable.Interval(TimeSpan.FromSeconds(0.075f)) //即値
-            .Subscribe(_ =>
-            {
-                ObjsHolderForStates.AfterimagePool.ActivateOne("")
-                    .GetComponent<SpriteRenderer>()
-                    .sprite = SpriteRenderer.sprite;
-            })
-            .AddTo(this);
+        InitEffect();
+    }
+
+    void InitEffect()
+    {
+        Tween afterImages = DOVirtual.DelayedCall(0.075f, () =>
+        {
+            ObjsHolderForStates.AfterimagePool.ActivateOne("")
+                .GetComponent<SpriteRenderer>()
+                .sprite = SpriteRenderer.sprite;
+        }, ignoreTimeScale: false)
+        .SetLoops(-1)
+        .AsHeros();
+        afterImages.GetPausable().AddTo(this);
+        tweens.Add(afterImages);
     }
 
     ///<summary>SetActive(false)するとアニメーションの状態がリセットされるようなのでとりあえず主人公はステートだけ反映しなおす</summary>
@@ -312,6 +322,11 @@ public class HeroMover : MonoBehaviour
     void OnDisable()
     {
         SoundGroup.StopAll();
+    }
+
+    void OnDestroy()
+    {
+        tweens.ForEach(tw => tw.Kill());
     }
 
     void Update()
@@ -352,7 +367,7 @@ public class HeroMover : MonoBehaviour
 
         if(IsFrozen) return;
 
-        HeroState next = currrentState.Update_(this, Time.fixedDeltaTime);
+        HeroState next = currrentState.Update_(this, TimeManager.FixedDeltaTimeAroundHero);
         if(next != currrentState)
         {
             ChangeState(next);
@@ -365,13 +380,13 @@ public class HeroMover : MonoBehaviour
         Vector2 residueApplied = speedResidues
             .Aggregate(
                 added,
-                (cur, residue) => residue.UpdateVel(cur, Time.fixedDeltaTime, this)
+                (cur, residue) => residue.UpdateVel(cur, TimeManager.FixedDeltaTimeAroundHero, this)
             );
         speedResidues.RemoveAll(residue => !residue.IsActive);
 
         MovePos(residueApplied.x, residueApplied.y);
-        expectedPosition.x = transform.position.x + residueApplied.x * Time.timeScale;
-        expectedPosition.y = transform.position.y + residueApplied.y * Time.timeScale;
+        expectedPosition.x = transform.position.x + residueApplied.x * TimeManager.TimeScaleAroundHero;
+        expectedPosition.y = transform.position.y + residueApplied.y * TimeManager.TimeScaleAroundHero;
     }
 
     void ChangeState(HeroState next)
@@ -402,6 +417,8 @@ public class HeroMover : MonoBehaviour
     public void OnGoal()
     {
         ChangeState(new StateRun());
+        draftModeManager.Exit();
+        JetManager.Cancel();
     }
 
     public void ForceJump(float force = -1)

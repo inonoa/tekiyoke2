@@ -30,13 +30,13 @@ public class NearToEnemyChecker : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other){
         if(other.gameObject.tag=="Enemy"){
-            if(slowNearEnemy) Tokitome.SetTime(timeScaleWhenNear);
+            if(slowNearEnemy) TimeManager.CurrentInstance.SetTimeScale(TimeEffectType.ReadyToJet, 0.2f);
             nearEnemy = true;
         }
     }
     void OnTriggerExit2D(Collider2D other){
         if(other.gameObject.tag=="Enemy"){
-            if(slowNearEnemy) Tokitome.SetTime(1);
+            if(slowNearEnemy) TimeManager.CurrentInstance.SetTimeScale(TimeEffectType.ReadyToJet, 1);
             nearEnemy = false;
         }
     }

@@ -14,8 +14,11 @@ public class Curtain4SceneEndMover : MonoBehaviour
 
     void Update()
     {
+        float dt    = Time.deltaTime;
+        float scale = Time.timeScale;
+
         //unscaledDeltaTimeにすると始めのフレームで凄いデカい値が返ってきてそうなのでこうした
-        time += Time.deltaTime / Time.timeScale;
+        time += dt / scale;
 
         while(time > secondsPerGrid)
         {

@@ -13,7 +13,7 @@ public class StateRun : HeroState
     public override void Enter(HeroMover hero)
     {
         Init(hero);
-        tsuchihokotiCoroutine = Tsuchihokori(hero.ObjsHolderForStates.TsuchihokoriPool, hero.Parameters);
+        tsuchihokotiCoroutine = Tsuchihokori(hero.ObjsHolderForStates.TsuchihokoriPool, hero.Parameters, hero);
         hero.StartCoroutine(tsuchihokotiCoroutine);
     }
     public override void Resume(HeroMover hero)
@@ -29,12 +29,18 @@ public class StateRun : HeroState
         hero.SoundGroup.Play("Run");
     }
 
-    IEnumerator Tsuchihokori(ObjectPool<Tsuchihokori> pool, HeroParameters params_)
+    IEnumerator Tsuchihokori(ObjectPool<Tsuchihokori> pool, HeroParameters params_, HeroMover hero)
     {
         while(true)
         {
             pool.ActivateOne(right ? "r" : "l");
-            yield return new WaitForSeconds(params_.TsuchihokoriInterval);
+
+            float time = 0;
+            yield return null;
+            while((time += hero.TimeManager.DeltaTimeAroundHero) < params_.TsuchihokoriInterval)
+            {
+                yield return null;
+            }
         }
     }
 

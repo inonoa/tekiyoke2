@@ -16,9 +16,9 @@ namespace Draft
             renderer = GetComponent<WindsRenderer>();
         }
 
-        public void Init(Func<HeroInfo> heroInfoGetter)
+        public void Init(Func<HeroInfo> heroInfoGetter, Func<float> deltaTimeGetter, Func<float> timeGetter)
         {
-            mover.Init(heroInfoGetter);
+            mover.Init(heroInfoGetter, deltaTimeGetter, timeGetter);
         }
 
         public void SetActive(bool active)

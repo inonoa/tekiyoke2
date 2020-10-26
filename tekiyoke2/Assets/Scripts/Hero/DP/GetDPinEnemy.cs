@@ -36,13 +36,13 @@ public class GetDPinEnemy : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(0.05f);
 
-        Tokitome.SetTime(0);
+        hero.TimeManager.SetTimeScale(TimeEffectType.GetDP, 0);
         colReversed.SetActive(true);
         noise.SetActive(false);
 
         yield return new WaitForSecondsRealtime(freezeSeconds);
 
-        Tokitome.SetTime(1);
+        hero.TimeManager.SetTimeScale(TimeEffectType.GetDP, 1);
         colReversed.SetActive(false);
         noise.SetActive(true);
         die.FadeOut();

@@ -19,18 +19,20 @@ public class KennerController : EnemyController
         }
     }
 
+    Vector2 velocity = new Vector2();
+
     [Header("--Kennerのパラメータ？--")]
 
-    [SerializeField] int restFrames = 100;
-    int restFramesNow = 0;
+    [SerializeField] float restSeconds = 1.6f;
+    float restSecondsNow = 0;
 
     [SerializeField] float distanceToFindHero = 200;
     [SerializeField] float jumpForce = 400;
 
 
     [Header("--弾の撃ち方--")]
-    [SerializeField] int framesPerShoot = 20;
-    int framesToShootNow = 1;
+    [SerializeField] float secondsPerShoot = 0.3f;
+    float secondsToShootNow = 0f;
 
     [SerializeField] int howManyShoots = 3;
     int howManyShootsNow = 0;
@@ -41,10 +43,9 @@ public class KennerController : EnemyController
 
     [Header("--弾のパラメータ--")]
     [SerializeField] TamaController tama = null;
+    [SerializeField] float tamaSpeedPerSec = 200;
+    [SerializeField] float tamaLife = 1f;
 
-    [SerializeField] float tamaSpeed = 10;
-
-    [SerializeField] int tamaLife = 100;
     [Header("--子オブジェクト類--")]
     [SerializeField] GroundChecker groundChecker = null;
     [SerializeField] Transform gazosTF = null;
@@ -73,7 +74,7 @@ public class KennerController : EnemyController
         soundGroup = GetComponent<SoundGroup>();
     }
 
-    new void Update()
+    void Update()
     {
         if(groundChecker.IsOnGround) EyeToRight = transform.position.x < HeroDefiner.CurrentHeroPos.x;
 
@@ -89,7 +90,7 @@ public class KennerController : EnemyController
             case State.Jump:
                 if(rBody.velocity.y < 0){
                     state = State.Shoot;
-                    framesToShootNow = 1;
+                    secondsToShootNow = 0;
                     howManyShootsNow = howManyShoots;
                     baneTF.DOScaleY(0.3f, 0.5f);
                     dodaiTF.DOLocalMoveY(-23,0.5f);
@@ -98,11 +99,12 @@ public class KennerController : EnemyController
             
             case State.Shoot:
                 rBody.simulated = false;
-                framesToShootNow --;
+                secondsToShootNow -= TimeManager.DeltaTimeExceptHero;
 
-                if(framesToShootNow==0){
+                if(secondsToShootNow <= 0)
+                {
                     Shoot();
-                    framesToShootNow = framesPerShoot;
+                    secondsToShootNow = secondsPerShoot;
 
                     howManyShootsNow --;
                     if(howManyShootsNow==0){
@@ -113,10 +115,10 @@ public class KennerController : EnemyController
                 break;
             
             case State.Rest:
-                restFramesNow ++;
+                restSecondsNow += TimeManager.DeltaTimeExceptHero;
 
-                if(restFramesNow==restFrames){
-                    restFramesNow = 0;
+                if(restSecondsNow >= restSeconds){
+                    restSecondsNow = 0;
                     if(MyMath.DistanceXY(transform.position, HeroDefiner.CurrentHeroPos) < distanceToFindHero){
                         Jump();
                     }
@@ -146,7 +148,7 @@ public class KennerController : EnemyController
             if(!EyeToRight) angle = - 180 - angle;
             TamaController imatama = tamaPool.ActivateOne(
                 angle.ToString()
-                + " " + tamaSpeed.ToString()
+                + " " + tamaSpeedPerSec.ToString()
                 + " " + tamaLife.ToString()
             );
             

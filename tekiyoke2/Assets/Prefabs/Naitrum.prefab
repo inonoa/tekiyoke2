@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dpcd: {fileID: 5149724893926697801}
-  fallSpeedMax: 300
+  rBody: {fileID: 1421112567456498838}
   moveSpeed: 1
   toRight: 0
   spriteRenderers:

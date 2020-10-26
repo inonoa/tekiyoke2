@@ -46,6 +46,13 @@ public class JetManager : MonoBehaviour
             }
         });
     }
+
+    public void Cancel()
+    {
+        state = State.Inactive;
+        chargeSeconds = 0;
+        EffectOnCancel();
+    }
     
     void Update()
     {
@@ -68,7 +75,7 @@ public class JetManager : MonoBehaviour
                 break;
             }
 
-            chargeSeconds += Time.deltaTime;
+            chargeSeconds += hero.TimeManager.DeltaTimeAroundHero;
 
             if(input.GetButtonUp(ButtonCode.JetLR))
             {
@@ -105,7 +112,7 @@ public class JetManager : MonoBehaviour
         break;
         case State.CoolTime:
         {
-            coolTimeLeft -= Time.deltaTime;
+            coolTimeLeft -= hero.TimeManager.DeltaTimeAroundHero;
             if(coolTimeLeft <= 0)
             {
                 state = State.Inactive;
@@ -117,7 +124,7 @@ public class JetManager : MonoBehaviour
 
     void EffectOnReady()
     {
-        Tokitome.SetTime(hero.Parameters.JetParams.TimeScaleBeforeJet);
+        hero.TimeManager.SetTimeScale(TimeEffectType.ReadyToJet, hero.Parameters.JetParams.TimeScaleBeforeJet);
         jetPostEffect.Ready();
         clouds.StartClouds();
         hero.CmrCntr.StartZoomForDash();
@@ -128,7 +135,7 @@ public class JetManager : MonoBehaviour
 
     void EffectOnJet()
     {
-        Tokitome.SetTime(1);
+        hero.TimeManager.SetTimeScale(TimeEffectType.ReadyToJet, 1);
         jetPostEffect.OnJet();
         clouds.EndClouds();
         hero.CmrCntr.OnJet();
@@ -142,6 +149,12 @@ public class JetManager : MonoBehaviour
         clouds.EndClouds();
         hero.CmrCntr.EndDash();
         hero.SoundGroup.Stop("Tame");
+    }
+
+    void EffectOnCancel()
+    {
+        hero.TimeManager.SetTimeScale(TimeEffectType.ReadyToJet, 1);
+        EffectOnExit();
     }
 
 }

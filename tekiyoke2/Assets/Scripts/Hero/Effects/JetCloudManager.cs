@@ -29,15 +29,16 @@ public class JetCloudManager : MonoBehaviour
             sq?.Kill();
         }
 
-        for(int i=0; i<clouds.Length; i++){
-
-            seqs[i] = DOTween.Sequence();
-            seqs[i].Append(
+        for(int i=0; i<clouds.Length; i++)
+        {
+            seqs[i] = DOTween.Sequence()
+            .Append(
                 clouds[i].transform.DOLocalMoveX(cloudsDstX[i], durationSec).SetEase(Ease.OutSine)
-            );
-            seqs[i].Join(
+            )
+            .Join(
                 clouds[i].DOFade(1, durationSec / 2)
-            );
+            )
+            .AsHeros();
         }
     }
 
@@ -48,13 +49,14 @@ public class JetCloudManager : MonoBehaviour
 
         for(int i=0; i<clouds.Length; i++){
 
-            endSeqs[i] = DOTween.Sequence();
-            endSeqs[i].Append(
+            endSeqs[i] = DOTween.Sequence()
+            .Append(
                 clouds[i].transform.DOLocalMoveX(cloudsDefaultPosX[i], durationSec / 3)
-            );
-            endSeqs[i].Join(
+            )
+            .Join(
                 clouds[i].DOFade(0, durationSec / 3)
-            );
+            )
+            .AsHeros();
         }
 
     }

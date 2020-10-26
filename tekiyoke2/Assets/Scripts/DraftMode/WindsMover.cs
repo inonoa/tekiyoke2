@@ -35,9 +35,14 @@ namespace Draft
             velocity = new Vector2(10, 10)
         };
 
-        public void Init(Func<HeroInfo> heroInfoGetter)
+        Func<float> deltaTimeGetter = () => 0.02f;
+        Func<float> timeGetter = () => Time.time;
+
+        public void Init(Func<HeroInfo> heroInfoGetter, Func<float> deltaTimeGetter, Func<float> timeGetter) 
         {
-            this.heroInfoGetter = heroInfoGetter;
+            this.heroInfoGetter  = heroInfoGetter;
+            this.deltaTimeGetter = deltaTimeGetter;
+            this.timeGetter      = timeGetter;
         }
 
         void Start()
@@ -91,7 +96,7 @@ namespace Draft
         }
         void UpdatePieces()
         {
-            updateCS.SetFloat("_DeltaTime", Time.deltaTime / updatePerFrame);
+            updateCS.SetFloat("_DeltaTime", deltaTimeGetter.Invoke() / updatePerFrame);
             updateCS.SetFloat("_Time",      GetTime());
             updateCS.SetVector("_CameraPos", Camera.main.transform.position);
 
@@ -106,7 +111,7 @@ namespace Draft
 
         public float GetTime()
         {
-            return Time.time; //GameTimeCounterかなんか通したい
+            return timeGetter.Invoke();
         }
     }
 

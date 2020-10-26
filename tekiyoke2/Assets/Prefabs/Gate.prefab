@@ -328,8 +328,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gate: {fileID: 2362030085944155551}
-  openVel: 0.8
-  closeVel: 2
+  openVel: 40
+  closeVel: 100
 --- !u!210 &2362030087005365163
 SortingGroup:
   m_ObjectHideFlags: 0
