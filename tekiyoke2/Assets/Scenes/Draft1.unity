@@ -2512,6 +2512,11 @@ PrefabInstance:
       propertyPath: windsManager
       value: 
       objectReference: {fileID: 1913321375}
+    - target: {fileID: 6378392078754932210, guid: 54534ce791a58cf43a9e47340b5f951e,
+        type: 3}
+      propertyPath: dpManager
+      value: 
+      objectReference: {fileID: 1212535460}
     - target: {fileID: 3106219250084253372, guid: 54534ce791a58cf43a9e47340b5f951e,
         type: 3}
       propertyPath: spr
@@ -6530,6 +6535,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1212535460 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2783582464246226722, guid: e5394696252735242920aa9fa21a9d5f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1443148825}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac079396c4b6a644fae87bf6bc3a8526, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1220933741 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1421112567456498832, guid: 297174f459b7f074d9871597ceb41596,
@@ -7939,7 +7956,7 @@ MonoBehaviour:
   _GameMasterTF: {fileID: 289413201}
   _PauseMasterTF: {fileID: 975853696}
   hero: {fileID: 1333704110}
-  debugMode: 1
+  debugMode: 0
   debugCheckPointIndex: 3
   debugIgnoreMemory: 1
 --- !u!114 &1515455047

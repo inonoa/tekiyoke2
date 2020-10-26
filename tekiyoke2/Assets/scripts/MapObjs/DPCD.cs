@@ -5,9 +5,7 @@ using DG.Tweening;
 
 public class DPCD : MonoBehaviour
 {
-    [SerializeField] int rotateInterval = 10;
-    int rotateCount = 0;
-    [SerializeField] float rotateSpeed = 20;
+    [SerializeField] float rotateDegreePerSec = 120;
     [SerializeField] int DPperDPCD = 1;
 
     bool gotten = false;
@@ -16,22 +14,26 @@ public class DPCD : MonoBehaviour
 
     void Update()
     {
-        rotateCount ++;
-        rotateCount %= rotateInterval;
-        if(rotateCount==0) transform.Rotate(new Vector3(0,0, gotten? rotateSpeed*2 : rotateSpeed));
+        float dt = TimeManager.CurrentInstance.DeltaTimeExceptHero;
+        transform.Rotate(new Vector3(0, 0, gotten ? rotateDegreePerSec * dt * 2 : rotateDegreePerSec * dt));
     }
 
-    void OnTriggerEnter2D(Collider2D other){
-        if(other.gameObject.tag == "Player" && !gotten){
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject.tag == "Player" && !gotten)
+        {
             gotten = true;
-            DPManager.Instance.AddDP(DPperDPCD);
+            
+            HeroMover hero = other.GetComponentInParent<HeroMover>();
+            hero.GetDP(DPperDPCD);
 
             GottenAnimation();
             GetComponent<SoundGroup>().Play("Got");
         }
     }
 
-    void GottenAnimation(){
+    void GottenAnimation()
+    {
         Sequence gottenSeq = DOTween.Sequence();
 
         float fadeSec = 0.1f;

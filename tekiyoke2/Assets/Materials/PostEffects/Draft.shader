@@ -83,7 +83,7 @@
 
                 fixed4 colExceptEdge = outRyoiki < _Threshold ? draftCol : col;
 
-                fixed4 ryoikiEdgeColActual = _RyoikiEdgeCol * 20 * saturate(0.05 - abs(outRyoiki - _Threshold));
+                fixed4 ryoikiEdgeColActual = _RyoikiEdgeCol * 30 * saturate(0.033 - abs(outRyoiki - _Threshold));
                 return ryoikiEdgeColActual + colExceptEdge;
             }
             ENDCG

@@ -16,17 +16,30 @@ public class DraftModeManager : MonoBehaviour
     [SerializeField] DraftWindsManager windsManager;
     PostEffectWrapper draftPEffect;
     [SerializeField] HeroMover hero;
+    [SerializeField] DPManager dpManager;
 
     List<Tween> currentTweens = new List<Tween>();
 
-    public void Enter()
+    public void TryEnter()
+    {
+        if(InDraftMode) return;
+
+        if(dpManager.DP <= 0)
+        {
+            //なんかする？
+            return;
+        }
+
+        Enter();
+    }
+
+    void Enter()
     {
         KillAllTweens();
 
         InDraftMode = true;
 
-        hero.HpCntr.AddMutekiFilter("DraftMode");
-        hero.TimeManager.SetTimeScaleExceptHero(0.2f);
+        hero.TimeManager.SetTimeScaleExceptHero(hero.DraftModeParams.TimeScale);
 
         windsManager.SetActive(true);
 
@@ -43,13 +56,19 @@ public class DraftModeManager : MonoBehaviour
         .OnComplete(() => currentTweens.Clear()));
     }
 
-    public void Exit()
+    public void TryExit()
+    {
+        if(!InDraftMode) return;
+
+        Exit();
+    }
+
+    void Exit()
     {
         KillAllTweens();
 
         InDraftMode = false;
 
-        hero.HpCntr.RemoveMutekiFilter("DraftMode");
         hero.TimeManager.SetTimeScaleExceptHero(1);
 
         currentTweens.Add(DOVirtual.DelayedCall(
@@ -108,5 +127,19 @@ public class DraftModeManager : MonoBehaviour
             .Subscribe(_ => OnPause());
         Pauser.Instance.OnPauseEnd
             .Subscribe(_ => OnPauseEnd());
+    }
+
+    void Update()
+    {
+        if(InDraftMode)
+        {
+            float dp = hero.DraftModeParams.DpPerSecond * TimeManager.CurrentInstance.DeltaTimeAroundHero;
+            bool enoughDP = dpManager.ForceUseDP(dp);
+
+            if(!enoughDP)
+            {
+                Exit();
+            }
+        }
     }
 }
