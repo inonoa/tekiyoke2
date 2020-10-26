@@ -70,7 +70,6 @@
      <Compile Include="Assets\Scripts\GameUIManager.cs" />
      <Compile Include="Assets\Scripts\GroundChecker.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\BaneResidue.cs" />
-     <Compile Include="Assets\Scripts\Hero\Actions\HeroParameters.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\HeroTransitions.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\JetManager.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\SakamichiChecker.cs" />
@@ -151,6 +150,8 @@
      <Compile Include="Assets\Scripts\MapObjs\UltraThinTileController.cs" />
      <Compile Include="Assets\Scripts\MyMath.cs" />
      <Compile Include="Assets\Scripts\ObjectPool.cs" />
+     <Compile Include="Assets\Scripts\Parameters\DraftModeParameters.cs" />
+     <Compile Include="Assets\Scripts\Parameters\HeroParameters.cs" />
      <Compile Include="Assets\Scripts\Pause\PausableExtension.cs" />
      <Compile Include="Assets\Scripts\Pause\PauseCameraController.cs" />
      <Compile Include="Assets\Scripts\Pause\Pauser.cs" />

@@ -490,6 +490,8 @@ MonoBehaviour:
   _Parameters: {fileID: 11400000, guid: 970728269f00073489c33066b7c7ee2e, type: 2}
   _ParametersInDraftMode: {fileID: 11400000, guid: 970728269f00073489c33066b7c7ee2e,
     type: 2}
+  <DraftModeParams>k__BackingField: {fileID: 11400000, guid: 1168855c90a8ab949b21397c45e2f678,
+    type: 2}
   anim: {fileID: 2512754790269566656}
 --- !u!114 &3106219250084253372
 MonoBehaviour:
@@ -649,6 +651,7 @@ MonoBehaviour:
   exitDuration: 1.5
   windsManager: {fileID: 0}
   hero: {fileID: 3106219250084253350}
+  dpManager: {fileID: 0}
 --- !u!114 &2512754790269566656
 MonoBehaviour:
   m_ObjectHideFlags: 0

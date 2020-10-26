@@ -39,7 +39,7 @@ public class DraftModeManager : MonoBehaviour
 
         InDraftMode = true;
 
-        hero.TimeManager.SetTimeScaleExceptHero(hero.Parameters.DraftModeParams.TimeScale);
+        hero.TimeManager.SetTimeScaleExceptHero(hero.DraftModeParams.TimeScale);
 
         windsManager.SetActive(true);
 
@@ -133,7 +133,7 @@ public class DraftModeManager : MonoBehaviour
     {
         if(InDraftMode)
         {
-            float dp = hero.Parameters.DraftModeParams.DpPerSecond * TimeManager.CurrentInstance.DeltaTimeAroundHero;
+            float dp = hero.DraftModeParams.DpPerSecond * TimeManager.CurrentInstance.DeltaTimeAroundHero;
             bool enoughDP = dpManager.ForceUseDP(dp);
 
             if(!enoughDP)

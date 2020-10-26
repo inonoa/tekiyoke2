@@ -152,6 +152,9 @@ public class HeroMover : MonoBehaviour
         }
     }
 
+    [field: SerializeField] [field: LabelText("Draft Mode Params")]
+    public DraftModeParams DraftModeParams{ get; private set; }
+
     public JetManager JetManager{ get; private set; }
 
     DraftModeManager draftModeManager;
@@ -302,7 +305,7 @@ public class HeroMover : MonoBehaviour
 
     public void GetDP(float dp)
     {
-        float actualDP = draftModeManager.InDraftMode ? dp * Parameters.DraftModeParams.GotDpRate : dp;
+        float actualDP = draftModeManager.InDraftMode ? dp * DraftModeParams.GotDpRate : dp;
         DPManager.Instance.AddDP(actualDP);
     }
 
