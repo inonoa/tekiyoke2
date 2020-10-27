@@ -9,7 +9,7 @@ public class StateBend : HeroState
     float secondsAfterEnter = 0;
     public override void Enter(HeroMover hero)
     {
-        hero.CanMove = false;
+        Start_(hero);
 
         HeroVelocity vel = hero.Parameters.BendBackForce.ToHeroVel();
         if(!hero.WantsToGoRight) vel.X *= -1;
@@ -17,7 +17,13 @@ public class StateBend : HeroState
     }
     public override void Resume(HeroMover hero)
     {
+        Start_(hero);
+    }
+
+    void Start_(HeroMover hero)
+    {
         hero.CanMove = false;
+        hero.SetAnim("bend");
     }
 
     public override HeroState HandleInput(HeroMover hero, IAskedInput input)
