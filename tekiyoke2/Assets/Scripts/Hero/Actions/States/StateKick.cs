@@ -62,7 +62,8 @@ public class StateKick : HeroState
 
         hero.HorizontalMoveInAir(hero.Parameters.MoveInAirParams, deltatime);
 
-        hero.ApplyGravity(hero.Parameters.MoveInAirParams, deltatime);
+        var params_ = hero.Parameters.MoveInAirParams;
+        hero.ApplyGravity(params_.Gravity, params_.FallSpeedMax, deltatime);
 
         if(hero.velocity.Y < 0)
         {

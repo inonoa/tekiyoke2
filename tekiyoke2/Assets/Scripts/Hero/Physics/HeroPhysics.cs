@@ -37,11 +37,11 @@ public static class HeroPhysics
         }
     }
 
-    public static void ApplyGravity(this HeroMover hero, MoveInAirParams params_, float deltatime)
+    public static void ApplyGravity(this HeroMover hero, float gravity, float fallSpeedMax, float deltatime)
     {
         hero.velocity.Y = Mathf.Max(
-            hero.velocity.Y - params_.Gravity * deltatime,
-            -params_.FallSpeedMax);
+            hero.velocity.Y - gravity * deltatime,
+            - fallSpeedMax);
     }
 
     public static void ApplyFriction(this HeroMover hero, float friction, float deltatime)

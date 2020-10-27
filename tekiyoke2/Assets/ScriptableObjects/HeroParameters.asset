@@ -39,9 +39,7 @@ MonoBehaviour:
     _CoolTime: 0.3
     _TimeScaleBeforeJet: 0.15
     _TweenLinearRate: 0.2
-  _DraftModeParams:
-    _TimeScale: 0.2
-    _DpPerSecond: 3
-    _GotDpRate: 2
-  _BendBackForce: {x: -15, y: 12}
-  _BendBackSeconds: 0.5
+  _BendParams:
+    _BendBackForce: {x: -12, y: 12}
+    _Gravity: 40
+    _BendBackSeconds: 0.6

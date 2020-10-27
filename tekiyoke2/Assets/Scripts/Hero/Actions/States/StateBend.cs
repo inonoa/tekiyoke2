@@ -9,15 +9,21 @@ public class StateBend : HeroState
     float secondsAfterEnter = 0;
     public override void Enter(HeroMover hero)
     {
-        hero.CanMove = false;
+        Start_(hero);
 
-        HeroVelocity vel = hero.Parameters.BendBackForce.ToHeroVel();
+        HeroVelocity vel = hero.Parameters.BendParams.BendBackForce.ToHeroVel();
         if(!hero.WantsToGoRight) vel.X *= -1;
         hero.velocity = vel;
     }
     public override void Resume(HeroMover hero)
     {
+        Start_(hero);
+    }
+
+    void Start_(HeroMover hero)
+    {
         hero.CanMove = false;
+        hero.SetAnim("bend");
     }
 
     public override HeroState HandleInput(HeroMover hero, IAskedInput input)
@@ -26,12 +32,13 @@ public class StateBend : HeroState
     }
     public override HeroState Update_(HeroMover hero, float deltatime)
     {
-        hero.ApplyGravity(hero.Parameters.MoveInAirParams, deltatime);
+        var params_ = hero.Parameters;
+        hero.ApplyGravity(params_.BendParams.Gravity, params_.MoveInAirParams.FallSpeedMax, deltatime);
 
         if(hero.IsOnGround) hero.ApplyFriction(hero.Parameters.Friction, deltatime);
 
         secondsAfterEnter += deltatime;
-        if(secondsAfterEnter >= hero.Parameters.BendBackSeconds)
+        if(secondsAfterEnter >= hero.Parameters.BendParams.BendBackSeconds)
         {
             return new StateFall();
         }

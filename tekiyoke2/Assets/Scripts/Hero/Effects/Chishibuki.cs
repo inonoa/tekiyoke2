@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using UniRx;
+using Sirenix.OdinInspector;
 
 public class Chishibuki : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class Chishibuki : MonoBehaviour
     [SerializeField] int fadeoutFrames = 30;
     [SerializeField] Image image;
 
-    bool canChishibuki = true;
+    [SerializeField][ReadOnly] bool canChishibuki = true;
 
     public void StartChishibuki()
     {

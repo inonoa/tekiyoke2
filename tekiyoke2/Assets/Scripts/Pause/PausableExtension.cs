@@ -16,14 +16,14 @@ public static class PausableExtension
         disps.Add(Pauser.Instance.OnPauseEnd
             .Subscribe(_ => tween?.TogglePause()));
 
-        tween.OnComplete(() =>
+        tween.onComplete += () =>
         {
             disps.Dispose();
-        });
-        tween.OnKill(() =>
+        };
+        tween.onKill += () =>
         {
             disps.Dispose();
-        });
+        };
 
         return disps;
     }
