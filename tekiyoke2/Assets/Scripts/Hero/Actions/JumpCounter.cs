@@ -13,11 +13,10 @@ public class JumpCounter : MonoBehaviour
     
     void Start()
     {
-        hero.OnLand.Subscribe(_ => CanJumpInAir = true);
-        hero.jumped += (hero, args_) =>
-        {
-            var args = args_ as HeroJumpedEventArgs;
-            if(!args.isFromGround) CanJumpInAir = false;
-        };
+        hero.OnLand
+            .Subscribe(_ => CanJumpInAir = true);
+        hero.OnJumped
+            .Where(jump => !jump.isFromGround)
+            .Subscribe(jump => CanJumpInAir = false);
     }
 }

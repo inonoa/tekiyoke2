@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UniRx;
 
 public class GierController : EnemyController
 {
@@ -33,7 +34,7 @@ public class GierController : EnemyController
     void Start()
     {
         base.Init();
-        HeroDefiner.currentHero.jumped += HeroJumped;
+        HeroDefiner.currentHero.OnJumped.Subscribe(jump => HeroJumped(jump.isKick));
         groundChecker = transform.Find("GroundChecker").GetComponent<GroundChecker>();
         transform.Find("DontWannaFallR").GetComponent<DontWannaFall>().about2fall += Turn;
         transform.Find("DontWannaFallL").GetComponent<DontWannaFall>().about2fall += Turn;
@@ -102,8 +103,8 @@ public class GierController : EnemyController
         eyeRenderer.flipX = HeroDefiner.CurrentHeroPos.x < transform.position.x;
     }
 
-    void HeroJumped(object sender, EventArgs e){
-        if(((HeroJumpedEventArgs)e).isKick) return;
+    void HeroJumped(bool isKick){
+        if(isKick) return;
         if(groundChecker.IsOnGround && state == GierState.Running) rBody.velocity = new Vector2(rBody.velocity.x, jumpForce);
     }
 

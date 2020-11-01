@@ -117,9 +117,9 @@ public class HeroMover : MonoBehaviour
         rightLast = right;
     }
 
-    public event EventHandler jumped;
-    public void Jumped(bool isFromGround ,bool isKick)
-        => jumped?.Invoke(this, new HeroJumpedEventArgs(isFromGround, isKick));
+    Subject<(bool isFromGround, bool isKick)> _OnJumped = new Subject<(bool isFromGround, bool isKick)>();
+    public IObservable<(bool isFromGround, bool isKick)> OnJumped => _OnJumped;
+    public void Jumped(bool isFromGround, bool isKick) => _OnJumped.OnNext((isFromGround, isKick));
 
     #endregion
 
