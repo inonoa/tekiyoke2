@@ -65,7 +65,8 @@ public class StateJet : HeroState
         hero.velocity = new HeroVelocity(move, 0);
         if(completed)
         {
-            return new StateWait();
+            if(hero.IsOnGround) return new StateWait();
+            else                return new StateFall();
         }
         return this;
     }

@@ -1,10 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UniRx;
+using System;
 
 public class GroundChecker : MonoBehaviour
 {
-    public bool IsOnGround{ get; private set; } = true;
+    bool _IsOnGround = false;
+    public bool IsOnGround
+    {
+        get => _IsOnGround;
+        private set
+        {
+            if(!_IsOnGround && value) _OnLand.OnNext(Unit.Default);
+            _IsOnGround = value;
+        }
+    }
+
+    Subject<Unit> _OnLand = new Subject<Unit>();
+    public IObservable<Unit> OnLand => _OnLand;
 
 
     [SerializeField]

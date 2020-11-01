@@ -4,17 +4,15 @@ using UnityEngine;
 
 public class StateKick : HeroState
 {
-    bool canJump = true;
     bool right;
 
     float fromKick = 0;
 
     IEnumerator kabezuriCoroutine;
 
-    public StateKick(bool toRight, bool canJump = true)
+    public StateKick(bool toRight)
     {
         this.right = toRight;
-        this.canJump = canJump;
     }
 
     public override void Enter(HeroMover hero)
@@ -39,12 +37,12 @@ public class StateKick : HeroState
 
     public override HeroState HandleInput(HeroMover hero, IAskedInput input)
     {
-        if(hero.IsReady2Kick2Left(input))  return new StateKick(toRight: false, canJump);
-        if(hero.IsReady2Kick2Right(input)) return new StateKick(toRight: true,  canJump);
+        if(hero.IsReady2Kick2Left(input))  return new StateKick(toRight: false);
+        if(hero.IsReady2Kick2Right(input)) return new StateKick(toRight: true);
 
         if(input.GetButtonDown(ButtonCode.Jump))
         {
-            if(canJump) return new StateJump(canJump: false);
+            if(hero.CanJumpInAir) return new StateJump(fromGround: false);
         }
 
         return this;
@@ -67,7 +65,7 @@ public class StateKick : HeroState
 
         if(hero.velocity.Y < 0)
         {
-            return new StateFall(canJump);
+            return new StateFall();
         }
 
         return this;

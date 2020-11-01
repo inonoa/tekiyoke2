@@ -26,6 +26,8 @@ public class HeroMover : MonoBehaviour
     public bool CanKickFromWallL   => wallCheckerL.CanKick;
     public bool CanKickFromWallR   => wallCheckerR.CanKick;
 
+    public IObservable<Unit> OnLand => groundChecker.OnLand;
+
 
     ///<summary>実際に移動している方向(ワープした場合は知らん) (EyeToright, KeyDiretion参照)</summary>
     public HeroVelocity velocity = new HeroVelocity(0,0);
@@ -115,9 +117,9 @@ public class HeroMover : MonoBehaviour
         rightLast = right;
     }
 
-    public event EventHandler jumped;
-    public void Jumped(bool isFromGround ,bool isKick)
-        => jumped?.Invoke(this, new HeroJumpedEventArgs(isFromGround, isKick));
+    Subject<(bool isFromGround, bool isKick)> _OnJumped = new Subject<(bool isFromGround, bool isKick)>();
+    public IObservable<(bool isFromGround, bool isKick)> OnJumped => _OnJumped;
+    public void Jumped(bool isFromGround, bool isKick) => _OnJumped.OnNext((isFromGround, isKick));
 
     #endregion
 
@@ -136,6 +138,8 @@ public class HeroMover : MonoBehaviour
     SakamichiChecker sakamichiChecker;
     [SerializeField] WallChecker wallCheckerL;
     [SerializeField] WallChecker wallCheckerR;
+    [SerializeField] JumpCounter _JumpCounter;
+    public bool CanJumpInAir => _JumpCounter.CanJumpInAir;
     SavePositionManager savePositionManager;
     public IAskedInput Input{ get; private set; }
 
