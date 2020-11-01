@@ -26,6 +26,8 @@ public class HeroMover : MonoBehaviour
     public bool CanKickFromWallL   => wallCheckerL.CanKick;
     public bool CanKickFromWallR   => wallCheckerR.CanKick;
 
+    public IObservable<Unit> OnLand => groundChecker.OnLand;
+
 
     ///<summary>実際に移動している方向(ワープした場合は知らん) (EyeToright, KeyDiretion参照)</summary>
     public HeroVelocity velocity = new HeroVelocity(0,0);
@@ -136,6 +138,8 @@ public class HeroMover : MonoBehaviour
     SakamichiChecker sakamichiChecker;
     [SerializeField] WallChecker wallCheckerL;
     [SerializeField] WallChecker wallCheckerR;
+    [SerializeField] JumpCounter _JumpCounter;
+    public JumpCounter JumpCounter => _JumpCounter;
     SavePositionManager savePositionManager;
     public IAskedInput Input{ get; private set; }
 
