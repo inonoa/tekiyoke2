@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class StateJump : HeroState
 {
-    bool canJump;
+    bool isFromGround;
     float force;
-    public StateJump(bool canJump = true, float force = -1)
+    public StateJump(bool fromGround = true, float force = -1)
     {
-        this.canJump = canJump;
-        this.force   = force;
+        this.isFromGround = fromGround;
+        this.force        = force;
     }
 
     enum Dir{ FR, UR, FL, UL }
@@ -43,12 +43,12 @@ public class StateJump : HeroState
 
         Start(hero);
 
-        if(canJump) hero.ObjsHolderForStates.JumpEffectPool.ActivateOne(hero.WantsToGoRight ? "r" : "l");
-        else        hero.ObjsHolderForStates.JumpEffectInAirPool.ActivateOne(hero.WantsToGoRight ? "r" : "l");
+        if(isFromGround) hero.ObjsHolderForStates.JumpEffectPool.ActivateOne(hero.WantsToGoRight ? "r" : "l");
+        else             hero.ObjsHolderForStates.JumpEffectInAirPool.ActivateOne(hero.WantsToGoRight ? "r" : "l");
         kabezuriCoroutine = hero.SpawnKabezuris(hero.Parameters.MoveInAirParams);
         hero.StartCoroutine(kabezuriCoroutine);
 
-        hero.Jumped(isFromGround:canJump, isKick:false);
+        hero.Jumped(isFromGround, isKick:false);
     }
 
     public override void Resume(HeroMover hero)
@@ -65,9 +65,9 @@ public class StateJump : HeroState
 
     public override HeroState HandleInput(HeroMover hero, IAskedInput input)
     {
-        if(canJump && input.GetButtonDown(ButtonCode.Jump))
+        if(hero.CanJumpInAir && input.GetButtonDown(ButtonCode.Jump))
         {
-            return new StateJump(canJump: false);
+            return new StateJump(fromGround: false);
         }
 
         SetDir(CalcDir(hero), hero);
@@ -83,7 +83,7 @@ public class StateJump : HeroState
 
         if(hero.velocity.Y < 0)
         {
-            return new StateFall(canJump);
+            return new StateFall();
         }
 
         return this;

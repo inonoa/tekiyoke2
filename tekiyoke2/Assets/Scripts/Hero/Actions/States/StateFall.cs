@@ -5,14 +5,10 @@ using UnityEngine;
 public class StateFall : HeroState
 {
     bool right = true;
-    bool canJump = true;
 
     IEnumerator kabezuriCoroutine;
 
-    public StateFall(bool canJump = true)
-    {
-        this.canJump = canJump;
-    }
+    public StateFall(){ }
 
     public override void Enter(HeroMover hero)
     {
@@ -34,12 +30,12 @@ public class StateFall : HeroState
 
     public override HeroState HandleInput(HeroMover hero, IAskedInput input)
     {
-        if(hero.IsReady2Kick2Left(input))  return new StateKick(toRight: false, canJump);
-        if(hero.IsReady2Kick2Right(input)) return new StateKick(toRight: true,  canJump);
+        if(hero.IsReady2Kick2Left(input))  return new StateKick(toRight: false);
+        if(hero.IsReady2Kick2Right(input)) return new StateKick(toRight: true);
 
         if(input.GetButtonDown(ButtonCode.Jump))
         {
-            if(canJump) return new StateJump(canJump: false);
+            if(hero.CanJumpInAir) return new StateJump(fromGround: false);
         }
 
         if(     hero.KeyDirection == 1  && !right)

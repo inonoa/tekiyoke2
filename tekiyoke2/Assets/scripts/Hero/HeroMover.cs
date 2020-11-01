@@ -139,7 +139,7 @@ public class HeroMover : MonoBehaviour
     [SerializeField] WallChecker wallCheckerL;
     [SerializeField] WallChecker wallCheckerR;
     [SerializeField] JumpCounter _JumpCounter;
-    public JumpCounter JumpCounter => _JumpCounter;
+    public bool CanJumpInAir => _JumpCounter.CanJumpInAir;
     SavePositionManager savePositionManager;
     public IAskedInput Input{ get; private set; }
 
