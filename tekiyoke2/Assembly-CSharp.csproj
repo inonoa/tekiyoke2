@@ -73,7 +73,6 @@
      <Compile Include="Assets\Scripts\Hero\Actions\HeroTransitions.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\JetManager.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\JumpCounter.cs" />
-     <Compile Include="Assets\Scripts\Hero\Actions\SakamichiChecker.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\SakamichiSensors.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\States\HeroState.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\States\StateBend.cs" />
