@@ -13,36 +13,25 @@ public class SakamichiSensors : MonoBehaviour
     [field: SerializeField, ReadOnly, LabelText("On Sakamichi R")]
     public bool OnSakamichiR{ get; private set; } = false;
 
-    [SerializeField] SakamichiSensor sensorL;
-    [SerializeField] SakamichiSensor sensorR;
+    [SerializeField] float width = 20;
 
     [SerializeField] HeroMover hero;
 
     
     void Update()
     {
-        sensorL.Update_(hero);
-        sensorR.Update_(hero);
+        Vector3 heroFoot = hero.transform.position + new Vector3(0, -48);
+        Vector2 down     = Vector2.down;
+        float   rayLen   = 50;
+        int     terrain  = LayerMask.GetMask("Terrain");
 
-        OnSakamichiL = sensorL.IsTouching && !sensorR.IsTouching;
-        OnSakamichiR = sensorR.IsTouching && !sensorL.IsTouching;
-    }
-}
+        RaycastHit2D hitL = Physics2D.Raycast(heroFoot - new Vector3(width / 2, 0), down, rayLen, terrain);
+        RaycastHit2D hitR = Physics2D.Raycast(heroFoot + new Vector3(width / 2, 0), down, rayLen, terrain);
 
-[Serializable]
-public class SakamichiSensor
-{
-    [field: SerializeField, ReadOnly, LabelText("Touching")]
-    public bool IsTouching{ get; private set; } = false;
+        float normalL = Vector2.Angle(Vector2.right, hitL.normal);
+        float normalR = Vector2.Angle(Vector2.right, hitR.normal);
 
-    [SerializeField] Vector2 rayOffset;
-    [SerializeField] ContactFilter2D filter;
-
-    RaycastHit2D[] hits = new RaycastHit2D[128];
-    public void Update_(HeroMover hero)
-    {
-        Vector2 origin = hero.transform.position.ToVec2() + rayOffset;
-        int num_hits = Physics2D.Raycast(origin, new Vector2(0, -1), filter, hits, 45);
-        IsTouching = num_hits > 0;
+        OnSakamichiL = normalL.In(10,  80)  || normalR.In(10,  80);
+        OnSakamichiR = normalL.In(100, 170) || normalR.In(100, 170);
     }
 }

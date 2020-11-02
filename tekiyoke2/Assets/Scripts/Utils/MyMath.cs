@@ -40,4 +40,10 @@ public static class MyMath
     public static Vector2 DistAsVector2(Vector3 v1, Vector2 v2) => v1.ToVec2() - v2;
     ///<summary>v1 - v2</summary>
     public static Vector2 DistAsVector2(Vector3 v1, Vector3 v2) => v1.ToVec2() - v2.ToVec2();
+
+    public static bool In(this float x, float min, float max, bool inclusive = true)
+    {
+        if(inclusive) return x >= min && x <= max;
+        else          return x >  min && x <  max;
+    }
 }

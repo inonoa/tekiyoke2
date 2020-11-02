@@ -150,7 +150,6 @@
      <Compile Include="Assets\Scripts\MapObjs\TogeDropController.cs" />
      <Compile Include="Assets\Scripts\MapObjs\TogeDropRespawner.cs" />
      <Compile Include="Assets\Scripts\MapObjs\UltraThinTileController.cs" />
-     <Compile Include="Assets\Scripts\MyMath.cs" />
      <Compile Include="Assets\Scripts\ObjectPool.cs" />
      <Compile Include="Assets\Scripts\Parameters\DraftModeParameters.cs" />
      <Compile Include="Assets\Scripts\Parameters\HeroParameters.cs" />
@@ -182,6 +181,7 @@
      <Compile Include="Assets\Scripts\TitleScene\Title2Stages.cs" />
      <Compile Include="Assets\Scripts\Utils\ArrayForEach.cs" />
      <Compile Include="Assets\Scripts\Utils\MaterialTween.cs" />
+     <Compile Include="Assets\Scripts\Utils\MyMath.cs" />
      <Compile Include="Assets\Scripts\Utils\RenameFieldAttribute.cs" />
      <Compile Include="Assets\Scripts\Utils\ShaderProperties.cs" />
      <Compile Include="Assets\Scripts\Utils\SimpleAnim.cs" />
