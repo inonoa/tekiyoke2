@@ -28,6 +28,9 @@ public class HeroMover : MonoBehaviour
 
     public IObservable<Unit> OnLand => groundChecker.OnLand;
 
+    [field: SerializeField, LabelText("Sakamichi Sensors")]
+    public SakamichiSensors SakamichiSensors{ get; private set; }
+
 
     ///<summary>実際に移動している方向(ワープした場合は知らん) (EyeToright, KeyDiretion参照)</summary>
     public HeroVelocity velocity = new HeroVelocity(0,0);
