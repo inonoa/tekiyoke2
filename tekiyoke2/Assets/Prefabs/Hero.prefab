@@ -83,6 +83,53 @@ MonoBehaviour:
     <Max>k__BackingField: 0.05
   heroCheckPeriodSec: 0.5
   actualVal: 0
+--- !u!1 &927379907694843059
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3701394845435940728}
+  - component: {fileID: 5461879377836722882}
+  m_Layer: 8
+  m_Name: SakamichiSensors
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3701394845435940728
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 927379907694843059}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3106219250084253368}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5461879377836722882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 927379907694843059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc44a80a772c5c14fa1e734d464fb2bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <OnSakamichiL>k__BackingField: 0
+  <OnSakamichiR>k__BackingField: 0
+  width: 20
+  hero: {fileID: 3106219250084253350}
 --- !u!1 &3106219248715147175
 GameObject:
   m_ObjectHideFlags: 0
@@ -340,7 +387,6 @@ GameObject:
   - component: {fileID: 3106219250084253373}
   - component: {fileID: 3106219250084253350}
   - component: {fileID: 3106219250084253372}
-  - component: {fileID: 3106219250084253370}
   - component: {fileID: 3106219250084253401}
   - component: {fileID: 1862551108992817783}
   - component: {fileID: 8407620554904460400}
@@ -377,6 +423,7 @@ Transform:
   - {fileID: 6737016867947660164}
   - {fileID: 2620188123922105851}
   - {fileID: 9112195498496488884}
+  - {fileID: 3701394845435940728}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -480,6 +527,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7367abbafe31e1d46af2c3c11de1351b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <SakamichiSensors>k__BackingField: {fileID: 5461879377836722882}
   <KeyDirection>k__BackingField: 0
   <WantsToGoRight>k__BackingField: 1
   _SoundGroup: {fileID: 5836125009105332007}
@@ -517,47 +565,6 @@ MonoBehaviour:
   img2_3: {fileID: 21300000, guid: ac9c435e7af456f4387916ff4c462462, type: 3}
   img1_2: {fileID: 21300000, guid: 12f3a275d5f45e94b8b019d9cef3d0f6, type: 3}
   spr: {fileID: 0}
---- !u!114 &3106219250084253370
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3106219250084253351}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db11973342917a648bb901cc9c91ada0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  filterR:
-    useTriggers: 0
-    useLayerMask: 1
-    useDepth: 0
-    useOutsideDepth: 0
-    useNormalAngle: 1
-    useOutsideNormalAngle: 0
-    layerMask:
-      serializedVersion: 2
-      m_Bits: 1024
-    minDepth: 0
-    maxDepth: 0
-    minNormalAngle: 100
-    maxNormalAngle: 170
-  filterL:
-    useTriggers: 0
-    useLayerMask: 1
-    useDepth: 0
-    useOutsideDepth: 0
-    useNormalAngle: 1
-    useOutsideNormalAngle: 0
-    layerMask:
-      serializedVersion: 2
-      m_Bits: 1024
-    minDepth: 0
-    maxDepth: 0
-    minNormalAngle: 10
-    maxNormalAngle: 80
-  collider: {fileID: 3106219249707583292}
 --- !u!114 &3106219250084253401
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -20,13 +20,13 @@ public class HeroMover : MonoBehaviour
     public bool CanMove { get; set; } = true;
 
     public bool IsOnGround         => groundChecker.IsOnGround;
-    public bool IsOnSakamichi      => sakamichiChecker.OnSakamichi;
-    public bool IsOnSakamichiR     => sakamichiChecker.OnSakamichiR;
-    public bool IsOnSakamichiL     => sakamichiChecker.OnSakamichiL;
     public bool CanKickFromWallL   => wallCheckerL.CanKick;
     public bool CanKickFromWallR   => wallCheckerR.CanKick;
 
     public IObservable<Unit> OnLand => groundChecker.OnLand;
+
+    [field: SerializeField, LabelText("Sakamichi Sensors")]
+    public SakamichiSensors SakamichiSensors{ get; private set; }
 
 
     ///<summary>実際に移動している方向(ワープした場合は知らん) (EyeToright, KeyDiretion参照)</summary>
@@ -135,7 +135,6 @@ public class HeroMover : MonoBehaviour
     public WindSoundController WindSounds{ get; private set; }
     
     [SerializeField] GroundChecker groundChecker;
-    SakamichiChecker sakamichiChecker;
     [SerializeField] WallChecker wallCheckerL;
     [SerializeField] WallChecker wallCheckerR;
     [SerializeField] JumpCounter _JumpCounter;
@@ -288,7 +287,6 @@ public class HeroMover : MonoBehaviour
         Rigidbody           = GetComponent<Rigidbody2D>();
         Transform           = GetComponent<Transform>();
         HpCntr              = GetComponent<HpCntr>();
-        sakamichiChecker    = GetComponent<SakamichiChecker>();
         savePositionManager = GetComponent<SavePositionManager>();
         ObjsHolderForStates = GetComponent<HeroObjsHolder4States>();
         JetManager          = GetComponent<JetManager>();
