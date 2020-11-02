@@ -185,10 +185,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc44a80a772c5c14fa1e734d464fb2bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <L>k__BackingField: 1
-  <R>k__BackingField: 1
+  <OnSakamichiL>k__BackingField: 0
+  <OnSakamichiR>k__BackingField: 0
   sensorL:
     <IsTouching>k__BackingField: 0
+    rayOffset: {x: 10, y: -53}
     filter:
       useTriggers: 0
       useLayerMask: 1
@@ -205,6 +206,7 @@ MonoBehaviour:
       maxNormalAngle: 80
   sensorR:
     <IsTouching>k__BackingField: 0
+    rayOffset: {x: -10, y: -53}
     filter:
       useTriggers: 0
       useLayerMask: 1

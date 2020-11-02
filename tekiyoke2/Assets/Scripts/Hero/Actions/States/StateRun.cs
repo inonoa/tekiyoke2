@@ -37,7 +37,7 @@ public class StateRun : HeroState
 
             float time = 0;
             yield return null;
-            while((time += hero.TimeManager.DeltaTimeAroundHero) < params_.TsuchihokoriInterval)
+            while((time += hero.TimeManager.DeltaTimeAroundHero) < params_.RunParams.TsuchihokoriInterval)
             {
                 yield return null;
             }
@@ -79,7 +79,7 @@ public class StateRun : HeroState
         else
         {
             fromNoGround += deltatime;
-            if(fromNoGround >= hero.Parameters.CoyoteTime) return new StateFall();
+            if(fromNoGround >= hero.Parameters.RunParams.CoyoteTime) return new StateFall();
         }
 
         if(hero.KeyDirection == 0)
@@ -90,14 +90,14 @@ public class StateRun : HeroState
         if(     hero.KeyDirection == 1)
         {
             hero.velocity.X = Mathf.Min(
-                hero.velocity.X + hero.Parameters.ForceOnGround * deltatime,
-                hero.Parameters.GroundSpeedMax);
+                hero.velocity.X + hero.Parameters.RunParams.ForceOnGround * deltatime,
+                hero.Parameters.RunParams.GroundSpeedMax);
         }
         else if(hero.KeyDirection == -1)
         {
             hero.velocity.X = Mathf.Max(
-                hero.velocity.X - hero.Parameters.ForceOnGround * deltatime,
-                -hero.Parameters.GroundSpeedMax);
+                hero.velocity.X - hero.Parameters.RunParams.ForceOnGround * deltatime,
+                -hero.Parameters.RunParams.GroundSpeedMax);
         }
 
         hero.ApplySakamichi();

@@ -36,12 +36,12 @@ public class StateWait : HeroState
         else
         {
             fromNoGround += deltatime;
-            if(fromNoGround >= hero.Parameters.CoyoteTime) return new StateFall();
+            if(fromNoGround >= hero.Parameters.RunParams.CoyoteTime) return new StateFall();
         }
 
         hero.velocity.Y = 0;
 
-        hero.ApplyFriction(hero.Parameters.Friction, deltatime);
+        hero.ApplyFriction(hero.Parameters.RunParams.Friction, deltatime);
 
         return this;
     }

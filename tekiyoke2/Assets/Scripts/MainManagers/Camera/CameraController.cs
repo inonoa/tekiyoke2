@@ -127,7 +127,7 @@ public class CameraController : MonoBehaviour
         Vector2 NextPositionGap(Vector2 currentPositionGap)
         {
             float velocityMean      = HeroVelocityMean(100).x;
-            float velocityThreshold = HeroDefiner.currentHero.Parameters.GroundSpeedMax * 0.3f;
+            float velocityThreshold = HeroDefiner.currentHero.Parameters.RunParams.GroundSpeedMax * 0.3f;
 
             Vector2 targetGap;
             if     (velocityMean <  -velocityThreshold) targetGap = new Vector2(-positionGapWidth, 0);

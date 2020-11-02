@@ -53,12 +53,12 @@ public static class HeroPhysics
     public static void ApplySakamichi(this HeroMover hero)
     {
         float absVx  = Mathf.Abs(hero.velocity.X);
-        float offset = 3;
-        if(hero.IsOnSakamichiL || hero.SakamichiSensors.L)
+        float offset = 5;
+        if(hero.IsOnSakamichiL || hero.SakamichiSensors.OnSakamichiL)
         {
             hero.velocity.Y = (hero.WantsToGoRight ? -absVx :  absVx) - offset;
         }
-        else if(hero.IsOnSakamichiR || hero.SakamichiSensors.R)
+        else if(hero.IsOnSakamichiR || hero.SakamichiSensors.OnSakamichiR)
         {
             hero.velocity.Y = (hero.WantsToGoRight ?  absVx : -absVx) - offset;
         }

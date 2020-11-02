@@ -6,23 +6,14 @@ using System;
 [CreateAssetMenu(fileName = "HeroParameters", menuName = "Scriptable Object/Hero Parameters", order = 100)]
 public class HeroParameters : ScriptableObject
 {
-    [SerializeField] float _GroundSpeedMax = 15f;
-    [SerializeField] float _ForceOnGround = 200f;
-    [SerializeField] float _Friction = 150f;
-    [SerializeField] float _CoyoteTime = 0.1f;
-    [SerializeField] float _TsuchihokoriInterval = 0.1f;
+               [SerializeField] RunParams _RunParams;
     [Space(5)] [SerializeField] MoveInAirParams _MoveInAirParams;
     [Space(5)] [SerializeField] float _JumpForce = 30f;
     [Space(5)] [SerializeField] KickParams _KickParams;
     [Space(5)] [SerializeField] JetParams _JetParams;
-    [SerializeField] BendParams _BendParams;
+    [Space(5)] [SerializeField] BendParams _BendParams;
 
-
-    public float GroundSpeedMax            => _GroundSpeedMax;
-    public float ForceOnGround             => _ForceOnGround;
-    public float Friction                  => _Friction;
-    public float CoyoteTime                => _CoyoteTime;
-    public float TsuchihokoriInterval      => _TsuchihokoriInterval;
+    public RunParams RunParams             => _RunParams;
     public MoveInAirParams MoveInAirParams => _MoveInAirParams;
     public float JumpForce                 => _JumpForce;
     public KickParams KickParams           => _KickParams;
@@ -31,6 +22,23 @@ public class HeroParameters : ScriptableObject
 }
 
 public enum KickKey{ DirOfWall, DirAgainstWall }
+
+[Serializable]
+public class RunParams
+{
+    [SerializeField] float _GroundSpeedMax = 15f;
+    [SerializeField] float _ForceOnGround = 200f;
+    [SerializeField] float _Friction = 150f;
+    [SerializeField] float _CoyoteTime = 0.1f;
+    [SerializeField] float _TsuchihokoriInterval = 0.12f;
+
+    
+    public float GroundSpeedMax            => _GroundSpeedMax;
+    public float ForceOnGround             => _ForceOnGround;
+    public float Friction                  => _Friction;
+    public float CoyoteTime                => _CoyoteTime;
+    public float TsuchihokoriInterval      => _TsuchihokoriInterval;
+}
 
 [Serializable]
 public class MoveInAirParams
