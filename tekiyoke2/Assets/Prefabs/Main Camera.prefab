@@ -94,10 +94,13 @@ MonoBehaviour:
   zoomSpeed: 100
   unzoomSpeed: 500
   fromCameraToHero: {x: 0, y: -130}
+  targetPosChangeSpeed: 0.1
+  positionGapWidth: 120
+  positionGapChangeSpeed: 0.05
+  jetFreezeSeconds: 0.45
   scShoOutOfWindController: {fileID: 6478240744771120905}
   scShoController: {fileID: 7195403637980874227}
   canvas: {fileID: 0}
-  jetFreezeSeconds: 0.45
 --- !u!114 &7195403637980874227
 MonoBehaviour:
   m_ObjectHideFlags: 0

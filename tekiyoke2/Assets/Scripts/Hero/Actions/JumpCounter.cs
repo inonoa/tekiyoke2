@@ -16,7 +16,7 @@ public class JumpCounter : MonoBehaviour
         hero.OnLand
             .Subscribe(_ => CanJumpInAir = true);
         hero.OnJumped
-            .Where(jump => !jump.isFromGround)
+            .Where(jump => !jump.isFromGround && !jump.isKick)
             .Subscribe(jump => CanJumpInAir = false);
     }
 }
