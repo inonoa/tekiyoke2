@@ -76,6 +76,22 @@ public class CameraController : MonoBehaviour
 
     void FixedUpdate()
     {
+        UpdateZoom();
+
+        if(seconds2freeze > 0)
+        {
+            seconds2freeze -= Time.unscaledDeltaTime;
+            return;
+        }
+
+        targetPosition = NextTartgetPosition(targetPosition);
+        positionGap    = NextPositionGap(positionGap);
+
+        transform.position = targetPosition.ToVec3() + positionGap.ToVec3() + new Vector3(0,0,-500);
+    }
+
+    void UpdateZoom()
+    {
         switch(jetState)
         {
         case StateAboutJet.Default: break;
@@ -101,43 +117,27 @@ public class CameraController : MonoBehaviour
             }
             break;
         }
+    }
 
-        if(seconds2freeze > 0)
-        {
-            seconds2freeze -= Time.unscaledDeltaTime;
-            return;
-        }
+    //単純に主人公の移動距離分追いかけたあと、Freeze中に置いてけぼりを喰らっていた分をちょっとずつ追い付く
+    Vector2 NextTartgetPosition(Vector2 currentTargetPosition)
+    {
+        Vector2 lastPos   = HeroDefiner.CurrentHeroPastPos.Count > 1 ? HeroDefiner.CurrentHeroPastPos[1] : HeroDefiner.CurrentHeroPos;
+        Vector2 dist      = MyMath.DistAsVector2(HeroDefiner.CurrentHeroPos, lastPos);
+        Vector2 distAdded = currentTargetPosition + dist;
 
-        targetPosition = NextTartgetPosition(targetPosition);
-        positionGap    = NextPositionGap(positionGap);
+        Vector2 catchUp = (HeroDefiner.CurrentHeroExpectedPos - fromCameraToHero - targetPosition) * targetPosChangeSpeed;
+        return distAdded + catchUp;
+    }
 
-        transform.position = targetPosition.ToVec3() + positionGap.ToVec3() + new Vector3(0,0,-500);
-
-        //単純に主人公の移動距離分追いかけたあと、Freeze中に置いてけぼりを喰らっていた分をちょっとずつ追い付く
-        Vector2 NextTartgetPosition(Vector2 currentTargetPosition)
-        {
-            Vector2 lastPos   = HeroDefiner.CurrentHeroPastPos.Count > 1 ? HeroDefiner.CurrentHeroPastPos[1] : HeroDefiner.CurrentHeroPos;
-            Vector2 dist      = MyMath.DistAsVector2(HeroDefiner.CurrentHeroPos, lastPos);
-            Vector2 distAdded = currentTargetPosition + dist;
-
-            Vector2 catchUp = (HeroDefiner.CurrentHeroExpectedPos - fromCameraToHero - targetPosition) * targetPosChangeSpeed;
-            return distAdded + catchUp;
-        }
-
-        Vector2 NextPositionGap(Vector2 currentPositionGap)
-        {
-            float velocityMean      = HeroVelocityMean(100).x;
-            float velocityThreshold = HeroDefiner.currentHero.Parameters.RunParams.GroundSpeedMax * 0.3f;
-
-            Vector2 targetGap;
-            if     (velocityMean <  -velocityThreshold) targetGap = new Vector2(-positionGapWidth, 0);
-            else if(velocityMean <=  velocityThreshold) targetGap = new Vector2( 0,                0);
-            else                                        targetGap = new Vector2( positionGapWidth, 0);
+    Vector2 NextPositionGap(Vector2 currentPositionGap)
+    {
+        bool wantsToGoRight = HeroDefiner.currentHero.WantsToGoRight;
+        Vector2 targetGap = wantsToGoRight ? new Vector2(positionGapWidth, 0) : new Vector2(-positionGapWidth, 0);
             
-            Vector2 current2target = targetGap - positionGap;
-            if(current2target.magnitude < 1) return positionGap;
-            return positionGap + current2target * positionGapChangeSpeed;
-        }
+        Vector2 current2target = targetGap - positionGap;
+        if(current2target.magnitude < 1) return positionGap;
+        return positionGap + current2target * positionGapChangeSpeed;
     }
 
     ///<summary>velocityというか実際に移動した距離の平均</summary>
