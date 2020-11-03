@@ -14,31 +14,33 @@ public class CameraController : MonoBehaviour
 
     [SerializeField] Vector2 fromCameraToHero = new Vector2(0, -100);
 
-    [SerializeField] ScShoOutOfWindController scShoOutOfWindController;
-    [SerializeField] ScShoController scShoController;
-    public AfterEffects AfterEffects{ get; private set; }
-
-    [SerializeField] Canvas canvas;
 
     ///<summary>主人公を追いかけている、主人公が動くと遅れてついていく</summary>
     Vector2 targetPosition;
 
     ///<summary>Freeze後に追いかけるスピードとかに比例してる</summary>
-    static readonly float targetPosChangeSpeed = 0.1f;
+    [SerializeField] float targetPosChangeSpeed = 0.1f;
 
     ///<summary>右に移動中は右に、左に移動中は左に寄る、みたいなのの度合い</summary>
     Vector2 positionGap = Vector2.zero;
 
     ///<summary>動いている向き(左右のみ)にこの幅だけカメラが先行して(？)動く</summary>
-    static readonly float positionGapWidth = 120;
+    [SerializeField] float positionGapWidth = 120;
 
     ///<summary>positionGapが変化するスピード</summary>
-    static readonly float positionGapChangeSpeed = 0.1f;
+    [SerializeField] float positionGapChangeSpeed = 0.1f;
 
     enum StateAboutJet{ Default, ZoomingForDash, Dashing, Retreating }
     StateAboutJet jetState = StateAboutJet.Default;
 
     [SerializeField] float jetFreezeSeconds = 0.3f;
+
+    [Space(10)]
+    [SerializeField] ScShoOutOfWindController scShoOutOfWindController;
+    [SerializeField] ScShoController scShoController;
+    public AfterEffects AfterEffects{ get; private set; }
+
+    [SerializeField] Canvas canvas;
 
     //この辺必要か？？？
     public void StartZoomForDash() => jetState = StateAboutJet.ZoomingForDash;
