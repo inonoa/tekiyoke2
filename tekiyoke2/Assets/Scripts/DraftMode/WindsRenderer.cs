@@ -55,7 +55,7 @@ namespace Draft
             material.SetFloat("_Time_", mover.GetTime());
             if(material.SetPass(0))
             {
-                Graphics.DrawProcedural
+                Graphics.DrawProceduralNow
                 (
                     MeshTopology.Points,
                     mover.NumNodesPerWind,
