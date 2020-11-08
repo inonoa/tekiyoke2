@@ -60,6 +60,7 @@ public class StateJump : HeroState
     void Start(HeroMover hero)
     {
         hero.SetAnim(hero.KeyDirection == 0 ? "jumpu" : "jumpf");
+        hero.SoundGroup.Play("Jump");
         _dir = CalcDir(hero);
     }
 

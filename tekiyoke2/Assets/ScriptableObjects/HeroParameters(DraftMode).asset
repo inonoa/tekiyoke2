@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46fd59e3df9475144a8dd166609bb86e, type: 3}
   m_Name: HeroParameters(DraftMode)
   m_EditorClassIdentifier: 
-  _GroundSpeedMax: 20
-  _ForceOnGround: 300
-  _Friction: 200
-  _CoyoteTime: 0.1
-  _TsuchihokoriInterval: 0.12
+  _RunParams:
+    _GroundSpeedMax: 15
+    _ForceOnGround: 200
+    _Friction: 150
+    _CoyoteTime: 0.1
+    _TsuchihokoriInterval: 0.12
   _MoveInAirParams:
     _HorizontalForce: 300
     _HorizontalResistance: 25
@@ -24,7 +25,7 @@ MonoBehaviour:
     _Gravity: 80
     _FallSpeedMax: 50
     _KabezuriInterval: 0.1
-  _JumpForce: 40
+  _JumpForce: 37
   _KickParams:
     _WallKickForce: {x: 15, y: 30}
     _WallKickKey: 1

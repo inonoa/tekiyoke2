@@ -23,6 +23,7 @@ public class StateKick : HeroState
         hero.CanMove = false;
 
         hero.SetAnim("jumpf");
+        hero.SoundGroup.Play("Jump");
         hero.ObjsHolderForStates.JumpEffectPool.ActivateOne(right ? "kr" : "kl");
         kabezuriCoroutine = hero.SpawnKabezuris(hero.Parameters.MoveInAirParams);
         hero.StartCoroutine(kabezuriCoroutine);
