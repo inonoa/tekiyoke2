@@ -217,6 +217,11 @@ public class HeroMover : MonoBehaviour
             velocity = new HeroVelocity(0, -15);
         }
         break;
+        case DamageType.Debug:
+        {
+            //
+        }
+        break;
         }
 
         _OnDamaged.OnNext(HP);
@@ -358,6 +363,8 @@ public class HeroMover : MonoBehaviour
                     if(draftModeManager.InDraftMode) draftModeManager.TryExit();
                     else                             draftModeManager.TryEnter();
                 }
+
+                if(Input.GetButtonDown(ButtonCode.Save)) Damage(3, DamageType.Debug);
 
                 UpdateMoveDirection();
 
