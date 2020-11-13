@@ -31,12 +31,9 @@ public class NaitrumController : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
         foreach(SpriteRenderer sr in spriteRenderers) sr.flipX = toRight;
     }
 
-    void Update() => MovePos( (toRight ? 1 : -1) * moveSpeed, 0);
-
-    void MovePos(float v_x, float v_y)
+    void FixedUpdate()
     {
-        RigidBody.MovePosition(new Vector2(RigidBody.transform.position.x + v_x * TimeManager.Current.TimeScaleExceptHero,
-                                       RigidBody.transform.position.y + v_y * TimeManager.Current.TimeScaleExceptHero));
+        RigidBody.ApplySpeed(new Vector2(toRight ? moveSpeed : -moveSpeed, 0));
     }
 
     public void Spawn()

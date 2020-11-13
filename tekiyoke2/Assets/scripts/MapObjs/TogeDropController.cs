@@ -36,7 +36,8 @@ public class TogeDropController : MonoBehaviour
         if(other.gameObject.tag=="Terrain" || other.gameObject.tag=="Ultrathin") state = State.Die;
     }
 
-    void Update(){
+    void FixedUpdate()
+    {
         switch(state){
             case State.Wait:
                 if(System.Math.Abs(transform.position.x - HeroDefiner.CurrentHeroPos.x) < dist2FindHeroX

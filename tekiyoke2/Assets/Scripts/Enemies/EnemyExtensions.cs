@@ -9,4 +9,9 @@ public static class EnemyExtensions
     {
         rBody.velocity = new Vector2(v_x * TimeManager.Current.TimeScaleExceptHero, Math.Max(rBody.velocity.y, -fallSpeedMax));
     }
+
+    public static void ApplySpeed(this Rigidbody2D rigidbody, Vector2 speed)
+    {
+        rigidbody.MovePosition(rigidbody.transform.position.ToVec2() + speed * TimeManager.Current.FixedDeltaTimeExceptHero);
+    }
 }
