@@ -133,7 +133,7 @@ public class DraftModeManager : MonoBehaviour
     {
         if(InDraftMode)
         {
-            float dp = hero.DraftModeParams.DpPerSecond * TimeManager.CurrentInstance.DeltaTimeAroundHero;
+            float dp = hero.DraftModeParams.DpPerSecond * TimeManager.Current.DeltaTimeAroundHero;
             bool enoughDP = dpManager.ForceUseDP(dp);
 
             if(!enoughDP)

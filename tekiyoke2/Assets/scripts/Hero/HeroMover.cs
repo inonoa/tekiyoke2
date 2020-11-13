@@ -285,7 +285,7 @@ public class HeroMover : MonoBehaviour
     {
 
         CmrCntr = CameraController.CurrentCamera;
-        TimeManager = TimeManager.CurrentInstance;
+        TimeManager = TimeManager.Current;
         Input   = ServicesLocator.Instance.GetInput();
         chishibuki = GameUIManager.CurrentInstance.Chishibuki;
         SpriteRenderer      = GetComponent<SpriteRenderer>();

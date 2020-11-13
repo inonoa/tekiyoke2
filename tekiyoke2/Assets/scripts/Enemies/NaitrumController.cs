@@ -26,7 +26,6 @@ public class NaitrumController : EnemyController, IHaveDPinEnemy
 
     void Start()
     {
-        base.Init();
         col = GetComponent<Collider2Wall>();
         col.touched2Wall += Turn;
         foreach(SpriteRenderer sr in spriteRenderers) sr.flipX = toRight;
@@ -36,7 +35,7 @@ public class NaitrumController : EnemyController, IHaveDPinEnemy
 
     void MovePos(float v_x, float v_y)
     {
-        RigidBody.MovePosition(new Vector2(RigidBody.transform.position.x + v_x * TimeManager.CurrentInstance.TimeScaleExceptHero,
-                                       RigidBody.transform.position.y + v_y * TimeManager.CurrentInstance.TimeScaleExceptHero));
+        RigidBody.MovePosition(new Vector2(RigidBody.transform.position.x + v_x * TimeManager.Current.TimeScaleExceptHero,
+                                       RigidBody.transform.position.y + v_y * TimeManager.Current.TimeScaleExceptHero));
     }
 }

@@ -9,7 +9,7 @@ public static class HeroTimeExtension
 {
     public static void AsHeros(this Animator anim)
     {   
-        TimeManager.CurrentInstance.HeroTimeScaleRelative
+        TimeManager.Current.HeroTimeScaleRelative
             .Subscribe(timeScale =>
             {
                 anim.speed = timeScale;
@@ -20,7 +20,7 @@ public static class HeroTimeExtension
     public static T AsHeros<T>(this T tween)
         where T : Tween
     {
-        IDisposable subsc = TimeManager.CurrentInstance.HeroTimeScaleRelative
+        IDisposable subsc = TimeManager.Current.HeroTimeScaleRelative
             .Subscribe(timeScale =>
             {
                 tween.timeScale = timeScale;

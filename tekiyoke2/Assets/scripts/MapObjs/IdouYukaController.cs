@@ -39,7 +39,7 @@ public class IdouYukaController : MonoBehaviour
     {
         bool isTouchedByHero = col.IsTouching(filter2Hero);
 
-        float dt = TimeManager.CurrentInstance.FixedDeltaTimeExceptHero;
+        float dt = TimeManager.Current.FixedDeltaTimeExceptHero;
 
         switch(state){
 
@@ -67,7 +67,7 @@ public class IdouYukaController : MonoBehaviour
                 break;
 
             case State.B:   
-                seconds2StopNow -= TimeManager.CurrentInstance.DeltaTimeExceptHero;
+                seconds2StopNow -= TimeManager.Current.DeltaTimeExceptHero;
                 if(seconds2StopNow <= 0) state = State.BtoA;
                 HeroDefiner.currentHero.additionalVelocities.Remove(this);
                 break;
@@ -95,7 +95,7 @@ public class IdouYukaController : MonoBehaviour
                 break;
 
             case State.A:
-                seconds2StopNow -= TimeManager.CurrentInstance.DeltaTimeExceptHero;
+                seconds2StopNow -= TimeManager.Current.DeltaTimeExceptHero;
                 if(seconds2StopNow <= 0) state = State.AtoB;
                 HeroDefiner.currentHero.additionalVelocities.Remove(this);
                 break;

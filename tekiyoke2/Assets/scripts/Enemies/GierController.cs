@@ -40,7 +40,6 @@ public class GierController : EnemyController, IHaveDPinEnemy
 
     void Start()
     {
-        base.Init();
         HeroDefiner.currentHero.OnJumped.Subscribe(jump => HeroJumped(jump.isKick));
         groundChecker = transform.Find("GroundChecker").GetComponent<GroundChecker>();
         transform.Find("DontWannaFallR").GetComponent<DontWannaFall>().about2fall += Turn;

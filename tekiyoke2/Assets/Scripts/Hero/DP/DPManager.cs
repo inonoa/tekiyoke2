@@ -74,7 +74,7 @@ public class DPManager : MonoBehaviour
             secondsAfterDPChanged = 0;
         }
 
-        secondsAfterDPChanged += TimeManager.CurrentInstance.DeltaTimeAroundHero;
+        secondsAfterDPChanged += TimeManager.Current.DeltaTimeAroundHero;
         if(secondsAfterDPChanged >= lightLifeSeconds){
             UnlightGauge();
         }

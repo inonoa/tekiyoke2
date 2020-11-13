@@ -36,7 +36,7 @@ public class BaneController : MonoBehaviour
             }
 
             if(seconds2Fly <= 0) return;
-            seconds2Fly -= TimeManager.CurrentInstance.DeltaTimeExceptHero;
+            seconds2Fly -= TimeManager.Current.DeltaTimeExceptHero;
             if(seconds2Fly <= 0)
             {
                 HeroDefiner.currentHero.ForceJump(jumpForce);

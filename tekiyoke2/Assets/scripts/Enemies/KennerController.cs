@@ -70,7 +70,6 @@ public class KennerController : EnemyController, IHaveDPinEnemy
 
     void Start()
     {
-        base.Init();
         if(inNewScene){
             //これがどのタイミングで呼ばれるのか分からん(主人公が近づいてきてから呼ばれてたらつらい)
             tamaPool = new ObjectPool<TamaController>(tama, 128, DraftManager.CurrentInstance.GameMasterTF);
@@ -104,7 +103,7 @@ public class KennerController : EnemyController, IHaveDPinEnemy
             
             case State.Shoot:
                 RigidBody.simulated = false;
-                secondsToShootNow -= TimeManager.DeltaTimeExceptHero;
+                secondsToShootNow -= TimeManager.Current.DeltaTimeExceptHero;
 
                 if(secondsToShootNow <= 0)
                 {
@@ -120,7 +119,7 @@ public class KennerController : EnemyController, IHaveDPinEnemy
                 break;
             
             case State.Rest:
-                restSecondsNow += TimeManager.DeltaTimeExceptHero;
+                restSecondsNow += TimeManager.Current.DeltaTimeExceptHero;
 
                 if(restSecondsNow >= restSeconds){
                     restSecondsNow = 0;

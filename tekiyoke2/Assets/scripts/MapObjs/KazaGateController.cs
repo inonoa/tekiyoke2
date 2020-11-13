@@ -48,7 +48,7 @@ public class KazaGateController : MonoBehaviour
             
             case State.Opening:
 
-                float dt = TimeManager.CurrentInstance.DeltaTimeExceptHero;
+                float dt = TimeManager.Current.DeltaTimeExceptHero;
 
                 gate.position += Vector3.up * openVel * dt;
                 //当たり判定縮めてる
@@ -70,7 +70,7 @@ public class KazaGateController : MonoBehaviour
             
             case State.Closing:
 
-                float dt_ = TimeManager.CurrentInstance.DeltaTimeExceptHero;
+                float dt_ = TimeManager.Current.DeltaTimeExceptHero;
 
                 gate.position -= Vector3.up * closeVel * dt_;
                 //当たり判定広げてる

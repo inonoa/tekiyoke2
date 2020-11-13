@@ -68,7 +68,7 @@ public class TimeManager : MonoBehaviour
 
     void OnDestroy()
     {
-        CurrentInstance = null;
+        Current = null;
     }
 
     readonly float defaultFixedDeltaTime = 0.02f;
@@ -76,9 +76,9 @@ public class TimeManager : MonoBehaviour
     {
         Time.timeScale = 1;
         Time.fixedDeltaTime = defaultFixedDeltaTime;
-        CurrentInstance = this;
+        Current = this;
     }
-    public static TimeManager CurrentInstance{ get; private set; }
+    public static TimeManager Current{ get; private set; }
 }
 
 public enum TimeEffectType

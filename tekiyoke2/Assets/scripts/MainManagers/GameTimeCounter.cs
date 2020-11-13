@@ -62,6 +62,6 @@ public class GameTimeCounter : MonoBehaviour
             numImages[i].sprite = Char2NumSprite(timeStr[i]);
         }
 
-        if(DoesTick) Seconds += TimeManager.CurrentInstance.DeltaTimeExceptHero; //AroundHeroにするとDraftMode中はスローになるけど、まあこっちの方が面白いでしょ
+        if(DoesTick) Seconds += TimeManager.Current.DeltaTimeExceptHero; //AroundHeroにするとDraftMode中はスローになるけど、まあこっちの方が面白いでしょ
     }
 }
