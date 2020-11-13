@@ -26,5 +26,11 @@ public class NaitrumController : EnemyController
         foreach(SpriteRenderer sr in spriteRenderers) sr.flipX = toRight;
     }
 
-    new void Update() => MovePos( (toRight ? 1 : -1) * moveSpeed, 0);
+    void Update() => MovePos( (toRight ? 1 : -1) * moveSpeed, 0);
+
+    void MovePos(float v_x, float v_y)
+    {
+        rBody.MovePosition(new Vector2(rBody.transform.position.x + v_x * TimeManager.CurrentInstance.TimeScaleExceptHero,
+                                       rBody.transform.position.y + v_y * TimeManager.CurrentInstance.TimeScaleExceptHero));
+    }
 }

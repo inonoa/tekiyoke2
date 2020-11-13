@@ -18,7 +18,7 @@ public class JerryController : EnemyController
 
     JellyView view;
 
-    public override void OnSpawned()
+    protected override void OnSpawned()
     {
         rBody = transform.Find("Kasa").GetComponent<Rigidbody2D>();
 

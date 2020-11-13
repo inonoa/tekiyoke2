@@ -42,23 +42,23 @@ public class GierController : EnemyController
         state = toRightFirst ? GierState.BeforeFindingR : GierState.BeforeFindingL;
     }
 
-    new void Update()
+    void Update()
     {
-        base.Update_();
+        rBody.velocity = new Vector2(0, rBody.velocity.y);
 
         switch(state){
 
             case GierState.BeforeFindingR:
                 if( NearHero() ) Find();
 
-                MoveX_ConsideringGravity(walkSpeed);
+                rBody.MoveX_ConsideringGravity(walkSpeed);
                 HontaiSR.transform.Rotate(-normalRotateSpeed);
                 break;
 
             case GierState.BeforeFindingL:
                 if( NearHero() ) Find();
                 
-                MoveX_ConsideringGravity(-walkSpeed);
+                rBody.MoveX_ConsideringGravity(-walkSpeed);
                 HontaiSR.transform.Rotate(normalRotateSpeed);
             break;
 
@@ -73,12 +73,12 @@ public class GierController : EnemyController
 
             case GierState.Running:
                 if(HeroDefiner.CurrentHeroPos.x > transform.position.x + 10){
-                    MoveX_ConsideringGravity( runSpeed);
+                    rBody.MoveX_ConsideringGravity( runSpeed);
                     HontaiSR.transform.Rotate(-runningRotateSpeed);
                     eyeRenderer.flipX = false;
                 }
                 if(HeroDefiner.CurrentHeroPos.x < transform.position.x - 10){
-                    MoveX_ConsideringGravity(-runSpeed);
+                    rBody.MoveX_ConsideringGravity(-runSpeed);
                     HontaiSR.transform.Rotate(runningRotateSpeed);
                     eyeRenderer.flipX = true;
                 }
