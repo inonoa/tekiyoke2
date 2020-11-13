@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
+
 public class EnemySpawner : MonoBehaviour
 {
-    EnemyController[] enemies;
-
-    Vector3[] defaultPositions;
+    ISpawnsNearHero[] enemies;
 
     bool spawnedYet = false;
 
@@ -15,12 +14,11 @@ public class EnemySpawner : MonoBehaviour
     {
         if(spawnedYet) return;
 
-        if(other.gameObject.tag=="CanSeeEnemy")
+        if(other.CompareTag("CanSeeEnemy"))
         {
-            foreach(EnemyController enemy in enemies)
+            foreach(ISpawnsNearHero enemy in enemies)
             {
-                enemy.gameObject.SetActive(true);
-                enemy.OnSpawned();
+                enemy.Spawn();
             }
             spawnedYet = true;
         }
@@ -28,8 +26,13 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
-        enemies = GetComponentsInChildren<EnemyController>(true);
-        defaultPositions = enemies.Select(e => e.transform.position).ToArray();
-        foreach(EnemyController enemy in enemies) enemy.gameObject.SetActive(false);
+        enemies = GetComponentsInChildren<ISpawnsNearHero>(includeInactive: true);
+        foreach(ISpawnsNearHero enemy in enemies) enemy.Hide();
     }
+}
+
+public interface ISpawnsNearHero
+{
+    void Spawn();
+    void Hide();
 }

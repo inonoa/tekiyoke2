@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using Sirenix.OdinInspector;
 
-public class KennerController : EnemyController
+public class KennerController : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
 {
     enum State{ Wait, Jump, Shoot, Rest }
     State state = State.Wait;
@@ -46,14 +47,18 @@ public class KennerController : EnemyController
     [SerializeField] float tamaSpeedPerSec = 200;
     [SerializeField] float tamaLife = 1f;
 
-    [Header("--子オブジェクト類--")]
-    [SerializeField] GroundChecker groundChecker = null;
-    [SerializeField] Transform gazosTF = null;
-    [SerializeField] Transform baneTF = null;
-    [SerializeField] Transform dodaiTF = null;
-    [SerializeField] SpriteRenderer hontaiSR = null;
-    [SerializeField] Sprite hontaiSpriteActive = null;
-    [SerializeField] Sprite hontaiSpriteInactive = null;
+    const string DEP = "子オブジェクト類";
+    [FoldoutGroup(DEP), SerializeField] GroundChecker groundChecker = null;
+    [FoldoutGroup(DEP), SerializeField] Transform gazosTF = null;
+    [FoldoutGroup(DEP), SerializeField] Transform baneTF = null;
+    [FoldoutGroup(DEP), SerializeField] Transform dodaiTF = null;
+    [FoldoutGroup(DEP), SerializeField] SpriteRenderer hontaiSR = null;
+    [FoldoutGroup(DEP), SerializeField] Sprite hontaiSpriteActive = null;
+    [FoldoutGroup(DEP), SerializeField] Sprite hontaiSpriteInactive = null;
+    [FoldoutGroup(DEP), SerializeField] Rigidbody2D RigidBody;
+
+    [field: FoldoutGroup(DEP), SerializeField, LabelText("DPCD")]
+    public DPinEnemy DPCD{ get; private set; }
 
     static bool inNewScene; //なんかあほらしいな……
     static ObjectPool<TamaController> tamaPool;
@@ -65,7 +70,6 @@ public class KennerController : EnemyController
 
     void Start()
     {
-        base.Init();
         if(inNewScene){
             //これがどのタイミングで呼ばれるのか分からん(主人公が近づいてきてから呼ばれてたらつらい)
             tamaPool = new ObjectPool<TamaController>(tama, 128, DraftManager.CurrentInstance.GameMasterTF);
@@ -88,7 +92,7 @@ public class KennerController : EnemyController
                 break;
             
             case State.Jump:
-                if(rBody.velocity.y < 0){
+                if(RigidBody.velocity.y < 0){
                     state = State.Shoot;
                     secondsToShootNow = 0;
                     howManyShootsNow = howManyShoots;
@@ -98,8 +102,8 @@ public class KennerController : EnemyController
                 break;
             
             case State.Shoot:
-                rBody.simulated = false;
-                secondsToShootNow -= TimeManager.DeltaTimeExceptHero;
+                RigidBody.simulated = false;
+                secondsToShootNow -= TimeManager.Current.DeltaTimeExceptHero;
 
                 if(secondsToShootNow <= 0)
                 {
@@ -109,13 +113,13 @@ public class KennerController : EnemyController
                     howManyShootsNow --;
                     if(howManyShootsNow==0){
                         state = State.Rest;
-                        rBody.simulated = true;
+                        RigidBody.simulated = true;
                     }
                 }
                 break;
             
             case State.Rest:
-                restSecondsNow += TimeManager.DeltaTimeExceptHero;
+                restSecondsNow += TimeManager.Current.DeltaTimeExceptHero;
 
                 if(restSecondsNow >= restSeconds){
                     restSecondsNow = 0;
@@ -127,14 +131,14 @@ public class KennerController : EnemyController
                         hontaiSR.sprite = hontaiSpriteInactive;
                     }
 
-                }else if(groundChecker.IsOnGround) rBody.velocity = new Vector2();
+                }else if(groundChecker.IsOnGround) RigidBody.velocity = new Vector2();
 
                 break;
         }
     }
 
     void Jump(){
-        rBody.velocity = new Vector2(0,jumpForce);
+        RigidBody.velocity = new Vector2(0,jumpForce);
         state = State.Jump;
         baneTF.DOScaleY(1, 0.3f).SetEase(Ease.InOutSine);
         dodaiTF.DOLocalMoveY(-46,0.3f).SetEase(Ease.InOutSine);
@@ -157,5 +161,15 @@ public class KennerController : EnemyController
         }
 
         soundGroup.Play("Shoot");
+    }
+
+    public void Spawn()
+    {
+        gameObject.SetActive(true);
+    }
+
+    public void Hide()
+    {
+        gameObject.SetActive(false);
     }
 }

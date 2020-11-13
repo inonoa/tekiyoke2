@@ -45,6 +45,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -56,6 +57,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -236,7 +238,6 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
-  collider: {fileID: 0}
 --- !u!1 &4422211888181375507
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,8 +348,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae035952b4ba23541971909a9e1027e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dpcd: {fileID: 8995851440116626034}
-  fallSpeedMax: 300
   walkSpeed: 100
   runSpeed: 400
   distanceToFindHero: 200
@@ -363,6 +362,8 @@ MonoBehaviour:
   eyeNormal: {fileID: 21300000, guid: 49e7243353c7a1a43b786d07c6be8975, type: 3}
   eyeFinding: {fileID: 21300000, guid: 5714ee69952a87649a5ca15e7d0f3625, type: 3}
   eyeRunning: {fileID: 21300000, guid: c976670ee59bbb243b0c20e752bd4ed1, type: 3}
+  RigidBody: {fileID: 4422211888311780093}
+  <DPCD>k__BackingField: {fileID: 8995851440116626034}
 --- !u!61 &4422211888311780092
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -596,6 +597,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -607,6 +609,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0

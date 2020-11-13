@@ -51,6 +51,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -62,6 +63,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -118,12 +120,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a532cd24710cbd34a9c0dc90b36a592c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dpcd: {fileID: 5149724893926697801}
-  rBody: {fileID: 1421112567456498838}
-  moveSpeed: 1
+  moveSpeed: 80
   toRight: 0
   spriteRenderers:
   - {fileID: 1421112567456498835}
+  RigidBody: {fileID: 1421112567456498838}
+  <DPCD>k__BackingField: {fileID: 5149724893926697801}
 --- !u!61 &1421112567456498836
 BoxCollider2D:
   m_ObjectHideFlags: 0

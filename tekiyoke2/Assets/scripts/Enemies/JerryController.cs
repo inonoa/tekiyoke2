@@ -7,7 +7,7 @@ using DG.Tweening;
 using Sirenix.OdinInspector;
 using UniRx;
 
-public class JerryController : EnemyController
+public class JerryController : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
 {
     [SerializeField] bool  isGoingUp  = true;
     [SerializeField] float periodSecs = 1.3f;
@@ -15,12 +15,16 @@ public class JerryController : EnemyController
     [Space(10)]
     [SerializeField] Transform positionU;
     [SerializeField] Transform positionD;
+    [SerializeField] Rigidbody2D RigidBody;
+
+    [field: SerializeField, LabelText("DPCD")]
+    public DPinEnemy DPCD{ get; private set; }
 
     JellyView view;
 
-    public override void OnSpawned()
+    void OnSpawned()
     {
-        rBody = transform.Find("Kasa").GetComponent<Rigidbody2D>();
+        RigidBody = transform.Find("Kasa").GetComponent<Rigidbody2D>();
 
         view = GetComponent<JellyView>();
         view.Init(isGoingUp);
@@ -29,7 +33,7 @@ public class JerryController : EnemyController
         float posD = positionD.position.y;
         float diameter = posU - posD;
 
-        Tween firstTween = rBody.DOMoveY(isGoingUp ? posU : posD, periodSecs)
+        Tween firstTween = RigidBody.DOMoveY(isGoingUp ? posU : posD, periodSecs)
                                 .SetEase(Ease.InOutSine);
         firstTween.GetPausable().AddTo(this);
         
@@ -37,7 +41,7 @@ public class JerryController : EnemyController
         (
             isGoingUp ? posD : posU,
             isGoingUp ? posU : posD,
-            rBody.position.y
+            RigidBody.position.y
         );
         float currentTime = (1 - Mathf.Acos(currentTimeNormalized)) * periodSecs;
         firstTween.Goto(currentTime, andPlay: true);
@@ -46,7 +50,7 @@ public class JerryController : EnemyController
         {
             Turn();
 
-            Tween mainTween = rBody
+            Tween mainTween = RigidBody
                 .DOMoveY(isGoingUp ? posU : posD, periodSecs)
                 .SetEase(Ease.InOutSine)
                 .SetLoops(-1, LoopType.Yoyo)
@@ -61,5 +65,17 @@ public class JerryController : EnemyController
         isGoingUp = !isGoingUp;
         if(isGoingUp) view.OnTurnUp();
         else          view.OnTurnDown();
+    }
+
+
+    public void Spawn()
+    {
+        gameObject.SetActive(true);
+        OnSpawned();
+    }
+
+    public void Hide()
+    {
+        gameObject.SetActive(false);
     }
 }

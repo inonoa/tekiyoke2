@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using DG.Tweening;
+using Sirenix.OdinInspector;
 
 public class TamaController : MonoBehaviour, IReusable
 {
     Rigidbody2D rBody;
-    Vector3 speedVec;
-    float lifeNow;
+    [SerializeField, ReadOnly] Vector3 speedVec;
+    [SerializeField, ReadOnly] float lifeNow;
     public bool InUse{ get; private set; }
 
     public void Activate(string angle_speed_life){
@@ -27,10 +28,14 @@ public class TamaController : MonoBehaviour, IReusable
         rBody = GetComponent<Rigidbody2D>();
     }
 
+    void FixedUpdate()
+    {
+        rBody.MovePosition(transform.position + speedVec * TimeManager.Current.FixedDeltaTimeExceptHero);
+    }
+
     void Update()
     {
-        rBody.MovePosition(transform.position + speedVec * TimeManager.CurrentInstance.DeltaTimeExceptHero);
-        lifeNow -= TimeManager.CurrentInstance.DeltaTimeExceptHero;
+        lifeNow -= TimeManager.Current.DeltaTimeExceptHero;
         if(lifeNow <= 0) Die();
     }
 

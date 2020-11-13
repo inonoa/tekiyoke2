@@ -43,6 +43,7 @@
      <Compile Include="Assets\Scripts\Enemies\DPinEnemy.cs" />
      <Compile Include="Assets\Scripts\Enemies\DontWannaFall.cs" />
      <Compile Include="Assets\Scripts\Enemies\EnemyController.cs" />
+     <Compile Include="Assets\Scripts\Enemies\EnemyExtensions.cs" />
      <Compile Include="Assets\Scripts\Enemies\EnemySpawner.cs" />
      <Compile Include="Assets\Scripts\Enemies\GierController.cs" />
      <Compile Include="Assets\Scripts\Enemies\JellyView.cs" />

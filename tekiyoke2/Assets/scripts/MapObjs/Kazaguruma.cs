@@ -49,7 +49,7 @@ public class Kazaguruma : MonoBehaviour{
     {
         if(logRotateVel > logVelEpsilon)
         {
-            float deltaTime = TimeManager.CurrentInstance.FixedDeltaTimeExceptHero;
+            float deltaTime = TimeManager.Current.FixedDeltaTimeExceptHero;
 
             float actualVelocity = Mathf.Exp(logRotateVel) * deltaTime;
             kuruma.Rotate(0,0, - actualVelocity );

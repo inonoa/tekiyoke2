@@ -14,7 +14,7 @@ public class DPCD : MonoBehaviour
 
     void Update()
     {
-        float dt = TimeManager.CurrentInstance.DeltaTimeExceptHero;
+        float dt = TimeManager.Current.DeltaTimeExceptHero;
         transform.Rotate(new Vector3(0, 0, gotten ? rotateDegreePerSec * dt * 2 : rotateDegreePerSec * dt));
     }
 

@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UniRx;
+using Sirenix.OdinInspector;
 
-public class GierController : EnemyController
+public class GierController : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
 {
     enum GierState{ BeforeFindingR, BeforeFindingL, FindingNow, Running }
     GierState state;
@@ -24,16 +25,21 @@ public class GierController : EnemyController
     GroundChecker groundChecker;
 
     [SerializeField] SpriteRenderer HontaiSR = null;
-    [SerializeField] Vector3 normalRotateSpeed = Vector3.zero;
+    [SerializeField] Vector3 normalRotateSpeed  = Vector3.zero;
     [SerializeField] Vector3 runningRotateSpeed = Vector3.zero;
     [SerializeField] SpriteRenderer eyeRenderer;
     [SerializeField] Sprite eyeNormal;
     [SerializeField] Sprite eyeFinding;
     [SerializeField] Sprite eyeRunning;
 
+    [Space(10)]
+    [SerializeField] Rigidbody2D RigidBody;
+
+    [field: SerializeField, LabelText("DPCD")]
+    public DPinEnemy DPCD{ get; private set; }
+
     void Start()
     {
-        base.Init();
         HeroDefiner.currentHero.OnJumped.Subscribe(jump => HeroJumped(jump.isKick));
         groundChecker = transform.Find("GroundChecker").GetComponent<GroundChecker>();
         transform.Find("DontWannaFallR").GetComponent<DontWannaFall>().about2fall += Turn;
@@ -42,23 +48,23 @@ public class GierController : EnemyController
         state = toRightFirst ? GierState.BeforeFindingR : GierState.BeforeFindingL;
     }
 
-    new void Update()
+    void Update()
     {
-        base.Update_();
+        RigidBody.velocity = new Vector2(0, RigidBody.velocity.y);
 
         switch(state){
 
             case GierState.BeforeFindingR:
                 if( NearHero() ) Find();
 
-                MoveX_ConsideringGravity(walkSpeed);
+                RigidBody.MoveX_ConsideringGravity(walkSpeed);
                 HontaiSR.transform.Rotate(-normalRotateSpeed);
                 break;
 
             case GierState.BeforeFindingL:
                 if( NearHero() ) Find();
                 
-                MoveX_ConsideringGravity(-walkSpeed);
+                RigidBody.MoveX_ConsideringGravity(-walkSpeed);
                 HontaiSR.transform.Rotate(normalRotateSpeed);
             break;
 
@@ -73,18 +79,18 @@ public class GierController : EnemyController
 
             case GierState.Running:
                 if(HeroDefiner.CurrentHeroPos.x > transform.position.x + 10){
-                    MoveX_ConsideringGravity( runSpeed);
+                    RigidBody.MoveX_ConsideringGravity( runSpeed);
                     HontaiSR.transform.Rotate(-runningRotateSpeed);
                     eyeRenderer.flipX = false;
                 }
                 if(HeroDefiner.CurrentHeroPos.x < transform.position.x - 10){
-                    MoveX_ConsideringGravity(-runSpeed);
+                    RigidBody.MoveX_ConsideringGravity(-runSpeed);
                     HontaiSR.transform.Rotate(runningRotateSpeed);
                     eyeRenderer.flipX = true;
                 }
 
                 if( MyMath.DistanceXY(HeroDefiner.CurrentHeroPos,transform.position) > distanceToMissHero ){
-                    if(rBody.velocity.x > 0) state = GierState.BeforeFindingR;
+                    if(RigidBody.velocity.x > 0) state = GierState.BeforeFindingR;
                     else                     state = GierState.BeforeFindingL;
                     eyeRenderer.sprite = eyeNormal;
                 }
@@ -105,7 +111,7 @@ public class GierController : EnemyController
 
     void HeroJumped(bool isKick){
         if(isKick) return;
-        if(groundChecker.IsOnGround && state == GierState.Running) rBody.velocity = new Vector2(rBody.velocity.x, jumpForce);
+        if(groundChecker.IsOnGround && state == GierState.Running) RigidBody.velocity = new Vector2(RigidBody.velocity.x, jumpForce);
     }
 
     void Turn(object sender, EventArgs e){
@@ -117,5 +123,15 @@ public class GierController : EnemyController
             state = GierState.BeforeFindingL;
             eyeRenderer.flipX = true;
         }
+    }
+
+    public void Spawn()
+    {
+        gameObject.SetActive(true);
+    }
+
+    public void Hide()
+    {
+        gameObject.SetActive(false);
     }
 }
