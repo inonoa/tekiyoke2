@@ -120,12 +120,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a532cd24710cbd34a9c0dc90b36a592c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dpcd: {fileID: 5149724893926697801}
   moveSpeed: 1
   toRight: 0
   spriteRenderers:
   - {fileID: 1421112567456498835}
   RigidBody: {fileID: 1421112567456498838}
+  <DPCD>k__BackingField: {fileID: 5149724893926697801}
 --- !u!61 &1421112567456498836
 BoxCollider2D:
   m_ObjectHideFlags: 0

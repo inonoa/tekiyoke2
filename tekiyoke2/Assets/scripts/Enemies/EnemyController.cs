@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Sirenix.OdinInspector;
 
 public abstract class EnemyController : MonoBehaviour, ISpawnsNearHero
 {
-    [SerializeField] DPinEnemy dpcd;
-    public DPinEnemy DPCD => dpcd;
 
     protected TimeManager TimeManager{ get; private set; }
 

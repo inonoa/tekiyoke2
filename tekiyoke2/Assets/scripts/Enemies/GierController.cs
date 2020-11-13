@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UniRx;
+using Sirenix.OdinInspector;
 
-public class GierController : EnemyController
+public class GierController : EnemyController, IHaveDPinEnemy
 {
     enum GierState{ BeforeFindingR, BeforeFindingL, FindingNow, Running }
     GierState state;
@@ -33,6 +34,9 @@ public class GierController : EnemyController
 
     [Space(10)]
     [SerializeField] Rigidbody2D RigidBody;
+
+    [field: SerializeField, LabelText("DPCD")]
+    public DPinEnemy DPCD{ get; private set; }
 
     void Start()
     {

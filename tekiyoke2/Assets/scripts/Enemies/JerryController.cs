@@ -7,7 +7,7 @@ using DG.Tweening;
 using Sirenix.OdinInspector;
 using UniRx;
 
-public class JerryController : EnemyController
+public class JerryController : EnemyController, IHaveDPinEnemy
 {
     [SerializeField] bool  isGoingUp  = true;
     [SerializeField] float periodSecs = 1.3f;
@@ -16,6 +16,9 @@ public class JerryController : EnemyController
     [SerializeField] Transform positionU;
     [SerializeField] Transform positionD;
     [SerializeField] Rigidbody2D RigidBody;
+
+    [field: SerializeField, LabelText("DPCD")]
+    public DPinEnemy DPCD{ get; private set; }
 
     JellyView view;
 

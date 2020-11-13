@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Timeline;
 using System;
+using Sirenix.OdinInspector;
 
-public class NaitrumController : EnemyController
+public class NaitrumController : EnemyController, IHaveDPinEnemy
 {
     [SerializeField] float moveSpeed = 1;
     [SerializeField] bool toRight = false;
@@ -13,6 +14,9 @@ public class NaitrumController : EnemyController
     [Space(10)]
     [SerializeField] SpriteRenderer[] spriteRenderers;
     [SerializeField] Rigidbody2D RigidBody;
+
+    [field: SerializeField, LabelText("DPCD")]
+    public DPinEnemy DPCD{ get; private set; }
     
 
     private void Turn(object sender, EventArgs e){

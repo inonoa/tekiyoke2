@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using Sirenix.OdinInspector;
 
-public class KennerController : EnemyController
+public class KennerController : EnemyController, IHaveDPinEnemy
 {
     enum State{ Wait, Jump, Shoot, Rest }
     State state = State.Wait;
@@ -55,6 +56,9 @@ public class KennerController : EnemyController
     [SerializeField] Sprite hontaiSpriteActive = null;
     [SerializeField] Sprite hontaiSpriteInactive = null;
     [SerializeField] Rigidbody2D RigidBody;
+
+    [field: SerializeField, LabelText("DPCD")]
+    public DPinEnemy DPCD{ get; private set; }
 
     static bool inNewScene; //なんかあほらしいな……
     static ObjectPool<TamaController> tamaPool;

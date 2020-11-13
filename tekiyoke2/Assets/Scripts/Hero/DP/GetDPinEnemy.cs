@@ -18,7 +18,7 @@ public class GetDPinEnemy : MonoBehaviour
     {
         if(other.tag=="Enemy")
         {
-            var dPinEnemy = other.GetComponentInParent<EnemyController>().DPCD;
+            var dPinEnemy = other.GetComponentInParent<IHaveDPinEnemy>().DPCD;
             if(dPinEnemy.IsActive)
             {
                 dPinEnemy.Light();
@@ -68,4 +68,9 @@ public class GetDPinEnemy : MonoBehaviour
         };
         col.SetPath(0, colPoints);
     }
+}
+
+public interface IHaveDPinEnemy
+{
+    DPinEnemy DPCD{ get; }
 }
