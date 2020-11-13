@@ -4,5 +4,5 @@ using UnityEngine;
 
 public enum DamageType
 {
-    Normal, Drop
+    Normal, Drop, Debug
 }

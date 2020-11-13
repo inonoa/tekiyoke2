@@ -5,7 +5,9 @@ using UnityEngine;
 public class ScriptableObjectsLoader : MonoBehaviour
 {
     [RuntimeInitializeOnLoadMethod]
-    static void Init(){
-        DontDestroyOnLoad(Instantiate(Resources.Load("ScriptableObjectsHolder") as GameObject));
+    static void Init()
+    {
+        GameObject holder = Resources.Load("ScriptableObjectsHolder") as GameObject;
+        DontDestroyOnLoad(Instantiate(holder));
     }
 }
