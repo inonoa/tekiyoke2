@@ -10,7 +10,9 @@ public class NaitrumController : EnemyController
     [SerializeField] bool toRight = false;
     Collider2Wall col;
 
+    [Space(10)]
     [SerializeField] SpriteRenderer[] spriteRenderers;
+    [SerializeField] Rigidbody2D RigidBody;
     
 
     private void Turn(object sender, EventArgs e){
@@ -30,7 +32,7 @@ public class NaitrumController : EnemyController
 
     void MovePos(float v_x, float v_y)
     {
-        rBody.MovePosition(new Vector2(rBody.transform.position.x + v_x * TimeManager.CurrentInstance.TimeScaleExceptHero,
-                                       rBody.transform.position.y + v_y * TimeManager.CurrentInstance.TimeScaleExceptHero));
+        RigidBody.MovePosition(new Vector2(RigidBody.transform.position.x + v_x * TimeManager.CurrentInstance.TimeScaleExceptHero,
+                                       RigidBody.transform.position.y + v_y * TimeManager.CurrentInstance.TimeScaleExceptHero));
     }
 }

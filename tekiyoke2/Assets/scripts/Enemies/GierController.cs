@@ -24,12 +24,15 @@ public class GierController : EnemyController
     GroundChecker groundChecker;
 
     [SerializeField] SpriteRenderer HontaiSR = null;
-    [SerializeField] Vector3 normalRotateSpeed = Vector3.zero;
+    [SerializeField] Vector3 normalRotateSpeed  = Vector3.zero;
     [SerializeField] Vector3 runningRotateSpeed = Vector3.zero;
     [SerializeField] SpriteRenderer eyeRenderer;
     [SerializeField] Sprite eyeNormal;
     [SerializeField] Sprite eyeFinding;
     [SerializeField] Sprite eyeRunning;
+
+    [Space(10)]
+    [SerializeField] Rigidbody2D RigidBody;
 
     void Start()
     {
@@ -44,21 +47,21 @@ public class GierController : EnemyController
 
     void Update()
     {
-        rBody.velocity = new Vector2(0, rBody.velocity.y);
+        RigidBody.velocity = new Vector2(0, RigidBody.velocity.y);
 
         switch(state){
 
             case GierState.BeforeFindingR:
                 if( NearHero() ) Find();
 
-                rBody.MoveX_ConsideringGravity(walkSpeed);
+                RigidBody.MoveX_ConsideringGravity(walkSpeed);
                 HontaiSR.transform.Rotate(-normalRotateSpeed);
                 break;
 
             case GierState.BeforeFindingL:
                 if( NearHero() ) Find();
                 
-                rBody.MoveX_ConsideringGravity(-walkSpeed);
+                RigidBody.MoveX_ConsideringGravity(-walkSpeed);
                 HontaiSR.transform.Rotate(normalRotateSpeed);
             break;
 
@@ -73,18 +76,18 @@ public class GierController : EnemyController
 
             case GierState.Running:
                 if(HeroDefiner.CurrentHeroPos.x > transform.position.x + 10){
-                    rBody.MoveX_ConsideringGravity( runSpeed);
+                    RigidBody.MoveX_ConsideringGravity( runSpeed);
                     HontaiSR.transform.Rotate(-runningRotateSpeed);
                     eyeRenderer.flipX = false;
                 }
                 if(HeroDefiner.CurrentHeroPos.x < transform.position.x - 10){
-                    rBody.MoveX_ConsideringGravity(-runSpeed);
+                    RigidBody.MoveX_ConsideringGravity(-runSpeed);
                     HontaiSR.transform.Rotate(runningRotateSpeed);
                     eyeRenderer.flipX = true;
                 }
 
                 if( MyMath.DistanceXY(HeroDefiner.CurrentHeroPos,transform.position) > distanceToMissHero ){
-                    if(rBody.velocity.x > 0) state = GierState.BeforeFindingR;
+                    if(RigidBody.velocity.x > 0) state = GierState.BeforeFindingR;
                     else                     state = GierState.BeforeFindingL;
                     eyeRenderer.sprite = eyeNormal;
                 }
@@ -105,7 +108,7 @@ public class GierController : EnemyController
 
     void HeroJumped(bool isKick){
         if(isKick) return;
-        if(groundChecker.IsOnGround && state == GierState.Running) rBody.velocity = new Vector2(rBody.velocity.x, jumpForce);
+        if(groundChecker.IsOnGround && state == GierState.Running) RigidBody.velocity = new Vector2(RigidBody.velocity.x, jumpForce);
     }
 
     void Turn(object sender, EventArgs e){

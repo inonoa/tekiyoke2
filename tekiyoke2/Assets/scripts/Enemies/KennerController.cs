@@ -54,6 +54,7 @@ public class KennerController : EnemyController
     [SerializeField] SpriteRenderer hontaiSR = null;
     [SerializeField] Sprite hontaiSpriteActive = null;
     [SerializeField] Sprite hontaiSpriteInactive = null;
+    [SerializeField] Rigidbody2D RigidBody;
 
     static bool inNewScene; //なんかあほらしいな……
     static ObjectPool<TamaController> tamaPool;
@@ -88,7 +89,7 @@ public class KennerController : EnemyController
                 break;
             
             case State.Jump:
-                if(rBody.velocity.y < 0){
+                if(RigidBody.velocity.y < 0){
                     state = State.Shoot;
                     secondsToShootNow = 0;
                     howManyShootsNow = howManyShoots;
@@ -98,7 +99,7 @@ public class KennerController : EnemyController
                 break;
             
             case State.Shoot:
-                rBody.simulated = false;
+                RigidBody.simulated = false;
                 secondsToShootNow -= TimeManager.DeltaTimeExceptHero;
 
                 if(secondsToShootNow <= 0)
@@ -109,7 +110,7 @@ public class KennerController : EnemyController
                     howManyShootsNow --;
                     if(howManyShootsNow==0){
                         state = State.Rest;
-                        rBody.simulated = true;
+                        RigidBody.simulated = true;
                     }
                 }
                 break;
@@ -127,14 +128,14 @@ public class KennerController : EnemyController
                         hontaiSR.sprite = hontaiSpriteInactive;
                     }
 
-                }else if(groundChecker.IsOnGround) rBody.velocity = new Vector2();
+                }else if(groundChecker.IsOnGround) RigidBody.velocity = new Vector2();
 
                 break;
         }
     }
 
     void Jump(){
-        rBody.velocity = new Vector2(0,jumpForce);
+        RigidBody.velocity = new Vector2(0,jumpForce);
         state = State.Jump;
         baneTF.DOScaleY(1, 0.3f).SetEase(Ease.InOutSine);
         dodaiTF.DOLocalMoveY(-46,0.3f).SetEase(Ease.InOutSine);

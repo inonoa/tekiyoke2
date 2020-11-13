@@ -8,8 +8,6 @@ public abstract class EnemyController : MonoBehaviour, ISpawnsNearHero
     [SerializeField] DPinEnemy dpcd;
     public DPinEnemy DPCD => dpcd;
 
-    [SerializeField] protected Rigidbody2D rBody;
-
     protected TimeManager TimeManager{ get; private set; }
 
     protected void Init()
