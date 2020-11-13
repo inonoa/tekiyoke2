@@ -5,7 +5,7 @@ using System;
 using UniRx;
 using Sirenix.OdinInspector;
 
-public class GierController : EnemyController, IHaveDPinEnemy
+public class GierController : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
 {
     enum GierState{ BeforeFindingR, BeforeFindingL, FindingNow, Running }
     GierState state;
@@ -123,5 +123,15 @@ public class GierController : EnemyController, IHaveDPinEnemy
             state = GierState.BeforeFindingL;
             eyeRenderer.flipX = true;
         }
+    }
+
+    public void Spawn()
+    {
+        gameObject.SetActive(true);
+    }
+
+    public void Hide()
+    {
+        gameObject.SetActive(false);
     }
 }

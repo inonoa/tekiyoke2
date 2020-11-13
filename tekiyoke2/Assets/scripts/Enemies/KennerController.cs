@@ -4,7 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using Sirenix.OdinInspector;
 
-public class KennerController : EnemyController, IHaveDPinEnemy
+public class KennerController : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
 {
     enum State{ Wait, Jump, Shoot, Rest }
     State state = State.Wait;
@@ -47,17 +47,17 @@ public class KennerController : EnemyController, IHaveDPinEnemy
     [SerializeField] float tamaSpeedPerSec = 200;
     [SerializeField] float tamaLife = 1f;
 
-    [Header("--子オブジェクト類--")]
-    [SerializeField] GroundChecker groundChecker = null;
-    [SerializeField] Transform gazosTF = null;
-    [SerializeField] Transform baneTF = null;
-    [SerializeField] Transform dodaiTF = null;
-    [SerializeField] SpriteRenderer hontaiSR = null;
-    [SerializeField] Sprite hontaiSpriteActive = null;
-    [SerializeField] Sprite hontaiSpriteInactive = null;
-    [SerializeField] Rigidbody2D RigidBody;
+    const string DEP = "子オブジェクト類";
+    [FoldoutGroup(DEP), SerializeField] GroundChecker groundChecker = null;
+    [FoldoutGroup(DEP), SerializeField] Transform gazosTF = null;
+    [FoldoutGroup(DEP), SerializeField] Transform baneTF = null;
+    [FoldoutGroup(DEP), SerializeField] Transform dodaiTF = null;
+    [FoldoutGroup(DEP), SerializeField] SpriteRenderer hontaiSR = null;
+    [FoldoutGroup(DEP), SerializeField] Sprite hontaiSpriteActive = null;
+    [FoldoutGroup(DEP), SerializeField] Sprite hontaiSpriteInactive = null;
+    [FoldoutGroup(DEP), SerializeField] Rigidbody2D RigidBody;
 
-    [field: SerializeField, LabelText("DPCD")]
+    [field: FoldoutGroup(DEP), SerializeField, LabelText("DPCD")]
     public DPinEnemy DPCD{ get; private set; }
 
     static bool inNewScene; //なんかあほらしいな……
@@ -161,5 +161,15 @@ public class KennerController : EnemyController, IHaveDPinEnemy
         }
 
         soundGroup.Play("Shoot");
+    }
+
+    public void Spawn()
+    {
+        gameObject.SetActive(true);
+    }
+
+    public void Hide()
+    {
+        gameObject.SetActive(false);
     }
 }

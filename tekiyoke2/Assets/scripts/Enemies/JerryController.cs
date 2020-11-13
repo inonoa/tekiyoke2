@@ -7,7 +7,7 @@ using DG.Tweening;
 using Sirenix.OdinInspector;
 using UniRx;
 
-public class JerryController : EnemyController, IHaveDPinEnemy
+public class JerryController : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
 {
     [SerializeField] bool  isGoingUp  = true;
     [SerializeField] float periodSecs = 1.3f;
@@ -22,7 +22,7 @@ public class JerryController : EnemyController, IHaveDPinEnemy
 
     JellyView view;
 
-    protected override void OnSpawned()
+    void OnSpawned()
     {
         RigidBody = transform.Find("Kasa").GetComponent<Rigidbody2D>();
 
@@ -65,5 +65,17 @@ public class JerryController : EnemyController, IHaveDPinEnemy
         isGoingUp = !isGoingUp;
         if(isGoingUp) view.OnTurnUp();
         else          view.OnTurnDown();
+    }
+
+
+    public void Spawn()
+    {
+        gameObject.SetActive(true);
+        OnSpawned();
+    }
+
+    public void Hide()
+    {
+        gameObject.SetActive(false);
     }
 }

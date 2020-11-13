@@ -5,7 +5,7 @@ using UnityEngine.Timeline;
 using System;
 using Sirenix.OdinInspector;
 
-public class NaitrumController : EnemyController, IHaveDPinEnemy
+public class NaitrumController : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
 {
     [SerializeField] float moveSpeed = 1;
     [SerializeField] bool toRight = false;
@@ -37,5 +37,15 @@ public class NaitrumController : EnemyController, IHaveDPinEnemy
     {
         RigidBody.MovePosition(new Vector2(RigidBody.transform.position.x + v_x * TimeManager.Current.TimeScaleExceptHero,
                                        RigidBody.transform.position.y + v_y * TimeManager.Current.TimeScaleExceptHero));
+    }
+
+    public void Spawn()
+    {
+        gameObject.SetActive(true);
+    }
+
+    public void Hide()
+    {
+        gameObject.SetActive(false);
     }
 }

@@ -25,7 +25,7 @@ public class HeroMover : MonoBehaviour
 
     public IObservable<Unit> OnLand => groundChecker.OnLand;
 
-    [field: SerializeField, LabelText("Sakamichi Sensors")]
+    [field: FoldoutGroup(COMP), SerializeField, LabelText("Sakamichi Sensors")]
     public SakamichiSensors SakamichiSensors{ get; private set; }
 
 
@@ -128,25 +128,27 @@ public class HeroMover : MonoBehaviour
     public TimeManager TimeManager{ get; private set; }
     public HpCntr HpCntr{ get; private set; }
     public HeroObjsHolder4States ObjsHolderForStates{ get; private set; }
-    [SerializeField] SoundGroup _SoundGroup;
+    [FoldoutGroup(COMP), SerializeField] SoundGroup _SoundGroup;
     public SoundGroup SoundGroup => _SoundGroup;
 
-    [field: SerializeField] [field: RenameField("WindSounds")]
+    [field: FoldoutGroup(COMP), SerializeField, RenameField("WindSounds")]
     public WindSoundController WindSounds{ get; private set; }
     
-    [SerializeField] GroundChecker groundChecker;
-    [SerializeField] WallChecker wallCheckerL;
-    [SerializeField] WallChecker wallCheckerR;
-    [SerializeField] JumpCounter _JumpCounter;
+    const string COMP = "包含";
+    [FoldoutGroup(COMP), SerializeField] GroundChecker groundChecker;
+    [FoldoutGroup(COMP), SerializeField] WallChecker wallCheckerL;
+    [FoldoutGroup(COMP), SerializeField] WallChecker wallCheckerR;
+    [FoldoutGroup(COMP), SerializeField] JumpCounter _JumpCounter;
     public bool CanJumpInAir => _JumpCounter.CanJumpInAir;
     SavePositionManager savePositionManager;
     public IAskedInput Input{ get; private set; }
 
-    [SerializeField] GetDPinEnemy getDPinEnemy;
+    [FoldoutGroup(COMP), SerializeField] GetDPinEnemy getDPinEnemy;
     public GetDPinEnemy GetDPinEnemy => getDPinEnemy;
 
-    [SerializeField] HeroParameters _Parameters;
-    [SerializeField] HeroParameters _ParametersInDraftMode;
+    const string PARAM = "パラメータ類";
+    [BoxGroup(PARAM), SerializeField] HeroParameters _Parameters;
+    [BoxGroup(PARAM), SerializeField] HeroParameters _ParametersInDraftMode;
     public HeroParameters Parameters
     {
         get
@@ -155,7 +157,7 @@ public class HeroMover : MonoBehaviour
         }
     }
 
-    [field: SerializeField] [field: LabelText("Draft Mode Params")]
+    [field: BoxGroup(PARAM), SerializeField, LabelText("Draft Mode Params")]
     public DraftModeParams DraftModeParams{ get; private set; }
 
     public JetManager JetManager{ get; private set; }
@@ -170,7 +172,7 @@ public class HeroMover : MonoBehaviour
     public Rigidbody2D Rigidbody{ get; private set; }
     public Transform Transform{ get; private set; }
 
-    [SerializeField] HeroAnim anim;
+    [FoldoutGroup(COMP), SerializeField] HeroAnim anim;
     public void SetAnim(string id)         => anim.SetTrigger(id);
     public void SetAnimManually(string id) => anim.SetTriggerManually(id);
 
