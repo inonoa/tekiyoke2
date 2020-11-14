@@ -557,25 +557,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f39051087ecb27349beb355b19f5c1c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  img3: {fileID: 21300000, guid: a645f07c3e2f4304ea2bf26aa65600dc, type: 3}
-  img2: {fileID: 21300000, guid: b3deb520ebd16364eba63287c2768f6f, type: 3}
-  img1: {fileID: 21300000, guid: aa6c86db97776394ba8dd3001b5bbe6b, type: 3}
-  img0: {fileID: 21300000, guid: 55a2ace8e82ab8a44a4084f80d924531, type: 3}
-  img3_2: {fileID: 21300000, guid: 18d0d2f98db55a54d89e0ce60dd3e18f, type: 3}
-  img2_1: {fileID: 21300000, guid: 37d119dbadb5c0149bd1715dfabe90a0, type: 3}
-  img1_0: {fileID: 21300000, guid: 5973a019c7a99c245a6acc64e95f5d34, type: 3}
-  img2_3: {fileID: 21300000, guid: ac9c435e7af456f4387916ff4c462462, type: 3}
-  img1_2: {fileID: 21300000, guid: 12f3a275d5f45e94b8b019d9cef3d0f6, type: 3}
+  sprites:
+    <Img3>k__BackingField: {fileID: 21300000, guid: a645f07c3e2f4304ea2bf26aa65600dc,
+      type: 3}
+    <Img2>k__BackingField: {fileID: 21300000, guid: b3deb520ebd16364eba63287c2768f6f,
+      type: 3}
+    <Img1>k__BackingField: {fileID: 21300000, guid: aa6c86db97776394ba8dd3001b5bbe6b,
+      type: 3}
+    <Img0>k__BackingField: {fileID: 21300000, guid: 55a2ace8e82ab8a44a4084f80d924531,
+      type: 3}
+    <Img3_2>k__BackingField: {fileID: 21300000, guid: 18d0d2f98db55a54d89e0ce60dd3e18f,
+      type: 3}
+    <Img2_1>k__BackingField: {fileID: 21300000, guid: 37d119dbadb5c0149bd1715dfabe90a0,
+      type: 3}
+    <Img1_0>k__BackingField: {fileID: 21300000, guid: 5973a019c7a99c245a6acc64e95f5d34,
+      type: 3}
+    <Img2_3>k__BackingField: {fileID: 21300000, guid: ac9c435e7af456f4387916ff4c462462,
+      type: 3}
+    <Img1_2>k__BackingField: {fileID: 21300000, guid: 12f3a275d5f45e94b8b019d9cef3d0f6,
+      type: 3}
   image: {fileID: 0}
   mutekiSecondsAfterDamage: 1.6
-  mutekiFilters: []
   cameraShakeWidth: {x: 80, y: 60, z: 0}
   cameraShakeSeconds: 0.3
   cameraShakeVibrato: 50
   houtaiRedSeconds: 0.3
   houtaiBlueSeconds: 0.7
   houtaiAlpha1Seconds: 1
-  hero: {fileID: 0}
 --- !u!114 &3106219250084253401
 MonoBehaviour:
   m_ObjectHideFlags: 0

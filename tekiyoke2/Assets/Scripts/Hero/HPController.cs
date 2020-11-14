@@ -10,42 +10,23 @@ using UniRx;
 
 public class HPController : MonoBehaviour
 {
-    const string DEP = "依存";
-    [FoldoutGroup(DEP), SerializeField] Sprite img3;
-    [FoldoutGroup(DEP), SerializeField] Sprite img2;
-    [FoldoutGroup(DEP), SerializeField] Sprite img1;
-    [FoldoutGroup(DEP), SerializeField] Sprite img0;
-
-    [Space(10)]
-    [FoldoutGroup(DEP), SerializeField] Sprite img3_2;
-    [FoldoutGroup(DEP), SerializeField] Sprite img2_1;
-    [FoldoutGroup(DEP), SerializeField] Sprite img1_0;
-
-    [Space(10)]
-    [FoldoutGroup(DEP), SerializeField] Sprite img2_3;
-    [FoldoutGroup(DEP), SerializeField] Sprite img1_2;
-
-    [Space(10)]
-    [FoldoutGroup(DEP), SerializeField] Image image;
+    [SerializeField] HPSprites sprites;
+    [SerializeField] Image image;
 
     [SerializeField] float mutekiSecondsAfterDamage = 1.6f;
 
 
-    [SerializeField, ReadOnly] string[] mutekiFilters = new string[0];
-    public bool CanBeDamaged => mutekiFilters.Length == 0;
+    [SerializeField, ReadOnly] HashSet<string> mutekiFilters = new HashSet<string>();
     public void AddMutekiFilter(string key)
     {
-        if(mutekiFilters.Contains(key)) return;
-        mutekiFilters = mutekiFilters.Concat(new string[1]{ key }).ToArray();
+        mutekiFilters.Add(key);
     }
     public void RemoveMutekiFilter(string key)
     {
-        mutekiFilters = mutekiFilters.Where(k => k != key).ToArray();
+        mutekiFilters.Remove(key);
     }
-    
+    public bool CanBeDamaged => mutekiFilters.Count == 0;
 
-    ///<summary>ここを直接書き換えない</summary>
-    int hp = 3;
 
     new CameraController camera;
     [SerializeField] Vector3 cameraShakeWidth   = new Vector3(30, 30, 0);
@@ -55,6 +36,7 @@ public class HPController : MonoBehaviour
     [SerializeField] float houtaiBlueSeconds = 0.7f;
     [SerializeField] float houtaiAlpha1Seconds = 1f;
 
+    public int HP{ get; private set; } = 3;
 
     ///<summary>HPの増減はすべてここから。</summary>
     public void ChangeHP(int value)
@@ -64,38 +46,32 @@ public class HPController : MonoBehaviour
 
         if(value < HP)
         {
-            if(value <= 0)      OnDamaged(img1_0, img0);
-            else if(value == 1) OnDamaged(img2_1, img1);
-            else if(value == 2) OnDamaged(img3_2, img2);
+            if(value <= 0)      OnDamaged(sprites.Img1_0, sprites.Img0);
+            else if(value == 1) OnDamaged(sprites.Img2_1, sprites.Img1);
+            else if(value == 2) OnDamaged(sprites.Img3_2, sprites.Img2);
         }
         else if(value > HP)
         {
-            if     (value == 3) OnHealed(img2_3, img3);
-            else if(value == 2) OnHealed(img1_2, img2);
+            if     (value == 3) OnHealed(sprites.Img2_3, sprites.Img3);
+            else if(value == 2) OnHealed(sprites.Img1_2, sprites.Img2);
         }
 
-        hp = value;
+        HP = value;
     }
 
     void OnDamaged(Sprite spriteBeingDamaged, Sprite spriteAfterDamage)
     {
         const string DMG = "Damage";
         AddMutekiFilter(DMG);
-        DOVirtual.DelayedCall(mutekiSecondsAfterDamage, () => RemoveMutekiFilter(DMG))
-            .GetPausable()
-            .AddTo(this);
+        DelayedCall(mutekiSecondsAfterDamage, () => RemoveMutekiFilter(DMG));
 
         camera.transform.DOShakePosition(cameraShakeSeconds, cameraShakeWidth, cameraShakeVibrato);
 
         image.color  = Color.white;
         image.sprite = spriteBeingDamaged;
 
-        DOVirtual.DelayedCall(houtaiRedSeconds,    () => image.sprite = spriteAfterDamage)
-            .GetPausable()
-            .AddTo(this);
-        DOVirtual.DelayedCall(houtaiAlpha1Seconds, () => image.color  = new Color(1, 1, 1, 0.7f))
-            .GetPausable()
-            .AddTo(this);
+        DelayedCall(houtaiRedSeconds,    () => image.sprite = spriteAfterDamage);
+        DelayedCall(houtaiAlpha1Seconds, () => image.color  = new Color(1, 1, 1, 0.7f));
     }
 
     void OnHealed(Sprite spriteBeingHealed, Sprite spriteAfterHeal)
@@ -103,23 +79,35 @@ public class HPController : MonoBehaviour
         image.color  = Color.white;
         image.sprite = spriteBeingHealed;
 
-        DOVirtual.DelayedCall(houtaiBlueSeconds,   () => image.sprite = spriteAfterHeal)
-            .GetPausable()
-            .AddTo(this);
-        DOVirtual.DelayedCall(houtaiAlpha1Seconds, () => image.color  = new Color(1, 1, 1, 0.7f))
-            .GetPausable()
-            .AddTo(this);
+        DelayedCall(houtaiBlueSeconds,   () => image.sprite = spriteAfterHeal);
+        DelayedCall(houtaiAlpha1Seconds, () => image.color  = new Color(1, 1, 1, 0.7f));
     }
 
-    public int HP => hp;
+    void DelayedCall(float delay, DG.Tweening.TweenCallback call)
+    {
+        DOVirtual.DelayedCall(delay, call).AsHeros().GetPausable().AddTo(this);
+    }
 
     void Start()
     {
         camera = CameraController.CurrentCamera;
     }
+}
 
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.H)) ChangeHP(3);
-    }
+[Serializable]
+public class HPSprites
+{
+    [field: SerializeField, LabelText("Image 3")] public Sprite Img3{ get; private set; }
+    [field: SerializeField, LabelText("Image 2")] public Sprite Img2{ get; private set; }
+    [field: SerializeField, LabelText("Image 1")] public Sprite Img1{ get; private set; }
+    [field: SerializeField, LabelText("Image 0")] public Sprite Img0{ get; private set; }
+
+    [field: Space(10)]
+    [field: SerializeField, LabelText("Image 3 -> 2")] public Sprite Img3_2{ get; private set; }
+    [field: SerializeField, LabelText("Image 2 -> 1")] public Sprite Img2_1{ get; private set; }
+    [field: SerializeField, LabelText("Image 1 -> 0")] public Sprite Img1_0{ get; private set; }
+
+    [field: Space(10)]
+    [field: SerializeField, LabelText("Image 2 -> 3")] public Sprite Img2_3{ get; private set; }
+    [field: SerializeField, LabelText("Image 1 -> 2")] public Sprite Img1_2{ get; private set; }
 }
