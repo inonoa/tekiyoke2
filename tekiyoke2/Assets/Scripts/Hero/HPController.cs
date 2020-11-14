@@ -10,13 +10,16 @@ using UniRx;
 
 public class HPController : MonoBehaviour
 {
-    [SerializeField] HPSprites sprites;
-    [SerializeField] Image image;
-
     [SerializeField] float mutekiSecondsAfterDamage = 1.6f;
 
+    [SerializeField] HPSprites sprites;
+    [SerializeField] Image image;
+    [SerializeField] float houtaiRedSeconds  = 0.3f;
+    [SerializeField] float houtaiBlueSeconds = 0.7f;
+    [SerializeField] float houtaiAlpha1Seconds = 1f;
 
-    [SerializeField, ReadOnly] HashSet<string> mutekiFilters = new HashSet<string>();
+
+    HashSet<string> mutekiFilters = new HashSet<string>();
     public void AddMutekiFilter(string key)
     {
         mutekiFilters.Add(key);
@@ -28,17 +31,14 @@ public class HPController : MonoBehaviour
     public bool CanBeDamaged => mutekiFilters.Count == 0;
 
 
-    new CameraController camera;
+    CameraController Camera => CameraController.CurrentCamera;
     [SerializeField] Vector3 cameraShakeWidth   = new Vector3(30, 30, 0);
     [SerializeField] float cameraShakeSeconds = 0.2f;
     [SerializeField] int   cameraShakeVibrato = 10;
-    [SerializeField] float houtaiRedSeconds  = 0.3f;
-    [SerializeField] float houtaiBlueSeconds = 0.7f;
-    [SerializeField] float houtaiAlpha1Seconds = 1f;
 
     public int HP{ get; private set; } = 3;
 
-    ///<summary>HPの増減はすべてここから。</summary>
+    // 普通に(?)DamageとかHealとかで分ければよかった
     public void ChangeHP(int value)
     {
         if(value <= 0 && HP <= 0) return;
@@ -65,7 +65,7 @@ public class HPController : MonoBehaviour
         AddMutekiFilter(DMG);
         DelayedCall(mutekiSecondsAfterDamage, () => RemoveMutekiFilter(DMG));
 
-        camera.transform.DOShakePosition(cameraShakeSeconds, cameraShakeWidth, cameraShakeVibrato);
+        Camera.transform.DOShakePosition(cameraShakeSeconds, cameraShakeWidth, cameraShakeVibrato);
 
         image.color  = Color.white;
         image.sprite = spriteBeingDamaged;
@@ -86,11 +86,6 @@ public class HPController : MonoBehaviour
     void DelayedCall(float delay, DG.Tweening.TweenCallback call)
     {
         DOVirtual.DelayedCall(delay, call).AsHeros().GetPausable().AddTo(this);
-    }
-
-    void Start()
-    {
-        camera = CameraController.CurrentCamera;
     }
 }
 
