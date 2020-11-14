@@ -557,6 +557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f39051087ecb27349beb355b19f5c1c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hero: {fileID: 3106219250084253350}
   sprites:
     <Img3>k__BackingField: {fileID: 21300000, guid: a645f07c3e2f4304ea2bf26aa65600dc,
       type: 3}
@@ -577,13 +578,12 @@ MonoBehaviour:
     <Img1_2>k__BackingField: {fileID: 21300000, guid: 12f3a275d5f45e94b8b019d9cef3d0f6,
       type: 3}
   image: {fileID: 0}
-  mutekiSecondsAfterDamage: 1.6
-  cameraShakeWidth: {x: 80, y: 60, z: 0}
-  cameraShakeSeconds: 0.3
-  cameraShakeVibrato: 50
   houtaiRedSeconds: 0.3
   houtaiBlueSeconds: 0.7
   houtaiAlpha1Seconds: 1
+  cameraShakeWidth: {x: 80, y: 60, z: 0}
+  cameraShakeSeconds: 0.3
+  cameraShakeVibrato: 50
 --- !u!114 &3106219250084253401
 MonoBehaviour:
   m_ObjectHideFlags: 0

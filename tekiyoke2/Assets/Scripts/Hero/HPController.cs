@@ -10,8 +10,7 @@ using UniRx;
 
 public class HPController : MonoBehaviour
 {
-    [SerializeField] float mutekiSecondsAfterDamage = 1.6f;
-
+    [SerializeField] HeroMover hero;
     [SerializeField] HPSprites sprites;
     [SerializeField] Image image;
     [SerializeField] float houtaiRedSeconds  = 0.3f;
@@ -63,7 +62,7 @@ public class HPController : MonoBehaviour
     {
         const string DMG = "Damage";
         AddMutekiFilter(DMG);
-        DelayedCall(mutekiSecondsAfterDamage, () => RemoveMutekiFilter(DMG));
+        DelayedCall(hero.Parameters.MutekiSeconds, () => RemoveMutekiFilter(DMG));
 
         Camera.transform.DOShakePosition(cameraShakeSeconds, cameraShakeWidth, cameraShakeVibrato);
 
