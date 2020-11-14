@@ -2521,6 +2521,11 @@ PrefabInstance:
       propertyPath: spr
       value: 
       objectReference: {fileID: 128548989}
+    - target: {fileID: 3106219250084253372, guid: 54534ce791a58cf43a9e47340b5f951e,
+        type: 3}
+      propertyPath: image
+      value: 
+      objectReference: {fileID: 128548989}
     - target: {fileID: 3106219250084253401, guid: 54534ce791a58cf43a9e47340b5f951e,
         type: 3}
       propertyPath: dialogImg

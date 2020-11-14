@@ -88,7 +88,7 @@
      <Compile Include="Assets\Scripts\Hero\HeroMover.cs" />
      <Compile Include="Assets\Scripts\Hero\HeroObjsHolder4States.cs" />
      <Compile Include="Assets\Scripts\Hero\HeroTween.cs" />
-     <Compile Include="Assets\Scripts\Hero\HpCntr.cs" />
+     <Compile Include="Assets\Scripts\Hero\HpController.cs" />
      <Compile Include="Assets\Scripts\Hero\ISpeedResidue.cs" />
      <Compile Include="Assets\Scripts\Hero\Physics\HeroCollider2Enemy.cs" />
      <Compile Include="Assets\Scripts\Hero\Physics\HeroPhysics.cs" />

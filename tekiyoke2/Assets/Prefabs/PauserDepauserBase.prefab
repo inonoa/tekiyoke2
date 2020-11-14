@@ -5994,6 +5994,11 @@ PrefabInstance:
       propertyPath: spr
       value: 
       objectReference: {fileID: 8726300378627382867}
+    - target: {fileID: 3106219250084253372, guid: 54534ce791a58cf43a9e47340b5f951e,
+        type: 3}
+      propertyPath: image
+      value: 
+      objectReference: {fileID: 8726300378627382867}
     - target: {fileID: 6378392078754932210, guid: 54534ce791a58cf43a9e47340b5f951e,
         type: 3}
       propertyPath: windsManager
