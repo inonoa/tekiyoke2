@@ -18,7 +18,7 @@ public class StateJet : HeroState
     
     public override void Enter(HeroMover hero)
     {
-        hero.HpCntr.AddMutekiFilter("Jet");
+        hero.HPController.AddMutekiFilter("Jet");
         hero.CanMove = false;
         hero.SetAnim("fall");
 
@@ -73,7 +73,7 @@ public class StateJet : HeroState
 
     public override void Exit(HeroMover hero)
     {
-        hero.HpCntr.RemoveMutekiFilter("Jet");
+        hero.HPController.RemoveMutekiFilter("Jet");
         hero.CanMove = true;
         hero.GetDPinEnemy.GetComponent<Collider2D>().enabled = false;
         _OnJetCompleted.OnNext(Unit.Default);

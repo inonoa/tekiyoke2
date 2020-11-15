@@ -30,7 +30,7 @@ public class WindSoundController : MonoBehaviour
         while(true){
             yield return new WaitForSeconds(heroCheckPeriodSec);
 
-            FloatPair vol_hp = volumeMinMaxsDependingOnHP[HeroDefiner.currentHero.HpCntr.HP];
+            FloatPair vol_hp = volumeMinMaxsDependingOnHP[HeroDefiner.currentHero.HPController.HP];
             Vector3 pastPos = HeroDefiner.CurrentHeroPastPos.Count > 0 ?
                 HeroDefiner.CurrentHeroPastPos[(int)(heroCheckPeriodSec * 60)] : new Vector3();
             float vol_speed = 

@@ -2516,11 +2516,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -200
       objectReference: {fileID: 0}
-    - target: {fileID: 3106219250084253372, guid: 54534ce791a58cf43a9e47340b5f951e,
-        type: 3}
-      propertyPath: spr
-      value: 
-      objectReference: {fileID: 128548989}
     - target: {fileID: 3106219250084253401, guid: 54534ce791a58cf43a9e47340b5f951e,
         type: 3}
       propertyPath: dialogImg
@@ -2531,6 +2526,37 @@ PrefabInstance:
       propertyPath: failDialogImg
       value: 
       objectReference: {fileID: 564793316}
+    - target: {fileID: 3429690165962721614, guid: 54534ce791a58cf43a9e47340b5f951e,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3429690165962721614, guid: 54534ce791a58cf43a9e47340b5f951e,
+        type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3429690165962721614, guid: 54534ce791a58cf43a9e47340b5f951e,
+        type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 3429690165962721614, guid: 54534ce791a58cf43a9e47340b5f951e,
+        type: 3}
+    - target: {fileID: 3429690165962721614, guid: 54534ce791a58cf43a9e47340b5f951e,
+        type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 669257416}
+    - target: {fileID: 3429690165962721614, guid: 54534ce791a58cf43a9e47340b5f951e,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[0]
+      value: '"path":"view","value":$eref:0'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3429690165962721614, guid: 54534ce791a58cf43a9e47340b5f951e,
+        type: 3}
+      propertyPath: image
+      value: 
+      objectReference: {fileID: 128548989}
     - target: {fileID: 6378392078754932210, guid: 54534ce791a58cf43a9e47340b5f951e,
         type: 3}
       propertyPath: windsManager
@@ -2551,6 +2577,11 @@ PrefabInstance:
       propertyPath: freezeFrames
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 8526149003163682817, guid: 54534ce791a58cf43a9e47340b5f951e,
+        type: 3}
+      propertyPath: image
+      value: 
+      objectReference: {fileID: 128548989}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54534ce791a58cf43a9e47340b5f951e, type: 3}
 --- !u!4 &435040675 stripped
@@ -3419,6 +3450,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 200, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &669257416 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8526149003163682817, guid: 54534ce791a58cf43a9e47340b5f951e,
+    type: 3}
+  m_PrefabInstance: {fileID: 435040674}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b19bd4c8393d1047a143b9182d40a44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &669347116
 GameObject:
   m_ObjectHideFlags: 0

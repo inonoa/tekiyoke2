@@ -126,7 +126,9 @@ public class HeroMover : MonoBehaviour
     #region 別クラスで持っている情報
     public CameraController CmrCntr{ get; private set; }
     public TimeManager TimeManager{ get; private set; }
-    public HpCntr HpCntr{ get; private set; }
+
+    [field: FoldoutGroup(COMP), SerializeField, RenameField("HP Controller")]
+    public HPController HPController{ get; private set; }
     public HeroObjsHolder4States ObjsHolderForStates{ get; private set; }
     [FoldoutGroup(COMP), SerializeField] SoundGroup _SoundGroup;
     public SoundGroup SoundGroup => _SoundGroup;
@@ -181,12 +183,12 @@ public class HeroMover : MonoBehaviour
     #endregion
 
     #region ダメージとか
-    void ChangeHP(int value) => HpCntr.ChangeHP(value);
-    public int HP => HpCntr.HP;
-    public bool IsLiving => HpCntr.HP > 0;
+    void ChangeHP(int value) => HPController.ChangeHP(value);
+    public int HP => HPController.HP;
+    public bool IsLiving => HPController.HP > 0;
 
     
-    public bool CanBeDamaged => HpCntr.CanBeDamaged;
+    public bool CanBeDamaged => HPController.CanBeDamaged;
 
     Subject<int> _OnDamaged = new Subject<int>();
     public IObservable<int> OnDamaged => _OnDamaged;
@@ -245,13 +247,13 @@ public class HeroMover : MonoBehaviour
 
         while(true){
 
-            if(HpCntr.CanBeDamaged) yield break;
+            if(HPController.CanBeDamaged) yield break;
             SpriteRenderer.material.SetFloat("_Alpha", 0);
 
             yield return new WaitForSeconds(blinkPeriodSec/2);
 
             SpriteRenderer.material.SetFloat("_Alpha", 1);
-            if(HpCntr.CanBeDamaged) yield break;
+            if(HPController.CanBeDamaged) yield break;
 
             yield return new WaitForSeconds(blinkPeriodSec/2);
         }
@@ -293,7 +295,6 @@ public class HeroMover : MonoBehaviour
         SpriteRenderer      = GetComponent<SpriteRenderer>();
         Rigidbody           = GetComponent<Rigidbody2D>();
         Transform           = GetComponent<Transform>();
-        HpCntr              = GetComponent<HpCntr>();
         savePositionManager = GetComponent<SavePositionManager>();
         ObjsHolderForStates = GetComponent<HeroObjsHolder4States>();
         JetManager          = GetComponent<JetManager>();

@@ -82,13 +82,14 @@
      <Compile Include="Assets\Scripts\Hero\Effects\Kabezuri.cs" />
      <Compile Include="Assets\Scripts\Hero\Effects\SpawnKabezuris.cs" />
      <Compile Include="Assets\Scripts\Hero\Effects\Tsuchihokori.cs" />
+     <Compile Include="Assets\Scripts\Hero\HPController.cs" />
      <Compile Include="Assets\Scripts\Hero\HeroAnim.cs" />
      <Compile Include="Assets\Scripts\Hero\HeroDefiner.cs" />
      <Compile Include="Assets\Scripts\Hero\HeroEventArgs.cs" />
+     <Compile Include="Assets\Scripts\Hero\HeroHPView.cs" />
      <Compile Include="Assets\Scripts\Hero\HeroMover.cs" />
      <Compile Include="Assets\Scripts\Hero\HeroObjsHolder4States.cs" />
      <Compile Include="Assets\Scripts\Hero\HeroTween.cs" />
-     <Compile Include="Assets\Scripts\Hero\HpCntr.cs" />
      <Compile Include="Assets\Scripts\Hero\ISpeedResidue.cs" />
      <Compile Include="Assets\Scripts\Hero\Physics\HeroCollider2Enemy.cs" />
      <Compile Include="Assets\Scripts\Hero\Physics\HeroPhysics.cs" />
