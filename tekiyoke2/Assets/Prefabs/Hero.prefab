@@ -386,7 +386,6 @@ GameObject:
   - component: {fileID: 3106219250084253371}
   - component: {fileID: 3106219250084253373}
   - component: {fileID: 3106219250084253350}
-  - component: {fileID: 3106219250084253372}
   - component: {fileID: 3106219250084253401}
   - component: {fileID: 1862551108992817783}
   - component: {fileID: 8407620554904460400}
@@ -424,6 +423,7 @@ Transform:
   - {fileID: 2620188123922105851}
   - {fileID: 9112195498496488884}
   - {fileID: 3701394845435940728}
+  - {fileID: 9118672527092184039}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -532,6 +532,7 @@ MonoBehaviour:
   <SakamichiSensors>k__BackingField: {fileID: 5461879377836722882}
   <KeyDirection>k__BackingField: 0
   <WantsToGoRight>k__BackingField: 1
+  <HPController>k__BackingField: {fileID: 3429690165962721614}
   _SoundGroup: {fileID: 5836125009105332007}
   <WindSounds>k__BackingField: {fileID: 6267704590824942824}
   groundChecker: {fileID: 3106219250714267053}
@@ -545,45 +546,6 @@ MonoBehaviour:
   <DraftModeParams>k__BackingField: {fileID: 11400000, guid: 1168855c90a8ab949b21397c45e2f678,
     type: 2}
   anim: {fileID: 2512754790269566656}
---- !u!114 &3106219250084253372
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3106219250084253351}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f39051087ecb27349beb355b19f5c1c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hero: {fileID: 3106219250084253350}
-  sprites:
-    <Img3>k__BackingField: {fileID: 21300000, guid: a645f07c3e2f4304ea2bf26aa65600dc,
-      type: 3}
-    <Img2>k__BackingField: {fileID: 21300000, guid: b3deb520ebd16364eba63287c2768f6f,
-      type: 3}
-    <Img1>k__BackingField: {fileID: 21300000, guid: aa6c86db97776394ba8dd3001b5bbe6b,
-      type: 3}
-    <Img0>k__BackingField: {fileID: 21300000, guid: 55a2ace8e82ab8a44a4084f80d924531,
-      type: 3}
-    <Img3_2>k__BackingField: {fileID: 21300000, guid: 18d0d2f98db55a54d89e0ce60dd3e18f,
-      type: 3}
-    <Img2_1>k__BackingField: {fileID: 21300000, guid: 37d119dbadb5c0149bd1715dfabe90a0,
-      type: 3}
-    <Img1_0>k__BackingField: {fileID: 21300000, guid: 5973a019c7a99c245a6acc64e95f5d34,
-      type: 3}
-    <Img2_3>k__BackingField: {fileID: 21300000, guid: ac9c435e7af456f4387916ff4c462462,
-      type: 3}
-    <Img1_2>k__BackingField: {fileID: 21300000, guid: 12f3a275d5f45e94b8b019d9cef3d0f6,
-      type: 3}
-  image: {fileID: 0}
-  houtaiRedSeconds: 0.3
-  houtaiBlueSeconds: 0.7
-  houtaiAlpha1Seconds: 1
-  cameraShakeWidth: {x: 80, y: 60, z: 0}
-  cameraShakeSeconds: 0.3
-  cameraShakeVibrato: 50
 --- !u!114 &3106219250084253401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -922,6 +884,128 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
+--- !u!1 &3398602245869471913
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9118672527092184039}
+  - component: {fileID: 3429690165962721614}
+  - component: {fileID: 8526149003163682817}
+  m_Layer: 8
+  m_Name: HPController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9118672527092184039
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3398602245869471913}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3106219250084253368}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3429690165962721614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3398602245869471913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f39051087ecb27349beb355b19f5c1c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 8526149003163682817}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: view
+      Entry: 10
+      Data: 0
+  image: {fileID: 0}
+  houtaiRedSeconds: 0.3
+  houtaiBlueSeconds: 0.7
+  houtaiAlpha1Seconds: 1
+  cameraShakeWidth: {x: 80, y: 60, z: 0}
+  cameraShakeSeconds: 0.3
+  cameraShakeVibrato: 50
+  hero: {fileID: 3106219250084253350}
+  sprites:
+    <Img3>k__BackingField: {fileID: 21300000, guid: a645f07c3e2f4304ea2bf26aa65600dc,
+      type: 3}
+    <Img2>k__BackingField: {fileID: 21300000, guid: b3deb520ebd16364eba63287c2768f6f,
+      type: 3}
+    <Img1>k__BackingField: {fileID: 21300000, guid: aa6c86db97776394ba8dd3001b5bbe6b,
+      type: 3}
+    <Img0>k__BackingField: {fileID: 21300000, guid: 55a2ace8e82ab8a44a4084f80d924531,
+      type: 3}
+    <Img3_2>k__BackingField: {fileID: 21300000, guid: 18d0d2f98db55a54d89e0ce60dd3e18f,
+      type: 3}
+    <Img2_1>k__BackingField: {fileID: 21300000, guid: 37d119dbadb5c0149bd1715dfabe90a0,
+      type: 3}
+    <Img1_0>k__BackingField: {fileID: 21300000, guid: 5973a019c7a99c245a6acc64e95f5d34,
+      type: 3}
+    <Img2_3>k__BackingField: {fileID: 21300000, guid: ac9c435e7af456f4387916ff4c462462,
+      type: 3}
+    <Img1_2>k__BackingField: {fileID: 21300000, guid: 12f3a275d5f45e94b8b019d9cef3d0f6,
+      type: 3}
+--- !u!114 &8526149003163682817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3398602245869471913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b19bd4c8393d1047a143b9182d40a44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 0}
+  houtaiRedSeconds: 0.3
+  houtaiBlueSeconds: 0.7
+  houtaiAlpha1Seconds: 1
+  cameraShakeWidth: {x: 80, y: 60, z: 0}
+  cameraShakeSeconds: 0.3
+  cameraShakeVibrato: 50
+  sprites:
+    <Img3>k__BackingField: {fileID: 21300000, guid: a645f07c3e2f4304ea2bf26aa65600dc,
+      type: 3}
+    <Img2>k__BackingField: {fileID: 21300000, guid: b3deb520ebd16364eba63287c2768f6f,
+      type: 3}
+    <Img1>k__BackingField: {fileID: 21300000, guid: aa6c86db97776394ba8dd3001b5bbe6b,
+      type: 3}
+    <Img0>k__BackingField: {fileID: 21300000, guid: 55a2ace8e82ab8a44a4084f80d924531,
+      type: 3}
+    <Img3_2>k__BackingField: {fileID: 21300000, guid: 18d0d2f98db55a54d89e0ce60dd3e18f,
+      type: 3}
+    <Img2_1>k__BackingField: {fileID: 21300000, guid: 37d119dbadb5c0149bd1715dfabe90a0,
+      type: 3}
+    <Img1_0>k__BackingField: {fileID: 21300000, guid: 5973a019c7a99c245a6acc64e95f5d34,
+      type: 3}
+    <Img2_3>k__BackingField: {fileID: 21300000, guid: ac9c435e7af456f4387916ff4c462462,
+      type: 3}
+    <Img1_2>k__BackingField: {fileID: 21300000, guid: 12f3a275d5f45e94b8b019d9cef3d0f6,
+      type: 3}
 --- !u!1 &4829837832728388578
 GameObject:
   m_ObjectHideFlags: 0

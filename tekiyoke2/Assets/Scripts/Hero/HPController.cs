@@ -8,16 +8,8 @@ using System.Linq;
 using DG.Tweening;
 using UniRx;
 
-public class HPController : MonoBehaviour
+public class HPController : SerializedMonoBehaviour
 {
-    [SerializeField] HeroMover hero;
-    [SerializeField] HPSprites sprites;
-    [SerializeField] Image image;
-    [SerializeField] float houtaiRedSeconds  = 0.3f;
-    [SerializeField] float houtaiBlueSeconds = 0.7f;
-    [SerializeField] float houtaiAlpha1Seconds = 1f;
-
-
     HashSet<string> mutekiFilters = new HashSet<string>();
     public void AddMutekiFilter(string key)
     {
@@ -29,11 +21,8 @@ public class HPController : MonoBehaviour
     }
     public bool CanBeDamaged => mutekiFilters.Count == 0;
 
-
-    CameraController Camera => CameraController.CurrentCamera;
-    [SerializeField] Vector3 cameraShakeWidth   = new Vector3(30, 30, 0);
-    [SerializeField] float cameraShakeSeconds = 0.2f;
-    [SerializeField] int   cameraShakeVibrato = 10;
+    [Space(10), SerializeField] HeroMover hero;
+    [SerializeField] IHPView view;
 
     public int HP{ get; private set; } = 3;
 
@@ -45,41 +34,26 @@ public class HPController : MonoBehaviour
 
         if(value < HP)
         {
-            if(value <= 0)      OnDamaged(sprites.Img1_0, sprites.Img0);
-            else if(value == 1) OnDamaged(sprites.Img2_1, sprites.Img1);
-            else if(value == 2) OnDamaged(sprites.Img3_2, sprites.Img2);
+            if(value <= 0)      OnDamaged(HP, 0);
+            else if(value == 1) OnDamaged(HP, 1);
+            else if(value == 2) OnDamaged(HP, 2);
         }
         else if(value > HP)
         {
-            if     (value == 3) OnHealed(sprites.Img2_3, sprites.Img3);
-            else if(value == 2) OnHealed(sprites.Img1_2, sprites.Img2);
+            if     (value == 3) view.OnHealed(HP, 3);
+            else if(value == 2) view.OnHealed(HP, 2);
         }
 
         HP = value;
     }
 
-    void OnDamaged(Sprite spriteBeingDamaged, Sprite spriteAfterDamage)
+    void OnDamaged(int oldHP, int newHP)
     {
         const string DMG = "Damage";
         AddMutekiFilter(DMG);
         DelayedCall(hero.Parameters.MutekiSeconds, () => RemoveMutekiFilter(DMG));
 
-        Camera.transform.DOShakePosition(cameraShakeSeconds, cameraShakeWidth, cameraShakeVibrato);
-
-        image.color  = Color.white;
-        image.sprite = spriteBeingDamaged;
-
-        DelayedCall(houtaiRedSeconds,    () => image.sprite = spriteAfterDamage);
-        DelayedCall(houtaiAlpha1Seconds, () => image.color  = new Color(1, 1, 1, 0.7f));
-    }
-
-    void OnHealed(Sprite spriteBeingHealed, Sprite spriteAfterHeal)
-    {
-        image.color  = Color.white;
-        image.sprite = spriteBeingHealed;
-
-        DelayedCall(houtaiBlueSeconds,   () => image.sprite = spriteAfterHeal);
-        DelayedCall(houtaiAlpha1Seconds, () => image.color  = new Color(1, 1, 1, 0.7f));
+        view.OnDamaged(HP, HP - 1); // u-n
     }
 
     void DelayedCall(float delay, DG.Tweening.TweenCallback call)
@@ -88,20 +62,8 @@ public class HPController : MonoBehaviour
     }
 }
 
-[Serializable]
-public class HPSprites
+public interface IHPView
 {
-    [field: SerializeField, LabelText("Image 3")] public Sprite Img3{ get; private set; }
-    [field: SerializeField, LabelText("Image 2")] public Sprite Img2{ get; private set; }
-    [field: SerializeField, LabelText("Image 1")] public Sprite Img1{ get; private set; }
-    [field: SerializeField, LabelText("Image 0")] public Sprite Img0{ get; private set; }
-
-    [field: Space(10)]
-    [field: SerializeField, LabelText("Image 3 -> 2")] public Sprite Img3_2{ get; private set; }
-    [field: SerializeField, LabelText("Image 2 -> 1")] public Sprite Img2_1{ get; private set; }
-    [field: SerializeField, LabelText("Image 1 -> 0")] public Sprite Img1_0{ get; private set; }
-
-    [field: Space(10)]
-    [field: SerializeField, LabelText("Image 2 -> 3")] public Sprite Img2_3{ get; private set; }
-    [field: SerializeField, LabelText("Image 1 -> 2")] public Sprite Img1_2{ get; private set; }
+    void OnDamaged(int oldHP, int newHP);
+    void OnHealed (int oldHP, int newHP);
 }

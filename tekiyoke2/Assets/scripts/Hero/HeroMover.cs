@@ -126,6 +126,8 @@ public class HeroMover : MonoBehaviour
     #region 別クラスで持っている情報
     public CameraController CmrCntr{ get; private set; }
     public TimeManager TimeManager{ get; private set; }
+
+    [field: FoldoutGroup(COMP), SerializeField, RenameField("HP Controller")]
     public HPController HPController{ get; private set; }
     public HeroObjsHolder4States ObjsHolderForStates{ get; private set; }
     [FoldoutGroup(COMP), SerializeField] SoundGroup _SoundGroup;
@@ -293,7 +295,6 @@ public class HeroMover : MonoBehaviour
         SpriteRenderer      = GetComponent<SpriteRenderer>();
         Rigidbody           = GetComponent<Rigidbody2D>();
         Transform           = GetComponent<Transform>();
-        HPController              = GetComponent<HPController>();
         savePositionManager = GetComponent<SavePositionManager>();
         ObjsHolderForStates = GetComponent<HeroObjsHolder4States>();
         JetManager          = GetComponent<JetManager>();
