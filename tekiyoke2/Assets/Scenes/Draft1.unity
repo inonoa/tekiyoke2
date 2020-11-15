@@ -2540,7 +2540,8 @@ PrefabInstance:
         type: 3}
       propertyPath: serializationData.Prefab
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 3429690165962721614, guid: 54534ce791a58cf43a9e47340b5f951e,
+        type: 3}
     - target: {fileID: 3429690165962721614, guid: 54534ce791a58cf43a9e47340b5f951e,
         type: 3}
       propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[0]
@@ -2576,11 +2577,8 @@ PrefabInstance:
       propertyPath: freezeFrames
       value: 15
       objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: spr
-      value: 
-      objectReference: {fileID: 128548989}
-    - target: {fileID: 0}
+    - target: {fileID: 8526149003163682817, guid: 54534ce791a58cf43a9e47340b5f951e,
+        type: 3}
       propertyPath: image
       value: 
       objectReference: {fileID: 128548989}
