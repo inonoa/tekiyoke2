@@ -22,24 +22,52 @@ public class HeroHPView : MonoBehaviour, IHPView
     
     [SerializeField] HPSprites sprites;
 
+    List<Tween> delayedSpriteChanges = new List<Tween>();
+
     public void OnDamaged(int oldHP, int newHP)
     {
+        foreach (Tween spriteChange in delayedSpriteChanges)
+        {
+            spriteChange.Kill();
+        }
+        
         Camera.transform.DOShakePosition(cameraShakeSeconds, cameraShakeWidth, cameraShakeVibrato);
 
         image.color  = Color.white;
         image.sprite = BeingDamagedSprite(newHP);
 
-        DelayedCall(houtaiRedSeconds,    () => image.sprite = NewSprite(newHP));
-        DelayedCall(houtaiAlpha1Seconds, () => image.color  = new Color(1, 1, 1, 0.7f));
+        delayedSpriteChanges.Add(DelayedCall
+        (
+            houtaiRedSeconds,
+            () => image.sprite = NewSprite(newHP)
+        ));
+        delayedSpriteChanges.Add(DelayedCall
+        (
+            houtaiAlpha1Seconds,
+            () => image.color  = new Color(1, 1, 1, 0.7f)
+        ));
     }
 
     public void OnHealed(int oldHP, int newHP)
     {
+        foreach (Tween spriteChange in delayedSpriteChanges)
+        {
+            spriteChange.Kill();
+        }
+        
         image.color  = Color.white;
         image.sprite = BeingHealedSprite(newHP);
 
-        DelayedCall(houtaiBlueSeconds,   () => image.sprite = NewSprite(newHP));
-        DelayedCall(houtaiAlpha1Seconds, () => image.color  = new Color(1, 1, 1, 0.7f));
+        delayedSpriteChanges.Add(DelayedCall
+        (
+            houtaiBlueSeconds,
+            () => image.sprite = NewSprite(newHP)
+        ));
+        delayedSpriteChanges.Add(DelayedCall
+        (
+            houtaiAlpha1Seconds,
+            () => image.color  = new Color(1, 1, 1, 0.7f)
+        ));
     }
 
     Sprite BeingDamagedSprite(int newHP)
@@ -75,9 +103,11 @@ public class HeroHPView : MonoBehaviour, IHPView
         }
     }
 
-    void DelayedCall(float delay, DG.Tweening.TweenCallback call)
+    Tween DelayedCall(float delay, DG.Tweening.TweenCallback call)
     {
-        DOVirtual.DelayedCall(delay, call).AsHeros().GetPausable().AddTo(this);
+        Tween tw = DOVirtual.DelayedCall(delay, call).AsHeros();
+        tw.GetPausable().AddTo(this);
+        return tw;
     }
 }
 
