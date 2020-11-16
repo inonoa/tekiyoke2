@@ -8,6 +8,10 @@
 # Never ignore Asset meta data
 ![Aa]ssets/**/*.meta
 
+# Jetbrain Rider Cache
+.idea/
+Assets/Plugins/Editor/JetBrains*
+
 # DOTweenは公開しないよ
 Demigiant/
 
