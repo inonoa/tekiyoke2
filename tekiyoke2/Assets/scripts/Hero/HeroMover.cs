@@ -129,6 +129,9 @@ public class HeroMover : MonoBehaviour
 
     [field: FoldoutGroup(COMP), SerializeField, RenameField("HP Controller")]
     public HPController HPController{ get; private set; }
+
+    [field: FoldoutGroup(COMP), SerializeField, RenameField("Muteki Manager")]
+    public HeroMutekiManager MutekiManager{ get; private set; }
     public HeroObjsHolder4States ObjsHolderForStates{ get; private set; }
     [FoldoutGroup(COMP), SerializeField] SoundGroup _SoundGroup;
     public SoundGroup SoundGroup => _SoundGroup;
@@ -160,14 +163,14 @@ public class HeroMover : MonoBehaviour
     }
 
     [field: BoxGroup(PARAM), SerializeField, LabelText("Draft Mode Params")]
-    public DraftModeParams DraftModeParams{ get; private set; }
+    public DraftModeParams DraftModeParams { get; private set; }
 
     public JetManager JetManager{ get; private set; }
 
     DraftModeManager draftModeManager;
 
-    HeroState currrentState;
-    public string CurrentStateStr() => currrentState.ToString();
+    HeroState currentState;
+    public string CurrentStateStr() => currentState.ToString();
 
 
     public SpriteRenderer SpriteRenderer{ get; private set; }
@@ -287,7 +290,6 @@ public class HeroMover : MonoBehaviour
 
     void Start()
     {
-
         CmrCntr = CameraController.CurrentCamera;
         TimeManager = TimeManager.Current;
         Input   = ServicesLocator.Instance.GetInput();
@@ -302,8 +304,8 @@ public class HeroMover : MonoBehaviour
 
         JetManager.Init(Input, this);
 
-        currrentState = new StateWait();
-        currrentState.Enter(this);
+        currentState = new StateWait();
+        currentState.Enter(this);
 
         getDPinEnemy.gotDP += (dp, e) => {
             GetDP((float)dp);
@@ -336,7 +338,7 @@ public class HeroMover : MonoBehaviour
     ///<summary>SetActive(false)するとアニメーションの状態がリセットされるようなのでとりあえず主人公はステートだけ反映しなおす</summary>
     void OnEnable()
     {
-        currrentState?.Resume(this);
+        currentState?.Resume(this);
     }
 
     void OnDisable()
@@ -371,8 +373,8 @@ public class HeroMover : MonoBehaviour
 
                 UpdateMoveDirection();
 
-                HeroState next = currrentState.HandleInput(this, Input);
-                if(next != currrentState)
+                HeroState next = currentState.HandleInput(this, Input);
+                if(next != currentState)
                 {
                     ChangeState(next);
                 }
@@ -389,8 +391,8 @@ public class HeroMover : MonoBehaviour
 
         if(IsFrozen) return;
 
-        HeroState next = currrentState.Update_(this, TimeManager.FixedDeltaTimeAroundHero);
-        if(next != currrentState)
+        HeroState next = currentState.Update_(this, TimeManager.FixedDeltaTimeAroundHero);
+        if(next != currentState)
         {
             ChangeState(next);
         }
@@ -413,9 +415,9 @@ public class HeroMover : MonoBehaviour
 
     void ChangeState(HeroState next)
     {
-        currrentState.Exit(this);
-        currrentState = next;
-        currrentState.Enter(this);
+        currentState.Exit(this);
+        currentState = next;
+        currentState.Enter(this);
     }
 
     public IObservable<Unit> Jet(float charge_0_1)

@@ -10,19 +10,11 @@ using UniRx;
 
 public class HPController : SerializedMonoBehaviour
 {
-    HashSet<string> mutekiFilters = new HashSet<string>();
-    public void AddMutekiFilter(string key)
-    {
-        mutekiFilters.Add(key);
-    }
-    public void RemoveMutekiFilter(string key)
-    {
-        mutekiFilters.Remove(key);
-    }
-    public bool CanBeDamaged => mutekiFilters.Count == 0;
+    [SerializeField] HeroMutekiManager mutekiManager;
+    public bool CanBeDamaged => mutekiManager.CanBeDamaged;
 
-    [Space(10), SerializeField] HeroMover hero;
-    [SerializeField] IHPView view;
+    [SerializeField] HeroMover hero;
+    [SerializeField] IHPView   view;
 
     public int HP{ get; private set; } = 3;
 
@@ -50,8 +42,8 @@ public class HPController : SerializedMonoBehaviour
     void OnDamaged(int oldHP, int newHP)
     {
         const string DMG = "Damage";
-        AddMutekiFilter(DMG);
-        DelayedCall(hero.Parameters.MutekiSeconds, () => RemoveMutekiFilter(DMG));
+        mutekiManager.AddMutekiFilter(DMG);
+        DelayedCall(hero.Parameters.MutekiSeconds, () => mutekiManager.RemoveMutekiFilter(DMG));
 
         view.OnDamaged(HP, HP - 1); // u-n
     }
