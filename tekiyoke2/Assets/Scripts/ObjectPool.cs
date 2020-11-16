@@ -17,7 +17,7 @@ public class ObjectPool<T> where T : MonoBehaviour, IReusable
         pool = new T[capacity];
         for(int i = 0; i < capacity; i++)
         {
-            pool[i] = GameObject.Instantiate(prefab, poolTF);
+            pool[i] = Object.Instantiate(prefab, poolTF);
             pool[i].gameObject.SetActive(false);
         }
     }

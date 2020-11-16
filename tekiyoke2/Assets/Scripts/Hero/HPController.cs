@@ -10,21 +10,13 @@ using UniRx;
 
 public class HPController : SerializedMonoBehaviour
 {
-    HashSet<string> mutekiFilters = new HashSet<string>();
-    public void AddMutekiFilter(string key)
-    {
-        mutekiFilters.Add(key);
-    }
-    public void RemoveMutekiFilter(string key)
-    {
-        mutekiFilters.Remove(key);
-    }
-    public bool CanBeDamaged => mutekiFilters.Count == 0;
+    
+    [SerializeField] HeroMover         hero;
+    [SerializeField] IHPView           view;
+    [SerializeField] HeroMutekiManager mutekiManager;
+    public bool CanBeDamaged => mutekiManager.CanBeDamaged;
 
-    [Space(10), SerializeField] HeroMover hero;
-    [SerializeField] IHPView view;
-
-    public int HP{ get; private set; } = 3;
+    public int HP { get; private set; } = 3;
 
     // 普通に(?)DamageとかHealとかで分ければよかった
     public void ChangeHP(int value)
@@ -47,18 +39,22 @@ public class HPController : SerializedMonoBehaviour
         HP = value;
     }
 
+    Tween removeMuteki;
     void OnDamaged(int oldHP, int newHP)
     {
+        removeMuteki?.Kill();
         const string DMG = "Damage";
-        AddMutekiFilter(DMG);
-        DelayedCall(hero.Parameters.MutekiSeconds, () => RemoveMutekiFilter(DMG));
+        mutekiManager.AddMutekiFilter(DMG);
+        removeMuteki = DelayedCall(hero.Parameters.MutekiSeconds, () => mutekiManager.RemoveMutekiFilter(DMG));
 
         view.OnDamaged(HP, HP - 1); // u-n
     }
 
-    void DelayedCall(float delay, DG.Tweening.TweenCallback call)
+    Tween DelayedCall(float delay, DG.Tweening.TweenCallback call)
     {
-        DOVirtual.DelayedCall(delay, call).AsHeros().GetPausable().AddTo(this);
+        Tween tw = DOVirtual.DelayedCall(delay, call).AsHeros();
+        tw.GetPausable().AddTo(this);
+        return tw;
     }
 }
 
