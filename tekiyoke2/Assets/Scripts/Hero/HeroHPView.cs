@@ -26,10 +26,7 @@ public class HeroHPView : MonoBehaviour, IHPView
 
     public void OnDamaged(int oldHP, int newHP)
     {
-        foreach (Tween spriteChange in delayedSpriteChanges)
-        {
-            spriteChange.Kill();
-        }
+        ClearTweens();
         
         Camera.transform.DOShakePosition(cameraShakeSeconds, cameraShakeWidth, cameraShakeVibrato);
 
@@ -50,10 +47,7 @@ public class HeroHPView : MonoBehaviour, IHPView
 
     public void OnHealed(int oldHP, int newHP)
     {
-        foreach (Tween spriteChange in delayedSpriteChanges)
-        {
-            spriteChange.Kill();
-        }
+        ClearTweens();
         
         image.color  = Color.white;
         image.sprite = BeingHealedSprite(newHP);
@@ -101,6 +95,15 @@ public class HeroHPView : MonoBehaviour, IHPView
             case 3: return sprites.Img3;
             default: throw new ArgumentOutOfRangeException();
         }
+    }
+
+    void ClearTweens()
+    {
+        foreach (Tween spriteChange in delayedSpriteChanges)
+        {
+            spriteChange.Kill();
+        }
+        delayedSpriteChanges = new List<Tween>();
     }
 
     Tween DelayedCall(float delay, DG.Tweening.TweenCallback call)
