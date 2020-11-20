@@ -15,11 +15,16 @@ Assets/Plugins/Editor/JetBrains*
 # DOTweenは公開しないよ
 Demigiant/
 
-#UniRx
+# UniRx
 UniRx/
 
-#Odin
+# Odin
 Sirenix/
+
+# PlayFab周り
+Assets/PlayFabEditorExtensions/
+Assets/PlayFabSDK/
+
 
 # Uncomment this line if you wish to ignore the asset store tools plugin
 # [Aa]ssets/AssetStoreTools*
