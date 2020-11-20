@@ -22,8 +22,8 @@ UniRx/
 Sirenix/
 
 # PlayFab周り
-Assets/PlayFabEditorExtensions/
-Assets/PlayFabSDK/
+tekiyoke2/Assets/PlayFabEditorExtensions/
+tekiyoke2/Assets/PlayFabSDK/
 
 
 # Uncomment this line if you wish to ignore the asset store tools plugin

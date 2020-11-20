@@ -15,9 +15,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DOTween.Modules", "DOTween.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sirenix.OdinInspector.CompatibilityLayer", "Sirenix.OdinInspector.CompatibilityLayer.csproj", "{B8AB6B6C-E667-8F0B-41FC-05E193A3A5C4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayFab", "PlayFab.csproj", "{AA53D2A8-0BA0-5425-81DC-22C6A3228A58}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sirenix.OdinInspector.CompatibilityLayer.Editor", "Sirenix.OdinInspector.CompatibilityLayer.Editor.csproj", "{B69AF395-EA05-9FF5-9AD5-31D18376A4C0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DOTweenPro.EditorScripts", "DOTweenPro.EditorScripts.csproj", "{44FCCC19-AEC9-D67A-8CA7-6E8984311CDD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayFabEditorExtensions", "PlayFabEditorExtensions.csproj", "{C4E7B04B-1F95-D04A-EDA6-A210FF32408C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayFabSDKEditor", "PlayFabSDKEditor.csproj", "{C7BDF3D3-5DDE-11FA-0074-5A94A1AAFD4B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +59,10 @@ Global
 		{B8AB6B6C-E667-8F0B-41FC-05E193A3A5C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8AB6B6C-E667-8F0B-41FC-05E193A3A5C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8AB6B6C-E667-8F0B-41FC-05E193A3A5C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA53D2A8-0BA0-5425-81DC-22C6A3228A58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA53D2A8-0BA0-5425-81DC-22C6A3228A58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA53D2A8-0BA0-5425-81DC-22C6A3228A58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA53D2A8-0BA0-5425-81DC-22C6A3228A58}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B69AF395-EA05-9FF5-9AD5-31D18376A4C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B69AF395-EA05-9FF5-9AD5-31D18376A4C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B69AF395-EA05-9FF5-9AD5-31D18376A4C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -61,6 +71,14 @@ Global
 		{44FCCC19-AEC9-D67A-8CA7-6E8984311CDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{44FCCC19-AEC9-D67A-8CA7-6E8984311CDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{44FCCC19-AEC9-D67A-8CA7-6E8984311CDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4E7B04B-1F95-D04A-EDA6-A210FF32408C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4E7B04B-1F95-D04A-EDA6-A210FF32408C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4E7B04B-1F95-D04A-EDA6-A210FF32408C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4E7B04B-1F95-D04A-EDA6-A210FF32408C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7BDF3D3-5DDE-11FA-0074-5A94A1AAFD4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7BDF3D3-5DDE-11FA-0074-5A94A1AAFD4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7BDF3D3-5DDE-11FA-0074-5A94A1AAFD4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7BDF3D3-5DDE-11FA-0074-5A94A1AAFD4B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
