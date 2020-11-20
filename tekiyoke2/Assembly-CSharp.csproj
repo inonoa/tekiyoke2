@@ -170,6 +170,9 @@
      <Compile Include="Assets\Scripts\ResultScene\SlideFadeIn.cs" />
      <Compile Include="Assets\Scripts\ResultScene\Tweeter.cs" />
      <Compile Include="Assets\Scripts\RingBuffer.cs" />
+     <Compile Include="Assets\Scripts\Save\PlayFabSaver.cs" />
+     <Compile Include="Assets\Scripts\Save\SaveData.cs" />
+     <Compile Include="Assets\Scripts\Save\SaveDataManager.cs" />
      <Compile Include="Assets\Scripts\SceneTransition\BlueSlideIn.cs" />
      <Compile Include="Assets\Scripts\SceneTransition\BlurTrans.cs" />
      <Compile Include="Assets\Scripts\SceneTransition\Curtain4SceneEndMover.cs" />
@@ -179,6 +182,7 @@
      <Compile Include="Assets\Scripts\SceneTransition\WindPath.cs" />
      <Compile Include="Assets\Scripts\ScoreHolder.cs" />
      <Compile Include="Assets\Scripts\SoundOrMusic\SoundGroup.cs" />
+     <Compile Include="Assets\Scripts\StagePlayData.cs" />
      <Compile Include="Assets\Scripts\StageSelectScene\StageSelector.cs" />
      <Compile Include="Assets\Scripts\StageSelectScene\WakuLightMover.cs" />
      <Compile Include="Assets\Scripts\TagNames.cs" />

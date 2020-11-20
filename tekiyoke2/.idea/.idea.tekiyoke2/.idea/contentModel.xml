@@ -703,6 +703,11 @@
             <e p="Tweeter.cs" t="Include" />
           </e>
           <e p="RingBuffer.cs" t="Include" />
+          <e p="Save" t="Include">
+            <e p="PlayFabSaver.cs" t="Include" />
+            <e p="SaveData.cs" t="Include" />
+            <e p="SaveDataManager.cs" t="Include" />
+          </e>
           <e p="SceneTransition" t="Include">
             <e p="BlueSlideIn.cs" t="Include" />
             <e p="BlurTrans.cs" t="Include" />
@@ -716,6 +721,7 @@
           <e p="SoundOrMusic" t="Include">
             <e p="SoundGroup.cs" t="Include" />
           </e>
+          <e p="StagePlayData.cs" t="Include" />
           <e p="StageSelectScene" t="Include">
             <e p="StageSelector.cs" t="Include" />
             <e p="WakuLightMover.cs" t="Include" />
