@@ -27,8 +27,10 @@ public class Goal : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other){
-        if(other.tag=="Player" && !goaled){
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.CompareTag(TagNames.Hero) && !goaled)
+        {
             goaled = true;
             HeroDefiner.currentHero.OnGoal();
             HeroDefiner.currentHero.CanMove = false;
