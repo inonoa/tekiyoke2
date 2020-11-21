@@ -1,16 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BranchesTreeState">
-    <expand />
-    <select />
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:intro_playfab" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c97243fa-09da-4818-b4c1-b9937458f378" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/indexLayout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/projectSettingsUpdater.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/DPGauge.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/DPGauge.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/PauserDepauserBase.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/PauserDepauserBase.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Draft2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Draft2.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Save/Save Data Manager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Save/Save Data Manager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Save/SaveDataManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Save/SaveDataManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,20 +41,131 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/.." value="long_muteki" />
+        <entry key="$PROJECT_DIR$/.." value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/CheckPoint/CheckPointsManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/scripts/ScoreHolder.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/scripts/ScoreHolder.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/Save/SaveDataManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/scripts/MapObjs/Goal.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Save/SaveDataManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/scripts/MapObjs/Goal.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scenes/ResultScene.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Save/SaveData.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Assets/Scripts/Save/PlayFabSaver.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CheckPoint/CheckPointsManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MainManagers/DraftManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Hero/HeroMover.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/StagePlayData.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/Goal.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ResultScene/Tweeter.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ScoreHolder.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ResultScene/ScoresToText.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Save/SaveData.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Save/SaveDataManager.cs" />
+      </list>
+    </option>
+  </component>
   <component name="ProjectId" id="1kMjFYAI8ZrP1ixQABagyvngduT" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="Discover.Launch.Via.Unity" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="terminal" />
+    <property name="settings.editor.selected.configurable" value="ParameterNameHintsOptionsId" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="selectedOptions">
+        <set />
+      </option>
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="selectedOptions">
+        <set />
+      </option>
+      <method v="2" />
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
+    <task id="LOCAL-00001" summary="PlayFabのもろもろ入れた">
+      <created>1605865785176</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1605865785176</updated>
+    </task>
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c97243fa-09da-4818-b4c1-b9937458f378" name="Default Changelist" comment="" />
+      <created>1605867057338</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1605867057338</updated>
+      <workItem from="1605867070665" duration="19454000" />
+      <workItem from="1605958332251" duration="10409000" />
+    </task>
+    <task id="LOCAL-00002" summary="PlayFabの諸々入れた">
+      <created>1605869496918</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1605869496918</updated>
+    </task>
+    <task id="LOCAL-00003" summary="セーブロードできるぞ！">
+      <created>1605887098992</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1605887098992</updated>
+    </task>
+    <task id="LOCAL-00004" summary="なんかaddし忘れてたらしい">
+      <created>1605887120936</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1605887120936</updated>
+    </task>
+    <task id="LOCAL-00005" summary="ステージクリア周りに使ってみた">
+      <created>1605967930463</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1605967930463</updated>
+    </task>
+    <task id="LOCAL-00006" summary="なんで全部addされてないん……">
+      <created>1605967980763</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1605967980763</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -46,22 +178,51 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="intro_playfab" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="PlayFabのもろもろ入れた" />
+    <MESSAGE value="PlayFabの諸々入れた" />
+    <MESSAGE value="セーブロードできるぞ！" />
+    <MESSAGE value="なんかaddし忘れてたらしい" />
+    <MESSAGE value="ステージクリア周りに使ってみた" />
+    <MESSAGE value="なんで全部addされてないん……" />
+    <option name="LAST_COMMIT_MESSAGE" value="なんで全部addされてないん……" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="709" y="345" key="#Notifications" timestamp="1605532697581">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="709" y="345" key="#Notifications/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1605532697581" />
-    <state x="402" y="171" key="SettingsEditor" timestamp="1605533263530">
+    <state x="796" y="221" key="RiderGenerateDialog" timestamp="1605879501736">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="402" y="171" key="SettingsEditor/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1605533263530" />
+    <state x="796" y="221" key="RiderGenerateDialog/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1605879501736" />
+    <state x="373" y="189" key="SettingsEditor" timestamp="1605883538574">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="373" y="189" key="SettingsEditor/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1605883538574" />
+    <state x="746" y="494" key="VCS.ChangelistChooser" timestamp="1605865976745">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="746" y="494" key="VCS.ChangelistChooser/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1605865976745" />
     <state x="51" y="103" width="1736" height="856" key="VCS.FileHistoryDialog" timestamp="1605529094387">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

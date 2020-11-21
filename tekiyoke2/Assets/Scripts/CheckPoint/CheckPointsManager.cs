@@ -31,6 +31,7 @@ public class CheckPointsManager : MonoBehaviour
                 
                 frontLine = index;
                 MemoryOverDeath.Instance.PassCheckPoint(index);
+                
                 _Passed.OnNext(cp);
             })
             .AddTo(this);

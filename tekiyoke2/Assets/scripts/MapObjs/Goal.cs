@@ -4,45 +4,23 @@ using UnityEngine;
 
 public class Goal : MonoBehaviour
 {
-    int stageIdx;
-    public Animator doubleAnim;
-    public Curtain4SceneEndMover curtain;
+    [SerializeField] DraftManager draftManager;
+    [SerializeField] ScoreHolder scoreHolder;
 
     bool goaled = false;
 
-    void Start(){
-
-        switch(this.gameObject.scene.name){
-            case "Draft1": stageIdx = 0; break;
-            case "Draft2": stageIdx = 1; break;
-            case "Draft3": stageIdx = 2; break;
-            default: stageIdx = 0; break;
-        }
-    }
-
-    void Update()
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if(goaled){
-            doubleAnim.transform.position += new Vector3(8,0,0);
-        }
-    }
-
-    void OnTriggerEnter2D(Collider2D other){
-        if(other.tag=="Player" && !goaled){
+        if(other.CompareTag(TagNames.Hero) && !goaled)
+        {
             goaled = true;
             HeroDefiner.currentHero.OnGoal();
-            HeroDefiner.currentHero.CanMove = false;
             CameraController.CurrentCamera.Freeze(10);
             GameTimeCounter.CurrentInstance.DoesTick = false;
-            ScoreHolder.Instance.clearTimesLast[stageIdx] = GameTimeCounter.CurrentInstance.Seconds;
             MemoryOverDeath.Instance.Clear();
-            //doubleAnim.gameObject.SetActive(true);
+            scoreHolder.Set(new StagePlayData(draftManager.StageIndex, GameTimeCounter.CurrentInstance.Seconds));
 
             SceneTransition.Start2ChangeScene("ResultScene", SceneTransition.TransitionType.WindAndBlur);
-
-            doubleAnim.SetTrigger("runr");
-            HeroDefiner.currentHero.SoundGroup.FadeOut("Run", 2f);
-            HeroDefiner.currentHero.WindSounds.FadeOut(2f);
         }
     }
 }

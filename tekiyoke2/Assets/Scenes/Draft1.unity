@@ -6715,6 +6715,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 227542660908304582, guid: 0d8fe0b57c6f5644eafca0f15f979787,
+        type: 3}
+      propertyPath: draftManager
+      value: 
+      objectReference: {fileID: 1515455046}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d8fe0b57c6f5644eafca0f15f979787, type: 3}
 --- !u!4 &1259787771 stripped
@@ -8016,10 +8021,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d18c155e1953fd438bf229bf89482e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <StageIndex>k__BackingField: -1
   _GameMasterTF: {fileID: 289413201}
   _PauseMasterTF: {fileID: 975853696}
   hero: {fileID: 1333704110}
-  debugMode: 0
+  debugMode: 1
   debugCheckPointIndex: 3
   debugIgnoreMemory: 1
 --- !u!114 &1515455047
