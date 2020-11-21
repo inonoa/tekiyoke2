@@ -440,9 +440,12 @@ public class HeroMover : MonoBehaviour
 
     public void OnGoal()
     {
+        CanMove = false;
         ChangeState(new StateRun());
         draftModeManager.TryExit();
         JetManager.Cancel();
+        SoundGroup.FadeOut("Run", 2f);
+        WindSounds.FadeOut(2f);
     }
 
     public void ForceJump(float force = -1)
