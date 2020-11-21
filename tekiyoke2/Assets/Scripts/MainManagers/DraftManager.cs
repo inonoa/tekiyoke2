@@ -7,7 +7,10 @@ public class DraftManager : MonoBehaviour
 {
     public static DraftManager CurrentInstance{ get; private set; }
 
-    [SerializeField] Transform _GameMasterTF;
+    [field: SerializeField, LabelText(nameof(StageIndex))]
+    public int StageIndex { get; private set; } = -1;
+
+    [Space(10), SerializeField] Transform _GameMasterTF;
     public Transform GameMasterTF => _GameMasterTF;
     [SerializeField] Transform _PauseMasterTF;
     public Transform PauseMasterTF => _PauseMasterTF;

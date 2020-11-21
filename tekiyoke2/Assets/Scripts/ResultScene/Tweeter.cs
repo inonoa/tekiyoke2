@@ -12,6 +12,8 @@ public class Tweeter : MonoBehaviour
     string url;
     IAskedInput input;
 
+    [Space(10), SerializeField] ScoreHolder scoreHolder;
+
 #if UNITY_WEBGL
     [DllImport("__Internal")] private static extern void OpenNewWindow(string url);
 #endif
@@ -21,7 +23,7 @@ public class Tweeter : MonoBehaviour
         input = ServicesLocator.Instance.GetInput();
 
         int stageIdx = SceneTransition.LastStageIndex();
-        float time = stageIdx != -1 ? ScoreHolder.Instance.clearTimesLast[stageIdx] : 69.865f;
+        float time = stageIdx != -1 ? scoreHolder.Get().Time : 69.865f;
         string actualTweetText = tweetText.Replace(
             "[score]",
             time.ToTimeString()

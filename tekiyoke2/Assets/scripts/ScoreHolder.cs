@@ -2,54 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScoreHolder
+[CreateAssetMenu(fileName = "Score Holder", menuName = "Scriptable Object/Score Holder")]
+public class ScoreHolder : ScriptableObject
 {
-    readonly int numStages = 3;
-    public float[] clearTimesLast;
-    public float[] clearTimesBestExceptLast;
-
-    public bool BestTimeExists(int index)
-    {
-        Debug.Assert(index >= 0 && index < numStages);
-        return clearTimesBestExceptLast[index] >= 0;
-    }
-
-    public void ApplyLastTime2Best()
-    {
-        for(int i = 0; i < numStages; i++)
-        {
-            if(clearTimesBestExceptLast[i] < 0 || clearTimesLast[i] < clearTimesBestExceptLast[i])
-            {
-                clearTimesBestExceptLast[i] = clearTimesLast[i];
-            }
-        }
-    }
-
-
-    #region Singleton
-    static ScoreHolder _Instance;
-
-    ///<summary>そもそも (アクセスしやすくしたいとしても) static classでよくない……？</summary>
-    static public ScoreHolder Instance
-    {
-        get
-        {
-            if(_Instance == null) _Instance = new ScoreHolder();
-            return _Instance;
-        }
-    }
-    private ScoreHolder()
-    {
-        clearTimesLast           = new float[numStages];
-        clearTimesBestExceptLast = new float[numStages];
-        for(int i = 0; i<numStages; i++)
-        {
-            clearTimesLast[i] = -1;
-            clearTimesBestExceptLast[i] = -1;
-        }
-    }
-
-    #endregion
+    [SerializeField] StagePlayData data;
+    public void Set(StagePlayData data) => this.data = data;
+    public StagePlayData Get() => data;
 }
 
 public static class FloatToTimeExtension

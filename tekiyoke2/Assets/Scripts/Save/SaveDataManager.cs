@@ -7,11 +7,19 @@ using System;
 [CreateAssetMenu(fileName = "Save Data Manager", menuName = "Scriptable Object/Save Data Manager")]
 public class SaveDataManager : SerializedScriptableObject
 {
-    [SerializeField] SaveData data;
+    [SerializeField] SaveData dataSource;
     
-    public bool TutorialFinished => data.tutorialFinished;
-    public IReadOnlyList<bool> StageCleared => data.stageCleared;
-    public IReadOnlyList<float> BestTimes => data.bestTimes;
+    [Button]
+    void ApplySource()
+    {
+        data = dataSource.Copy();
+    }
+    
+    [SerializeField, ReadOnly] SaveData data;
+    
+    public bool                 TutorialFinished => data.tutorialFinished;
+    public IReadOnlyList<bool>  StageCleared     => data.stageCleared;
+    public IReadOnlyList<float> BestTimes        => data.bestTimes;
     
 
     [Space(10), SerializeField] IDataSaver saver;
@@ -22,8 +30,9 @@ public class SaveDataManager : SerializedScriptableObject
         Save();
     }
 
-    public float SetStageData(StagePlayData play)
+    public (bool isFirstPlay, float lastBestTime) SetStageData(StagePlayData play)
     {
+        bool tmpIsFirst = !StageCleared[play.Stage];
         data.stageCleared[play.Stage] = true;
 
         float tmpBestTime = BestTimes[play.Stage];
@@ -34,12 +43,13 @@ public class SaveDataManager : SerializedScriptableObject
 
         Save();
 
-        return tmpBestTime;
+        return (tmpIsFirst, tmpBestTime);
     }
     
     public void Init()
     {
         if (data == null) Load();
+        else              ApplySource();
     }
 
     [Button]

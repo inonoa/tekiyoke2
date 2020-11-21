@@ -37,4 +37,17 @@ public class SaveData : ScriptableObject
 
         return data;
     }
+
+    public SaveData Copy()
+    {
+        SaveData copy = new SaveData();
+        
+        copy.tutorialFinished = this.tutorialFinished;
+        copy.stageCleared = new bool[3];
+        this.stageCleared.CopyTo(copy.stageCleared, 0);
+        copy.bestTimes = new float[3];
+        this.bestTimes.CopyTo(copy.bestTimes, 0);
+        
+        return copy;
+    }
 }

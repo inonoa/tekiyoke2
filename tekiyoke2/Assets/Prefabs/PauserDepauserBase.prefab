@@ -5621,6 +5621,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d18c155e1953fd438bf229bf89482e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <StageIndex>k__BackingField: -1
   _GameMasterTF: {fileID: 6898193520125713730}
   _PauseMasterTF: {fileID: 3694888298360955732}
   hero: {fileID: 8403945080353875374}
