@@ -123,13 +123,12 @@ public class StageSelector : MonoBehaviour
                         soundGroup.Play("Move");
                     }
                 }
-                if(input.GetButtonDown(ButtonCode.Enter)){
-                    if(selected==1){
-                        state = State.Selected;
-                        wakuLight.Stop();
-                        SceneTransition.Start2ChangeScene("Draft1",SceneTransition.TransitionType.Normal);
-                        soundGroup.Play("Enter");
-                    }
+                if(input.GetButtonDown(ButtonCode.Enter))
+                {
+                    state = State.Selected;
+                    wakuLight.Stop();
+                    SceneTransition.Start2ChangeScene(SceneName(selected), SceneTransition.TransitionType.Normal);
+                    soundGroup.Play("Enter");
                 }
                 break;
 
@@ -137,6 +136,8 @@ public class StageSelector : MonoBehaviour
                 stRenderer[selected-1].color += new Color(0,0,0,0.05f);
                 break;
         }
+
+        string SceneName(int stage) => "Draft" + stage;
             
     }   
 }   
