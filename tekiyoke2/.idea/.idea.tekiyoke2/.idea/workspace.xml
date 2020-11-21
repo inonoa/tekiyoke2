@@ -27,11 +27,9 @@
   <component name="ChangeListManager">
     <list default="true" id="c97243fa-09da-4818-b4c1-b9937458f378" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/DPGauge.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/DPGauge.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/PauserDepauserBase.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/PauserDepauserBase.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Draft1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Draft1.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Draft2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Draft2.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Save/Save Data Manager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Save/Save Data Manager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Save/SaveDataManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Save/SaveDataManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,6 +69,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/ResultScene/ScoresToText.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Save/SaveData.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Save/SaveDataManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/StageSelector.cs" />
       </list>
     </option>
   </component>
