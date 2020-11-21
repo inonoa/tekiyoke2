@@ -7,56 +7,58 @@ using System;
 [CreateAssetMenu(fileName = "Save Data Manager", menuName = "Scriptable Object/Save Data Manager")]
 public class SaveDataManager : SerializedScriptableObject
 {
-    [SerializeField] SaveData dataSource;
-    
-    [Button]
-    void ApplySource()
+    [SerializeField, ReadOnly] SaveData _data;
+
+    SaveData Data
     {
-        data = dataSource.Copy();
+        get
+        {
+            if (_data == null) _data = dataSource.Copy();
+            return _data;
+        }
     }
     
-    [SerializeField, ReadOnly] SaveData data;
-    
-    public bool                 TutorialFinished => data.tutorialFinished;
-    public IReadOnlyList<bool>  StageCleared     => data.stageCleared;
-    public IReadOnlyList<float> BestTimes        => data.bestTimes;
+    public bool                 TutorialFinished => Data.tutorialFinished;
+    public IReadOnlyList<bool>  StageCleared     => Data.stageCleared;
+    public IReadOnlyList<float> BestTimes        => Data.bestTimes;
     
 
-    [Space(10), SerializeField] IDataSaver saver;
+    [SerializeField] IDataSaver saver;
     
     public void SetTutorialFinished()
     {
-        data.tutorialFinished = true;
+        Data.tutorialFinished = true;
         Save();
     }
 
     public (bool isFirstPlay, float lastBestTime) SetStageData(StagePlayData play)
     {
         bool tmpIsFirst = !StageCleared[play.Stage];
-        data.stageCleared[play.Stage] = true;
+        Data.stageCleared[play.Stage] = true;
 
         float tmpBestTime = BestTimes[play.Stage];
         if (play.Time < BestTimes[play.Stage])
         {
-            data.bestTimes[play.Stage] = play.Time;
+            Data.bestTimes[play.Stage] = play.Time;
         }
 
         Save();
 
         return (tmpIsFirst, tmpBestTime);
     }
-    
-    public void Init()
+
+    void Init()
     {
-        if (data == null) Load();
-        else              ApplySource();
+        if (Data == null) Load();
     }
 
     [Button]
-    void Save() => saver.Save(data);
+    void Save() => saver.Save(Data);
     
     [Button]
-    void Load() => saver.Load(data => this.data = data);
+    void Load() => saver.Load(data => this._data = data);
+    
+    [SerializeField] SaveData dataSource;
 }
 
 public interface IDataSaver
