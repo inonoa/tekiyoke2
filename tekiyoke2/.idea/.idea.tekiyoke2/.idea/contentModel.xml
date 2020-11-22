@@ -694,10 +694,16 @@
             <e p="Pauser.cs" t="Include" />
             <e p="PauseUIMover.cs" t="Include" />
           </e>
+          <e p="Ranking" t="Include">
+            <e p="RankData.cs" t="Include" />
+            <e p="RankingLogger.cs" t="Include" />
+            <e p="RankingMock.cs" t="Include" />
+          </e>
           <e p="ResultScene" t="Include">
             <e p="CursorMove.cs" t="Include" />
             <e p="NumberSpritesHolder.cs" t="Include" />
             <e p="PressZToReturn.cs" t="Include" />
+            <e p="ResultSceneManager.cs" t="Include" />
             <e p="ScoresToText.cs" t="Include" />
             <e p="SlideFadeIn.cs" t="Include" />
             <e p="Tweeter.cs" t="Include" />

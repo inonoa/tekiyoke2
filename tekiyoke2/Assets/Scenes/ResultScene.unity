@@ -1131,6 +1131,8 @@ GameObject:
   - component: {fileID: 936385251}
   - component: {fileID: 936385250}
   - component: {fileID: 936385254}
+  - component: {fileID: 936385255}
+  - component: {fileID: 936385256}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1254,8 +1256,50 @@ MonoBehaviour:
   - {fileID: 502603550}
   - {fileID: 947801475}
   - {fileID: 1866600193}
+--- !u!114 &936385255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 936385249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2c9fbf275df4d38b45901c1ddedfd96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: fb237a3fffcef1347ba9cc120ab0ffe9, type: 2}
+    - {fileID: 936385256}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: rankingSenderGetter
+      Entry: 10
+      Data: 0
+    - Name: rankView
+      Entry: 10
+      Data: 1
   scoreHolder: {fileID: 11400000, guid: f55b8efd8c1d2a642b170033e87f467e, type: 2}
   saveDataManager: {fileID: 11400000, guid: 7bf337bff8d2aa1478bacb0d045a6fcc, type: 2}
+  scoreToText: {fileID: 936385254}
+--- !u!114 &936385256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 936385249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c0c1ed3fb7745f9a9ec5f995d69b259, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &947801473
 GameObject:
   m_ObjectHideFlags: 0

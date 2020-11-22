@@ -163,9 +163,13 @@
      <Compile Include="Assets\Scripts\Pause\PauseCameraController.cs" />
      <Compile Include="Assets\Scripts\Pause\PauseUIMover.cs" />
      <Compile Include="Assets\Scripts\Pause\Pauser.cs" />
+     <Compile Include="Assets\Scripts\Ranking\RankData.cs" />
+     <Compile Include="Assets\Scripts\Ranking\RankingLogger.cs" />
+     <Compile Include="Assets\Scripts\Ranking\RankingMock.cs" />
      <Compile Include="Assets\Scripts\ResultScene\CursorMove.cs" />
      <Compile Include="Assets\Scripts\ResultScene\NumberSpritesHolder.cs" />
      <Compile Include="Assets\Scripts\ResultScene\PressZToReturn.cs" />
+     <Compile Include="Assets\Scripts\ResultScene\ResultSceneManager.cs" />
      <Compile Include="Assets\Scripts\ResultScene\ScoresToText.cs" />
      <Compile Include="Assets\Scripts\ResultScene\SlideFadeIn.cs" />
      <Compile Include="Assets\Scripts\ResultScene\Tweeter.cs" />
@@ -866,13 +870,25 @@
       <Project>{913689B3-B639-9B10-E779-4A87F98340B9}</Project>
       <Name>UniRx</Name>
     </ProjectReference>
+    <ProjectReference Include="PlayFab.csproj">
+      <Project>{AA53D2A8-0BA0-5425-81DC-22C6A3228A58}</Project>
+      <Name>PlayFab</Name>
+    </ProjectReference>
     <ProjectReference Include="Sirenix.OdinInspector.CompatibilityLayer.Editor.csproj">
       <Project>{B69AF395-EA05-9FF5-9AD5-31D18376A4C0}</Project>
       <Name>Sirenix.OdinInspector.CompatibilityLayer.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="PlayFabEditorExtensions.csproj">
+      <Project>{C4E7B04B-1F95-D04A-EDA6-A210FF32408C}</Project>
+      <Name>PlayFabEditorExtensions</Name>
+    </ProjectReference>
     <ProjectReference Include="Sirenix.OdinInspector.CompatibilityLayer.csproj">
       <Project>{B8AB6B6C-E667-8F0B-41FC-05E193A3A5C4}</Project>
       <Name>Sirenix.OdinInspector.CompatibilityLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="PlayFabSDKEditor.csproj">
+      <Project>{C7BDF3D3-5DDE-11FA-0074-5A94A1AAFD4B}</Project>
+      <Name>PlayFabSDKEditor</Name>
     </ProjectReference>
     <ProjectReference Include="DOTween.Modules.csproj">
       <Project>{12FDC6C4-5019-A1F9-3D13-F20359DB5948}</Project>
@@ -881,18 +897,6 @@
     <ProjectReference Include="DOTweenPro.Scripts.csproj">
       <Project>{18423607-B80E-C44F-E2A6-070EFBE8B7A9}</Project>
       <Name>DOTweenPro.Scripts</Name>
-    </ProjectReference>
-    <ProjectReference Include="PlayFabEditorExtensions.csproj">
-      <Project>{C4E7B04B-1F95-D04A-EDA6-A210FF32408C}</Project>
-      <Name>PlayFabEditorExtensions</Name>
-    </ProjectReference>
-    <ProjectReference Include="PlayFab.csproj">
-      <Project>{AA53D2A8-0BA0-5425-81DC-22C6A3228A58}</Project>
-      <Name>PlayFab</Name>
-    </ProjectReference>
-    <ProjectReference Include="PlayFabSDKEditor.csproj">
-      <Project>{C7BDF3D3-5DDE-11FA-0074-5A94A1AAFD4B}</Project>
-      <Name>PlayFabSDKEditor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
