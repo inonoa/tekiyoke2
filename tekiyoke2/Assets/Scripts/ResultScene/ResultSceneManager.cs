@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Ranking;
 using Sirenix.OdinInspector;
 using UniRx;
@@ -22,6 +23,16 @@ namespace ResultScene
             (bool isFirstPlay, float lastBestTime) = saveDataManager.SetStageData(playData);
             scoreToText.Init(playData.Stage, playData.Time, isFirstPlay, lastBestTime);
             RankKind rankKind = RankKindUtil.ToKind(playData.Stage);
+
+            if (saveDataManager.StageCleared.All(cleared => cleared))
+            {
+                rankingSenderGetter.SendRanking
+                (
+                    RankKind.AllDrafts,
+                    saveDataManager.BestTimes.Sum(),
+                    () => { }
+                );
+            }
             rankingSenderGetter.SendRanking
             (
                 rankKind,
