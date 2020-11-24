@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,8 +13,8 @@ public class ScoreHolder : ScriptableObject
 
 public static class FloatToTimeExtension
 {
-    public static string ToTimeString(this float seconds){
-
+    public static string ToTimeString(this float seconds)
+    {
         int csc = (int)((seconds - (int)seconds) * 100);
         int sec = ((int)seconds)%60;
         int min = ((int)seconds) / 60;
