@@ -9,9 +9,8 @@ namespace Ranking
     {
         [SerializeField] RankData data;
 
-        public void SendGetRanking(float time, Action<RankData> onGot)
+        public void SendGetRanking(RankKind kind, float time, Action<RankData> onGot)
         {
-            Debug.Log(time + " is sent!");
             onGot.Invoke(data);
         }
     }

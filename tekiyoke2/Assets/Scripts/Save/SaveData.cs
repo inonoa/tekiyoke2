@@ -40,7 +40,7 @@ public class SaveData : ScriptableObject
 
     public SaveData Copy()
     {
-        SaveData copy = new SaveData();
+        SaveData copy = ScriptableObject.CreateInstance<SaveData>();
         
         copy.tutorialFinished = this.tutorialFinished;
         copy.stageCleared = new bool[3];

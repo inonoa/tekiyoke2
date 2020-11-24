@@ -163,6 +163,7 @@
      <Compile Include="Assets\Scripts\Pause\PauseCameraController.cs" />
      <Compile Include="Assets\Scripts\Pause\PauseUIMover.cs" />
      <Compile Include="Assets\Scripts\Pause\Pauser.cs" />
+     <Compile Include="Assets\Scripts\Ranking\PlayfabRankingSenderGetter.cs" />
      <Compile Include="Assets\Scripts\Ranking\RankData.cs" />
      <Compile Include="Assets\Scripts\Ranking\RankingLogger.cs" />
      <Compile Include="Assets\Scripts\Ranking\RankingMock.cs" />

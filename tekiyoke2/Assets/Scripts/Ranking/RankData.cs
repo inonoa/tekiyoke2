@@ -52,4 +52,10 @@ namespace Ranking
         Draft3,
         AllDrafts
     }
+
+    public static class RankKindUtil
+    {
+        static readonly RankKind[] kinds = {RankKind.Draft1, RankKind.Draft2, RankKind.Draft3};
+        public static RankKind ToKind(int stageIndex) => kinds[stageIndex];
+    }
 }
