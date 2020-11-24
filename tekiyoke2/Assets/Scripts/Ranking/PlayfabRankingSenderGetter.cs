@@ -13,28 +13,34 @@ namespace Ranking
     {
         public void SendRanking(RankKind kind, float time, Action onSent)
         {
-            Login(_ => SendGetRankingBody());
-
-            void SendGetRankingBody()
+            if (!PlayFabClientAPI.IsClientLoggedIn())
             {
-                int milliseconds = (int) (time * 1000);
-                List<StatisticUpdate> stats = new List<StatisticUpdate>();
-                stats.Add(new StatisticUpdate {StatisticName = kind.ToString(), Value = milliseconds});
-                var request = new UpdatePlayerStatisticsRequest
-                {
-                    Statistics = stats
-                };
-                PlayFabClientAPI.UpdatePlayerStatistics
-                (
-                    request,
-                    result => onSent.Invoke(),
-                    error  => Debug.LogError(error.GenerateErrorReport())
-                );
+                Login(_ => SendRanking(kind, time, onSent));
+                return;
             }
+            
+            int milliseconds = (int) (time * 1000);
+            List<StatisticUpdate> stats = new List<StatisticUpdate>();
+            stats.Add(new StatisticUpdate {StatisticName = kind.ToString(), Value = milliseconds});
+            var request = new UpdatePlayerStatisticsRequest
+            {
+                Statistics = stats
+            };
+            PlayFabClientAPI.UpdatePlayerStatistics
+            (
+                request,
+                result => onSent.Invoke(),
+                error  => Debug.LogError(error.GenerateErrorReport())
+            );
         }
 
         public void GetRanking(RankKind kind, Action<RankData> onGot)
         {
+            if (!PlayFabClientAPI.IsClientLoggedIn())
+            {
+                Login(_ => GetRanking(kind, onGot));
+                return;
+            }
             StartCoroutine(GetRankingCor(kind, onGot));
         }
 

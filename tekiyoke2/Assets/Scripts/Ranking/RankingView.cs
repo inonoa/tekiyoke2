@@ -16,6 +16,7 @@ namespace Ranking
 
         public void SetData(RankData data)
         {
+            ClearNodes();
             foreach (RankDatum rankDatum in data.Top100)
             {
                 Instantiate(nodeViewPrefab, top100Content).Set(rankDatum);
@@ -23,6 +24,18 @@ namespace Ranking
             foreach (RankDatum rankDatum in data.AroundPlayer100)
             {
                 Instantiate(nodeViewPrefab, aroundPlayer100Content).Set(rankDatum);
+            }
+        }
+
+        void ClearNodes()
+        {
+            foreach (Transform node in top100Content)
+            {
+                Destroy(node.gameObject);
+            }
+            foreach (Transform node in aroundPlayer100Content)
+            {
+                Destroy(node.gameObject);
             }
         }
 
@@ -38,6 +51,7 @@ namespace Ranking
         {
             exitButton.onClick.AddListener(() =>
             {
+                ClearNodes();
                 gameObject.SetActive(false);
                 _OnExit.OnNext(Unit.Default);
             });

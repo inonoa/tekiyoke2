@@ -190,6 +190,7 @@
      <Compile Include="Assets\Scripts\ScoreHolder.cs" />
      <Compile Include="Assets\Scripts\SoundOrMusic\SoundGroup.cs" />
      <Compile Include="Assets\Scripts\StagePlayData.cs" />
+     <Compile Include="Assets\Scripts\StageSelectScene\RankingsSelectManager.cs" />
      <Compile Include="Assets\Scripts\StageSelectScene\StageSelector.cs" />
      <Compile Include="Assets\Scripts\StageSelectScene\WakuLightMover.cs" />
      <Compile Include="Assets\Scripts\TagNames.cs" />
