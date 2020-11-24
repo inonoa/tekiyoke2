@@ -29,7 +29,6 @@ namespace Ranking
                     request,
                     result =>
                     {
-                        print("sent!");
                         StartCoroutine(GetRanking(kind, onGot));
                     },
                     error  => Debug.LogError(error.GenerateErrorReport())
@@ -71,10 +70,10 @@ namespace Ranking
             (
                 kind,
                 top100
-                    .Select(entry => new RankDatum(entry.DisplayName, entry.Position, entry.StatValue / (float)1000))
+                    .Select(entry => new RankDatum(entry.DisplayName, entry.Position + 1, entry.StatValue / (float)1000))
                     .ToArray(),
                 aroundPlayer100
-                    .Select(entry => new RankDatum(entry.DisplayName, entry.Position, entry.StatValue / (float)1000))
+                    .Select(entry => new RankDatum(entry.DisplayName, entry.Position + 1, entry.StatValue / (float)1000))
                     .ToArray()
             ));
         }

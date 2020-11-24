@@ -1,7 +1,9 @@
 using System;
 using Ranking;
 using Sirenix.OdinInspector;
+using UniRx;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace ResultScene
 {
@@ -12,6 +14,7 @@ namespace ResultScene
         [SerializeField] ScoresToText         scoreToText;
         [SerializeField] IRankingSenderGetter rankingSenderGetter;
         [SerializeField] IRankView            rankView;
+        [SerializeField] Button               goToRankButton;
         
         void Start()
         {
@@ -22,8 +25,14 @@ namespace ResultScene
             (
                 RankKindUtil.ToKind(playData.Stage),
                 playData.Time,
-                data => rankView.Show(data)
+                data => rankView.SetData(data)
             );
+            goToRankButton.onClick.AddListener(() =>
+            {
+                gameObject.SetActive(false);
+                rankView.Show();
+            });
+            rankView.OnExit.Subscribe(_ => gameObject.SetActive(true));
         }
     }
 
@@ -34,6 +43,8 @@ namespace ResultScene
 
     public interface IRankView
     {
-        void Show(RankData rankData);
+        void SetData(RankData data);
+        void Show();
+        IObservable<Unit> OnExit { get; }
     }
 }

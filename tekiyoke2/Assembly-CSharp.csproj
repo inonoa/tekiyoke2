@@ -165,8 +165,10 @@
      <Compile Include="Assets\Scripts\Pause\Pauser.cs" />
      <Compile Include="Assets\Scripts\Ranking\PlayfabRankingSenderGetter.cs" />
      <Compile Include="Assets\Scripts\Ranking\RankData.cs" />
+     <Compile Include="Assets\Scripts\Ranking\RankNodeView.cs" />
      <Compile Include="Assets\Scripts\Ranking\RankingLogger.cs" />
      <Compile Include="Assets\Scripts\Ranking\RankingMock.cs" />
+     <Compile Include="Assets\Scripts\Ranking\RankingView.cs" />
      <Compile Include="Assets\Scripts\ResultScene\CursorMove.cs" />
      <Compile Include="Assets\Scripts\ResultScene\NumberSpritesHolder.cs" />
      <Compile Include="Assets\Scripts\ResultScene\PressZToReturn.cs" />
