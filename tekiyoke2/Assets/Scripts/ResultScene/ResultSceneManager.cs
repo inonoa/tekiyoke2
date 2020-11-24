@@ -21,12 +21,19 @@ namespace ResultScene
             StagePlayData playData = scoreHolder.Get();
             (bool isFirstPlay, float lastBestTime) = saveDataManager.SetStageData(playData);
             scoreToText.Init(playData.Stage, playData.Time, isFirstPlay, lastBestTime);
-            rankingSenderGetter.SendGetRanking
+            RankKind rankKind = RankKindUtil.ToKind(playData.Stage);
+            rankingSenderGetter.SendRanking
             (
-                RankKindUtil.ToKind(playData.Stage),
+                rankKind,
                 playData.Time,
-                data => rankView.SetData(data)
-            );
+                () =>
+                {
+                    rankingSenderGetter.GetRanking
+                    (
+                        rankKind,
+                        data => rankView.SetData(data)
+                    );
+                });
             goToRankButton.onClick.AddListener(() =>
             {
                 gameObject.SetActive(false);
@@ -38,7 +45,8 @@ namespace ResultScene
 
     public interface IRankingSenderGetter
     {
-        void SendGetRanking(RankKind kind, float time, Action<RankData> onGot);
+        void SendRanking(RankKind kind, float time, Action onSent);
+        void GetRanking(RankKind kind, Action<RankData> onGot);
     }
 
     public interface IRankView

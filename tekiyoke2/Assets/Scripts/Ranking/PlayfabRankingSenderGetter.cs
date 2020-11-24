@@ -11,7 +11,7 @@ namespace Ranking
 {
     public class PlayfabRankingSenderGetter : MonoBehaviour, IRankingSenderGetter
     {
-        public void SendGetRanking(RankKind kind, float time, Action<RankData> onGot)
+        public void SendRanking(RankKind kind, float time, Action onSent)
         {
             Login(_ => SendGetRankingBody());
 
@@ -27,16 +27,18 @@ namespace Ranking
                 PlayFabClientAPI.UpdatePlayerStatistics
                 (
                     request,
-                    result =>
-                    {
-                        StartCoroutine(GetRanking(kind, onGot));
-                    },
+                    result => onSent.Invoke(),
                     error  => Debug.LogError(error.GenerateErrorReport())
                 );
             }
         }
 
-        IEnumerator GetRanking(RankKind kind, Action<RankData> onGot)
+        public void GetRanking(RankKind kind, Action<RankData> onGot)
+        {
+            StartCoroutine(GetRankingCor(kind, onGot));
+        }
+
+        IEnumerator GetRankingCor(RankKind kind, Action<RankData> onGot)
         {
             List<PlayerLeaderboardEntry> top100 = null;
             var requestTop100 = new GetLeaderboardRequest

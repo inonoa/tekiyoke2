@@ -9,7 +9,12 @@ namespace Ranking
     {
         [SerializeField] RankData data;
 
-        public void SendGetRanking(RankKind kind, float time, Action<RankData> onGot)
+        public void SendRanking(RankKind kind, float time, Action onSent)
+        {
+            onSent.Invoke();
+        }
+
+        public void GetRanking(RankKind kind, Action<RankData> onGot)
         {
             onGot.Invoke(data);
         }
