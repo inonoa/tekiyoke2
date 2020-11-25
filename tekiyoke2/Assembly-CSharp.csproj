@@ -132,6 +132,7 @@
      <Compile Include="Assets\Scripts\MainManagers\GameTimeCounter.cs" />
      <Compile Include="Assets\Scripts\MainManagers\HeroTimeExtension.cs" />
      <Compile Include="Assets\Scripts\MainManagers\MemoryOverDeath.cs" />
+     <Compile Include="Assets\Scripts\MainManagers\PlayFabLogin.cs" />
      <Compile Include="Assets\Scripts\MainManagers\ScriptableObjectsHolder.cs" />
      <Compile Include="Assets\Scripts\MainManagers\ScriptableObjectsLoader.cs" />
      <Compile Include="Assets\Scripts\MainManagers\ServicesLocator.cs" />
@@ -168,6 +169,7 @@
      <Compile Include="Assets\Scripts\Ranking\RankNodeView.cs" />
      <Compile Include="Assets\Scripts\Ranking\RankingLogger.cs" />
      <Compile Include="Assets\Scripts\Ranking\RankingMock.cs" />
+     <Compile Include="Assets\Scripts\Ranking\RankingMockView.cs" />
      <Compile Include="Assets\Scripts\Ranking\RankingView.cs" />
      <Compile Include="Assets\Scripts\ResultScene\CursorMove.cs" />
      <Compile Include="Assets\Scripts\ResultScene\NumberSpritesHolder.cs" />
@@ -198,6 +200,7 @@
      <Compile Include="Assets\Scripts\TitleScene\CloudSpawner.cs" />
      <Compile Include="Assets\Scripts\TitleScene\Title2Stages.cs" />
      <Compile Include="Assets\Scripts\Utils\ArrayForEach.cs" />
+     <Compile Include="Assets\Scripts\Utils\EnumArray.cs" />
      <Compile Include="Assets\Scripts\Utils\MaterialTween.cs" />
      <Compile Include="Assets\Scripts\Utils\MyMath.cs" />
      <Compile Include="Assets\Scripts\Utils\RenameFieldAttribute.cs" />

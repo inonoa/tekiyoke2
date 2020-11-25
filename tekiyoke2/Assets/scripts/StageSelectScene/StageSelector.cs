@@ -66,7 +66,7 @@ public class StageSelector : MonoBehaviour
         rankingsSelectManager.OnExit.Subscribe(_ =>
         {
             gameObject.SetActive(true);
-            goToRankingsButton.gameObject.SetActive(false);
+            goToRankingsButton.gameObject.SetActive(true);
         });
 
         DOVirtual.DelayedCall(1f, () => goToRankingsButton.gameObject.SetActive(true));

@@ -14,7 +14,7 @@ namespace Ranking
             this.data = data;
         }
 
-        public void Show()
+        public void Show(RankKind kind)
         {
             print("log!");
             print(string.Join("\n", data.Top100.Select(datum => datum.Name + ": " + datum.Time)));

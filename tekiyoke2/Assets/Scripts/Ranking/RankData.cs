@@ -9,6 +9,7 @@ namespace Ranking
     [Serializable]
     public class RankData
     {
+        [field: SerializeField, LabelText(nameof(Kind))]
         public RankKind Kind { get; private set; }
         
         [SerializeField] RankDatum[] _Top100;

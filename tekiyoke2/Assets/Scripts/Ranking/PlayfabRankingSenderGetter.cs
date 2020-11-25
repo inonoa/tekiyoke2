@@ -13,12 +13,6 @@ namespace Ranking
     {
         public void SendRanking(RankKind kind, float time, Action onSent)
         {
-            if (!PlayFabClientAPI.IsClientLoggedIn())
-            {
-                Login(_ => SendRanking(kind, time, onSent));
-                return;
-            }
-            
             int milliseconds = (int) (time * 1000);
             List<StatisticUpdate> stats = new List<StatisticUpdate>();
             stats.Add(new StatisticUpdate {StatisticName = kind.ToString(), Value = milliseconds});
@@ -36,11 +30,6 @@ namespace Ranking
 
         public void GetRanking(RankKind kind, Action<RankData> onGot)
         {
-            if (!PlayFabClientAPI.IsClientLoggedIn())
-            {
-                Login(_ => GetRanking(kind, onGot));
-                return;
-            }
             StartCoroutine(GetRankingCor(kind, onGot));
         }
 
@@ -84,20 +73,6 @@ namespace Ranking
                     .Select(entry => new RankDatum(entry.DisplayName, entry.Position + 1, entry.StatValue / (float)1000))
                     .ToArray()
             ));
-        }
-        
-        void Login(Action<LoginResult> resultCallback, Action<PlayFabError> errorCallback = null)
-        {
-            var request = new LoginWithCustomIDRequest()
-            {
-                CustomId = SystemInfo.deviceUniqueIdentifier
-            };
-            PlayFabClientAPI.LoginWithCustomID
-            (
-                request,
-                resultCallback,
-                errorCallback
-            );
         }
     }
 }

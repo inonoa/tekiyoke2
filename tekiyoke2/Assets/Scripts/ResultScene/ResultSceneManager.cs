@@ -48,7 +48,7 @@ namespace ResultScene
             goToRankButton.onClick.AddListener(() =>
             {
                 gameObject.SetActive(false);
-                rankView.Show();
+                rankView.Show(rankKind);
             });
             rankView.OnExit.Subscribe(_ => gameObject.SetActive(true));
         }
@@ -63,7 +63,7 @@ namespace ResultScene
     public interface IRankView
     {
         void SetData(RankData data);
-        void Show();
+        void Show(RankKind kind);
         IObservable<Unit> OnExit { get; }
     }
 }
