@@ -1,28 +1,34 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
+using UniRx;
 using UnityEngine;
+using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 public class StageSelector : MonoBehaviour
 {   
     #region Objects
-    public GameObject draftselect;
-    public SpriteRenderer dsRenderer;
-    public GameObject waku;
-    public SpriteRenderer wakuRenderer;
-    public GameObject[] stages;
-    public SpriteRenderer[] stRenderer;
-
-    public SpriteRenderer bg;
+    [SerializeField] SpriteRenderer draftSelectRenderer;
+    [SerializeField] GameObject waku;
+    SpriteRenderer wakuRenderer;
+    [SerializeField] GameObject[] stages;
+    SpriteRenderer[] stRenderer;
+    
+    [SerializeField] SpriteRenderer bg;
 
     //クロスフェード用に背後に映すやつ
-    public SpriteRenderer bgbg;
+    [SerializeField] SpriteRenderer bgbg;
 
-    public SpriteRenderer anmaku;
+    [SerializeField] SpriteRenderer anmaku;
 
-    public Sprite[] bgs;
-    public WakuLightMover wakuLight;
+    [SerializeField] Sprite[] bgs;
+    [SerializeField] WakuLightMover wakuLight;
 
-    SoundGroup soundGroup;
+    [SerializeField] SoundGroup soundGroup;
+
+    [SerializeField] Button goToRankingsButton;
+    [SerializeField] RankingsSelectManager rankingsSelectManager;
 
     #endregion
 
@@ -47,11 +53,23 @@ public class StageSelector : MonoBehaviour
         for(int i=0;i<stRenderer.Length;i++){
             stRenderer[i] = stages[i].GetComponent<SpriteRenderer>();
         }
-        dsRenderer = draftselect.GetComponent<SpriteRenderer>();
         wakuRenderer = waku.GetComponent<SpriteRenderer>();
-        soundGroup = GetComponent<SoundGroup>();
 
         input = ServicesLocator.Instance.GetInput();
+        
+        goToRankingsButton.onClick.AddListener(() =>
+        {
+            gameObject.SetActive(false);
+            goToRankingsButton.gameObject.SetActive(false);
+            rankingsSelectManager.Enter();
+        });
+        rankingsSelectManager.OnExit.Subscribe(_ =>
+        {
+            gameObject.SetActive(true);
+            goToRankingsButton.gameObject.SetActive(true);
+        });
+
+        DOVirtual.DelayedCall(1f, () => goToRankingsButton.gameObject.SetActive(true));
     }
 
     void Update()
@@ -87,7 +105,7 @@ public class StageSelector : MonoBehaviour
                     stRenderer[i].color += new Color(0,0,0,targetAlpha * 0.1f);
                     stages[i].transform.position -= new Vector3((float)System.Math.Sqrt(stages[i].transform.position.x),0,0);
                 }
-                dsRenderer.color += new Color(0,0,0,0.1f);
+                draftSelectRenderer.color += new Color(0,0,0,0.1f);
 
                 if(stRenderer[0].color.a >= targetAlpha){
                     state = State.WakuAppearing;

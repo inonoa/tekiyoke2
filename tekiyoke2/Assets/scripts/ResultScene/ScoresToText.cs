@@ -7,18 +7,13 @@ public class ScoresToText : MonoBehaviour
 {
     [SerializeField] Image[] timeImages;
     [SerializeField] Image[] bestTimeImages;
-    [SerializeField] ScoreHolder scoreHolder;
-    [SerializeField] SaveDataManager saveDataManager;
-    void Start()
+    
+    public void Init(int stage, float time, bool isFirstPlay, float lastBestTime)
     {
-        StagePlayData playData = scoreHolder.Get();
-        (bool isFirstPlay, float lastBestTime) = saveDataManager.SetStageData(playData);
-
-        float timeLast = (playData.Stage != -1 ? playData.Time : 55 * 60 + 55.55f);
+        float timeLast = (stage != -1 ? time : 55 * 60 + 55.55f);
         int[] timeDigitsLast = TimeFloat2Ints(timeLast);
 
-        float timeBest = (lastBestTime);
-        int[] timeDigitsBest = TimeFloat2Ints(timeBest);
+        int[] timeDigitsBest = TimeFloat2Ints(lastBestTime);
 
         for(int i = 0; i < 6; i++)
         {
