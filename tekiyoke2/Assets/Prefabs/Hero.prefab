@@ -63,6 +63,7 @@ MonoBehaviour:
   SEGroup: {fileID: 3052081377995588122, guid: 79120cacd6b5fea4f98d2ef99084037e, type: 2}
   BGMGroup: {fileID: -3936053361323068745, guid: 79120cacd6b5fea4f98d2ef99084037e,
     type: 2}
+  <IsSEs>k__BackingField: 0
 --- !u!114 &6267704590824942824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1086,6 +1087,7 @@ MonoBehaviour:
   SEGroup: {fileID: 3052081377995588122, guid: 79120cacd6b5fea4f98d2ef99084037e, type: 2}
   BGMGroup: {fileID: -3936053361323068745, guid: 79120cacd6b5fea4f98d2ef99084037e,
     type: 2}
+  <IsSEs>k__BackingField: 1
 --- !u!1 &6473240483101330362
 GameObject:
   m_ObjectHideFlags: 0
