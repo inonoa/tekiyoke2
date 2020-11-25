@@ -1,3 +1,4 @@
+using Config;
 using Sirenix.OdinInspector;
 using UniRx;
 using UnityEngine;
@@ -7,7 +8,7 @@ using UnityEngine.Serialization;
 namespace SoundOrMusic
 {
     [CreateAssetMenu(fileName = "Sound Volume Changer", menuName = "Scriptable Object/Sound Volume Changer", order = 0)]
-    public class SoundVolumeChanger : ScriptableObject
+    public class SoundVolumeChanger : ScriptableObject, ISoundVolumeChanger
     {
         const float MinVolume = -30;
         const float MaxVolume = 20;
@@ -37,5 +38,8 @@ namespace SoundOrMusic
             _BGMVolume = volumeActual;
             mixer.SetFloat("BGMVolume", volumeActual);
         }
+
+        public float SEVolume => Mathf.InverseLerp(MinVolume, MaxVolume, _SEVolume);
+        public float BGMVolume => Mathf.InverseLerp(MinVolume, MaxVolume, _BGMVolume);
     }
 }

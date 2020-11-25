@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Config;
 using DG.Tweening;
 using UniRx;
 using UnityEngine;
@@ -29,6 +30,9 @@ public class StageSelector : MonoBehaviour
 
     [SerializeField] Button goToRankingsButton;
     [SerializeField] RankingsSelectManager rankingsSelectManager;
+    
+    [SerializeField] Button goToConfigButton;
+    [SerializeField] ConfigManager configManager;
 
     #endregion
 
@@ -59,17 +63,43 @@ public class StageSelector : MonoBehaviour
         
         goToRankingsButton.onClick.AddListener(() =>
         {
-            gameObject.SetActive(false);
-            goToRankingsButton.gameObject.SetActive(false);
+            ExitMain();
             rankingsSelectManager.Enter();
         });
         rankingsSelectManager.OnExit.Subscribe(_ =>
         {
-            gameObject.SetActive(true);
-            goToRankingsButton.gameObject.SetActive(true);
+            EnterMain();
+        });
+        
+        goToConfigButton.onClick.AddListener(() =>
+        {
+            ExitMain();
+            configManager.Enter();
+        });
+        configManager.OnExit.Subscribe(_ =>
+        {
+            EnterMain();
         });
 
-        DOVirtual.DelayedCall(1f, () => goToRankingsButton.gameObject.SetActive(true));
+        DOVirtual.DelayedCall(1f, () =>
+        {
+            goToRankingsButton.gameObject.SetActive(true);
+            goToConfigButton.gameObject.SetActive(true);
+        });
+    }
+
+    void ExitMain()
+    {
+        gameObject.SetActive(false);
+        goToConfigButton.gameObject.SetActive(false);
+        goToRankingsButton.gameObject.SetActive(false);
+    }
+
+    void EnterMain()
+    {
+        gameObject.SetActive(true);
+        goToConfigButton.gameObject.SetActive(true);
+        goToRankingsButton.gameObject.SetActive(true);
     }
 
     void Update()
