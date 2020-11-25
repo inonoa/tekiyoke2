@@ -450,6 +450,9 @@ MonoBehaviour:
     _Volume: 0.414
     _RequireComponent: 0
     <Loop>k__BackingField: 0
+  SEGroup: {fileID: 3052081377995588122, guid: 79120cacd6b5fea4f98d2ef99084037e, type: 2}
+  BGMGroup: {fileID: -3936053361323068745, guid: 79120cacd6b5fea4f98d2ef99084037e,
+    type: 2}
 --- !u!1001 &3177080600696046018
 PrefabInstance:
   m_ObjectHideFlags: 0

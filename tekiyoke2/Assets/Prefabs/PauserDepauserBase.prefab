@@ -5646,6 +5646,9 @@ MonoBehaviour:
     _Volume: 0.664
     _RequireComponent: 0
     <Loop>k__BackingField: 0
+  SEGroup: {fileID: 3052081377995588122, guid: 79120cacd6b5fea4f98d2ef99084037e, type: 2}
+  BGMGroup: {fileID: -3936053361323068745, guid: 79120cacd6b5fea4f98d2ef99084037e,
+    type: 2}
 --- !u!114 &2112207943369035082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6003,18 +6006,19 @@ PrefabInstance:
     - target: {fileID: 3429690165962721614, guid: 54534ce791a58cf43a9e47340b5f951e,
         type: 3}
       propertyPath: serializationData.SerializedBytes.Array.size
-      value: 18
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3429690165962721614, guid: 54534ce791a58cf43a9e47340b5f951e,
         type: 3}
       propertyPath: serializationData.SerializationNodes.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3429690165962721614, guid: 54534ce791a58cf43a9e47340b5f951e,
         type: 3}
       propertyPath: serializationData.Prefab
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 3429690165962721614, guid: 54534ce791a58cf43a9e47340b5f951e,
+        type: 3}
     - target: {fileID: 3429690165962721614, guid: 54534ce791a58cf43a9e47340b5f951e,
         type: 3}
       propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[0]
@@ -6028,7 +6032,7 @@ PrefabInstance:
     - target: {fileID: 3429690165962721614, guid: 54534ce791a58cf43a9e47340b5f951e,
         type: 3}
       propertyPath: serializationData.SerializedFormat
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3429690165962721614, guid: 54534ce791a58cf43a9e47340b5f951e,
         type: 3}
