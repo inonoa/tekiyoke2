@@ -16,9 +16,31 @@ namespace MainManagers
             PlayFabClientAPI.LoginWithCustomID
             (
                 request,
-                result => {},
-                error  => Debug.LogError(error.GenerateErrorReport())
+                result =>
+                {
+                    // SendName("inonoa");
+                },
+                HandleError
             );
+        }
+
+        static void SendName(string name)
+        {
+            var request = new UpdateUserTitleDisplayNameRequest
+            {
+                DisplayName = name
+            };
+            PlayFabClientAPI.UpdateUserTitleDisplayName
+            (
+                request,
+                result => { },
+                HandleError
+            );
+        }
+
+        static void HandleError(PlayFabError error)
+        {
+            Debug.Log(error.GenerateErrorReport());
         }
     }
 }

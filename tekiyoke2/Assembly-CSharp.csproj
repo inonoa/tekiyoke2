@@ -61,6 +61,8 @@
      <Compile Include="Assets\Scripts\CheckPoint\CheckPoint.cs" />
      <Compile Include="Assets\Scripts\CheckPoint\CheckPointUI.cs" />
      <Compile Include="Assets\Scripts\CheckPoint\CheckPointsManager.cs" />
+     <Compile Include="Assets\Scripts\Config\ConfigManager.cs" />
+     <Compile Include="Assets\Scripts\Config\ConfigView.cs" />
      <Compile Include="Assets\Scripts\Enemies\Collider2Wall.cs" />
      <Compile Include="Assets\Scripts\Enemies\DPinEnemy.cs" />
      <Compile Include="Assets\Scripts\Enemies\DontWannaFall.cs" />
@@ -191,6 +193,7 @@
      <Compile Include="Assets\Scripts\SceneTransition\WindPath.cs" />
      <Compile Include="Assets\Scripts\ScoreHolder.cs" />
      <Compile Include="Assets\Scripts\SoundOrMusic\SoundGroup.cs" />
+     <Compile Include="Assets\Scripts\SoundOrMusic\SoundVolumeChanger.cs" />
      <Compile Include="Assets\Scripts\StagePlayData.cs" />
      <Compile Include="Assets\Scripts\StageSelectScene\RankingsSelectManager.cs" />
      <Compile Include="Assets\Scripts\StageSelectScene\StageSelector.cs" />

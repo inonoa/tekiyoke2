@@ -1738,6 +1738,9 @@ MonoBehaviour:
     _Volume: 0.464
     _RequireComponent: 0
     <Loop>k__BackingField: 0
+  SEGroup: {fileID: 3052081377995588122, guid: 79120cacd6b5fea4f98d2ef99084037e, type: 2}
+  BGMGroup: {fileID: -3936053361323068745, guid: 79120cacd6b5fea4f98d2ef99084037e,
+    type: 2}
 --- !u!1 &957841155
 GameObject:
   m_ObjectHideFlags: 0
@@ -2303,6 +2306,9 @@ MonoBehaviour:
     _Volume: 0.23
     _RequireComponent: 0
     <Loop>k__BackingField: 0
+  SEGroup: {fileID: 3052081377995588122, guid: 79120cacd6b5fea4f98d2ef99084037e, type: 2}
+  BGMGroup: {fileID: -3936053361323068745, guid: 79120cacd6b5fea4f98d2ef99084037e,
+    type: 2}
 --- !u!1 &1309719485
 GameObject:
   m_ObjectHideFlags: 0
@@ -4067,6 +4073,9 @@ MonoBehaviour:
     _Volume: 0.229
     _RequireComponent: 0
     <Loop>k__BackingField: 0
+  SEGroup: {fileID: 3052081377995588122, guid: 79120cacd6b5fea4f98d2ef99084037e, type: 2}
+  BGMGroup: {fileID: -3936053361323068745, guid: 79120cacd6b5fea4f98d2ef99084037e,
+    type: 2}
 --- !u!1 &2030721400
 GameObject:
   m_ObjectHideFlags: 0

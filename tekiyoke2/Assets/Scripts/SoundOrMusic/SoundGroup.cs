@@ -4,20 +4,39 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using System;
 using DG.Tweening;
+using UnityEngine.Audio;
 
 public class SoundGroup : MonoBehaviour
 {
     [SerializeField] SoundEffect[] ses;
+    
+    [SerializeField] AudioMixerGroup SEGroup;
+    [SerializeField] AudioMixerGroup BGMGroup;
+    
     bool[] wasPlayingLastMoment;
-    public Action[] finished;
+    
+    Action[] finished;
+    
+    [field: SerializeField, RenameField(nameof(IsSEs))]
+    public bool IsSEs { get; private set; } = true;
 
-    void Start(){
+    void Start()
+    {
+        Debug.Assert(SEGroup.name == "SE" && BGMGroup.name == "BGM");
+        
         AudioSource source4SE = gameObject.AddComponent<AudioSource>();
+        source4SE.outputAudioMixerGroup = IsSEs ? SEGroup : BGMGroup;
 
-        foreach(SoundEffect se in ses){
-            if(se.RequireComponent){
-                se.Initialize(gameObject.AddComponent<AudioSource>());
-            }else{
+        foreach(SoundEffect se in ses)
+        {
+            if (se.RequireComponent)
+            {
+                AudioSource source = gameObject.AddComponent<AudioSource>();
+                source.outputAudioMixerGroup = IsSEs ? SEGroup : BGMGroup;
+                se.Initialize(source);
+            }
+            else
+            {
                 se.Initialize(source4SE);
             }
         }
@@ -123,7 +142,7 @@ public class SoundEffect{
     public bool RequireComponent => _RequireComponent;
 
 
-    [field: SerializeField] [field: RenameField("Loop")]
+    [field: SerializeField, RenameField(nameof(Loop))]
     public bool Loop{ get; private set; }
 
     public bool IsPlaying => source.isPlaying;
