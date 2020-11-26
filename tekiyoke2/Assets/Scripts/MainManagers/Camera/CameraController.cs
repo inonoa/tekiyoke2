@@ -171,5 +171,10 @@ public class CameraController : MonoBehaviour
         AfterEffects   = GetComponent<AfterEffects>();
     }
 
+    void OnDestroy()
+    {
+        _CurrentCamera = null;
+    }
+
     #endregion
 }
