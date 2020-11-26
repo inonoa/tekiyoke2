@@ -51,4 +51,5 @@ MonoBehaviour:
     type: 3}
   scshoImage: {fileID: 6327406004804041851, guid: 0a43d2f3384d94f4dad9792771feac2c,
     type: 3}
+  whiteOutImage: {fileID: 0}
   firstState: 0

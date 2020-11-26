@@ -16,7 +16,7 @@ public class TutorialEnd : MonoBehaviour
             GameTimeCounter.CurrentInstance.DoesTick = false;
             MemoryOverDeath.Instance.Clear();
 
-            SceneTransition.Start2ChangeScene("Draft1", SceneTransition.TransitionType.Normal);
+            SceneTransition.Start2ChangeScene("Draft1", SceneTransition.TransitionType.WhiteOut);
         }
     }
 }

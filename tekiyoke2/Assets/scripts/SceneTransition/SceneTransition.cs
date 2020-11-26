@@ -15,15 +15,15 @@ public class SceneTransition : MonoBehaviour
     [SerializeField] WindAndBlur windAndBlur = null;
     [SerializeField] Image scshoImage = null;
     static Texture2D scSho = null;
+    [SerializeField] Image whiteOutImage;
     static List<string> _SceneNameLog = new List<string>();
-    public static IReadOnlyList<string> SceneNameLog{
-        get => _SceneNameLog;
-    }
-    public static int LastStageIndex(){
-
-        for(int i = SceneNameLog.Count - 1; i > -1; i--){
-
-            switch(SceneNameLog[i]){
+    public static IReadOnlyList<string> SceneNameLog => _SceneNameLog;
+    public static int LastStageIndex()
+    {
+        for(int i = SceneNameLog.Count - 1; i > -1; i--)
+        {
+            switch(SceneNameLog[i])
+            {
                 case "Draft1": return 0;
                 case "Draft2": return 1;
                 case "Draft3": return 2;
@@ -32,9 +32,10 @@ public class SceneTransition : MonoBehaviour
         return -1;
     }
 
-    enum SceneTransitState{ None, Default, Normal, HeroDied, WindAndBlur }
+    enum SceneTransitState{ None, Default, Normal, HeroDied, WindAndBlur, WhiteOut }
     static SceneTransitState _State = SceneTransitState.Normal;
-    static SceneTransitState State{
+    static SceneTransitState State
+    {
         get{ return _State; }
         set{ _State = value; }
     }
@@ -46,19 +47,23 @@ public class SceneTransition : MonoBehaviour
     static bool firstSceneLoaded = false;
 
     ///<summary>様々な遷移がある</summary>
-    public enum TransitionType{
+    public enum TransitionType
+    {
         ///<summary>素のLoadScene()が呼ばれる</summary>
-        Default
+        Default,
         ///<summary>今のとこカーテンが出て横にシューっとなる(？)、大体の場合これを使うみたいな感じで</summary>
-        , Normal
+        Normal,
         ///<summary>主人公が死んだとき専用の遷移</summary>
-        , HeroDied
+        HeroDied,
         ///<summary>風みたいなエフェクトを出した後背景をぼかす(？)</summary>
-        , WindAndBlur
+        WindAndBlur,
+        ///<summary>チュートリアルからDraft1への移行(ここでする必要ある？)</summary>
+        WhiteOut
     }
 
     ///<summary>シーンを変えることを試みる、短時間に複数回遷移させるみたいなことにならないようによしなにする</summary>
-    public static void Start2ChangeScene(string sceneName, TransitionType transitionType){
+    public static void Start2ChangeScene(string sceneName, TransitionType transitionType)
+    {
         if(SceneTransition.State != SceneTransitState.None) return;
 
         switch(transitionType){
@@ -82,7 +87,7 @@ public class SceneTransition : MonoBehaviour
             
             case TransitionType.WindAndBlur:
                 SceneTransition.State = SceneTransitState.WindAndBlur;
-                PostEffectWrapper noise = CameraController.CurrentCamera?.AfterEffects?.Find("Noise");
+                PostEffectWrapper noise = CameraController.CurrentCamera.AfterEffects.Find("Noise");
                 if(noise!=null) DOTween.To(noise.GetVolume, noise.SetVolume, 0, 1);
                 DOVirtual.DelayedCall(1.2f, () =>
                 {
@@ -92,17 +97,29 @@ public class SceneTransition : MonoBehaviour
                     windblur.transform.SetAsLastSibling();
                 });
                 break;
+            
+            case TransitionType.WhiteOut:
+                SceneTransition.State = SceneTransitState.WhiteOut;
+                const float duration = 3f;
+                PostEffectWrapper noise_ = CameraController.CurrentCamera.AfterEffects.Find("Noise");
+                if(noise_ != null) DOTween.To(noise_.GetVolume, noise_.SetVolume, 0, duration);
+                currentInstance.whiteOutImage.DOFade(1, duration)
+                    .onComplete += () => SceneManager.LoadScene(sceneName);
+                break;
         }
     }
 
-    void Awake(){
+    void Awake()
+    {
         _SceneNameLog.Add(gameObject.scene.name);
     }
 
     ///<summary>遷移してきたなら遷移のタイプによって相応のオブジェクトを出す、そうでないならfirstStateを反映</summary>
-    void Start(){
+    void Start()
+    {
         currentInstance = this;
-        if(!firstSceneLoaded){
+        if(!firstSceneLoaded)
+        {
             SceneTransition.State = firstState;
             firstSceneLoaded = true;
         }
@@ -110,7 +127,8 @@ public class SceneTransition : MonoBehaviour
         PostEffectWrapper noise = CameraController.CurrentCamera?.AfterEffects?.Find("Noise");
         if(noise!=null) DOTween.To(noise.GetVolume, noise.SetVolume, 1, 1);
 
-        switch(SceneTransition.State){
+        switch(SceneTransition.State)
+        {
             case SceneTransitState.None:
                 break;
 
@@ -128,6 +146,11 @@ public class SceneTransition : MonoBehaviour
             case SceneTransitState.WindAndBlur:
                 Image scshoImg = Instantiate(scshoImage, transform.parent.Find("BG"));
                 scshoImg.sprite = Sprite.Create(scSho, new Rect(0, 0, Screen.width, Screen.height), new Vector2(0.5f,0.5f));
+                break;
+            
+            case SceneTransitState.WhiteOut:
+                currentInstance.whiteOutImage.color = Color.white;
+                currentInstance.whiteOutImage.DOFade(0, 2);
                 break;
         }
 
