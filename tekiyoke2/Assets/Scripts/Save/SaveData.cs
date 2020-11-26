@@ -7,6 +7,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Save Data", menuName = "Scriptable Object/Save Data")]
 public class SaveData : ScriptableObject
 {
+    public string  playerName;
     public bool    tutorialFinished = false;
     public bool[]  stageCleared     = new bool[3];
     public float[] bestTimes        = new float[3];
@@ -15,16 +16,18 @@ public class SaveData : ScriptableObject
     {
         return new Dictionary<string, string>()
         {
+            {nameof(playerName),       playerName},
             {nameof(tutorialFinished), tutorialFinished.ToString()},
-            {nameof(stageCleared), string.Join(",", stageCleared)},
-            {nameof(bestTimes), string.Join(",", bestTimes)}
+            {nameof(stageCleared),     string.Join(",", stageCleared)},
+            {nameof(bestTimes),        string.Join(",", bestTimes)}
         };
     }
 
     public static SaveData FromDictionary(Dictionary<string, string> dict)
     {
         var data = ScriptableObject.CreateInstance<SaveData>();
-        
+
+        data.playerName       = dict[nameof(playerName)];
         data.tutorialFinished = bool.Parse(dict[nameof(tutorialFinished)]);
         data.stageCleared     = dict[nameof(stageCleared)]
                                 .Split(',')
@@ -41,7 +44,8 @@ public class SaveData : ScriptableObject
     public SaveData Copy()
     {
         SaveData copy = ScriptableObject.CreateInstance<SaveData>();
-        
+
+        copy.playerName = this.playerName;
         copy.tutorialFinished = this.tutorialFinished;
         copy.stageCleared = new bool[3];
         this.stageCleared.CopyTo(copy.stageCleared, 0);

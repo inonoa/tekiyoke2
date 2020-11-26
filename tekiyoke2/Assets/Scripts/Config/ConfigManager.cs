@@ -10,17 +10,19 @@ namespace Config
     {
         [SerializeField] IConfigView view;
         [SerializeField] ISoundVolumeChanger soundVolumeChanger;
+        [SerializeField] IPlayerNameChanger nameChanger;
 
         void Start()
         {
-            view.OnSEVolumeChanged.Subscribe(soundVolumeChanger.ChangeSEVolume);
-            view.OnBGMVolumeChanged.Subscribe(soundVolumeChanger.ChangeBGMVolume);
-            view.OnExit.Subscribe(_ => _OnExit.OnNext(Unit.Default));
+            view.OnSEVolumeChanged.Subscribe(soundVolumeChanger.ChangeSEVolume).AddTo(this);
+            view.OnBGMVolumeChanged.Subscribe(soundVolumeChanger.ChangeBGMVolume).AddTo(this);
+            view.OnExit.Subscribe(_ => _OnExit.OnNext(Unit.Default)).AddTo(this);
+            view.OnPlayerNameChanged.Subscribe(nameChanger.ChangePlayerName).AddTo(this);
         }
 
         public void Enter()
         {
-            view.Enter(soundVolumeChanger.BGMVolume, soundVolumeChanger.SEVolume);
+            view.Enter(soundVolumeChanger.BGMVolume, soundVolumeChanger.SEVolume, nameChanger.PlayerName);
         }
         
         Subject<Unit> _OnExit = new Subject<Unit>();
@@ -29,10 +31,11 @@ namespace Config
 
     public interface IConfigView
     {
-        void Enter(float bgmVolume, float seVolume);
+        void Enter(float bgmVolume, float seVolume, string playerName);
         IObservable<float> OnBGMVolumeChanged { get; }
         IObservable<float> OnSEVolumeChanged  { get; }
         IObservable<Unit> OnExit { get; }
+        IObservable<string> OnPlayerNameChanged { get; }
     }
 
     public interface ISoundVolumeChanger
@@ -41,5 +44,11 @@ namespace Config
         void ChangeBGMVolume(float volume);
         float SEVolume { get; }
         float BGMVolume { get; }
+    }
+
+    public interface IPlayerNameChanger
+    {
+        void ChangePlayerName(string name);
+        string PlayerName { get; }
     }
 }

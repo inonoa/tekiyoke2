@@ -32,6 +32,17 @@ public class PlayFabSaver : ScriptableObject, IDataSaver
                 result => {},
                 error  => {}
             );
+            
+            var nameRequest = new UpdateUserTitleDisplayNameRequest
+            {
+                DisplayName = data_.playerName
+            };
+            PlayFabClientAPI.UpdateUserTitleDisplayName
+            (
+                nameRequest,
+                result => { },
+                error  => { }
+            );
         }
     }
 
