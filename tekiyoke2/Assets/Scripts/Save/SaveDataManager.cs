@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
 using System;
+using Config;
 
 [CreateAssetMenu(fileName = "Save Data Manager", menuName = "Scriptable Object/Save Data Manager")]
-public class SaveDataManager : SerializedScriptableObject
+public class SaveDataManager : SerializedScriptableObject, IPlayerNameChanger
 {
-    [SerializeField, ReadOnly] SaveData _data;
+    [SerializeField] SaveData _data;
 
     SaveData Data
     {
@@ -17,13 +18,20 @@ public class SaveDataManager : SerializedScriptableObject
             return _data;
         }
     }
-    
+
+    public string               PlayerName       => Data.playerName;
     public bool                 TutorialFinished => Data.tutorialFinished;
     public IReadOnlyList<bool>  StageCleared     => Data.stageCleared;
     public IReadOnlyList<float> BestTimes        => Data.bestTimes;
     
 
     [SerializeField] IDataSaver saver;
+
+    public void ChangePlayerName(string name)
+    {
+        Data.playerName = name;
+        Save();
+    }
     
     public void SetTutorialFinished()
     {
