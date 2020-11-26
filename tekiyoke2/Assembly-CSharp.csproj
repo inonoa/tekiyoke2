@@ -158,6 +158,7 @@
      <Compile Include="Assets\Scripts\MapObjs\TogeController.cs" />
      <Compile Include="Assets\Scripts\MapObjs\TogeDropController.cs" />
      <Compile Include="Assets\Scripts\MapObjs\TogeDropRespawner.cs" />
+     <Compile Include="Assets\Scripts\MapObjs\TutorialEnd.cs" />
      <Compile Include="Assets\Scripts\MapObjs\UltraThinTileController.cs" />
      <Compile Include="Assets\Scripts\ObjectPool.cs" />
      <Compile Include="Assets\Scripts\Parameters\DraftModeParameters.cs" />
