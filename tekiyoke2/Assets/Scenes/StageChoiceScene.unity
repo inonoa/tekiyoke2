@@ -2628,6 +2628,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1971942878}
   - component: {fileID: 1971942877}
+  - component: {fileID: 1971942879}
   m_Layer: 0
   m_Name: StageSelector
   m_TagString: Untagged
@@ -2663,9 +2664,7 @@ MonoBehaviour:
   wakuLight: {fileID: 1016889450}
   soundGroup: {fileID: 46160779}
   goToRankingsButton: {fileID: 1267269542}
-  rankingsSelectManager: {fileID: 940943217}
   goToConfigButton: {fileID: 162664362}
-  configManager: {fileID: 1847597933}
   selected: 1
 --- !u!4 &1971942878
 Transform:
@@ -2687,6 +2686,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1971942879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1971942876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8538f6362664c87b8601c23c7da7d93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 1971942877}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: view
+      Entry: 10
+      Data: 0
+  configManager: {fileID: 1847597933}
+  rankingsSelectManager: {fileID: 940943217}
 --- !u!1 &1988778058
 GameObject:
   m_ObjectHideFlags: 0

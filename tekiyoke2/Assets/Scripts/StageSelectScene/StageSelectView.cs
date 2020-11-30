@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Config;
 using DG.Tweening;
@@ -7,7 +8,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-public class StageSelector : MonoBehaviour
+public class StageSelectView : MonoBehaviour, IStageSelectView
 {   
     #region Objects
     [SerializeField] SpriteRenderer draftSelectRenderer;
@@ -29,10 +30,8 @@ public class StageSelector : MonoBehaviour
     [SerializeField] SoundGroup soundGroup;
 
     [SerializeField] Button goToRankingsButton;
-    [SerializeField] RankingsSelectManager rankingsSelectManager;
     
     [SerializeField] Button goToConfigButton;
-    [SerializeField] ConfigManager configManager;
 
     #endregion
 
@@ -50,11 +49,20 @@ public class StageSelector : MonoBehaviour
     IAskedInput input;
 
     #endregion
+    
+    Subject<int> _StageSelected = new Subject<int>();
+    public IObservable<int> StageSelected => _StageSelected;
+    
+    Subject<Unit> _OnGoToConfig = new Subject<Unit>();
+    public IObservable<Unit> OnGoToConfig => _OnGoToConfig;
+    
+    Subject<Unit> _OnGoToRankings = new Subject<Unit>();
+    public IObservable<Unit> OnGoToRankings => _OnGoToRankings;
 
     void Start()
     {
         stRenderer = new SpriteRenderer[stages.Length];
-        for(int i=0;i<stRenderer.Length;i++){
+        for(int i=0; i < stRenderer.Length; i++){
             stRenderer[i] = stages[i].GetComponent<SpriteRenderer>();
         }
         wakuRenderer = waku.GetComponent<SpriteRenderer>();
@@ -64,21 +72,13 @@ public class StageSelector : MonoBehaviour
         goToRankingsButton.onClick.AddListener(() =>
         {
             ExitMain();
-            rankingsSelectManager.Enter();
-        });
-        rankingsSelectManager.OnExit.Subscribe(_ =>
-        {
-            EnterMain();
+            _OnGoToRankings.OnNext(Unit.Default);
         });
         
         goToConfigButton.onClick.AddListener(() =>
         {
             ExitMain();
-            configManager.Enter();
-        });
-        configManager.OnExit.Subscribe(_ =>
-        {
-            EnterMain();
+            _OnGoToConfig.OnNext(Unit.Default);
         });
 
         DOVirtual.DelayedCall(1f, () =>
@@ -95,7 +95,7 @@ public class StageSelector : MonoBehaviour
         goToRankingsButton.gameObject.SetActive(false);
     }
 
-    void EnterMain()
+    public void Enter()
     {
         gameObject.SetActive(true);
         goToConfigButton.gameObject.SetActive(true);
@@ -175,7 +175,7 @@ public class StageSelector : MonoBehaviour
                 {
                     state = State.Selected;
                     wakuLight.Stop();
-                    SceneTransition.Start2ChangeScene(SceneName(selected), SceneTransition.TransitionType.Normal);
+                    _StageSelected.OnNext(selected);
                     soundGroup.Play("Enter");
                 }
                 break;
@@ -184,8 +184,6 @@ public class StageSelector : MonoBehaviour
                 stRenderer[selected-1].color += new Color(0,0,0,0.05f);
                 break;
         }
-
-        string SceneName(int stage) => "Draft" + stage;
             
-    }   
-}   
+    }
+}

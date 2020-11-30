@@ -197,7 +197,8 @@
      <Compile Include="Assets\Scripts\SoundOrMusic\SoundVolumeChanger.cs" />
      <Compile Include="Assets\Scripts\StagePlayData.cs" />
      <Compile Include="Assets\Scripts\StageSelectScene\RankingsSelectManager.cs" />
-     <Compile Include="Assets\Scripts\StageSelectScene\StageSelector.cs" />
+     <Compile Include="Assets\Scripts\StageSelectScene\StageSelectManager.cs" />
+     <Compile Include="Assets\Scripts\StageSelectScene\StageSelectView.cs" />
      <Compile Include="Assets\Scripts\StageSelectScene\WakuLightMover.cs" />
      <Compile Include="Assets\Scripts\TagNames.cs" />
      <Compile Include="Assets\Scripts\TitleScene\AnyKeyToStart.cs" />
