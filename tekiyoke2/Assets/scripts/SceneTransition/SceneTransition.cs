@@ -101,7 +101,7 @@ public class SceneTransition : MonoBehaviour
             case TransitionType.WhiteOut:
                 SceneTransition.State = SceneTransitState.WhiteOut;
                 const float duration = 3f;
-                PostEffectWrapper noise_ = CameraController.CurrentCamera.AfterEffects.Find("Noise");
+                PostEffectWrapper noise_ = CameraController.CurrentCamera?.AfterEffects?.Find("Noise");
                 if(noise_ != null) DOTween.To(noise_.GetVolume, noise_.SetVolume, 0, duration);
                 currentInstance.whiteOutImage.DOFade(1, duration)
                     .onComplete += () => SceneManager.LoadScene(sceneName);

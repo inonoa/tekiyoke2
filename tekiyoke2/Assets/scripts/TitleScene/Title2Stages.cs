@@ -7,6 +7,7 @@ public class Title2Stages : MonoBehaviour
 {
     [SerializeField] CloudSpawner clouds;
     [SerializeField] SaveDataManager saveDataManager;
+    [SerializeField] TitleLogo titleLogo;
     IAskedInput input;
 
     bool inSceneTransition = false;
@@ -27,6 +28,7 @@ public class Title2Stages : MonoBehaviour
             if(saveDataManager.TutorialFinished)
             {
                 clouds.state = CloudSpawner.State.Wind;
+                titleLogo.FadeOut();
                 GetComponent<SoundGroup>().Play("Push");
             }
             else
