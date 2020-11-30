@@ -202,8 +202,8 @@
      <Compile Include="Assets\Scripts\TagNames.cs" />
      <Compile Include="Assets\Scripts\TitleScene\AnyKeyToStart.cs" />
      <Compile Include="Assets\Scripts\TitleScene\CloudSpawner.cs" />
-     <Compile Include="Assets\Scripts\TitleScene\Title2Stages.cs" />
      <Compile Include="Assets\Scripts\TitleScene\TitleLogo.cs" />
+     <Compile Include="Assets\Scripts\TitleScene\TitleSceneManager.cs" />
      <Compile Include="Assets\Scripts\Utils\ArrayForEach.cs" />
      <Compile Include="Assets\Scripts\Utils\EnumArray.cs" />
      <Compile Include="Assets\Scripts\Utils\MaterialTween.cs" />

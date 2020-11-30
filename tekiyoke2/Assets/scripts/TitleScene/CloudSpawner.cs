@@ -19,14 +19,11 @@ public class CloudSpawner : MonoBehaviour
     [SerializeField] List<GameObject> cloudPrefabsToSpawn = new List<GameObject>();
     
     [SerializeField, ReadOnly] List<GameObject> cloudsExisting;
-
-    [SerializeField] AnyKeyToStart anyKeyToStart;
+    
     [SerializeField] int numInitialClouds = 10;
-    [SerializeField] float fadeOutToTitle = 1f;
+    [SerializeField] float fadeOutDuration = 1f;
     [SerializeField] float spawnIntervalSeconds = 2;
     [SerializeField] float moveSpeed = 200;
-
-    [Space(10)] [SerializeField] float anyKeyToStartDelay = 2.5f;
 
 
     void Start()
@@ -39,8 +36,6 @@ public class CloudSpawner : MonoBehaviour
 
         Observable.Interval(TimeSpan.FromSeconds(spawnIntervalSeconds))
             .Subscribe(_ => cloudsExisting.Add(SpawnCloud(canSpawnInScreen: false)));
-
-        DOVirtual.DelayedCall(anyKeyToStartDelay, () => anyKeyToStart.Appear());
     }
 
     System.Random random = new System.Random();
@@ -59,18 +54,12 @@ public class CloudSpawner : MonoBehaviour
     public void FadeOut()
     {
         state = State.FadingOut;
-        anyKeyToStart.Disappear();
 
         foreach (var cloud in cloudsExisting)
         {
-            cloud.transform.DOLocalMoveX(-500, fadeOutToTitle).SetRelative();
-            cloud.GetComponent<SpriteRenderer>().DOFade(0, fadeOutToTitle);
+            cloud.transform.DOLocalMoveX(-500, fadeOutDuration).SetRelative();
+            cloud.GetComponent<SpriteRenderer>().DOFade(0, fadeOutDuration);
         }
-
-        DOVirtual.DelayedCall(fadeOutToTitle, () =>
-        {
-            SceneTransition.Start2ChangeScene("StageChoiceScene", SceneTransition.TransitionType.Default);
-        });
     }
 
     void Update()
