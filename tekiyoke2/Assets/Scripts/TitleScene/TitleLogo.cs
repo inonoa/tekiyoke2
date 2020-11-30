@@ -54,7 +54,7 @@ public class TitleLogo : MonoBehaviour
     
     public void FadeOut()
     {
-        logoImage.transform.DOLocalMoveX(-fadeOutMoveDistance, fadeOutMoveDuration);
+        logoImage.transform.DOLocalMoveX(-fadeOutMoveDistance, fadeOutMoveDuration).SetRelative();
         logoImage.DOFade(0, fadeOutDuration);
     }
 }

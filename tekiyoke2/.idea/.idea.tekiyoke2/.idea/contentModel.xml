@@ -555,6 +555,10 @@
             <e p="CheckPointsManager.cs" t="Include" />
             <e p="CheckPointUI.cs" t="Include" />
           </e>
+          <e p="Config" t="Include">
+            <e p="ConfigManager.cs" t="Include" />
+            <e p="ConfigView.cs" t="Include" />
+          </e>
           <e p="DraftMode" t="Include">
             <e p="DraftWind.shader" t="Include" />
             <e p="DraftWindsManager.cs" t="Include" />
@@ -656,6 +660,7 @@
             <e p="GameTimeCounter.cs" t="Include" />
             <e p="HeroTimeExtension.cs" t="Include" />
             <e p="MemoryOverDeath.cs" t="Include" />
+            <e p="PlayFabLogin.cs" t="Include" />
             <e p="ScriptableObjectsHolder.cs" t="Include" />
             <e p="ScriptableObjectsLoader.cs" t="Include" />
             <e p="ServicesLocator.cs" t="Include" />
@@ -681,6 +686,7 @@
             <e p="TogeController.cs" t="Include" />
             <e p="TogeDropController.cs" t="Include" />
             <e p="TogeDropRespawner.cs" t="Include" />
+            <e p="TutorialEnd.cs" t="Include" />
             <e p="UltraThinTileController.cs" t="Include" />
           </e>
           <e p="ObjectPool.cs" t="Include" />
@@ -695,9 +701,13 @@
             <e p="PauseUIMover.cs" t="Include" />
           </e>
           <e p="Ranking" t="Include">
+            <e p="PlayfabRankingSenderGetter.cs" t="Include" />
             <e p="RankData.cs" t="Include" />
             <e p="RankingLogger.cs" t="Include" />
             <e p="RankingMock.cs" t="Include" />
+            <e p="RankingMockView.cs" t="Include" />
+            <e p="RankingView.cs" t="Include" />
+            <e p="RankNodeView.cs" t="Include" />
           </e>
           <e p="ResultScene" t="Include">
             <e p="CursorMove.cs" t="Include" />
@@ -726,9 +736,11 @@
           <e p="ScoreHolder.cs" t="Include" />
           <e p="SoundOrMusic" t="Include">
             <e p="SoundGroup.cs" t="Include" />
+            <e p="SoundVolumeChanger.cs" t="Include" />
           </e>
           <e p="StagePlayData.cs" t="Include" />
           <e p="StageSelectScene" t="Include">
+            <e p="RankingsSelectManager.cs" t="Include" />
             <e p="StageSelector.cs" t="Include" />
             <e p="WakuLightMover.cs" t="Include" />
           </e>
@@ -737,9 +749,11 @@
             <e p="AnyKeyToStart.cs" t="Include" />
             <e p="CloudSpawner.cs" t="Include" />
             <e p="Title2Stages.cs" t="Include" />
+            <e p="TitleLogo.cs" t="Include" />
           </e>
           <e p="Utils" t="Include">
             <e p="ArrayForEach.cs" t="Include" />
+            <e p="EnumArray.cs" t="Include" />
             <e p="MaterialTween.cs" t="Include" />
             <e p="MyMath.cs" t="Include" />
             <e p="RenameFieldAttribute.cs" t="Include" />

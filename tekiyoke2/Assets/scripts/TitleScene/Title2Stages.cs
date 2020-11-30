@@ -27,7 +27,7 @@ public class Title2Stages : MonoBehaviour
             
             if(saveDataManager.TutorialFinished)
             {
-                clouds.state = CloudSpawner.State.Wind;
+                clouds.FadeOut();
                 titleLogo.FadeOut();
                 GetComponent<SoundGroup>().Play("Push");
             }

@@ -200,6 +200,7 @@
      <Compile Include="Assets\Scripts\StageSelectScene\StageSelector.cs" />
      <Compile Include="Assets\Scripts\StageSelectScene\WakuLightMover.cs" />
      <Compile Include="Assets\Scripts\TagNames.cs" />
+     <Compile Include="Assets\Scripts\TitleScene\AnyKeyToStart.cs" />
      <Compile Include="Assets\Scripts\TitleScene\CloudSpawner.cs" />
      <Compile Include="Assets\Scripts\TitleScene\Title2Stages.cs" />
      <Compile Include="Assets\Scripts\TitleScene\TitleLogo.cs" />
