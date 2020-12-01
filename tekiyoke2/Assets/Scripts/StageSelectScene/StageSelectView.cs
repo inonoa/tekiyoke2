@@ -17,11 +17,8 @@ public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
     [SerializeField] WakuLightMover wakuLight;
     [SerializeField] Image[] stageImages;
     [SerializeField] SoundGroup soundGroup;
-    
-    [SerializeField] Image bg;
-    [SerializeField] Image bgbg; //クロスフェード用に背後に映すやつ
-    [SerializeField] Image anmaku;
-    [SerializeField] Sprite[] bgSprites;
+
+    [SerializeField] StageSelectBGChanger bgChanger;
 
     [SerializeField] Button goToRankingsButton;
     [SerializeField] Button goToConfigButton;
@@ -104,16 +101,6 @@ public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
             wakuImage.transform.position += vv;
         }
 
-        //背景のクロスフェード
-        if(bg.color.a<1){
-            bg.color -= new Color(0,0,0,0.05f);
-            anmaku.color = new Color(1,1,1,System.Math.Min(bg.color.a,1-bg.color.a));
-            if(bg.color.a<=0){
-                bg.sprite = bgbg.sprite;
-                bg.color = new Color(1,1,1,1);
-            }
-        }
-
         switch(state)
         {
             case State.Entering:
@@ -151,9 +138,8 @@ public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
                     if(selected > 1)
                     {
                         selected--;
-                        bgbg.sprite = bgSprites[selected-1];
-                        bg.color = new Color(1,1,1,0.99f);
                         soundGroup.Play("Move");
+                        bgChanger.OnChangeStage(selected - 1);
                     }
                 }
                 if(input.GetButtonDown(ButtonCode.Down))
@@ -161,9 +147,8 @@ public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
                     if(selected < 3)
                     {
                         selected++;
-                        bgbg.sprite = bgSprites[selected-1];
-                        bg.color = new Color(1,1,1,0.99f);
                         soundGroup.Play("Move");
+                        bgChanger.OnChangeStage(selected - 1);
                     }
                 }
                 if(input.GetButtonDown(ButtonCode.Enter))
