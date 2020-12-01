@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System;
 
-public class PauseUIMover : MonoBehaviour
+public class PauseView : MonoBehaviour
 {
     [SerializeField] int selected = 0; //0:続ける 1:?? 2:やめる
     [SerializeField] Image draftName;

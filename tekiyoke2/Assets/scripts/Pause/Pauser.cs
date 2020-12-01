@@ -19,7 +19,7 @@ public class Pauser : MonoBehaviour
     ///<summary>いまポーズ中？</summary>
     bool inPause = false;
 
-    PauseUIMover uiMover;
+    PauseView _view;
 
     SoundGroup soundGroup;
     IAskedInput input;
@@ -39,10 +39,10 @@ public class Pauser : MonoBehaviour
 
     void Start()
     {
-        uiMover    = pauseMaster.GetComponent<PauseUIMover>();
+        _view    = pauseMaster.GetComponent<PauseView>();
         soundGroup = GetComponent<SoundGroup>();
 
-        uiMover.pauseEnd += PauseEnded;
+        _view.pauseEnd += PauseEnded;
 
         input = ServicesLocator.Instance.GetInput();
     }
