@@ -22,6 +22,7 @@ public class SoundGroup : MonoBehaviour
 
     void Start()
     {
+        Debug.Log(gameObject.name);
         Debug.Assert(SEGroup.name == "SE" && BGMGroup.name == "BGM");
         
         AudioSource source4SE = gameObject.AddComponent<AudioSource>();

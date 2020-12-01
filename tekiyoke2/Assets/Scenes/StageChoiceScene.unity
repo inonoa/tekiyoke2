@@ -951,6 +951,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 55b933190deb5ad419356317573f3004, type: 3}
   - {fileID: 21300000, guid: 0e543900d8b80804bba5e7e04e738cfe, type: 3}
   - {fileID: 21300000, guid: 5a77e8426cec6df44ac83b846af743bd, type: 3}
+  changeDuration: 0.4
 --- !u!1 &730332476
 GameObject:
   m_ObjectHideFlags: 0
@@ -1179,7 +1180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.69803923}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1296,9 +1297,10 @@ MonoBehaviour:
   - {fileID: 1507019741}
   - {fileID: 848855134}
   soundGroup: {fileID: 46160779}
-  bgChanger: {fileID: 0}
+  bgChanger: {fileID: 647817631}
   goToRankingsButton: {fileID: 1267269542}
   goToConfigButton: {fileID: 162664362}
+  selected: 0
 --- !u!114 &898870676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2111,7 +2113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.69803923}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -3079,7 +3081,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.69803923}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:

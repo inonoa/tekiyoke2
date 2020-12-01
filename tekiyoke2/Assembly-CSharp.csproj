@@ -63,6 +63,7 @@
      <Compile Include="Assets\Scripts\CheckPoint\CheckPointsManager.cs" />
      <Compile Include="Assets\Scripts\Config\ConfigManager.cs" />
      <Compile Include="Assets\Scripts\Config\ConfigView.cs" />
+     <Compile Include="Assets\Scripts\EDraft.cs" />
      <Compile Include="Assets\Scripts\Enemies\Collider2Wall.cs" />
      <Compile Include="Assets\Scripts\Enemies\DPinEnemy.cs" />
      <Compile Include="Assets\Scripts\Enemies\DontWannaFall.cs" />

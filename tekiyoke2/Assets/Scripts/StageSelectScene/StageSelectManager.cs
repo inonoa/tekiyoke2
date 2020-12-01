@@ -14,7 +14,7 @@ public class StageSelectManager : SerializedMonoBehaviour
     {
         view.StageSelected.Subscribe(stage =>
         {
-            SceneTransition.Start2ChangeScene("Draft" + stage, SceneTransition.TransitionType.Normal);
+            SceneTransition.Start2ChangeScene(stage.ToString(), SceneTransition.TransitionType.Normal);
         });
         view.OnGoToConfig.Subscribe(_ => configManager.Enter());
         view.OnGoToRankings.Subscribe(_ => rankingsSelectManager.Enter());
@@ -27,7 +27,7 @@ public class StageSelectManager : SerializedMonoBehaviour
 public interface IStageSelectView
 {
     void Enter();
-    IObservable<int> StageSelected { get; }
+    IObservable<EDraft> StageSelected { get; }
     IObservable<Unit> OnGoToConfig { get; }
     IObservable<Unit> OnGoToRankings { get; }
 }

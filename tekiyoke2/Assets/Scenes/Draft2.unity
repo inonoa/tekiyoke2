@@ -3127,6 +3127,7 @@ MonoBehaviour:
   curtain4SceneStart: {fileID: 0}
   windAndBlur: {fileID: 0}
   scshoImage: {fileID: 0}
+  whiteOutImage: {fileID: 0}
   firstState: 0
 --- !u!1001 &562486678
 PrefabInstance:
@@ -5188,6 +5189,9 @@ MonoBehaviour:
     _Volume: 0.633
     _RequireComponent: 0
     <Loop>k__BackingField: 0
+  SEGroup: {fileID: 0}
+  BGMGroup: {fileID: 0}
+  <IsSEs>k__BackingField: 1
 --- !u!4 &979917631 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1961690122916375960, guid: 5c317cf073abe9745b30e3f24912cb4e,
@@ -8046,6 +8050,10 @@ MonoBehaviour:
     _Volume: 0.664
     _RequireComponent: 0
     <Loop>k__BackingField: 0
+  SEGroup: {fileID: 3052081377995588122, guid: 79120cacd6b5fea4f98d2ef99084037e, type: 2}
+  BGMGroup: {fileID: -3936053361323068745, guid: 79120cacd6b5fea4f98d2ef99084037e,
+    type: 2}
+  <IsSEs>k__BackingField: 1
 --- !u!114 &1515455048
 MonoBehaviour:
   m_ObjectHideFlags: 0

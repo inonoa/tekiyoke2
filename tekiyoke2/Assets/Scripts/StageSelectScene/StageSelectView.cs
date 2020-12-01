@@ -26,19 +26,16 @@ public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
     #endregion
 
     #region States
-    enum State{ Entering, WakuAppearing, Active, Selected }
+    enum State{ Entering, Active, Selected }
     State state = State.Entering;
-    int selected = 1;
+    EDraft selected = EDraft.Draft1;
     #endregion
-
-    #region 依存
 
     [SerializeField] IAskedInput input;
 
-    #endregion
     
-    Subject<int> _StageSelected = new Subject<int>();
-    public IObservable<int> StageSelected => _StageSelected;
+    Subject<EDraft> _StageSelected = new Subject<EDraft>();
+    public IObservable<EDraft> StageSelected => _StageSelected;
     
     Subject<Unit> _OnGoToConfig = new Subject<Unit>();
     public IObservable<Unit> OnGoToConfig => _OnGoToConfig;
@@ -65,6 +62,8 @@ public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
             goToRankingsButton.gameObject.SetActive(true);
             goToConfigButton.gameObject.SetActive(true);
         });
+        
+        FadeIn();
     }
 
     void ExitMain()
@@ -81,89 +80,63 @@ public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
         goToRankingsButton.gameObject.SetActive(true);
     }
 
+    void FadeIn()
+    {
+        const float targetAlpha = 0.8f;
+        const float fadeInDuration = 0.4f;
+        
+        foreach (Image stageImage in stageImages)
+        {
+            Sequence fadeIn = DOTween.Sequence()
+                //リセット
+                .Append(stageImage.DOFade(0, 0))
+                .Join(stageImage.transform.DOLocalMoveX(100, 0))
+                .Join(wakuImage.DOFade(0, 0))
+                .Join(wakuLight.GetComponent<Image>().DOFade(0, 0))
+                //ステージ名部分
+                .Append(stageImage.DOFade(targetAlpha, fadeInDuration).SetEase(Ease.Linear))
+                .Join(stageImage.transform.DOLocalMoveX(0, fadeInDuration).SetEase(Ease.OutCubic))
+                //枠
+                .Append(wakuImage.DOFade(1, 0.2f).SetEase(Ease.Linear))
+                .AppendCallback(() => state = State.Active);
+        }
+    }
+
+    void MoveStage(EDraft dst)
+    {
+        selected = dst;
+        float dstY = stageImages[dst.ToInt()].transform.position.y;
+        wakuImage.transform.DOMoveY(dstY, 0.3f);
+        bgChanger.OnChangeStage(selected.ToInt());
+        soundGroup.Play("Move");
+    }
+
+    void OnDetermine()
+    {
+        state = State.Selected;
+        wakuLight.Stop();
+        soundGroup.Play("Enter");
+        stageImages[selected.ToInt()].DOFade(1, 0.3f).SetEase(Ease.Linear);
+        
+        _StageSelected.OnNext(selected);
+    }
+    
+
     void Update()
     {
-        //選択したステージのUIに近づく
-        Vector3 vv = stageImages[selected-1].transform.position - wakuImage.transform.position;
-
-        //枠の移動
-        if(vv.x*vv.x+vv.y*vv.y<5){
-            wakuImage.transform.position = new Vector3
-            (
-                stageImages[selected-1].transform.position.x,
-                stageImages[selected-1].transform.position.y,
-                -2
-            );
-        }else{
-            int signX = 1; int signY = 1; if(vv.x<0){signX = -1;} if(vv.y<0){signY = -1;} //Sqrtに負の数は渡せない(それはそう)
-            vv = 2* new Vector3(signX *(float)System.Math.Sqrt(vv.x * signX), signY *(float)System.Math.Sqrt(vv.y * signY),0);
-
-            wakuImage.transform.position += vv;
-        }
-
-        switch(state)
+        if(state != State.Active) return;
+        
+        if(input.GetButtonDown(ButtonCode.Up) && selected != EDraft.Draft1)
         {
-            case State.Entering:
-                //手作業での位置調整で厳しい(不透明度を徐々に上げていきある程度上がったら次フェイズへ)
-                const float targetAlpha = 0.7f;
-                foreach (Image stageImage in stageImages)
-                {
-                    stageImage.color += new Color(0,0,0,targetAlpha * 0.1f);
-                    stageImage.transform.position -= new Vector3((float)System.Math.Sqrt(stageImage.transform.position.x),0,0);
-                }
-                chooseADraftImage.color += new Color(0,0,0,0.1f);
-
-                if(stageImages[0].color.a >= targetAlpha)
-                {
-                    state = State.WakuAppearing;
-                    foreach (Image stageImage in stageImages)
-                    {
-                        stageImage.color = new Color(stageImage.color.r,stageImage.color.g,stageImage.color.b,targetAlpha);
-                        stageImage.transform.position = new Vector3(0,stageImage.transform.position.y,stageImage.transform.position.z);
-                    }
-                }
-                break;
-    
-            case State.WakuAppearing:
-                wakuImage.color += new Color(0,0,0,0.1f);
-                if(wakuImage.color.a >= 1)
-                {
-                    state = State.Active;
-                }
-                break;
-    
-            case State.Active:
-                if(input.GetButtonDown(ButtonCode.Up))
-                {
-                    if(selected > 1)
-                    {
-                        selected--;
-                        soundGroup.Play("Move");
-                        bgChanger.OnChangeStage(selected - 1);
-                    }
-                }
-                if(input.GetButtonDown(ButtonCode.Down))
-                {
-                    if(selected < 3)
-                    {
-                        selected++;
-                        soundGroup.Play("Move");
-                        bgChanger.OnChangeStage(selected - 1);
-                    }
-                }
-                if(input.GetButtonDown(ButtonCode.Enter))
-                {
-                    state = State.Selected;
-                    wakuLight.Stop();
-                    _StageSelected.OnNext(selected);
-                    soundGroup.Play("Enter");
-                }
-                break;
-
-            case State.Selected:
-                stageImages[selected - 1].color += new Color(0,0,0,0.05f);
-                break;
+            MoveStage(selected.Minus1());
         }
-            
+        if(input.GetButtonDown(ButtonCode.Down) && selected != EDraft.Draft3)
+        {
+            MoveStage(selected.Plus1());
+        }
+        if(input.GetButtonDown(ButtonCode.Enter))
+        {
+            OnDetermine();
+        }
     }
 }
