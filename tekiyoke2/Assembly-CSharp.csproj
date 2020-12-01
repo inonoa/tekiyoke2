@@ -63,6 +63,7 @@
      <Compile Include="Assets\Scripts\CheckPoint\CheckPointsManager.cs" />
      <Compile Include="Assets\Scripts\Config\ConfigManager.cs" />
      <Compile Include="Assets\Scripts\Config\ConfigView.cs" />
+     <Compile Include="Assets\Scripts\EDraft.cs" />
      <Compile Include="Assets\Scripts\Enemies\Collider2Wall.cs" />
      <Compile Include="Assets\Scripts\Enemies\DPinEnemy.cs" />
      <Compile Include="Assets\Scripts\Enemies\DontWannaFall.cs" />
@@ -165,7 +166,7 @@
      <Compile Include="Assets\Scripts\Parameters\HeroParameters.cs" />
      <Compile Include="Assets\Scripts\Pause\PausableExtension.cs" />
      <Compile Include="Assets\Scripts\Pause\PauseCameraController.cs" />
-     <Compile Include="Assets\Scripts\Pause\PauseUIMover.cs" />
+     <Compile Include="Assets\Scripts\Pause\PauseView.cs" />
      <Compile Include="Assets\Scripts\Pause\Pauser.cs" />
      <Compile Include="Assets\Scripts\Ranking\PlayfabRankingSenderGetter.cs" />
      <Compile Include="Assets\Scripts\Ranking\RankData.cs" />
@@ -197,12 +198,15 @@
      <Compile Include="Assets\Scripts\SoundOrMusic\SoundVolumeChanger.cs" />
      <Compile Include="Assets\Scripts\StagePlayData.cs" />
      <Compile Include="Assets\Scripts\StageSelectScene\RankingsSelectManager.cs" />
-     <Compile Include="Assets\Scripts\StageSelectScene\StageSelector.cs" />
+     <Compile Include="Assets\Scripts\StageSelectScene\StageSelectBGChanger.cs" />
+     <Compile Include="Assets\Scripts\StageSelectScene\StageSelectManager.cs" />
+     <Compile Include="Assets\Scripts\StageSelectScene\StageSelectView.cs" />
      <Compile Include="Assets\Scripts\StageSelectScene\WakuLightMover.cs" />
      <Compile Include="Assets\Scripts\TagNames.cs" />
      <Compile Include="Assets\Scripts\TitleScene\AnyKeyToStart.cs" />
      <Compile Include="Assets\Scripts\TitleScene\CloudSpawner.cs" />
-     <Compile Include="Assets\Scripts\TitleScene\Title2Stages.cs" />
+     <Compile Include="Assets\Scripts\TitleScene\TitleLogo.cs" />
+     <Compile Include="Assets\Scripts\TitleScene\TitleSceneManager.cs" />
      <Compile Include="Assets\Scripts\Utils\ArrayForEach.cs" />
      <Compile Include="Assets\Scripts\Utils\EnumArray.cs" />
      <Compile Include="Assets\Scripts\Utils\MaterialTween.cs" />

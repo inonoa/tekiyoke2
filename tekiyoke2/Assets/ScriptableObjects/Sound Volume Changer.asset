@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae9044e279af48e3b3e914b384032415, type: 3}
   m_Name: Sound Volume Changer
   m_EditorClassIdentifier: 
-  _SEVolume: -12.7
-  _BGMVolume: -12.7
+  _SEVolume: 20
+  _BGMVolume: 20
   mixer: {fileID: 24100000, guid: 79120cacd6b5fea4f98d2ef99084037e, type: 2}
