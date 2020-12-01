@@ -727,7 +727,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pathXY: {x: 243, y: 69}
-  speed: 300
+  speed: 500
   image: {fileID: 611525605}
   wakuImage: {fileID: 399176286}
 --- !u!114 &611525605
@@ -1300,7 +1300,6 @@ MonoBehaviour:
   bgChanger: {fileID: 647817631}
   goToRankingsButton: {fileID: 1267269542}
   goToConfigButton: {fileID: 162664362}
-  selected: 0
 --- !u!114 &898870676
 MonoBehaviour:
   m_ObjectHideFlags: 0

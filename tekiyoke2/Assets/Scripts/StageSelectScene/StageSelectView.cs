@@ -91,11 +91,16 @@ public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
                 //リセット
                 .Append(stageImage.DOFade(0, 0))
                 .Join(stageImage.transform.DOLocalMoveX(100, 0))
+                .Join(chooseADraftImage.DOFade(0, 0))
+                .Join(chooseADraftImage.transform.DOLocalMoveX(100, 0))
                 .Join(wakuImage.DOFade(0, 0))
                 .Join(wakuLight.GetComponent<Image>().DOFade(0, 0))
                 //ステージ名部分
                 .Append(stageImage.DOFade(targetAlpha, fadeInDuration).SetEase(Ease.Linear))
                 .Join(stageImage.transform.DOLocalMoveX(0, fadeInDuration).SetEase(Ease.OutCubic))
+                //"Choose a draft"
+                .Join(chooseADraftImage.DOFade(1, fadeInDuration).SetEase(Ease.Linear))
+                .Join(chooseADraftImage.transform.DOLocalMoveX(0, fadeInDuration).SetEase(Ease.OutCubic))
                 //枠
                 .Append(wakuImage.DOFade(1, 0.2f).SetEase(Ease.Linear))
                 .AppendCallback(() => state = State.Active);
