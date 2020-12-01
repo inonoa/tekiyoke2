@@ -3,50 +3,40 @@ using System.Collections;
 using System.Collections.Generic;
 using Config;
 using DG.Tweening;
+using Sirenix.OdinInspector;
 using UniRx;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-public class StageSelectView : MonoBehaviour, IStageSelectView
+public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
 {   
     #region Objects
-    [SerializeField] SpriteRenderer draftSelectRenderer;
-    [SerializeField] GameObject waku;
-    SpriteRenderer wakuRenderer;
-    [SerializeField] GameObject[] stages;
-    SpriteRenderer[] stRenderer;
-    
-    [SerializeField] SpriteRenderer bg;
-
-    //クロスフェード用に背後に映すやつ
-    [SerializeField] SpriteRenderer bgbg;
-
-    [SerializeField] SpriteRenderer anmaku;
-
-    [SerializeField] Sprite[] bgs;
+    [SerializeField] Image chooseADraftImage;
+    [SerializeField] Image wakuImage;
     [SerializeField] WakuLightMover wakuLight;
-
+    [SerializeField] Image[] stageImages;
     [SerializeField] SoundGroup soundGroup;
+    
+    [SerializeField] Image bg;
+    [SerializeField] Image bgbg; //クロスフェード用に背後に映すやつ
+    [SerializeField] Image anmaku;
+    [SerializeField] Sprite[] bgSprites;
 
     [SerializeField] Button goToRankingsButton;
-    
     [SerializeField] Button goToConfigButton;
 
     #endregion
 
     #region States
-    enum State{
-        Entering, WakuAppearing, Active, Selected
-    }
+    enum State{ Entering, WakuAppearing, Active, Selected }
     State state = State.Entering;
-    public int selected = 1;
-
+    int selected = 1;
     #endregion
 
     #region 依存
 
-    IAskedInput input;
+    [SerializeField] IAskedInput input;
 
     #endregion
     
@@ -61,14 +51,6 @@ public class StageSelectView : MonoBehaviour, IStageSelectView
 
     void Start()
     {
-        stRenderer = new SpriteRenderer[stages.Length];
-        for(int i=0; i < stRenderer.Length; i++){
-            stRenderer[i] = stages[i].GetComponent<SpriteRenderer>();
-        }
-        wakuRenderer = waku.GetComponent<SpriteRenderer>();
-
-        input = ServicesLocator.Instance.GetInput();
-        
         goToRankingsButton.onClick.AddListener(() =>
         {
             ExitMain();
@@ -105,16 +87,21 @@ public class StageSelectView : MonoBehaviour, IStageSelectView
     void Update()
     {
         //選択したステージのUIに近づく
-        Vector3 vv = stages[selected-1].transform.position - waku.transform.position;
+        Vector3 vv = stageImages[selected-1].transform.position - wakuImage.transform.position;
 
         //枠の移動
         if(vv.x*vv.x+vv.y*vv.y<5){
-            waku.transform.position = new Vector3(stages[selected-1].transform.position.x,stages[selected-1].transform.position.y,-2);
+            wakuImage.transform.position = new Vector3
+            (
+                stageImages[selected-1].transform.position.x,
+                stageImages[selected-1].transform.position.y,
+                -2
+            );
         }else{
             int signX = 1; int signY = 1; if(vv.x<0){signX = -1;} if(vv.y<0){signY = -1;} //Sqrtに負の数は渡せない(それはそう)
             vv = 2* new Vector3(signX *(float)System.Math.Sqrt(vv.x * signX), signY *(float)System.Math.Sqrt(vv.y * signY),0);
 
-            waku.transform.position += vv;
+            wakuImage.transform.position += vv;
         }
 
         //背景のクロスフェード
@@ -127,46 +114,54 @@ public class StageSelectView : MonoBehaviour, IStageSelectView
             }
         }
 
-        switch(state){
+        switch(state)
+        {
             case State.Entering:
                 //手作業での位置調整で厳しい(不透明度を徐々に上げていきある程度上がったら次フェイズへ)
                 const float targetAlpha = 0.7f;
-                for(int i=0;i<stages.Length;i++){
-                    stRenderer[i].color += new Color(0,0,0,targetAlpha * 0.1f);
-                    stages[i].transform.position -= new Vector3((float)System.Math.Sqrt(stages[i].transform.position.x),0,0);
+                foreach (Image stageImage in stageImages)
+                {
+                    stageImage.color += new Color(0,0,0,targetAlpha * 0.1f);
+                    stageImage.transform.position -= new Vector3((float)System.Math.Sqrt(stageImage.transform.position.x),0,0);
                 }
-                draftSelectRenderer.color += new Color(0,0,0,0.1f);
+                chooseADraftImage.color += new Color(0,0,0,0.1f);
 
-                if(stRenderer[0].color.a >= targetAlpha){
+                if(stageImages[0].color.a >= targetAlpha)
+                {
                     state = State.WakuAppearing;
-    
-                    for(int i=0;i<stages.Length;i++){
-                        stRenderer[i].color = new Color(stRenderer[i].color.r,stRenderer[i].color.g,stRenderer[i].color.b,targetAlpha);
-                        stages[i].transform.position = new Vector3(0,stages[i].transform.position.y,stages[i].transform.position.z);
+                    foreach (Image stageImage in stageImages)
+                    {
+                        stageImage.color = new Color(stageImage.color.r,stageImage.color.g,stageImage.color.b,targetAlpha);
+                        stageImage.transform.position = new Vector3(0,stageImage.transform.position.y,stageImage.transform.position.z);
                     }
                 }
                 break;
     
             case State.WakuAppearing:
-                wakuRenderer.color += new Color(0,0,0,0.1f);
-                if(wakuRenderer.color.a>=1){
+                wakuImage.color += new Color(0,0,0,0.1f);
+                if(wakuImage.color.a >= 1)
+                {
                     state = State.Active;
                 }
                 break;
     
             case State.Active:
-                if(input.GetButtonDown(ButtonCode.Up)){
-                    if(selected>1){
+                if(input.GetButtonDown(ButtonCode.Up))
+                {
+                    if(selected > 1)
+                    {
                         selected--;
-                        bgbg.sprite = bgs[selected-1];
+                        bgbg.sprite = bgSprites[selected-1];
                         bg.color = new Color(1,1,1,0.99f);
                         soundGroup.Play("Move");
                     }
                 }
-                if(input.GetButtonDown(ButtonCode.Down)){
-                    if(selected<3){
+                if(input.GetButtonDown(ButtonCode.Down))
+                {
+                    if(selected < 3)
+                    {
                         selected++;
-                        bgbg.sprite = bgs[selected-1];
+                        bgbg.sprite = bgSprites[selected-1];
                         bg.color = new Color(1,1,1,0.99f);
                         soundGroup.Play("Move");
                     }
@@ -181,7 +176,7 @@ public class StageSelectView : MonoBehaviour, IStageSelectView
                 break;
 
             case State.Selected:
-                stRenderer[selected-1].color += new Color(0,0,0,0.05f);
+                stageImages[selected - 1].color += new Color(0,0,0,0.05f);
                 break;
         }
             
