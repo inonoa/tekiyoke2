@@ -13,7 +13,10 @@ namespace Ranking
         [SerializeField] Transform aroundPlayer100Content;
         [SerializeField] RankNodeView nodeViewPrefab;
         [SerializeField] Button exitButton;
-        
+        [Space(10)]
+        [SerializeField] Transform bodyCenterTranform;
+        [SerializeField] float bodyTiltTan = 2f;
+
         EnumArray<RankData, RankKind> rankDatas = new EnumArray<RankData, RankKind>();
         RankKind shownKind;
 
@@ -42,11 +45,11 @@ namespace Ranking
         {
             foreach (RankDatum rankDatum in rankDatas[kind].Top100)
             {
-                Instantiate(nodeViewPrefab, top100Content).Set(rankDatum);
+                Instantiate(nodeViewPrefab, top100Content).Init(rankDatum, bodyCenterTranform, bodyTiltTan);
             }
             foreach (RankDatum rankDatum in rankDatas[kind].AroundPlayer100)
             {
-                Instantiate(nodeViewPrefab, aroundPlayer100Content).Set(rankDatum);
+                Instantiate(nodeViewPrefab, aroundPlayer100Content).Init(rankDatum, bodyCenterTranform, bodyTiltTan);
             }
         }
 
