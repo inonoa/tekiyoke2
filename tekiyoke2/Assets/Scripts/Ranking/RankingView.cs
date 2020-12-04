@@ -45,11 +45,13 @@ namespace Ranking
         {
             foreach (RankDatum rankDatum in rankDatas[kind].Top100)
             {
-                Instantiate(nodeViewPrefab, top100Content).Init(rankDatum, bodyCenterTranform, bodyTiltTan);
+                Instantiate(nodeViewPrefab, top100Content)
+                    .Init(rankDatum, bodyCenterTranform, () => bodyTiltTan);
             }
             foreach (RankDatum rankDatum in rankDatas[kind].AroundPlayer100)
             {
-                Instantiate(nodeViewPrefab, aroundPlayer100Content).Init(rankDatum, bodyCenterTranform, bodyTiltTan);
+                Instantiate(nodeViewPrefab, aroundPlayer100Content)
+                    .Init(rankDatum, bodyCenterTranform, () => bodyTiltTan);
             }
         }
 
