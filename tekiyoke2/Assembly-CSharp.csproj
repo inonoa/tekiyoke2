@@ -211,6 +211,7 @@
      <Compile Include="Assets\Scripts\Utils\EnumArray.cs" />
      <Compile Include="Assets\Scripts\Utils\MaterialTween.cs" />
      <Compile Include="Assets\Scripts\Utils\MyMath.cs" />
+     <Compile Include="Assets\Scripts\Utils\RandomGenerate.cs" />
      <Compile Include="Assets\Scripts\Utils\RenameFieldAttribute.cs" />
      <Compile Include="Assets\Scripts\Utils\ShaderProperties.cs" />
      <Compile Include="Assets\Scripts\Utils\SimpleAnim.cs" />
