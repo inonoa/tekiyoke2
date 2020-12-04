@@ -525,7 +525,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BgImage: {fileID: 5681193044760909518}
-  bgColor: {r: 0, g: 0, b: 0, a: 0}
   bodyGroup: {fileID: 992936188925547478}
   top100Content: {fileID: 5681193044088466159}
   aroundPlayer100Content: {fileID: 5275064152187380325}
@@ -535,8 +534,8 @@ MonoBehaviour:
   exitButton: {fileID: 5681193045165033759}
   bodyCenterTranform: {fileID: 7279527936619087613}
   bodyTiltTan: -4.18
-  enterDuration: 0.1
-  exitDuration: 0.5
+  enterDuration: 0.4
+  exitDuration: 0.3
 --- !u!1 &5681193044760909516
 GameObject:
   m_ObjectHideFlags: 0
