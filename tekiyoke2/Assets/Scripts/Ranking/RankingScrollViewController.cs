@@ -6,16 +6,15 @@ using UnityEngine.UI;
 public class RankingScrollViewController : MonoBehaviour
 {
     [SerializeField] ScrollRect scrollRect;
+    [SerializeField] FocusNode focusNode;
     
     [SerializeField] float scrollSpeedMax = 200f;
     [SerializeField] float scrollForce = 100f;
     [SerializeField] float resistanceRate = 5;
 
-    [SerializeField] bool focused;
-
     void Update()
     {
-        if(!focused) return;
+        if(!focusNode.Focused) return;
 
         float dt = Time.deltaTime;
         if (Input.GetAxisRaw("Vertical") > 0)

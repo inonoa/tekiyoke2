@@ -168,6 +168,7 @@
      <Compile Include="Assets\Scripts\Pause\PauseCameraController.cs" />
      <Compile Include="Assets\Scripts\Pause\PauseView.cs" />
      <Compile Include="Assets\Scripts\Pause\Pauser.cs" />
+     <Compile Include="Assets\Scripts\Ranking\FocusNode.cs" />
      <Compile Include="Assets\Scripts\Ranking\PlayfabRankingSenderGetter.cs" />
      <Compile Include="Assets\Scripts\Ranking\RankData.cs" />
      <Compile Include="Assets\Scripts\Ranking\RankNodeView.cs" />
@@ -176,6 +177,7 @@
      <Compile Include="Assets\Scripts\Ranking\RankingMockView.cs" />
      <Compile Include="Assets\Scripts\Ranking\RankingScrollViewController.cs" />
      <Compile Include="Assets\Scripts\Ranking\RankingView.cs" />
+     <Compile Include="Assets\Scripts\Ranking\UIFocusManager.cs" />
      <Compile Include="Assets\Scripts\ResultScene\CursorMove.cs" />
      <Compile Include="Assets\Scripts\ResultScene\NumberSpritesHolder.cs" />
      <Compile Include="Assets\Scripts\ResultScene\PressZToReturn.cs" />
