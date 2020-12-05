@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using DG.Tweening;
 using ResultScene;
 using Sirenix.OdinInspector;
 using UniRx;
@@ -9,67 +11,97 @@ namespace Ranking
 {
     public class RankingView : MonoBehaviour, IRankView
     {
-        [SerializeField] Transform top100Content;
-        [SerializeField] Transform aroundPlayer100Content;
-        [SerializeField] RankNodeView nodeViewPrefab;
-        [SerializeField] Button exitButton;
-        
-        EnumArray<RankData, RankKind> rankDatas = new EnumArray<RankData, RankKind>();
-        RankKind shownKind;
+        [SerializeField] UIFocusManager focusManager;
+        [Space(10)]
+        [SerializeField] Image BgImage;
+        Color bgColor;
+        [Space(10)]
+        [SerializeField] CanvasGroup bodyGroup;
+        [SerializeField] RankingScrollViewController top100Controller;
+        [SerializeField] RankingScrollViewController aroundPlayerController;
+        [Space(10)]
+        [SerializeField] CanvasGroup leftGroup;
+        [SerializeField] ExitButton exitButton;
+        [Space(10)]
+        [SerializeField] float enterDuration = 0.5f;
+        [SerializeField] float exitDuration = 0.5f;
+
+        readonly ReactiveCollection<RankData> rankDatas = new ReactiveCollection<RankData>
+        (
+            new RankData[Enum.GetValues(typeof(RankKind)).Length]
+        );
+        readonly ReactiveProperty<RankKind> shownKind = new ReactiveProperty<RankKind>();
 
         public void SetData(RankData data)
         {
-            rankDatas[data.Kind] = data;
-            if (data.Kind == shownKind)
-            {
-                CreateNodes(data.Kind);
-            }
+            if(!initialized) Init();
+            
+            rankDatas[(int) data.Kind] = data;
         }
-
-        void ClearNodes()
-        {
-            foreach (Transform node in top100Content)
-            {
-                Destroy(node.gameObject);
-            }
-            foreach (Transform node in aroundPlayer100Content)
-            {
-                Destroy(node.gameObject);
-            }
-        }
-
-        void CreateNodes(RankKind kind)
-        {
-            foreach (RankDatum rankDatum in rankDatas[kind].Top100)
-            {
-                Instantiate(nodeViewPrefab, top100Content).Set(rankDatum);
-            }
-            foreach (RankDatum rankDatum in rankDatas[kind].AroundPlayer100)
-            {
-                Instantiate(nodeViewPrefab, aroundPlayer100Content).Set(rankDatum);
-            }
-        }
-
+        
         public void Show(RankKind kind)
         {
-            shownKind = kind;
-            gameObject.SetActive(true);
-            ClearNodes();
+            if(!initialized) Init();
             
-            if(rankDatas[kind] == null) return;
-            CreateNodes(kind);
+            shownKind.Value = kind;
+            gameObject.SetActive(true);
+            focusManager.OnEnter();
+            
+            BgImage.color = bgColor * new Color(1, 1, 1, 0);
+            bodyGroup.alpha = 0;
+            bodyGroup.transform.SetLocalX(100);
+            leftGroup.alpha = 0;
+            leftGroup.transform.SetLocalX(-100);
+            
+            DOTween.Sequence()
+                .Append(BgImage.DOColor(bgColor, enterDuration).SetEase(Ease.Linear))
+                .Join(bodyGroup.DOFade(1, enterDuration).SetEase(Ease.Linear))
+                .Join(bodyGroup.transform.DOLocalMoveX(0, enterDuration).SetEase(Ease.OutQuint))
+                .Join(leftGroup.DOFade(1, enterDuration).SetEase(Ease.Linear))
+                .Join(leftGroup.transform.DOLocalMoveX(0, enterDuration).SetEase(Ease.OutQuint));
+            
+            exitButton.OnEnter();
+        }
+
+        void Exit()
+        {
+            DOTween.Sequence()
+                .Append(BgImage.DOFade(0, exitDuration))
+                .Join(bodyGroup.DOFade(0, exitDuration))
+                .Join(bodyGroup.transform.DOLocalMoveX(100, exitDuration).SetEase(Ease.OutSine))
+                .Join(leftGroup.DOFade(0, exitDuration))
+                .Join(leftGroup.transform.DOLocalMoveX(-100, exitDuration).SetEase(Ease.OutSine))
+                .AppendCallback(() => gameObject.SetActive(false));
+            focusManager.OnExit();
+            exitButton.OnExit();
+            top100Controller.OnExit();
+            aroundPlayerController.OnExit();
         }
         
         Subject<Unit> _OnExit = new Subject<Unit>();
         public IObservable<Unit> OnExit => _OnExit;
 
-        void Start()
+        bool initialized;
+        void Init()
         {
-            exitButton.onClick.AddListener(() =>
+            initialized = true;
+            
+            exitButton.Pushed.Subscribe(_ =>
             {
-                gameObject.SetActive(false);
+                Exit();
                 _OnExit.OnNext(Unit.Default);
             });
+            bgColor = BgImage.color;
+
+            var shownDataChanged = rankDatas
+                .ObserveReplace()
+                .Where(replace => replace.Index == (int) shownKind.Value)
+                .CombineLatest(shownKind, (replace, shown) => rankDatas[(int)shown]);
+            
+            top100Controller
+                .Init(shownDataChanged.Select(data => data.Top100));
+            aroundPlayerController
+                .Init(shownDataChanged.Select(data => data.AroundPlayer100));
         }
     }
 }
