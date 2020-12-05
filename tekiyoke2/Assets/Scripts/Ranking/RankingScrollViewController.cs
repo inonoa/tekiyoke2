@@ -12,16 +12,23 @@ public class RankingScrollViewController : MonoBehaviour
     [SerializeField] ScrollRect scrollRect;
     [SerializeField] FocusNode focusNode;
     [SerializeField] Material nodesMat;
+    [SerializeField] RankNodeView nodePrefab;
+    [SerializeField] Transform centerTransform;
     
     [SerializeField] float scrollSpeedMax = 200f;
     [SerializeField] float scrollForce = 100f;
     [SerializeField] float resistanceRate = 5;
 
+    [SerializeField] float tiltTan = -4.18f;
 
-    IReadOnlyList<RankNodeView> nodes;
-    public void OnNodesSet(IReadOnlyList<RankNodeView> nodes)
+    public void Init(IObservable<IReadOnlyList<RankDatum>> datums)
     {
-        this.nodes = nodes;
+        datums.Subscribe(CreateNodes);
+    }
+
+    public void OnExit()
+    {
+        ClearNodes();
     }
 
     Tween blink;
@@ -49,6 +56,29 @@ public class RankingScrollViewController : MonoBehaviour
         focusNode.OnFocused.Subscribe(_ => OnFocused());
         focusNode.OnUnFocused.Subscribe(_ => OnUnFocused());
         nodesMat.SetFloat("_DPAlpha", 0);
+    }
+
+    List<RankNodeView> nodes;
+    void CreateNodes(IReadOnlyList<RankDatum> datums)
+    {
+        if(datums == null) return;
+        
+        nodes = new List<RankNodeView>();
+        foreach (RankDatum rankDatum in datums)
+        {
+            var node = Instantiate(nodePrefab, scrollRect.content);
+            node.Init(rankDatum, centerTransform, () => tiltTan, nodesMat);
+            nodes.Add(node);
+        }
+    }
+    void ClearNodes()
+    {
+        if(nodes == null) return;
+        foreach (var node in nodes)
+        {
+            Destroy(node.gameObject);
+        }
+        nodes.Clear();
     }
 
     void Update()

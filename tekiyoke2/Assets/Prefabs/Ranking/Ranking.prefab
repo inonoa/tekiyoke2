@@ -724,15 +724,8 @@ MonoBehaviour:
   focusManager: {fileID: 434108057521999144}
   BgImage: {fileID: 5681193044760909518}
   bodyGroup: {fileID: 992936188925547478}
-  top100Content: {fileID: 5681193044088466159}
   top100Controller: {fileID: 6313603854825651717}
-  top100NodesMat: {fileID: 2100000, guid: f3e042834296e0845838129ccaac88da, type: 2}
-  aroundPlayer100Content: {fileID: 5275064152187380325}
   aroundPlayerController: {fileID: 5799793397166110351}
-  aroundPlayerNodesMat: {fileID: 2100000, guid: dd84c4accb426b448b51bc3cc133d3e5,
-    type: 2}
-  nodeViewPrefab: {fileID: 6365270413635384215, guid: b03879a5dc136e546a325efd3266d484,
-    type: 3}
   leftGroup: {fileID: 3087877369468983106}
   exitButton: {fileID: 4617490443536644068}
   bodyCenterTranform: {fileID: 7279527936619087613}
@@ -1353,6 +1346,11 @@ PrefabInstance:
       propertyPath: nodesMat
       value: 
       objectReference: {fileID: 2100000, guid: f3e042834296e0845838129ccaac88da, type: 2}
+    - target: {fileID: 2209762892727937203, guid: 030b7e859ea47724ea3dedd79547d557,
+        type: 3}
+      propertyPath: centerTransform
+      value: 
+      objectReference: {fileID: 7279527936619087613}
     - target: {fileID: 7297937173066691582, guid: 030b7e859ea47724ea3dedd79547d557,
         type: 3}
       propertyPath: <Left>k__BackingField
@@ -1360,12 +1358,6 @@ PrefabInstance:
       objectReference: {fileID: 1227976272886948890}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 030b7e859ea47724ea3dedd79547d557, type: 3}
---- !u!224 &5681193044088466159 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 568416848796204121, guid: 030b7e859ea47724ea3dedd79547d557,
-    type: 3}
-  m_PrefabInstance: {fileID: 5275064152372025014}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &3203099287039386952 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7297937173066691582, guid: 030b7e859ea47724ea3dedd79547d557,
@@ -1548,6 +1540,11 @@ PrefabInstance:
       propertyPath: nodesMat
       value: 
       objectReference: {fileID: 2100000, guid: dd84c4accb426b448b51bc3cc133d3e5, type: 2}
+    - target: {fileID: 2209762892727937203, guid: 030b7e859ea47724ea3dedd79547d557,
+        type: 3}
+      propertyPath: centerTransform
+      value: 
+      objectReference: {fileID: 7279527936619087613}
     - target: {fileID: 7297937173066691582, guid: 030b7e859ea47724ea3dedd79547d557,
         type: 3}
       propertyPath: <Left>k__BackingField
@@ -1555,6 +1552,12 @@ PrefabInstance:
       objectReference: {fileID: 6655370967480288678}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 030b7e859ea47724ea3dedd79547d557, type: 3}
+--- !u!224 &5275064152450480045 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 568416849594395025, guid: 030b7e859ea47724ea3dedd79547d557,
+    type: 3}
+  m_PrefabInstance: {fileID: 5681193043770646076}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &3139252792474774978 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7297937173066691582, guid: 030b7e859ea47724ea3dedd79547d557,
@@ -1579,15 +1582,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 863ac87886584a6e9673e804fae57470, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &5275064152450480045 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 568416849594395025, guid: 030b7e859ea47724ea3dedd79547d557,
-    type: 3}
-  m_PrefabInstance: {fileID: 5681193043770646076}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &5275064152187380325 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 568416848796204121, guid: 030b7e859ea47724ea3dedd79547d557,
-    type: 3}
-  m_PrefabInstance: {fileID: 5681193043770646076}
-  m_PrefabAsset: {fileID: 0}

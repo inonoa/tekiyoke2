@@ -287,9 +287,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scrollRect: {fileID: 568416849594395030}
   focusNode: {fileID: 7297937173066691582}
+  nodesMat: {fileID: 0}
+  nodePrefab: {fileID: 6365270413635384215, guid: b03879a5dc136e546a325efd3266d484,
+    type: 3}
+  centerTransform: {fileID: 0}
   scrollSpeedMax: 2000
   scrollForce: 1500
   resistanceRate: 3
+  tiltTan: -4.18
 --- !u!114 &7297937173066691582
 MonoBehaviour:
   m_ObjectHideFlags: 0
