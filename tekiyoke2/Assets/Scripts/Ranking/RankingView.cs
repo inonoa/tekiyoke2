@@ -97,8 +97,6 @@ namespace Ranking
                 .ObserveReplace()
                 .Where(replace => replace.Index == (int) shownKind.Value)
                 .CombineLatest(shownKind, (replace, shown) => rankDatas[(int)shown]);
-
-            shownDataChanged.Subscribe(data => print(data.Kind));
             
             top100Controller
                 .Init(shownDataChanged.Select(data => data.Top100));

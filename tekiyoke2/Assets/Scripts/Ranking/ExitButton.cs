@@ -1,5 +1,6 @@
 using System;
 using DG.Tweening;
+using Sirenix.OdinInspector;
 using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,6 +11,7 @@ public class ExitButton : MonoBehaviour
     [SerializeField] Image dpImage;
     [SerializeField] FocusNode focusNode;
     [SerializeField] float rotateSpeed = 200;
+    IAskedInput input;
     
     Subject<Unit> _Pushed = new Subject<Unit>();
     public IObservable<Unit> Pushed => _Pushed;
@@ -27,6 +29,11 @@ public class ExitButton : MonoBehaviour
         button.OnClickAsObservable().Subscribe(_ => _Pushed.OnNext(Unit.Default));
     }
 
+    void Start()
+    {
+        input = InputManager.Instance;
+    }
+
     public void OnEnter()
     {
         
@@ -42,7 +49,7 @@ public class ExitButton : MonoBehaviour
         if(!focusNode.Focused) return;
 
         dpImage.transform.Rotate(Vector3.forward * rotateSpeed * Time.deltaTime);
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (input.GetButtonDown(ButtonCode.Enter))
         {
             _Pushed.OnNext(Unit.Default);
         }

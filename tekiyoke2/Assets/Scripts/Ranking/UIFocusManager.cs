@@ -8,6 +8,8 @@ public class UIFocusManager : SerializedMonoBehaviour
     [SerializeField] FocusNode initialNode;
 
     [SerializeField, ReadOnly] FocusNode focused;
+
+    IAskedInput input;
     
     public void OnExit()
     {
@@ -21,9 +23,14 @@ public class UIFocusManager : SerializedMonoBehaviour
         initialNode.Focus();
     }
 
+    void Start()
+    {
+        input = InputManager.Instance;
+    }
+
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (input.GetButtonDown(ButtonCode.Left))
         {
             if (focused.Left != null)
             {
@@ -32,7 +39,7 @@ public class UIFocusManager : SerializedMonoBehaviour
                 focused.Focus();
             }
         }
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (input.GetButtonDown(ButtonCode.Right))
         {
             if (focused.Right != null)
             {
@@ -41,7 +48,7 @@ public class UIFocusManager : SerializedMonoBehaviour
                 focused.Focus();
             }
         }
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (input.GetButtonDown(ButtonCode.Up))
         {
             if (focused.Up != null)
             {
@@ -50,7 +57,7 @@ public class UIFocusManager : SerializedMonoBehaviour
                 focused.Focus();
             }
         }
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        if (input.GetButtonDown(ButtonCode.Down))
         {
             if (focused.Down != null)
             {

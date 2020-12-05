@@ -132,8 +132,8 @@ public class InputManager : MonoBehaviour, IAskedInput
     ///<summary>ButtonCodeとKeyCode群との対応を書く。入っているKeyのうちいずれかが押されると押された判定になる</summary>
     static Dictionary<ButtonCode, KeyCode[]> button2Keys = new Dictionary<ButtonCode, KeyCode[]>()
     {
-        {ButtonCode.Right,  new[]{ KeyCode.D }},
-        {ButtonCode.Left,   new[]{ KeyCode.A }},
+        {ButtonCode.Right,  new[]{ KeyCode.D, KeyCode.RightArrow }},
+        {ButtonCode.Left,   new[]{ KeyCode.A, KeyCode.LeftArrow }},
         {ButtonCode.Up,     new[]{ KeyCode.W, KeyCode.UpArrow }},
         {ButtonCode.Down,   new[]{ KeyCode.S, KeyCode.DownArrow }},
 

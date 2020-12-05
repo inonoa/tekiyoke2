@@ -21,6 +21,8 @@ public class RankingScrollViewController : MonoBehaviour
 
     [SerializeField] float tiltTan = -4.18f;
 
+    IAskedInput input;
+
     public void Init(IObservable<IReadOnlyList<RankDatum>> datums)
     {
         datums.Subscribe(CreateNodes);
@@ -86,7 +88,7 @@ public class RankingScrollViewController : MonoBehaviour
         if(!focusNode.Focused) return;
 
         float dt = Time.deltaTime;
-        if (Input.GetAxisRaw("Vertical") > 0)
+        if (input.GetButton(ButtonCode.Up))
         {
             scrollRect.velocity += Vector2.down * scrollForce * dt;
             if (scrollRect.velocity.y < -scrollSpeedMax)
@@ -94,7 +96,7 @@ public class RankingScrollViewController : MonoBehaviour
                 scrollRect.velocity = new Vector2(0, -scrollSpeedMax);
             }
         }
-        else if (Input.GetAxisRaw("Vertical") < 0)
+        else if (input.GetButton(ButtonCode.Down))
         {
             scrollRect.velocity += Vector2.up * scrollForce * dt;
             if (scrollRect.velocity.y > scrollSpeedMax)
@@ -118,5 +120,10 @@ public class RankingScrollViewController : MonoBehaviour
                 scrollRect.velocity = Vector2.zero;
             }
         }
+    }
+
+    void Start()
+    {
+        input = InputManager.Instance;
     }
 }
