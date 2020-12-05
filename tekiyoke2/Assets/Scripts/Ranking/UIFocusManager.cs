@@ -8,8 +8,14 @@ public class UIFocusManager : SerializedMonoBehaviour
     [SerializeField] FocusNode initialNode;
 
     [SerializeField, ReadOnly] FocusNode focused;
+    
+    public void OnExit()
+    {
+        focused.UnFocus();
+        focused = null;
+    }
 
-    void Start()
+    public void OnEnter()
     {
         focused = initialNode;
         initialNode.Focus();

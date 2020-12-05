@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using DG.Tweening;
 using ResultScene;
 using Sirenix.OdinInspector;
@@ -10,16 +11,22 @@ namespace Ranking
 {
     public class RankingView : MonoBehaviour, IRankView
     {
+        [SerializeField] UIFocusManager focusManager;
+        [Space(10)]
         [SerializeField] Image BgImage;
         Color bgColor;
         [Space(10)]
         [SerializeField] CanvasGroup bodyGroup;
         [SerializeField] Transform top100Content;
+        [SerializeField] RankingScrollViewController top100Controller;
+        [SerializeField] Material top100NodesMat;
         [SerializeField] Transform aroundPlayer100Content;
+        [SerializeField] RankingScrollViewController aroundPlayerController;
+        [SerializeField] Material aroundPlayerNodesMat;
         [SerializeField] RankNodeView nodeViewPrefab;
         [Space(10)]
         [SerializeField] CanvasGroup leftGroup;
-        [SerializeField] Button exitButton;
+        [SerializeField] ExitButton exitButton;
         [Space(10)]
         [SerializeField] Transform bodyCenterTranform;
         [SerializeField] float bodyTiltTan = 2f;
@@ -44,6 +51,7 @@ namespace Ranking
         {
             shownKind = kind;
             gameObject.SetActive(true);
+            focusManager.OnEnter();
             
             BgImage.color = bgColor * new Color(1, 1, 1, 0);
             bodyGroup.alpha = 0;
@@ -57,6 +65,8 @@ namespace Ranking
                 .Join(bodyGroup.transform.DOLocalMoveX(0, enterDuration).SetEase(Ease.OutQuint))
                 .Join(leftGroup.DOFade(1, enterDuration).SetEase(Ease.Linear))
                 .Join(leftGroup.transform.DOLocalMoveX(0, enterDuration).SetEase(Ease.OutQuint));
+            
+            exitButton.OnEnter();
             
             ClearNodes();
             
@@ -73,20 +83,29 @@ namespace Ranking
                 .Join(leftGroup.DOFade(0, exitDuration))
                 .Join(leftGroup.transform.DOLocalMoveX(-100, exitDuration).SetEase(Ease.OutSine))
                 .AppendCallback(() => gameObject.SetActive(false));
+            focusManager.OnExit();
+            exitButton.OnExit();
         }
         
         void CreateNodes(RankKind kind)
         {
+            List<RankNodeView> top100 = new List<RankNodeView>();
             foreach (RankDatum rankDatum in rankDatas[kind].Top100)
             {
-                Instantiate(nodeViewPrefab, top100Content)
-                    .Init(rankDatum, bodyCenterTranform, () => bodyTiltTan);
+                var node = Instantiate(nodeViewPrefab, top100Content);
+                node.Init(rankDatum, bodyCenterTranform, () => bodyTiltTan, top100NodesMat);
+                top100.Add(node);
             }
+            top100Controller.OnNodesSet(top100);
+            
+            List<RankNodeView> aroundPlayer = new List<RankNodeView>();
             foreach (RankDatum rankDatum in rankDatas[kind].AroundPlayer100)
             {
-                Instantiate(nodeViewPrefab, aroundPlayer100Content)
-                    .Init(rankDatum, bodyCenterTranform, () => bodyTiltTan);
+                var node = Instantiate(nodeViewPrefab, aroundPlayer100Content);
+                node.Init(rankDatum, bodyCenterTranform, () => bodyTiltTan, aroundPlayerNodesMat);
+                aroundPlayer.Add(node);
             }
+            aroundPlayerController.OnNodesSet(aroundPlayer);
         }
         void ClearNodes()
         {
@@ -105,7 +124,7 @@ namespace Ranking
 
         void Awake()
         {
-            exitButton.onClick.AddListener(() =>
+            exitButton.Pushed.Subscribe(_ =>
             {
                 Exit();
                 _OnExit.OnNext(Unit.Default);

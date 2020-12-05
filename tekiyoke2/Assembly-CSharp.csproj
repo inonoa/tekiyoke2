@@ -168,10 +168,12 @@
      <Compile Include="Assets\Scripts\Pause\PauseCameraController.cs" />
      <Compile Include="Assets\Scripts\Pause\PauseView.cs" />
      <Compile Include="Assets\Scripts\Pause\Pauser.cs" />
+     <Compile Include="Assets\Scripts\Ranking\ExitButton.cs" />
      <Compile Include="Assets\Scripts\Ranking\FocusNode.cs" />
      <Compile Include="Assets\Scripts\Ranking\PlayfabRankingSenderGetter.cs" />
      <Compile Include="Assets\Scripts\Ranking\RankData.cs" />
      <Compile Include="Assets\Scripts\Ranking\RankNodeView.cs" />
+     <Compile Include="Assets\Scripts\Ranking\RankingCategoryTab.cs" />
      <Compile Include="Assets\Scripts\Ranking\RankingLogger.cs" />
      <Compile Include="Assets\Scripts\Ranking\RankingMock.cs" />
      <Compile Include="Assets\Scripts\Ranking\RankingMockView.cs" />
@@ -223,7 +225,7 @@
      <Compile Include="Assets\Scripts\Warp\WarpEvent.cs" />
      <Compile Include="Assets\Scripts\ZatsuTest.cs" />
      <None Include="Assets\Materials\PostEffects\BlurEdge2.shader" />
-     <None Include="Assets\Materials\TimeText.shader" />
+     <None Include="Assets\Materials\UI\TimeText.shader" />
      <None Include="Assets\Materials\Hero.shader" />
      <None Include="Assets\Sprites\BGs\MapObjs\EdgeLight.shader" />
      <None Include="Assets\Materials\Glitch.shader" />
@@ -234,13 +236,14 @@
      <None Include="Assets\Demigiant\readme_DOTweenPro.txt" />
      <None Include="Assets\Materials\DPinEnemy.shader" />
      <None Include="Assets\Materials\MapObjs\Bane.shader" />
-     <None Include="Assets\Materials\LogoDissolve.shader" />
+     <None Include="Assets\Materials\UI\LogoDissolve.shader" />
      <None Include="Assets\Materials\PostEffects\Vignette.shader" />
      <None Include="Assets\ScriptTemplates\81-C# NewState-NewBehaviourScript.cs.txt" />
      <None Include="Assets\Materials\DPOverlay.shader" />
      <None Include="Assets\Materials\MapObjs\Idouyuka.shader" />
      <None Include="Assets\Materials\DefaultShader.shader" />
      <None Include="Assets\Materials\FogBlur.shader" />
+     <None Include="Assets\Materials\UI\RankNode.shader" />
      <None Include="Assets\Demigiant\DemiLib\Core\DemiLib.xml" />
      <None Include="Assets\Materials\PostEffects\Noise.shader" />
      <None Include="Assets\Demigiant\DOTween\readme.txt" />
