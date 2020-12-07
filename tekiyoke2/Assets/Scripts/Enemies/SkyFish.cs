@@ -16,6 +16,9 @@ public class SkyFish : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] Sprite spriteLeft;
     [SerializeField] Sprite spriteRight;
+    [SerializeField] SoundGroup sounds;
+
+    float soundVolumeMax;
 
     void Start()
     {
@@ -26,17 +29,30 @@ public class SkyFish : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
             eyeToRight = !eyeToRight;
             spriteRenderer.sprite = eyeToRight ? spriteRight : spriteLeft;
         };
+        soundVolumeMax = sounds.GetVolume("fly");
+    }
+
+    void Update()
+    {
+        float distFromHero = MyMath.DistanceXY(HeroDefiner.CurrentHeroPos, this.transform.position);
+        sounds.SetVolume
+        (
+            "fly",
+            soundVolumeMax * Mathf.Pow(0.5f, distFromHero / 200)
+        );
     }
 
     public void Spawn()
     {
         gameObject.SetActive(true);
         DOTweenPath.tween.TogglePause();
+        sounds.Play("fly");
     }
 
     public void Hide()
     {
         DOTweenPath.tween.Pause();
+        sounds.Stop("fly");
         gameObject.SetActive(false);
     }
 }

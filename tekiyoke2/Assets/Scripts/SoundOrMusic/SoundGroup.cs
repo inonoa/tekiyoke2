@@ -102,6 +102,11 @@ public class SoundGroup : MonoBehaviour
         if(idx > -1) ses[idx].Volume = volume;
     }
 
+    public float GetVolume(string soundName)
+    {
+        return ses[Find(soundName)].Volume;
+    }
+
     public void FadeOut(string soundName, float durationSec){
         int idx = Find(soundName);
         if(idx > -1) DOTween.To(() => ses[idx].Volume, v => ses[idx].Volume = v, 0, durationSec);
