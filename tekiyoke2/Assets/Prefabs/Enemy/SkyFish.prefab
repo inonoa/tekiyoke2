@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7459283463276422427}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 586, y: 237, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3410618107888586807}
@@ -172,8 +172,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   delay: 0
-  duration: 1
-  easeType: 6
+  duration: 4
+  easeType: 7
   easeCurve:
     serializedVersion: 2
     m_Curve:
@@ -198,9 +198,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  loops: 1
+  loops: -1
   id: 
-  loopType: 0
+  loopType: 1
   orientType: 0
   lookAtTransform: {fileID: 0}
   lookAtPosition: {x: 0, y: 0, z: 0}
@@ -208,7 +208,7 @@ MonoBehaviour:
   autoPlay: 1
   autoKill: 1
   relative: 0
-  isLocal: 0
+  isLocal: 1
   isClosedPath: 0
   pathResolution: 10
   pathMode: 1
@@ -217,27 +217,139 @@ MonoBehaviour:
   forwardDirection: {x: 0, y: 0, z: 1}
   upDirection: {x: 0, y: 1, z: 0}
   tweenRigidbody: 0
-  wps: []
+  wps:
+  - {x: 340.90073, y: -121.56286, z: 0}
+  - {x: 9.861885, y: -206.9285, z: 0}
+  - {x: -333.29236, y: -120.27706, z: 0}
+  - {x: -624.3472, y: 238.20831, z: 0}
   fullWps: []
   path:
     wpLengths:
     - 0
-    - 0
-    type: 0
+    - 436.3078
+    - 348.3156
+    - 359.70486
+    - 463.4803
+    type: 1
     subdivisionsXSegment: 10
-    subdivisions: 20
+    subdivisions: 50
     wps:
-    - {x: 0, y: 0, z: 0}
-    - {x: 0, y: 0, z: 0}
-    controlPoints: []
-    length: 0
+    - {x: 586, y: 237, z: 0}
+    - {x: 340.90073, y: -121.56286, z: 0}
+    - {x: 9.861885, y: -206.9285, z: 0}
+    - {x: -333.29236, y: -120.27706, z: 0}
+    - {x: -624.3472, y: 238.20831, z: 0}
+    controlPoints:
+    - a: {x: 340.90073, y: -121.56286, z: 0}
+      b: {x: 0, y: 0, z: 0}
+    - a: {x: -915.4021, y: 596.6937, z: 0}
+      b: {x: 0, y: 0, z: 0}
+    length: 1607.9014
     isFinalized: 1
     timesTable:
-    - 0
-    - NaN
-    lengthsTable: []
+    - 0.02
+    - 0.04
+    - 0.06
+    - 0.08
+    - 0.099999994
+    - 0.12
+    - 0.14
+    - 0.16
+    - 0.17999999
+    - 0.19999999
+    - 0.22
+    - 0.24
+    - 0.26
+    - 0.28
+    - 0.29999998
+    - 0.32
+    - 0.34
+    - 0.35999998
+    - 0.38
+    - 0.39999998
+    - 0.42
+    - 0.44
+    - 0.45999998
+    - 0.48
+    - 0.5
+    - 0.52
+    - 0.53999996
+    - 0.56
+    - 0.58
+    - 0.59999996
+    - 0.62
+    - 0.64
+    - 0.65999997
+    - 0.68
+    - 0.7
+    - 0.71999997
+    - 0.74
+    - 0.76
+    - 0.78
+    - 0.79999995
+    - 0.82
+    - 0.84
+    - 0.85999995
+    - 0.88
+    - 0.9
+    - 0.91999996
+    - 0.94
+    - 0.96
+    - 0.97999996
+    - 1
+    lengthsTable:
+    - 5.895614
+    - 22.492878
+    - 48.15899
+    - 81.26388
+    - 120.181
+    - 163.2891
+    - 208.97435
+    - 255.63446
+    - 301.68546
+    - 345.5743
+    - 385.80478
+    - 420.9953
+    - 450.79776
+    - 479.34378
+    - 507.5287
+    - 535.4998
+    - 563.365
+    - 591.19476
+    - 619.0254
+    - 646.86224
+    - 674.6842
+    - 702.4472
+    - 730.088
+    - 757.52783
+    - 784.67487
+    - 811.87213
+    - 839.47296
+    - 867.401
+    - 895.59174
+    - 923.9956
+    - 952.58057
+    - 981.33453
+    - 1010.26904
+    - 1039.4216
+    - 1068.8582
+    - 1098.6753
+    - 1129.001
+    - 1160.078
+    - 1192.5707
+    - 1226.5901
+    - 1262.0494
+    - 1298.7859
+    - 1336.5841
+    - 1375.1926
+    - 1414.3362
+    - 1453.7256
+    - 1493.0658
+    - 1532.0625
+    - 1570.4305
+    - 1607.9014
   inspectorMode: 0
-  pathType: 0
+  pathType: 1
   handlesType: 0
   livePreview: 1
   handlesDrawMode: 0
@@ -245,7 +357,7 @@ MonoBehaviour:
   showIndexes: 1
   showWpLength: 0
   pathColor: {r: 1, g: 1, b: 1, a: 0.5}
-  lastSrcPosition: {x: 0, y: 0, z: 0}
+  lastSrcPosition: {x: 586, y: 237, z: 0}
   lastSrcRotation: {x: 0, y: 0, z: 0, w: 1}
   wpsDropdown: 1
   dropToFloorOffset: 0

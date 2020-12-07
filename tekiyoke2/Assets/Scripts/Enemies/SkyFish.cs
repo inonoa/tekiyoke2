@@ -3,7 +3,7 @@ using DG.Tweening;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-public class SkyFish : MonoBehaviour, IHaveDPinEnemy
+public class SkyFish : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
 {
     [SerializeField] bool eyeToRight = false;
     
@@ -26,5 +26,17 @@ public class SkyFish : MonoBehaviour, IHaveDPinEnemy
             eyeToRight = !eyeToRight;
             spriteRenderer.sprite = eyeToRight ? spriteRight : spriteLeft;
         };
+    }
+
+    public void Spawn()
+    {
+        gameObject.SetActive(true);
+        DOTweenPath.tween.TogglePause();
+    }
+
+    public void Hide()
+    {
+        DOTweenPath.tween.Pause();
+        gameObject.SetActive(false);
     }
 }
