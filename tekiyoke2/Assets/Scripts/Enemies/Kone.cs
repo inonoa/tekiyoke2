@@ -62,19 +62,7 @@ public class Kone : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
         Vector2 thisToHero = heroPos - (transform.position.ToVec2() + new Vector2(0, jump));
         float targetAngle = Quaternion.FromToRotation(Vector3.down, thisToHero).eulerAngles.z;
 
-        float angle = transform.eulerAngles.z;
-        while (targetAngle > angle) targetAngle -= 360;
-        DOTween.To
-        (
-            () => angle,
-            a =>
-            {
-                angle = a;
-                transform.rotation = Quaternion.Euler(0, 0, a);
-            },
-            targetAngle,
-            duration
-        );
+        transform.DOMyRotate(targetAngle, duration, clockwise: true);
         
         transform.DOMoveY(jump, duration).SetRelative().SetEase(Ease.InOutSine)
             .onComplete += () => ReAttack(heroPos);

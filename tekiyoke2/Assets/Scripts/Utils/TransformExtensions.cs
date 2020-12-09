@@ -1,4 +1,5 @@
 
+using DG.Tweening;
 using UnityEngine;
 
 public static class TransformExtensions
@@ -42,5 +43,34 @@ public static class TransformExtensions
         Vector3 tmp = transform.localPosition;
         tmp.z = z;
         transform.localPosition = tmp;
+    }
+
+    public static Tween DOMyRotate(this Transform transform, float target, float duration, bool clockwise)
+    {
+        float angle = transform.rotation.eulerAngles.z;
+        float actualTarget = ActualTargetAngle(angle, target, clockwise);
+        return DOTween.To
+        (
+            ()  => angle,
+            val =>
+            {
+                angle = val;
+                transform.rotation = Quaternion.Euler(0, 0, val);
+            },
+            actualTarget,
+            duration
+        );
+    }
+
+    static float ActualTargetAngle(float from, float target, bool clockwise)
+    {
+        if (clockwise)
+        {
+            return target > from ? target - 360 : target;
+        }
+        else
+        {
+            return target < from ? target + 360 : target;
+        }
     }
 }
