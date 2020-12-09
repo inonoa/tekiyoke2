@@ -34,7 +34,7 @@ public class SkyFish : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
 
     void Update()
     {
-        float distFromHero = MyMath.DistanceXY(HeroDefiner.CurrentHeroPos, this.transform.position);
+        float distFromHero = MyMath.DistanceXY(HeroDefiner.CurrentPos, this.transform.position);
         sounds.SetVolume
         (
             "fly",

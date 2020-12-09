@@ -80,12 +80,12 @@ public class KennerController : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
 
     void Update()
     {
-        if(groundChecker.IsOnGround) EyeToRight = transform.position.x < HeroDefiner.CurrentHeroPos.x;
+        if(groundChecker.IsOnGround) EyeToRight = transform.position.x < HeroDefiner.CurrentPos.x;
 
         switch(state){
 
             case State.Wait:
-                if(MyMath.DistanceXY(transform.position, HeroDefiner.CurrentHeroPos) < distanceToFindHero){
+                if(MyMath.DistanceXY(transform.position, HeroDefiner.CurrentPos) < distanceToFindHero){
                     Jump();
                     hontaiSR.sprite = hontaiSpriteActive;
                 }
@@ -123,7 +123,7 @@ public class KennerController : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
 
                 if(restSecondsNow >= restSeconds){
                     restSecondsNow = 0;
-                    if(MyMath.DistanceXY(transform.position, HeroDefiner.CurrentHeroPos) < distanceToFindHero){
+                    if(MyMath.DistanceXY(transform.position, HeroDefiner.CurrentPos) < distanceToFindHero){
                         Jump();
                     }
                     else{

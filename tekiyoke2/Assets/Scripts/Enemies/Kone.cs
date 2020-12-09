@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using DG.Tweening;
 using Sirenix.OdinInspector;
 using UniRx;
 using UniRx.Triggers;
@@ -11,30 +13,87 @@ public class Kone : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
 
     [SerializeField] Collider2D heroSensor;
 
-    bool nearHero;
-    
+    new Transform transform;
+    void Awake()
+    {
+        transform = base.transform;
+    }
+
     public void Spawn()
     {
         gameObject.SetActive(true);
+        heroSensor.OnTriggerEnter2DAsObservable()
+            .Where(other => other.CompareTag(TagNames.Hero))
+            .Take(1)
+            .Subscribe(_ => OnFindHero(HeroDefiner.CurrentPos))
+            .AddTo(this);
+    }
+
+    void OnFindHero(Vector2 heroPos)
+    {
+        float jump = 350;
+        
+        Vector2 thisToHero = heroPos - (transform.position.ToVec2() + new Vector2(0, jump));
+        transform.rotation = Quaternion.FromToRotation(Vector3.down, thisToHero);
+
+        transform
+            .DOMoveY(jump, 1f)
+            .SetRelative()
+            .SetEase(Ease.OutQuint)
+            .onComplete += () => Attack(heroPos);
+    }
+
+    void Attack(Vector2 heroPos)
+    {
+        Vector2 thisToHero = heroPos - transform.position.ToVec2();
+        Vector2 move = thisToHero.normalized * 700;
+        transform.DOMove(move, 0.6f).SetRelative().SetEase(Ease.InOutSine)
+            .onComplete += () =>
+        {
+            DOVirtual.DelayedCall(0.3f, () => ReJump(HeroDefiner.CurrentPos));
+        };
+    }
+
+    void ReJump(Vector2 heroPos)
+    {
+        float jump = 200;
+        float duration = 0.8f;
+        
+        Vector2 thisToHero = heroPos - (transform.position.ToVec2() + new Vector2(0, jump));
+        float targetAngle = Quaternion.FromToRotation(Vector3.down, thisToHero).eulerAngles.z;
+
+        float angle = transform.eulerAngles.z;
+        while (targetAngle > angle) targetAngle -= 360;
+        DOTween.To
+        (
+            () => angle,
+            a =>
+            {
+                angle = a;
+                transform.rotation = Quaternion.Euler(0, 0, a);
+            },
+            targetAngle,
+            duration
+        );
+        
+        transform.DOMoveY(jump, duration).SetRelative().SetEase(Ease.InOutSine)
+            .onComplete += () => ReAttack(heroPos);
+    }
+
+    void ReAttack(Vector2 heroPos)
+    {
+        Vector2 direction = (heroPos - transform.position.ToVec2()).normalized;
+        float speed = 1000;
+        float duration = 2f;
+        
+        transform.DOMove(direction * speed * duration, duration)
+            .SetRelative()
+            .SetEase(Ease.InSine)
+            .onComplete += () => Destroy(gameObject);
     }
 
     public void Hide()
     {
         gameObject.SetActive(false);
-    }
-
-    void Awake()
-    {
-        heroSensor.OnTriggerEnter2DAsObservable()
-            .Where(other => other.CompareTag(TagNames.Hero))
-            .Subscribe(heroCol => nearHero = true);
-        heroSensor.OnTriggerExit2DAsObservable()
-            .Where(other => other.CompareTag(TagNames.Hero))
-            .Subscribe(heroCol => nearHero = false);
-    }
-
-    void Update()
-    {
-        if(nearHero) transform.Rotate(0, 0, 1);
     }
 }

@@ -72,7 +72,7 @@ public class CameraController : MonoBehaviour
     void Start()
     {
         defaultSize = cmr.orthographicSize;
-        targetPosition = HeroDefiner.CurrentHeroPos - fromCameraToHero.ToVec3() + new Vector3(0, 0, -500);
+        targetPosition = HeroDefiner.CurrentPos - fromCameraToHero.ToVec3() + new Vector3(0, 0, -500);
         scShoOutOfWindController.canvas = canvas;
     }
 
@@ -124,11 +124,11 @@ public class CameraController : MonoBehaviour
     //単純に主人公の移動距離分追いかけたあと、Freeze中に置いてけぼりを喰らっていた分をちょっとずつ追い付く
     Vector2 NextTartgetPosition(Vector2 currentTargetPosition)
     {
-        Vector2 lastPos   = HeroDefiner.CurrentHeroPastPos.Count > 1 ? HeroDefiner.CurrentHeroPastPos[1] : HeroDefiner.CurrentHeroPos;
-        Vector2 dist      = MyMath.DistAsVector2(HeroDefiner.CurrentHeroPos, lastPos);
+        Vector2 lastPos   = HeroDefiner.PastPoss.Count > 1 ? HeroDefiner.PastPoss[1] : HeroDefiner.CurrentPos;
+        Vector2 dist      = MyMath.DistAsVector2(HeroDefiner.CurrentPos, lastPos);
         Vector2 distAdded = currentTargetPosition + dist;
 
-        Vector2 catchUp = (HeroDefiner.CurrentHeroExpectedPos - fromCameraToHero - targetPosition) * targetPosChangeSpeed;
+        Vector2 catchUp = (HeroDefiner.ExpectedPos - fromCameraToHero - targetPosition) * targetPosChangeSpeed;
         return distAdded + catchUp;
     }
 
@@ -144,11 +144,11 @@ public class CameraController : MonoBehaviour
 
     ///<summary>velocityというか実際に移動した距離の平均</summary>
     Vector2 HeroVelocityMean(int range){
-        int count = HeroDefiner.CurrentHeroPastPos.Count;
+        int count = HeroDefiner.PastPoss.Count;
         if(count >= range)
-            return (MyMath.DistAsVector2(HeroDefiner.CurrentHeroExpectedPos, HeroDefiner.CurrentHeroPastPos[range - 1])) / range;
+            return (MyMath.DistAsVector2(HeroDefiner.ExpectedPos, HeroDefiner.PastPoss[range - 1])) / range;
         else
-            return (MyMath.DistAsVector2(HeroDefiner.CurrentHeroExpectedPos, HeroDefiner.CurrentHeroPastPos[count - 1])) / count;
+            return (MyMath.DistAsVector2(HeroDefiner.ExpectedPos, HeroDefiner.PastPoss[count - 1])) / count;
     }
 
     public void ScSho(Action<Texture2D> callbackOnTaken)

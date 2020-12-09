@@ -52,7 +52,7 @@ public class DPinEnemy : MonoBehaviour
         if(IsActive){
             transform.Rotate(0,0,rotateSpeed);
             spriteRenderer.color = new Color(1,1,1,
-                Mathf.Clamp01((200 -  MyMath.DistanceXY(HeroDefiner.CurrentHeroPos, transform.position)) / 200)
+                Mathf.Clamp01((200 -  MyMath.DistanceXY(HeroDefiner.CurrentPos, transform.position)) / 200)
             );
         }
     }

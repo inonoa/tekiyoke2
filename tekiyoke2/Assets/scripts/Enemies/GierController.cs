@@ -78,18 +78,18 @@ public class GierController : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
                 break;
 
             case GierState.Running:
-                if(HeroDefiner.CurrentHeroPos.x > transform.position.x + 10){
+                if(HeroDefiner.CurrentPos.x > transform.position.x + 10){
                     RigidBody.MoveX_ConsideringGravity( runSpeed);
                     HontaiSR.transform.Rotate(-runningRotateSpeed);
                     eyeRenderer.flipX = false;
                 }
-                if(HeroDefiner.CurrentHeroPos.x < transform.position.x - 10){
+                if(HeroDefiner.CurrentPos.x < transform.position.x - 10){
                     RigidBody.MoveX_ConsideringGravity(-runSpeed);
                     HontaiSR.transform.Rotate(runningRotateSpeed);
                     eyeRenderer.flipX = true;
                 }
 
-                if( MyMath.DistanceXY(HeroDefiner.CurrentHeroPos,transform.position) > distanceToMissHero ){
+                if( MyMath.DistanceXY(HeroDefiner.CurrentPos,transform.position) > distanceToMissHero ){
                     if(RigidBody.velocity.x > 0) state = GierState.BeforeFindingR;
                     else                     state = GierState.BeforeFindingL;
                     eyeRenderer.sprite = eyeNormal;
@@ -100,13 +100,13 @@ public class GierController : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
 
     bool NearHero(){
         //なんでColliderつけてないんだこれ… -> 判定の広さ調整が若干楽になるとかか(融通は利かないけど…)
-        return MyMath.DistanceXY(HeroDefiner.CurrentHeroPos,transform.position) < distanceToFindHero;
+        return MyMath.DistanceXY(HeroDefiner.CurrentPos,transform.position) < distanceToFindHero;
     }
 
     void Find(){
         state = GierState.FindingNow;
         eyeRenderer.sprite = eyeFinding;
-        eyeRenderer.flipX = HeroDefiner.CurrentHeroPos.x < transform.position.x;
+        eyeRenderer.flipX = HeroDefiner.CurrentPos.x < transform.position.x;
     }
 
     void HeroJumped(bool isKick){

@@ -24,7 +24,7 @@ public class Kabezuri : MonoBehaviour, IReusable
 
         bool dir_is_R = wallDirStr=="r";
 
-        transform.position = HeroDefiner.CurrentHeroPos + new Vector3(
+        transform.position = HeroDefiner.CurrentPos + new Vector3(
             dir_is_R ? positionFromHero.x : -positionFromHero.x,
             positionFromHero.y,
             positionFromHero.z

@@ -40,9 +40,9 @@ public class TogeDropController : MonoBehaviour
     {
         switch(state){
             case State.Wait:
-                if(System.Math.Abs(transform.position.x - HeroDefiner.CurrentHeroPos.x) < dist2FindHeroX
-                    && HeroDefiner.CurrentHeroPos.y < transform.position.y
-                    && HeroDefiner.CurrentHeroPos.y > transform.position.y - dist2FindHeroY){
+                if(System.Math.Abs(transform.position.x - HeroDefiner.CurrentPos.x) < dist2FindHeroX
+                    && HeroDefiner.CurrentPos.y < transform.position.y
+                    && HeroDefiner.CurrentPos.y > transform.position.y - dist2FindHeroY){
                         state = State.Ready;
                 }
                 break;
