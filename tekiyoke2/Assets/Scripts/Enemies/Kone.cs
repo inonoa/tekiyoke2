@@ -37,16 +37,19 @@ public class Kone : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
         transform.rotation = Quaternion.FromToRotation(Vector3.down, thisToHero);
 
         transform
-            .DOMoveY(jump, 1f)
+            .DOMoveY(jump, 0.5f)
             .SetRelative()
             .SetEase(Ease.OutQuint)
-            .onComplete += () => Attack(heroPos);
+            .onComplete += () =>
+        {
+            DOVirtual.DelayedCall(0.1f, () => Attack(heroPos));
+        };
     }
 
     void Attack(Vector2 heroPos)
     {
         Vector2 thisToHero = heroPos - transform.position.ToVec2();
-        Vector2 move = thisToHero.normalized * 700;
+        Vector2 move = thisToHero.normalized * 900;
         transform.DOMove(move, 0.6f).SetRelative().SetEase(Ease.InOutSine)
             .onComplete += () =>
         {
@@ -71,7 +74,7 @@ public class Kone : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
     void ReAttack(Vector2 heroPos)
     {
         Vector2 direction = (heroPos - transform.position.ToVec2()).normalized;
-        float speed = 1000;
+        float speed = 1300;
         float duration = 2f;
         
         transform.DOMove(direction * speed * duration, duration)
