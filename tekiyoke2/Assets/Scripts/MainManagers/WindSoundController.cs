@@ -26,8 +26,10 @@ public class WindSoundController : MonoBehaviour
         StartCoroutine(changingVolumes);
     }
 
-    IEnumerator ChangeVolumes(){
-        while(true){
+    IEnumerator ChangeVolumes()
+    {
+        while(true)
+        {
             yield return new WaitForSeconds(heroCheckPeriodSec);
 
             FloatPair vol_hp = volumeMinMaxsDependingOnHP[HeroDefiner.currentHero.HPController.HP];
@@ -43,8 +45,9 @@ public class WindSoundController : MonoBehaviour
 
             actualVal = actualVolume;
 
-            for(int i=0;i<3;i++){
-                soundGroup.VolumeTo(windNames[i], actualVolume, heroCheckPeriodSec);
+            foreach (var windName in windNames)
+            {
+                soundGroup.VolumeTo(windName, actualVolume, heroCheckPeriodSec);
             }
         }
     }

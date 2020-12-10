@@ -75,6 +75,7 @@
      <Compile Include="Assets\Scripts\Enemies\JerryController.cs" />
      <Compile Include="Assets\Scripts\Enemies\KennerController.cs" />
      <Compile Include="Assets\Scripts\Enemies\Kone.cs" />
+     <Compile Include="Assets\Scripts\Enemies\KoneTsuchi.cs" />
      <Compile Include="Assets\Scripts\Enemies\NaitrumController.cs" />
      <Compile Include="Assets\Scripts\Enemies\SkyFish.cs" />
      <Compile Include="Assets\Scripts\Enemies\TamaController.cs" />

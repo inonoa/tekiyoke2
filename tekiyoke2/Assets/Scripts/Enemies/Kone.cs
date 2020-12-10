@@ -13,30 +13,49 @@ public class Kone : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
 
     [SerializeField] Collider2D heroSensor;
 
+    [SerializeField] Collider2D groundSensor;
+
+    [SerializeField] KoneTsuchi tsuchiPrefab;
+
     new Transform transform;
+    Rigidbody2D rigidBody;
     void Awake()
     {
         transform = base.transform;
+        rigidBody = GetComponent<Rigidbody2D>();
+        
+        groundSensor.OnTriggerEnter2DAsObservable() // 潜るときのつもりが地中から出た時も走ってる、まあこれはこれでいいか…………
+            .Where(other => other.CompareTag("Terrain"))
+            .Subscribe(_ => Instantiate
+            (
+                tsuchiPrefab,
+                groundSensor.transform.position,
+                Quaternion.identity,
+                DraftManager.CurrentInstance.GameMasterTF
+            )
+            .Init(toRight: transform.rotation.eulerAngles.z.In(0, 180)) // toRight判定がずさん
+            );
     }
 
     public void Spawn()
     {
         gameObject.SetActive(true);
+        
         heroSensor.OnTriggerEnter2DAsObservable()
             .Where(other => other.CompareTag(TagNames.Hero))
             .Take(1)
-            .Subscribe(_ => OnFindHero(HeroDefiner.CurrentPos))
+            .Subscribe(_ => Jump(HeroDefiner.CurrentPos))
             .AddTo(this);
     }
 
-    void OnFindHero(Vector2 heroPos)
+    void Jump(Vector2 heroPos)
     {
         float jump = 350;
         
         Vector2 thisToHero = heroPos - (transform.position.ToVec2() + new Vector2(0, jump));
         transform.rotation = Quaternion.FromToRotation(Vector3.down, thisToHero);
 
-        transform
+        rigidBody
             .DOMoveY(jump, 0.5f)
             .SetRelative()
             .SetEase(Ease.OutQuint)
@@ -50,7 +69,7 @@ public class Kone : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
     {
         Vector2 thisToHero = heroPos - transform.position.ToVec2();
         Vector2 move = thisToHero.normalized * 900;
-        transform.DOMove(move, 0.6f).SetRelative().SetEase(Ease.InOutSine)
+        rigidBody.DOMove(move, 0.6f).SetRelative().SetEase(Ease.InOutSine)
             .onComplete += () =>
         {
             DOVirtual.DelayedCall(0.3f, () => ReJump(HeroDefiner.CurrentPos));
@@ -65,9 +84,9 @@ public class Kone : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
         Vector2 thisToHero = heroPos - (transform.position.ToVec2() + new Vector2(0, jump));
         float targetAngle = Quaternion.FromToRotation(Vector3.down, thisToHero).eulerAngles.z;
 
-        transform.DOMyRotate(targetAngle, duration, clockwise: true);
-        
-        transform.DOMoveY(jump, duration).SetRelative().SetEase(Ease.InOutSine)
+        rigidBody.DOMyRotate(targetAngle, duration, clockwise: true);
+
+        rigidBody.DOMoveY(jump, duration).SetRelative().SetEase(Ease.InOutSine)
             .onComplete += () => ReAttack(heroPos);
     }
 
@@ -75,11 +94,11 @@ public class Kone : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
     {
         Vector2 direction = (heroPos - transform.position.ToVec2()).normalized;
         float speed = 1300;
-        float duration = 2f;
+        float duration = 3f;
         
-        transform.DOMove(direction * speed * duration, duration)
+        rigidBody.DOMove(direction * speed * duration, duration)
             .SetRelative()
-            .SetEase(Ease.InSine)
+            .SetEase(Ease.InQuad)
             .onComplete += () => Destroy(gameObject);
     }
 

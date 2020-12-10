@@ -36,7 +36,7 @@ public class HPController : SerializedMonoBehaviour
             else if(value == 2) view.OnHealed(HP, 2);
         }
 
-        HP = value;
+        HP = Mathf.Clamp(value, 0, 3);
     }
 
     Tween removeMuteki;

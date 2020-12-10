@@ -59,6 +59,7 @@ GameObject:
   - component: {fileID: 312592777423349949}
   - component: {fileID: 4641547510591920131}
   - component: {fileID: 7319557327732240524}
+  - component: {fileID: 7544165457705721263}
   m_Layer: 0
   m_Name: Kone
   m_TagString: Enemy
@@ -79,6 +80,7 @@ Transform:
   m_Children:
   - {fileID: 8113253868627231044}
   - {fileID: 2111992764829201873}
+  - {fileID: 2818839891500519955}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -55.134003}
@@ -96,6 +98,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <DPCD>k__BackingField: {fileID: 3240142047383478344}
   heroSensor: {fileID: 4871271883364510971}
+  groundSensor: {fileID: 4799081235312218513}
+  tsuchiPrefab: {fileID: 2654727709639374793, guid: 7f828572ae6e21b449884146ecdab78a,
+    type: 3}
 --- !u!212 &4641547510591920131
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -162,6 +167,74 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 30
+--- !u!50 &7544165457705721263
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2805130160985002612}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!1 &8862678143672975789
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2818839891500519955}
+  - component: {fileID: 4799081235312218513}
+  m_Layer: 0
+  m_Name: GroundSensor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2818839891500519955
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8862678143672975789}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -46.9, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7705659539833087128}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &4799081235312218513
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8862678143672975789}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 10
 --- !u!1001 &1375599842183017404
 PrefabInstance:
   m_ObjectHideFlags: 0

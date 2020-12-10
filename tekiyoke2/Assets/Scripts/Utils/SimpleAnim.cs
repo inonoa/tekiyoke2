@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using System;
+using UniRx;
 
 public class SimpleAnim : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class SimpleAnim : MonoBehaviour
 
     public void ResetAndStartAnim(TweenCallback onComplete = null)
     {
-        foreach(Tween tw in tweensToRestart) tw.Kill();
+        foreach(Tween tw in tweensToRestart) tw?.Kill();
 
         spriteRenderer.sprite = sprites[0];
         for(int i = 0; i < sprites.Length - 1; i++)
