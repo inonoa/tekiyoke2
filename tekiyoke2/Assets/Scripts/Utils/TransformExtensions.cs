@@ -65,7 +65,7 @@ public static class TransformExtensions
     //TransformExtensionsとは…………？
     public static Tween DOMyRotate(this Rigidbody2D rigidBody, float target, float duration, bool clockwise)
     {
-        float angle = rigidBody.rotation;
+        float angle = (rigidBody.rotation + 360) % 360;
         float actualTarget = ActualTargetAngle(angle, target, clockwise);
         return DOTween.To
         (

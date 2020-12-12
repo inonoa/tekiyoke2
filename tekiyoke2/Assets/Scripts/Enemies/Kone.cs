@@ -33,8 +33,7 @@ public class Kone : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
                 Quaternion.identity,
                 DraftManager.CurrentInstance.GameMasterTF
             )
-            .Init(toRight: transform.rotation.eulerAngles.z.In(0, 180)) // toRight判定がずさん
-            );
+            .Init(toRight: transform.rotation.eulerAngles.z.In(0, 180))); // toRight判定がずさん
     }
 
     public void Spawn()
@@ -48,58 +47,86 @@ public class Kone : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
             .AddTo(this);
     }
 
+    [Space(10)]
+    [SerializeField, FoldoutGroup("First Jump")] float firstJumpHeight    = 350;
+    [SerializeField, FoldoutGroup("First Jump")] float firstJumpDuration  = 0.5f;
+    [SerializeField, FoldoutGroup("First Jump")] Ease  firstJumpEase      = Ease.InQuint;
+    [SerializeField, FoldoutGroup("First Jump")] float firstJumpToAttack  = 0.1f;
+    [SerializeField, FoldoutGroup("First Jump")] float lookAtHeroDelay    = 0.7f;
+    [SerializeField, FoldoutGroup("First Jump")] float lookAtHeroDuration = 0.2f;
     void Jump(Vector2 heroPos)
     {
-        float jump = 350;
-        
-        Vector2 thisToHero = heroPos - (transform.position.ToVec2() + new Vector2(0, jump));
+        Vector2 targetPos = transform.position.ToVec2() + new Vector2(0, firstJumpHeight);
+        Vector2 thisToHero = heroPos - targetPos;
         transform.rotation = Quaternion.FromToRotation(Vector3.down, thisToHero);
 
+        Vector2 nextHeroPos = heroPos;
         rigidBody
-            .DOMoveY(jump, 0.5f)
+            .DOMoveY(firstJumpHeight, firstJumpDuration)
             .SetRelative()
-            .SetEase(Ease.OutQuint)
+            .SetEase(firstJumpEase)
             .onComplete += () =>
         {
-            DOVirtual.DelayedCall(0.1f, () => Attack(heroPos));
+            DOVirtual.DelayedCall(firstJumpToAttack, () => Attack(nextHeroPos));
         };
+
+        DOVirtual.DelayedCall(lookAtHeroDelay, () =>
+        {
+            nextHeroPos = HeroDefiner.CurrentPos.ToVec2();
+            Vector2 thisToHeroFinal = nextHeroPos - targetPos;
+            float targetRot = Quaternion.FromToRotation(Vector3.down, thisToHeroFinal).eulerAngles.z;
+            rigidBody.DOMyRotate(targetRot, lookAtHeroDuration, false).SetEase(Ease.InOutSine);
+        });
     }
 
+    [SerializeField, FoldoutGroup("First Attack")] float firstAttackMove         = 900;
+    [SerializeField, FoldoutGroup("First Attack")] float firstAttackDuration     = 0.6f;
+    [SerializeField, FoldoutGroup("First Attack")] Ease  firstAttackEase         = Ease.InOutSine;
+    [SerializeField, FoldoutGroup("First Attack")] float firstAttackToSecondJump = 0.3f;
     void Attack(Vector2 heroPos)
     {
         Vector2 thisToHero = heroPos - transform.position.ToVec2();
-        Vector2 move = thisToHero.normalized * 900;
-        rigidBody.DOMove(move, 0.6f).SetRelative().SetEase(Ease.InOutSine)
-            .onComplete += () =>
-        {
-            DOVirtual.DelayedCall(0.3f, () => ReJump(HeroDefiner.CurrentPos));
-        };
+        Vector2 move = thisToHero.normalized * firstAttackMove;
+        
+        rigidBody.DOMove(move, firstAttackDuration)
+            .SetRelative()
+            .SetEase(firstAttackEase)
+            .OnComplete(() =>
+            {
+                DOVirtual.DelayedCall(firstAttackToSecondJump, () => ReJump(HeroDefiner.CurrentPos));
+            })
+            .GetPausable()
+            .AddTo(this);
     }
 
+    [SerializeField, FoldoutGroup("Second Jump")] float secondJumpHeight         = 200;
+    [SerializeField, FoldoutGroup("Second Jump")] float secondJumpDuration       = 1f;
+    [SerializeField, FoldoutGroup("Second Jump")] Ease  secondJumpEase           = Ease.InOutSine;
+    [SerializeField, FoldoutGroup("Second Jump")] float secondJumpToSecondAttack = 0;
     void ReJump(Vector2 heroPos)
     {
-        float jump = 200;
-        float duration = 0.8f;
-        
-        Vector2 thisToHero = heroPos - (transform.position.ToVec2() + new Vector2(0, jump));
+        Vector2 thisToHero = heroPos - (transform.position.ToVec2() + new Vector2(0, secondJumpHeight));
         float targetAngle = Quaternion.FromToRotation(Vector3.down, thisToHero).eulerAngles.z;
 
-        rigidBody.DOMyRotate(targetAngle, duration, clockwise: true);
+        rigidBody.DOMyRotate(targetAngle, secondJumpDuration, clockwise: true);
 
-        rigidBody.DOMoveY(jump, duration).SetRelative().SetEase(Ease.InOutSine)
+        rigidBody.DOMoveY(secondJumpHeight, secondJumpDuration).SetRelative().SetEase(secondJumpEase)
             .onComplete += () => ReAttack(heroPos);
     }
 
+    [SerializeField, FoldoutGroup("Second Attack")] float secondAttackMove     = 3900;
+    [SerializeField, FoldoutGroup("Second Attack")] float secondAttackDuration = 3f;
+    [SerializeField, FoldoutGroup("Second Attack")] Ease  secondAttackEase     = Ease.InQuad;
     void ReAttack(Vector2 heroPos)
     {
         Vector2 direction = (heroPos - transform.position.ToVec2()).normalized;
-        float speed = 1300;
-        float duration = 3f;
-        
-        rigidBody.DOMove(direction * speed * duration, duration)
+
+        rigidBody.DOMove(direction * secondAttackMove, secondAttackDuration)
             .SetRelative()
-            .SetEase(Ease.InQuad)
-            .onComplete += () => Destroy(gameObject);
+            .SetEase(secondAttackEase)
+            .OnComplete(() => Destroy(gameObject))
+            .GetPausable()
+            .AddTo(this);
     }
 
     public void Hide()

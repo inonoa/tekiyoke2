@@ -1,7 +1,11 @@
 using System;
+using System.Collections;
 using DG.Tweening;
+using DG.Tweening.Plugins.Core.PathCore;
 using Sirenix.OdinInspector;
+using UniRx.Triggers;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class SkyFish : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
 {
@@ -11,7 +15,8 @@ public class SkyFish : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
     [field: SerializeField, LabelText(nameof(DPCD))]
     public DPinEnemy DPCD { get; private set; }
 
-    [SerializeField] DOTweenPath DOTweenPath;
+    [FormerlySerializedAs("DOTweenPathL")] [SerializeField] DOTweenPath DOTweenPath;
+    [SerializeField] float secondsToFirstTurn = 1;
     
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] Sprite spriteLeft;
@@ -24,11 +29,6 @@ public class SkyFish : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
     {
         spriteRenderer.sprite = eyeToRight ? spriteRight : spriteLeft;
         DOTweenPath.tween.GetPausable();
-        DOTweenPath.tween.onStepComplete += () =>
-        {
-            eyeToRight = !eyeToRight;
-            spriteRenderer.sprite = eyeToRight ? spriteRight : spriteLeft;
-        };
         soundVolumeMax = sounds.GetVolume("fly");
     }
 
@@ -47,6 +47,41 @@ public class SkyFish : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
         gameObject.SetActive(true);
         DOTweenPath.tween.TogglePause();
         sounds.Play("fly");
+        this.StartPausableCoroutine(Turn());
+    }
+
+    IEnumerator Turn()
+    {
+        float lastposition = 0;
+        while (true)
+        {
+            while (true)
+            {
+                float turn1 = 4.1f;
+                if (lastposition < turn1 && DOTweenPath.tween.position > turn1)
+                {
+                    eyeToRight = !eyeToRight;
+                    spriteRenderer.sprite = eyeToRight ? spriteRight : spriteLeft;
+                    break;
+                }
+
+                lastposition = DOTweenPath.tween.position;
+                yield return null;
+            }
+            while (true)
+            {
+                float turn2 = 0.1f;
+                if (lastposition < turn2 && DOTweenPath.tween.position > turn2)
+                {
+                    eyeToRight = !eyeToRight;
+                    spriteRenderer.sprite = eyeToRight ? spriteRight : spriteLeft;
+                    break;
+                }
+
+                lastposition = DOTweenPath.tween.position;
+                yield return null;
+            }
+        }
     }
 
     public void Hide()

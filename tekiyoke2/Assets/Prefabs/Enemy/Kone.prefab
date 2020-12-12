@@ -46,7 +46,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 300
+  m_Radius: 500
 --- !u!1 &2805130160985002612
 GameObject:
   m_ObjectHideFlags: 0
@@ -101,6 +101,23 @@ MonoBehaviour:
   groundSensor: {fileID: 4799081235312218513}
   tsuchiPrefab: {fileID: 2654727709639374793, guid: 7f828572ae6e21b449884146ecdab78a,
     type: 3}
+  firstJumpHeight: 350
+  firstJumpDuration: 0.9
+  firstJumpEase: 16
+  firstJumpToAttack: 0.4
+  lookAtHeroDelay: 0.4
+  lookAtHeroDuration: 0.2
+  firstAttackMove: 800
+  firstAttackDuration: 1
+  firstAttackEase: 4
+  firstAttackToSecondJump: 0.3
+  secondJumpHeight: 500
+  secondJumpDuration: 1.3
+  secondJumpEase: 4
+  secondJumpToSecondAttack: 0
+  secondAttackMove: 3900
+  secondAttackDuration: 3
+  secondAttackEase: 2
 --- !u!212 &4641547510591920131
 SpriteRenderer:
   m_ObjectHideFlags: 0
