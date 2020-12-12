@@ -13,9 +13,9 @@ public class HeroAfterimage : MonoBehaviour, IReusable
     {
         transform.position = new Vector3
         (
-            HeroDefiner.CurrentHeroPos.x,
-            HeroDefiner.CurrentHeroPos.y,
-            HeroDefiner.CurrentHeroPos.z + posZFromHero
+            HeroDefiner.CurrentPos.x,
+            HeroDefiner.CurrentPos.y,
+            HeroDefiner.CurrentPos.z + posZFromHero
         );
 
         SpriteRenderer renderer = GetComponent<SpriteRenderer>();

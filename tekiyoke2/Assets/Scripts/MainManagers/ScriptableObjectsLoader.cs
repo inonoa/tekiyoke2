@@ -7,7 +7,7 @@ public class ScriptableObjectsLoader : MonoBehaviour
     [RuntimeInitializeOnLoadMethod]
     static void Init()
     {
-        GameObject holder = Resources.Load("ScriptableObjectsHolder") as GameObject;
-        DontDestroyOnLoad(Instantiate(holder));
+        Object holder = Resources.Load("ScriptableObjectsHolder");
+        DontDestroyOnLoad(Instantiate(holder as GameObject));
     }
 }

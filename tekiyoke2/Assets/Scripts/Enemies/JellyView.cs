@@ -50,7 +50,7 @@ public class JellyView : MonoBehaviour
         );
         currentTween.GetPausable().AddTo(this);
 
-        if(MyMath.DistanceXY(transform.position, HeroDefiner.CurrentHeroPos) < nearHeroThreshold)
+        if(MyMath.DistanceXY(transform.position, HeroDefiner.CurrentPos) < nearHeroThreshold)
         {
             DOVirtual.DelayedCall(UnityEngine.Random.Range(0, 0.5f), () =>
             {

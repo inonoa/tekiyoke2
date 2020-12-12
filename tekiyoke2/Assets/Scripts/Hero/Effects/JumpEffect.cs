@@ -14,7 +14,7 @@ public class JumpEffect : MonoBehaviour, IReusable
     public void Activate(string r_l_kr_kl){
         InUse = true;
 
-        transform.position = HeroDefiner.CurrentHeroPos + positionFromHero;
+        transform.position = HeroDefiner.CurrentPos + positionFromHero;
         transform.rotation = Quaternion.identity;
         if(r_l_kr_kl[0]=='k') transform.Rotate(0, 0, r_l_kr_kl[1]=='r' ? -40 : 40);
 

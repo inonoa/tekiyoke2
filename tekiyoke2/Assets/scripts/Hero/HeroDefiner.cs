@@ -6,7 +6,7 @@ using UnityEngine;
 public class HeroDefiner
 {
     static public HeroMover currentHero;
-    static public Vector3 CurrentHeroPos{ get => currentHero.transform.position; }
-    static public RingBuffer<Vector3> CurrentHeroPastPos{ get => currentHero.pastPoss; }
-    static public Vector2 CurrentHeroExpectedPos{ get => new Vector2(currentHero.expectedPosition.x, currentHero.expectedPosition.y); }
+    static public Vector3 CurrentPos{ get => currentHero.transform.position; }
+    static public RingBuffer<Vector3> PastPoss{ get => currentHero.pastPoss; }
+    static public Vector2 ExpectedPos{ get => new Vector2(currentHero.expectedPosition.x, currentHero.expectedPosition.y); }
 }

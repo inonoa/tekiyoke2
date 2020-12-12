@@ -81,7 +81,7 @@ public class Tsuchihokori : MonoBehaviour, IReusable
 
     void Init(bool right)
     {
-        transform.position = HeroDefiner.CurrentHeroPos + new Vector3(
+        transform.position = HeroDefiner.CurrentPos + new Vector3(
             right ? positionFromHero.x : - positionFromHero.x,
             positionFromHero.y,
             positionFromHero.z
