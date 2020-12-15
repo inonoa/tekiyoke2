@@ -108,6 +108,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeedPerSec: 400
   StopSeconds: 1
+  A: {fileID: 393087014202576831}
+  B: {fileID: 393087014306774450}
+  yukaTF: {fileID: 393087015250326954}
   filter2Hero:
     useTriggers: 0
     useLayerMask: 1
