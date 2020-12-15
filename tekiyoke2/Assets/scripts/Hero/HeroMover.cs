@@ -456,13 +456,13 @@ public class HeroMover : MonoBehaviour
     ///<summary>天井に衝突したときに天井に張り付かないようにする</summary>
     void OnCollisionStay2D(Collision2D col)
     {
-
-        if(col.gameObject.tag=="Terrain" && !IsFrozen){
-            foreach(ContactPoint2D contact in col.contacts){
-                if(contact.normal.y<0){
-                    velocity.Y = 0;
-                    return;
-                }
+        if(IsFrozen) return;
+        
+        if(col.gameObject.CompareTag("Terrain"))
+        {
+            if (col.contacts.Any(contact => contact.normal.y < -0.5f))
+            {
+                velocity.Y = 0;
             }
         }
     }

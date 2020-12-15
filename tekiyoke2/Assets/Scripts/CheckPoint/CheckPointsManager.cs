@@ -4,14 +4,26 @@ using UnityEngine;
 using UniRx;
 using Sirenix.OdinInspector;
 using System;
+using System.Linq;
 
 public class CheckPointsManager : MonoBehaviour
 {
-    [SerializeField] CheckPoint[] checkPoints;
-    [SerializeField] [ReadOnly] int frontLine = -1;
+    CheckPoint[] checkPoints;
+
+    [SerializeField, ReadOnly] int frontLine = -1;
 
     Subject<CheckPoint> _Passed = new Subject<CheckPoint>();
     public IObservable<CheckPoint> PassedNewCheckPoint => _Passed;
+    
+    void Awake()
+    {
+        Instance = this;
+        checkPoints = GetComponentsInChildren<CheckPoint>();
+        foreach(int i in Enumerable.Range(0, checkPoints.Length))
+        {
+            checkPoints[i].Init(i);
+        }
+    }
 
     public Vector2 GetPosition(int index)
     {
@@ -38,10 +50,6 @@ public class CheckPointsManager : MonoBehaviour
         }
     }
     
-
-    void Awake()
-    {
-        Instance = this;
-    }
+    
     public static CheckPointsManager Instance{ get; private set; }
 }
