@@ -21,6 +21,14 @@ UniRx/
 # Odin
 Sirenix/
 
+# Steamworks.SDK
+steam_api.bundle/
+Steamworks.NET/
+x86/
+x86_64/
+steam_appid.txt
+
+
 # PlayFab周り
 tekiyoke2/Assets/PlayFabEditorExtensions/
 tekiyoke2/Assets/PlayFabSDK/
