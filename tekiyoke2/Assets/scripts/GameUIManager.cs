@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-///<summary>UI周りのスクリプトに<c>public static Hoge Instance</c>が作られまくりそうなので回避</summary>
 public class GameUIManager : MonoBehaviour
 {
     [SerializeField] JetCloudManager _JetCloud;

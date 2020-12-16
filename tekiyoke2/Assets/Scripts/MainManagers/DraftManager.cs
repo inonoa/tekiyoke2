@@ -18,9 +18,7 @@ public class DraftManager : MonoBehaviour
     [SerializeField] HeroMover hero;
 
     [field: Space(30)]
-    [SerializeField] bool debugMode;
-    [SerializeField] int debugCheckPointIndex = -1;
-    [SerializeField] bool debugIgnoreMemory = false;
+    [SerializeField] StageDebugger debugger;
     
     void Awake()
     {
@@ -36,9 +34,9 @@ public class DraftManager : MonoBehaviour
             GameTimeCounter.CurrentInstance.Seconds  = memory.Time;
             GameTimeCounter.CurrentInstance.DoesTick = true;
 
-            if(debugMode && debugIgnoreMemory)
+            if(debugger.Debug && debugger.IgnoreMemory)
             {
-                ApplyCheckPointData(debugCheckPointIndex);
+                ApplyCheckPointData(debugger.CheckPoint.Index);
             }
             else
             {
@@ -50,8 +48,8 @@ public class DraftManager : MonoBehaviour
             GameTimeCounter.CurrentInstance.Seconds  = 0f;
             GameTimeCounter.CurrentInstance.DoesTick = true;
 
-            if(debugMode) ApplyCheckPointData(debugCheckPointIndex);
-            else          ApplyCheckPointData(-1);
+            if(debugger.Debug) ApplyCheckPointData(debugger.CheckPoint.Index);
+            else               ApplyCheckPointData(-1);
         }
     }
 
@@ -63,12 +61,5 @@ public class DraftManager : MonoBehaviour
             Vector2 respawnPos = CheckPointsManager.Instance.GetPosition(index);
             hero.WarpPos(respawnPos.x, respawnPos.y);
         }
-    }
-
-    [Button]
-    void WarpToCheckPoint(int index)
-    {
-        Vector2 respawnPos = CheckPointsManager.Instance.GetPosition(index);
-        hero.WarpPos(respawnPos.x, respawnPos.y);
     }
 }
