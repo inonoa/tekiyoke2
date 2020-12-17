@@ -11,7 +11,23 @@ public class SteamRankingSenderGetter : MonoBehaviour, IRankingSenderGetter
 {
     public void SendRanking(RankKind kind, float time, Action onSent)
     {
-        throw new NotImplementedException();
+        if(! SteamManager.Initialized) return;
+        
+        CallResult<LeaderboardFindResult_t>
+        .Create()
+        .Set
+        (
+            SteamUserStats.FindLeaderboard(kind.ToString()),
+            (result, failure) =>
+            {
+                OnLeaderboardFound
+                (
+                    result,
+                    failure,
+                    () => UploadScore(result, time, onSent, kind)
+                );
+            }
+        );
     }
 
     public void GetRanking(RankKind kind, Action<RankData> onGot)
@@ -23,11 +39,19 @@ public class SteamRankingSenderGetter : MonoBehaviour, IRankingSenderGetter
         .Set
         (
             SteamUserStats.FindLeaderboard(kind.ToString()),
-            (result, failure) => OnLeaderboardFound(result, failure, onGot, kind)
+            (result, failure) =>
+            {
+                OnLeaderboardFound
+                (
+                    result,
+                    failure,
+                    () => DownloadScores(result, onGot, kind)
+                );
+            }
         );
     }
 
-    void OnLeaderboardFound(LeaderboardFindResult_t result, bool failure, Action<RankData> onGot, RankKind kind)
+    void OnLeaderboardFound(LeaderboardFindResult_t result, bool failure, Action onSuccess)
     {
         if (failure)
         {
@@ -39,8 +63,37 @@ public class SteamRankingSenderGetter : MonoBehaviour, IRankingSenderGetter
             print("そんなランキングはない");
             return;
         }
-        
-        DownloadScores(result, onGot, kind);
+
+        onSuccess.Invoke();
+    }
+
+    void UploadScore(LeaderboardFindResult_t result, float time, Action onSent, RankKind kind)
+    {
+        var call = SteamUserStats.UploadLeaderboardScore
+        (
+            result.m_hSteamLeaderboard,
+            ELeaderboardUploadScoreMethod.k_ELeaderboardUploadScoreMethodKeepBest,
+            (int) (time * 1000),
+            new int[0],
+            0
+        );
+    
+        CallResult<LeaderboardScoreUploaded_t>
+        .Create()
+        .Set
+        (
+            call,
+            (score_result, score_failure) => OnScoreUploaded(score_result, score_failure, onSent)
+        );
+    }
+
+    void OnScoreUploaded(LeaderboardScoreUploaded_t result, bool failure, Action onSent)
+    {
+        if (failure)
+        {
+            print("アップロード失敗");
+        }
+        onSent.Invoke();
     }
     
     void DownloadScores(LeaderboardFindResult_t result, Action<RankData> onGot, RankKind kind)
