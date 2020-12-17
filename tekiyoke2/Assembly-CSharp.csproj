@@ -183,6 +183,7 @@
      <Compile Include="Assets\Scripts\Ranking\RankingMockView.cs" />
      <Compile Include="Assets\Scripts\Ranking\RankingScrollViewController.cs" />
      <Compile Include="Assets\Scripts\Ranking\RankingView.cs" />
+     <Compile Include="Assets\Scripts\Ranking\SteamRankingSenderGetter.cs" />
      <Compile Include="Assets\Scripts\Ranking\UIFocusManager.cs" />
      <Compile Include="Assets\Scripts\ResultScene\CursorMove.cs" />
      <Compile Include="Assets\Scripts\ResultScene\NumberSpritesHolder.cs" />
