@@ -170,7 +170,7 @@ public class SteamRankingSenderGetter : MonoBehaviour, IRankingSenderGetter
                 (
                     SteamFriends.GetFriendPersonaName(leaderboardEntry.m_steamIDUser),
                     leaderboardEntry.m_nGlobalRank,
-                    leaderboardEntry.m_nScore
+                    leaderboardEntry.m_nScore / (float) 1000
                 ));
             }
         }
