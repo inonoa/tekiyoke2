@@ -7,6 +7,8 @@ public class ScoresToText : MonoBehaviour
 {
     [SerializeField] Image[] timeImages;
     [SerializeField] Image[] bestTimeImages;
+
+    [SerializeField] NumberSpritesHolder numSpritesHolder;
     
     public void Init(int stage, float time, bool isFirstPlay, float lastBestTime)
     {
@@ -17,8 +19,8 @@ public class ScoresToText : MonoBehaviour
 
         for(int i = 0; i < 6; i++)
         {
-            timeImages[i].sprite     = NumberSpritesHolder.Instance.NumberSprites[timeDigitsLast[i]];
-            bestTimeImages[i].sprite = NumberSpritesHolder.Instance.NumberSprites[timeDigitsBest[i]];
+            timeImages[i].sprite     = numSpritesHolder.NumberSprites[timeDigitsLast[i]];
+            bestTimeImages[i].sprite = numSpritesHolder.NumberSprites[timeDigitsBest[i]];
         }
     }
 

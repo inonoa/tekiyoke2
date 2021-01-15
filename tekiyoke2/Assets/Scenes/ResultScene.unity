@@ -971,6 +971,7 @@ MonoBehaviour:
   - {fileID: 502603550}
   - {fileID: 947801475}
   - {fileID: 1866600193}
+  numSpritesHolder: {fileID: 11400000, guid: 2e6ae9769017d374ea2e5107a5b7be97, type: 2}
 --- !u!1 &649606994
 GameObject:
   m_ObjectHideFlags: 0
@@ -1741,6 +1742,7 @@ MonoBehaviour:
   SEGroup: {fileID: 3052081377995588122, guid: 79120cacd6b5fea4f98d2ef99084037e, type: 2}
   BGMGroup: {fileID: -3936053361323068745, guid: 79120cacd6b5fea4f98d2ef99084037e,
     type: 2}
+  <IsSEs>k__BackingField: 1
 --- !u!1 &957841155
 GameObject:
   m_ObjectHideFlags: 0
@@ -2309,6 +2311,7 @@ MonoBehaviour:
   SEGroup: {fileID: 3052081377995588122, guid: 79120cacd6b5fea4f98d2ef99084037e, type: 2}
   BGMGroup: {fileID: -3936053361323068745, guid: 79120cacd6b5fea4f98d2ef99084037e,
     type: 2}
+  <IsSEs>k__BackingField: 1
 --- !u!1 &1309719485
 GameObject:
   m_ObjectHideFlags: 0
@@ -4076,6 +4079,7 @@ MonoBehaviour:
   SEGroup: {fileID: 3052081377995588122, guid: 79120cacd6b5fea4f98d2ef99084037e, type: 2}
   BGMGroup: {fileID: -3936053361323068745, guid: 79120cacd6b5fea4f98d2ef99084037e,
     type: 2}
+  <IsSEs>k__BackingField: 1
 --- !u!1 &2030721400
 GameObject:
   m_ObjectHideFlags: 0
@@ -4231,6 +4235,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 936385253}
     m_Modifications:
+    - target: {fileID: 5275064152187380325, guid: 66ec43c415205ef458cdf73f5f3816e9,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5681193044088466159, guid: 66ec43c415205ef458cdf73f5f3816e9,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5681193044493302808, guid: 66ec43c415205ef458cdf73f5f3816e9,
         type: 3}
       propertyPath: m_Name

@@ -20,26 +20,32 @@
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:intro_playfab" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:intro_steam" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c97243fa-09da-4818-b4c1-b9937458f378" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Ranking/RankData.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Ranking/RankData.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Ranking/RankingLogger.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Ranking/RankingLogger.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Ranking/RankingMock.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Ranking/RankingMock.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ResultScene/ResultSceneManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ResultScene/ResultSceneManager.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/UI/DPGauge.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/UI/DPGauge.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/WebGL/TwitterPlugin.jslib.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/WebGL/TwitterPlugin.jslib.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Resources.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Resources/ScriptableObjectsHolder.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Resources/ScriptableObjectsHolder.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/kieruyuka.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/kieruyuka.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Draft3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Draft3.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Not In Build/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Not In Build/SampleScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/ResultScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/ResultScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Debug/StageDebugger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Debug/StageDebugger.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MainManagers/ScriptableObjectsHolder.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MainManagers/ScriptableObjectsHolder.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MainManagers/ScriptableObjectsLoader.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MainManagers/ScriptableObjectsLoader.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResultScene/NumberSpritesHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ResultScene/NumberSpritesHolder.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/scripts/ResultScene/ScoresToText.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/scripts/ResultScene/ScoresToText.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tekiyoke2.sln" beforeDir="false" afterPath="$PROJECT_DIR$/tekiyoke2.sln" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,28 +61,79 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Save/SaveDataManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/Graphic.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/d7/e0b450ec/Resources.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0B76D74C-9007-4047-ADC3-E5DBD5D3F1DE/69/a3085dc0/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/MaskableGraphic.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/EventSystem/UIBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/22/1a106110/String.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/3e/4d3e1bd4/DOTweenComponent.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/97/df7e3c54/RuntimeInitializeOnLoadMethodAttribute.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/17C1E98F-9A78-42E3-8BE0-5E60BF0530E8/94/28da816b/DOTweenPath.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Save/SaveData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/Image.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/5e/aba48687/ABSSequentiable.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/8a/df89f217/Path.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/ff/80a8bd20/RuntimeInitializeLoadType.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Save/SaveDataManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/17/acb49825/Tween.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/f9/97e3c724/TweenParams.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/17C1E98F-9A78-42E3-8BE0-5E60BF0530E8/37/63a07319/02000006.il" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Save/PlayFabSaver.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/WakuLightMover.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/StageSelectBGChanger.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Draft.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Hero/DraftModeManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/EDraft.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/StageSelectView.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Pause/PauseUIMover.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Pause/PauseView.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/StageSelectManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Utils/RandomGenerate.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Ranking/RankingMock.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Ranking/FocusNode.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Ranking/RankingCategoryTab.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Utils/MaterialTween.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Ranking/RankNodeView.cs" />
+        <option value="$PROJECT_DIR$/Assets/Materials/UI/RankNode.shader" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Ranking/RankingLogger.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Ranking/RankingMockView.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ResultScene/ResultSceneManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Ranking/RankingView.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Ranking/ExitButton.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Ranking/RankingScrollViewController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Ranking/UIFocusManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Input/InputManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SoundOrMusic/SoundGroup.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Hero/HeroDefiner.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Hero/Physics/HeroCollider2Enemy.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Hero/HPController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MainManagers/WindSoundController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Utils/SimpleAnim.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/KoneTsuchi.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Utils/TransformExtensions.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/SkyFish.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Hero/HeroMover.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Hero/Physics/HeroPhysics.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Hoge.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Debug/StageDebugParams.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CheckPoint/CheckPoint.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CheckPoint/CheckPointsManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MainManagers/DraftManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Hero/HeroMover.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/StagePlayData.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/Goal.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/ResultScene/Tweeter.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/ScoreHolder.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Save/SaveData.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Save/SaveDataManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/StageSelector.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/ResultScene/ResultSceneManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Kone.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/IdouYukaController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GameUIManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Utils/PrintExtensions.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SteamSandbox/SteamSandbox.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Ranking/SteamRankingSenderGetter.cs" />
+        <option value="$PROJECT_DIR$/../.gitignore" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MainManagers/ScriptableObjectsLoader.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ResultScene/NumberSpritesHolder.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ResultScene/ScoresToText.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Ranking/RankingMock.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Ranking/RankData.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Ranking/RankingLogger.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Debug/StageDebugger.cs" />
       </list>
     </option>
   </component>
@@ -88,6 +145,9 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34975636" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.29994586" />
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -95,10 +155,18 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="ParameterNameHintsOptionsId" />
+    <property name="settings.editor.selected.configurable" value="RiderUnityFileTemplatesSettings" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="$PROJECT_DIR$/../../tekiyoke2Builds/20201210KoneTest/tekiyoke2.exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\himur\Documents\tekiyoke2Builds\20201210KoneTest" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
     <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
@@ -120,13 +188,6 @@
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task id="LOCAL-00001" summary="PlayFabのもろもろ入れた">
-      <created>1605865785176</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1605865785176</updated>
-    </task>
     <task active="true" id="Default" summary="Default task">
       <changelist id="c97243fa-09da-4818-b4c1-b9937458f378" name="Default Changelist" comment="" />
       <created>1605867057338</created>
@@ -136,43 +197,372 @@
       <workItem from="1605867070665" duration="19454000" />
       <workItem from="1605958332251" duration="10409000" />
       <workItem from="1606070479745" duration="4921000" />
+      <workItem from="1606760791314" duration="30778000" />
+      <workItem from="1606805262981" duration="7749000" />
+      <workItem from="1606992036663" duration="603000" />
+      <workItem from="1607041162587" duration="11399000" />
+      <workItem from="1607082010347" duration="44860000" />
+      <workItem from="1607256987448" duration="5933000" />
+      <workItem from="1607343887507" duration="4561000" />
+      <workItem from="1607352097577" duration="547000" />
+      <workItem from="1607355995640" duration="3424000" />
+      <workItem from="1607509877297" duration="37157000" />
+      <workItem from="1607766572121" duration="12857000" />
+      <workItem from="1607882386609" duration="1978000" />
+      <workItem from="1608047931758" duration="10863000" />
+      <workItem from="1608147432233" duration="10122000" />
+      <workItem from="1608160355362" duration="8855000" />
+      <workItem from="1608328651382" duration="1115000" />
+      <workItem from="1609164307217" duration="20000" />
+      <workItem from="1610391478892" duration="1259000" />
+      <workItem from="1610581499764" duration="535000" />
+      <workItem from="1610582170098" duration="680000" />
+      <workItem from="1610583249935" duration="7871000" />
     </task>
-    <task id="LOCAL-00002" summary="PlayFabの諸々入れた">
-      <created>1605869496918</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
+    <task id="LOCAL-00017" summary="タイトルからセーブデータ見てチュートリアルに行ったりする、チュートリアルクリアしたらセーブする">
+      <created>1606409273757</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
       <option name="project" value="LOCAL" />
-      <updated>1605869496918</updated>
+      <updated>1606409273757</updated>
     </task>
-    <task id="LOCAL-00003" summary="セーブロードできるぞ！">
-      <created>1605887098992</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
+    <task id="LOCAL-00018" summary="add.....">
+      <created>1606409920583</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
       <option name="project" value="LOCAL" />
-      <updated>1605887098992</updated>
+      <updated>1606409920583</updated>
     </task>
-    <task id="LOCAL-00004" summary="なんかaddし忘れてたらしい">
-      <created>1605887120936</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
+    <task id="LOCAL-00019" summary="シーンのうちゲームに入らないものを追い出す">
+      <created>1606421519893</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
       <option name="project" value="LOCAL" />
-      <updated>1605887120936</updated>
+      <updated>1606421519893</updated>
     </task>
-    <task id="LOCAL-00005" summary="ステージクリア周りに使ってみた">
-      <created>1605967930463</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
+    <task id="LOCAL-00020" summary="タイトルロゴを追い出す">
+      <created>1606765527083</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
       <option name="project" value="LOCAL" />
-      <updated>1605967930463</updated>
+      <updated>1606765527083</updated>
     </task>
-    <task id="LOCAL-00006" summary="なんで全部addされてないん……">
-      <created>1605967980763</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
+    <task id="LOCAL-00021" summary="タイトルロゴを追い出す">
+      <created>1606765736249</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
       <option name="project" value="LOCAL" />
-      <updated>1605967980763</updated>
+      <updated>1606765736249</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00022" summary="Press Any Keyを追い出す">
+      <created>1606771413333</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1606771413333</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Press Any Keyを追い出す">
+      <created>1606771706751</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1606771706752</updated>
+    </task>
+    <task id="LOCAL-00024" summary="TitleManagerがほか全てを持つ、状態管理をする、他は自分の領分以外の何も持たない">
+      <created>1606775431659</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1606775431659</updated>
+    </task>
+    <task id="LOCAL-00025" summary="とりあえずstageselectもViewを分ける">
+      <created>1606778729081</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1606778729081</updated>
+    </task>
+    <task id="LOCAL-00026" summary="SpriteRendererを軒並みImageにした">
+      <created>1606783792171</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1606783792171</updated>
+    </task>
+    <task id="LOCAL-00027" summary="背景のクロスフェード周りを移して時間依存に">
+      <created>1606785840595</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1606785840595</updated>
+    </task>
+    <task id="LOCAL-00028" summary="カーソル移動あたりも時間依存にしてあらかた完了">
+      <created>1606790777442</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1606790777442</updated>
+    </task>
+    <task id="LOCAL-00029" summary="見栄えの微調整等">
+      <created>1606791218304</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1606791218304</updated>
+    </task>
+    <task id="LOCAL-00030" summary="ポーズ画面も直そうと思ったけどたぶんいずれ何もかも変わるのでやめた">
+      <created>1606792328040</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1606792328040</updated>
+    </task>
+    <task id="LOCAL-00031" summary="ScrollView斜めにできそうなことが分かった">
+      <created>1606889893136</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1606889893136</updated>
+    </task>
+    <task id="LOCAL-00032" summary="画像載せて微調整">
+      <created>1607044447742</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1607044447742</updated>
+    </task>
+    <task id="LOCAL-00033" summary="フェードイン/アウト">
+      <created>1607048898576</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1607048898576</updated>
+    </task>
+    <task id="LOCAL-00034" summary="ランキング自動生成して遊んだ">
+      <created>1607053028940</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1607053028940</updated>
+    </task>
+    <task id="LOCAL-00035" summary="フォント入れた">
+      <created>1607055245451</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1607055245451</updated>
+    </task>
+    <task id="LOCAL-00036" summary="キーボードからスクロールできる">
+      <created>1607092655992</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1607092655992</updated>
+    </task>
+    <task id="LOCAL-00037" summary="フォーカスされてるUIを動かす・変える仕組み">
+      <created>1607097397518</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1607097397518</updated>
+    </task>
+    <task id="LOCAL-00038" summary="大体全部できた、いつのまにかクソデカコミットになっとる……">
+      <created>1607165314937</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1607165314937</updated>
+    </task>
+    <task id="LOCAL-00039" summary="ScrollViewの要素生成をRankingScrollViewControllerに移行">
+      <created>1607180315402</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1607180315402</updated>
+    </task>
+    <task id="LOCAL-00040" summary="入力抽象化">
+      <created>1607182706328</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1607182706328</updated>
+    </task>
+    <task id="LOCAL-00041" summary="無の敵を作った">
+      <created>1607258536598</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1607258536599</updated>
+    </task>
+    <task id="LOCAL-00042" summary="有の敵を作った">
+      <created>1607319758526</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1607319758526</updated>
+    </task>
+    <task id="LOCAL-00043" summary="ゲームに乗せたら起動時から動き出してしまったのでISpawnsNearHeroを実装">
+      <created>1607344686339</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1607344686339</updated>
+    </task>
+    <task id="LOCAL-00044" summary="音が鳴る、主人公との距離に応じて音量が変わる">
+      <created>1607357167067</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1607357167067</updated>
+    </task>
+    <task id="LOCAL-00045" summary="主人公を見つけると回るだけの何か">
+      <created>1607358901680</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1607358901681</updated>
+    </task>
+    <task id="LOCAL-00046" summary="二回刺してそのまま無限のかなたにて行ってしまうまで">
+      <created>1607524224278</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1607524224278</updated>
+    </task>
+    <task id="LOCAL-00047" summary="二回刺してそのまま無限のかなたにて行ってしまうまで">
+      <created>1607524239641</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1607524239641</updated>
+    </task>
+    <task id="LOCAL-00048" summary="回転をUtilsに抽出">
+      <created>1607530207768</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1607530207768</updated>
+    </task>
+    <task id="LOCAL-00049" summary="微調整、SkyFishが円形に動く">
+      <created>1607594677669</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1607594677669</updated>
+    </task>
+    <task id="LOCAL-00050" summary="微調整、SkyFishが円形に動く">
+      <created>1607594695308</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1607594695309</updated>
+    </task>
+    <task id="LOCAL-00051" summary="土埃が出るなど">
+      <created>1607619291250</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1607619291251</updated>
+    </task>
+    <task id="LOCAL-00052" summary="怒涛の数値調整とSkyFishの振り向きの試行錯誤">
+      <created>1607778812608</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1607778812608</updated>
+    </task>
+    <task id="LOCAL-00053" summary="怒涛の数値調整とSkyFishの振り向きの試行錯誤">
+      <created>1607780095422</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1607780095422</updated>
+    </task>
+    <task id="LOCAL-00054" summary="D1縮めた">
+      <created>1608059032846</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1608059032847</updated>
+    </task>
+    <task id="LOCAL-00055" summary="移動床の移動を時間基準にした(同期させやすくなった)">
+      <created>1608065329475</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1608065329475</updated>
+    </task>
+    <task id="LOCAL-00056" summary="チェックポイント整理">
+      <created>1608065987373</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1608065987373</updated>
+    </task>
+    <task id="LOCAL-00057" summary="1分強ぐらいでクリアできるさいずになった">
+      <created>1608150116189</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1608150116189</updated>
+    </task>
+    <task id="LOCAL-00058" summary="1分強ぐらいでクリアできるさいずになった">
+      <created>1608150388987</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1608150388987</updated>
+    </task>
+    <task id="LOCAL-00059" summary="Steamworks.NET入れた">
+      <created>1608153937291</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1608153937291</updated>
+    </task>
+    <task id="LOCAL-00060" summary="Steamworks.NET入れた">
+      <created>1608153952926</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1608153952926</updated>
+    </task>
+    <task id="LOCAL-00061" summary="ランキング表示するテストできた">
+      <created>1608161248169</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1608161248169</updated>
+    </task>
+    <task id="LOCAL-00062" summary="SteamRankingSenderGetterのGet部分">
+      <created>1608165319423</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1608165319423</updated>
+    </task>
+    <task id="LOCAL-00063" summary="Send部分">
+      <created>1608168333366</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1608168333366</updated>
+    </task>
+    <task id="LOCAL-00064" summary="ミリ秒単位のものを秒単位で解釈してた">
+      <created>1608168967456</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1608168967456</updated>
+    </task>
+    <task id="LOCAL-00065" summary="タイル置いた">
+      <created>1608354564832</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1608354564833</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -191,7 +581,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="intro_playfab" />
+                        <option value="intro_steam" />
                       </list>
                     </value>
                   </entry>
@@ -205,34 +595,154 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="PlayFabのもろもろ入れた" />
-    <MESSAGE value="PlayFabの諸々入れた" />
-    <MESSAGE value="セーブロードできるぞ！" />
-    <MESSAGE value="なんかaddし忘れてたらしい" />
-    <MESSAGE value="ステージクリア周りに使ってみた" />
-    <MESSAGE value="なんで全部addされてないん……" />
-    <option name="LAST_COMMIT_MESSAGE" value="なんで全部addされてないん……" />
+    <MESSAGE value="キーボードからスクロールできる" />
+    <MESSAGE value="フォーカスされてるUIを動かす・変える仕組み" />
+    <MESSAGE value="大体全部できた、いつのまにかクソデカコミットになっとる……" />
+    <MESSAGE value="ScrollViewの要素生成をRankingScrollViewControllerに移行" />
+    <MESSAGE value="入力抽象化" />
+    <MESSAGE value="無の敵を作った" />
+    <MESSAGE value="有の敵を作った" />
+    <MESSAGE value="ゲームに乗せたら起動時から動き出してしまったのでISpawnsNearHeroを実装" />
+    <MESSAGE value="音が鳴る、主人公との距離に応じて音量が変わる" />
+    <MESSAGE value="主人公を見つけると回るだけの何か" />
+    <MESSAGE value="二回刺してそのまま無限のかなたにて行ってしまうまで" />
+    <MESSAGE value="回転をUtilsに抽出" />
+    <MESSAGE value="微調整、SkyFishが円形に動く" />
+    <MESSAGE value="土埃が出るなど" />
+    <MESSAGE value="怒涛の数値調整とSkyFishの振り向きの試行錯誤" />
+    <MESSAGE value="D1縮めた" />
+    <MESSAGE value="移動床の移動を時間基準にした(同期させやすくなった)" />
+    <MESSAGE value="チェックポイント整理" />
+    <MESSAGE value="1分強ぐらいでクリアできるさいずになった" />
+    <MESSAGE value="Steamworks.NET入れた" />
+    <MESSAGE value="ランキング表示するテストできた" />
+    <MESSAGE value="SteamRankingSenderGetterのGet部分" />
+    <MESSAGE value="Send部分" />
+    <MESSAGE value="ミリ秒単位のものを秒単位で解釈してた" />
+    <MESSAGE value="タイル置いた" />
+    <option name="LAST_COMMIT_MESSAGE" value="タイル置いた" />
   </component>
   <component name="WindowStateProjectService">
     <state x="709" y="345" key="#Notifications" timestamp="1605532697581">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="709" y="345" key="#Notifications/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1605532697581" />
-    <state x="796" y="221" key="RiderGenerateDialog" timestamp="1605879501736">
+    <state width="1878" height="223" key="GridCell.Tab.0.bottom" timestamp="1607845021307">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="796" y="221" key="RiderGenerateDialog/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1605879501736" />
-    <state x="373" y="189" key="SettingsEditor" timestamp="1605883538574">
+    <state width="1878" height="223" key="GridCell.Tab.0.bottom/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1607845021307" />
+    <state width="1878" height="223" key="GridCell.Tab.0.center" timestamp="1607845021307">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="373" y="189" key="SettingsEditor/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1605883538574" />
+    <state width="1878" height="223" key="GridCell.Tab.0.center/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1607845021307" />
+    <state width="1878" height="223" key="GridCell.Tab.0.left" timestamp="1607845021307">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1878" height="223" key="GridCell.Tab.0.left/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1607845021307" />
+    <state width="1878" height="223" key="GridCell.Tab.0.right" timestamp="1607845021307">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1878" height="223" key="GridCell.Tab.0.right/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1607845021307" />
+    <state width="1878" height="223" key="GridCell.Tab.1.bottom" timestamp="1607845021307">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1878" height="223" key="GridCell.Tab.1.bottom/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1607845021307" />
+    <state width="1878" height="223" key="GridCell.Tab.1.center" timestamp="1607845021307">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1878" height="223" key="GridCell.Tab.1.center/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1607845021307" />
+    <state width="1878" height="223" key="GridCell.Tab.1.left" timestamp="1607845021307">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1878" height="223" key="GridCell.Tab.1.left/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1607845021307" />
+    <state width="1878" height="223" key="GridCell.Tab.1.right" timestamp="1607845021307">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1878" height="223" key="GridCell.Tab.1.right/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1607845021307" />
+    <state width="1878" height="223" key="GridCell.Tab.2.bottom" timestamp="1607845021308">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1878" height="223" key="GridCell.Tab.2.bottom/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1607845021308" />
+    <state width="1878" height="223" key="GridCell.Tab.2.center" timestamp="1607845021307">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1878" height="223" key="GridCell.Tab.2.center/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1607845021307" />
+    <state width="1878" height="223" key="GridCell.Tab.2.left" timestamp="1607845021307">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1878" height="223" key="GridCell.Tab.2.left/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1607845021307" />
+    <state width="1878" height="223" key="GridCell.Tab.2.right" timestamp="1607845021308">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1878" height="223" key="GridCell.Tab.2.right/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1607845021308" />
+    <state width="1878" height="223" key="GridCell.Tab.3.bottom" timestamp="1607845021308">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1878" height="223" key="GridCell.Tab.3.bottom/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1607845021308" />
+    <state width="1878" height="223" key="GridCell.Tab.3.center" timestamp="1607845021308">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1878" height="223" key="GridCell.Tab.3.center/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1607845021308" />
+    <state width="1878" height="223" key="GridCell.Tab.3.left" timestamp="1607845021308">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1878" height="223" key="GridCell.Tab.3.left/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1607845021308" />
+    <state width="1878" height="223" key="GridCell.Tab.3.right" timestamp="1607845021308">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1878" height="223" key="GridCell.Tab.3.right/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1607845021308" />
+    <state x="184" y="86" key="MergeDialog" timestamp="1606793093491">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="184" y="86" key="MergeDialog/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1606793093491" />
+    <state x="184" y="86" key="MergeDialog/0.0.1920.1040/-2736.0.1368.872@0.0.1920.1040" timestamp="1606409865233" />
+    <state x="796" y="221" key="RiderGenerateDialog" timestamp="1608161416557">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="796" y="221" key="RiderGenerateDialog/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1608161416557" />
+    <state x="796" y="221" key="RiderGenerateDialog/0.0.1920.1040/-2736.0.1368.872@0.0.1920.1040" timestamp="1606330025401" />
+    <state x="745" y="230" key="RollbackChangesDialog" timestamp="1608061832639">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="745" y="230" key="RollbackChangesDialog/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1608061832639" />
+    <state x="178" y="198" width="1390" height="710" key="SettingsEditor" timestamp="1606772983533">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="178" y="198" width="1390" height="710" key="SettingsEditor/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1606772983533" />
+    <state x="373" y="189" key="SettingsEditor/0.0.1920.1040/-2736.0.1368.872@0.0.1920.1040" timestamp="1606322997903" />
     <state x="746" y="494" key="VCS.ChangelistChooser" timestamp="1605865976745">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="746" y="494" key="VCS.ChangelistChooser/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1605865976745" />
-    <state x="51" y="103" width="1736" height="856" key="VCS.FileHistoryDialog" timestamp="1605529094387">
+    <state x="51" y="103" width="1736" height="856" key="VCS.FileHistoryDialog" timestamp="1606388768425">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="51" y="103" width="1736" height="856" key="VCS.FileHistoryDialog/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1605529094387" />
+    <state x="51" y="103" width="1736" height="856" key="VCS.FileHistoryDialog/0.0.1920.1040/-2736.0.1368.872@0.0.1920.1040" timestamp="1606388768425" />
+    <state x="393" y="212" key="Vcs.Push.Dialog.v2" timestamp="1608354476504">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1608168971108" />
+    <state x="393" y="212" key="Vcs.Push.Dialog.v2/0.0.1368.872@0.0.1368.872" timestamp="1608354476504" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-2736.0.1368.872@0.0.1920.1040" timestamp="1606421529687" />
+    <state x="572" y="253" width="775" height="534" key="find.popup" timestamp="1606324168206">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="572" y="253" width="775" height="534" key="find.popup/0.0.1920.1040/-2736.0.1368.872@0.0.1920.1040" timestamp="1606324168206" />
+    <state x="698" y="234" key="git4idea.branch.GitSmartOperationDialog" timestamp="1608151123389">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="698" y="234" key="git4idea.branch.GitSmartOperationDialog/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1608151123389" />
+    <state x="698" y="234" key="git4idea.branch.GitSmartOperationDialog/0.0.1920.1040/-2736.0.1368.872@0.0.1920.1040" timestamp="1606409898463" />
+    <state x="617" y="240" key="run.anything.popup" timestamp="1607093285273">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="617" y="240" key="run.anything.popup/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1607093285273" />
+    <state x="617" y="240" key="run.anything.popup/0.0.1920.1040/-2736.0.1368.872@0.0.1920.1040" timestamp="1606404650437" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1608154116761">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1608154116761" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-2736.0.1368.872@0.0.1920.1040" timestamp="1606324033921" />
   </component>
 </project>
