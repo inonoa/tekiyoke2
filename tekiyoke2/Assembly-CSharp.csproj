@@ -140,8 +140,6 @@
      <Compile Include="Assets\Scripts\MainManagers\HeroTimeExtension.cs" />
      <Compile Include="Assets\Scripts\MainManagers\MemoryOverDeath.cs" />
      <Compile Include="Assets\Scripts\MainManagers\PlayFabLogin.cs" />
-     <Compile Include="Assets\Scripts\MainManagers\ScriptableObjectsHolder.cs" />
-     <Compile Include="Assets\Scripts\MainManagers\ScriptableObjectsLoader.cs" />
      <Compile Include="Assets\Scripts\MainManagers\ServicesLocator.cs" />
      <Compile Include="Assets\Scripts\MainManagers\TimeLogger.cs" />
      <Compile Include="Assets\Scripts\MainManagers\TimeManager.cs" />

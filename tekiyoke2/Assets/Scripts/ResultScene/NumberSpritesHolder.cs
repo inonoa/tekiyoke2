@@ -9,10 +9,4 @@ public class NumberSpritesHolder : ScriptableObject
 
     ///<summary>[0]~[9]</summary>
     public IReadOnlyList<Sprite> NumberSprites => _NumberSprites;
-
-    static public NumberSpritesHolder Instance{ get; private set; }
-    public NumberSpritesHolder(){
-        Debug.Assert(Instance==null, "NumberSpritesHolderのインスタンスが複数あるぞ！");
-        Instance = this;
-    }
 }
