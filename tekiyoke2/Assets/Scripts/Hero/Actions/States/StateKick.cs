@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StateKick : HeroState
 {
-    bool right;
+    readonly bool right;
 
     float fromKick = 0;
 
@@ -22,17 +22,18 @@ public class StateKick : HeroState
         hero.velocity = firstSpeed;
         hero.CanMove = false;
 
-        hero.SetAnim("jumpf");
+        hero.SetAnimManually(right ? "jumpfr" : "jumpfl");
+        if(hero.KeyDirection == 0) hero.ForceChangeWantsToGoRight(right); //しっくりこない
         hero.SoundGroup.Play("Jump");
         hero.ObjsHolderForStates.JumpEffectPool.ActivateOne(right ? "kr" : "kl");
-        kabezuriCoroutine = hero.SpawnKabezuris(hero.Parameters.MoveInAirParams);
+        kabezuriCoroutine = hero.SpawnKabezuris(hero.Parameters.MoveInAirParamsAfterKick);
         hero.StartCoroutine(kabezuriCoroutine);
 
         hero.Jumped(isFromGround:false, isKick:true);
     }
     public override void Resume(HeroMover hero)
     {
-        hero.SetAnim("jumpf");
+        hero.SetAnimManually(right ? "jumpfr" : "jumpfl");
         hero.StartCoroutine(kabezuriCoroutine);
     }
 
@@ -59,9 +60,9 @@ public class StateKick : HeroState
             }
         }
 
-        hero.HorizontalMoveInAir(hero.Parameters.MoveInAirParams, deltatime);
+        hero.HorizontalMoveInAir(hero.Parameters.MoveInAirParamsAfterKick, deltatime);
 
-        var params_ = hero.Parameters.MoveInAirParams;
+        var params_ = hero.Parameters.MoveInAirParamsAfterKick;
         hero.ApplyGravity(params_.Gravity, params_.FallSpeedMax, deltatime);
 
         if(hero.velocity.Y < 0)

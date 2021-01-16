@@ -28,7 +28,7 @@ MonoBehaviour:
   _JumpForce: 28
   _KickParams:
     _WallKickForce: {x: 15, y: 30}
-    _WallKickKey: 1
+    _WallKickKey: 2
     _FromKickToInputEnabled: 0.15
   _JetParams:
     _MinDistance: 250
@@ -44,3 +44,4 @@ MonoBehaviour:
     _BendBackForce: {x: -12, y: 12}
     _Gravity: 40
     _BendBackSeconds: 0.6
+  _MutekiSeconds: 2
