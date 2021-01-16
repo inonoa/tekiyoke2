@@ -71,6 +71,8 @@
      <Compile Include="Assets\Scripts\Enemies\EnemyController.cs" />
      <Compile Include="Assets\Scripts\Enemies\EnemyExtensions.cs" />
      <Compile Include="Assets\Scripts\Enemies\EnemySpawner.cs" />
+     <Compile Include="Assets\Scripts\Enemies\FixedArtillery.cs" />
+     <Compile Include="Assets\Scripts\Enemies\FixedArtilleryBeam.cs" />
      <Compile Include="Assets\Scripts\Enemies\GierController.cs" />
      <Compile Include="Assets\Scripts\Enemies\JellyView.cs" />
      <Compile Include="Assets\Scripts\Enemies\JerryController.cs" />
@@ -254,6 +256,7 @@
      <None Include="Assets\Materials\Blur.shader" />
      <None Include="Assets\Materials\PostEffects\ColorReversed.shader" />
      <None Include="Assets\Sprites\BGs\MapObjs\Bane.shader" />
+     <None Include="Assets\Materials\FixedBeam.shader" />
      <None Include="Assets\Materials\MapObjs\EdgeLight.shader" />
      <None Include="Assets\Materials\PostEffects\BlurEdge1.shader" />
  <Reference Include="Unity.Timeline.Editor">

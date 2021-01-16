@@ -46,4 +46,13 @@ public static class MyMath
         if(inclusive) return x >= min && x <= max;
         else          return x >  min && x <  max;
     }
+
+    public static Vector2 FlipX(this Vector2 vec)
+    {
+        return new Vector2(-vec.x, vec.y);
+    }
+    public static Vector2 FlipY(this Vector2 vec)
+    {
+        return new Vector2(vec.x, -vec.y);
+    }
 }
