@@ -8,6 +8,7 @@ public class HeroParameters : ScriptableObject
 {
                [SerializeField] RunParams _RunParams;
     [Space(5)] [SerializeField] MoveInAirParams _MoveInAirParams;
+    [Space(5)] [SerializeField] MoveInAirParams _MoveInAirParamsAfterKick;
     [Space(5)] [SerializeField] float _JumpForce = 30f;
     [Space(5)] [SerializeField] KickParams _KickParams;
     [Space(5)] [SerializeField] JetParams _JetParams;
@@ -16,6 +17,7 @@ public class HeroParameters : ScriptableObject
 
     public RunParams RunParams             => _RunParams;
     public MoveInAirParams MoveInAirParams => _MoveInAirParams;
+    public MoveInAirParams MoveInAirParamsAfterKick => _MoveInAirParamsAfterKick;
     public float JumpForce                 => _JumpForce;
     public KickParams KickParams           => _KickParams;
     public JetParams JetParams             => _JetParams;
@@ -23,7 +25,7 @@ public class HeroParameters : ScriptableObject
     public float MutekiSeconds             => _MutekiSeconds;
 }
 
-public enum KickKey{ DirOfWall, DirAgainstWall }
+public enum KickKey{ DirOfWall, DirAgainstWall, Any }
 
 [Serializable]
 public class RunParams
