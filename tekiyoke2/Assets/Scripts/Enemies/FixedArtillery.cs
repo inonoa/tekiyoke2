@@ -5,7 +5,7 @@ using UniRx;
 using UniRx.Triggers;
 using UnityEngine;
 
-public class FixedArtillery : SerializedMonoBehaviour, IHaveDPinEnemy
+public class FixedArtillery : SerializedMonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
 {
     [SerializeField] Collider2D heroSensor;
     [SerializeField] FixedArtilleryBeam beam;
@@ -65,4 +65,13 @@ public class FixedArtillery : SerializedMonoBehaviour, IHaveDPinEnemy
         _state.Value = EState.Attacking;
     }
 
+    public void Spawn()
+    {
+        gameObject.SetActive(true);
+    }
+
+    public void Hide()
+    {
+        gameObject.SetActive(false);
+    }
 }
