@@ -66,6 +66,9 @@ public class StateJump : HeroState
 
     public override HeroState HandleInput(HeroMover hero, IAskedInput input)
     {
+        if(hero.IsReady2Kick2Left(input))  return new StateKick(toRight: false);
+        if(hero.IsReady2Kick2Right(input)) return new StateKick(toRight: true);
+        
         if(hero.CanJumpInAir && input.GetButtonDown(ButtonCode.Jump))
         {
             return new StateJump(fromGround: false);
