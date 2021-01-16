@@ -274,8 +274,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aea9b4391cdf417481cd1edc82ac00b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  readySeconds: 1
-  shootSeconds: 1
+  readySeconds: 0.6
+  readyBeamVisibleSeconds: 0.35
+  shootSeconds: 0.6
+  mainBeamVisibleSeconds: 0.4
+  beamLengthMax: 1000
   renderer: {fileID: 3900564571943667659}
   collider: {fileID: 6597213398166769203}
   rigidBody: {fileID: 1935550561570050113}

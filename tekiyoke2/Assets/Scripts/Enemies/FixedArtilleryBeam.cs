@@ -7,7 +7,10 @@ using UnityEngine;
 public class FixedArtilleryBeam : MonoBehaviour
 {
     [SerializeField] float readySeconds = 1f;
+    [SerializeField] float readyBeamVisibleSeconds = 0.4f;
     [SerializeField] float shootSeconds = 1f;
+    [SerializeField] float mainBeamVisibleSeconds = 0.5f;
+    [SerializeField] float beamLengthMax = 1000;
     [SerializeField] new LineRenderer renderer;
     [SerializeField] new EdgeCollider2D collider;
     [SerializeField] Rigidbody2D rigidBody;
@@ -16,35 +19,65 @@ public class FixedArtilleryBeam : MonoBehaviour
     [SerializeField] Texture2D readyTex;
     [SerializeField] Texture2D mainTex;
 
-    public IObservable<Unit> BeReady()
+    Vector2? lastHitPos;
+
+    public IObservable<Unit> BeReady() => BeReady(transform.position);
+    
+    IObservable<Unit> BeReady(Vector3 origin)
     {
-        Vector3 thisPos = transform.position;
-        Vector2 thisToHero = HeroDefiner.CurrentPos - thisPos;
-        var hit = Physics2D.Raycast(thisPos, thisToHero, 1000, LayerMask.GetMask("Terrain"));
-        Vector3 endPos = hit.collider != null ? hit.point.ToVec3() : (thisPos + thisToHero.normalized.ToVec3() * 1000);
+        print("ready");
+        Vector2 originToHero = HeroDefiner.CurrentPos - origin;
+        var hit = Physics2D.Raycast(origin + originToHero.normalized.ToVec3(), originToHero, beamLengthMax, LayerMask.GetMask("Terrain"));
+        if (hit.collider == null) lastHitPos = null;
+        else lastHitPos = hit.point - originToHero.normalized * 3;
+        Vector3 endPos = hit.collider != null ? hit.point.ToVec3() : (origin + originToHero.normalized.ToVec3() * beamLengthMax);
         
         renderer.material.SetTexture("_MainTex", readyTex);
         renderer.enabled = true;
         collider.enabled = false;
         
-        SetPositions(thisPos, endPos);
+        SetPositions(origin, endPos);
 
-        DOVirtual.DelayedCall(0.4f, () => renderer.enabled = false, false).GetPausable().AddTo(this);
+        DOVirtual.DelayedCall(readyBeamVisibleSeconds, () => renderer.enabled = false, false).GetPausable().AddTo(this);
         
         var end = new Subject<Unit>();
         DOVirtual.DelayedCall(readySeconds, () => end.OnNext(Unit.Default), false).GetPausable().AddTo(this);
 
         return end;
     }
+
+    public IObservable<Unit> StartShoot()
+    {
+        Subject<Unit> allEnded = new Subject<Unit>();
+
+        Shoot()
+        .Subscribe(_ =>
+        {
+            if (! lastHitPos.HasValue)
+            {
+                allEnded.OnNext(Unit.Default);
+                print("いっかいでおわり");
+                return;
+            }
+
+            BeReady(lastHitPos.Value.ToVec3())
+            .Subscribe(__ =>
+            {
+                Shoot().Subscribe(___ => allEnded.OnNext(Unit.Default));
+            });
+        });
+
+        return allEnded;
+    }
     
-    public IObservable<Unit> Shoot()
+    IObservable<Unit> Shoot()
     {
         collider.enabled = true;
         rigidBody.WakeUp();
         renderer.enabled = true;
         renderer.material.SetTexture("_MainTex", mainTex);
 
-        DOVirtual.DelayedCall(0.5f, () =>
+        DOVirtual.DelayedCall(mainBeamVisibleSeconds, () =>
         {
             collider.enabled = false;
             renderer.enabled = false;

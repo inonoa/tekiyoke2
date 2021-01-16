@@ -56,7 +56,7 @@ public class FixedArtillery : SerializedMonoBehaviour, IHaveDPinEnemy, ISpawnsNe
 
     void Attack()
     {
-        beam.Shoot()
+        beam.StartShoot()
             .Subscribe(_ =>
             {
                 _state.Value = heroIn.Value ? EState.Ready : EState.SlowingDown;
