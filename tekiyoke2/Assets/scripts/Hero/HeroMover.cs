@@ -50,6 +50,8 @@ public class HeroMover : MonoBehaviour
     [field: RenameField("Wants To Go Right")] [field: ReadOnly] [field: SerializeField]
     public bool WantsToGoRight{ get; private set; } = true;
 
+    public void ForceChangeWantsToGoRight(bool right) => WantsToGoRight = right;
+
 
 
     ///<summary>指定した値だけ位置をずらす。timeScaleの影響を受けます</summary>

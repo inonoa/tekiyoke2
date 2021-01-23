@@ -25,6 +25,13 @@ MonoBehaviour:
     _Gravity: 80
     _FallSpeedMax: 50
     _KabezuriInterval: 0.1
+  _MoveInAirParamsAfterKick:
+    _HorizontalForce: 25
+    _HorizontalResistance: 20
+    _HorizontalSpeedMax: 13
+    _Gravity: 80
+    _FallSpeedMax: 50
+    _KabezuriInterval: 0.1
   _JumpForce: 28
   _KickParams:
     _WallKickForce: {x: 15, y: 30}
