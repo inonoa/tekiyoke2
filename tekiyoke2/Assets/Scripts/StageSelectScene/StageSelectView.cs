@@ -13,8 +13,11 @@ public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
 {   
     #region Objects
     [SerializeField] Image chooseADraftImage;
+    [SerializeField] UIFocusManager focusManager;
+    
     [SerializeField] Image wakuImage;
     [SerializeField] WakuLightMover wakuLight;
+    
     [SerializeField] Image[] stageImages;
     [SerializeField] SoundGroup soundGroup;
 
@@ -64,11 +67,13 @@ public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
         });
         
         FadeIn();
+        focusManager.OnEnter();
     }
 
     void ExitMain()
     {
         gameObject.SetActive(false);
+        focusManager.OnExit();
         goToConfigButton.gameObject.SetActive(false);
         goToRankingsButton.gameObject.SetActive(false);
     }
@@ -76,6 +81,7 @@ public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
     public void Enter()
     {
         gameObject.SetActive(true);
+        focusManager.OnEnter();
         goToConfigButton.gameObject.SetActive(true);
         goToRankingsButton.gameObject.SetActive(true);
     }
