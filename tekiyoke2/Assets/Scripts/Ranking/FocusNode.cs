@@ -5,25 +5,30 @@ using UnityEngine;
 
 public class FocusNode : MonoBehaviour
 {
-    public IObservable<Unit> OnFocused => _OnFocused;
-    Subject<Unit> _OnFocused = new Subject<Unit>();
-    
-    public IObservable<Unit> OnUnFocused => _OnUnFocused;
-    Subject<Unit> _OnUnFocused = new Subject<Unit>();
+    [SerializeField, ReadOnly]
+    BoolReactiveProperty _Focused = new BoolReactiveProperty(false);
+    public bool Focused => _Focused.Value;
 
-    [field: SerializeField, ReadOnly, LabelText(nameof(Focused))]
-    public bool Focused { get; private set; } = false;
+    public IObservable<Unit> OnFocused
+        => _Focused
+            .SkipLatestValueOnSubscribe()
+            .Where(focused => focused)
+            .Select(_ => Unit.Default);
+
+    public IObservable<Unit> OnUnFocused
+        => _Focused
+            .SkipLatestValueOnSubscribe()
+            .Where(focused => !focused)
+            .Select(_ => Unit.Default);
 
     public void Focus()
     {
-        Focused = true;
-        _OnFocused.OnNext(Unit.Default);
+        _Focused.Value = true;
     }
 
     public void UnFocus()
     {
-        Focused = false;
-        _OnUnFocused.OnNext(Unit.Default);
+        _Focused.Value = false;
     }
 
     [field: SerializeField, LabelText(nameof(Left))]

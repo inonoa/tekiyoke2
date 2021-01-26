@@ -40,3 +40,15 @@ public static class EDraftExtension
         }
     }
 }
+
+public class EDraftUtil
+{
+    public static EDraft ToEDraft(int index)
+    {
+        Debug.Assert(index == 0 || index == 1 || index == 2);
+        
+        if (index == 0) return EDraft.Draft1;
+        if (index == 1) return EDraft.Draft2;
+        return EDraft.Draft3;
+    }
+}

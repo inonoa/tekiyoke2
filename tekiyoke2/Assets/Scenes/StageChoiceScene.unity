@@ -275,7 +275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.8}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -311,7 +311,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d78e0f07550a4f15804239daed298601, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Focused>k__BackingField: 0
+  _Focused:
+    value: 0
   <Left>k__BackingField: {fileID: 1267269545}
   <Right>k__BackingField: {fileID: 0}
   <Up>k__BackingField: {fileID: 848855137}
@@ -1176,11 +1177,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d78e0f07550a4f15804239daed298601, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Focused>k__BackingField: 0
+  _Focused:
+    value: 0
   <Left>k__BackingField: {fileID: 0}
   <Right>k__BackingField: {fileID: 0}
   <Up>k__BackingField: {fileID: 1507019742}
-  <Down>k__BackingField: {fileID: 0}
+  <Down>k__BackingField: {fileID: 1267269545}
 --- !u!1 &898870673
 GameObject:
   m_ObjectHideFlags: 0
@@ -1533,7 +1535,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.8}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1569,7 +1571,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d78e0f07550a4f15804239daed298601, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Focused>k__BackingField: 0
+  _Focused:
+    value: 0
   <Left>k__BackingField: {fileID: 0}
   <Right>k__BackingField: {fileID: 162664365}
   <Up>k__BackingField: {fileID: 848855137}
@@ -1786,16 +1789,15 @@ MonoBehaviour:
       Data: 0
   chooseADraftImage: {fileID: 281507869}
   focusManager: {fileID: 1385504745}
+  draft1: {fileID: 2061065211}
+  draft2: {fileID: 1507019742}
+  draft3: {fileID: 848855137}
+  goToRankings: {fileID: 1267269545}
+  goToConfig: {fileID: 162664365}
   wakuImage: {fileID: 399176286}
   wakuLight: {fileID: 611525604}
-  stageImages:
-  - {fileID: 2061065210}
-  - {fileID: 1507019741}
-  - {fileID: 848855134}
   soundGroup: {fileID: 46160779}
   bgChanger: {fileID: 647817631}
-  goToRankingsButton: {fileID: 1267269542}
-  goToConfigButton: {fileID: 162664362}
 --- !u!114 &1385504747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2196,7 +2198,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d78e0f07550a4f15804239daed298601, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Focused>k__BackingField: 0
+  _Focused:
+    value: 0
   <Left>k__BackingField: {fileID: 0}
   <Right>k__BackingField: {fileID: 0}
   <Up>k__BackingField: {fileID: 2061065211}
@@ -3151,7 +3154,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d78e0f07550a4f15804239daed298601, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Focused>k__BackingField: 0
+  _Focused:
+    value: 0
   <Left>k__BackingField: {fileID: 0}
   <Right>k__BackingField: {fileID: 0}
   <Up>k__BackingField: {fileID: 0}
