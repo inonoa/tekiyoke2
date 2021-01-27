@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using DG.Tweening;
 using Ranking;
 using ResultScene;
 using Sirenix.OdinInspector;
@@ -20,6 +21,12 @@ public class RankingsSelectManager : SerializedMonoBehaviour
     public void Enter()
     {
         gameObject.SetActive(true);
+        var canvasGroup = GetComponent<CanvasGroup>();
+        canvasGroup.alpha = 0;
+        transform.SetLocalX(100);
+        
+        canvasGroup.DOFade(1, 0.4f).SetEase(Ease.OutCubic);
+        transform.DOLocalMoveX(0, 0.4f).SetEase(Ease.OutCubic);
     }
 
     public IObservable<Unit> OnExit => _OnExit;
@@ -45,7 +52,12 @@ public class RankingsSelectManager : SerializedMonoBehaviour
 
     void Exit()
     {
-        gameObject.SetActive(false);
-        _OnExit.OnNext(Unit.Default);
+        var canvasGroup = GetComponent<CanvasGroup>();
+        
+        canvasGroup.DOFade(0, 0.4f).SetEase(Ease.OutCubic);
+        transform.DOLocalMoveX(-100, 0.4f).SetEase(Ease.OutCubic);
+        
+        DOVirtual.DelayedCall(0.4f, () => gameObject.SetActive(false));
+        DOVirtual.DelayedCall(0.2f, () => _OnExit.OnNext(Unit.Default));
     }
 }

@@ -231,7 +231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -573,8 +573,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 611525607}
-  m_Father: {fileID: 637423146}
-  m_RootOrder: 2
+  m_Father: {fileID: 1385504744}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -809,7 +809,6 @@ RectTransform:
   m_Children:
   - {fileID: 647817630}
   - {fileID: 1385504744}
-  - {fileID: 399176285}
   - {fileID: 940943216}
   - {fileID: 2049940482}
   - {fileID: 1847597931}
@@ -1232,6 +1231,7 @@ GameObject:
   m_Component:
   - component: {fileID: 940943216}
   - component: {fileID: 940943217}
+  - component: {fileID: 940943218}
   m_Layer: 5
   m_Name: Rankings
   m_TagString: Untagged
@@ -1256,7 +1256,7 @@ RectTransform:
   - {fileID: 743980943}
   - {fileID: 1890892426}
   m_Father: {fileID: 637423146}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1297,6 +1297,18 @@ MonoBehaviour:
   draft3Button: {fileID: 1386286540}
   allDraftsButton: {fileID: 743980944}
   exitButton: {fileID: 1890892427}
+--- !u!225 &940943218
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 940943215}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &958392695
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1347,7 +1359,7 @@ PrefabInstance:
     - target: {fileID: 4779534297949084551, guid: be95f329fec77e549b10591ee7c0c26e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4779534297949084551, guid: be95f329fec77e549b10591ee7c0c26e,
         type: 3}
@@ -1492,7 +1504,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -1732,6 +1744,7 @@ RectTransform:
   - {fileID: 898870674}
   - {fileID: 1267269541}
   - {fileID: 162664361}
+  - {fileID: 399176285}
   m_Father: {fileID: 637423146}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2969,7 +2982,7 @@ PrefabInstance:
     - target: {fileID: 5681193044493302809, guid: 66ec43c415205ef458cdf73f5f3816e9,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5681193044493302809, guid: 66ec43c415205ef458cdf73f5f3816e9,
         type: 3}
@@ -3353,7 +3366,7 @@ PrefabInstance:
     - target: {fileID: 1043250778967390544, guid: cea9c439f1a480e45b4742c8b8a32ccc,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1043250778967390544, guid: cea9c439f1a480e45b4742c8b8a32ccc,
         type: 3}

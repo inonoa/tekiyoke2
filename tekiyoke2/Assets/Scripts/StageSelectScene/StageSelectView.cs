@@ -88,7 +88,7 @@ public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
             {
                 goToRankings.GetComponent<Button>().onClick.Invoke();
                 ExitMain();
-                _OnGoToRankings.OnNext(Unit.Default);
+                DOVirtual.DelayedCall(0.3f, () => _OnGoToRankings.OnNext(Unit.Default));
             })
             .AddTo(this);
 
@@ -98,7 +98,7 @@ public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
             {
                 goToConfig.GetComponent<Button>().onClick.Invoke();
                 ExitMain();
-                _OnGoToConfig.OnNext(Unit.Default);
+                DOVirtual.DelayedCall(0.3f, () => _OnGoToConfig.OnNext(Unit.Default));
             })
             .AddTo(this);
     }
@@ -123,10 +123,8 @@ public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
 
     void ExitMain()
     {
-        gameObject.SetActive(false);
+        FadeOut();
         focusManager.OnExit();
-        goToConfig.gameObject.SetActive(false);
-        goToRankings.gameObject.SetActive(false);
     }
 
     public void Enter()
@@ -151,14 +149,18 @@ public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
             
         // 初期位置に
         {
-            AllNodes
+            AllStages
                 .Select(node => node.GetComponent<Image>())
                 .Concat(new Image[]{chooseADraftImage})
                 .ForEach(img =>
                 {
-                    img.transform.DOLocalMoveX(100, 0).SetRelative();
+                    img.transform.SetLocalX(100);
                     img.DOFade(0, 0);
                 });
+            goToRanksImage.transform.SetLocalX(-50);
+            goToRanksImage.DOFade(0, 0);
+            goToConfigImage.transform.SetLocalX(270);
+            goToConfigImage.DOFade(0, 0);
             wakuImage.DOFade(0, 0);
             wakuLight.GetComponent<Image>().DOFade(0, 0);
         }
@@ -186,7 +188,21 @@ public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
             .AppendInterval(0.8f)
             .Append(chooseADraftImage.DOFade(1, fadeInDuration).SetEase(Ease.Linear))
             .Join(chooseADraftImage.transform.DOLocalMoveX(0, fadeInDuration).SetEase(Ease.OutCubic))
+            .AppendCallback(() => wakuImage.transform.position = focusManager.Focused.transform.position)
             .Append(wakuImage.DOFade(1, 0.2f).SetEase(Ease.Linear))
             .AppendCallback(() => state = State.Active);
+    }
+
+    void FadeOut()
+    {
+        float dur = 0.4f;
+
+        AllNodes.Select(node => node.GetComponent<Image>())
+            .Concat(new Image[]{ wakuImage, wakuLight.GetComponent<Image>(), chooseADraftImage })
+            .ForEach(img =>
+            {
+                img.DOFade(0, dur).SetEase(Ease.OutCubic);
+                img.transform.DOLocalMoveX(-100, dur).SetRelative().SetEase(Ease.OutCubic);
+            });
     }
 }
