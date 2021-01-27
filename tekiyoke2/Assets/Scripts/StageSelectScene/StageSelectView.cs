@@ -28,8 +28,7 @@ public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
 
     IReadOnlyList<FocusNode> AllStages => new[] {draft1, draft2, draft3};
 
-    [SerializeField] Image wakuImage;
-    [SerializeField] WakuLightMover wakuLight;
+    [FormerlySerializedAs("wakuLight")] [SerializeField] WakuMover waku;
     
     [SerializeField] SoundGroup soundGroup;
 
@@ -59,12 +58,7 @@ public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
             node.OnFocused
                 .Subscribe(_ =>
                 {
-                    float dur = 0.3f;
-                    RectTransform rect = node.GetComponent<RectTransform>();
-                    wakuImage.rectTransform.DOSizeDelta(rect.sizeDelta, dur).SetEase(Ease.OutQuint);
-                    wakuImage.rectTransform.DOMove(rect.position, dur).SetEase(Ease.OutQuint);
-                    wakuLight.ChangeFocus(node.GetComponent<RectTransform>(), dur, Ease.OutQuint);
-                    
+                    waku.ChangeFocus(node.GetComponent<RectTransform>());
                     soundGroup.Play("Move");
                 })
                 .AddTo(this);
@@ -86,7 +80,7 @@ public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
         Selected(goToRankings)
             .Subscribe(_ =>
             {
-                goToRankings.GetComponent<Button>().onClick.Invoke();
+                soundGroup.Play("Enter");
                 ExitMain();
                 DOVirtual.DelayedCall(0.3f, () => _OnGoToRankings.OnNext(Unit.Default));
             })
@@ -96,7 +90,7 @@ public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
         Selected(goToConfig)
             .Subscribe(_ =>
             {
-                goToConfig.GetComponent<Button>().onClick.Invoke();
+                soundGroup.Play("Enter");
                 ExitMain();
                 DOVirtual.DelayedCall(0.3f, () => _OnGoToConfig.OnNext(Unit.Default));
             })
@@ -111,7 +105,7 @@ public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
     void OnDetermine(int index)
     {
         state = State.Selected;
-        wakuLight.Stop();
+        waku.Stop();
         soundGroup.Play("Enter");
         AllStages[index].GetComponent<Image>().DOFade(1, 0.3f).SetEase(Ease.Linear);
         
@@ -158,8 +152,7 @@ public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
             goToRanksImage.DOFade(0, 0);
             goToConfigImage.transform.SetLocalX(270);
             goToConfigImage.DOFade(0, 0);
-            wakuImage.DOFade(0, 0);
-            wakuLight.GetComponent<Image>().DOFade(0, 0);
+            waku.FadeOut(0, Ease.Linear);
         }
 
         // ステージのフェードイン
@@ -185,12 +178,12 @@ public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
             .AppendInterval(0.5f)
             .Append(chooseADraftImage.DOFade(1, fadeInDuration).SetEase(Ease.Linear))
             .Join(chooseADraftImage.transform.DOLocalMoveX(0, fadeInDuration).SetEase(Ease.OutCubic))
-            .AppendCallback(() => wakuImage.transform.position = focusManager.Focused.transform.position)
-            .Append(wakuImage.DOFade(1, 0.2f).SetEase(Ease.Linear))
+            .AppendCallback(() => waku.transform.position = focusManager.Focused.transform.position)
+            .Append(waku.WakuImage.DOFade(1, 0.2f).SetEase(Ease.Linear))
             .AppendCallback(() =>
             {
                 state = State.Active;
-                wakuLight.Start_();
+                waku.Start_();
             });
     }
 
@@ -199,14 +192,14 @@ public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
         float dur = 0.4f;
 
         AllNodes.Select(node => node.GetComponent<Image>())
-            .Concat(new Image[]{ wakuImage, chooseADraftImage })
+            .Concat(new Image[]{ waku.WakuImage, chooseADraftImage })
             .ForEach(img =>
             {
                 img.DOFade(0, dur).SetEase(Ease.OutCubic);
                 img.transform.DOLocalMoveX(-100, dur).SetRelative().SetEase(Ease.OutCubic);
             });
-        wakuLight.Image.DOFade(0, dur).SetEase(Ease.OutCubic);
+        waku.LightImage.DOFade(0, dur).SetEase(Ease.OutCubic);
         
-        wakuLight.Stop();
+        waku.Stop();
     }
 }

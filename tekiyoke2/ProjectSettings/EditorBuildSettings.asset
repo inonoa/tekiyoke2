@@ -8,10 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/OpenScene.unity
     guid: f99868a517972f7478a917906000254c
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/StageChoiceScene.unity
     guid: f31b60d93242bec4cabc84ac88f31e31
   - enabled: 0
@@ -20,22 +20,22 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Not In Build/MuzuD1.unity
     guid: 9287c154884fd014a8f28d96c41c5d37
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Draft2.unity
     guid: 5914d8f1b6605b44988749f699e62b22
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/ResultScene.unity
     guid: 491feba8a0adf00418fe7b358fa84872
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Draft1.unity
     guid: 1e1f714081e9267498d075e4f7895a86
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Draft3.unity
     guid: 1c0d9ab37311a6f4083ff3991d056b43
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Tutorial.unity
     guid: 63f3679bdf3338344ba34c48a6b2115c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Not In Build/Kone.unity
     guid: 60ed6d9f564367c45857fe8d370bee2e
   m_configObjects: {}

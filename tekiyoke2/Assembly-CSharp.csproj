@@ -208,7 +208,7 @@
      <Compile Include="Assets\Scripts\StageSelectScene\StageSelectBGChanger.cs" />
      <Compile Include="Assets\Scripts\StageSelectScene\StageSelectManager.cs" />
      <Compile Include="Assets\Scripts\StageSelectScene\StageSelectView.cs" />
-     <Compile Include="Assets\Scripts\StageSelectScene\WakuLightMover.cs" />
+     <Compile Include="Assets\Scripts\StageSelectScene\WakuMover.cs" />
      <Compile Include="Assets\Scripts\Steamworks.NET\SteamManager.cs" />
      <Compile Include="Assets\Scripts\TagNames.cs" />
      <Compile Include="Assets\Scripts\TitleScene\AnyKeyToStart.cs" />
