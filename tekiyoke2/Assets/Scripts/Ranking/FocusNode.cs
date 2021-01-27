@@ -1,10 +1,13 @@
 using System;
 using Sirenix.OdinInspector;
 using UniRx;
+using UniRx.Triggers;
 using UnityEngine;
 
-public class FocusNode : MonoBehaviour
+public class FocusNode : SerializedMonoBehaviour
 {
+    [SerializeField] IFocusManager manager;
+
     [SerializeField, ReadOnly]
     BoolReactiveProperty _Focused = new BoolReactiveProperty(false);
     public bool Focused => _Focused.Value;
@@ -20,6 +23,16 @@ public class FocusNode : MonoBehaviour
             .SkipLatestValueOnSubscribe()
             .Where(focused => !focused)
             .Select(_ => Unit.Default);
+
+    public IObservable<Unit> OnSelected { get; private set; }
+
+    void Awake()
+    {
+        OnSelected = this.UpdateAsObservable()
+            .Where(_ => manager.SelectButtonDown())
+            .Where(_ => manager.AcceptsInput)
+            .Where(_ => this.Focused);
+    }
 
     public void Focus()
     {
@@ -42,4 +55,10 @@ public class FocusNode : MonoBehaviour
     
     [field: SerializeField, LabelText(nameof(Down))]
     public FocusNode Down { get; private set; }
+}
+
+public interface IFocusManager
+{
+    bool AcceptsInput { get; }
+    bool SelectButtonDown();
 }

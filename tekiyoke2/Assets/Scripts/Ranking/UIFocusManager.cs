@@ -3,7 +3,7 @@ using DG.Tweening;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-public class UIFocusManager : SerializedMonoBehaviour
+public class UIFocusManager : SerializedMonoBehaviour, IFocusManager
 {
     [SerializeField] FocusNode initialNode;
 
@@ -14,12 +14,12 @@ public class UIFocusManager : SerializedMonoBehaviour
     
     public void OnExit()
     {
-        //
+        AcceptsInput = false;
     }
 
     public void OnEnter()
     {
-        //
+        AcceptsInput = true;
     }
 
     void Start()
@@ -30,8 +30,13 @@ public class UIFocusManager : SerializedMonoBehaviour
         initialNode.Focus();
     }
 
+    public bool AcceptsInput { get; private set; } = true;
+    public bool SelectButtonDown() => input.GetButtonDown(ButtonCode.Enter);
+
     void Update()
     {
+        if(!AcceptsInput) return;
+        
         if (input.GetButtonDown(ButtonCode.Left))
         {
             if (focused.Left != null)

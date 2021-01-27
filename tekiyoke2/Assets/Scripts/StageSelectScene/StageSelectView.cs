@@ -105,10 +105,7 @@ public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
 
     IObservable<Unit> Selected(FocusNode node)
     {
-        return node.UpdateAsObservable()
-            .Where(_ => node.Focused)
-            .Where(_ => input.GetButtonDown(ButtonCode.Enter))
-            .Where(_ => state == State.Active);
+        return node.OnSelected.Where(_ => state == State.Active);
     }
     
     void OnDetermine(int index)
@@ -168,7 +165,7 @@ public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
         // ステージのフェードイン
         stageImages.ForEach((stageImage, i) =>
         {
-            const float slideGap = 0.1f;
+            const float slideGap = 0.067f;
             DOTween.Sequence()
                 .AppendInterval(i * slideGap)
                 .Append(stageImage.DOFade(targetAlpha, fadeInDuration).SetEase(Ease.Linear))
@@ -177,7 +174,7 @@ public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
         
         // ランキング、設定
         DOTween.Sequence()
-            .AppendInterval(0.45f)
+            .AppendInterval(0.3f)
             .Append(goToConfigImage.DOFade(targetAlpha, fadeInDuration).SetEase(Ease.Linear))
             .Join(goToConfigImage.transform.DOLocalMoveX(-100, fadeInDuration).SetRelative().SetEase(Ease.OutCubic))
             .Join(goToRanksImage.DOFade(targetAlpha, fadeInDuration).SetEase(Ease.Linear))
@@ -185,12 +182,16 @@ public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
             
         // その他
         DOTween.Sequence()
-            .AppendInterval(0.8f)
+            .AppendInterval(0.5f)
             .Append(chooseADraftImage.DOFade(1, fadeInDuration).SetEase(Ease.Linear))
             .Join(chooseADraftImage.transform.DOLocalMoveX(0, fadeInDuration).SetEase(Ease.OutCubic))
             .AppendCallback(() => wakuImage.transform.position = focusManager.Focused.transform.position)
             .Append(wakuImage.DOFade(1, 0.2f).SetEase(Ease.Linear))
-            .AppendCallback(() => state = State.Active);
+            .AppendCallback(() =>
+            {
+                state = State.Active;
+                wakuLight.Start_();
+            });
     }
 
     void FadeOut()
@@ -198,11 +199,14 @@ public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
         float dur = 0.4f;
 
         AllNodes.Select(node => node.GetComponent<Image>())
-            .Concat(new Image[]{ wakuImage, wakuLight.GetComponent<Image>(), chooseADraftImage })
+            .Concat(new Image[]{ wakuImage, chooseADraftImage })
             .ForEach(img =>
             {
                 img.DOFade(0, dur).SetEase(Ease.OutCubic);
                 img.transform.DOLocalMoveX(-100, dur).SetRelative().SetEase(Ease.OutCubic);
             });
+        wakuLight.Image.DOFade(0, dur).SetEase(Ease.OutCubic);
+        
+        wakuLight.Stop();
     }
 }

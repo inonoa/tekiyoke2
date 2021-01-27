@@ -487,7 +487,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d78e0f07550a4f15804239daed298601, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Focused>k__BackingField: 0
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 434108057521999144}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: manager
+      Entry: 10
+      Data: 0
+  _Focused:
+    value: 0
   <Left>k__BackingField: {fileID: 8040485369011219685}
   <Right>k__BackingField: {fileID: 3139252792474774978}
   <Up>k__BackingField: {fileID: 1227976272886948890}
@@ -728,8 +742,6 @@ MonoBehaviour:
   aroundPlayerController: {fileID: 5799793397166110351}
   leftGroup: {fileID: 3087877369468983106}
   exitButton: {fileID: 4617490443536644068}
-  bodyCenterTranform: {fileID: 7279527936619087613}
-  bodyTiltTan: -4.18
   enterDuration: 0.4
   exitDuration: 0.3
 --- !u!114 &434108057521999144
@@ -963,7 +975,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d78e0f07550a4f15804239daed298601, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Focused>k__BackingField: 0
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 434108057521999144}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: manager
+      Entry: 10
+      Data: 0
+  _Focused:
+    value: 0
   <Left>k__BackingField: {fileID: 0}
   <Right>k__BackingField: {fileID: 6655370967480288678}
   <Up>k__BackingField: {fileID: 0}
@@ -1124,7 +1150,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d78e0f07550a4f15804239daed298601, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Focused>k__BackingField: 0
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 434108057521999144}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: manager
+      Entry: 10
+      Data: 0
+  _Focused:
+    value: 0
   <Left>k__BackingField: {fileID: 8040485369011219685}
   <Right>k__BackingField: {fileID: 3203099287039386952}
   <Up>k__BackingField: {fileID: 0}
@@ -1353,9 +1393,35 @@ PrefabInstance:
       objectReference: {fileID: 7279527936619087613}
     - target: {fileID: 7297937173066691582, guid: 030b7e859ea47724ea3dedd79547d557,
         type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7297937173066691582, guid: 030b7e859ea47724ea3dedd79547d557,
+        type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7297937173066691582, guid: 030b7e859ea47724ea3dedd79547d557,
+        type: 3}
       propertyPath: <Left>k__BackingField
       value: 
       objectReference: {fileID: 1227976272886948890}
+    - target: {fileID: 7297937173066691582, guid: 030b7e859ea47724ea3dedd79547d557,
+        type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 7297937173066691582, guid: 030b7e859ea47724ea3dedd79547d557,
+        type: 3}
+    - target: {fileID: 7297937173066691582, guid: 030b7e859ea47724ea3dedd79547d557,
+        type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 434108057521999144}
+    - target: {fileID: 7297937173066691582, guid: 030b7e859ea47724ea3dedd79547d557,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[0]
+      value: '"path":"manager","value":$eref:0'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 030b7e859ea47724ea3dedd79547d557, type: 3}
 --- !u!114 &3203099287039386952 stripped
@@ -1547,9 +1613,35 @@ PrefabInstance:
       objectReference: {fileID: 7279527936619087613}
     - target: {fileID: 7297937173066691582, guid: 030b7e859ea47724ea3dedd79547d557,
         type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7297937173066691582, guid: 030b7e859ea47724ea3dedd79547d557,
+        type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7297937173066691582, guid: 030b7e859ea47724ea3dedd79547d557,
+        type: 3}
       propertyPath: <Left>k__BackingField
       value: 
       objectReference: {fileID: 6655370967480288678}
+    - target: {fileID: 7297937173066691582, guid: 030b7e859ea47724ea3dedd79547d557,
+        type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 7297937173066691582, guid: 030b7e859ea47724ea3dedd79547d557,
+        type: 3}
+    - target: {fileID: 7297937173066691582, guid: 030b7e859ea47724ea3dedd79547d557,
+        type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 434108057521999144}
+    - target: {fileID: 7297937173066691582, guid: 030b7e859ea47724ea3dedd79547d557,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[0]
+      value: '"path":"manager","value":$eref:0'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 030b7e859ea47724ea3dedd79547d557, type: 3}
 --- !u!224 &5275064152450480045 stripped

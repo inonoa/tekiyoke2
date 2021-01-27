@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -50,22 +52,30 @@ public class WakuLightMover : MonoBehaviour
 
     enum Direction
     {
-        Right, Down, Left, Up, None
+        Right, Down, Left, Up
     }
 
+    [SerializeField, ReadOnly] bool moving = false;
     Direction direction = Direction.Right;
 
     [SerializeField] Image image;
     [SerializeField] Image wakuImage;
+    public Image Image => image;
 
     public void Stop()
     {
-        direction = Direction.None;
+        moving = false;
+    }
+    public void Start_()
+    {
+        moving = true;
     }
 
     void Update()
     {
         image.color = wakuImage.color;
+        
+        if(!moving) return;
 
         float move = speed * Time.deltaTime;
 
