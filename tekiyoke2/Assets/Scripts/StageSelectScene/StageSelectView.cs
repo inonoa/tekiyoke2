@@ -57,7 +57,6 @@ public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
         foreach (FocusNode node in AllNodes)
         {
             node.OnFocused
-                .Skip(node == draft1 ? 1 : 0)
                 .Subscribe(_ =>
                 {
                     float dur = 0.3f;
