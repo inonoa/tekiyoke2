@@ -64,6 +64,7 @@ public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
                     RectTransform rect = node.GetComponent<RectTransform>();
                     wakuImage.rectTransform.DOSizeDelta(rect.sizeDelta, dur).SetEase(Ease.OutQuint);
                     wakuImage.rectTransform.DOMove(rect.position, dur).SetEase(Ease.OutQuint);
+                    wakuLight.ChangeFocus(node.GetComponent<RectTransform>(), dur, Ease.OutQuint);
                     
                     soundGroup.Play("Move");
                 })

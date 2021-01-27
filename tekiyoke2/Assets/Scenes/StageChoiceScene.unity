@@ -655,7 +655,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e848c1f364fcdb4e91d91db3300b559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pathXY: {x: 243, y: 69}
+  padding: {x: 5, y: 10}
+  focused: {fileID: 2061065208}
   speed: 500
   image: {fileID: 611525605}
   wakuImage: {fileID: 399176286}
