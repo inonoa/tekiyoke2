@@ -4,85 +4,104 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System;
+using Config;
+using DG.Tweening;
+using Sirenix.OdinInspector;
+using Sirenix.Utilities;
+using UniRx;
+using UniRx.Triggers;
 
 public class PauseView : MonoBehaviour
 {
-    [SerializeField] int selected = 0; //0:続ける 1:?? 2:やめる
+    [SerializeField] UIFocusManager focusManager;
+    [SerializeField] FocusNode resume;
+    [SerializeField] FocusNode goToConfig;
+    [SerializeField] FocusNode quit;
+    
     [SerializeField] Image draftName;
     [SerializeField] Image pausePause;
     [SerializeField] Image options;
     [SerializeField] Image mark;
+    [SerializeField] float markRotateSpeed = 150;
+
+    [SerializeField] ConfigManager config;
+
+    [SerializeField, ReadOnly, FoldoutGroup("DefaultPositions")] float draftNameX;
+    [SerializeField, ReadOnly, FoldoutGroup("DefaultPositions")] float pausePauseX;
+    [SerializeField, ReadOnly, FoldoutGroup("DefaultPositions")] float optionsX;
+    [SerializeField, ReadOnly, FoldoutGroup("DefaultPositions")] float markX;
+    [Button, FoldoutGroup("DefaultPositions")]
+    void ApplyDefaultPositions()
+    {
+        draftNameX  = draftName.transform.localPosition.x;
+        pausePauseX = pausePause.transform.localPosition.x;
+        optionsX    = options.transform.localPosition.x;
+        markX       = mark.transform.localPosition.x;
+    }
+    
     RectTransform markRTF;
     SoundGroup soundGroup;
-    float alphaDelta = 1/(float)moveFrames;
-    float[] moveDists = new float[moveFrames];
-    static readonly int moveFrames = 15;
-    static readonly float totalMoveDist = 40;
-    int framesFromStart = 0;
-    public event EventHandler pauseEnd;
-
+    
+    Subject<Unit> _OnPauseEnd = new Subject<Unit>();
+    public IObservable<Unit> OnPauseEnd => _OnPauseEnd;
+    
     IAskedInput input;
-
-    public void Reset(){
-        draftName.transform.localPosition -= new Vector3(totalMoveDist,0);
-        draftName.color = new Color(1,1,1,0);
-        pausePause.transform.localPosition -= new Vector3(-totalMoveDist,0);
-        pausePause.color = new Color(1,1,1,0);
-        options.transform.localPosition -= new Vector3(totalMoveDist,0);
-        options.color = new Color(1,1,1,0);
-        mark.transform.localPosition -= new Vector3(totalMoveDist,0);
-        mark.color = new Color(1,1,1,0);
-        framesFromStart = 0;
-    }
 
     void Start()
     {
-        for(int i=0;i<moveFrames;i++){
-            moveDists[i] = ( totalMoveDist - totalMoveDist * (i+1 - moveFrames)*(i+1 - moveFrames) / (float)moveFrames / (float)moveFrames )
-                            - ( totalMoveDist - totalMoveDist * (i - moveFrames)*(i - moveFrames) / (float)moveFrames / (float)moveFrames );
-        }
         markRTF = mark.GetComponent<RectTransform>();
         soundGroup = GetComponent<SoundGroup>();
         input = ServicesLocator.Instance.GetInput();
+
+        focusManager.OnNodeFocused.Skip(1).Subscribe(node =>
+        {
+            var cursorPos = node.GetComponent<CursorPositionHolder>();
+            mark.transform.position = cursorPos.CursorPosTransform.position;
+            soundGroup.Play("Move");
+        });
+        this.UpdateAsObservable()
+            .Subscribe(_ => markRTF.Rotate(0, 0, markRotateSpeed * Time.deltaTime));
+
+        resume.OnSelected.Subscribe(_ =>
+        {
+            soundGroup.Play("Enter");
+            _OnPauseEnd.OnNext(Unit.Default);
+        });
+        goToConfig.OnSelected.Subscribe(_ =>
+        {
+            soundGroup.Play("Enter");
+            // config.Enter();
+        });
+        quit.OnSelected.Subscribe(_ =>
+        {
+            soundGroup.Play("Enter");
+            SceneTransition.Start2ChangeScene("StageChoiceScene", SceneTransition.TransitionType.Default);
+        });
     }
 
-    void Update()
+    public void Enter()
     {
-        if(framesFromStart<moveFrames){
-            draftName.transform.localPosition += new Vector3(moveDists[framesFromStart],0);
-            draftName.color = new Color(1,1,1, (framesFromStart+1) * alphaDelta);
-            pausePause.transform.localPosition += new Vector3(-moveDists[framesFromStart],0);
-            pausePause.color = new Color(1,1,1, (framesFromStart+1) * alphaDelta);
-            options.transform.localPosition += new Vector3(moveDists[framesFromStart],0);
-            options.color = new Color(1,1,1, (framesFromStart+1) * alphaDelta);
-            mark.transform.localPosition += new Vector3(moveDists[framesFromStart],0);
-            mark.color = new Color(1,1,1, (framesFromStart+1) * alphaDelta);
+        const float dur = 0.4f;
+        const float delay = 0.1f;
+        const float dist = 100;
+        
+        new[] {(draftName, draftNameX), (options, optionsX), (pausePause, pausePauseX), (mark, markX)}
+        .ForEach(img_defX =>
+        {
+            (Image img, float defaultX) = img_defX;
+            
+            img.transform.SetLocalX(defaultX + (img == pausePause ? dist : -dist));
+            img.SetAlpha(0);
 
-            framesFromStart ++;
-        }
-        markRTF.Rotate(new Vector3(0,0,3));
-        if(input.GetButtonDown(ButtonCode.Down)){
-            if(selected<2){
-                selected ++;
-                mark.transform.localPosition += new Vector3(-40,-127);
-                soundGroup.Play("Move");
-            }
-        }
-        if(input.GetButtonDown(ButtonCode.Up)){
-            if(selected>0){
-                selected --;
-                mark.transform.localPosition -= new Vector3(-40,-127);
-                soundGroup.Play("Move");
-            }
-        }
-        if(input.GetButtonDown(ButtonCode.Enter)){
-            soundGroup.Play("Enter");
-            if(selected==0){
-                Reset();
-                pauseEnd?.Invoke(this,EventArgs.Empty);
-            }else if(selected==2){
-                SceneTransition.Start2ChangeScene("StageChoiceScene",SceneTransition.TransitionType.Default);
-            }
-        }
+            DOVirtual.DelayedCall(delay, () =>
+            {
+                img
+                    .DOFade(1, dur)
+                    .SetEase(Ease.OutCubic);
+                img.transform
+                    .DOLocalMoveX(defaultX, dur)
+                    .SetEase(Ease.OutCubic);
+            });
+        });
     }
 }

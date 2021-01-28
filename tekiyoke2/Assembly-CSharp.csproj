@@ -218,6 +218,7 @@
      <Compile Include="Assets\Scripts\TitleScene\TitleLogo.cs" />
      <Compile Include="Assets\Scripts\TitleScene\TitleSceneManager.cs" />
      <Compile Include="Assets\Scripts\Utils\ArrayForEach.cs" />
+     <Compile Include="Assets\Scripts\Utils\ColorExtensions.cs" />
      <Compile Include="Assets\Scripts\Utils\EnumArray.cs" />
      <Compile Include="Assets\Scripts\Utils\MaterialTween.cs" />
      <Compile Include="Assets\Scripts\Utils\MyMath.cs" />
@@ -273,6 +274,9 @@
  <Reference Include="UnityEngine.Advertisements">
  <HintPath>C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Library/ScriptAssemblies/UnityEngine.Advertisements.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.Recorder.Editor">
+ <HintPath>C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Library/ScriptAssemblies/Unity.Recorder.Editor.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.Purchasing">
  <HintPath>C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Library/ScriptAssemblies/UnityEngine.Purchasing.dll</HintPath>
  </Reference>
@@ -281,6 +285,9 @@
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Recorder">
+ <HintPath>C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Library/ScriptAssemblies/Unity.Recorder.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
@@ -299,6 +306,9 @@
  </Reference>
  <Reference Include="Unity.Rider.Editor">
  <HintPath>C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Recorder.Base">
+ <HintPath>C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Library/ScriptAssemblies/Unity.Recorder.Base.dll</HintPath>
  </Reference>
  <Reference Include="Unity.2D.Sprite.Editor">
  <HintPath>C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
@@ -329,15 +339,6 @@
  </Reference>
  <Reference Include="com.unity.multiplayer-hlapi.Runtime">
  <HintPath>C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Runtime.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Recorder.Editor">
- <HintPath>C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Library/ScriptAssemblies/Unity.Recorder.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Recorder">
- <HintPath>C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Library/ScriptAssemblies/Unity.Recorder.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Recorder.Base">
- <HintPath>C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Library/ScriptAssemblies/Unity.Recorder.Base.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
