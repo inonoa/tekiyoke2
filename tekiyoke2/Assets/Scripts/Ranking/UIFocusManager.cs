@@ -1,6 +1,7 @@
 using System;
 using DG.Tweening;
 using Sirenix.OdinInspector;
+using UniRx;
 using UnityEngine;
 
 public class UIFocusManager : SerializedMonoBehaviour, IFocusManager
@@ -9,6 +10,10 @@ public class UIFocusManager : SerializedMonoBehaviour, IFocusManager
 
     [SerializeField, ReadOnly] FocusNode focused;
     public FocusNode Focused => focused;
+
+
+    Subject<FocusNode> _OnNodeFocused = new Subject<FocusNode>();
+    public IObservable<FocusNode> OnNodeFocused => _OnNodeFocused;
 
     IAskedInput input;
     
@@ -28,6 +33,7 @@ public class UIFocusManager : SerializedMonoBehaviour, IFocusManager
         
         focused = initialNode;
         initialNode.Focus();
+        _OnNodeFocused.OnNext(initialNode);
     }
 
     public bool AcceptsInput { get; private set; } = true;
@@ -44,6 +50,7 @@ public class UIFocusManager : SerializedMonoBehaviour, IFocusManager
                 focused.UnFocus();
                 focused = focused.Left;
                 focused.Focus();
+                _OnNodeFocused.OnNext(focused);
             }
         }
         if (input.GetButtonDown(ButtonCode.Right))
@@ -53,6 +60,7 @@ public class UIFocusManager : SerializedMonoBehaviour, IFocusManager
                 focused.UnFocus();
                 focused = focused.Right;
                 focused.Focus();
+                _OnNodeFocused.OnNext(focused);
             }
         }
         if (input.GetButtonDown(ButtonCode.Up))
@@ -62,6 +70,7 @@ public class UIFocusManager : SerializedMonoBehaviour, IFocusManager
                 focused.UnFocus();
                 focused = focused.Up;
                 focused.Focus();
+                _OnNodeFocused.OnNext(focused);
             }
         }
         if (input.GetButtonDown(ButtonCode.Down))
@@ -71,6 +80,7 @@ public class UIFocusManager : SerializedMonoBehaviour, IFocusManager
                 focused.UnFocus();
                 focused = focused.Down;
                 focused.Focus();
+                _OnNodeFocused.OnNext(focused);
             }
         }
     }

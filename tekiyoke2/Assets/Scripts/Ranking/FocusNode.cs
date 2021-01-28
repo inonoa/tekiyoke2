@@ -7,6 +7,7 @@ using UnityEngine;
 public class FocusNode : SerializedMonoBehaviour
 {
     [SerializeField] IFocusManager manager;
+    public IFocusManager Manager => manager;
 
     [SerializeField, ReadOnly]
     BoolReactiveProperty _Focused = new BoolReactiveProperty(false);
