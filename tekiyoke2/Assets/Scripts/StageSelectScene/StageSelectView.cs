@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Config;
 using DG.Tweening;
 using Sirenix.OdinInspector;
+using Sirenix.Utilities;
 using UniRx;
+using UniRx.Triggers;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -12,24 +15,29 @@ using UnityEngine.UI;
 public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
 {   
     #region Objects
+    
     [SerializeField] Image chooseADraftImage;
-    [SerializeField] Image wakuImage;
-    [SerializeField] WakuLightMover wakuLight;
-    [SerializeField] Image[] stageImages;
+    
+    [SerializeField] UIFocusManager focusManager;
+    [SerializeField] FocusNode draft1;
+    [SerializeField] FocusNode draft2;
+    [SerializeField] FocusNode draft3;
+    [SerializeField] FocusNode goToRankings;
+    [SerializeField] FocusNode goToConfig;
+    IReadOnlyList<FocusNode> AllNodes => new[] {draft1, draft2, draft3, goToConfig, goToRankings};
+
+    IReadOnlyList<FocusNode> AllStages => new[] {draft1, draft2, draft3};
+
+    [FormerlySerializedAs("wakuLight")] [SerializeField] WakuMover waku;
+    
     [SerializeField] SoundGroup soundGroup;
 
     [SerializeField] StageSelectBGChanger bgChanger;
 
-    [SerializeField] Button goToRankingsButton;
-    [SerializeField] Button goToConfigButton;
-
     #endregion
 
-    #region States
     enum State{ Entering, Active, Selected }
     State state = State.Entering;
-    EDraft selected = EDraft.Draft1;
-    #endregion
 
     [SerializeField] IAskedInput input;
 
@@ -45,103 +53,153 @@ public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
 
     void Start()
     {
-        goToRankingsButton.onClick.AddListener(() =>
+        foreach (FocusNode node in AllNodes)
         {
-            ExitMain();
-            _OnGoToRankings.OnNext(Unit.Default);
-        });
+            node.OnFocused
+                .Subscribe(_ =>
+                {
+                    waku.ChangeFocus(node.GetComponent<RectTransform>());
+                    soundGroup.Play("Move");
+                })
+                .AddTo(this);
+        }
+
+        draft1.OnFocused.Skip(1).Subscribe(_ => bgChanger.OnChangeStage(0));
+        draft2.OnFocused.Subscribe(_ => bgChanger.OnChangeStage(1));
+        draft3.OnFocused.Subscribe(_ => bgChanger.OnChangeStage(2));
         
-        goToConfigButton.onClick.AddListener(() =>
+        // ステージ選択
+        AllStages.ForEach((stage, i) =>
         {
-            ExitMain();
-            _OnGoToConfig.OnNext(Unit.Default);
+            Selected(stage)
+                .Subscribe(_ => OnDetermine(i))
+                .AddTo(this);
         });
 
-        DOVirtual.DelayedCall(1f, () =>
-        {
-            goToRankingsButton.gameObject.SetActive(true);
-            goToConfigButton.gameObject.SetActive(true);
-        });
+        // ランキング
+        Selected(goToRankings)
+            .Subscribe(_ =>
+            {
+                soundGroup.Play("Enter");
+                ExitMain();
+                DOVirtual.DelayedCall(0.3f, () => _OnGoToRankings.OnNext(Unit.Default));
+            })
+            .AddTo(this);
+
+        // 設定
+        Selected(goToConfig)
+            .Subscribe(_ =>
+            {
+                soundGroup.Play("Enter");
+                ExitMain();
+                DOVirtual.DelayedCall(0.3f, () => _OnGoToConfig.OnNext(Unit.Default));
+            })
+            .AddTo(this);
+    }
+
+    IObservable<Unit> Selected(FocusNode node)
+    {
+        return node.OnSelected.Where(_ => state == State.Active);
+    }
+    
+    void OnDetermine(int index)
+    {
+        state = State.Selected;
+        waku.Stop();
+        soundGroup.Play("Enter");
+        AllStages[index].GetComponent<Image>().DOFade(1, 0.3f).SetEase(Ease.Linear);
         
-        FadeIn();
+        _StageSelected.OnNext(EDraftUtil.ToEDraft(index));
     }
 
     void ExitMain()
     {
-        gameObject.SetActive(false);
-        goToConfigButton.gameObject.SetActive(false);
-        goToRankingsButton.gameObject.SetActive(false);
+        FadeOut();
+        focusManager.OnExit();
     }
 
     public void Enter()
     {
         gameObject.SetActive(true);
-        goToConfigButton.gameObject.SetActive(true);
-        goToRankingsButton.gameObject.SetActive(true);
+        focusManager.OnEnter();
+        goToConfig.gameObject.SetActive(true);
+        goToRankings.gameObject.SetActive(true);
+        
+        FadeIn();
+        focusManager.OnEnter();
     }
 
     void FadeIn()
     {
         const float targetAlpha = 0.8f;
-        const float fadeInDuration = 0.4f;
-        
-        foreach (Image stageImage in stageImages)
+        const float fadeInDuration = 0.3f;
+
+        IEnumerable<Image> stageImages = AllStages.Select(stage => stage.GetComponent<Image>());
+        Image goToRanksImage = goToRankings.GetComponent<Image>();
+        Image goToConfigImage = goToConfig.GetComponent<Image>();
+            
+        // 初期位置に
         {
-            Sequence fadeIn = DOTween.Sequence()
-                //リセット
-                .Append(stageImage.DOFade(0, 0))
-                .Join(stageImage.transform.DOLocalMoveX(100, 0))
-                .Join(chooseADraftImage.DOFade(0, 0))
-                .Join(chooseADraftImage.transform.DOLocalMoveX(100, 0))
-                .Join(wakuImage.DOFade(0, 0))
-                .Join(wakuLight.GetComponent<Image>().DOFade(0, 0))
-                //ステージ名部分
+            AllStages
+                .Select(node => node.GetComponent<Image>())
+                .Concat(new Image[]{chooseADraftImage})
+                .ForEach(img =>
+                {
+                    img.transform.SetLocalX(100);
+                    img.DOFade(0, 0);
+                });
+            goToRanksImage.transform.SetLocalX(-50);
+            goToRanksImage.DOFade(0, 0);
+            goToConfigImage.transform.SetLocalX(270);
+            goToConfigImage.DOFade(0, 0);
+            waku.FadeOut(0, Ease.Linear);
+        }
+
+        // ステージのフェードイン
+        stageImages.ForEach((stageImage, i) =>
+        {
+            const float slideGap = 0.067f;
+            DOTween.Sequence()
+                .AppendInterval(i * slideGap)
                 .Append(stageImage.DOFade(targetAlpha, fadeInDuration).SetEase(Ease.Linear))
-                .Join(stageImage.transform.DOLocalMoveX(0, fadeInDuration).SetEase(Ease.OutCubic))
-                //"Choose a draft"
-                .Join(chooseADraftImage.DOFade(1, fadeInDuration).SetEase(Ease.Linear))
-                .Join(chooseADraftImage.transform.DOLocalMoveX(0, fadeInDuration).SetEase(Ease.OutCubic))
-                //枠
-                .Append(wakuImage.DOFade(1, 0.2f).SetEase(Ease.Linear))
-                .AppendCallback(() => state = State.Active);
-        }
-    }
-
-    void MoveStage(EDraft dst)
-    {
-        selected = dst;
-        float dstY = stageImages[dst.ToInt()].transform.position.y;
-        wakuImage.transform.DOMoveY(dstY, 0.3f);
-        bgChanger.OnChangeStage(selected.ToInt());
-        soundGroup.Play("Move");
-    }
-
-    void OnDetermine()
-    {
-        state = State.Selected;
-        wakuLight.Stop();
-        soundGroup.Play("Enter");
-        stageImages[selected.ToInt()].DOFade(1, 0.3f).SetEase(Ease.Linear);
+                .Join(stageImage.transform.DOLocalMoveX(0, fadeInDuration).SetEase(Ease.OutCubic));
+        });
         
-        _StageSelected.OnNext(selected);
+        // ランキング、設定
+        DOTween.Sequence()
+            .AppendInterval(0.3f)
+            .Append(goToConfigImage.DOFade(targetAlpha, fadeInDuration).SetEase(Ease.Linear))
+            .Join(goToConfigImage.transform.DOLocalMoveX(-100, fadeInDuration).SetRelative().SetEase(Ease.OutCubic))
+            .Join(goToRanksImage.DOFade(targetAlpha, fadeInDuration).SetEase(Ease.Linear))
+            .Join(goToRanksImage.transform.DOLocalMoveX(-100, fadeInDuration).SetRelative().SetEase(Ease.OutCubic));
+            
+        // その他
+        DOTween.Sequence()
+            .AppendInterval(0.5f)
+            .Append(chooseADraftImage.DOFade(1, fadeInDuration).SetEase(Ease.Linear))
+            .Join(chooseADraftImage.transform.DOLocalMoveX(0, fadeInDuration).SetEase(Ease.OutCubic))
+            .AppendCallback(() => waku.transform.position = focusManager.Focused.transform.position)
+            .Append(waku.WakuImage.DOFade(1, 0.2f).SetEase(Ease.Linear))
+            .AppendCallback(() =>
+            {
+                state = State.Active;
+                waku.Start_();
+            });
     }
-    
 
-    void Update()
+    void FadeOut()
     {
-        if(state != State.Active) return;
+        float dur = 0.4f;
+
+        AllNodes.Select(node => node.GetComponent<Image>())
+            .Concat(new Image[]{ waku.WakuImage, chooseADraftImage })
+            .ForEach(img =>
+            {
+                img.DOFade(0, dur).SetEase(Ease.OutCubic);
+                img.transform.DOLocalMoveX(-100, dur).SetRelative().SetEase(Ease.OutCubic);
+            });
+        waku.LightImage.DOFade(0, dur).SetEase(Ease.OutCubic);
         
-        if(input.GetButtonDown(ButtonCode.Up) && selected != EDraft.Draft1)
-        {
-            MoveStage(selected.Minus1());
-        }
-        if(input.GetButtonDown(ButtonCode.Down) && selected != EDraft.Draft3)
-        {
-            MoveStage(selected.Plus1());
-        }
-        if(input.GetButtonDown(ButtonCode.Enter))
-        {
-            OnDetermine();
-        }
+        waku.Stop();
     }
 }

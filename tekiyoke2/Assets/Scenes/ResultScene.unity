@@ -4238,17 +4238,22 @@ PrefabInstance:
     - target: {fileID: 5275064152187380325, guid: 66ec43c415205ef458cdf73f5f3816e9,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 5681193044088466159, guid: 66ec43c415205ef458cdf73f5f3816e9,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 5681193044493302808, guid: 66ec43c415205ef458cdf73f5f3816e9,
         type: 3}
       propertyPath: m_Name
       value: Ranking
+      objectReference: {fileID: 0}
+    - target: {fileID: 5681193044493302808, guid: 66ec43c415205ef458cdf73f5f3816e9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5681193044493302809, guid: 66ec43c415205ef458cdf73f5f3816e9,
         type: 3}

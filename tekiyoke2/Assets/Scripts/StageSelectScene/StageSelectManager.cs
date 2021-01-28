@@ -21,6 +21,8 @@ public class StageSelectManager : SerializedMonoBehaviour
 
         configManager.OnExit.Subscribe(_ => view.Enter());
         rankingsSelectManager.OnExit.Subscribe(_ => view.Enter());
+        
+        view.Enter();
     }
 }
 

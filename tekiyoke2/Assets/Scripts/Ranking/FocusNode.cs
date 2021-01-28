@@ -1,29 +1,48 @@
 using System;
 using Sirenix.OdinInspector;
 using UniRx;
+using UniRx.Triggers;
 using UnityEngine;
 
-public class FocusNode : MonoBehaviour
+public class FocusNode : SerializedMonoBehaviour
 {
-    public IObservable<Unit> OnFocused => _OnFocused;
-    Subject<Unit> _OnFocused = new Subject<Unit>();
-    
-    public IObservable<Unit> OnUnFocused => _OnUnFocused;
-    Subject<Unit> _OnUnFocused = new Subject<Unit>();
+    [SerializeField] IFocusManager manager;
+    public IFocusManager Manager => manager;
 
-    [field: SerializeField, ReadOnly, LabelText(nameof(Focused))]
-    public bool Focused { get; private set; } = false;
+    [SerializeField, ReadOnly]
+    BoolReactiveProperty _Focused = new BoolReactiveProperty(false);
+    public bool Focused => _Focused.Value;
+
+    public IObservable<Unit> OnFocused
+        => _Focused
+            .SkipLatestValueOnSubscribe()
+            .Where(focused => focused)
+            .Select(_ => Unit.Default);
+
+    public IObservable<Unit> OnUnFocused
+        => _Focused
+            .SkipLatestValueOnSubscribe()
+            .Where(focused => !focused)
+            .Select(_ => Unit.Default);
+
+    public IObservable<Unit> OnSelected { get; private set; }
+
+    void Awake()
+    {
+        OnSelected = this.UpdateAsObservable()
+            .Where(_ => manager.SelectButtonDown())
+            .Where(_ => manager.AcceptsInput)
+            .Where(_ => this.Focused);
+    }
 
     public void Focus()
     {
-        Focused = true;
-        _OnFocused.OnNext(Unit.Default);
+        _Focused.Value = true;
     }
 
     public void UnFocus()
     {
-        Focused = false;
-        _OnUnFocused.OnNext(Unit.Default);
+        _Focused.Value = false;
     }
 
     [field: SerializeField, LabelText(nameof(Left))]
@@ -37,4 +56,10 @@ public class FocusNode : MonoBehaviour
     
     [field: SerializeField, LabelText(nameof(Down))]
     public FocusNode Down { get; private set; }
+}
+
+public interface IFocusManager
+{
+    bool AcceptsInput { get; }
+    bool SelectButtonDown();
 }

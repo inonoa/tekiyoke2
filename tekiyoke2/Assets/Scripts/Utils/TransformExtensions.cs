@@ -1,4 +1,5 @@
 
+using System.Diagnostics;
 using DG.Tweening;
 using UnityEngine;
 
@@ -43,6 +44,21 @@ public static class TransformExtensions
         Vector3 tmp = transform.localPosition;
         tmp.z = z;
         transform.localPosition = tmp;
+    }
+
+    public static void AddLocalX(this Transform transform, float dx)
+    {
+        transform.localPosition += new Vector3(dx, 0, 0);
+    }
+    
+    public static void AddLocalY(this Transform transform, float dy)
+    {
+        transform.localPosition += new Vector3(0, dy, 0);
+    }
+    
+    public static void AddLocalZ(this Transform transform, float dz)
+    {
+        transform.localPosition += new Vector3(0, 0, dz);
     }
 
     public static Tween DOMyRotate(this Transform transform, float target, float duration, bool clockwise)

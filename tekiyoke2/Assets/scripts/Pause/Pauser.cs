@@ -42,7 +42,7 @@ public class Pauser : MonoBehaviour
         _view    = pauseMaster.GetComponent<PauseView>();
         soundGroup = GetComponent<SoundGroup>();
 
-        _view.pauseEnd += PauseEnded;
+        _view.OnPauseEnd.Subscribe(_ => PauseEnded());
 
         input = ServicesLocator.Instance.GetInput();
     }
@@ -70,8 +70,9 @@ public class Pauser : MonoBehaviour
 
             gameMaster.SetActive(false);
             pauseMaster.SetActive(true);
+            _view.Enter();
 
-            //フラグ？書き換え
+                //フラグ？書き換え
             inPause = true;
         });
 
@@ -80,7 +81,7 @@ public class Pauser : MonoBehaviour
         _OnPause.OnNext(Unit.Default);
     }
 
-    public void PauseEnded(System.Object sender, EventArgs e)
+    void PauseEnded()
     {
         gameMaster.SetActive(true);
         pauseMaster.SetActive(false);

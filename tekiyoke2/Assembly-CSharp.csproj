@@ -63,6 +63,8 @@
      <Compile Include="Assets\Scripts\CheckPoint\CheckPointsManager.cs" />
      <Compile Include="Assets\Scripts\Config\ConfigManager.cs" />
      <Compile Include="Assets\Scripts\Config\ConfigView.cs" />
+     <Compile Include="Assets\Scripts\Config\CursorPositionHolder.cs" />
+     <Compile Include="Assets\Scripts\Config\FocusableSlider.cs" />
      <Compile Include="Assets\Scripts\Debug\StageDebugger.cs" />
      <Compile Include="Assets\Scripts\EDraft.cs" />
      <Compile Include="Assets\Scripts\Enemies\Collider2Wall.cs" />
@@ -208,7 +210,7 @@
      <Compile Include="Assets\Scripts\StageSelectScene\StageSelectBGChanger.cs" />
      <Compile Include="Assets\Scripts\StageSelectScene\StageSelectManager.cs" />
      <Compile Include="Assets\Scripts\StageSelectScene\StageSelectView.cs" />
-     <Compile Include="Assets\Scripts\StageSelectScene\WakuLightMover.cs" />
+     <Compile Include="Assets\Scripts\StageSelectScene\WakuMover.cs" />
      <Compile Include="Assets\Scripts\Steamworks.NET\SteamManager.cs" />
      <Compile Include="Assets\Scripts\TagNames.cs" />
      <Compile Include="Assets\Scripts\TitleScene\AnyKeyToStart.cs" />
@@ -216,6 +218,7 @@
      <Compile Include="Assets\Scripts\TitleScene\TitleLogo.cs" />
      <Compile Include="Assets\Scripts\TitleScene\TitleSceneManager.cs" />
      <Compile Include="Assets\Scripts\Utils\ArrayForEach.cs" />
+     <Compile Include="Assets\Scripts\Utils\ColorExtensions.cs" />
      <Compile Include="Assets\Scripts\Utils\EnumArray.cs" />
      <Compile Include="Assets\Scripts\Utils\MaterialTween.cs" />
      <Compile Include="Assets\Scripts\Utils\MyMath.cs" />
@@ -227,35 +230,56 @@
      <Compile Include="Assets\Scripts\Warp\WarpController.cs" />
      <Compile Include="Assets\Scripts\Warp\WarpEvent.cs" />
      <Compile Include="Assets\Scripts\ZatsuTest.cs" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\Materials\PostEffects\BlurEdge2.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\Materials\UI\TimeText.shader" />
      <None Include="Assets\Materials\Hero.shader" />
      <None Include="Assets\Sprites\BGs\MapObjs\EdgeLight.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
      <None Include="Assets\Materials\Glitch.shader" />
      <None Include="Assets\Materials\PostEffects\Aberration.shader" />
      <None Include="Assets\Materials\Light.shader" />
      <None Include="Assets\Materials\RespawnPosition.shader" />
      <None Include="Assets\Sprites\BGs\MapObjs\Idouyuka.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
      <None Include="Assets\Demigiant\readme_DOTweenPro.txt" />
      <None Include="Assets\Materials\DPinEnemy.shader" />
      <None Include="Assets\Materials\MapObjs\Bane.shader" />
      <None Include="Assets\Materials\UI\LogoDissolve.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
      <None Include="Assets\Materials\PostEffects\Vignette.shader" />
      <None Include="Assets\ScriptTemplates\81-C# NewState-NewBehaviourScript.cs.txt" />
      <None Include="Assets\Materials\DPOverlay.shader" />
      <None Include="Assets\Materials\MapObjs\Idouyuka.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
+     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
      <None Include="Assets\Materials\DefaultShader.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
+     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
      <None Include="Assets\Materials\FogBlur.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
      <None Include="Assets\Materials\UI\RankNode.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
+     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
      <None Include="Assets\Demigiant\DemiLib\Core\DemiLib.xml" />
      <None Include="Assets\Materials\PostEffects\Noise.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
      <None Include="Assets\Demigiant\DOTween\readme.txt" />
      <None Include="Assets\Materials\PostEffects\Draft.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
      <None Include="Assets\Materials\Blur.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
      <None Include="Assets\Materials\PostEffects\ColorReversed.shader" />
+     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
      <None Include="Assets\Sprites\BGs\MapObjs\Bane.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
      <None Include="Assets\Materials\MapObjs\EdgeLight.shader" />
      <None Include="Assets\Materials\PostEffects\BlurEdge1.shader" />
+     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
@@ -271,6 +295,9 @@
  <Reference Include="UnityEngine.Advertisements">
  <HintPath>C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Library/ScriptAssemblies/UnityEngine.Advertisements.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.Recorder.Editor">
+ <HintPath>C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Library/ScriptAssemblies/Unity.Recorder.Editor.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.Purchasing">
  <HintPath>C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Library/ScriptAssemblies/UnityEngine.Purchasing.dll</HintPath>
  </Reference>
@@ -279,6 +306,9 @@
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Recorder">
+ <HintPath>C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Library/ScriptAssemblies/Unity.Recorder.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
@@ -297,6 +327,9 @@
  </Reference>
  <Reference Include="Unity.Rider.Editor">
  <HintPath>C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Recorder.Base">
+ <HintPath>C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Library/ScriptAssemblies/Unity.Recorder.Base.dll</HintPath>
  </Reference>
  <Reference Include="Unity.2D.Sprite.Editor">
  <HintPath>C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>

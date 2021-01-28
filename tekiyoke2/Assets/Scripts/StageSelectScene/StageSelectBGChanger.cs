@@ -11,11 +11,11 @@ public class StageSelectBGChanger : MonoBehaviour
 
     [SerializeField] float changeDuration = 0.4f;
 
-    public void OnChangeStage(int stage)
+    public void OnChangeStage(int stageIndex)
     {
-        Debug.Assert(stage == 0 || stage == 1 || stage == 2);
+        Debug.Assert(stageIndex == 0 || stageIndex == 1 || stageIndex == 2);
 
-        bgbg.sprite = bgSprites[stage];
+        bgbg.sprite = bgSprites[stageIndex];
         
         bg.DOFade(0, changeDuration)
             .SetEase(Ease.Linear)
