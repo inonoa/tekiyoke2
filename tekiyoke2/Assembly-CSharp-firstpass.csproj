@@ -251,6 +251,15 @@
  <Reference Include="com.unity.multiplayer-hlapi.Runtime">
  <HintPath>C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Runtime.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.Recorder.Editor">
+ <HintPath>C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Library/ScriptAssemblies/Unity.Recorder.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Recorder">
+ <HintPath>C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Library/ScriptAssemblies/Unity.Recorder.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Recorder.Base">
+ <HintPath>C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Library/ScriptAssemblies/Unity.Recorder.Base.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
  </Reference>

@@ -747,6 +747,8 @@
           <e p="Config" t="Include">
             <e p="ConfigManager.cs" t="Include" />
             <e p="ConfigView.cs" t="Include" />
+            <e p="CursorPositionHolder.cs" t="Include" />
+            <e p="FocusableSlider.cs" t="Include" />
           </e>
           <e p="Debug" t="Include">
             <e p="StageDebugger.cs" t="Include" />
@@ -943,7 +945,7 @@
             <e p="StageSelectBGChanger.cs" t="Include" />
             <e p="StageSelectManager.cs" t="Include" />
             <e p="StageSelectView.cs" t="Include" />
-            <e p="WakuLightMover.cs" t="Include" />
+            <e p="WakuMover.cs" t="Include" />
           </e>
           <e p="Steamworks.NET" t="Include">
             <e p="SteamManager.cs" t="Include" />
