@@ -20,12 +20,12 @@ public class FocusableSlider : SerializedMonoBehaviour
         {
             if (input.GetButton(ButtonCode.Right))
             {
-                slider.value += speed;
+                slider.value += speed * Time.deltaTime;
             }
 
             if (input.GetButton(ButtonCode.Left))
             {
-                slider.value -= speed;
+                slider.value -= speed * Time.deltaTime;
             }
         }
     }

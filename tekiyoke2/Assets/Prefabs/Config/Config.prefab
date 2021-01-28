@@ -253,7 +253,7 @@ MonoBehaviour:
       Data: 
   slider: {fileID: 6456377775149720451}
   node: {fileID: 4332638457967262170}
-  speed: 0.003
+  speed: 0.6
 --- !u!1 &1043250778548344446
 GameObject:
   m_ObjectHideFlags: 0
@@ -611,7 +611,7 @@ MonoBehaviour:
       Data: 
   slider: {fileID: 1043250777798641786}
   node: {fileID: 3698537521814776961}
-  speed: 0.03
+  speed: 0.6
 --- !u!1 &1043250779510874566
 GameObject:
   m_ObjectHideFlags: 0

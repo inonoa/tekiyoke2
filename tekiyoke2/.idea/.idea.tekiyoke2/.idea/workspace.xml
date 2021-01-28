@@ -26,13 +26,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c97243fa-09da-4818-b4c1-b9937458f378" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembly-CSharp-firstpass.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp-firstpass.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Config/Config.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Config/Config.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -248,14 +242,7 @@
       <workItem from="1611406374960" duration="4155000" />
       <workItem from="1611445195893" duration="2430000" />
       <workItem from="1611506363903" duration="747000" />
-      <workItem from="1611688502398" duration="48543000" />
-    </task>
-    <task id="LOCAL-00035" summary="フォント入れた">
-      <created>1607055245451</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1607055245451</updated>
+      <workItem from="1611688502398" duration="49181000" />
     </task>
     <task id="LOCAL-00036" summary="キーボードからスクロールできる">
       <created>1607092655992</created>
@@ -593,7 +580,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611795401097</updated>
     </task>
-    <option name="localTasksCounter" value="84" />
+    <task id="LOCAL-00084" summary="Unity Recorder入れた">
+      <created>1611796321081</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1611796321081</updated>
+    </task>
+    <option name="localTasksCounter" value="85" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -626,7 +620,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="怒涛の数値調整とSkyFishの振り向きの試行錯誤" />
     <MESSAGE value="D1縮めた" />
     <MESSAGE value="移動床の移動を時間基準にした(同期させやすくなった)" />
     <MESSAGE value="チェックポイント整理" />
@@ -651,7 +644,8 @@
     <MESSAGE value="ノードが選択を検出したり、ちょっとフェードインを速くしたり" />
     <MESSAGE value="RankingsSelectをいい感じの見た目に(大半StageSelectと共通)" />
     <MESSAGE value="設定画面をキーボードだけでいい感じにできるようになった" />
-    <option name="LAST_COMMIT_MESSAGE" value="設定画面をキーボードだけでいい感じにできるようになった" />
+    <MESSAGE value="Unity Recorder入れた" />
+    <option name="LAST_COMMIT_MESSAGE" value="Unity Recorder入れた" />
   </component>
   <component name="WindowStateProjectService">
     <state x="709" y="345" key="#Notifications" timestamp="1605532697581">
