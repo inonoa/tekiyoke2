@@ -26,18 +26,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c97243fa-09da-4818-b4c1-b9937458f378" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Utils/ColorExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Utils/ColorExtensions.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembly-CSharp-firstpass.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp-firstpass.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/PauseMaster.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/PauseMaster.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/PauserDepauserBase.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/PauserDepauserBase.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Draft1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Draft1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Config/FocusableSlider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Config/FocusableSlider.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Pause/PauseView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Pause/PauseView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utils/TransformExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utils/TransformExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/scripts/Pause/Pauser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/scripts/Pause/Pauser.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,6 +60,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/17/acb49825/Tween.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/f9/97e3c724/TweenParams.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/17C1E98F-9A78-42E3-8BE0-5E60BF0530E8/37/63a07319/02000006.il" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/Pause/PauseView.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/d7/e0b450ec/Resources.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Prefabs/PauserDepauserBase.prefab" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/MaskableGraphic.cs" root0="SKIP_HIGHLIGHTING" />
@@ -130,11 +123,11 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Config/CursorPositionHolder.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ranking/FocusNode.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Config/ConfigView.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Config/FocusableSlider.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Utils/TransformExtensions.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Utils/ColorExtensions.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Pause/Pauser.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Pause/PauseView.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Config/FocusableSlider.cs" />
       </list>
     </option>
   </component>
@@ -225,14 +218,7 @@
       <workItem from="1611445195893" duration="2430000" />
       <workItem from="1611506363903" duration="747000" />
       <workItem from="1611688502398" duration="50319000" />
-      <workItem from="1611856540579" duration="7974000" />
-    </task>
-    <task id="LOCAL-00038" summary="大体全部できた、いつのまにかクソデカコミットになっとる……">
-      <created>1607165314937</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1607165314937</updated>
+      <workItem from="1611856540579" duration="9968000" />
     </task>
     <task id="LOCAL-00039" summary="ScrollViewの要素生成をRankingScrollViewControllerに移行">
       <created>1607180315402</created>
@@ -570,7 +556,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611856784560</updated>
     </task>
-    <option name="localTasksCounter" value="87" />
+    <task id="LOCAL-00087" summary="ポーズ画面のリファクタリング…………？">
+      <created>1611868797292</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1611868797292</updated>
+    </task>
+    <option name="localTasksCounter" value="88" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -603,7 +596,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="チェックポイント整理" />
     <MESSAGE value="1分強ぐらいでクリアできるさいずになった" />
     <MESSAGE value="Steamworks.NET入れた" />
     <MESSAGE value="ランキング表示するテストできた" />
@@ -628,7 +620,8 @@
     <MESSAGE value="Unity Recorder入れた" />
     <MESSAGE value="スライダーの移動速度deltaTime基準にしてなかったね…………" />
     <MESSAGE value="UI類のPrefabのフォルダ分け" />
-    <option name="LAST_COMMIT_MESSAGE" value="UI類のPrefabのフォルダ分け" />
+    <MESSAGE value="ポーズ画面のリファクタリング…………？" />
+    <option name="LAST_COMMIT_MESSAGE" value="ポーズ画面のリファクタリング…………？" />
   </component>
   <component name="WindowStateProjectService">
     <state x="709" y="345" key="#Notifications" timestamp="1605532697581">

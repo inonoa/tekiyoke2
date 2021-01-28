@@ -70,13 +70,16 @@ public class PauseView : MonoBehaviour
         goToConfig.OnSelected.Subscribe(_ =>
         {
             soundGroup.Play("Enter");
-            // config.Enter();
+            Hide();
+            config.Enter();
         });
         quit.OnSelected.Subscribe(_ =>
         {
             soundGroup.Play("Enter");
             SceneTransition.Start2ChangeScene("StageChoiceScene", SceneTransition.TransitionType.Default);
         });
+
+        config.OnExit.Subscribe(_ => Enter());
     }
 
     public void Enter()
@@ -102,6 +105,28 @@ public class PauseView : MonoBehaviour
                     .DOLocalMoveX(defaultX, dur)
                     .SetEase(Ease.OutCubic);
             });
+            DOVirtual.DelayedCall(delay + dur, () => focusManager.OnEnter());
+        });
+    }
+
+    void Hide()
+    {
+        focusManager.OnExit();
+        
+        const float dur = 0.4f;
+        const float dist = 100;
+        
+        new[] {(draftName, draftNameX), (options, optionsX), (pausePause, pausePauseX), (mark, markX)}
+        .ForEach(img_defX =>
+        {
+            (Image img, float defaultX) = img_defX;
+            
+            img
+                .DOFade(0, dur)
+                .SetEase(Ease.OutCubic);
+            img.transform
+                .DOLocalMoveX(defaultX + ((img == pausePause) ? dist : -dist), dur)
+                .SetEase(Ease.OutCubic);
         });
     }
 }
