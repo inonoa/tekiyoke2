@@ -9,6 +9,7 @@ public class KeyboardSettings
 {
     [SerializeField, ListDrawerSettings(IsReadOnly = true)]
     ButtonToKeys[] buttonsToKeys;
+    public ButtonToKeys[] ButtonsToKeys => buttonsToKeys;
 
     public IReadOnlyList<KeyCode> this[ButtonCode button]
     {

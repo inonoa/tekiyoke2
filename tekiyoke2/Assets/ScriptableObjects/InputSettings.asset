@@ -15,30 +15,30 @@ MonoBehaviour:
   keyboardSettings:
     buttonsToKeys:
     - button: 0
-      keys: 
+      keys: 1301000064000000
     - button: 1
-      keys: 
+      keys: 1401000061000000
     - button: 2
-      keys: 
+      keys: 1101000077000000
     - button: 3
-      keys: 
+      keys: 1201000073000000
     - button: 4
-      keys: 
+      keys: 770000001101000069000000
     - button: 5
-      keys: 
+      keys: 6a000000
     - button: 6
-      keys: 
+      keys: 6c000000
     - button: 7
-      keys: 
+      keys: 6a0000006c000000
     - button: 8
-      keys: 
+      keys: 300100006b000000
     - button: 9
       keys: 
     - button: 10
-      keys: 
+      keys: 1b00000020000000
     - button: 11
-      keys: 
+      keys: 0d0000007a000000
     - button: 12
-      keys: 
+      keys: 0800000078000000
     - button: 13
-      keys: 
+      keys: 74000000

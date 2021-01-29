@@ -26,13 +26,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c97243fa-09da-4818-b4c1-b9937458f378" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Input/InputSettings.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Input/InputSettings.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Input/KeyboardSettings.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Input/KeyboardSettings.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Input/NormalInput.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Input/NormalInput.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/PauserDepauserBase.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/PauserDepauserBase.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Draft1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Draft1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/InputSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/InputSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Input/InputSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Input/InputSettings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Input/KeyboardSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Input/KeyboardSettings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/scripts/Input/IAskedInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/scripts/Input/IAskedInput.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +86,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Utils/SimpleAnim.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/KoneTsuchi.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/SkyFish.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Hero/Physics/HeroPhysics.cs" />
@@ -111,7 +114,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Hero/Actions/States/StateJump.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Hero/Actions/HeroTransitions.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPTest.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Hero/HeroMover.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Parameters/HeroParameters.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Hero/Actions/States/StateKick.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/EDraft.cs" />
@@ -130,9 +132,11 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Pause/Pauser.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Pause/PauseView.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Config/FocusableSlider.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Input/IAskedInput.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Input/InputSettings.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Input/KeyboardSettings.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Input/NormalInput.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Hero/HeroMover.cs" />
       </list>
     </option>
   </component>
@@ -224,13 +228,6 @@
       <workItem from="1611506363903" duration="747000" />
       <workItem from="1611688502398" duration="50319000" />
       <workItem from="1611856540579" duration="10894000" />
-    </task>
-    <task id="LOCAL-00040" summary="入力抽象化">
-      <created>1607182706328</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1607182706328</updated>
     </task>
     <task id="LOCAL-00041" summary="無の敵を作った">
       <created>1607258536598</created>
@@ -568,7 +565,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611871065343</updated>
     </task>
-    <option name="localTasksCounter" value="89" />
+    <task id="LOCAL-00089" summary="InputSettings">
+      <created>1611893656971</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1611893656971</updated>
+    </task>
+    <option name="localTasksCounter" value="90" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -601,7 +605,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Steamworks.NET入れた" />
     <MESSAGE value="ランキング表示するテストできた" />
     <MESSAGE value="SteamRankingSenderGetterのGet部分" />
     <MESSAGE value="Send部分" />
@@ -626,7 +629,8 @@
     <MESSAGE value="UI類のPrefabのフォルダ分け" />
     <MESSAGE value="ポーズ画面のリファクタリング…………？" />
     <MESSAGE value="ポーズ画面から設定画面に行ける" />
-    <option name="LAST_COMMIT_MESSAGE" value="ポーズ画面から設定画面に行ける" />
+    <MESSAGE value="InputSettings" />
+    <option name="LAST_COMMIT_MESSAGE" value="InputSettings" />
   </component>
   <component name="WindowStateProjectService">
     <state x="709" y="345" key="#Notifications" timestamp="1605532697581">
@@ -702,10 +706,10 @@
     </state>
     <state x="173" y="92" key="MergeDialog/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1610685537996" />
     <state x="184" y="86" key="MergeDialog/0.0.1920.1040/-2736.0.1368.872@0.0.1920.1040" timestamp="1606409865233" />
-    <state x="796" y="221" key="RiderGenerateDialog" timestamp="1610758849668">
+    <state x="796" y="221" key="RiderGenerateDialog" timestamp="1611893779006">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="796" y="221" key="RiderGenerateDialog/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1610758849668" />
+    <state x="796" y="221" key="RiderGenerateDialog/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611893779006" />
     <state x="796" y="221" key="RiderGenerateDialog/0.0.1920.1040/-2736.0.1368.872@0.0.1920.1040" timestamp="1606330025401" />
     <state x="745" y="230" key="RollbackChangesDialog" timestamp="1611890956261">
       <screen x="0" y="0" width="1920" height="1040" />

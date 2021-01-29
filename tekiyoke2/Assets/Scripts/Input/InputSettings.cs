@@ -5,4 +5,5 @@ using UnityEngine;
 public class InputSettings : ScriptableObject
 {
     [SerializeField] KeyboardSettings keyboardSettings;
+    public KeyboardSettings KeyboardSettings => keyboardSettings;
 }
