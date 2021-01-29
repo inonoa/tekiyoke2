@@ -843,6 +843,8 @@
           <e p="Input" t="Include">
             <e p="IAskedInput.cs" t="Include" />
             <e p="InputManager.cs" t="Include" />
+            <e p="InputSettings.cs" t="Include" />
+            <e p="KeyboardSettings.cs" t="Include" />
           </e>
           <e p="IReusable.cs" t="Include" />
           <e p="MainManagers" t="Include">

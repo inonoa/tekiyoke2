@@ -131,6 +131,8 @@
      <Compile Include="Assets\Scripts\IReusable.cs" />
      <Compile Include="Assets\Scripts\Input\IAskedInput.cs" />
      <Compile Include="Assets\Scripts\Input\InputManager.cs" />
+     <Compile Include="Assets\Scripts\Input\InputSettings.cs" />
+     <Compile Include="Assets\Scripts\Input\KeyboardSettings.cs" />
      <Compile Include="Assets\Scripts\MainManagers\BGMover.cs" />
      <Compile Include="Assets\Scripts\MainManagers\Camera\AfterEffects.cs" />
      <Compile Include="Assets\Scripts\MainManagers\Camera\CameraController.cs" />
