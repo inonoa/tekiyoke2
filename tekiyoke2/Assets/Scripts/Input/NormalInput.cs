@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -22,7 +24,6 @@ public class NormalInput : MonoBehaviour, IAskedInput
 
     public bool AnyButtonDown()
     {
-        return settings.KeyboardSettings.ButtonsToKeys
-            .Any(b2ks => GetButtonDown(b2ks.Button));
+        return settings.AllKeys().Any(Input.GetKeyDown);
     }
 }
