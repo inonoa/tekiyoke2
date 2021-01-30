@@ -11,7 +11,7 @@ using Sirenix.OdinInspector;
 
 
 ///<summary>最終的には各機能をまとめる役割と渉外担当みたいな役割とだけを持たせたい</summary>
-public class HeroMover : MonoBehaviour
+public class HeroMover : SerializedMonoBehaviour
 {
 
     #region 操作・移動関係
@@ -30,19 +30,19 @@ public class HeroMover : MonoBehaviour
 
 
     ///<summary>実際に移動している方向(ワープした場合は知らん) (EyeToright, KeyDiretion参照)</summary>
-    public HeroVelocity velocity = new HeroVelocity(0,0);
+    [NonSerialized] public HeroVelocity velocity = new HeroVelocity(0,0);
 
     ///<summary>過去1000フレーム分の位置を記録</summary>
-    public readonly RingBuffer<Vector3> pastPoss = new RingBuffer<Vector3>(new Vector3());
+    [NonSerialized] public readonly RingBuffer<Vector3> pastPoss = new RingBuffer<Vector3>(new Vector3());
 
     ///<summary>何も障害などが無ければ物理演算後にはこの位置にいるはず</summary>
-    public (float x, float y) expectedPosition;
+    [NonSerialized] public (float x, float y) expectedPosition;
 
     ///<summary>移動床とかの外部からの移動をつかさどる？</summary>
-    public Dictionary<MonoBehaviour, Vector2> additionalVelocities = new Dictionary<MonoBehaviour, Vector2>();
+    [NonSerialized] public Dictionary<MonoBehaviour, Vector2> additionalVelocities = new Dictionary<MonoBehaviour, Vector2>();
 
     ///<summary>余韻と言うか一定時間引きずり続けるスピードをアレする</summary>
-    public List<ISpeedResidue> speedResidues = new List<ISpeedResidue>();
+    [NonSerialized] public List<ISpeedResidue> speedResidues = new List<ISpeedResidue>();
     
     [field: RenameField("Key Direction")]     [field: ReadOnly] [field: SerializeField]
     public int KeyDirection{ get; private set; } = 0;
@@ -75,8 +75,8 @@ public class HeroMover : MonoBehaviour
     {
         if(!CanMove) return;
 
-        bool left  = Input.GetButton(ButtonCode.Left);
-        bool right = Input.GetButton(ButtonCode.Right);
+        bool left  = input.GetButton(ButtonCode.Left);
+        bool right = input.GetButton(ButtonCode.Right);
         
         if(     !rightLast && right && KeyDirection != 1)
         {
@@ -148,7 +148,8 @@ public class HeroMover : MonoBehaviour
     [FoldoutGroup(COMP), SerializeField] JumpCounter _JumpCounter;
     public bool CanJumpInAir => _JumpCounter.CanJumpInAir;
     SavePositionManager savePositionManager;
-    public IAskedInput Input{ get; private set; }
+    
+    [SerializeField] IAskedInput input;
 
     [FoldoutGroup(COMP), SerializeField] GetDPinEnemy getDPinEnemy;
     public GetDPinEnemy GetDPinEnemy => getDPinEnemy;
@@ -294,7 +295,6 @@ public class HeroMover : MonoBehaviour
     {
         CmrCntr = CameraController.CurrentCamera;
         TimeManager = TimeManager.Current;
-        Input   = ServicesLocator.Instance.GetInput();
         chishibuki = GameUIManager.CurrentInstance.Chishibuki;
         SpriteRenderer      = GetComponent<SpriteRenderer>();
         Rigidbody           = GetComponent<Rigidbody2D>();
@@ -304,7 +304,7 @@ public class HeroMover : MonoBehaviour
         JetManager          = GetComponent<JetManager>();
         draftModeManager    = GetComponent<DraftModeManager>();
 
-        JetManager.Init(Input, this);
+        JetManager.Init(input, this);
 
         currentState = new StateWait();
         currentState.Enter(this);
@@ -361,11 +361,7 @@ public class HeroMover : MonoBehaviour
 
             if(CanMove)
             {
-
-                // なんとなく入力をまとめて置きたくてここにしているがあまり意味がないような…
-                // if(Input.GetNagaoshiFrames(ButtonCode.Save) == 70) savePositionManager.Try2Save();
-
-                if(Input.GetButtonDown(ButtonCode.Zone))
+                if(input.GetButtonDown(ButtonCode.Zone))
                 {
                     if(draftModeManager.InDraftMode) draftModeManager.TryExit();
                     else                             draftModeManager.TryEnter();
@@ -377,7 +373,7 @@ public class HeroMover : MonoBehaviour
 
                 UpdateMoveDirection();
 
-                HeroState next = currentState.HandleInput(this, Input);
+                HeroState next = currentState.HandleInput(this, input);
                 if(next != currentState)
                 {
                     ChangeState(next);

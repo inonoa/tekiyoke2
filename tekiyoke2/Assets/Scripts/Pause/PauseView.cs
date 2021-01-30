@@ -47,11 +47,15 @@ public class PauseView : MonoBehaviour
     
     IAskedInput input;
 
+    public void Init(IAskedInput input)
+    {
+        this.input = input;
+    }
+
     void Start()
     {
         markRTF = mark.GetComponent<RectTransform>();
         soundGroup = GetComponent<SoundGroup>();
-        input = ServicesLocator.Instance.GetInput();
 
         focusManager.OnNodeFocused.Skip(1).Subscribe(node =>
         {

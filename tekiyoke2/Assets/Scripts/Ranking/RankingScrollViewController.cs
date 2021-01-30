@@ -7,7 +7,7 @@ using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class RankingScrollViewController : MonoBehaviour
+public class RankingScrollViewController : SerializedMonoBehaviour
 {
     [SerializeField] ScrollRect scrollRect;
     [SerializeField] FocusNode focusNode;
@@ -21,7 +21,7 @@ public class RankingScrollViewController : MonoBehaviour
 
     [SerializeField] float tiltTan = -4.18f;
 
-    IAskedInput input;
+    [SerializeField] IAskedInput input;
 
     public void Init(IObservable<IReadOnlyList<RankDatum>> datums)
     {
@@ -120,10 +120,5 @@ public class RankingScrollViewController : MonoBehaviour
                 scrollRect.velocity = Vector2.zero;
             }
         }
-    }
-
-    void Start()
-    {
-        input = InputManager.Instance;
     }
 }

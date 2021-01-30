@@ -843,7 +843,6 @@
           <e p="Input" t="Include">
             <e p="ButonToKeys.cs" t="Include" />
             <e p="IAskedInput.cs" t="Include" />
-            <e p="InputManager.cs" t="Include" />
             <e p="InputSettings.cs" t="Include" />
             <e p="KeyboardSettings.cs" t="Include" />
             <e p="NormalInput.cs" t="Include" />
@@ -863,7 +862,6 @@
             <e p="HeroTimeExtension.cs" t="Include" />
             <e p="MemoryOverDeath.cs" t="Include" />
             <e p="PlayFabLogin.cs" t="Include" />
-            <e p="ServicesLocator.cs" t="Include" />
             <e p="TimeLogger.cs" t="Include" />
             <e p="TimeManager.cs" t="Include" />
             <e p="Tokitome.cs" t="Include" />

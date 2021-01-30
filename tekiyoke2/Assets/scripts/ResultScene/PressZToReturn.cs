@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using Sirenix.OdinInspector;
 
-public class PressZToReturn : MonoBehaviour
+public class PressZToReturn : SerializedMonoBehaviour
 {
-    IAskedInput input;
+    [SerializeField] IAskedInput input;
     [SerializeField] CursorMove cursor;
     bool canPress = false;
-    void Start(){
+    void Start()
+    {
         DOVirtual.DelayedCall(1f, () => canPress = true);
-        input = ServicesLocator.Instance.GetInput();
     }
 
     void Update()

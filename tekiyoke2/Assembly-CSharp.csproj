@@ -131,7 +131,6 @@
      <Compile Include="Assets\Scripts\IReusable.cs" />
      <Compile Include="Assets\Scripts\Input\ButonToKeys.cs" />
      <Compile Include="Assets\Scripts\Input\IAskedInput.cs" />
-     <Compile Include="Assets\Scripts\Input\InputManager.cs" />
      <Compile Include="Assets\Scripts\Input\InputSettings.cs" />
      <Compile Include="Assets\Scripts\Input\KeyboardSettings.cs" />
      <Compile Include="Assets\Scripts\Input\NormalInput.cs" />
@@ -146,7 +145,6 @@
      <Compile Include="Assets\Scripts\MainManagers\HeroTimeExtension.cs" />
      <Compile Include="Assets\Scripts\MainManagers\MemoryOverDeath.cs" />
      <Compile Include="Assets\Scripts\MainManagers\PlayFabLogin.cs" />
-     <Compile Include="Assets\Scripts\MainManagers\ServicesLocator.cs" />
      <Compile Include="Assets\Scripts\MainManagers\TimeLogger.cs" />
      <Compile Include="Assets\Scripts\MainManagers\TimeManager.cs" />
      <Compile Include="Assets\Scripts\MainManagers\Tokitome.cs" />

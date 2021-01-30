@@ -84,16 +84,7 @@ public class RankingsSelectManager : SerializedMonoBehaviour
         new[] {draft1, draft2, draft3, allDrafts, exit}
         .ForEach(node =>
         {
-            if (node == draft1)
-            {
-                node.OnFocused
-                    .Skip(1)
-                    .Subscribe(_ => OnFocused(node));
-            }
-            else
-            {
-                node.OnFocused.Subscribe(_ => OnFocused(node));
-            }
+            node.OnFocused.Subscribe(_ => OnFocused(node));
         });
 
         void OnFocused(FocusNode node)

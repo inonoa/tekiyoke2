@@ -2,9 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Sirenix.OdinInspector;
+using UnityEditor;
 using UnityEngine;
 
-public class NormalInput : MonoBehaviour, IAskedInput
+[CreateAssetMenu(fileName = "NormalInput", menuName = "Scriptable Object/NormalInput", order = 0)]
+public class NormalInput : ScriptableObject, IAskedInput
 {
     [SerializeField] InputSettings settings;
     
@@ -26,12 +28,5 @@ public class NormalInput : MonoBehaviour, IAskedInput
     public bool AnyButtonDown()
     {
         return settings.AllKeys().Any(Input.GetKeyDown);
-    }
-
-    [SerializeField, ReadOnly, ListDrawerSettings(Expanded = true)] KeyCode[] currentKeys;
-
-    void Update()
-    {
-        currentKeys = settings.AllKeys().Where(Input.GetKey).ToArray();
     }
 }
