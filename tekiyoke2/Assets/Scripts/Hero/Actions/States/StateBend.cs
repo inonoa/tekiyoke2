@@ -26,7 +26,7 @@ public class StateBend : HeroState
         hero.SetAnim("bend");
     }
 
-    public override HeroState HandleInput(HeroMover hero, IAskedInput input)
+    public override HeroState HandleInput(HeroMover hero, IInput input)
     {
         return this;
     }

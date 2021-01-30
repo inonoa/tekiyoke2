@@ -37,7 +37,7 @@ public class StateKick : HeroState
         hero.StartCoroutine(kabezuriCoroutine);
     }
 
-    public override HeroState HandleInput(HeroMover hero, IAskedInput input)
+    public override HeroState HandleInput(HeroMover hero, IInput input)
     {
         if(hero.IsReady2Kick2Left(input))  return new StateKick(toRight: false);
         if(hero.IsReady2Kick2Right(input)) return new StateKick(toRight: true);

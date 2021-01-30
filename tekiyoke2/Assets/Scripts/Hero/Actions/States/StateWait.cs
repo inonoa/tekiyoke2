@@ -15,7 +15,7 @@ public class StateWait : HeroState
         hero.SetAnim("stand");
     }
 
-    public override HeroState HandleInput(HeroMover hero, IAskedInput input)
+    public override HeroState HandleInput(HeroMover hero, IInput input)
     {
         if(input.GetButtonDown(ButtonCode.Jump))
         {

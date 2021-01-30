@@ -5,13 +5,13 @@ using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ExitButton : MonoBehaviour
+public class ExitButton : SerializedMonoBehaviour
 {
     [SerializeField] Button button;
     [SerializeField] Image dpImage;
     [SerializeField] FocusNode focusNode;
     [SerializeField] float rotateSpeed = 200;
-    IAskedInput input;
+    [SerializeField] IInput input;
     
     Subject<Unit> _Pushed = new Subject<Unit>();
     public IObservable<Unit> Pushed => _Pushed;
@@ -27,11 +27,6 @@ public class ExitButton : MonoBehaviour
             dpImage.DOFade(0, 0.2f).SetEase(Ease.Linear);
         });
         button.OnClickAsObservable().Subscribe(_ => _Pushed.OnNext(Unit.Default));
-    }
-
-    void Start()
-    {
-        input = InputManager.Instance;
     }
 
     public void OnEnter()

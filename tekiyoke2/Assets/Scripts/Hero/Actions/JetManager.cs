@@ -14,7 +14,7 @@ public class JetManager : MonoBehaviour
     float chargeSeconds = 0;
     float coolTimeLeft = 0;
 
-    IAskedInput input;
+    IInput input;
     HeroMover hero;
     JetPostEffect jetPostEffect;
     JetCloudManager clouds;
@@ -32,7 +32,7 @@ public class JetManager : MonoBehaviour
         clouds = GameUIManager.CurrentInstance.JetCloud;
     }
 
-    public void Init(IAskedInput input, HeroMover hero)
+    public void Init(IInput input, HeroMover hero)
     {
         (this.input, this.hero) = (input, hero);
         hero.OnDamaged.Subscribe(hp =>
@@ -60,7 +60,7 @@ public class JetManager : MonoBehaviour
         {
         case State.Inactive:
         {
-            if(hero.CanMove && input.GetButtonDown(ButtonCode.JetLR))
+            if(hero.CanMove && input.GetButtonDown(ButtonCode.Jet))
             {
                 state = State.Ready;
                 EffectOnReady();
@@ -77,7 +77,7 @@ public class JetManager : MonoBehaviour
 
             chargeSeconds += hero.TimeManager.DeltaTimeAroundHero;
 
-            if(input.GetButtonUp(ButtonCode.JetLR))
+            if(input.GetButtonUp(ButtonCode.Jet))
             {
                 state = State.Jetting;
 

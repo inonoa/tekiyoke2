@@ -239,6 +239,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d4e5ee5f8124c82ac11df7495613948, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: 6b644d5913282014a8230e0e012ad215, type: 2}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: input
+      Entry: 10
+      Data: 0
   slider: {fileID: 6456377775149720451}
   node: {fileID: 4332638457967262170}
   speed: 0.6
@@ -402,12 +415,16 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects: []
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: 6b644d5913282014a8230e0e012ad215, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: input
+      Entry: 10
+      Data: 0
   initialNode: {fileID: 6125399822319141937}
   focused: {fileID: 0}
 --- !u!1 &1043250779267735571
@@ -585,6 +602,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d4e5ee5f8124c82ac11df7495613948, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: 6b644d5913282014a8230e0e012ad215, type: 2}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: input
+      Entry: 10
+      Data: 0
   slider: {fileID: 1043250777798641786}
   node: {fileID: 3698537521814776961}
   speed: 0.6

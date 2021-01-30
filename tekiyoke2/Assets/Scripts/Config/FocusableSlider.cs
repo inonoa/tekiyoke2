@@ -4,18 +4,13 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-public class FocusableSlider : MonoBehaviour
+public class FocusableSlider : SerializedMonoBehaviour
 {
     [SerializeField] Slider slider;
     [SerializeField] FocusNode node;
-    IAskedInput input;
+    [SerializeField] IInput input;
 
     [SerializeField] float speed;
-
-    void Awake()
-    {
-        input = InputManager.Instance; // *ヤム.. *
-    }
 
     void Update()
     {

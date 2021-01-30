@@ -4,9 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
 using System;
+using Sirenix.OdinInspector;
 using UniRx;
 
-public class Pauser : MonoBehaviour
+public class Pauser : SerializedMonoBehaviour
 {
 
     ///<summary>ポーズ画面に貼り付けるスクショ</summary>
@@ -22,7 +23,7 @@ public class Pauser : MonoBehaviour
     PauseView _view;
 
     SoundGroup soundGroup;
-    IAskedInput input;
+    [SerializeField] IInput input;
 
     Subject<Unit> _OnPause    = new Subject<Unit>();
     Subject<Unit> _OnPauseEnd = new Subject<Unit>();
@@ -39,12 +40,12 @@ public class Pauser : MonoBehaviour
 
     void Start()
     {
-        _view    = pauseMaster.GetComponent<PauseView>();
+        _view = pauseMaster.GetComponent<PauseView>();
+        _view.Init(input);
+        
         soundGroup = GetComponent<SoundGroup>();
 
         _view.OnPauseEnd.Subscribe(_ => PauseEnded());
-
-        input = ServicesLocator.Instance.GetInput();
     }
 
     void Update()

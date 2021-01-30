@@ -10,7 +10,7 @@ public class TitleSceneManager : SerializedMonoBehaviour
     [SerializeField] CloudSpawner cloudSpawner;
     [SerializeField] AnyKeyToStart anyKeyToStart;
     [SerializeField] SoundGroup sounds;
-    [SerializeField] IAskedInput input;
+    [SerializeField] IInput input;
     [SerializeField] SaveDataManager saveDataManager;
     [SerializeField] float fadeOutToTransition = 1f;
 

@@ -533,6 +533,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7367abbafe31e1d46af2c3c11de1351b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: 6b644d5913282014a8230e0e012ad215, type: 2}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: input
+      Entry: 10
+      Data: 0
   <SakamichiSensors>k__BackingField: {fileID: 5461879377836722882}
   <KeyDirection>k__BackingField: 0
   <WantsToGoRight>k__BackingField: 1

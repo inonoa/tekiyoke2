@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using System.Runtime.InteropServices;
+using Sirenix.OdinInspector;
 
-public class Tweeter : MonoBehaviour
+public class Tweeter : SerializedMonoBehaviour
 {
 
     [SerializeField, Tooltip("`[score]`でスコアが入るよ"), Multiline]
     string tweetText;
     string url;
-    IAskedInput input;
+    [SerializeField] IInput input;
 
     [Space(10), SerializeField] ScoreHolder scoreHolder;
 
@@ -20,8 +21,6 @@ public class Tweeter : MonoBehaviour
 
     void Start()
     {
-        input = ServicesLocator.Instance.GetInput();
-
         int stageIdx = SceneTransition.LastStageIndex();
         float time = stageIdx != -1 ? scoreHolder.Get().Time : 69.865f;
         string actualTweetText = tweetText.Replace(
