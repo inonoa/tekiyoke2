@@ -841,6 +841,7 @@
             <e p="SavePositionManager.cs" t="Include" />
           </e>
           <e p="Input" t="Include">
+            <e p="ButonToKeys.cs" t="Include" />
             <e p="IAskedInput.cs" t="Include" />
             <e p="InputManager.cs" t="Include" />
             <e p="InputSettings.cs" t="Include" />

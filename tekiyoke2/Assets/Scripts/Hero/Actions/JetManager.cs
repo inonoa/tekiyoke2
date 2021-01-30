@@ -60,7 +60,7 @@ public class JetManager : MonoBehaviour
         {
         case State.Inactive:
         {
-            if(hero.CanMove && input.GetButtonDown(ButtonCode.JetLR))
+            if(hero.CanMove && input.GetButtonDown(ButtonCode.Jet))
             {
                 state = State.Ready;
                 EffectOnReady();
@@ -77,7 +77,7 @@ public class JetManager : MonoBehaviour
 
             chargeSeconds += hero.TimeManager.DeltaTimeAroundHero;
 
-            if(input.GetButtonUp(ButtonCode.JetLR))
+            if(input.GetButtonUp(ButtonCode.Jet))
             {
                 state = State.Jetting;
 

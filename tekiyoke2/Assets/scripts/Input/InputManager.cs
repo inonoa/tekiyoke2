@@ -138,11 +138,8 @@ public class InputManager : MonoBehaviour, IAskedInput
         {ButtonCode.Down,   new[]{ KeyCode.S, KeyCode.DownArrow }},
 
         {ButtonCode.Jump,   new[]{ KeyCode.W, KeyCode.I }},
-        {ButtonCode.JetLR,  new[]{ /*KeyCode.J,*/ KeyCode.L }},
-        {ButtonCode.JetL,   new[]{ KeyCode.L }},
-        {ButtonCode.JetR,   new[]{ KeyCode.J }},
+        {ButtonCode.Jet,  new[]{ KeyCode.L }},
         {ButtonCode.Zone,   new[]{ KeyCode.Space }},
-        {ButtonCode.Save,   new[]{ KeyCode.Return }},
 
         {ButtonCode.Pause,  new[]{ KeyCode.Escape }},
         {ButtonCode.Enter,  new[]{ KeyCode.Return, KeyCode.Z }},

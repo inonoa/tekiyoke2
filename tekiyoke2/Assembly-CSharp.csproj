@@ -129,6 +129,7 @@
      <Compile Include="Assets\Scripts\Hero\Physics\NearToEnemyChecker.cs" />
      <Compile Include="Assets\Scripts\Hero\SavePositionManager.cs" />
      <Compile Include="Assets\Scripts\IReusable.cs" />
+     <Compile Include="Assets\Scripts\Input\ButonToKeys.cs" />
      <Compile Include="Assets\Scripts\Input\IAskedInput.cs" />
      <Compile Include="Assets\Scripts\Input\InputManager.cs" />
      <Compile Include="Assets\Scripts\Input\InputSettings.cs" />

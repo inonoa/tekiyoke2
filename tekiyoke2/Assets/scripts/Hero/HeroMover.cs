@@ -370,8 +370,10 @@ public class HeroMover : MonoBehaviour
                     if(draftModeManager.InDraftMode) draftModeManager.TryExit();
                     else                             draftModeManager.TryEnter();
                 }
-
-                if(Input.GetButtonDown(ButtonCode.Save)) Damage(3, DamageType.Debug);
+                
+#if UNITY_EDITOR
+                if(UnityEngine.Input.GetKeyDown(KeyCode.Backspace)) Damage(3, DamageType.Debug);
+#endif
 
                 UpdateMoveDirection();
 

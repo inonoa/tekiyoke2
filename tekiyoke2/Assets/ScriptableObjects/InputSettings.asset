@@ -23,23 +23,17 @@ MonoBehaviour:
     - button: 3
       keys: 1201000073000000
     - button: 4
-      keys: 770000001101000069000000
+      keys: 77000000690000007a00000011010000
     - button: 5
-      keys: 6a000000
+      keys: 6c00000078000000
     - button: 6
-      keys: 6c000000
+      keys: 300100003d000000
     - button: 7
-      keys: 6a0000006c000000
+      keys: 20000000
     - button: 8
-      keys: 300100006b000000
+      keys: 7a0000000d0000006c000000
     - button: 9
-      keys: 
+      keys: 78000000080000006a000000
     - button: 10
-      keys: 1b00000020000000
-    - button: 11
-      keys: 0d0000007a000000
-    - button: 12
-      keys: 0800000078000000
-    - button: 13
       keys: 74000000
   exceptionalKeyCodes: 0000000043010000440100004501000046010000470100004801000049010000

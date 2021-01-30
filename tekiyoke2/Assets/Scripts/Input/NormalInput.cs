@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class NormalInput : MonoBehaviour, IAskedInput
@@ -25,5 +26,12 @@ public class NormalInput : MonoBehaviour, IAskedInput
     public bool AnyButtonDown()
     {
         return settings.AllKeys().Any(Input.GetKeyDown);
+    }
+
+    [SerializeField, ReadOnly, ListDrawerSettings(Expanded = true)] KeyCode[] currentKeys;
+
+    void Update()
+    {
+        currentKeys = settings.AllKeys().Where(Input.GetKey).ToArray();
     }
 }
