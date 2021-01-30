@@ -23,7 +23,7 @@ public class Pauser : SerializedMonoBehaviour
     PauseView _view;
 
     SoundGroup soundGroup;
-    [SerializeField] IAskedInput input;
+    [SerializeField] IInput input;
 
     Subject<Unit> _OnPause    = new Subject<Unit>();
     Subject<Unit> _OnPauseEnd = new Subject<Unit>();

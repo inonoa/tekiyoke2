@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IAskedInput
+public interface IInput
 {
     bool GetButton(ButtonCode b);
     bool GetButtonDown(ButtonCode b);

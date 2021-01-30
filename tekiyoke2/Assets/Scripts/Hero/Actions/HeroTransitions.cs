@@ -6,7 +6,7 @@ using UnityEngine;
 
 public static class HeroTransitions
 {
-    public static bool IsReady2Kick2Left(this HeroMover hero, IAskedInput input)
+    public static bool IsReady2Kick2Left(this HeroMover hero, IInput input)
     {
         if (!input.GetButtonDown(ButtonCode.Jump)) return false;
         if (!hero.CanKickFromWallR) return false;
@@ -23,7 +23,7 @@ public static class HeroTransitions
                 throw new NotImplementedException();
         }
     }
-    public static bool IsReady2Kick2Right(this HeroMover hero, IAskedInput input)
+    public static bool IsReady2Kick2Right(this HeroMover hero, IInput input)
     {
         if (!input.GetButtonDown(ButtonCode.Jump)) return false;
         if (!hero.CanKickFromWallL) return false;

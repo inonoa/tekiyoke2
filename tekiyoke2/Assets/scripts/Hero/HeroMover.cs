@@ -149,7 +149,7 @@ public class HeroMover : SerializedMonoBehaviour
     public bool CanJumpInAir => _JumpCounter.CanJumpInAir;
     SavePositionManager savePositionManager;
     
-    [SerializeField] IAskedInput input;
+    [SerializeField] IInput input;
 
     [FoldoutGroup(COMP), SerializeField] GetDPinEnemy getDPinEnemy;
     public GetDPinEnemy GetDPinEnemy => getDPinEnemy;

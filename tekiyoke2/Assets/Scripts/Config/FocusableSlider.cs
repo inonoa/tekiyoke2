@@ -8,7 +8,7 @@ public class FocusableSlider : SerializedMonoBehaviour
 {
     [SerializeField] Slider slider;
     [SerializeField] FocusNode node;
-    [SerializeField] IAskedInput input;
+    [SerializeField] IInput input;
 
     [SerializeField] float speed;
 

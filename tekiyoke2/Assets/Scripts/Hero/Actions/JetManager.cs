@@ -14,7 +14,7 @@ public class JetManager : MonoBehaviour
     float chargeSeconds = 0;
     float coolTimeLeft = 0;
 
-    IAskedInput input;
+    IInput input;
     HeroMover hero;
     JetPostEffect jetPostEffect;
     JetCloudManager clouds;
@@ -32,7 +32,7 @@ public class JetManager : MonoBehaviour
         clouds = GameUIManager.CurrentInstance.JetCloud;
     }
 
-    public void Init(IAskedInput input, HeroMover hero)
+    public void Init(IInput input, HeroMover hero)
     {
         (this.input, this.hero) = (input, hero);
         hero.OnDamaged.Subscribe(hp =>

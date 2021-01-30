@@ -11,7 +11,7 @@ public class ExitButton : SerializedMonoBehaviour
     [SerializeField] Image dpImage;
     [SerializeField] FocusNode focusNode;
     [SerializeField] float rotateSpeed = 200;
-    [SerializeField] IAskedInput input;
+    [SerializeField] IInput input;
     
     Subject<Unit> _Pushed = new Subject<Unit>();
     public IObservable<Unit> Pushed => _Pushed;

@@ -39,7 +39,7 @@ public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
     enum State{ Entering, Active, Selected }
     State state = State.Entering;
 
-    [SerializeField] IAskedInput input;
+    [SerializeField] IInput input;
 
     
     Subject<EDraft> _StageSelected = new Subject<EDraft>();

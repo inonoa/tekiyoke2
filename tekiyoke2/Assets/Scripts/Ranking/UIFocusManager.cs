@@ -15,7 +15,7 @@ public class UIFocusManager : SerializedMonoBehaviour, IFocusManager
     Subject<FocusNode> _OnNodeFocused = new Subject<FocusNode>();
     public IObservable<FocusNode> OnNodeFocused => _OnNodeFocused;
 
-    [SerializeField] IAskedInput input;
+    [SerializeField] IInput input;
     
     public void OnExit()
     {

@@ -6,7 +6,7 @@ using UnityEditor;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NormalInput", menuName = "Scriptable Object/NormalInput", order = 0)]
-public class NormalInput : ScriptableObject, IAskedInput
+public class NormalInput : ScriptableObject, IInput
 {
     [SerializeField] InputSettings settings;
     

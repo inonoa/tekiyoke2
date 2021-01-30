@@ -21,7 +21,7 @@ public class RankingScrollViewController : SerializedMonoBehaviour
 
     [SerializeField] float tiltTan = -4.18f;
 
-    [SerializeField] IAskedInput input;
+    [SerializeField] IInput input;
 
     public void Init(IObservable<IReadOnlyList<RankDatum>> datums)
     {

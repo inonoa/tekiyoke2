@@ -6,7 +6,7 @@ using Sirenix.OdinInspector;
 
 public class PressZToReturn : SerializedMonoBehaviour
 {
-    [SerializeField] IAskedInput input;
+    [SerializeField] IInput input;
     [SerializeField] CursorMove cursor;
     bool canPress = false;
     void Start()

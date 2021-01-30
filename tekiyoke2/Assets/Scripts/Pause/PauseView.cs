@@ -45,9 +45,9 @@ public class PauseView : MonoBehaviour
     Subject<Unit> _OnPauseEnd = new Subject<Unit>();
     public IObservable<Unit> OnPauseEnd => _OnPauseEnd;
     
-    IAskedInput input;
+    IInput input;
 
-    public void Init(IAskedInput input)
+    public void Init(IInput input)
     {
         this.input = input;
     }

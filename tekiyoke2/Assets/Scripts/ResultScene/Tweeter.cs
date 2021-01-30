@@ -11,7 +11,7 @@ public class Tweeter : SerializedMonoBehaviour
     [SerializeField, Tooltip("`[score]`でスコアが入るよ"), Multiline]
     string tweetText;
     string url;
-    [SerializeField] IAskedInput input;
+    [SerializeField] IInput input;
 
     [Space(10), SerializeField] ScoreHolder scoreHolder;
 
