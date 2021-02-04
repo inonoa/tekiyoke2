@@ -19,15 +19,19 @@
     <select>
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:origin/master" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:enemy_static" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c97243fa-09da-4818-b4c1-b9937458f378" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemyStatic.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemyStatic.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/PauserDepauserBase.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/PauserDepauserBase.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +41,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/.." value="renew_input" />
+        <entry key="$PROJECT_DIR$/.." value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -46,38 +50,28 @@
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/Graphic.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0B76D74C-9007-4047-ADC3-E5DBD5D3F1DE/69/a3085dc0/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/EventSystem/UIBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/Hero/Actions/JetManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/72/b2009ef4/KeyCode.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/3e/4d3e1bd4/DOTweenComponent.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/65CAB14A-C59E-4552-B77F-98A4AED18F9E/0b/5f4bafde/PhysicsScene2D.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/Input/KeyboardSettings.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Save/SaveData.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/scripts/Input/IAskedInput.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/5e/aba48687/ABSSequentiable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/65CAB14A-C59E-4552-B77F-98A4AED18F9E/09/891b6a7e/Physics2D.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/scripts/Input/InputManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Save/SaveDataManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/scripts/Hero/HeroMover.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scenes/Draft3.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/17/acb49825/Tween.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/scripts/Pause/Pauser.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/f9/97e3c724/TweenParams.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/17C1E98F-9A78-42E3-8BE0-5E60BF0530E8/37/63a07319/02000006.il" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/d7/e0b450ec/Resources.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/Input/KeyboardSettings.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/MaskableGraphic.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/Hero/Actions/JetManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Input/ButonToKeys.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/22/1a106110/String.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/scripts/Input/InputManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/97/df7e3c54/RuntimeInitializeOnLoadMethodAttribute.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/scripts/Input/InputManager.cs.meta" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/17C1E98F-9A78-42E3-8BE0-5E60BF0530E8/94/28da816b/DOTweenPath.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/TilePalletes/Draft3.prefab" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/Image.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/48/3a11e747/SerializeField.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/8a/df89f217/Path.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/ff/80a8bd20/RuntimeInitializeLoadType.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/Input/NormalInput.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/Input/InputSettings.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/d2/198907ba/Renderer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0C9D4FCF-D613-4956-86FC-3555A6D54354/b9/150c570d/ReadOnlyAttribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/d7/407bc7a7/SpriteRenderer.cs" root0="SKIP_HIGHLIGHTING" />
@@ -85,7 +79,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Kone.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/IdouYukaController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameUIManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Utils/PrintExtensions.cs" />
@@ -136,6 +129,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Ranking/UIFocusManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Input/NormalInput.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/RankingsSelectManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemyStatic.cs" />
       </list>
     </option>
   </component>
@@ -228,20 +222,7 @@
       <workItem from="1611688502398" duration="50319000" />
       <workItem from="1611856540579" duration="10894000" />
       <workItem from="1611966400216" duration="4909000" />
-    </task>
-    <task id="LOCAL-00046" summary="二回刺してそのまま無限のかなたにて行ってしまうまで">
-      <created>1607524224278</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1607524224278</updated>
-    </task>
-    <task id="LOCAL-00047" summary="二回刺してそのまま無限のかなたにて行ってしまうまで">
-      <created>1607524239641</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1607524239641</updated>
+      <workItem from="1612429524455" duration="4721000" />
     </task>
     <task id="LOCAL-00048" summary="回転をUtilsに抽出">
       <created>1607530207768</created>
@@ -572,7 +553,21 @@
       <option name="project" value="LOCAL" />
       <updated>1611971737970</updated>
     </task>
-    <option name="localTasksCounter" value="95" />
+    <task id="LOCAL-00095" summary="D3のタイル差し替えた(情報量を上げた」)">
+      <created>1612430226771</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1612430226772</updated>
+    </task>
+    <task id="LOCAL-00096" summary="微修正">
+      <created>1612441811788</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1612441811788</updated>
+    </task>
+    <option name="localTasksCounter" value="97" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -591,7 +586,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="renew_input" />
+                        <option value="enemy_static" />
                       </list>
                     </value>
                   </entry>
@@ -605,8 +600,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="ミリ秒単位のものを秒単位で解釈してた" />
-    <MESSAGE value="タイル置いた" />
     <MESSAGE value="固定砲台の雑な奴作った" />
     <MESSAGE value="D3に置いてみたところEnemySpawnerの存在忘れてたことが分かった" />
     <MESSAGE value="着弾地点から2撃目っ…………！？" />
@@ -630,7 +623,9 @@
     <MESSAGE value="AnyButtonDownを本当にAnyButtonDownに" />
     <MESSAGE value="JetLとRを分けることからにげた" />
     <MESSAGE value="InputManagerとServicesLocatorを無くした" />
-    <option name="LAST_COMMIT_MESSAGE" value="InputManagerとServicesLocatorを無くした" />
+    <MESSAGE value="D3のタイル差し替えた(情報量を上げた」)" />
+    <MESSAGE value="微修正" />
+    <option name="LAST_COMMIT_MESSAGE" value="微修正" />
   </component>
   <component name="WindowStateProjectService">
     <state x="709" y="345" key="#Notifications" timestamp="1605532697581">
@@ -706,10 +701,11 @@
     </state>
     <state x="173" y="92" key="MergeDialog/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1610685537996" />
     <state x="184" y="86" key="MergeDialog/0.0.1920.1040/-2736.0.1368.872@0.0.1920.1040" timestamp="1606409865233" />
-    <state x="796" y="221" key="RiderGenerateDialog" timestamp="1611893779006">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="3532" y="221" key="RiderGenerateDialog" timestamp="1612442867680">
+      <screen x="2736" y="0" width="1920" height="1040" />
     </state>
     <state x="796" y="221" key="RiderGenerateDialog/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611893779006" />
+    <state x="3532" y="221" key="RiderGenerateDialog/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1612442867680" />
     <state x="796" y="221" key="RiderGenerateDialog/0.0.1920.1040/-2736.0.1368.872@0.0.1920.1040" timestamp="1606330025401" />
     <state x="745" y="230" key="RollbackChangesDialog" timestamp="1611966453653">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -729,10 +725,11 @@
     </state>
     <state x="51" y="103" width="1736" height="856" key="VCS.FileHistoryDialog/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611788990972" />
     <state x="51" y="103" width="1736" height="856" key="VCS.FileHistoryDialog/0.0.1920.1040/-2736.0.1368.872@0.0.1920.1040" timestamp="1606388768425" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1611797067282">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="3288" y="253" key="Vcs.Push.Dialog.v2" timestamp="1612430231824">
+      <screen x="2736" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="253" key="Vcs.Push.Dialog.v2/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611797067282" />
+    <state x="3288" y="253" key="Vcs.Push.Dialog.v2/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1612430231824" />
     <state x="393" y="212" key="Vcs.Push.Dialog.v2/0.0.1368.872@0.0.1368.872" timestamp="1611420006898" />
     <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-2736.0.1368.872@0.0.1920.1040" timestamp="1606421529687" />
     <state x="572" y="253" width="775" height="534" key="find.popup" timestamp="1606324168206">
