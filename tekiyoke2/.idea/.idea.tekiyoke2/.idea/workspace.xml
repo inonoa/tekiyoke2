@@ -20,14 +20,220 @@
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:enemy_static" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c97243fa-09da-4818-b4c1-b9937458f378" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Draft3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Draft3.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Tutorial.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Tutorial.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/board-kari.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/board-kari.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft2tiles_0.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft2tiles_0.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft2tiles_1.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft2tiles_1.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft2tiles_10.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft2tiles_10.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft2tiles_11.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft2tiles_11.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft2tiles_12.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft2tiles_12.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft2tiles_13.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft2tiles_13.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft2tiles_14.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft2tiles_14.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft2tiles_15.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft2tiles_15.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft2tiles_16.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft2tiles_16.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft2tiles_17.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft2tiles_17.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft2tiles_18.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft2tiles_18.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft2tiles_19.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft2tiles_19.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft2tiles_2.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft2tiles_2.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft2tiles_20.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft2tiles_20.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft2tiles_21.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft2tiles_21.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft2tiles_22.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft2tiles_22.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft2tiles_23.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft2tiles_23.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft2tiles_24.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft2tiles_24.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft2tiles_25.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft2tiles_25.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft2tiles_3.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft2tiles_3.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft2tiles_4.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft2tiles_4.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft2tiles_5.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft2tiles_5.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft2tiles_6.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft2tiles_6.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft2tiles_7.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft2tiles_7.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft2tiles_8.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft2tiles_8.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft2tiles_9.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft2tiles_9.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_0.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_0.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_1.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_1.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_10.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_10.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_11.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_11.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_12.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_12.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_13.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_13.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_14.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_14.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_15.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_15.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_16.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_16.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_17.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_17.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_18.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_18.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_19.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_19.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_2.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_2.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_20.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_20.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_21.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_21.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_22.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_22.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_23.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_23.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_24.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_24.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_25.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_25.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_26.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_26.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_27.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_27.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_28.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_28.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_29.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_29.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_3.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_3.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_30.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_30.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_31.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_31.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_32.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_32.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_33.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_33.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_34.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_34.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_35.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_35.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_36.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_36.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_37.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_37.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_38.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_38.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_39.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_39.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_4.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_4.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_40.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_40.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_41.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_41.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_42.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_42.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_43.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_43.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_44.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_44.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_45.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_45.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_46.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_46.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_47.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_47.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_48.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_48.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_49.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_49.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_5.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_5.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_50.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_50.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_51.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_51.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_52.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_52.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_53.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_53.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_54.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_54.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_55.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_55.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_56.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_56.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_57.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_57.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_58.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_58.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_59.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_59.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_6.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_6.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_7.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_7.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_8.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_8.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_9.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/draft3tiles_情報量マシマシ_9.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/droptile_0.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/droptile_0.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/droptile_1.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/droptile_1.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/droptile_cross_0.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/droptile_cross_0.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/droptile_cross_1.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/droptile_cross_1.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/droptile_cross_2.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/droptile_cross_2.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/droptile_cross_3.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/droptile_cross_3.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/droptile_cross_4.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/droptile_cross_4.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/ground-kari.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/ground-kari.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/ground-top-kari.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/ground-top-kari.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/ground_etc_kari_.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/ground_etc_kari_.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/sky-kari.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/sky-kari.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/spear-kari.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/spear-kari.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/tboard-r-kari.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/tboard-r-kari.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/tilt-l-kari.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/tilt-l-kari.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/tilt-r-kari.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/tilt-r-kari.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/ultrathintile.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/ultrathintile.asset.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -583,7 +789,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="enemy_static" />
+                        <option value="master" />
                       </list>
                     </value>
                   </entry>
