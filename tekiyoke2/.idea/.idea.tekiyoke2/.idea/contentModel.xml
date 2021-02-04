@@ -770,6 +770,7 @@
             <e p="EnemyController.cs" t="Include" />
             <e p="EnemyExtensions.cs" t="Include" />
             <e p="EnemySpawner.cs" t="Include" />
+            <e p="EnemyStatic.cs" t="Include" />
             <e p="GierController.cs" t="Include" />
             <e p="JellyView.cs" t="Include" />
             <e p="JerryController.cs" t="Include" />

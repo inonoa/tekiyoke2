@@ -73,6 +73,7 @@
      <Compile Include="Assets\Scripts\Enemies\EnemyController.cs" />
      <Compile Include="Assets\Scripts\Enemies\EnemyExtensions.cs" />
      <Compile Include="Assets\Scripts\Enemies\EnemySpawner.cs" />
+     <Compile Include="Assets\Scripts\Enemies\EnemyStatic.cs" />
      <Compile Include="Assets\Scripts\Enemies\GierController.cs" />
      <Compile Include="Assets\Scripts\Enemies\JellyView.cs" />
      <Compile Include="Assets\Scripts\Enemies\JerryController.cs" />

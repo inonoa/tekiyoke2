@@ -6448,6 +6448,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseMaster
       objectReference: {fileID: 0}
+    - target: {fileID: 7853625885354214324, guid: f687e9cc818562943a7fc281aff71120,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7853625885354214327, guid: f687e9cc818562943a7fc281aff71120,
         type: 3}
       propertyPath: m_LocalPosition.x
