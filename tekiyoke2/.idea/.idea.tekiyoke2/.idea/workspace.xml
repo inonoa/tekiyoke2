@@ -26,12 +26,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c97243fa-09da-4818-b4c1-b9937458f378" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemyStatic.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemyStatic.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/PauserDepauserBase.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/PauserDepauserBase.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Draft3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Draft3.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +55,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Save/SaveDataManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scenes/Draft3.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/17/acb49825/Tween.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scenes/Not In Build/EnemyStatic.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/f9/97e3c724/TweenParams.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/17C1E98F-9A78-42E3-8BE0-5E60BF0530E8/37/63a07319/02000006.il" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/d7/e0b450ec/Resources.cs" root0="SKIP_HIGHLIGHTING" />
@@ -222,21 +219,7 @@
       <workItem from="1611688502398" duration="50319000" />
       <workItem from="1611856540579" duration="10894000" />
       <workItem from="1611966400216" duration="4909000" />
-      <workItem from="1612429524455" duration="4721000" />
-    </task>
-    <task id="LOCAL-00048" summary="回転をUtilsに抽出">
-      <created>1607530207768</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1607530207768</updated>
-    </task>
-    <task id="LOCAL-00049" summary="微調整、SkyFishが円形に動く">
-      <created>1607594677669</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1607594677669</updated>
+      <workItem from="1612429524455" duration="5561000" />
     </task>
     <task id="LOCAL-00050" summary="微調整、SkyFishが円形に動く">
       <created>1607594695308</created>
@@ -567,7 +550,21 @@
       <option name="project" value="LOCAL" />
       <updated>1612441811788</updated>
     </task>
-    <option name="localTasksCounter" value="97" />
+    <task id="LOCAL-00097" summary="動かない敵">
+      <created>1612444613151</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1612444613151</updated>
+    </task>
+    <task id="LOCAL-00098" summary="動かない敵">
+      <created>1612444721957</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1612444721957</updated>
+    </task>
+    <option name="localTasksCounter" value="99" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -600,7 +597,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="固定砲台の雑な奴作った" />
     <MESSAGE value="D3に置いてみたところEnemySpawnerの存在忘れてたことが分かった" />
     <MESSAGE value="着弾地点から2撃目っ…………！？" />
     <MESSAGE value="ジャンプの上昇中に壁キックできなかったのか…………" />
@@ -625,7 +621,8 @@
     <MESSAGE value="InputManagerとServicesLocatorを無くした" />
     <MESSAGE value="D3のタイル差し替えた(情報量を上げた」)" />
     <MESSAGE value="微修正" />
-    <option name="LAST_COMMIT_MESSAGE" value="微修正" />
+    <MESSAGE value="動かない敵" />
+    <option name="LAST_COMMIT_MESSAGE" value="動かない敵" />
   </component>
   <component name="WindowStateProjectService">
     <state x="709" y="345" key="#Notifications" timestamp="1605532697581">
