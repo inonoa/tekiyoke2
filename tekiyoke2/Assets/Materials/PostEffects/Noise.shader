@@ -8,7 +8,7 @@
     }
     SubShader
     {
-        Tags { "RenderType"="Opaque" }
+        Tags { "RenderType" = "Opaque" }
         LOD 100
         Blend SrcAlpha OneMinusSrcAlpha
 
@@ -56,11 +56,13 @@
                 return output;
             }
 
-            float random (fixed2 p){
+            float random (fixed2 p)
+            {
                 return frac(sin(dot(p, fixed2(12.9898,78.233))) * 43758.5453);
             }
 
-            float odoriba(float x){
+            float odoriba(float x)
+            {
                 return (x <= 1 - _Density) ? (x < _Density) ? (x / _Density / 2) : 0.5 : ( (x-1) / _Density / 2 + 1);
             }
 

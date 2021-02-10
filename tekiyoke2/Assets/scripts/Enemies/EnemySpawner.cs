@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using Sirenix.OdinInspector;
+using Sirenix.Utilities;
+using UnityEditor;
 
 
 public class EnemySpawner : MonoBehaviour
@@ -28,6 +31,19 @@ public class EnemySpawner : MonoBehaviour
     {
         enemies = GetComponentsInChildren<ISpawnsNearHero>(includeInactive: true);
         foreach(ISpawnsNearHero enemy in enemies) enemy.Hide();
+    }
+
+    [Button]
+    void SetEnemiesDP(int dp)
+    {
+        GetComponentsInChildren<IHaveDPinEnemy>(includeInactive: true)
+            .Select(enemy => enemy.DPCD)
+            .ForEach(dpcd =>
+            {
+                Undo.RecordObject(dpcd, "Set DP From Script");
+                dpcd.ForceSetDP(dp);
+                EditorUtility.SetDirty(dpcd);
+            });
     }
 }
 

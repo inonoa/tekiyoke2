@@ -15,3 +15,4 @@ MonoBehaviour:
   _TimeScale: 0.2
   _DpPerSecond: 3
   _GotDpRate: 2
+  _Muteki: 1
