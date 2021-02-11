@@ -5161,11 +5161,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41e908cb36c5bc04a8f63784dd1204c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selected: 0
+  focusManager: {fileID: 0}
+  resume: {fileID: 0}
+  goToConfig: {fileID: 0}
+  quit: {fileID: 0}
   draftName: {fileID: 1062879984}
   pausePause: {fileID: 1745145244}
   options: {fileID: 1879548969}
   mark: {fileID: 1674114064}
+  markRotateSpeed: 150
+  config: {fileID: 0}
+  draftNameX: 0
+  pausePauseX: 0
+  optionsX: 0
+  markX: 0
 --- !u!114 &975853698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7475,6 +7484,53 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26412986cdc868f4688b58548d47f0b7, type: 3}
+--- !u!1 &1411225136
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1411225138}
+  - component: {fileID: 1411225137}
+  m_Layer: 0
+  m_Name: Debugger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1411225137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1411225136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43d890f102b8462e811353b2d1fccf9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Debug: 0
+  _CheckPoint: {fileID: 0}
+  _IgnoreMemory: 0
+  hero: {fileID: 1333704110}
+--- !u!4 &1411225138
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1411225136}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 110.91052, y: -103.37494, z: -12162.773}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1420654926
 GameObject:
   m_ObjectHideFlags: 0
@@ -7994,6 +8050,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 794be7bf41c30d640b4110003cfac84a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: 6b644d5913282014a8230e0e012ad215, type: 2}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: input
+      Entry: 10
+      Data: 0
   scshoImg: {fileID: 1569539911}
   pauseMaster: {fileID: 975853695}
   gameMaster: {fileID: 289413200}
@@ -8030,9 +8099,7 @@ MonoBehaviour:
   _GameMasterTF: {fileID: 289413201}
   _PauseMasterTF: {fileID: 975853696}
   hero: {fileID: 1333704110}
-  debugMode: 1
-  debugCheckPointIndex: 3
-  debugIgnoreMemory: 1
+  debugger: {fileID: 1411225137}
 --- !u!114 &1515455047
 MonoBehaviour:
   m_ObjectHideFlags: 0
