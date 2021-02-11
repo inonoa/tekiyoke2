@@ -26,21 +26,56 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c97243fa-09da-4818-b4c1-b9937458f378" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/PostEffects/Noise.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/PostEffects/Noise.shader" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/PauserDepauserBase.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/PauserDepauserBase.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Sasayaki.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Sasayaki.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/PauseMaster.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/PauseMaster.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembly-CSharp-firstpass.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp-firstpass.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/SceneTransition/WhiteOut.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/SceneTransition/WhiteOut.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Tutorial.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Tutorial.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/DraftModeParameters.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/DraftModeParameters.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/DPinEnemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/DPinEnemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Hero/DP/DPManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Hero/DP/DPManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Hero/DraftModeManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Hero/DraftModeManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapObjs/Sasayaki.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MapObjs/Sasayaki.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Parameters/DraftModeParameters.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Parameters/DraftModeParameters.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Pause/PauseView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Pause/PauseView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/scripts/Enemies/EnemySpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/scripts/Enemies/EnemySpawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/DraftGradation.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/DraftGradation.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/DraftGradation___.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/DraftGradation___.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/DraftGradation_bloom.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/DraftGradation_bloom.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/DraftGradation_kubire.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/DraftGradation_kubire.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/DraftGradation_widthvary.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/DraftGradation_widthvary.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/DraftTex.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/DraftTex.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/DraftWindTex 1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/DraftWindTex 1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/DraftWindTex.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/DraftWindTex.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/DraftWindTex_syusen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/DraftWindTex_syusen.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/draftRyoiki.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/draftRyoiki.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/jetStreamrush のコピー(1)_最新版_20200225(透明度低).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/jetStreamrush のコピー(1)_最新版_20200225(透明度低).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/part.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/part.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/whitespace.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/whitespace.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/windbrush.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/windbrush.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/windbrush_flat.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/windbrush_flat.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/windbrush_flat2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/windbrush_flat2.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DOTween.Modules.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DOTween.Modules.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DOTweenPro.EditorScripts.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DOTweenPro.EditorScripts.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DOTweenPro.Scripts.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DOTweenPro.Scripts.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DraftMode.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DraftMode.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PlayFab.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/PlayFab.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PlayFabEditorExtensions.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/PlayFabEditorExtensions.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PlayFabSDKEditor.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/PlayFabSDKEditor.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sirenix.OdinInspector.CompatibilityLayer.Editor.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Sirenix.OdinInspector.CompatibilityLayer.Editor.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sirenix.OdinInspector.CompatibilityLayer.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Sirenix.OdinInspector.CompatibilityLayer.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UniRx.Examples.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/UniRx.Examples.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UniRx.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/UniRx.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,8 +129,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/ResultScene/NumberSpritesHolder.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/ResultScene/ScoresToText.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Debug/StageDebugger.cs" />
         <option value="$PROJECT_DIR$/Assets/Materials/FixedBeam.shader" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/FixedArtilleryBEam.cs" />
@@ -126,7 +159,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Input/InputSettings.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Input/IAskedInput.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Input/InputManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Hero/HeroMover.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ResultScene/PressZToReturn.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ResultScene/Tweeter.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Pause/Pauser.cs" />
@@ -145,6 +177,9 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/DPinEnemy.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemySpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/Materials/PostEffects/Noise.shader" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Hero/HeroMover.cs" />
+        <option value="$PROJECT_DIR$/Assets/Materials/WhiteOut.shader" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SceneTransition/SceneTransition.cs" />
       </list>
     </option>
   </component>
@@ -239,14 +274,7 @@
       <workItem from="1611966400216" duration="4909000" />
       <workItem from="1612429524455" duration="5561000" />
       <workItem from="1612774153103" duration="10393000" />
-      <workItem from="1612993898155" duration="441000" />
-    </task>
-    <task id="LOCAL-00051" summary="土埃が出るなど">
-      <created>1607619291250</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1607619291251</updated>
+      <workItem from="1612993898155" duration="7609000" />
     </task>
     <task id="LOCAL-00052" summary="怒涛の数値調整とSkyFishの振り向きの試行錯誤">
       <created>1607778812608</created>
@@ -584,7 +612,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612447851132</updated>
     </task>
-    <option name="localTasksCounter" value="100" />
+    <task id="LOCAL-00100" summary="おおむねDraftモード時に無敵にしたりDPたまりやすくしたり">
+      <created>1612994435783</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1612994435783</updated>
+    </task>
+    <option name="localTasksCounter" value="101" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -617,7 +652,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="着弾地点から2撃目っ…………！？" />
     <MESSAGE value="ジャンプの上昇中に壁キックできなかったのか…………" />
     <MESSAGE value="壁キックに左右の入力が要らない感じにした" />
     <MESSAGE value="コミットし忘れてない？" />
@@ -642,7 +676,8 @@
     <MESSAGE value="微修正" />
     <MESSAGE value="動かない敵" />
     <MESSAGE value="どぎついタイル置いた、タイルのスプライトのフォルダ分け" />
-    <option name="LAST_COMMIT_MESSAGE" value="どぎついタイル置いた、タイルのスプライトのフォルダ分け" />
+    <MESSAGE value="おおむねDraftモード時に無敵にしたりDPたまりやすくしたり" />
+    <option name="LAST_COMMIT_MESSAGE" value="おおむねDraftモード時に無敵にしたりDPたまりやすくしたり" />
   </component>
   <component name="WindowStateProjectService">
     <state x="709" y="345" key="#Notifications" timestamp="1605532697581">
