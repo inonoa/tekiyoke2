@@ -66,8 +66,8 @@ public class SceneTransition : MonoBehaviour
     {
         if(SceneTransition.State != SceneTransitState.None) return;
 
-        switch(transitionType){
-
+        switch(transitionType)
+        {
             case TransitionType.Default:
                 SceneTransition.State = SceneTransitState.Default;
                 SceneManager.LoadScene(sceneName);
@@ -100,10 +100,16 @@ public class SceneTransition : MonoBehaviour
             
             case TransitionType.WhiteOut:
                 SceneTransition.State = SceneTransitState.WhiteOut;
-                const float duration = 3f;
+                const float duration = 5f;
+                
                 PostEffectWrapper noise_ = CameraController.CurrentCamera?.AfterEffects?.Find("Noise");
-                if(noise_ != null) DOTween.To(noise_.GetVolume, noise_.SetVolume, 0, duration);
-                currentInstance.whiteOutImage.DOFade(1, duration)
+                if(noise_ != null) DOTween.To(noise_.GetVolume, noise_.SetVolume, 0, duration / 2);
+
+                Material whiteOutMat = currentInstance.whiteOutImage.material;
+                whiteOutMat.SetFloat("_Alpha", 0.3f);
+                whiteOutMat.SetFloat("_Whiteness", 0.05f);
+                whiteOutMat.To("_Alpha", 1, duration / 1.5f);
+                whiteOutMat.To("_Whiteness", 0.9f, duration).SetEase(Ease.InOutCubic)
                     .onComplete += () => SceneManager.LoadScene(sceneName);
                 break;
         }
@@ -149,8 +155,12 @@ public class SceneTransition : MonoBehaviour
                 break;
             
             case SceneTransitState.WhiteOut:
-                currentInstance.whiteOutImage.color = Color.white;
-                currentInstance.whiteOutImage.DOFade(0, 2);
+                float duration = 3;
+                Material whiteOutMat = currentInstance.whiteOutImage.material;
+                whiteOutMat.SetFloat("_Alpha", 1f);
+                whiteOutMat.SetFloat("_Whiteness", 1);
+                whiteOutMat.To("_Alpha", 0, duration);
+                whiteOutMat.To("_Whiteness", 0.05f, duration).SetEase(Ease.OutCubic);
                 break;
         }
 

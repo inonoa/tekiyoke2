@@ -20,6 +20,8 @@ public class DraftModeManager : MonoBehaviour
 
     List<Tween> currentTweens = new List<Tween>();
 
+    const string MutekiKey = "DraftMode";
+
     public void TryEnter()
     {
         if(InDraftMode) return;
@@ -40,6 +42,7 @@ public class DraftModeManager : MonoBehaviour
         InDraftMode = true;
 
         hero.TimeManager.SetTimeScaleExceptHero(hero.DraftModeParams.TimeScale);
+        if(hero.DraftModeParams.Muteki) hero.MutekiManager.AddMutekiFilter(MutekiKey);
 
         windsManager.SetActive(true);
 
@@ -70,6 +73,7 @@ public class DraftModeManager : MonoBehaviour
         InDraftMode = false;
 
         hero.TimeManager.SetTimeScaleExceptHero(1);
+        hero.MutekiManager.RemoveMutekiFilter(MutekiKey);
 
         currentTweens.Add(DOVirtual.DelayedCall(
             exitDuration / 2,

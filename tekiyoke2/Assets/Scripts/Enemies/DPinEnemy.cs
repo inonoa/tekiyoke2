@@ -56,4 +56,9 @@ public class DPinEnemy : MonoBehaviour
             );
         }
     }
+
+    public void ForceSetDP(int dp)
+    {
+        this.dp = dp;
+    }
 }

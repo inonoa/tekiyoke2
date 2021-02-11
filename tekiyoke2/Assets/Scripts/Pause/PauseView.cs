@@ -57,7 +57,7 @@ public class PauseView : MonoBehaviour
         markRTF = mark.GetComponent<RectTransform>();
         soundGroup = GetComponent<SoundGroup>();
 
-        focusManager.OnNodeFocused.Skip(1).Subscribe(node =>
+        focusManager.OnNodeFocused.Subscribe(node =>
         {
             var cursorPos = node.GetComponent<CursorPositionHolder>();
             mark.transform.position = cursorPos.CursorPosTransform.position;

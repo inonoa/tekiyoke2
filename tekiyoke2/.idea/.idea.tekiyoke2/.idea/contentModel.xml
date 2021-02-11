@@ -77,6 +77,7 @@
             <e p="RankNode.shader" t="Include" />
             <e p="TimeText.shader" t="Include" />
           </e>
+          <e p="WhiteOut.shader" t="Include" />
         </e>
         <e p="PlayFabEditorExtensions" t="Include">
           <e p="Editor" t="Include">

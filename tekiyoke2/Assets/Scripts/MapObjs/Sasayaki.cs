@@ -9,50 +9,55 @@ public class Sasayaki : MonoBehaviour
     [SerializeField] float duration = 0.5f;
     [SerializeField] SpriteRenderer bgSpr;
     [SerializeField] SpriteRenderer[] spritesExceptBG;
-    List<Tween> tweens = new List<Tween>();
+    readonly List<Tween> tweens = new List<Tween>();
     Vector3 defaultPos;
     float defaultAlpha;
 
-    void Start(){
+    void Start()
+    {
         defaultPos = transform.position;
         defaultAlpha = GetComponent<SpriteRenderer>().color.a;
 
-        bgSpr.color = new Color(1,1,1,0);
-        spritesExceptBG.ForEach(
-            spr => spr.color = new Color(1,1,1,0)
-        );
+        bgSpr.SetAlpha(0);
+        spritesExceptBG.ForEach(spr => spr.SetAlpha(0));
     }
 
-    ///<summary>フェードイン</summary>
-    void OnTriggerEnter2D(Collider2D other){
-        if(other.tag=="Player"){
-            tweens.ForEach(tw => tw.Kill());
-            tweens.Clear();
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.CompareTag(TagNames.Hero))
+        {
+            ClearTweens();
 
             float actualDist = (HeroDefiner.currentHero.velocity.X > 0) ? slideDistance : - slideDistance;
             transform.position = defaultPos + new Vector3(actualDist, 0, 0);
             tweens.Add(transform.DOMoveX(defaultPos.x, duration).SetEase(Ease.OutQuint));
 
-            tweens.Add(bgSpr.DOFade(defaultAlpha, duration));
+            tweens.Add(bgSpr.DOFade(defaultAlpha, duration).SetEase(Ease.OutQuint));
             spritesExceptBG.ForEach(
                 spr => tweens.Add(spr.DOFade(1, duration))
             );
         }
     }
 
-    ///<summary>フェードアウト</summary>
-    void OnTriggerExit2D(Collider2D other){
-        if(other.tag=="Player"){
-            tweens.ForEach(tw => tw.Kill());
-            tweens.Clear();
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if(other.CompareTag(TagNames.Hero))
+        {
+            ClearTweens();
 
             float actualDist = (HeroDefiner.currentHero.velocity.X > 0) ? slideDistance : - slideDistance;
             tweens.Add(transform.DOMoveX(defaultPos.x - actualDist, duration).SetEase(Ease.OutQuint));
 
-            tweens.Add(bgSpr.DOFade(0, duration));
+            tweens.Add(bgSpr.DOFade(0, duration).SetEase(Ease.OutQuint));
             spritesExceptBG.ForEach(
                 spr => tweens.Add(spr.DOFade(0, duration))
             );
         }
+    }
+
+    void ClearTweens()
+    {
+        tweens.ForEach(tw => tw.Kill());
+        tweens.Clear();
     }
 }

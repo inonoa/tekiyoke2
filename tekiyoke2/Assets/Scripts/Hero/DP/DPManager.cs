@@ -4,11 +4,13 @@ using UnityEngine;
 using System;
 using UnityEngine.UI;
 using DG.Tweening;
+using Sirenix.OdinInspector;
 
 public class DPManager : MonoBehaviour
 {
     public static DPManager Instance{ get; private set; }
 
+    [field: SerializeField, ReadOnly, LabelText(nameof(DP))]
     public float DP{ get; private set; } = 0;
     static readonly int maxDP = 100;
 

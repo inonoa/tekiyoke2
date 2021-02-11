@@ -441,6 +441,7 @@ public class HeroMover : SerializedMonoBehaviour
     public void OnGoal()
     {
         CanMove = false;
+        MutekiManager.AddMutekiFilter("Goal");
         ChangeState(new StateRun());
         draftModeManager.TryExit();
         JetManager.Cancel();
