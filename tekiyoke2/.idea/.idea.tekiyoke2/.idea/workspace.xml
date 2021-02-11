@@ -27,12 +27,10 @@
   <component name="ChangeListManager">
     <list default="true" id="c97243fa-09da-4818-b4c1-b9937458f378" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/PostEffects/Noise.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/PostEffects/Noise.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/WhiteOut.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/WhiteOut.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Tutorial.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Tutorial.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/tutorial_tiles.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/tiles/tutorial_tiles.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/scripts/Hero/HeroMover.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/scripts/Hero/HeroMover.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/scripts/SceneTransition/SceneTransition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/scripts/SceneTransition/SceneTransition.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/PostEffects/BlurEdge1.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/PostEffects/BlurEdge1.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/PostEffects/BlurEdge2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/PostEffects/BlurEdge2.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/PostEffects/Vignette.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/PostEffects/Vignette.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Hero.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Hero.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,43 +47,31 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/Graphic.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/Hero/DP/DPManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0B76D74C-9007-4047-ADC3-E5DBD5D3F1DE/69/a3085dc0/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/EventSystem/UIBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/72/b2009ef4/KeyCode.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/3e/4d3e1bd4/DOTweenComponent.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/scripts/Hero/HeroMover.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/65CAB14A-C59E-4552-B77F-98A4AED18F9E/0b/5f4bafde/PhysicsScene2D.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Save/SaveData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/5e/aba48687/ABSSequentiable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/65CAB14A-C59E-4552-B77F-98A4AED18F9E/09/891b6a7e/Physics2D.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Save/SaveDataManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/17/acb49825/Tween.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Prefabs/Sasayaki.prefab" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/Enemies/DPinEnemy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/f9/97e3c724/TweenParams.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/Hero/DraftModeManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/17C1E98F-9A78-42E3-8BE0-5E60BF0530E8/37/63a07319/02000006.il" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Sprites/tiles/tutorial_tiles.png.meta" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/d7/e0b450ec/Resources.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/scripts/Enemies/EnemySpawner.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/MaskableGraphic.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scenes/Tutorial.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Input/ButonToKeys.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/22/1a106110/String.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/97/df7e3c54/RuntimeInitializeOnLoadMethodAttribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/17C1E98F-9A78-42E3-8BE0-5E60BF0530E8/94/28da816b/DOTweenPath.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/Image.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/scripts/SceneTransition/SceneTransition.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/48/3a11e747/SerializeField.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/8a/df89f217/Path.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/ff/80a8bd20/RuntimeInitializeLoadType.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/scripts/Hero/HeroMover.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scenes/Tutorial.unity" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/MapObjs/Sasayaki.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/Pause/PauseView.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/Parameters/DraftModeParameters.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/d2/198907ba/Renderer.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/scripts/SceneTransition/SceneTransition.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/CheckPoint/CheckPoint.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0C9D4FCF-D613-4956-86FC-3555A6D54354/b9/150c570d/ReadOnlyAttribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/d7/407bc7a7/SpriteRenderer.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -140,9 +126,9 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/DPinEnemy.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemySpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/Materials/PostEffects/Noise.shader" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Hero/HeroMover.cs" />
         <option value="$PROJECT_DIR$/Assets/Materials/WhiteOut.shader" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SceneTransition/SceneTransition.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Hero/HeroMover.cs" />
       </list>
     </option>
   </component>
