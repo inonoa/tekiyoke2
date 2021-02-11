@@ -134,6 +134,7 @@ public class HeroMover : SerializedMonoBehaviour
 
     [field: FoldoutGroup(COMP), SerializeField, RenameField("Muteki Manager")]
     public HeroMutekiManager MutekiManager{ get; private set; }
+    [field: FoldoutGroup(COMP), SerializeField, LabelText(nameof(ObjsHolderForStates))]
     public HeroObjsHolder4States ObjsHolderForStates{ get; private set; }
     [FoldoutGroup(COMP), SerializeField] SoundGroup _SoundGroup;
     public SoundGroup SoundGroup => _SoundGroup;
@@ -147,12 +148,20 @@ public class HeroMover : SerializedMonoBehaviour
     [FoldoutGroup(COMP), SerializeField] WallChecker wallCheckerR;
     [FoldoutGroup(COMP), SerializeField] JumpCounter _JumpCounter;
     public bool CanJumpInAir => _JumpCounter.CanJumpInAir;
-    SavePositionManager savePositionManager;
+    
+    [field: FoldoutGroup(COMP), SerializeField, LabelText(nameof(JetManager))]
+    public JetManager JetManager{ get; private set; }
     
     [SerializeField] IInput input;
 
     [FoldoutGroup(COMP), SerializeField] GetDPinEnemy getDPinEnemy;
     public GetDPinEnemy GetDPinEnemy => getDPinEnemy;
+    
+    [field: FoldoutGroup(COMP), SerializeField, LabelText(nameof(SpriteRenderer))]
+    public SpriteRenderer SpriteRenderer{ get; private set; }
+
+    [FoldoutGroup(COMP), SerializeField, LabelText(nameof(chishibukiParticle))]
+    ParticleSystem chishibukiParticle;
 
     const string PARAM = "パラメータ類";
     [BoxGroup(PARAM), SerializeField] HeroParameters _Parameters;
@@ -168,15 +177,12 @@ public class HeroMover : SerializedMonoBehaviour
     [field: BoxGroup(PARAM), SerializeField, LabelText("Draft Mode Params")]
     public DraftModeParams DraftModeParams { get; private set; }
 
-    public JetManager JetManager{ get; private set; }
-
     DraftModeManager draftModeManager;
 
     HeroState currentState;
     public string CurrentStateStr() => currentState.ToString();
 
 
-    public SpriteRenderer SpriteRenderer{ get; private set; }
     public Rigidbody2D Rigidbody{ get; private set; }
     public Transform Transform{ get; private set; }
 
@@ -240,8 +246,7 @@ public class HeroMover : SerializedMonoBehaviour
     void BendBack()
     {
         ChangeState(new StateBend());
-        ParticleSystem ps = transform.Find("Particle System").GetComponent<ParticleSystem>();
-        ps.Play();
+        chishibukiParticle.Play();
         chishibuki.StartChishibuki();
         this.StartPausableCoroutine(Blink()).AddTo(this);
     }
@@ -296,12 +301,8 @@ public class HeroMover : SerializedMonoBehaviour
         CmrCntr = CameraController.CurrentCamera;
         TimeManager = TimeManager.Current;
         chishibuki = GameUIManager.CurrentInstance.Chishibuki;
-        SpriteRenderer      = GetComponent<SpriteRenderer>();
         Rigidbody           = GetComponent<Rigidbody2D>();
         Transform           = GetComponent<Transform>();
-        savePositionManager = GetComponent<SavePositionManager>();
-        ObjsHolderForStates = GetComponent<HeroObjsHolder4States>();
-        JetManager          = GetComponent<JetManager>();
         draftModeManager    = GetComponent<DraftModeManager>();
 
         JetManager.Init(input, this);

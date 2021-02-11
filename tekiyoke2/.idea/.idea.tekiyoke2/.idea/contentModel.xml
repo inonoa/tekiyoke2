@@ -891,7 +891,7 @@
           </e>
           <e p="ObjectPool.cs" t="Include" />
           <e p="Parameters" t="Include">
-            <e p="DraftModeParameters.cs" t="Include" />
+            <e p="DraftModeParams.cs" t="Include" />
             <e p="HeroParameters.cs" t="Include" />
           </e>
           <e p="Pause" t="Include">

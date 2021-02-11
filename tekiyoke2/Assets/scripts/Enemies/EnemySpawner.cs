@@ -36,6 +36,7 @@ public class EnemySpawner : MonoBehaviour
     [Button]
     void SetEnemiesDP(int dp)
     {
+#if UNITY_EDITOR
         GetComponentsInChildren<IHaveDPinEnemy>(includeInactive: true)
             .Select(enemy => enemy.DPCD)
             .ForEach(dpcd =>
@@ -44,6 +45,7 @@ public class EnemySpawner : MonoBehaviour
                 dpcd.ForceSetDP(dp);
                 EditorUtility.SetDirty(dpcd);
             });
+#endif
     }
 }
 

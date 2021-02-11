@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: f7a2d484929640a494921e4134663d1f, type: 3}
   m_Name: DraftModeParameters
-  m_EditorClassIdentifier: Assembly-CSharp::DraftModeParams
+  m_EditorClassIdentifier: 
   _TimeScale: 0.2
   _DpPerSecond: 3
   _GotDpRate: 2

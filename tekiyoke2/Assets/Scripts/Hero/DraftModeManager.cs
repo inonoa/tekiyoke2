@@ -40,8 +40,9 @@ public class DraftModeManager : MonoBehaviour
         KillAllTweens();
 
         InDraftMode = true;
-
+        
         hero.TimeManager.SetTimeScaleExceptHero(hero.DraftModeParams.TimeScale);
+        
         if(hero.DraftModeParams.Muteki) hero.MutekiManager.AddMutekiFilter(MutekiKey);
 
         windsManager.SetActive(true);
