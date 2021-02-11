@@ -26,56 +26,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c97243fa-09da-4818-b4c1-b9937458f378" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembly-CSharp-firstpass.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp-firstpass.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/SceneTransition/WhiteOut.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/SceneTransition/WhiteOut.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/PostEffects/Noise.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/PostEffects/Noise.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/WhiteOut.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/WhiteOut.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Tutorial.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Tutorial.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/DraftGradation.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/DraftGradation.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/DraftGradation___.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/DraftGradation___.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/DraftGradation_bloom.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/DraftGradation_bloom.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/DraftGradation_kubire.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/DraftGradation_kubire.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/DraftGradation_widthvary.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/DraftGradation_widthvary.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/DraftTex.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/DraftTex.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/DraftWindTex 1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/DraftWindTex 1.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/DraftWindTex.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/DraftWindTex.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/DraftWindTex_syusen.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/DraftWindTex_syusen.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/draftRyoiki.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/draftRyoiki.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/jetStreamrush のコピー(1)_最新版_20200225(透明度低).png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/jetStreamrush のコピー(1)_最新版_20200225(透明度低).png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/part.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/part.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/whitespace.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/whitespace.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/windbrush.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/windbrush.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/windbrush_flat.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/windbrush_flat.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/windbrush_flat2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/windbrush_flat2.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DOTween.Modules.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DOTween.Modules.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DOTweenPro.EditorScripts.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DOTweenPro.EditorScripts.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DOTweenPro.Scripts.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DOTweenPro.Scripts.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DraftMode.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DraftMode.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PlayFab.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/PlayFab.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PlayFabEditorExtensions.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/PlayFabEditorExtensions.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PlayFabSDKEditor.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/PlayFabSDKEditor.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sirenix.OdinInspector.CompatibilityLayer.Editor.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Sirenix.OdinInspector.CompatibilityLayer.Editor.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sirenix.OdinInspector.CompatibilityLayer.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Sirenix.OdinInspector.CompatibilityLayer.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniRx.Examples.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/UniRx.Examples.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniRx.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/UniRx.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/tiles/tutorial_tiles.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/tiles/tutorial_tiles.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/scripts/Hero/HeroMover.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/scripts/Hero/HeroMover.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/scripts/SceneTransition/SceneTransition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/scripts/SceneTransition/SceneTransition.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,21 +65,27 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/f9/97e3c724/TweenParams.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/Hero/DraftModeManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/17C1E98F-9A78-42E3-8BE0-5E60BF0530E8/37/63a07319/02000006.il" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Sprites/tiles/tutorial_tiles.png.meta" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/d7/e0b450ec/Resources.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/scripts/Enemies/EnemySpawner.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/MaskableGraphic.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scenes/Tutorial.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Input/ButonToKeys.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/22/1a106110/String.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/97/df7e3c54/RuntimeInitializeOnLoadMethodAttribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/17C1E98F-9A78-42E3-8BE0-5E60BF0530E8/94/28da816b/DOTweenPath.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/Image.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/scripts/SceneTransition/SceneTransition.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/48/3a11e747/SerializeField.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/8a/df89f217/Path.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/ff/80a8bd20/RuntimeInitializeLoadType.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/scripts/Hero/HeroMover.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scenes/Tutorial.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/MapObjs/Sasayaki.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/Pause/PauseView.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/Parameters/DraftModeParameters.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/d2/198907ba/Renderer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/scripts/SceneTransition/SceneTransition.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0C9D4FCF-D613-4956-86FC-3555A6D54354/b9/150c570d/ReadOnlyAttribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/d7/407bc7a7/SpriteRenderer.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -274,14 +237,7 @@
       <workItem from="1611966400216" duration="4909000" />
       <workItem from="1612429524455" duration="5561000" />
       <workItem from="1612774153103" duration="10393000" />
-      <workItem from="1612993898155" duration="7609000" />
-    </task>
-    <task id="LOCAL-00052" summary="怒涛の数値調整とSkyFishの振り向きの試行錯誤">
-      <created>1607778812608</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1607778812608</updated>
+      <workItem from="1612993898155" duration="9214000" />
     </task>
     <task id="LOCAL-00053" summary="怒涛の数値調整とSkyFishの振り向きの試行錯誤">
       <created>1607780095422</created>
@@ -619,7 +575,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612994435783</updated>
     </task>
-    <option name="localTasksCounter" value="101" />
+    <task id="LOCAL-00101" summary="チュートリアル終わりのホワイトアウト実装">
+      <created>1613002414515</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1613002414515</updated>
+    </task>
+    <option name="localTasksCounter" value="102" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -652,7 +615,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="ジャンプの上昇中に壁キックできなかったのか…………" />
     <MESSAGE value="壁キックに左右の入力が要らない感じにした" />
     <MESSAGE value="コミットし忘れてない？" />
     <MESSAGE value="設定画面のUI素材描いて置いた" />
@@ -677,7 +639,8 @@
     <MESSAGE value="動かない敵" />
     <MESSAGE value="どぎついタイル置いた、タイルのスプライトのフォルダ分け" />
     <MESSAGE value="おおむねDraftモード時に無敵にしたりDPたまりやすくしたり" />
-    <option name="LAST_COMMIT_MESSAGE" value="おおむねDraftモード時に無敵にしたりDPたまりやすくしたり" />
+    <MESSAGE value="チュートリアル終わりのホワイトアウト実装" />
+    <option name="LAST_COMMIT_MESSAGE" value="チュートリアル終わりのホワイトアウト実装" />
   </component>
   <component name="WindowStateProjectService">
     <state x="709" y="345" key="#Notifications" timestamp="1605532697581">
@@ -759,10 +722,10 @@
     <state x="796" y="221" key="RiderGenerateDialog/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611893779006" />
     <state x="3532" y="221" key="RiderGenerateDialog/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1612442867680" />
     <state x="796" y="221" key="RiderGenerateDialog/0.0.1920.1040/-2736.0.1368.872@0.0.1920.1040" timestamp="1606330025401" />
-    <state x="745" y="230" key="RollbackChangesDialog" timestamp="1611966453653">
+    <state x="745" y="230" key="RollbackChangesDialog" timestamp="1613003487942">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="745" y="230" key="RollbackChangesDialog/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611966453653" />
+    <state x="745" y="230" key="RollbackChangesDialog/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1613003487942" />
     <state x="178" y="198" width="1390" height="710" key="SettingsEditor" timestamp="1606772983533">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

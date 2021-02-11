@@ -73,7 +73,7 @@ Material:
     - _SrcBlend: 1
     - _UVSec: 0
     - _White: 0
-    - _Whiteness: 0
+    - _Whiteness: 0.050000012
     - _ZWrite: 1
     m_Colors:
     - _Black: {r: 0.084905684, g: 0.049120486, b: 0, a: 1}

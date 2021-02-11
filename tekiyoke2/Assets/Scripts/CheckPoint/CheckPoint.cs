@@ -4,6 +4,7 @@ using UnityEngine;
 using UniRx;
 using System;
 using Sirenix.OdinInspector;
+using UniRx.Triggers;
 
 public class CheckPoint : MonoBehaviour
 {
@@ -17,16 +18,14 @@ public class CheckPoint : MonoBehaviour
     Subject<CheckPoint> _Passed = new Subject<CheckPoint>();
     public IObservable<CheckPoint> Passed => _Passed;
 
-    bool passedYet = false;
     public void Init(int index) => Index = index;
 
-    void OnTriggerEnter2D(Collider2D other)
+    void Start()
     {
-        if(other.CompareTag(TagNames.Hero) && !passedYet)
-        {
-            passedYet = true;
-            _Passed.OnNext(this);
-        }
+        this.OnTriggerEnter2DAsObservable()
+            .Where(other => other.CompareTag(TagNames.Hero))
+            .Take(1)
+            .Subscribe(_ => _Passed.OnNext(this));
     }
 }
 
