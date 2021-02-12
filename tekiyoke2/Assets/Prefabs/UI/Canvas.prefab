@@ -713,6 +713,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac079396c4b6a644fae87bf6bc3a8526, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <DP>k__BackingField: 0
   displaySpeed: 0.2
   uiImage: {fileID: 2783582464764908243}
   lightLifeSeconds: 1
@@ -1854,11 +1855,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2131548651209953348, guid: 3aec4225d941e454a8c11087b56e4669,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5745160368829304069, guid: 3aec4225d941e454a8c11087b56e4669,
         type: 3}
