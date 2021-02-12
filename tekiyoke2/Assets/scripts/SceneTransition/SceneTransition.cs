@@ -131,7 +131,7 @@ public class SceneTransition : MonoBehaviour
         }
 
         PostEffectWrapper noise = CameraController.CurrentCamera?.AfterEffects?.Find("Noise");
-        if(noise != null) DOTween.To(noise.GetVolume, noise.SetVolume, 1, 1);
+        if(noise!=null) DOTween.To(noise.GetVolume, noise.SetVolume, 1, 1);
 
         switch(SceneTransition.State)
         {
@@ -155,12 +155,12 @@ public class SceneTransition : MonoBehaviour
                 break;
             
             case SceneTransitState.WhiteOut:
-                float duration = 5;
+                float duration = 3;
                 Material whiteOutMat = currentInstance.whiteOutImage.material;
                 whiteOutMat.SetFloat("_Alpha", 1f);
                 whiteOutMat.SetFloat("_Whiteness", 1);
                 whiteOutMat.To("_Alpha", 0, duration);
-                whiteOutMat.To("_Whiteness", 0.05f, duration / 2).SetEase(Ease.OutQuad);
+                whiteOutMat.To("_Whiteness", 0.05f, duration).SetEase(Ease.OutCubic);
                 break;
         }
 
