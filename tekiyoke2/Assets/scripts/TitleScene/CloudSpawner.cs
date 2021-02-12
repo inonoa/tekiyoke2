@@ -35,7 +35,8 @@ public class CloudSpawner : MonoBehaviour
         }
 
         Observable.Interval(TimeSpan.FromSeconds(spawnIntervalSeconds))
-            .Subscribe(_ => cloudsExisting.Add(SpawnCloud(canSpawnInScreen: false)));
+            .Subscribe(_ => cloudsExisting.Add(SpawnCloud(canSpawnInScreen: false)))
+            .AddTo(this);
     }
 
     System.Random random = new System.Random();

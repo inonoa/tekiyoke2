@@ -27,8 +27,9 @@
   <component name="ChangeListManager">
     <list default="true" id="c97243fa-09da-4818-b4c1-b9937458f378" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/UI/DPGauge.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/UI/DPGauge.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/OpenScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/OpenScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Tutorial.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Tutorial.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Save/Save Data Manager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Save/Save Data Manager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,14 +46,18 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/Graphic.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scenes/Tutorial.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0B76D74C-9007-4047-ADC3-E5DBD5D3F1DE/69/a3085dc0/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/ScriptableObjects/Save/Save Data Manager.asset" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/EventSystem/UIBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/ProjectSettings/EditorBuildSettings.asset" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/72/b2009ef4/KeyCode.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/3e/4d3e1bd4/DOTweenComponent.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/scripts/Hero/HeroMover.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Prefabs/SceneTransition/WhiteOut.prefab" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/ProjectSettings/EditorBuildSettings.asset" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/65CAB14A-C59E-4552-B77F-98A4AED18F9E/0b/5f4bafde/PhysicsScene2D.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scenes/Tutorial.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Save/SaveData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/5e/aba48687/ABSSequentiable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/65CAB14A-C59E-4552-B77F-98A4AED18F9E/09/891b6a7e/Physics2D.cs" root0="SKIP_HIGHLIGHTING" />
@@ -60,6 +65,7 @@
     <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/ScriptableObjects/DraftModeParameters.asset" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/ProjectSettings/EditorBuildSettings.asset" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/17/acb49825/Tween.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Prefabs/SceneTransition/WhiteOut.prefab" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/f9/97e3c724/TweenParams.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/17C1E98F-9A78-42E3-8BE0-5E60BF0530E8/37/63a07319/02000006.il" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/d7/e0b450ec/Resources.cs" root0="SKIP_HIGHLIGHTING" />
@@ -67,12 +73,15 @@
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/MaskableGraphic.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/scripts/Hero/HeroMover.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Input/ButonToKeys.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scenes/Tutorial.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/22/1a106110/String.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/scripts/Enemies/EnemySpawner.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/97/df7e3c54/RuntimeInitializeOnLoadMethodAttribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/17C1E98F-9A78-42E3-8BE0-5E60BF0530E8/94/28da816b/DOTweenPath.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/scripts/Hero/HeroMover.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/97/7d5cd036/Ease.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/Image.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scenes/Tutorial.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/48/3a11e747/SerializeField.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/8a/df89f217/Path.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/ff/80a8bd20/RuntimeInitializeLoadType.cs" root0="SKIP_HIGHLIGHTING" />
@@ -80,13 +89,14 @@
     <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/Hero/DraftModeManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/d2/198907ba/Renderer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/CheckPoint/CheckPoint.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/scripts/SceneTransition/SceneTransition.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Prefabs/SceneTransition/WhiteOut.prefab" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0C9D4FCF-D613-4956-86FC-3555A6D54354/b9/150c570d/ReadOnlyAttribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/d7/407bc7a7/SpriteRenderer.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Materials/FixedBeam.shader" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/FixedArtilleryBEam.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Hero/DP/GetDPinEnemy.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Utils/MyMath.cs" />
@@ -137,6 +147,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/DraftMode/DraftWindsManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Parameters/DraftModeParameters.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Hero/DraftModeManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/TitleScene/CloudSpawner.cs" />
       </list>
     </option>
   </component>
@@ -232,20 +243,6 @@
       <workItem from="1612429524455" duration="5561000" />
       <workItem from="1612774153103" duration="10393000" />
       <workItem from="1612993898155" duration="9214000" />
-    </task>
-    <task id="LOCAL-00054" summary="D1縮めた">
-      <created>1608059032846</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1608059032847</updated>
-    </task>
-    <task id="LOCAL-00055" summary="移動床の移動を時間基準にした(同期させやすくなった)">
-      <created>1608065329475</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1608065329475</updated>
     </task>
     <task id="LOCAL-00056" summary="チェックポイント整理">
       <created>1608065987373</created>
@@ -576,7 +573,21 @@
       <option name="project" value="LOCAL" />
       <updated>1613081149256</updated>
     </task>
-    <option name="localTasksCounter" value="103" />
+    <task id="LOCAL-00103" summary="Revert &quot;チュートリアル最後の敵のDP入れ忘れてた&quot;&#10;&#10;This reverts commit 59cb98b0">
+      <created>1613089888679</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1613089888679</updated>
+    </task>
+    <task id="LOCAL-00104" summary="チュートリアル最後の敵のDP入れ忘れてた">
+      <created>1613090112107</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1613090112107</updated>
+    </task>
+    <option name="localTasksCounter" value="105" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -609,8 +620,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="コミットし忘れてない？" />
-    <MESSAGE value="設定画面のUI素材描いて置いた" />
     <MESSAGE value="ステージ選択画面のランキング/設定ボタンをいい感じに取り込んだ" />
     <MESSAGE value="ぐるぐる回ってる光るやつの動きを正常にした" />
     <MESSAGE value="移動できてなかったり位置ずれてたりした" />
@@ -634,13 +643,19 @@
     <MESSAGE value="おおむねDraftモード時に無敵にしたりDPたまりやすくしたり" />
     <MESSAGE value="チュートリアル終わりのホワイトアウト実装" />
     <MESSAGE value="微…………" />
-    <option name="LAST_COMMIT_MESSAGE" value="微…………" />
+    <MESSAGE value="Revert &quot;チュートリアル最後の敵のDP入れ忘れてた&quot;&#10;&#10;This reverts commit 59cb98b0" />
+    <MESSAGE value="チュートリアル最後の敵のDP入れ忘れてた" />
+    <option name="LAST_COMMIT_MESSAGE" value="チュートリアル最後の敵のDP入れ忘れてた" />
   </component>
   <component name="WindowStateProjectService">
     <state x="709" y="345" key="#Notifications" timestamp="1605532697581">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="709" y="345" key="#Notifications/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1605532697581" />
+    <state x="3250" y="94" key="CommitChangelistDialog2" timestamp="1613089887778">
+      <screen x="2736" y="0" width="1920" height="1040" />
+    </state>
+    <state x="3250" y="94" key="CommitChangelistDialog2/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1613089887778" />
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1613073273683">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -720,10 +735,11 @@
     <state x="796" y="221" key="RiderGenerateDialog/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611893779006" />
     <state x="3532" y="221" key="RiderGenerateDialog/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1612442867680" />
     <state x="796" y="221" key="RiderGenerateDialog/0.0.1920.1040/-2736.0.1368.872@0.0.1920.1040" timestamp="1606330025401" />
-    <state x="745" y="230" key="RollbackChangesDialog" timestamp="1613072957510">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="3481" y="230" key="RollbackChangesDialog" timestamp="1613089995231">
+      <screen x="2736" y="0" width="1920" height="1040" />
     </state>
     <state x="745" y="230" key="RollbackChangesDialog/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1613072957510" />
+    <state x="3481" y="230" key="RollbackChangesDialog/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1613089995231" />
     <state x="178" y="198" width="1390" height="710" key="SettingsEditor" timestamp="1606772983533">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
