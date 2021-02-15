@@ -23,7 +23,7 @@ public class CheckPoint : MonoBehaviour
     void Start()
     {
         this.OnTriggerEnter2DAsObservable()
-            .Where(other => other.CompareTag(TagNames.Hero))
+            .Where(other => other.CompareTag(Tags.Hero))
             .Take(1)
             .Subscribe(_ => _Passed.OnNext(this));
     }

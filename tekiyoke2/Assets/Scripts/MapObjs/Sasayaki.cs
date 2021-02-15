@@ -24,7 +24,7 @@ public class Sasayaki : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag(TagNames.Hero))
+        if(other.CompareTag(Tags.Hero))
         {
             ClearTweens();
 
@@ -41,7 +41,7 @@ public class Sasayaki : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if(other.CompareTag(TagNames.Hero))
+        if(other.CompareTag(Tags.Hero))
         {
             ClearTweens();
 

@@ -954,7 +954,7 @@
           <e p="Steamworks.NET" t="Include">
             <e p="SteamManager.cs" t="Include" />
           </e>
-          <e p="TagNames.cs" t="Include" />
+          <e p="Tags.cs" t="Include" />
           <e p="TitleScene" t="Include">
             <e p="AnyKeyToStart.cs" t="Include" />
             <e p="CloudSpawner.cs" t="Include" />
@@ -975,7 +975,7 @@
           </e>
           <e p="Warp" t="Include">
             <e p="WarpController.cs" t="Include" />
-            <e p="WarpEvent.cs" t="Include" />
+            <e p="WarpDoor.cs" t="Include" />
           </e>
           <e p="ZatsuTest.cs" t="Include" />
         </e>

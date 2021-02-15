@@ -20,16 +20,44 @@
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:renew_warper" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c97243fa-09da-4818-b4c1-b9937458f378" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Warp/WarpDoor.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Warp/WarpDoor.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/OpenScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/OpenScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Tutorial.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Tutorial.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Save/Save Data Manager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Save/Save Data Manager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembly-CSharp-firstpass.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp-firstpass.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Warper.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Warper.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Draft3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Draft3.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CheckPoint/CheckPoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CheckPoint/CheckPoint.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/Kone.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/Kone.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapObjs/Sasayaki.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MapObjs/Sasayaki.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapObjs/TutorialEnd.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MapObjs/TutorialEnd.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TagNames.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tags.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TagNames.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tags.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/scripts/Hero/HeroDefiner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/scripts/Hero/HeroDefiner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/scripts/Hero/HeroMover.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/scripts/Hero/HeroMover.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/scripts/MapObjs/Goal.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/scripts/MapObjs/Goal.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/scripts/Warp/WarpController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/scripts/Warp/WarpController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/scripts/Warp/WarpEvent.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/scripts/Warp/WarpEvent.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DOTween.Modules.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DOTween.Modules.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DOTweenPro.EditorScripts.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DOTweenPro.EditorScripts.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DOTweenPro.Scripts.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DOTweenPro.Scripts.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DraftMode.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DraftMode.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PlayFab.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/PlayFab.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PlayFabEditorExtensions.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/PlayFabEditorExtensions.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PlayFabSDKEditor.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/PlayFabSDKEditor.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sirenix.OdinInspector.CompatibilityLayer.Editor.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Sirenix.OdinInspector.CompatibilityLayer.Editor.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sirenix.OdinInspector.CompatibilityLayer.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Sirenix.OdinInspector.CompatibilityLayer.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UniRx.Examples.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/UniRx.Examples.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UniRx.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/UniRx.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,70 +67,45 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/.." value="hero_hierarchy" />
+        <entry key="$PROJECT_DIR$/.." value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/Graphic.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scenes/Tutorial.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0B76D74C-9007-4047-ADC3-E5DBD5D3F1DE/69/a3085dc0/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/ScriptableObjects/Save/Save Data Manager.asset" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/EventSystem/UIBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/ProjectSettings/EditorBuildSettings.asset" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/72/b2009ef4/KeyCode.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/3e/4d3e1bd4/DOTweenComponent.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/scripts/Hero/HeroMover.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Prefabs/SceneTransition/WhiteOut.prefab" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/ProjectSettings/EditorBuildSettings.asset" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/scripts/Warp/WarpController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/65CAB14A-C59E-4552-B77F-98A4AED18F9E/0b/5f4bafde/PhysicsScene2D.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scenes/Tutorial.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Save/SaveData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/5e/aba48687/ABSSequentiable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/65CAB14A-C59E-4552-B77F-98A4AED18F9E/09/891b6a7e/Physics2D.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Save/SaveDataManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/ScriptableObjects/DraftModeParameters.asset" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/ProjectSettings/EditorBuildSettings.asset" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/17/acb49825/Tween.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Prefabs/SceneTransition/WhiteOut.prefab" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/f9/97e3c724/TweenParams.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/17C1E98F-9A78-42E3-8BE0-5E60BF0530E8/37/63a07319/02000006.il" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/d7/e0b450ec/Resources.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/scripts/Enemies/EnemySpawner.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/scripts/Warp/WarpController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/MaskableGraphic.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/scripts/Hero/HeroMover.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Input/ButonToKeys.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scenes/Tutorial.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/22/1a106110/String.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/scripts/Enemies/EnemySpawner.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/97/df7e3c54/RuntimeInitializeOnLoadMethodAttribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/17C1E98F-9A78-42E3-8BE0-5E60BF0530E8/94/28da816b/DOTweenPath.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/scripts/Hero/HeroMover.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/97/7d5cd036/Ease.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/Image.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scenes/Tutorial.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/48/3a11e747/SerializeField.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/8a/df89f217/Path.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/ff/80a8bd20/RuntimeInitializeLoadType.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/ScriptableObjects/DraftModeParameters.asset" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/Hero/DraftModeManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/d2/198907ba/Renderer.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/CheckPoint/CheckPoint.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/scripts/SceneTransition/SceneTransition.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Prefabs/SceneTransition/WhiteOut.prefab" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0C9D4FCF-D613-4956-86FC-3555A6D54354/b9/150c570d/ReadOnlyAttribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/d7/407bc7a7/SpriteRenderer.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/FixedArtilleryBEam.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Hero/DP/GetDPinEnemy.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Utils/MyMath.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/FixedArtillery.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/FixedArtilleryBeam.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Hero/Actions/States/StateJump.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Hero/Actions/HeroTransitions.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPTest.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Parameters/HeroParameters.cs" />
@@ -142,12 +145,18 @@
         <option value="$PROJECT_DIR$/Assets/Materials/PostEffects/Noise.shader" />
         <option value="$PROJECT_DIR$/Assets/Materials/WhiteOut.shader" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SceneTransition/SceneTransition.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Hero/HeroMover.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemySpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DraftMode/DraftWindsManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Parameters/DraftModeParameters.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Hero/DraftModeManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/TitleScene/CloudSpawner.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/TagNames.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Tags.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Warp/WarpEvent.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Hero/HeroDefiner.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Hero/HeroMover.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Warp/WarpDoor.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Warp/WarpController.cs" />
       </list>
     </option>
   </component>
@@ -169,7 +178,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="RiderUnityFileTemplatesSettings" />
+    <property name="settings.editor.selected.configurable" value="CodeLensConfigurable" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
@@ -243,20 +252,8 @@
       <workItem from="1612429524455" duration="5561000" />
       <workItem from="1612774153103" duration="10393000" />
       <workItem from="1612993898155" duration="9214000" />
-    </task>
-    <task id="LOCAL-00056" summary="チェックポイント整理">
-      <created>1608065987373</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1608065987373</updated>
-    </task>
-    <task id="LOCAL-00057" summary="1分強ぐらいでクリアできるさいずになった">
-      <created>1608150116189</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1608150116189</updated>
+      <workItem from="1613362398359" duration="953000" />
+      <workItem from="1613363681921" duration="2800000" />
     </task>
     <task id="LOCAL-00058" summary="1分強ぐらいでクリアできるさいずになった">
       <created>1608150388987</created>
@@ -587,7 +584,21 @@
       <option name="project" value="LOCAL" />
       <updated>1613090112107</updated>
     </task>
-    <option name="localTasksCounter" value="105" />
+    <task id="LOCAL-00105" summary="タイトル画面の背景に雲を湧かせる処理にAddToをつけ忘れたせいでチュートリアル画面に雲が湧いてしまった">
+      <created>1613090456583</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1613090456583</updated>
+    </task>
+    <task id="LOCAL-00106" summary="タイトル画面の背景に雲を湧かせる処理にAddToをつけ忘れたせいでチュートリアル画面に雲が湧いてしまった">
+      <created>1613362456393</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1613362456393</updated>
+    </task>
+    <option name="localTasksCounter" value="107" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -606,7 +617,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="master" />
+                        <option value="renew_warper" />
                       </list>
                     </value>
                   </entry>
@@ -620,7 +631,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="ステージ選択画面のランキング/設定ボタンをいい感じに取り込んだ" />
     <MESSAGE value="ぐるぐる回ってる光るやつの動きを正常にした" />
     <MESSAGE value="移動できてなかったり位置ずれてたりした" />
     <MESSAGE value="フェードアウト、他画面のフェードイン/アウト" />
@@ -645,7 +655,8 @@
     <MESSAGE value="微…………" />
     <MESSAGE value="Revert &quot;チュートリアル最後の敵のDP入れ忘れてた&quot;&#10;&#10;This reverts commit 59cb98b0" />
     <MESSAGE value="チュートリアル最後の敵のDP入れ忘れてた" />
-    <option name="LAST_COMMIT_MESSAGE" value="チュートリアル最後の敵のDP入れ忘れてた" />
+    <MESSAGE value="タイトル画面の背景に雲を湧かせる処理にAddToをつけ忘れたせいでチュートリアル画面に雲が湧いてしまった" />
+    <option name="LAST_COMMIT_MESSAGE" value="タイトル画面の背景に雲を湧かせる処理にAddToをつけ忘れたせいでチュートリアル画面に雲が湧いてしまった" />
   </component>
   <component name="WindowStateProjectService">
     <state x="709" y="345" key="#Notifications" timestamp="1605532697581">
@@ -656,10 +667,11 @@
       <screen x="2736" y="0" width="1920" height="1040" />
     </state>
     <state x="3250" y="94" key="CommitChangelistDialog2/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1613089887778" />
-    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1613073273683">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="2828" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1613365737299">
+      <screen x="2736" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1613073273683" />
+    <state x="2828" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1613365737299" />
     <state width="1878" height="223" key="GridCell.Tab.0.bottom" timestamp="1607845021307">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -740,10 +752,11 @@
     </state>
     <state x="745" y="230" key="RollbackChangesDialog/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1613072957510" />
     <state x="3481" y="230" key="RollbackChangesDialog/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1613089995231" />
-    <state x="178" y="198" width="1390" height="710" key="SettingsEditor" timestamp="1606772983533">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="2914" y="198" width="1390" height="710" key="SettingsEditor" timestamp="1613362852331">
+      <screen x="2736" y="0" width="1920" height="1040" />
     </state>
     <state x="178" y="198" width="1390" height="710" key="SettingsEditor/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1606772983533" />
+    <state x="2914" y="198" key="SettingsEditor/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1613362852331" />
     <state x="373" y="189" key="SettingsEditor/0.0.1920.1040/-2736.0.1368.872@0.0.1920.1040" timestamp="1606322997903" />
     <state x="746" y="494" key="VCS.ChangelistChooser" timestamp="1605865976745">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -754,11 +767,11 @@
     </state>
     <state x="51" y="103" width="1736" height="856" key="VCS.FileHistoryDialog/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611788990972" />
     <state x="51" y="103" width="1736" height="856" key="VCS.FileHistoryDialog/0.0.1920.1040/-2736.0.1368.872@0.0.1920.1040" timestamp="1606388768425" />
-    <state x="3288" y="253" key="Vcs.Push.Dialog.v2" timestamp="1613081156612">
+    <state x="3288" y="253" key="Vcs.Push.Dialog.v2" timestamp="1613362460260">
       <screen x="2736" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="253" key="Vcs.Push.Dialog.v2/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611797067282" />
-    <state x="3288" y="253" key="Vcs.Push.Dialog.v2/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1613081156612" />
+    <state x="3288" y="253" key="Vcs.Push.Dialog.v2/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1613362460260" />
     <state x="393" y="212" key="Vcs.Push.Dialog.v2/0.0.1368.872@0.0.1368.872" timestamp="1611420006898" />
     <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-2736.0.1368.872@0.0.1920.1040" timestamp="1606421529687" />
     <state x="572" y="253" width="775" height="534" key="find.popup" timestamp="1606324168206">

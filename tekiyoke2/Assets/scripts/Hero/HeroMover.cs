@@ -63,6 +63,8 @@ public class HeroMover : SerializedMonoBehaviour
         ));
     }
 
+    public void WarpPos(Vector2 pos) => WarpPos(pos.x, pos.y);
+    
     ///<summary>指定した値に位置が移動。timeScaleの影響を受けません</summary>
     public void WarpPos(float x, float y)
     {
