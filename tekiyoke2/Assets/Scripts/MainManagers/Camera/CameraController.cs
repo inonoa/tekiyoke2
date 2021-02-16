@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static System.Math;
 using System;
+using Sirenix.OdinInspector;
 
 public class CameraController : MonoBehaviour
 {
@@ -34,7 +35,8 @@ public class CameraController : MonoBehaviour
 
     [SerializeField] Canvas canvas;
 
-    
+    [SerializeField, ReadOnly] CameraLockingArea lockedBy;
+
     public void StartZoomForJet() => zoomer.StartZoom();
     public void OnJet()
     {
@@ -47,19 +49,13 @@ public class CameraController : MonoBehaviour
 
 
     float seconds2freeze = 0;
-    Vector3 freezePosition;
-
     public bool Freeze(float seconds = 0.3f)
     {
         if(seconds2freeze > 0) return false;
 
         seconds2freeze = seconds;
-        freezePosition = transform.position;
         return true;
     }
-
-    void OnEnable()  => gameObject.AddComponent<AudioListener>();
-    void OnDisable() => Destroy(GetComponent<AudioListener>());
 
     void Start()
     {
@@ -80,8 +76,6 @@ public class CameraController : MonoBehaviour
 
         transform.position = targetPosition.ToVec3() + positionGap.ToVec3() + new Vector3(0,0,-500);
     }
-
-    
 
     //単純に主人公の移動距離分追いかけたあと、Freeze中に置いてけぼりを喰らっていた分をちょっとずつ追い付く
     Vector2 NextTartgetPosition(Vector2 currentTargetPosition)
@@ -104,11 +98,32 @@ public class CameraController : MonoBehaviour
         return positionGap + current2target * positionGapChangeSpeed;
     }
 
+    // カメラの衝突より主人公の衝突に反応させるべき？
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag(Tags.CameraLockingArea))
+        {
+            lockedBy = other.GetComponent<CameraLockingArea>();
+        }
+    }
+    
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag(Tags.CameraLockingArea))
+        {
+            lockedBy = null;
+        }
+    }
+
     public void ScSho(Action<Texture2D> callbackOnTaken)
         => scShoController.BeginScSho(callbackOnTaken);
 
     public void ScShoOutOfWind(Action<Texture2D> callbackOnTaken)
         => scShoOutOfWindController.BeginScShoOutOfWind(callbackOnTaken);
+    
+    
+    void OnEnable()  => gameObject.AddComponent<AudioListener>();
+    void OnDisable() => Destroy(GetComponent<AudioListener>());
     
 
     #region instance

@@ -855,6 +855,7 @@
             <e p="Camera" t="Include">
               <e p="AfterEffects.cs" t="Include" />
               <e p="CameraController.cs" t="Include" />
+              <e p="CameraLockingArea.cs" t="Include" />
               <e p="CameraZoomerForJet.cs" t="Include" />
               <e p="PostEffectWrapper.cs" t="Include" />
               <e p="ScShoController.cs" t="Include" />

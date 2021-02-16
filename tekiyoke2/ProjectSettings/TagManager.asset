@@ -12,6 +12,7 @@ TagManager:
   - Drop
   - CanSeeEnemy
   - Wind
+  - CameraLockingArea
   layers:
   - Default
   - TransparentFX

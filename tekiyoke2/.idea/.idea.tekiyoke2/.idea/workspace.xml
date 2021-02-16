@@ -26,25 +26,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c97243fa-09da-4818-b4c1-b9937458f378" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MainManagers/Camera/CameraZoomerForJet.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MainManagers/Camera/CameraZoomerForJet.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MainManagers/Camera/CameraLockingArea.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MainManagers/Camera/CameraLockingArea.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/UI/DPGauge.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/UI/DPGauge.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Main Camera.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Main Camera.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Hero/Actions/JetManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Hero/Actions/JetManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Hero/DP/GetDPinEnemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Hero/DP/GetDPinEnemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Hero/DraftModeManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Hero/DraftModeManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Hero/Effects/JetPostEffect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Hero/Effects/JetPostEffect.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Hero/HeroHPView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Hero/HeroHPView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Draft3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Draft3.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/MainManagers/Camera/CameraController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MainManagers/Camera/CameraController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapObjs/TutorialEnd.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MapObjs/TutorialEnd.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/scripts/Hero/HeroMover.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/scripts/Hero/HeroMover.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/scripts/MapObjs/Goal.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/scripts/MapObjs/Goal.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/scripts/Pause/Pauser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/scripts/Pause/Pauser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/scripts/SceneTransition/SceneTransition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/scripts/SceneTransition/SceneTransition.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/scripts/SceneTransition/WindAndBlur.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/scripts/SceneTransition/WindAndBlur.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/scripts/Warp/WarpController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/scripts/Warp/WarpController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tags.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tags.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,14 +127,14 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Hero/DraftModeManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/TitleScene/CloudSpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/TagNames.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Tags.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Warp/WarpEvent.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Hero/HeroDefiner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Hero/HeroMover.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Warp/WarpDoor.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Warp/WarpController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/MainManagers/Camera/CameraLockingArea.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MainManagers/Camera/CameraZoomerForJet.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MainManagers/Camera/CameraLockingArea.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Tags.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MainManagers/Camera/CameraController.cs" />
       </list>
     </option>
@@ -242,13 +234,6 @@
       <workItem from="1613362398359" duration="953000" />
       <workItem from="1613363681921" duration="6129000" />
       <workItem from="1613439626608" duration="651000" />
-    </task>
-    <task id="LOCAL-00059" summary="Steamworks.NET入れた">
-      <created>1608153937291</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1608153937291</updated>
     </task>
     <task id="LOCAL-00060" summary="Steamworks.NET入れた">
       <created>1608153952926</created>
@@ -586,7 +571,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613366511655</updated>
     </task>
-    <option name="localTasksCounter" value="108" />
+    <task id="LOCAL-00108" summary="CameraControllerからZoomerをひきはがした">
+      <created>1613445586530</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1613445586530</updated>
+    </task>
+    <option name="localTasksCounter" value="109" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -619,7 +611,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="移動できてなかったり位置ずれてたりした" />
     <MESSAGE value="フェードアウト、他画面のフェードイン/アウト" />
     <MESSAGE value="ノードが選択を検出したり、ちょっとフェードインを速くしたり" />
     <MESSAGE value="RankingsSelectをいい感じの見た目に(大半StageSelectと共通)" />
@@ -644,7 +635,8 @@
     <MESSAGE value="チュートリアル最後の敵のDP入れ忘れてた" />
     <MESSAGE value="タイトル画面の背景に雲を湧かせる処理にAddToをつけ忘れたせいでチュートリアル画面に雲が湧いてしまった" />
     <MESSAGE value="ワープゲートリニューアル/リファクタリング" />
-    <option name="LAST_COMMIT_MESSAGE" value="ワープゲートリニューアル/リファクタリング" />
+    <MESSAGE value="CameraControllerからZoomerをひきはがした" />
+    <option name="LAST_COMMIT_MESSAGE" value="CameraControllerからZoomerをひきはがした" />
   </component>
   <component name="WindowStateProjectService">
     <state x="709" y="345" key="#Notifications" timestamp="1605532697581">

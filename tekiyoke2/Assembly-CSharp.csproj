@@ -138,6 +138,7 @@
      <Compile Include="Assets\Scripts\MainManagers\BGMover.cs" />
      <Compile Include="Assets\Scripts\MainManagers\Camera\AfterEffects.cs" />
      <Compile Include="Assets\Scripts\MainManagers\Camera\CameraController.cs" />
+     <Compile Include="Assets\Scripts\MainManagers\Camera\CameraLockingArea.cs" />
      <Compile Include="Assets\Scripts\MainManagers\Camera\CameraZoomerForJet.cs" />
      <Compile Include="Assets\Scripts\MainManagers\Camera\PostEffectWrapper.cs" />
      <Compile Include="Assets\Scripts\MainManagers\Camera\ScShoController.cs" />
