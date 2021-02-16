@@ -127,7 +127,7 @@ public class JetManager : MonoBehaviour
         hero.TimeManager.SetTimeScale(TimeEffectType.ReadyToJet, hero.Parameters.JetParams.TimeScaleBeforeJet);
         jetPostEffect.Ready();
         clouds.StartClouds();
-        hero.CmrCntr.StartZoomForDash();
+        hero.CmrCntr.StartZoomForJet();
         hero.SoundGroup.SetVolume("Tame", 0);
         hero.SoundGroup.Play("Tame");
         hero.SoundGroup.VolumeTo("Tame", 1, 0.7f);
@@ -147,7 +147,7 @@ public class JetManager : MonoBehaviour
     {
         jetPostEffect.Exit();
         clouds.EndClouds();
-        hero.CmrCntr.EndDash();
+        hero.CmrCntr.EndJet();
         hero.SoundGroup.Stop("Tame");
     }
 

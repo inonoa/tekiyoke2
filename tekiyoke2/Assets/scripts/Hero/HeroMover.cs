@@ -300,7 +300,7 @@ public class HeroMover : SerializedMonoBehaviour
 
     void Start()
     {
-        CmrCntr = CameraController.CurrentCamera;
+        CmrCntr = CameraController.Current;
         TimeManager = TimeManager.Current;
         chishibuki = GameUIManager.CurrentInstance.Chishibuki;
         Rigidbody           = GetComponent<Rigidbody2D>();

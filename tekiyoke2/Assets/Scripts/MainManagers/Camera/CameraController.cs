@@ -6,14 +6,9 @@ using System;
 
 public class CameraController : MonoBehaviour
 {
-    Camera cmr;
-    private float defaultSize;
-    [SerializeField] float zoomSizeMin = 300;
-    [SerializeField] float zoomSpeed   = 100f;
-    [SerializeField] float unzoomSpeed = 500f;
+    CameraZoomerForJet zoomer;
 
     [SerializeField] Vector2 fromCameraToHero = new Vector2(0, -100);
-
 
     ///<summary>主人公を追いかけている、主人公が動くと遅れてついていく</summary>
     Vector2 targetPosition;
@@ -30,9 +25,6 @@ public class CameraController : MonoBehaviour
     ///<summary>positionGapが変化するスピード</summary>
     [SerializeField] float positionGapChangeSpeed = 0.1f;
 
-    enum StateAboutJet{ Default, ZoomingForDash, Dashing, Retreating }
-    StateAboutJet jetState = StateAboutJet.Default;
-
     [SerializeField] float jetFreezeSeconds = 0.3f;
 
     [Space(10)]
@@ -42,15 +34,15 @@ public class CameraController : MonoBehaviour
 
     [SerializeField] Canvas canvas;
 
-    //この辺必要か？？？
-    public void StartZoomForDash() => jetState = StateAboutJet.ZoomingForDash;
+    
+    public void StartZoomForJet() => zoomer.StartZoom();
     public void OnJet()
     {
-        jetState = StateAboutJet.Dashing;
+        zoomer.OnJet();
         Freeze(jetFreezeSeconds);
     }
-    public void EndDash() => jetState = StateAboutJet.Retreating;
-    public void Reset()   => jetState = StateAboutJet.Retreating; //多分要改善。ダッシュ以外のズームが導入された場合とか
+    public void EndJet() => zoomer.EndJet();
+    public void Reset() => zoomer.Reset_();
 
 
 
@@ -71,15 +63,12 @@ public class CameraController : MonoBehaviour
 
     void Start()
     {
-        defaultSize = cmr.orthographicSize;
         targetPosition = HeroDefiner.CurrentPos - fromCameraToHero.ToVec3() + new Vector3(0, 0, -500);
         scShoOutOfWindController.canvas = canvas;
     }
 
     void FixedUpdate()
     {
-        UpdateZoom();
-
         if(seconds2freeze > 0)
         {
             seconds2freeze -= Time.unscaledDeltaTime;
@@ -92,34 +81,7 @@ public class CameraController : MonoBehaviour
         transform.position = targetPosition.ToVec3() + positionGap.ToVec3() + new Vector3(0,0,-500);
     }
 
-    void UpdateZoom()
-    {
-        switch(jetState)
-        {
-        case StateAboutJet.Default: break;
-
-        case StateAboutJet.ZoomingForDash:
-
-            if(cmr.orthographicSize > zoomSizeMin)
-            {
-                cmr.orthographicSize -= zoomSpeed * Time.unscaledDeltaTime;
-            }
-            break;
-
-        case StateAboutJet.Dashing: break;
-
-        case StateAboutJet.Retreating:
-            
-            cmr.orthographicSize += unzoomSpeed * Time.unscaledDeltaTime;
-
-            if(cmr.orthographicSize > defaultSize)
-            {
-                cmr.orthographicSize = defaultSize;
-                jetState = StateAboutJet.Default;
-            }
-            break;
-        }
-    }
+    
 
     //単純に主人公の移動距離分追いかけたあと、Freeze中に置いてけぼりを喰らっていた分をちょっとずつ追い付く
     Vector2 NextTartgetPosition(Vector2 currentTargetPosition)
@@ -142,15 +104,6 @@ public class CameraController : MonoBehaviour
         return positionGap + current2target * positionGapChangeSpeed;
     }
 
-    ///<summary>velocityというか実際に移動した距離の平均</summary>
-    Vector2 HeroVelocityMean(int range){
-        int count = HeroDefiner.PastPoss.Count;
-        if(count >= range)
-            return (MyMath.DistAsVector2(HeroDefiner.ExpectedPos, HeroDefiner.PastPoss[range - 1])) / range;
-        else
-            return (MyMath.DistAsVector2(HeroDefiner.ExpectedPos, HeroDefiner.PastPoss[count - 1])) / count;
-    }
-
     public void ScSho(Action<Texture2D> callbackOnTaken)
         => scShoController.BeginScSho(callbackOnTaken);
 
@@ -160,20 +113,19 @@ public class CameraController : MonoBehaviour
 
     #region instance
 
-    static CameraController _CurrentCamera;
-    public static CameraController CurrentCamera{ get => _CurrentCamera; }
-    public static Vector3 CurrentCameraPos{ get => _CurrentCamera.transform.position; }
+    public static CameraController Current { get; private set; }
+    public static Vector3 CurrentCameraPos => Current.transform.position;
 
     void Awake()
     {
-        _CurrentCamera = this;
-        cmr            = GetComponent<Camera>();
+        Current = this;
         AfterEffects   = GetComponent<AfterEffects>();
+        zoomer         = GetComponent<CameraZoomerForJet>();
     }
 
     void OnDestroy()
     {
-        _CurrentCamera = null;
+        Current = null;
     }
 
     #endregion

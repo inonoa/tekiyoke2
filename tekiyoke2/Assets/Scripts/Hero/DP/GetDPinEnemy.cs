@@ -31,8 +31,8 @@ public class GetDPinEnemy : MonoBehaviour
 
     IEnumerator FreezeAndMelt(DPinEnemy die)
     {
-        var colReversed = CameraController.CurrentCamera.AfterEffects.Find("ColorReversed");
-        var noise       = CameraController.CurrentCamera.AfterEffects.Find("Noise");
+        var colReversed = CameraController.Current.AfterEffects.Find("ColorReversed");
+        var noise       = CameraController.Current.AfterEffects.Find("Noise");
 
         yield return new WaitForSecondsRealtime(0.05f);
 

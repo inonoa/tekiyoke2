@@ -20,7 +20,7 @@ public class WarpController : MonoBehaviour
                 Vector2 dst = otherDoor.transform.position + new Vector3(otherDoor == rightDoor ? 3 : -3, 0);
                 HeroDefiner.currentHero.WarpPos(dst);
 
-                CameraController.CurrentCamera.Freeze();
+                CameraController.Current.Freeze();
             });
     }
 }

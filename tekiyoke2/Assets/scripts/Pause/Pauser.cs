@@ -60,7 +60,7 @@ public class Pauser : SerializedMonoBehaviour
     public void Pause()
     {
         //(実際にはフレーム終了後に移行)
-        CameraController.CurrentCamera.ScSho(ss =>
+        CameraController.Current.ScSho(ss =>
         {
             scshoImg.sprite = Sprite.Create
             (

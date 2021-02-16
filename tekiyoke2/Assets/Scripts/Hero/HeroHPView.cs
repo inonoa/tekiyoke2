@@ -15,7 +15,7 @@ public class HeroHPView : MonoBehaviour, IHPView
     [SerializeField] float houtaiAlpha1Seconds = 1f;
     
 
-    CameraController Camera => CameraController.CurrentCamera;
+    CameraController Camera => CameraController.Current;
     [SerializeField] Vector3 cameraShakeWidth   = new Vector3(30, 30, 0);
     [SerializeField] float cameraShakeSeconds = 0.2f;
     [SerializeField] int   cameraShakeVibrato = 10;

@@ -14,9 +14,9 @@ public class JetPostEffect : MonoBehaviour
 
     void Start()
     {
-        vignette = CameraController.CurrentCamera.AfterEffects.Find("Vignette");
-        blurY    = CameraController.CurrentCamera.AfterEffects.Find("BlurEdge1");
-        blurT    = CameraController.CurrentCamera.AfterEffects.Find("BlurEdge2");
+        vignette = CameraController.Current.AfterEffects.Find("Vignette");
+        blurY    = CameraController.Current.AfterEffects.Find("BlurEdge1");
+        blurT    = CameraController.Current.AfterEffects.Find("BlurEdge2");
     }
 
     public void Ready()
