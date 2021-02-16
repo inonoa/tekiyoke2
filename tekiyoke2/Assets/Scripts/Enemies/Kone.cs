@@ -41,7 +41,7 @@ public class Kone : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
         gameObject.SetActive(true);
         
         heroSensor.OnTriggerEnter2DAsObservable()
-            .Where(other => other.CompareTag(TagNames.Hero))
+            .Where(other => other.CompareTag(Tags.Hero))
             .Take(1)
             .Subscribe(_ => Jump(HeroDefiner.CurrentPos))
             .AddTo(this);

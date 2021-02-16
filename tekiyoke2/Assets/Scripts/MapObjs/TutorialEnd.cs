@@ -10,7 +10,7 @@ public class TutorialEnd : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag(TagNames.Hero) && !goaled)
+        if(other.CompareTag(Tags.Hero) && !goaled)
         {
             goaled = true;
             HeroDefiner.currentHero.OnGoal();
