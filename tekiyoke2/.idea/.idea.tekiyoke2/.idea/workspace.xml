@@ -26,38 +26,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c97243fa-09da-4818-b4c1-b9937458f378" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Warp/WarpDoor.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Warp/WarpDoor.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembly-CSharp-firstpass.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp-firstpass.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Warper.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Warper.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Draft3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Draft3.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CheckPoint/CheckPoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CheckPoint/CheckPoint.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/Kone.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/Kone.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapObjs/Sasayaki.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MapObjs/Sasayaki.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapObjs/TutorialEnd.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MapObjs/TutorialEnd.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TagNames.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tags.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TagNames.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tags.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/scripts/Hero/HeroDefiner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/scripts/Hero/HeroDefiner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/scripts/Hero/HeroMover.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/scripts/Hero/HeroMover.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/scripts/MapObjs/Goal.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/scripts/MapObjs/Goal.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/scripts/Warp/WarpController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/scripts/Warp/WarpController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/scripts/Warp/WarpEvent.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/scripts/Warp/WarpEvent.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DOTween.Modules.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DOTween.Modules.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DOTweenPro.EditorScripts.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DOTweenPro.EditorScripts.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DOTweenPro.Scripts.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DOTweenPro.Scripts.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DraftMode.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DraftMode.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PlayFab.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/PlayFab.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PlayFabEditorExtensions.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/PlayFabEditorExtensions.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PlayFabSDKEditor.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/PlayFabSDKEditor.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sirenix.OdinInspector.CompatibilityLayer.Editor.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Sirenix.OdinInspector.CompatibilityLayer.Editor.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sirenix.OdinInspector.CompatibilityLayer.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Sirenix.OdinInspector.CompatibilityLayer.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniRx.Examples.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/UniRx.Examples.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniRx.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/UniRx.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +49,6 @@
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/EventSystem/UIBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/72/b2009ef4/KeyCode.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/3e/4d3e1bd4/DOTweenComponent.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/scripts/Warp/WarpController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/65CAB14A-C59E-4552-B77F-98A4AED18F9E/0b/5f4bafde/PhysicsScene2D.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Save/SaveData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/5e/aba48687/ABSSequentiable.cs" root0="SKIP_HIGHLIGHTING" />
@@ -88,7 +58,6 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/f9/97e3c724/TweenParams.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/17C1E98F-9A78-42E3-8BE0-5E60BF0530E8/37/63a07319/02000006.il" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/d7/e0b450ec/Resources.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/scripts/Warp/WarpController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/MaskableGraphic.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Input/ButonToKeys.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/22/1a106110/String.cs" root0="SKIP_HIGHLIGHTING" />
@@ -253,14 +222,8 @@
       <workItem from="1612774153103" duration="10393000" />
       <workItem from="1612993898155" duration="9214000" />
       <workItem from="1613362398359" duration="953000" />
-      <workItem from="1613363681921" duration="2800000" />
-    </task>
-    <task id="LOCAL-00058" summary="1分強ぐらいでクリアできるさいずになった">
-      <created>1608150388987</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1608150388987</updated>
+      <workItem from="1613363681921" duration="6129000" />
+      <workItem from="1613439626608" duration="651000" />
     </task>
     <task id="LOCAL-00059" summary="Steamworks.NET入れた">
       <created>1608153937291</created>
@@ -598,7 +561,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613362456393</updated>
     </task>
-    <option name="localTasksCounter" value="107" />
+    <task id="LOCAL-00107" summary="ワープゲートリニューアル/リファクタリング">
+      <created>1613366511655</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1613366511655</updated>
+    </task>
+    <option name="localTasksCounter" value="108" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -631,7 +601,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="ぐるぐる回ってる光るやつの動きを正常にした" />
     <MESSAGE value="移動できてなかったり位置ずれてたりした" />
     <MESSAGE value="フェードアウト、他画面のフェードイン/アウト" />
     <MESSAGE value="ノードが選択を検出したり、ちょっとフェードインを速くしたり" />
@@ -656,7 +625,8 @@
     <MESSAGE value="Revert &quot;チュートリアル最後の敵のDP入れ忘れてた&quot;&#10;&#10;This reverts commit 59cb98b0" />
     <MESSAGE value="チュートリアル最後の敵のDP入れ忘れてた" />
     <MESSAGE value="タイトル画面の背景に雲を湧かせる処理にAddToをつけ忘れたせいでチュートリアル画面に雲が湧いてしまった" />
-    <option name="LAST_COMMIT_MESSAGE" value="タイトル画面の背景に雲を湧かせる処理にAddToをつけ忘れたせいでチュートリアル画面に雲が湧いてしまった" />
+    <MESSAGE value="ワープゲートリニューアル/リファクタリング" />
+    <option name="LAST_COMMIT_MESSAGE" value="ワープゲートリニューアル/リファクタリング" />
   </component>
   <component name="WindowStateProjectService">
     <state x="709" y="345" key="#Notifications" timestamp="1605532697581">

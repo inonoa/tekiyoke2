@@ -13,7 +13,6 @@ public class WarpController : MonoBehaviour
     {
         rightDoor.HeroEnter
             .Merge(leftDoor.HeroEnter)
-            .Do(print)
             .ThrottleFirstFrame(3)
             .Subscribe(door =>
             {
