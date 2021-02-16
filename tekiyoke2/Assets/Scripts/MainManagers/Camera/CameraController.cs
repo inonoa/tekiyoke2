@@ -74,28 +74,64 @@ public class CameraController : MonoBehaviour
         targetPosition = NextTartgetPosition(targetPosition);
         positionGap    = NextPositionGap(positionGap);
 
-        transform.position = targetPosition.ToVec3() + positionGap.ToVec3() + new Vector3(0,0,-500);
+        transform.position = targetPosition.ToVec3() + positionGap.ToVec3() + new Vector3(0, 0, -500);
     }
 
     //単純に主人公の移動距離分追いかけたあと、Freeze中に置いてけぼりを喰らっていた分をちょっとずつ追い付く
     Vector2 NextTartgetPosition(Vector2 currentTargetPosition)
     {
-        Vector2 lastPos   = HeroDefiner.PastPoss.Count > 1 ? HeroDefiner.PastPoss[1] : HeroDefiner.CurrentPos;
-        Vector2 dist      = MyMath.DistAsVector2(HeroDefiner.CurrentPos, lastPos);
+        Vector2 heroPosLastToCurrent = HeroPosLastToCurrent();
+        Vector2 dist = new Vector2
+        (
+            XLocked ? 0 : heroPosLastToCurrent.x,
+            YLocked ? 0 : heroPosLastToCurrent.y
+        );
         Vector2 distAdded = currentTargetPosition + dist;
 
-        Vector2 catchUp = (HeroDefiner.ExpectedPos - fromCameraToHero - targetPosition) * targetPosChangeSpeed;
+        Vector2 catchUp = (FinalTargetPos() - targetPosition) * targetPosChangeSpeed;
         return distAdded + catchUp;
+    }
+
+    bool XLocked => !(lockedBy is null) && lockedBy.LockX;
+    bool YLocked => !(lockedBy is null) && lockedBy.LockY;
+
+    Vector2 HeroPosLastToCurrent()
+    {
+        Vector2 lastPos   = HeroDefiner.PastPoss.Count > 1 ? HeroDefiner.PastPoss[1] : HeroDefiner.CurrentPos;
+        return MyMath.DistAsVector2(HeroDefiner.CurrentPos, lastPos);
+    }
+
+    Vector2 FinalTargetPos()
+    {
+        if (lockedBy is null)
+        {
+            return HeroDefiner.ExpectedPos - fromCameraToHero;
+        }
+        else
+        {
+            Vector2 fromHero = HeroDefiner.ExpectedPos - fromCameraToHero;
+            Vector2 fromLock = lockedBy.transform.position;
+            return new Vector2
+            (
+                XLocked ? fromLock.x : fromHero.x,
+                YLocked ? fromLock.y : fromHero.y
+            );
+        }
     }
 
     Vector2 NextPositionGap(Vector2 currentPositionGap)
     {
-        bool wantsToGoRight = HeroDefiner.currentHero.WantsToGoRight;
-        Vector2 targetGap = wantsToGoRight ? new Vector2(positionGapWidth, 0) : new Vector2(-positionGapWidth, 0);
+        Vector2 targetGap = XLocked ? Vector2.zero : NextTargetGapNormal();
             
-        Vector2 current2target = targetGap - positionGap;
-        if(current2target.magnitude < 1) return positionGap;
-        return positionGap + current2target * positionGapChangeSpeed;
+        Vector2 current2target = targetGap - currentPositionGap;
+        if(current2target.magnitude < 1) return currentPositionGap;
+        return currentPositionGap + current2target * positionGapChangeSpeed;
+    }
+
+    Vector2 NextTargetGapNormal()
+    {
+        bool wantsToGoRight = HeroDefiner.currentHero.WantsToGoRight;
+        return wantsToGoRight ? new Vector2(positionGapWidth, 0) : new Vector2(-positionGapWidth, 0);
     }
 
     // カメラの衝突より主人公の衝突に反応させるべき？
