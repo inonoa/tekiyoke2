@@ -20,6 +20,8 @@ public class DetectsCameraLockingArea : MonoBehaviour
     {
         if (other.CompareTag(Tags.CameraLockingArea))
         {
+            if(other.GetComponent<CameraLockingArea>() != LockedBy) return;
+            
             LockedBy = null;
         }
     }
