@@ -104,6 +104,7 @@
      <Compile Include="Assets\Scripts\Hero\DamageType.cs" />
      <Compile Include="Assets\Scripts\Hero\Debug\HeroDebugView.cs" />
      <Compile Include="Assets\Scripts\Hero\Debug\HeroLogParams.cs" />
+     <Compile Include="Assets\Scripts\Hero\DetectsCameraLockingArea.cs" />
      <Compile Include="Assets\Scripts\Hero\DraftModeManager.cs" />
      <Compile Include="Assets\Scripts\Hero\Effects\Chishibuki.cs" />
      <Compile Include="Assets\Scripts\Hero\Effects\HeroAfterimage.cs" />
@@ -234,6 +235,7 @@
      <Compile Include="Assets\Scripts\Utils\TransformExtensions.cs" />
      <Compile Include="Assets\Scripts\Warp\WarpController.cs" />
      <Compile Include="Assets\Scripts\Warp\WarpDoor.cs" />
+     <Compile Include="Assets\Scripts\Warp\WarpParams.cs" />
      <Compile Include="Assets\Scripts\ZatsuTest.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\Materials\PostEffects\BlurEdge2.shader" />

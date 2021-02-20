@@ -35,8 +35,6 @@ public class CameraController : MonoBehaviour
 
     [SerializeField] Canvas canvas;
 
-    [SerializeField, ReadOnly] CameraLockingArea lockedBy;
-
     public void StartZoomForJet() => zoomer.StartZoom();
     public void OnJet()
     {
@@ -92,8 +90,10 @@ public class CameraController : MonoBehaviour
         return distAdded + catchUp;
     }
 
-    bool XLocked => !(lockedBy is null) && lockedBy.LockX;
-    bool YLocked => !(lockedBy is null) && lockedBy.LockY;
+    CameraLockingArea LockedBy => HeroDefiner.currentHero.DetectsCameraLockingArea.LockedBy;
+
+    bool XLocked => !(LockedBy is null) && LockedBy.LockX;
+    bool YLocked => !(LockedBy is null) && LockedBy.LockY;
 
     Vector2 HeroPosLastToCurrent()
     {
@@ -103,14 +103,14 @@ public class CameraController : MonoBehaviour
 
     Vector2 FinalTargetPos()
     {
-        if (lockedBy is null)
+        if (LockedBy is null)
         {
             return HeroDefiner.ExpectedPos - fromCameraToHero;
         }
         else
         {
             Vector2 fromHero = HeroDefiner.ExpectedPos - fromCameraToHero;
-            Vector2 fromLock = lockedBy.transform.position;
+            Vector2 fromLock = LockedBy.transform.position;
             return new Vector2
             (
                 XLocked ? fromLock.x : fromHero.x,
@@ -132,23 +132,6 @@ public class CameraController : MonoBehaviour
     {
         bool wantsToGoRight = HeroDefiner.currentHero.WantsToGoRight;
         return wantsToGoRight ? new Vector2(positionGapWidth, 0) : new Vector2(-positionGapWidth, 0);
-    }
-
-    // カメラの衝突より主人公の衝突に反応させるべき？
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag(Tags.CameraLockingArea))
-        {
-            lockedBy = other.GetComponent<CameraLockingArea>();
-        }
-    }
-    
-    void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag(Tags.CameraLockingArea))
-        {
-            lockedBy = null;
-        }
     }
 
     public void ScSho(Action<Texture2D> callbackOnTaken)

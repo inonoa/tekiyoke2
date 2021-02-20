@@ -808,6 +808,7 @@
               <e p="HeroDebugView.cs" t="Include" />
               <e p="HeroLogParams.cs" t="Include" />
             </e>
+            <e p="DetectsCameraLockingArea.cs" t="Include" />
             <e p="DP" t="Include">
               <e p="DPManager.cs" t="Include" />
               <e p="GetDPinEnemy.cs" t="Include" />
@@ -978,6 +979,7 @@
           <e p="Warp" t="Include">
             <e p="WarpController.cs" t="Include" />
             <e p="WarpDoor.cs" t="Include" />
+            <e p="WarpParams.cs" t="Include" />
           </e>
           <e p="ZatsuTest.cs" t="Include" />
         </e>

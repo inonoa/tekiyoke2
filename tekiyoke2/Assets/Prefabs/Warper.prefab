@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a85dfbf159a38644d90a8406892acaf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  params_: {fileID: 11400000, guid: 124eaf5218a0f4a4b9308736a596566b, type: 2}
   rightDoor: {fileID: 5985041759622516330}
   leftDoor: {fileID: 4645414886295705202}
 --- !u!1 &1310784108046817858

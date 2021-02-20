@@ -44,10 +44,10 @@ public class HeroMover : SerializedMonoBehaviour
     ///<summary>余韻と言うか一定時間引きずり続けるスピードをアレする</summary>
     [NonSerialized] public List<ISpeedResidue> speedResidues = new List<ISpeedResidue>();
     
-    [field: RenameField("Key Direction")]     [field: ReadOnly] [field: SerializeField]
+    [field: RenameField(nameof(KeyDirection)), ReadOnly, SerializeField]
     public int KeyDirection{ get; private set; } = 0;
 
-    [field: RenameField("Wants To Go Right")] [field: ReadOnly] [field: SerializeField]
+    [field: RenameField(nameof(WantsToGoRight)), ReadOnly, SerializeField]
     public bool WantsToGoRight{ get; private set; } = true;
 
     public void ForceChangeWantsToGoRight(bool right) => WantsToGoRight = right;
@@ -65,7 +65,6 @@ public class HeroMover : SerializedMonoBehaviour
 
     public void WarpPos(Vector2 pos) => WarpPos(pos.x, pos.y);
     
-    ///<summary>指定した値に位置が移動。timeScaleの影響を受けません</summary>
     public void WarpPos(float x, float y)
     {
         transform.position = new Vector3(x,y,transform.position.z);
@@ -164,6 +163,9 @@ public class HeroMover : SerializedMonoBehaviour
 
     [FoldoutGroup(COMP), SerializeField, LabelText(nameof(chishibukiParticle))]
     ParticleSystem chishibukiParticle;
+
+    [field: FoldoutGroup(COMP), SerializeField, LabelText(nameof(DetectsCameraLockingArea))]
+    public DetectsCameraLockingArea DetectsCameraLockingArea { get; private set; }
 
     const string PARAM = "パラメータ類";
     [BoxGroup(PARAM), SerializeField] HeroParameters _Parameters;
