@@ -14,7 +14,7 @@ public class TutorialEnd : MonoBehaviour
         {
             goaled = true;
             HeroDefiner.currentHero.OnGoal();
-            CameraController.CurrentCamera.Freeze(10);
+            CameraController.Current.Freeze(10);
             GameTimeCounter.CurrentInstance.DoesTick = false;
             MemoryOverDeath.Instance.Clear();
             saveDataManager.SetTutorialFinished();

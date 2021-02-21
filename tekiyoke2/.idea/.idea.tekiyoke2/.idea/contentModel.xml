@@ -808,6 +808,7 @@
               <e p="HeroDebugView.cs" t="Include" />
               <e p="HeroLogParams.cs" t="Include" />
             </e>
+            <e p="DetectsCameraLockingArea.cs" t="Include" />
             <e p="DP" t="Include">
               <e p="DPManager.cs" t="Include" />
               <e p="GetDPinEnemy.cs" t="Include" />
@@ -855,6 +856,8 @@
             <e p="Camera" t="Include">
               <e p="AfterEffects.cs" t="Include" />
               <e p="CameraController.cs" t="Include" />
+              <e p="CameraLockingArea.cs" t="Include" />
+              <e p="CameraZoomerForJet.cs" t="Include" />
               <e p="PostEffectWrapper.cs" t="Include" />
               <e p="ScShoController.cs" t="Include" />
               <e p="ScShoOutOfWindController.cs" t="Include" />
@@ -976,6 +979,7 @@
           <e p="Warp" t="Include">
             <e p="WarpController.cs" t="Include" />
             <e p="WarpDoor.cs" t="Include" />
+            <e p="WarpParams.cs" t="Include" />
           </e>
           <e p="ZatsuTest.cs" t="Include" />
         </e>

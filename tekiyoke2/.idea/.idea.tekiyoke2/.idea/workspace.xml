@@ -20,7 +20,7 @@
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:renew_warper" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:lock_camera" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
@@ -28,7 +28,6 @@
     <list default="true" id="c97243fa-09da-4818-b4c1-b9937458f378" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Draft3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Draft3.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/scripts/Warp/WarpController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/scripts/Warp/WarpController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,8 +48,10 @@
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/EventSystem/UIBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/72/b2009ef4/KeyCode.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/3e/4d3e1bd4/DOTweenComponent.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/MainManagers/Camera/CameraController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/65CAB14A-C59E-4552-B77F-98A4AED18F9E/0b/5f4bafde/PhysicsScene2D.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Save/SaveData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/Hero/DetectsCameraLockingArea.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/5e/aba48687/ABSSequentiable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/65CAB14A-C59E-4552-B77F-98A4AED18F9E/09/891b6a7e/Physics2D.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Save/SaveDataManager.cs" root0="FORCE_HIGHLIGHTING" />
@@ -75,11 +76,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Hero/Actions/HeroTransitions.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPTest.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Parameters/HeroParameters.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Hero/Actions/States/StateKick.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/EDraft.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/StageSelectManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/StageSelectBGChanger.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/WakuLightMover.cs" />
@@ -120,12 +116,17 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Hero/DraftModeManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/TitleScene/CloudSpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/TagNames.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Tags.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Warp/WarpEvent.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Hero/HeroDefiner.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Hero/HeroMover.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Warp/WarpDoor.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MainManagers/Camera/CameraZoomerForJet.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MainManagers/Camera/CameraLockingArea.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Tags.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Hero/HeroMover.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MainManagers/Camera/CameraController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Warp/WarpParams.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Warp/WarpController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Hero/DetectsCameraLockingArea.cs" />
       </list>
     </option>
   </component>
@@ -224,41 +225,7 @@
       <workItem from="1613362398359" duration="953000" />
       <workItem from="1613363681921" duration="6129000" />
       <workItem from="1613439626608" duration="651000" />
-    </task>
-    <task id="LOCAL-00059" summary="Steamworks.NET入れた">
-      <created>1608153937291</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1608153937291</updated>
-    </task>
-    <task id="LOCAL-00060" summary="Steamworks.NET入れた">
-      <created>1608153952926</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1608153952926</updated>
-    </task>
-    <task id="LOCAL-00061" summary="ランキング表示するテストできた">
-      <created>1608161248169</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1608161248169</updated>
-    </task>
-    <task id="LOCAL-00062" summary="SteamRankingSenderGetterのGet部分">
-      <created>1608165319423</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1608165319423</updated>
-    </task>
-    <task id="LOCAL-00063" summary="Send部分">
-      <created>1608168333366</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1608168333366</updated>
+      <workItem from="1613833706550" duration="4944000" />
     </task>
     <task id="LOCAL-00064" summary="ミリ秒単位のものを秒単位で解釈してた">
       <created>1608168967456</created>
@@ -568,7 +535,42 @@
       <option name="project" value="LOCAL" />
       <updated>1613366511655</updated>
     </task>
-    <option name="localTasksCounter" value="108" />
+    <task id="LOCAL-00108" summary="CameraControllerからZoomerをひきはがした">
+      <created>1613445586530</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1613445586530</updated>
+    </task>
+    <task id="LOCAL-00109" summary="CameraLockingArea.csとプレハブ、当たり判定まで">
+      <created>1613447464516</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1613447464516</updated>
+    </task>
+    <task id="LOCAL-00110" summary="とりあえず動いとる">
+      <created>1613454607942</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1613454607942</updated>
+    </task>
+    <task id="LOCAL-00111" summary="カメラではなく主人公との衝突でカメラを固定する、ワープ時のカメラのFreeze時間を調整可能に">
+      <created>1613836010846</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1613836010846</updated>
+    </task>
+    <task id="LOCAL-00112" summary="複数置いてみたらEnterよりExitの方が後に呼ばれるのかつらいことになったので修正">
+      <created>1613837450334</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1613837450334</updated>
+    </task>
+    <option name="localTasksCounter" value="113" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -587,7 +589,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="renew_warper" />
+                        <option value="lock_camera" />
                       </list>
                     </value>
                   </entry>
@@ -601,11 +603,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="移動できてなかったり位置ずれてたりした" />
-    <MESSAGE value="フェードアウト、他画面のフェードイン/アウト" />
-    <MESSAGE value="ノードが選択を検出したり、ちょっとフェードインを速くしたり" />
-    <MESSAGE value="RankingsSelectをいい感じの見た目に(大半StageSelectと共通)" />
-    <MESSAGE value="設定画面をキーボードだけでいい感じにできるようになった" />
     <MESSAGE value="Unity Recorder入れた" />
     <MESSAGE value="スライダーの移動速度deltaTime基準にしてなかったね…………" />
     <MESSAGE value="UI類のPrefabのフォルダ分け" />
@@ -626,7 +623,12 @@
     <MESSAGE value="チュートリアル最後の敵のDP入れ忘れてた" />
     <MESSAGE value="タイトル画面の背景に雲を湧かせる処理にAddToをつけ忘れたせいでチュートリアル画面に雲が湧いてしまった" />
     <MESSAGE value="ワープゲートリニューアル/リファクタリング" />
-    <option name="LAST_COMMIT_MESSAGE" value="ワープゲートリニューアル/リファクタリング" />
+    <MESSAGE value="CameraControllerからZoomerをひきはがした" />
+    <MESSAGE value="CameraLockingArea.csとプレハブ、当たり判定まで" />
+    <MESSAGE value="とりあえず動いとる" />
+    <MESSAGE value="カメラではなく主人公との衝突でカメラを固定する、ワープ時のカメラのFreeze時間を調整可能に" />
+    <MESSAGE value="複数置いてみたらEnterよりExitの方が後に呼ばれるのかつらいことになったので修正" />
+    <option name="LAST_COMMIT_MESSAGE" value="複数置いてみたらEnterよりExitの方が後に呼ばれるのかつらいことになったので修正" />
   </component>
   <component name="WindowStateProjectService">
     <state x="709" y="345" key="#Notifications" timestamp="1605532697581">
@@ -737,11 +739,11 @@
     </state>
     <state x="51" y="103" width="1736" height="856" key="VCS.FileHistoryDialog/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611788990972" />
     <state x="51" y="103" width="1736" height="856" key="VCS.FileHistoryDialog/0.0.1920.1040/-2736.0.1368.872@0.0.1920.1040" timestamp="1606388768425" />
-    <state x="3288" y="253" key="Vcs.Push.Dialog.v2" timestamp="1613362460260">
+    <state x="3288" y="253" key="Vcs.Push.Dialog.v2" timestamp="1613893474769">
       <screen x="2736" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="253" key="Vcs.Push.Dialog.v2/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611797067282" />
-    <state x="3288" y="253" key="Vcs.Push.Dialog.v2/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1613362460260" />
+    <state x="3288" y="253" key="Vcs.Push.Dialog.v2/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1613893474769" />
     <state x="393" y="212" key="Vcs.Push.Dialog.v2/0.0.1368.872@0.0.1368.872" timestamp="1611420006898" />
     <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-2736.0.1368.872@0.0.1920.1040" timestamp="1606421529687" />
     <state x="572" y="253" width="775" height="534" key="find.popup" timestamp="1606324168206">

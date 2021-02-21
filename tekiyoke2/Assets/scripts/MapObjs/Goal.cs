@@ -15,7 +15,7 @@ public class Goal : MonoBehaviour
         {
             goaled = true;
             HeroDefiner.currentHero.OnGoal();
-            CameraController.CurrentCamera.Freeze(10);
+            CameraController.Current.Freeze(10);
             GameTimeCounter.CurrentInstance.DoesTick = false;
             MemoryOverDeath.Instance.Clear();
             scoreHolder.Set(new StagePlayData(draftManager.StageIndex, GameTimeCounter.CurrentInstance.Seconds));

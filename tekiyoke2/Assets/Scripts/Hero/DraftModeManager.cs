@@ -115,7 +115,7 @@ public class DraftModeManager : MonoBehaviour
 
     void Start()
     {
-        draftPEffect = CameraController.CurrentCamera.AfterEffects.Find("Draft");
+        draftPEffect = CameraController.Current.AfterEffects.Find("Draft");
 
         windsManager.Init
         (

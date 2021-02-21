@@ -486,6 +486,7 @@ MonoBehaviour:
   getDPinEnemy: {fileID: 6866835775026479289}
   <SpriteRenderer>k__BackingField: {fileID: 4538241944113877752}
   chishibukiParticle: {fileID: 6737016868785315499}
+  <DetectsCameraLockingArea>k__BackingField: {fileID: 6965285519957383764}
   _Parameters: {fileID: 11400000, guid: 970728269f00073489c33066b7c7ee2e, type: 2}
   _ParametersInDraftMode: {fileID: 11400000, guid: 970728269f00073489c33066b7c7ee2e,
     type: 2}
@@ -605,6 +606,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3106219250591810850}
   - component: {fileID: 3106219250591810853}
+  - component: {fileID: 6965285519957383764}
   m_Layer: 0
   m_Name: Center
   m_TagString: HeroCenter
@@ -652,6 +654,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &6965285519957383764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3106219250591810851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37df3d9ce6304e9ab02357de919a16a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <LockedBy>k__BackingField: {fileID: 0}
 --- !u!1 &3106219250714267051
 GameObject:
   m_ObjectHideFlags: 0

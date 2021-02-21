@@ -87,7 +87,7 @@ public class SceneTransition : MonoBehaviour
             
             case TransitionType.WindAndBlur:
                 SceneTransition.State = SceneTransitState.WindAndBlur;
-                PostEffectWrapper noise = CameraController.CurrentCamera.AfterEffects.Find("Noise");
+                PostEffectWrapper noise = CameraController.Current.AfterEffects.Find("Noise");
                 if(noise!=null) DOTween.To(noise.GetVolume, noise.SetVolume, 0, 1);
                 DOVirtual.DelayedCall(1.2f, () =>
                 {
@@ -102,7 +102,7 @@ public class SceneTransition : MonoBehaviour
                 SceneTransition.State = SceneTransitState.WhiteOut;
                 const float duration = 5f;
                 
-                PostEffectWrapper noise_ = CameraController.CurrentCamera?.AfterEffects?.Find("Noise");
+                PostEffectWrapper noise_ = CameraController.Current?.AfterEffects?.Find("Noise");
                 if(noise_ != null) DOTween.To(noise_.GetVolume, noise_.SetVolume, 0, duration / 2);
 
                 Material whiteOutMat = currentInstance.whiteOutImage.material;
@@ -130,7 +130,7 @@ public class SceneTransition : MonoBehaviour
             firstSceneLoaded = true;
         }
 
-        PostEffectWrapper noise = CameraController.CurrentCamera?.AfterEffects?.Find("Noise");
+        PostEffectWrapper noise = CameraController.Current?.AfterEffects?.Find("Noise");
         if(noise!=null) DOTween.To(noise.GetVolume, noise.SetVolume, 1, 1);
 
         switch(SceneTransition.State)
