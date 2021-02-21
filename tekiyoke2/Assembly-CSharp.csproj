@@ -227,6 +227,7 @@
      <Compile Include="Assets\Scripts\Utils\ArrayForEach.cs" />
      <Compile Include="Assets\Scripts\Utils\ColorExtensions.cs" />
      <Compile Include="Assets\Scripts\Utils\EnumArray.cs" />
+     <Compile Include="Assets\Scripts\Utils\LR.cs" />
      <Compile Include="Assets\Scripts\Utils\MaterialTween.cs" />
      <Compile Include="Assets\Scripts\Utils\MyMath.cs" />
      <Compile Include="Assets\Scripts\Utils\RandomGenerate.cs" />

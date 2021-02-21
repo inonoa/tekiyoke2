@@ -970,6 +970,7 @@
             <e p="ArrayForEach.cs" t="Include" />
             <e p="ColorExtensions.cs" t="Include" />
             <e p="EnumArray.cs" t="Include" />
+            <e p="LR.cs" t="Include" />
             <e p="MaterialTween.cs" t="Include" />
             <e p="MyMath.cs" t="Include" />
             <e p="RandomGenerate.cs" t="Include" />

@@ -26,17 +26,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c97243fa-09da-4818-b4c1-b9937458f378" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Materials/FrontFog.shader" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Materials/FrontFog.shader.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MapObjs/FrontFogMover.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MapObjs/FrontFogMover.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Utils/LR.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Utils/LR.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Blur.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Blur.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/PostEffects/Noise.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/PostEffects/Noise.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Draft1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Draft1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Draft3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Draft3.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapObjs/FrontFogMover.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MapObjs/FrontFogMover.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utils/MaterialTween.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utils/MaterialTween.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,8 +79,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/WakuLightMover.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/WakuMover.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/StageSelectView.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Config/CursorPositionHolder.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ranking/FocusNode.cs" />
@@ -132,8 +126,10 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Warp/WarpParams.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Warp/WarpController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Hero/DetectsCameraLockingArea.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/FrontFogMover.cs" />
         <option value="$PROJECT_DIR$/Assets/Materials/FrontFog.shader" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Utils/MaterialTween.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Utils/LR.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/FrontFogMover.cs" />
       </list>
     </option>
   </component>
@@ -233,14 +229,7 @@
       <workItem from="1613363681921" duration="6129000" />
       <workItem from="1613439626608" duration="651000" />
       <workItem from="1613833706550" duration="4944000" />
-      <workItem from="1613904970195" duration="5406000" />
-    </task>
-    <task id="LOCAL-00064" summary="ミリ秒単位のものを秒単位で解釈してた">
-      <created>1608168967456</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1608168967456</updated>
+      <workItem from="1613904970195" duration="9348000" />
     </task>
     <task id="LOCAL-00065" summary="タイル置いた">
       <created>1608354564832</created>
@@ -578,7 +567,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613837450334</updated>
     </task>
-    <option name="localTasksCounter" value="113" />
+    <task id="LOCAL-00113" summary="前面の霧シェーダーとそれをいい感じにコントロールする奴">
+      <created>1613911174489</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1613911174490</updated>
+    </task>
+    <option name="localTasksCounter" value="114" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -611,7 +607,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Unity Recorder入れた" />
     <MESSAGE value="スライダーの移動速度deltaTime基準にしてなかったね…………" />
     <MESSAGE value="UI類のPrefabのフォルダ分け" />
     <MESSAGE value="ポーズ画面のリファクタリング…………？" />
@@ -636,7 +631,8 @@
     <MESSAGE value="とりあえず動いとる" />
     <MESSAGE value="カメラではなく主人公との衝突でカメラを固定する、ワープ時のカメラのFreeze時間を調整可能に" />
     <MESSAGE value="複数置いてみたらEnterよりExitの方が後に呼ばれるのかつらいことになったので修正" />
-    <option name="LAST_COMMIT_MESSAGE" value="複数置いてみたらEnterよりExitの方が後に呼ばれるのかつらいことになったので修正" />
+    <MESSAGE value="前面の霧シェーダーとそれをいい感じにコントロールする奴" />
+    <option name="LAST_COMMIT_MESSAGE" value="前面の霧シェーダーとそれをいい感じにコントロールする奴" />
   </component>
   <component name="WindowStateProjectService">
     <state x="709" y="345" key="#Notifications" timestamp="1605532697581">
@@ -768,10 +764,11 @@
     </state>
     <state x="617" y="240" key="run.anything.popup/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1607093285273" />
     <state x="617" y="240" key="run.anything.popup/0.0.1920.1040/-2736.0.1368.872@0.0.1920.1040" timestamp="1606404650437" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1611767841203">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="3359" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1613913307703">
+      <screen x="2736" y="0" width="1920" height="1040" />
     </state>
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611767841203" />
+    <state x="3359" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1613913307703" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-2736.0.1368.872@0.0.1920.1040" timestamp="1606324033921" />
   </component>
 </project>
