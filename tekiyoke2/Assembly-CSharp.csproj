@@ -158,6 +158,7 @@
      <Compile Include="Assets\Scripts\MapObjs\BaneYokoController.cs" />
      <Compile Include="Assets\Scripts\MapObjs\DPCD.cs" />
      <Compile Include="Assets\Scripts\MapObjs\DropTileController.cs" />
+     <Compile Include="Assets\Scripts\MapObjs\FrontFogArea.cs" />
      <Compile Include="Assets\Scripts\MapObjs\FrontFogMover.cs" />
      <Compile Include="Assets\Scripts\MapObjs\Goal.cs" />
      <Compile Include="Assets\Scripts\MapObjs\IdouYukaController.cs" />
