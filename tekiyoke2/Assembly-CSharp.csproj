@@ -158,6 +158,7 @@
      <Compile Include="Assets\Scripts\MapObjs\BaneYokoController.cs" />
      <Compile Include="Assets\Scripts\MapObjs\DPCD.cs" />
      <Compile Include="Assets\Scripts\MapObjs\DropTileController.cs" />
+     <Compile Include="Assets\Scripts\MapObjs\FrontFogMover.cs" />
      <Compile Include="Assets\Scripts\MapObjs\Goal.cs" />
      <Compile Include="Assets\Scripts\MapObjs\IdouYukaController.cs" />
      <Compile Include="Assets\Scripts\MapObjs\KazaGateController.cs" />
@@ -256,6 +257,7 @@
      <None Include="Assets\Materials\MapObjs\Bane.shader" />
      <None Include="Assets\Materials\UI\LogoDissolve.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
+     <None Include="Assets\Materials\FrontFog.shader" />
      <None Include="Assets\Materials\PostEffects\Vignette.shader" />
      <None Include="Assets\ScriptTemplates\81-C# NewState-NewBehaviourScript.cs.txt" />
      <None Include="Assets\Materials\DPOverlay.shader" />

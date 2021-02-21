@@ -54,6 +54,7 @@
           <e p="DPinEnemy.shader" t="Include" />
           <e p="DPOverlay.shader" t="Include" />
           <e p="FogBlur.shader" t="Include" />
+          <e p="FrontFog.shader" t="Include" />
           <e p="Glitch.shader" t="Include" />
           <e p="Hero.shader" t="Include" />
           <e p="Light.shader" t="Include" />
@@ -878,6 +879,7 @@
             <e p="BGFogMover.cs" t="Include" />
             <e p="DPCD.cs" t="Include" />
             <e p="DropTileController.cs" t="Include" />
+            <e p="FrontFogMover.cs" t="Include" />
             <e p="Goal.cs" t="Include" />
             <e p="IdouYukaController.cs" t="Include" />
             <e p="KazaGateController.cs" t="Include" />
