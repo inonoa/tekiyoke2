@@ -1,6 +1,7 @@
 using System;
 using DG.Tweening;
 using Sirenix.OdinInspector;
+using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -76,6 +77,9 @@ public class FrontFogMover : MonoBehaviour
                     .Join(material.To(Alpha1UVX, 1, fadeInDuration));
                 break;
         }
+
+        currentFade.GetPausable().AddTo(this);
+        currentFade.AsHeros();
     }
 
     [Button]
@@ -107,5 +111,8 @@ public class FrontFogMover : MonoBehaviour
                     .Join(material.To(Alpha1UVX, 1 + fadeInOutGradationWidth, fadeOutDuration));
                 break;
         }
+
+        currentFade.GetPausable().AddTo(this);
+        currentFade.AsHeros();
     }
 }

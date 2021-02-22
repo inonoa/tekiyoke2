@@ -9,7 +9,10 @@ public class FrontFogArea : MonoBehaviour
     {
         if (other.CompareTag(Tags.HeroCenter))
         {
-            float heroX = other.GetComponentInParent<HeroMover>().transform.position.x;
+            var hero = other.GetComponentInParent<HeroMover>();
+            if(hero is null) return;
+            
+            float heroX = hero.transform.position.x;
             bool heroIsLeft = heroX < this.transform.position.x;
             fog.FadeIn(heroIsLeft ? LR.L : LR.R);
         }
@@ -19,7 +22,10 @@ public class FrontFogArea : MonoBehaviour
     {
         if (other.CompareTag(Tags.HeroCenter))
         {
-            float heroX = other.GetComponentInParent<HeroMover>().transform.position.x;
+            var hero = other.GetComponentInParent<HeroMover>();
+            if(hero is null) return;
+            
+            float heroX = hero.transform.position.x;
             bool heroIsLeft = heroX < this.transform.position.x;
             fog.FadeOut(heroIsLeft ? LR.R : LR.L);
         }
