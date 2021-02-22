@@ -7,6 +7,8 @@ Shader "Unlit/FrontFog"
         _Color ("Color", Color) = (1, 1, 1, 1)
         _Alpha0uvX("aが0になるようなuv座標のx(?)", Range(-2, 3)) = -0.1
         _Alpha1uvX("aが1になるようなuv座標のx(?)", Range(-2, 3)) = 0
+        _Alpha0 ("デフォルトのa(0のつもりだったが平常時もちょっと残っててほしい)", Range(0, 1)) = 0
+        _Alpha1 ("最大のa(1のつもりだったが強すぎるかもしれない)", Range(0, 1)) = 1
     }
     SubShader
     {
@@ -45,6 +47,8 @@ Shader "Unlit/FrontFog"
             float _OffsetX;
             float _Alpha0uvX;
             float _Alpha1uvX;
+            float _Alpha0;
+            float _Alpha1;
 
             float easeInOutSine(float x)
             {
@@ -64,7 +68,7 @@ Shader "Unlit/FrontFog"
             {
                 fixed a = tex2D(_MainTex, (i.uv + fixed2(_OffsetX, 0)) % fixed2(1, 1)).r;
                 fixed a_in_gradation = easeInOutSine((i.uv.x - _Alpha0uvX) / (_Alpha1uvX - _Alpha0uvX));
-                return _Color * fixed4(1, 1, 1, a * a_in_gradation);
+                return _Color * fixed4(1, 1, 1, a * (_Alpha0 + a_in_gradation * _Alpha1));
             }
             ENDCG
         }

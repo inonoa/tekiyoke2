@@ -26,11 +26,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c97243fa-09da-4818-b4c1-b9937458f378" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MapObjs/FrontFogAreaBound.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MapObjs/FrontFogAreaBound.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utils/LR.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utils/LR.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/FrontFog.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/FrontFog.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/FrontFog.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/FrontFog.shader" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/Canvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/Canvas.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Draft1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Draft1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapObjs/FrontFogMover.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MapObjs/FrontFogMover.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +53,7 @@
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/EventSystem/UIBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/72/b2009ef4/KeyCode.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/3e/4d3e1bd4/DOTweenComponent.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Prefabs/UI/Canvas.prefab" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/65CAB14A-C59E-4552-B77F-98A4AED18F9E/0b/5f4bafde/PhysicsScene2D.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Save/SaveData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/5e/aba48687/ABSSequentiable.cs" root0="SKIP_HIGHLIGHTING" />
@@ -71,6 +74,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/8a/df89f217/Path.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/ff/80a8bd20/RuntimeInitializeLoadType.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/d2/198907ba/Renderer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/MapObjs/FrontFogMover.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0C9D4FCF-D613-4956-86FC-3555A6D54354/b9/150c570d/ReadOnlyAttribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/d7/407bc7a7/SpriteRenderer.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -122,12 +126,12 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Warp/WarpParams.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Warp/WarpController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Hero/DetectsCameraLockingArea.cs" />
-        <option value="$PROJECT_DIR$/Assets/Materials/FrontFog.shader" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Utils/MaterialTween.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/FrontFogMover.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/FrontFogArea.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Utils/LR.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/FrontFogAreaBound.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/FrontFogArea.cs" />
+        <option value="$PROJECT_DIR$/Assets/Materials/FrontFog.shader" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/FrontFogMover.cs" />
       </list>
     </option>
   </component>
@@ -227,14 +231,8 @@
       <workItem from="1613363681921" duration="6129000" />
       <workItem from="1613439626608" duration="651000" />
       <workItem from="1613833706550" duration="4944000" />
-      <workItem from="1613904970195" duration="9754000" />
-    </task>
-    <task id="LOCAL-00066" summary="固定砲台の雑な奴作った">
-      <created>1610758710999</created>
-      <option name="number" value="00066" />
-      <option name="presentableId" value="LOCAL-00066" />
-      <option name="project" value="LOCAL" />
-      <updated>1610758710999</updated>
+      <workItem from="1613904970195" duration="11347000" />
+      <workItem from="1614018595424" duration="3094000" />
     </task>
     <task id="LOCAL-00067" summary="D3に置いてみたところEnemySpawnerの存在忘れてたことが分かった">
       <created>1610759035477</created>
@@ -572,7 +570,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613915133653</updated>
     </task>
-    <option name="localTasksCounter" value="115" />
+    <task id="LOCAL-00115" summary="霧の出る領域">
+      <created>1613916630315</created>
+      <option name="number" value="00115" />
+      <option name="presentableId" value="LOCAL-00115" />
+      <option name="project" value="LOCAL" />
+      <updated>1613916630315</updated>
+    </task>
+    <option name="localTasksCounter" value="116" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -605,7 +610,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="UI類のPrefabのフォルダ分け" />
     <MESSAGE value="ポーズ画面のリファクタリング…………？" />
     <MESSAGE value="ポーズ画面から設定画面に行ける" />
     <MESSAGE value="InputSettings" />
@@ -630,7 +634,8 @@
     <MESSAGE value="複数置いてみたらEnterよりExitの方が後に呼ばれるのかつらいことになったので修正" />
     <MESSAGE value="前面の霧シェーダーとそれをいい感じにコントロールする奴" />
     <MESSAGE value="フェードイン・アウト" />
-    <option name="LAST_COMMIT_MESSAGE" value="フェードイン・アウト" />
+    <MESSAGE value="霧の出る領域" />
+    <option name="LAST_COMMIT_MESSAGE" value="霧の出る領域" />
   </component>
   <component name="WindowStateProjectService">
     <state x="709" y="345" key="#Notifications" timestamp="1605532697581">

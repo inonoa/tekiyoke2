@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class FrontFogMover : MonoBehaviour
 {
     [SerializeField] float selfSpeed = 0.1f;
-    [SerializeField] float speedRateFromHero = 0.1f;
+    [SerializeField] float speedRateFromCamera = 0.03f;
     [SerializeField] float fadeInDuration = 3f;
     [SerializeField] float fadeOutDuration = 3f;
     [SerializeField] float fadeInOutGradationWidth = 2;
@@ -26,11 +26,23 @@ public class FrontFogMover : MonoBehaviour
         material.SetFloat(Alpha1UVX, 1 + fadeInOutGradationWidth);
     }
 
+    void Start()
+    {
+        lastCameraX = CameraController.CurrentCameraPos.x;
+    }
+
+    float lastCameraX;
     void Update()
     {
         float currentOffset = material.GetFloat(OffsetX);
-        float delta = (selfSpeed + HeroDefiner.currentHero.velocity.X * speedRateFromHero) * TimeManager.Current.DeltaTimeExceptHero;
-        material.SetFloat(OffsetX, currentOffset + delta);
+
+        float selfDelta = selfSpeed * TimeManager.Current.DeltaTimeExceptHero;
+        float cameraDelta = (CameraController.CurrentCameraPos.x - lastCameraX) * speedRateFromCamera;
+        float deltaNormalized = (selfDelta + cameraDelta) / image.rectTransform.rect.width;
+        
+        material.SetFloat(OffsetX, currentOffset + deltaNormalized);
+        
+        lastCameraX = CameraController.CurrentCameraPos.x;
     }
     
     Tween currentFade;
