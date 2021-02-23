@@ -82,6 +82,7 @@
      <Compile Include="Assets\Scripts\Enemies\KoneTsuchi.cs" />
      <Compile Include="Assets\Scripts\Enemies\NaitrumController.cs" />
      <Compile Include="Assets\Scripts\Enemies\SkyFish.cs" />
+     <Compile Include="Assets\Scripts\Enemies\Strandbeest.cs" />
      <Compile Include="Assets\Scripts\Enemies\TamaController.cs" />
      <Compile Include="Assets\Scripts\GameUIManager.cs" />
      <Compile Include="Assets\Scripts\GroundChecker.cs" />

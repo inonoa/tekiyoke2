@@ -34,7 +34,7 @@ public class DraftManager : MonoBehaviour
             GameTimeCounter.CurrentInstance.Seconds  = memory.Time;
             GameTimeCounter.CurrentInstance.DoesTick = true;
 
-            if(debugger.Debug && debugger.IgnoreMemory)
+            if(debugger != null && debugger.Debug && debugger.IgnoreMemory)
             {
                 ApplyCheckPointData(debugger.CheckPoint.Index);
             }
@@ -48,8 +48,8 @@ public class DraftManager : MonoBehaviour
             GameTimeCounter.CurrentInstance.Seconds  = 0f;
             GameTimeCounter.CurrentInstance.DoesTick = true;
 
-            if(debugger.Debug) ApplyCheckPointData(debugger.CheckPoint.Index);
-            else               ApplyCheckPointData(-1);
+            if(debugger != null && debugger.Debug) ApplyCheckPointData(debugger.CheckPoint.Index);
+            else                                   ApplyCheckPointData(-1);
         }
     }
 

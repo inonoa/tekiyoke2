@@ -781,6 +781,7 @@
             <e p="KoneTsuchi.cs" t="Include" />
             <e p="NaitrumController.cs" t="Include" />
             <e p="SkyFish.cs" t="Include" />
+            <e p="Strandbeest.cs" t="Include" />
             <e p="TamaController.cs" t="Include" />
           </e>
           <e p="GameUIManager.cs" t="Include" />
