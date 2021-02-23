@@ -26,11 +26,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c97243fa-09da-4818-b4c1-b9937458f378" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/FrontFog.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/FrontFog.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MainManagers/DraftManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MainManagers/DraftManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/UI/DPGauge.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/UI/DPGauge.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Not In Build/StrandBeest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Not In Build/StrandBeest.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -231,14 +229,7 @@
       <workItem from="1613833706550" duration="4944000" />
       <workItem from="1613904970195" duration="11347000" />
       <workItem from="1614018595424" duration="4527000" />
-      <workItem from="1614101124605" duration="931000" />
-    </task>
-    <task id="LOCAL-00069" summary="ジャンプの上昇中に壁キックできなかったのか…………">
-      <created>1610771214630</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1610771214630</updated>
+      <workItem from="1614101124605" duration="2498000" />
     </task>
     <task id="LOCAL-00070" summary="壁キックに左右の入力が要らない感じにした">
       <created>1610800919918</created>
@@ -576,7 +567,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614022517740</updated>
     </task>
-    <option name="localTasksCounter" value="118" />
+    <task id="LOCAL-00118" summary="ストランドビーストのガワ">
+      <created>1614102477733</created>
+      <option name="number" value="00118" />
+      <option name="presentableId" value="LOCAL-00118" />
+      <option name="project" value="LOCAL" />
+      <updated>1614102477734</updated>
+    </task>
+    <option name="localTasksCounter" value="119" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -609,7 +607,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="InputSettings" />
     <MESSAGE value="AnyButtonDownを本当にAnyButtonDownに" />
     <MESSAGE value="JetLとRを分けることからにげた" />
     <MESSAGE value="InputManagerとServicesLocatorを無くした" />
@@ -634,7 +631,8 @@
     <MESSAGE value="霧の出る領域" />
     <MESSAGE value="主人公の移動じゃなくてカメラの移動に追従するべきだった&#10;暗幕より手前に来てた" />
     <MESSAGE value="ポーズ対応、ポーズ時にぬるぽが出るので握り潰しとこ…………" />
-    <option name="LAST_COMMIT_MESSAGE" value="ポーズ対応、ポーズ時にぬるぽが出るので握り潰しとこ…………" />
+    <MESSAGE value="ストランドビーストのガワ" />
+    <option name="LAST_COMMIT_MESSAGE" value="ストランドビーストのガワ" />
   </component>
   <component name="WindowStateProjectService">
     <state x="709" y="345" key="#Notifications" timestamp="1605532697581">
@@ -719,11 +717,11 @@
     </state>
     <state x="173" y="92" key="MergeDialog/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1610685537996" />
     <state x="184" y="86" key="MergeDialog/0.0.1920.1040/-2736.0.1368.872@0.0.1920.1040" timestamp="1606409865233" />
-    <state x="3532" y="221" key="RiderGenerateDialog" timestamp="1612442867680">
+    <state x="3532" y="221" key="RiderGenerateDialog" timestamp="1614102369425">
       <screen x="2736" y="0" width="1920" height="1040" />
     </state>
     <state x="796" y="221" key="RiderGenerateDialog/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611893779006" />
-    <state x="3532" y="221" key="RiderGenerateDialog/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1612442867680" />
+    <state x="3532" y="221" key="RiderGenerateDialog/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1614102369425" />
     <state x="796" y="221" key="RiderGenerateDialog/0.0.1920.1040/-2736.0.1368.872@0.0.1920.1040" timestamp="1606330025401" />
     <state x="3481" y="230" key="RollbackChangesDialog" timestamp="1613089995231">
       <screen x="2736" y="0" width="1920" height="1040" />
