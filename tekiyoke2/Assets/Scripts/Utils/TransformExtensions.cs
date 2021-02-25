@@ -1,4 +1,5 @@
 
+using System;
 using System.Diagnostics;
 using DG.Tweening;
 using UnityEngine;
@@ -106,5 +107,24 @@ public static class TransformExtensions
         {
             return target < from ? target + 360 : target;
         }
+    }
+
+    /// <summary>
+    /// 呼ぶ前に回転してたりして角度がずれてるとうまくいかない
+    /// </summary>
+    public static Tween DORotateAroundRelative(this Transform self, Func<Vector2> pointGetter, float change, float duration)
+    {
+        float rot = 0;
+        return DOTween.To
+        (
+            () => rot,
+            val =>
+            {
+                self.RotateAround(pointGetter.Invoke(), Vector3.forward, val - rot);
+                rot = val;
+            },
+            change,
+            duration
+        );
     }
 }

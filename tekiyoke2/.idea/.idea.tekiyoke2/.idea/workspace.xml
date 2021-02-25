@@ -29,6 +29,12 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Materials/UI/DPGauge.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/UI/DPGauge.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Not In Build/StrandBeest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Not In Build/StrandBeest.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/Strandbeest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/Strandbeest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MainManagers/Camera/CameraController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MainManagers/Camera/CameraController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utils/TransformExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utils/TransformExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/enemies/Strandbeest/strandbeest_core.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/enemies/Strandbeest/strandbeest_core.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/enemies/Strandbeest/strandbeest_left_leg.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/enemies/Strandbeest/strandbeest_left_leg.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/enemies/Strandbeest/strandbeest_right_leg.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/enemies/Strandbeest/strandbeest_right_leg.png.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,12 +58,16 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/3e/4d3e1bd4/DOTweenComponent.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/65CAB14A-C59E-4552-B77F-98A4AED18F9E/0b/5f4bafde/PhysicsScene2D.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Save/SaveData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/d7/37d5ca41/Transform.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/0e/dffa10d3/DOTween.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/5e/aba48687/ABSSequentiable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/65CAB14A-C59E-4552-B77F-98A4AED18F9E/09/891b6a7e/Physics2D.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/95/518c31e9/TweenSettingsExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Save/SaveDataManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/17/acb49825/Tween.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/f9/97e3c724/TweenParams.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/17C1E98F-9A78-42E3-8BE0-5E60BF0530E8/37/63a07319/02000006.il" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/cd/9fcf1a7c/ShortcutExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/d7/e0b450ec/Resources.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/MaskableGraphic.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Input/ButonToKeys.cs" root0="FORCE_HIGHLIGHTING" />
@@ -70,6 +80,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/8a/df89f217/Path.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/ff/80a8bd20/RuntimeInitializeLoadType.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/d2/198907ba/Renderer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scenes/Not In Build/StrandBeest.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0C9D4FCF-D613-4956-86FC-3555A6D54354/b9/150c570d/ReadOnlyAttribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/Strandbeest.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/d7/407bc7a7/SpriteRenderer.cs" root0="SKIP_HIGHLIGHTING" />
@@ -77,7 +88,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Utils/TransformExtensions.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Utils/ColorExtensions.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Input/ButonToKeys.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Input/KeyboardSettings.cs" />
@@ -116,7 +126,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/MainManagers/Camera/CameraLockingArea.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Tags.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Hero/HeroMover.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/MainManagers/Camera/CameraController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Warp/WarpParams.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Warp/WarpController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Hero/DetectsCameraLockingArea.cs" />
@@ -127,6 +136,8 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/FrontFogArea.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/FrontFogMover.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MainManagers/DraftManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MainManagers/Camera/CameraController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Utils/TransformExtensions.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Strandbeest.cs" />
       </list>
     </option>
@@ -230,13 +241,7 @@
       <workItem from="1613904970195" duration="11347000" />
       <workItem from="1614018595424" duration="4527000" />
       <workItem from="1614101124605" duration="2498000" />
-    </task>
-    <task id="LOCAL-00070" summary="壁キックに左右の入力が要らない感じにした">
-      <created>1610800919918</created>
-      <option name="number" value="00070" />
-      <option name="presentableId" value="LOCAL-00070" />
-      <option name="project" value="LOCAL" />
-      <updated>1610800919918</updated>
+      <workItem from="1614117393216" duration="25325000" />
     </task>
     <task id="LOCAL-00071" summary="コミットし忘れてない？">
       <created>1611420003520</created>
@@ -574,7 +579,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614102477734</updated>
     </task>
-    <option name="localTasksCounter" value="119" />
+    <task id="LOCAL-00119" summary="画像を置いたらかなりヒエラルキーが変わった">
+      <created>1614117415301</created>
+      <option name="number" value="00119" />
+      <option name="presentableId" value="LOCAL-00119" />
+      <option name="project" value="LOCAL" />
+      <updated>1614117415301</updated>
+    </task>
+    <option name="localTasksCounter" value="120" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -607,7 +619,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="AnyButtonDownを本当にAnyButtonDownに" />
     <MESSAGE value="JetLとRを分けることからにげた" />
     <MESSAGE value="InputManagerとServicesLocatorを無くした" />
     <MESSAGE value="D3のタイル差し替えた(情報量を上げた」)" />
@@ -632,7 +643,8 @@
     <MESSAGE value="主人公の移動じゃなくてカメラの移動に追従するべきだった&#10;暗幕より手前に来てた" />
     <MESSAGE value="ポーズ対応、ポーズ時にぬるぽが出るので握り潰しとこ…………" />
     <MESSAGE value="ストランドビーストのガワ" />
-    <option name="LAST_COMMIT_MESSAGE" value="ストランドビーストのガワ" />
+    <MESSAGE value="画像を置いたらかなりヒエラルキーが変わった" />
+    <option name="LAST_COMMIT_MESSAGE" value="画像を置いたらかなりヒエラルキーが変わった" />
   </component>
   <component name="WindowStateProjectService">
     <state x="709" y="345" key="#Notifications" timestamp="1605532697581">
