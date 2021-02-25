@@ -27,8 +27,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c97243fa-09da-4818-b4c1-b9937458f378" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/UI/DPGauge.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/UI/DPGauge.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Not In Build/StrandBeest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Not In Build/StrandBeest.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/Strandbeest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/Strandbeest.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -238,14 +236,7 @@
       <workItem from="1613904970195" duration="11347000" />
       <workItem from="1614018595424" duration="4527000" />
       <workItem from="1614101124605" duration="2498000" />
-      <workItem from="1614117393216" duration="27964000" />
-    </task>
-    <task id="LOCAL-00072" summary="設定画面のUI素材描いて置いた">
-      <created>1611692514762</created>
-      <option name="number" value="00072" />
-      <option name="presentableId" value="LOCAL-00072" />
-      <option name="project" value="LOCAL" />
-      <updated>1611692514763</updated>
+      <workItem from="1614117393216" duration="29574000" />
     </task>
     <task id="LOCAL-00073" summary="ステージ選択画面のランキング/設定ボタンをいい感じに取り込んだ">
       <created>1611704253972</created>
@@ -583,7 +574,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614211922246</updated>
     </task>
-    <option name="localTasksCounter" value="121" />
+    <task id="LOCAL-00121" summary="風車と動きが連動">
+      <created>1614214649545</created>
+      <option name="number" value="00121" />
+      <option name="presentableId" value="LOCAL-00121" />
+      <option name="project" value="LOCAL" />
+      <updated>1614214649545</updated>
+    </task>
+    <option name="localTasksCounter" value="122" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -616,7 +614,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="InputManagerとServicesLocatorを無くした" />
     <MESSAGE value="D3のタイル差し替えた(情報量を上げた」)" />
     <MESSAGE value="微修正" />
     <MESSAGE value="動かない敵" />
@@ -641,7 +638,8 @@
     <MESSAGE value="ストランドビーストのガワ" />
     <MESSAGE value="画像を置いたらかなりヒエラルキーが変わった" />
     <MESSAGE value="すごい悔しいけどとりあえず見た目は正しいのでこれで………" />
-    <option name="LAST_COMMIT_MESSAGE" value="すごい悔しいけどとりあえず見た目は正しいのでこれで………" />
+    <MESSAGE value="風車と動きが連動" />
+    <option name="LAST_COMMIT_MESSAGE" value="風車と動きが連動" />
   </component>
   <component name="WindowStateProjectService">
     <state x="3250" y="94" key="CommitChangelistDialog2" timestamp="1613089887778">

@@ -22,6 +22,7 @@ public class Strandbeest : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
     public DPinEnemy DPCD { get; private set; }
 
     Tween moveTween;
+    [SerializeField] bool moveRight = true;
 
     [SerializeField] float windmillRotateSpeed = 500;
     [SerializeField, ReadOnly] float timeScale = 1;
@@ -38,7 +39,8 @@ public class Strandbeest : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
 
     void Start()
     {
-        Step();
+        if(moveRight) Step();
+        else StepLeft();
         
         DOTween.To
         (
@@ -72,8 +74,42 @@ public class Strandbeest : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
             ;
     }
 
+    void StepLeft()
+    {
+        float dur = 0.5f;
+        Ease ease = Ease.InOutSine;
+        
+        moveTween = DOTween.Sequence()
+            .Append(body.DORotateAroundRelative(() => rightLegTip.position, -45, dur * 2).SetEase(ease))
+            .Join(leftLeg.DOLocalRotate(new Vector3(0, 0, -45f), dur).SetRelative().SetEase(ease))
+            .Append(body.DORotateAroundRelative(() => rightLegTip.position, 67.5f, dur * 1.5f).SetEase(ease))
+            .Append(body.DORotateAroundRelative(() => leftLegTip.position, 45f, dur).SetEase(ease))
+            .Join(rightLeg.DOLocalRotate(new Vector3(0, 0, -45f), dur).SetRelative().SetEase(ease))
+            .Append(body.DORotateAroundRelative(() => leftLegTip.position, -22.5f, dur).SetEase(ease))
+            .Join(core.DOLocalRotate(new Vector3(0, 0, -45f), dur).SetRelative().SetEase(ease))
+            .OnComplete(() => StepLeft())
+            ;
+    }
+
     void Update()
     {
         windmill.Rotate(new Vector3(0, 0, windmillRotateSpeed * timeScale * timeScale * TimeManager.Current.DeltaTimeExceptHero));
+    }
+
+    [Button]
+    void Turn()
+    {
+        moveRight = !moveRight;
+
+        moveTween.PlayBackwards();
+
+        if (moveRight)
+        {
+            moveTween.OnRewind(Step);
+        }
+        else
+        {
+            moveTween.OnRewind(StepLeft);
+        }
     }
 }
