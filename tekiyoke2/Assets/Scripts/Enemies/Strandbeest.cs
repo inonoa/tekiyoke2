@@ -21,6 +21,11 @@ public class Strandbeest : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
     [field: SerializeField, LabelText(nameof(DPCD))]
     public DPinEnemy DPCD { get; private set; }
 
+    Tween moveTween;
+
+    [SerializeField] float windmillRotateSpeed = 500;
+    [SerializeField, ReadOnly] float timeScale = 1;
+
     public void Spawn()
     {
         gameObject.SetActive(true);
@@ -34,27 +39,41 @@ public class Strandbeest : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
     void Start()
     {
         Step();
+        
+        DOTween.To
+        (
+            () => timeScale,
+            ts =>
+            {
+                timeScale = ts;
+                moveTween.timeScale = ts;
+            },
+            0.4f,
+            3.7f
+        )
+        .SetLoops(-1, LoopType.Yoyo)
+        .SetEase(Ease.InOutSine);
     }
 
     void Step()
     {
-        float dur = 0.6f;
+        float dur = 0.5f;
+        Ease ease = Ease.InOutSine;
         
-        var seq = DOTween.Sequence();
-        seq
-            .Append(body.DORotateAroundRelative(() => leftLegTip.position, 45, dur).SetEase(Ease.InOutSine))
-            .Join(rightLeg.DOLocalRotate(new Vector3(0, 0, 45f), dur).SetRelative().SetEase(Ease.InOutSine))
-            .Append(body.DORotateAroundRelative(() => leftLegTip.position, -67.5f, dur).SetEase(Ease.InOutSine))
-            .Append(body.DORotateAroundRelative(() => rightLegTip.position, -45f, dur).SetEase(Ease.InOutSine))
-            .Join(leftLeg.DOLocalRotate(new Vector3(0, 0, 45f), dur).SetRelative().SetEase(Ease.InOutSine))
-            .Append(body.DORotateAroundRelative(() => rightLegTip.position, 22.5f, dur).SetEase(Ease.InOutSine))
-            .Join(core.DOLocalRotate(new Vector3(0, 0, 45f), dur).SetRelative().SetEase(Ease.InOutSine))
+        moveTween = DOTween.Sequence()
+            .Append(body.DORotateAroundRelative(() => leftLegTip.position, 45, dur * 2).SetEase(ease))
+            .Join(rightLeg.DOLocalRotate(new Vector3(0, 0, 45f), dur).SetRelative().SetEase(ease))
+            .Append(body.DORotateAroundRelative(() => leftLegTip.position, -67.5f, dur * 1.5f).SetEase(ease))
+            .Append(body.DORotateAroundRelative(() => rightLegTip.position, -45f, dur).SetEase(ease))
+            .Join(leftLeg.DOLocalRotate(new Vector3(0, 0, 45f), dur).SetRelative().SetEase(ease))
+            .Append(body.DORotateAroundRelative(() => rightLegTip.position, 22.5f, dur).SetEase(ease))
+            .Join(core.DOLocalRotate(new Vector3(0, 0, 45f), dur).SetRelative().SetEase(ease))
             .OnComplete(() => Step())
             ;
     }
 
     void Update()
     {
-        windmill.Rotate(new Vector3(0, 0, 200 * TimeManager.Current.DeltaTimeExceptHero));
+        windmill.Rotate(new Vector3(0, 0, windmillRotateSpeed * timeScale * timeScale * TimeManager.Current.DeltaTimeExceptHero));
     }
 }

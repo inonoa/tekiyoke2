@@ -30,11 +30,6 @@
       <change beforePath="$PROJECT_DIR$/Assets/Materials/UI/DPGauge.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/UI/DPGauge.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Not In Build/StrandBeest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Not In Build/StrandBeest.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/Strandbeest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/Strandbeest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MainManagers/Camera/CameraController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MainManagers/Camera/CameraController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utils/TransformExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utils/TransformExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/enemies/Strandbeest/strandbeest_core.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/enemies/Strandbeest/strandbeest_core.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/enemies/Strandbeest/strandbeest_left_leg.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/enemies/Strandbeest/strandbeest_left_leg.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/enemies/Strandbeest/strandbeest_right_leg.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/enemies/Strandbeest/strandbeest_right_leg.png.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,6 +57,8 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/0e/dffa10d3/DOTween.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/5e/aba48687/ABSSequentiable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/65CAB14A-C59E-4552-B77F-98A4AED18F9E/09/891b6a7e/Physics2D.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scenes/Not In Build/StrandBeest.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/MainManagers/Camera/CameraController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/95/518c31e9/TweenSettingsExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Save/SaveDataManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/17/acb49825/Tween.cs" root0="SKIP_HIGHLIGHTING" />
@@ -241,14 +238,7 @@
       <workItem from="1613904970195" duration="11347000" />
       <workItem from="1614018595424" duration="4527000" />
       <workItem from="1614101124605" duration="2498000" />
-      <workItem from="1614117393216" duration="25325000" />
-    </task>
-    <task id="LOCAL-00071" summary="コミットし忘れてない？">
-      <created>1611420003520</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL-00071" />
-      <option name="project" value="LOCAL" />
-      <updated>1611420003521</updated>
+      <workItem from="1614117393216" duration="27964000" />
     </task>
     <task id="LOCAL-00072" summary="設定画面のUI素材描いて置いた">
       <created>1611692514762</created>
@@ -586,7 +576,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614117415301</updated>
     </task>
-    <option name="localTasksCounter" value="120" />
+    <task id="LOCAL-00120" summary="すごい悔しいけどとりあえず見た目は正しいのでこれで………">
+      <created>1614211922246</created>
+      <option name="number" value="00120" />
+      <option name="presentableId" value="LOCAL-00120" />
+      <option name="project" value="LOCAL" />
+      <updated>1614211922246</updated>
+    </task>
+    <option name="localTasksCounter" value="121" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -619,7 +616,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="JetLとRを分けることからにげた" />
     <MESSAGE value="InputManagerとServicesLocatorを無くした" />
     <MESSAGE value="D3のタイル差し替えた(情報量を上げた」)" />
     <MESSAGE value="微修正" />
@@ -644,13 +640,10 @@
     <MESSAGE value="ポーズ対応、ポーズ時にぬるぽが出るので握り潰しとこ…………" />
     <MESSAGE value="ストランドビーストのガワ" />
     <MESSAGE value="画像を置いたらかなりヒエラルキーが変わった" />
-    <option name="LAST_COMMIT_MESSAGE" value="画像を置いたらかなりヒエラルキーが変わった" />
+    <MESSAGE value="すごい悔しいけどとりあえず見た目は正しいのでこれで………" />
+    <option name="LAST_COMMIT_MESSAGE" value="すごい悔しいけどとりあえず見た目は正しいのでこれで………" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="709" y="345" key="#Notifications" timestamp="1605532697581">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="709" y="345" key="#Notifications/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1605532697581" />
     <state x="3250" y="94" key="CommitChangelistDialog2" timestamp="1613089887778">
       <screen x="2736" y="0" width="1920" height="1040" />
     </state>
@@ -735,11 +728,11 @@
     <state x="796" y="221" key="RiderGenerateDialog/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611893779006" />
     <state x="3532" y="221" key="RiderGenerateDialog/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1614102369425" />
     <state x="796" y="221" key="RiderGenerateDialog/0.0.1920.1040/-2736.0.1368.872@0.0.1920.1040" timestamp="1606330025401" />
-    <state x="3481" y="230" key="RollbackChangesDialog" timestamp="1613089995231">
+    <state x="3481" y="230" key="RollbackChangesDialog" timestamp="1614212216267">
       <screen x="2736" y="0" width="1920" height="1040" />
     </state>
     <state x="745" y="230" key="RollbackChangesDialog/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1613072957510" />
-    <state x="3481" y="230" key="RollbackChangesDialog/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1613089995231" />
+    <state x="3481" y="230" key="RollbackChangesDialog/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1614212216267" />
     <state x="2914" y="198" width="1390" height="710" key="SettingsEditor" timestamp="1613362852331">
       <screen x="2736" y="0" width="1920" height="1040" />
     </state>
