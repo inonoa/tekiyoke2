@@ -128,7 +128,7 @@ public class Strandbeest : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
         }
     }
 
-    void OnDisable()
+    void OnDestroy()
     {
         moveTween?.Kill();
     }
