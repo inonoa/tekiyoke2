@@ -12,8 +12,10 @@ public class Strandbeest : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
     [SerializeField] Transform body;
     [SerializeField] Transform rightLeg;
     [SerializeField] Transform rightLegTip;
+    [SerializeField] Collider2D rightWallSensor;
     [SerializeField] Transform leftLeg;
     [SerializeField] Transform leftLegTip;
+    [SerializeField] Collider2D leftWallSensor;
     [SerializeField] Transform windmill;
     [SerializeField] Transform core;
 
@@ -41,11 +43,12 @@ public class Strandbeest : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
         if(isMovingRight) StepRight();
         else StepLeft();
 
-        rightLeg.OnTriggerEnter2DAsObservable()
+        rightWallSensor.OnTriggerEnter2DAsObservable()
             .Where(other => other.CompareTag(Tags.Terrain))
             .Where(_ => isMovingRight)
             .Subscribe(_ => Turn());
-        leftLeg.OnTriggerEnter2DAsObservable()
+        
+        leftWallSensor.OnTriggerEnter2DAsObservable()
             .Where(other => other.CompareTag(Tags.Terrain))
             .Where(_ => !isMovingRight)
             .Subscribe(_ => Turn());
@@ -71,39 +74,41 @@ public class Strandbeest : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
     void StepRight()
     {
         float sectionDur = oneStepSeconds / 5.5f;
-        
+
         moveTween = DOTween.Sequence()
             .Append(body.DORotateAroundRelative(() => leftLegTip.position, 45, sectionDur * 2).SetEase(ease))
             .Join(rightLeg.DOLocalRotate(new Vector3(0, 0, 45f), sectionDur * 2).SetRelative().SetEase(ease))
-            
+
             .Append(body.DORotateAroundRelative(() => leftLegTip.position, -67.5f, sectionDur * 1.5f).SetEase(ease))
-            
+
             .Append(body.DORotateAroundRelative(() => rightLegTip.position, -45f, sectionDur).SetEase(ease))
             .Join(leftLeg.DOLocalRotate(new Vector3(0, 0, 45f), sectionDur).SetRelative().SetEase(ease))
-            
+
             .Append(body.DORotateAroundRelative(() => rightLegTip.position, 22.5f, sectionDur).SetEase(ease))
-            .Join(core.DOLocalRotate(new Vector3(0, 0, 45f), sectionDur).SetRelative().SetEase(ease))
+            .Join(core.DOLocalRotate(new Vector3(0, 0, 45f), sectionDur).SetRelative().SetEase(ease));
             
-            .OnComplete(StepRight);
+        moveTween.OnComplete(StepRight);
+        moveTween.GetPausable();
     }
 
     void StepLeft()
     {
         float sectionDur = oneStepSeconds / 5.5f;
-        
+
         moveTween = DOTween.Sequence()
             .Append(body.DORotateAroundRelative(() => rightLegTip.position, -45, sectionDur * 2).SetEase(ease))
             .Join(leftLeg.DOLocalRotate(new Vector3(0, 0, -45f), sectionDur * 2).SetRelative().SetEase(ease))
-            
+
             .Append(body.DORotateAroundRelative(() => rightLegTip.position, 67.5f, sectionDur * 1.5f).SetEase(ease))
-            
+
             .Append(body.DORotateAroundRelative(() => leftLegTip.position, 45f, sectionDur).SetEase(ease))
             .Join(rightLeg.DOLocalRotate(new Vector3(0, 0, -45f), sectionDur).SetRelative().SetEase(ease))
-            
+
             .Append(body.DORotateAroundRelative(() => leftLegTip.position, -22.5f, sectionDur).SetEase(ease))
-            .Join(core.DOLocalRotate(new Vector3(0, 0, -45f), sectionDur).SetRelative().SetEase(ease))
+            .Join(core.DOLocalRotate(new Vector3(0, 0, -45f), sectionDur).SetRelative().SetEase(ease));
             
-            .OnComplete(StepLeft);
+        moveTween.OnComplete(StepLeft);
+        moveTween.GetPausable();
     }
 
     void Update()
