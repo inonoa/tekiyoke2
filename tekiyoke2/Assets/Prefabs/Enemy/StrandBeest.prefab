@@ -118,7 +118,7 @@ MonoBehaviour:
   isMovingRight: 0
   windmillRotateSpeed: 700
   moveSpeedRate: 1
-  oneStepSeconds: 3
+  oneStepSeconds: 2.5
   ease: 4
 --- !u!50 &5721988768858089221
 Rigidbody2D:

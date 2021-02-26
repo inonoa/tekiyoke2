@@ -27,3 +27,4 @@ Material:
     - _Distance: 0.005
     - _Resolution: 10
     m_Colors: []
+  m_BuildTextureStacks: []

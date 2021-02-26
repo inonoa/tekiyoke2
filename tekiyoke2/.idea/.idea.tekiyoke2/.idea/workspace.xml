@@ -27,7 +27,9 @@
   <component name="ChangeListManager">
     <list default="true" id="c97243fa-09da-4818-b4c1-b9937458f378" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Not In Build/StrandBeest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Not In Build/StrandBeest.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/FrontFog.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/FrontFog.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemy/StrandBeest.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemy/StrandBeest.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Draft1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Draft1.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/Strandbeest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/Strandbeest.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -77,10 +79,12 @@
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/MaskableGraphic.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Input/ButonToKeys.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/22/1a106110/String.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scenes/Not In Build/StrandBeest.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/97/df7e3c54/RuntimeInitializeOnLoadMethodAttribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/17C1E98F-9A78-42E3-8BE0-5E60BF0530E8/94/28da816b/DOTweenPath.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/97/7d5cd036/Ease.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/Image.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/Enemies/Strandbeest.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/48/3a11e747/SerializeField.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2348FB5E-CC9E-4E68-9F37-F7D7FADAEA9A/62/0208ac2c/TweenSettingsExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/8a/df89f217/Path.cs" root0="SKIP_HIGHLIGHTING" />
@@ -255,14 +259,7 @@
       <workItem from="1614308938212" duration="2190000" />
       <workItem from="1614311683776" duration="160000" />
       <workItem from="1614311873994" duration="254000" />
-      <workItem from="1614312251118" duration="4787000" />
-    </task>
-    <task id="LOCAL-00077" summary="ノードが選択を検出したり、ちょっとフェードインを速くしたり">
-      <created>1611771188564</created>
-      <option name="number" value="00077" />
-      <option name="presentableId" value="LOCAL-00077" />
-      <option name="project" value="LOCAL" />
-      <updated>1611771188564</updated>
+      <workItem from="1614312251118" duration="9322000" />
     </task>
     <task id="LOCAL-00078" summary="ノードが選択を検出したり、ちょっとフェードインを速くしたり">
       <created>1611771219316</created>
@@ -600,7 +597,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614319852659</updated>
     </task>
-    <option name="localTasksCounter" value="126" />
+    <task id="LOCAL-00126" summary="プレハブ化、どうしても変なとこで反転してしまうので壁探知と主人公への判定を分けた">
+      <created>1614322629205</created>
+      <option name="number" value="00126" />
+      <option name="presentableId" value="LOCAL-00126" />
+      <option name="project" value="LOCAL" />
+      <updated>1614322629205</updated>
+    </task>
+    <option name="localTasksCounter" value="127" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -633,7 +637,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="おおむねDraftモード時に無敵にしたりDPたまりやすくしたり" />
     <MESSAGE value="チュートリアル終わりのホワイトアウト実装" />
     <MESSAGE value="微…………" />
     <MESSAGE value="Revert &quot;チュートリアル最後の敵のDP入れ忘れてた&quot;&#10;&#10;This reverts commit 59cb98b0" />
@@ -658,7 +661,8 @@
     <MESSAGE value="壁に当たると逆に移動する" />
     <MESSAGE value="Unityのバージョン上げた(2020.1.17f1)" />
     <MESSAGE value="ポーズで止まる…………" />
-    <option name="LAST_COMMIT_MESSAGE" value="ポーズで止まる…………" />
+    <MESSAGE value="プレハブ化、どうしても変なとこで反転してしまうので壁探知と主人公への判定を分けた" />
+    <option name="LAST_COMMIT_MESSAGE" value="プレハブ化、どうしても変なとこで反転してしまうので壁探知と主人公への判定を分けた" />
   </component>
   <component name="WindowStateProjectService">
     <state x="3250" y="94" key="CommitChangelistDialog2" timestamp="1613089887778">

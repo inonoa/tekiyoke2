@@ -31,11 +31,13 @@ public class Strandbeest : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
     public void Spawn()
     {
         gameObject.SetActive(true);
+        moveTween?.TogglePause();
     }
 
     public void Hide()
     {
         gameObject.SetActive(false);
+        moveTween?.Pause();
     }
 
     void Start()
@@ -53,19 +55,26 @@ public class Strandbeest : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
             .Where(_ => !isMovingRight)
             .Subscribe(_ => Turn());
 
+        InitWind();
+    }
+
+    void InitWind()
+    {
         DOTween.To
-        (
-            () => moveSpeedRate,
-            ts =>
-            {
-                moveSpeedRate = ts;
-                moveTween.timeScale = ts;
-            },
-            0.4f,
-            3.7f
-        )
-        .SetLoops(-1, LoopType.Yoyo)
-        .SetEase(Ease.InOutSine);
+            (
+                () => moveSpeedRate,
+                ts =>
+                {
+                    moveSpeedRate = ts;
+                    moveTween.timeScale = ts;
+                },
+                0.5f,
+                6.7f
+            )
+            .SetLoops(-1, LoopType.Yoyo)
+            .SetEase(Ease.InOutBack)
+            .GetPausable()
+            .AddTo(this);
     }
 
     [SerializeField] float oneStepSeconds = 5;
@@ -88,7 +97,7 @@ public class Strandbeest : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
             .Join(core.DOLocalRotate(new Vector3(0, 0, 45f), sectionDur).SetRelative().SetEase(ease));
             
         moveTween.OnComplete(StepRight);
-        moveTween.GetPausable();
+        moveTween.GetPausable().AddTo(this);
     }
 
     void StepLeft()
@@ -108,7 +117,7 @@ public class Strandbeest : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
             .Join(core.DOLocalRotate(new Vector3(0, 0, -45f), sectionDur).SetRelative().SetEase(ease));
             
         moveTween.OnComplete(StepLeft);
-        moveTween.GetPausable();
+        moveTween.GetPausable().AddTo(this);
     }
 
     void Update()

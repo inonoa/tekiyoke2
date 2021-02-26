@@ -57,9 +57,9 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _Alpha0: 0.2
-    - _Alpha0uvX: 0
+    - _Alpha0uvX: 2.811108
     - _Alpha1: 0.8
-    - _Alpha1uvX: -2
+    - _Alpha1uvX: 0.8111081
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
@@ -70,7 +70,7 @@ Material:
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _OffsetX: 52.975918
+    - _OffsetX: 167.15161
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
