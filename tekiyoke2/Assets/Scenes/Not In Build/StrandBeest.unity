@@ -15315,7 +15315,7 @@ PrefabInstance:
     - target: {fileID: 8086541891458560580, guid: 7dbd9b0666f0a8941933da201068ad84,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -369
+      value: -1278
       objectReference: {fileID: 0}
     - target: {fileID: 8086541891458560580, guid: 7dbd9b0666f0a8941933da201068ad84,
         type: 3}
@@ -15342,12 +15342,12 @@ PrefabInstance:
     - target: {fileID: 8403945080353875376, guid: 7dbd9b0666f0a8941933da201068ad84,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -489
+      value: -651
       objectReference: {fileID: 0}
     - target: {fileID: 8403945080353875376, guid: 7dbd9b0666f0a8941933da201068ad84,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -138
+      value: 863
       objectReference: {fileID: 0}
     - target: {fileID: 8429740838235300312, guid: 7dbd9b0666f0a8941933da201068ad84,
         type: 3}
@@ -15434,7 +15434,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9f2415b5ce1e70418d3d4bfc413487c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  oneStepCorrection: {x: 7, y: -3}
   body: {fileID: 666199968}
   rightLeg: {fileID: 921788629}
   rightLegTip: {fileID: 1581937400}
@@ -15443,8 +15442,11 @@ MonoBehaviour:
   windmill: {fileID: 1228007639}
   core: {fileID: 1234559176}
   <DPCD>k__BackingField: {fileID: 327974910}
+  isMovingRight: 0
   windmillRotateSpeed: 700
-  timeScale: 1
+  moveSpeedRate: 1
+  oneStepSeconds: 3
+  ease: 4
 --- !u!50 &666199970
 Rigidbody2D:
   serializedVersion: 4
@@ -15562,7 +15564,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -20, y: -15}
+  m_Offset: {x: -20, y: -5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 1, y: 0.6}
@@ -15573,7 +15575,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 25, y: 50}
+  m_Size: {x: 25, y: 40}
   m_EdgeRadius: 0
 --- !u!1 &921788628
 GameObject:
@@ -15671,7 +15673,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 20, y: -15}
+  m_Offset: {x: 20, y: -5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0.6}
@@ -15682,7 +15684,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 25, y: 50}
+  m_Size: {x: 25, y: 40}
   m_EdgeRadius: 0
 --- !u!1 &1228007638
 GameObject:

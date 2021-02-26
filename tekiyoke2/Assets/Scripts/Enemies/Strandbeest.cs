@@ -4,12 +4,11 @@ using System.Collections.Generic;
 using DG.Tweening;
 using Sirenix.OdinInspector;
 using UniRx;
+using UniRx.Triggers;
 using UnityEngine;
 
 public class Strandbeest : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
 {
-    [SerializeField] Vector2 oneStepCorrection;
-    
     [SerializeField] Transform body;
     [SerializeField] Transform rightLeg;
     [SerializeField] Transform rightLegTip;
@@ -22,10 +21,10 @@ public class Strandbeest : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
     public DPinEnemy DPCD { get; private set; }
 
     Tween moveTween;
-    [SerializeField] bool moveRight = true;
+    [SerializeField] bool isMovingRight = true;
 
     [SerializeField] float windmillRotateSpeed = 500;
-    [SerializeField, ReadOnly] float timeScale = 1;
+    [SerializeField, ReadOnly] float moveSpeedRate = 1;
 
     public void Spawn()
     {
@@ -39,15 +38,24 @@ public class Strandbeest : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
 
     void Start()
     {
-        if(moveRight) Step();
+        if(isMovingRight) StepRight();
         else StepLeft();
-        
+
+        rightLeg.OnTriggerEnter2DAsObservable()
+            .Where(other => other.CompareTag(Tags.Terrain))
+            .Where(_ => isMovingRight)
+            .Subscribe(_ => Turn());
+        leftLeg.OnTriggerEnter2DAsObservable()
+            .Where(other => other.CompareTag(Tags.Terrain))
+            .Where(_ => !isMovingRight)
+            .Subscribe(_ => Turn());
+
         DOTween.To
         (
-            () => timeScale,
+            () => moveSpeedRate,
             ts =>
             {
-                timeScale = ts;
+                moveSpeedRate = ts;
                 moveTween.timeScale = ts;
             },
             0.4f,
@@ -57,55 +65,62 @@ public class Strandbeest : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
         .SetEase(Ease.InOutSine);
     }
 
-    void Step()
+    [SerializeField] float oneStepSeconds = 5;
+    [SerializeField] Ease ease = Ease.InOutSine;
+
+    void StepRight()
     {
-        float dur = 0.5f;
-        Ease ease = Ease.InOutSine;
+        float sectionDur = oneStepSeconds / 5.5f;
         
         moveTween = DOTween.Sequence()
-            .Append(body.DORotateAroundRelative(() => leftLegTip.position, 45, dur * 2).SetEase(ease))
-            .Join(rightLeg.DOLocalRotate(new Vector3(0, 0, 45f), dur).SetRelative().SetEase(ease))
-            .Append(body.DORotateAroundRelative(() => leftLegTip.position, -67.5f, dur * 1.5f).SetEase(ease))
-            .Append(body.DORotateAroundRelative(() => rightLegTip.position, -45f, dur).SetEase(ease))
-            .Join(leftLeg.DOLocalRotate(new Vector3(0, 0, 45f), dur).SetRelative().SetEase(ease))
-            .Append(body.DORotateAroundRelative(() => rightLegTip.position, 22.5f, dur).SetEase(ease))
-            .Join(core.DOLocalRotate(new Vector3(0, 0, 45f), dur).SetRelative().SetEase(ease))
-            .OnComplete(() => Step())
-            ;
+            .Append(body.DORotateAroundRelative(() => leftLegTip.position, 45, sectionDur * 2).SetEase(ease))
+            .Join(rightLeg.DOLocalRotate(new Vector3(0, 0, 45f), sectionDur * 2).SetRelative().SetEase(ease))
+            
+            .Append(body.DORotateAroundRelative(() => leftLegTip.position, -67.5f, sectionDur * 1.5f).SetEase(ease))
+            
+            .Append(body.DORotateAroundRelative(() => rightLegTip.position, -45f, sectionDur).SetEase(ease))
+            .Join(leftLeg.DOLocalRotate(new Vector3(0, 0, 45f), sectionDur).SetRelative().SetEase(ease))
+            
+            .Append(body.DORotateAroundRelative(() => rightLegTip.position, 22.5f, sectionDur).SetEase(ease))
+            .Join(core.DOLocalRotate(new Vector3(0, 0, 45f), sectionDur).SetRelative().SetEase(ease))
+            
+            .OnComplete(StepRight);
     }
 
     void StepLeft()
     {
-        float dur = 0.5f;
-        Ease ease = Ease.InOutSine;
+        float sectionDur = oneStepSeconds / 5.5f;
         
         moveTween = DOTween.Sequence()
-            .Append(body.DORotateAroundRelative(() => rightLegTip.position, -45, dur * 2).SetEase(ease))
-            .Join(leftLeg.DOLocalRotate(new Vector3(0, 0, -45f), dur).SetRelative().SetEase(ease))
-            .Append(body.DORotateAroundRelative(() => rightLegTip.position, 67.5f, dur * 1.5f).SetEase(ease))
-            .Append(body.DORotateAroundRelative(() => leftLegTip.position, 45f, dur).SetEase(ease))
-            .Join(rightLeg.DOLocalRotate(new Vector3(0, 0, -45f), dur).SetRelative().SetEase(ease))
-            .Append(body.DORotateAroundRelative(() => leftLegTip.position, -22.5f, dur).SetEase(ease))
-            .Join(core.DOLocalRotate(new Vector3(0, 0, -45f), dur).SetRelative().SetEase(ease))
-            .OnComplete(() => StepLeft())
-            ;
+            .Append(body.DORotateAroundRelative(() => rightLegTip.position, -45, sectionDur * 2).SetEase(ease))
+            .Join(leftLeg.DOLocalRotate(new Vector3(0, 0, -45f), sectionDur * 2).SetRelative().SetEase(ease))
+            
+            .Append(body.DORotateAroundRelative(() => rightLegTip.position, 67.5f, sectionDur * 1.5f).SetEase(ease))
+            
+            .Append(body.DORotateAroundRelative(() => leftLegTip.position, 45f, sectionDur).SetEase(ease))
+            .Join(rightLeg.DOLocalRotate(new Vector3(0, 0, -45f), sectionDur).SetRelative().SetEase(ease))
+            
+            .Append(body.DORotateAroundRelative(() => leftLegTip.position, -22.5f, sectionDur).SetEase(ease))
+            .Join(core.DOLocalRotate(new Vector3(0, 0, -45f), sectionDur).SetRelative().SetEase(ease))
+            
+            .OnComplete(StepLeft);
     }
 
     void Update()
     {
-        windmill.Rotate(new Vector3(0, 0, windmillRotateSpeed * timeScale * timeScale * TimeManager.Current.DeltaTimeExceptHero));
+        windmill.Rotate(new Vector3(0, 0, windmillRotateSpeed * moveSpeedRate * moveSpeedRate * TimeManager.Current.DeltaTimeExceptHero));
     }
 
     [Button]
     void Turn()
     {
-        moveRight = !moveRight;
+        isMovingRight = !isMovingRight;
 
         moveTween.PlayBackwards();
 
-        if (moveRight)
+        if (isMovingRight)
         {
-            moveTween.OnRewind(Step);
+            moveTween.OnRewind(StepRight);
         }
         else
         {
