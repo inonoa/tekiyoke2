@@ -252,7 +252,7 @@ public class HeroMover : SerializedMonoBehaviour
         ChangeState(new StateBend());
         chishibukiParticle.Play();
         chishibuki.StartChishibuki();
-        this.StartPausableCoroutine(Blink()).AddTo(this);
+        this.StartPausableCoroutine(Blink()).Subscription.AddTo(this);
     }
 
     static readonly float blinkPeriodSec = 0.2f;

@@ -32,7 +32,7 @@ public class Kabezuri : MonoBehaviour, IReusable
         transform.localScale = new Vector3(dir_is_R ? 1 : -1, 1, 1);
         spriteRenderer.color = new Color(1,1,1,1);
 
-        anim.ResetAndStartAnim(() => {
+        anim.Play(() => {
             tweensToKill[0] = transform.DOMoveY(100,0.5f).SetRelative().AsHeros();
             tweensToKill[1] = spriteRenderer.DOFade(0, 0.5f).AsHeros();
             tweensToKill[2] = DOVirtual.DelayedCall(0.5f, () => {

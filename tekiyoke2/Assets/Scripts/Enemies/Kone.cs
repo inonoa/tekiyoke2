@@ -17,6 +17,8 @@ public class Kone : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
 
     [SerializeField] KoneTsuchi tsuchiPrefab;
 
+    [SerializeField] SimpleAnim anim;
+
     new Transform transform;
     Rigidbody2D rigidBody;
     void Awake()
@@ -45,6 +47,8 @@ public class Kone : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
             .Take(1)
             .Subscribe(_ => Jump(HeroDefiner.CurrentPos))
             .AddTo(this);
+
+        anim.Play();
     }
 
     [Space(10)]

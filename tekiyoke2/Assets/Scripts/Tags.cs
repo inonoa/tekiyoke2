@@ -9,4 +9,5 @@ public static class Tags
     public const string CameraLockingArea = "CameraLockingArea";
     public const string Terrain = "Terrain";
     public const string Wind = "Wind";
+    public const string Enemy = "Enemy";
 }

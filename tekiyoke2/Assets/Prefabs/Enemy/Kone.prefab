@@ -60,6 +60,7 @@ GameObject:
   - component: {fileID: 4641547510591920131}
   - component: {fileID: 7319557327732240524}
   - component: {fileID: 7544165457705721263}
+  - component: {fileID: 3159020475538117089}
   m_Layer: 0
   m_Name: Kone
   m_TagString: Enemy
@@ -101,6 +102,7 @@ MonoBehaviour:
   groundSensor: {fileID: 4799081235312218513}
   tsuchiPrefab: {fileID: 2654727709639374793, guid: 7f828572ae6e21b449884146ecdab78a,
     type: 3}
+  anim: {fileID: 3159020475538117089}
   firstJumpHeight: 350
   firstJumpDuration: 0.9
   firstJumpEase: 16
@@ -133,6 +135,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -157,7 +160,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8d81412c6baf7fd44adbacd64300d530, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 38cfb77a09021a2458914866d3d6cf96, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -205,6 +208,29 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &3159020475538117089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2805130160985002612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dad04902c6d6b9949b8d9fba5acf68f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: 38cfb77a09021a2458914866d3d6cf96, type: 3}
+  - {fileID: 21300000, guid: d30e875dba990b54b97b1005c9729631, type: 3}
+  - {fileID: 21300000, guid: 538d094f6253d1544b3054b9e94db8a4, type: 3}
+  - {fileID: 21300000, guid: 4edd31368504fc141bb3345961ebb349, type: 3}
+  - {fileID: 21300000, guid: 72e0de4ffbb5af84ca16d4bd00590da8, type: 3}
+  - {fileID: 21300000, guid: b7b81cb7085d95e408151d8a80208e6b, type: 3}
+  - {fileID: 21300000, guid: cb2568cca0d93c94f9de43c567801536, type: 3}
+  - {fileID: 21300000, guid: feeb13324b46cfa4885114affd463a83, type: 3}
+  changeSec: 0.125
+  loop: 1
 --- !u!1 &8862678143672975789
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,6 +292,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7173967767944688376, guid: 679836f8f3bc57f4485a23ec5e873937,
         type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7173967767944688376, guid: 679836f8f3bc57f4485a23ec5e873937,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -281,6 +312,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7173967767944688376, guid: 679836f8f3bc57f4485a23ec5e873937,
         type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7173967767944688376, guid: 679836f8f3bc57f4485a23ec5e873937,
+        type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
@@ -292,16 +328,6 @@ PrefabInstance:
     - target: {fileID: 7173967767944688376, guid: 679836f8f3bc57f4485a23ec5e873937,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7173967767944688376, guid: 679836f8f3bc57f4485a23ec5e873937,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7173967767944688376, guid: 679836f8f3bc57f4485a23ec5e873937,
-        type: 3}
-      propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7173967767944688376, guid: 679836f8f3bc57f4485a23ec5e873937,
