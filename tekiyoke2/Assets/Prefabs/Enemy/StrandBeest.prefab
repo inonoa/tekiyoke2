@@ -114,11 +114,12 @@ MonoBehaviour:
   leftWallSensor: {fileID: 5019040960071074361}
   windmill: {fileID: 5721988770426464368}
   core: {fileID: 5721988770437210223}
+  windReceiverTrigger: {fileID: 8704358509016825037}
   <DPCD>k__BackingField: {fileID: 8108949635454282927}
   isMovingRight: 0
   windmillRotateSpeed: 700
   moveSpeedRate: 1
-  oneStepSeconds: 2.5
+  oneStepSeconds: 1.5
   ease: 4
 --- !u!50 &5721988768858089221
 Rigidbody2D:
@@ -504,6 +505,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3235726195526421923}
+  - {fileID: 1536755778098259053}
   m_Father: {fileID: 5721988768858089223}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -645,6 +647,53 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 20}
   m_EdgeRadius: 0
+--- !u!1 &8590947181814755489
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1536755778098259053}
+  - component: {fileID: 8704358509016825037}
+  m_Layer: 0
+  m_Name: WindReceiver
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1536755778098259053
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8590947181814755489}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5721988770437210223}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &8704358509016825037
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8590947181814755489}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 20
 --- !u!1001 &5721988769733066587
 PrefabInstance:
   m_ObjectHideFlags: 0

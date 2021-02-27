@@ -26,16 +26,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c97243fa-09da-4818-b4c1-b9937458f378" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/KazaAndGate (1).prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/KazaAndGate (1).prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Draft2Settings.lighting" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Draft2Settings.lighting.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Materials/FrontFog.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/FrontFog.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/MapObjs/EdgeLight.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/MapObjs/EdgeLight.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/PostEffects/BlurEdge2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/PostEffects/BlurEdge2.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/UI/DPGauge.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/UI/DPGauge.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemy/StrandBeest.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemy/StrandBeest.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Draft1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Draft1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Draft2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Draft2.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/BGs/MapObjs/Bane.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/BGs/MapObjs/Bane.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/BGs/MapObjs/Bane.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/BGs/MapObjs/Bane.shader" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/Strandbeest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/Strandbeest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tags.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tags.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/BGs/MapObjs/EdgeLight.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/BGs/MapObjs/EdgeLight.shader" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,8 +106,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Input/ButonToKeys.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Input/KeyboardSettings.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Input/GamePadSettings.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Hero/Actions/JetManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Input/InputSettings.cs" />
@@ -154,9 +152,11 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/MainManagers/DraftManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MainManagers/Camera/CameraController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Utils/TransformExtensions.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Tags.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Strandbeest.cs" />
         <option value="$PROJECT_DIR$/Assets/Sprites/BGs/MapObjs/Bane.shader" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Tags.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/Kazaguruma.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Strandbeest.cs" />
+        <option value="$PROJECT_DIR$/Assets/Sprites/BGs/MapObjs/EdgeLight.shader" />
       </list>
     </option>
   </component>
@@ -264,14 +264,7 @@
       <workItem from="1614308938212" duration="2190000" />
       <workItem from="1614311683776" duration="160000" />
       <workItem from="1614311873994" duration="254000" />
-      <workItem from="1614312251118" duration="13014000" />
-    </task>
-    <task id="LOCAL-00079" summary="RankingsSelectをいい感じの見た目に(大半StageSelectと共通)">
-      <created>1611788187654</created>
-      <option name="number" value="00079" />
-      <option name="presentableId" value="LOCAL-00079" />
-      <option name="project" value="LOCAL" />
-      <updated>1611788187654</updated>
+      <workItem from="1614312251118" duration="15661000" />
     </task>
     <task id="LOCAL-00080" summary="RankingsSelectをいい感じの見た目に(大半StageSelectと共通)">
       <created>1611788975909</created>
@@ -609,7 +602,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614382115696</updated>
     </task>
-    <option name="localTasksCounter" value="128" />
+    <task id="LOCAL-00128" summary="易化">
+      <created>1614390903162</created>
+      <option name="number" value="00128" />
+      <option name="presentableId" value="LOCAL-00128" />
+      <option name="project" value="LOCAL" />
+      <updated>1614390903162</updated>
+    </task>
+    <option name="localTasksCounter" value="129" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -18,6 +18,7 @@ public class Strandbeest : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
     [SerializeField] Collider2D leftWallSensor;
     [SerializeField] Transform windmill;
     [SerializeField] Transform core;
+    [SerializeField] Collider2D windReceiverTrigger;
 
     [field: SerializeField, LabelText(nameof(DPCD))]
     public DPinEnemy DPCD { get; private set; }
@@ -26,7 +27,7 @@ public class Strandbeest : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
     [SerializeField] bool isMovingRight = true;
 
     [SerializeField] float windmillRotateSpeed = 500;
-    [SerializeField, ReadOnly] float moveSpeedRate = 1;
+    [SerializeField, ReadOnly, Range(0, 1)] float moveSpeedRate = 1;
 
     public void Spawn()
     {
@@ -55,12 +56,22 @@ public class Strandbeest : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
             .Where(_ => !isMovingRight)
             .Subscribe(_ => Turn());
 
-        InitWind();
+        ResetWind();
+
+        windReceiverTrigger.OnTriggerEnter2DAsObservable()
+            .Where(other => other.CompareTag(Tags.Wind))
+            .Subscribe(_ => ReceiveWindPower());
     }
 
-    void InitWind()
+    Tween windTween;
+    void ResetWind()
     {
-        DOTween.To
+        windTween?.Kill();
+        moveSpeedRate = 1;
+        moveTween.timeScale = 1;
+
+        windTween = DOTween.Sequence()
+            .Append(DOTween.To
             (
                 () => moveSpeedRate,
                 ts =>
@@ -68,13 +79,33 @@ public class Strandbeest : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
                     moveSpeedRate = ts;
                     moveTween.timeScale = ts;
                 },
-                0.5f,
-                6.7f
+                0.2f,
+                10f
             )
-            .SetLoops(-1, LoopType.Yoyo)
-            .SetEase(Ease.InOutBack)
-            .GetPausable()
+            .SetEase(Ease.InOutSine)
+            )
+            .Append(DOTween.To
+            (
+                () => moveSpeedRate,
+                ts =>
+                {
+                    moveSpeedRate = ts;
+                    moveTween.timeScale = ts;
+                },
+                1f,
+                0.7f
+            )
+            .SetEase(Ease.Linear)
+            )
+            .SetLoops(-1);
+        
+        windTween.GetPausable()
             .AddTo(this);
+    }
+
+    void ReceiveWindPower()
+    {
+        ResetWind();
     }
 
     [SerializeField] float oneStepSeconds = 5;
@@ -122,7 +153,7 @@ public class Strandbeest : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
 
     void Update()
     {
-        windmill.Rotate(new Vector3(0, 0, windmillRotateSpeed * moveSpeedRate * moveSpeedRate * TimeManager.Current.DeltaTimeExceptHero));
+        windmill.Rotate(new Vector3(0, 0, windmillRotateSpeed * moveSpeedRate * TimeManager.Current.DeltaTimeExceptHero));
     }
 
     [Button]
