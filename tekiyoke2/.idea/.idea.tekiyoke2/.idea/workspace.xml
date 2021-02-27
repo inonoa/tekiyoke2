@@ -26,11 +26,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c97243fa-09da-4818-b4c1-b9937458f378" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/KazaAndGate (1).prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/KazaAndGate (1).prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Draft2Settings.lighting" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Draft2Settings.lighting.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Materials/FrontFog.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/FrontFog.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemy/StrandBeest.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemy/StrandBeest.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Draft1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Draft1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/Strandbeest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/Strandbeest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Draft2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Draft2.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/BGs/MapObjs/Bane.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/BGs/MapObjs/Bane.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/BGs/MapObjs/Bane.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/BGs/MapObjs/Bane.shader" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +106,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Utils/ColorExtensions.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Input/ButonToKeys.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Input/KeyboardSettings.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Input/GamePadSettings.cs" />
@@ -152,6 +156,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Utils/TransformExtensions.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Tags.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Strandbeest.cs" />
+        <option value="$PROJECT_DIR$/Assets/Sprites/BGs/MapObjs/Bane.shader" />
       </list>
     </option>
   </component>
@@ -259,14 +264,7 @@
       <workItem from="1614308938212" duration="2190000" />
       <workItem from="1614311683776" duration="160000" />
       <workItem from="1614311873994" duration="254000" />
-      <workItem from="1614312251118" duration="9322000" />
-    </task>
-    <task id="LOCAL-00078" summary="ノードが選択を検出したり、ちょっとフェードインを速くしたり">
-      <created>1611771219316</created>
-      <option name="number" value="00078" />
-      <option name="presentableId" value="LOCAL-00078" />
-      <option name="project" value="LOCAL" />
-      <updated>1611771219316</updated>
+      <workItem from="1614312251118" duration="13014000" />
     </task>
     <task id="LOCAL-00079" summary="RankingsSelectをいい感じの見た目に(大半StageSelectと共通)">
       <created>1611788187654</created>
@@ -604,7 +602,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614322629205</updated>
     </task>
-    <option name="localTasksCounter" value="127" />
+    <task id="LOCAL-00127" summary="とりあえずD1においた">
+      <created>1614382115696</created>
+      <option name="number" value="00127" />
+      <option name="presentableId" value="LOCAL-00127" />
+      <option name="project" value="LOCAL" />
+      <updated>1614382115696</updated>
+    </task>
+    <option name="localTasksCounter" value="128" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -637,8 +642,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="チュートリアル終わりのホワイトアウト実装" />
-    <MESSAGE value="微…………" />
     <MESSAGE value="Revert &quot;チュートリアル最後の敵のDP入れ忘れてた&quot;&#10;&#10;This reverts commit 59cb98b0" />
     <MESSAGE value="チュートリアル最後の敵のDP入れ忘れてた" />
     <MESSAGE value="タイトル画面の背景に雲を湧かせる処理にAddToをつけ忘れたせいでチュートリアル画面に雲が湧いてしまった" />
@@ -662,7 +665,9 @@
     <MESSAGE value="Unityのバージョン上げた(2020.1.17f1)" />
     <MESSAGE value="ポーズで止まる…………" />
     <MESSAGE value="プレハブ化、どうしても変なとこで反転してしまうので壁探知と主人公への判定を分けた" />
-    <option name="LAST_COMMIT_MESSAGE" value="プレハブ化、どうしても変なとこで反転してしまうので壁探知と主人公への判定を分けた" />
+    <MESSAGE value="とりあえずD1においた" />
+    <MESSAGE value="易化" />
+    <option name="LAST_COMMIT_MESSAGE" value="易化" />
   </component>
   <component name="WindowStateProjectService">
     <state x="3250" y="94" key="CommitChangelistDialog2" timestamp="1613089887778">
