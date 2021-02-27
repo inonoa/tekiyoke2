@@ -39,7 +39,7 @@ public class Kazaguruma : MonoBehaviour{
     }
 
     void OnTriggerEnter2D(Collider2D other){
-        if(other.gameObject.tag=="Wind"){
+        if(other.CompareTag(Tags.Wind)){
             logRotateVel = logVelFirst;
             Rotated?.Invoke(this, EventArgs.Empty);
         }
