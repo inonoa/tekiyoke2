@@ -27,13 +27,10 @@
   <component name="ChangeListManager">
     <list default="true" id="c97243fa-09da-4818-b4c1-b9937458f378" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemy/Kone.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemy/Kone.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/enemies/Kone/driller 1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/enemies/Kone/driller 1.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/enemies/Kone/driller.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/enemies/Kone/driller.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/enemies/Kone/driller_without_edge.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/enemies/Kone/driller_without_edge.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/FrontFog.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/FrontFog.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemy/SkyFish.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemy/SkyFish.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Draft1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Draft1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/SkyFish.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/SkyFish.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +104,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Input/InputManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ResultScene/PressZToReturn.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ResultScene/Tweeter.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Pause/Pauser.cs" />
@@ -158,6 +154,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Utils/SimpleAnim.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Strandbeest.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Kone.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/SkyFish.cs" />
       </list>
     </option>
   </component>
@@ -266,14 +263,7 @@
       <workItem from="1614311683776" duration="160000" />
       <workItem from="1614311873994" duration="254000" />
       <workItem from="1614312251118" duration="18242000" />
-      <workItem from="1614464188727" duration="3849000" />
-    </task>
-    <task id="LOCAL-00084" summary="Unity Recorder入れた">
-      <created>1611796321081</created>
-      <option name="number" value="00084" />
-      <option name="presentableId" value="LOCAL-00084" />
-      <option name="project" value="LOCAL" />
-      <updated>1611796321081</updated>
+      <workItem from="1614464188727" duration="10159000" />
     </task>
     <task id="LOCAL-00085" summary="スライダーの移動速度deltaTime基準にしてなかったね…………">
       <created>1611797063453</created>
@@ -611,7 +601,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614467437959</updated>
     </task>
-    <option name="localTasksCounter" value="133" />
+    <task id="LOCAL-00133" summary="Koneスプライト差し替え(本番)">
+      <created>1614479333710</created>
+      <option name="number" value="00133" />
+      <option name="presentableId" value="LOCAL-00133" />
+      <option name="project" value="LOCAL" />
+      <updated>1614479333710</updated>
+    </task>
+    <option name="localTasksCounter" value="134" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -644,7 +641,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="ワープゲートリニューアル/リファクタリング" />
     <MESSAGE value="CameraControllerからZoomerをひきはがした" />
     <MESSAGE value="CameraLockingArea.csとプレハブ、当たり判定まで" />
     <MESSAGE value="とりあえず動いとる" />
@@ -669,7 +665,8 @@
     <MESSAGE value="ストランドビーストの風車をジェットで回せるようにしたりした" />
     <MESSAGE value="一寸簡単にした" />
     <MESSAGE value="Koneにアニメーションを付けた、ループさせるためにSimpleAnim改修" />
-    <option name="LAST_COMMIT_MESSAGE" value="Koneにアニメーションを付けた、ループさせるためにSimpleAnim改修" />
+    <MESSAGE value="Koneスプライト差し替え(本番)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Koneスプライト差し替え(本番)" />
   </component>
   <component name="WindowStateProjectService">
     <state x="3250" y="94" key="CommitChangelistDialog2" timestamp="1613089887778">

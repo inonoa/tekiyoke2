@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
+using System.Linq;
 using DG.Tweening;
 using DG.Tweening.Plugins.Core.PathCore;
 using Sirenix.OdinInspector;
+using UniRx;
 using UniRx.Triggers;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -25,11 +27,24 @@ public class SkyFish : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
 
     float soundVolumeMax;
 
+    [SerializeField] int bufferFramesForAngle;
+
     void Start()
     {
         spriteRenderer.sprite = eyeToRight ? spriteRight : spriteLeft;
         DOTweenPath.tween.GetPausable();
         soundVolumeMax = sounds.GetVolume("fly");
+
+        this.UpdateAsObservable()
+            .Select(_ => transform.position)
+            .Buffer(bufferFramesForAngle, 1)
+            .Subscribe(positions =>
+            {
+                float angle = 180 + Vector2.SignedAngle(Vector2.right, (positions.Last() - positions.First()));
+                print(angle);
+                transform.rotation = Quaternion.Euler(0, 0, angle);
+            })
+            .AddTo(this);
     }
 
     void Update()
@@ -47,41 +62,6 @@ public class SkyFish : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
         gameObject.SetActive(true);
         DOTweenPath.tween.TogglePause();
         sounds.Play("fly");
-        this.StartPausableCoroutine(Turn());
-    }
-
-    IEnumerator Turn()
-    {
-        float lastposition = 0;
-        while (true)
-        {
-            while (true)
-            {
-                float turn1 = 4.1f;
-                if (lastposition < turn1 && DOTweenPath.tween.position > turn1)
-                {
-                    eyeToRight = !eyeToRight;
-                    spriteRenderer.sprite = eyeToRight ? spriteRight : spriteLeft;
-                    break;
-                }
-
-                lastposition = DOTweenPath.tween.position;
-                yield return null;
-            }
-            while (true)
-            {
-                float turn2 = 0.1f;
-                if (lastposition < turn2 && DOTweenPath.tween.position > turn2)
-                {
-                    eyeToRight = !eyeToRight;
-                    spriteRenderer.sprite = eyeToRight ? spriteRight : spriteLeft;
-                    break;
-                }
-
-                lastposition = DOTweenPath.tween.position;
-                yield return null;
-            }
-        }
     }
 
     public void Hide()
