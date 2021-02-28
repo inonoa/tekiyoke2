@@ -64,6 +64,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Tags.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/65CAB14A-C59E-4552-B77F-98A4AED18F9E/0b/5f4bafde/PhysicsScene2D.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Save/SaveData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scenes/Draft1.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/d7/37d5ca41/Transform.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/0e/dffa10d3/DOTween.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/5e/aba48687/ABSSequentiable.cs" root0="SKIP_HIGHLIGHTING" />
@@ -263,14 +264,7 @@
       <workItem from="1614311683776" duration="160000" />
       <workItem from="1614311873994" duration="254000" />
       <workItem from="1614312251118" duration="18242000" />
-      <workItem from="1614464188727" duration="10159000" />
-    </task>
-    <task id="LOCAL-00085" summary="スライダーの移動速度deltaTime基準にしてなかったね…………">
-      <created>1611797063453</created>
-      <option name="number" value="00085" />
-      <option name="presentableId" value="LOCAL-00085" />
-      <option name="project" value="LOCAL" />
-      <updated>1611797063453</updated>
+      <workItem from="1614464188727" duration="11488000" />
     </task>
     <task id="LOCAL-00086" summary="UI類のPrefabのフォルダ分け">
       <created>1611856784560</created>
@@ -608,7 +602,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614479333710</updated>
     </task>
-    <option name="localTasksCounter" value="134" />
+    <task id="LOCAL-00134" summary="SkyFish差し替え、向きをいい感じにする">
+      <created>1614493992491</created>
+      <option name="number" value="00134" />
+      <option name="presentableId" value="LOCAL-00134" />
+      <option name="project" value="LOCAL" />
+      <updated>1614493992491</updated>
+    </task>
+    <option name="localTasksCounter" value="135" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -641,7 +642,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="CameraControllerからZoomerをひきはがした" />
     <MESSAGE value="CameraLockingArea.csとプレハブ、当たり判定まで" />
     <MESSAGE value="とりあえず動いとる" />
     <MESSAGE value="カメラではなく主人公との衝突でカメラを固定する、ワープ時のカメラのFreeze時間を調整可能に" />
@@ -666,7 +666,8 @@
     <MESSAGE value="一寸簡単にした" />
     <MESSAGE value="Koneにアニメーションを付けた、ループさせるためにSimpleAnim改修" />
     <MESSAGE value="Koneスプライト差し替え(本番)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Koneスプライト差し替え(本番)" />
+    <MESSAGE value="SkyFish差し替え、向きをいい感じにする" />
+    <option name="LAST_COMMIT_MESSAGE" value="SkyFish差し替え、向きをいい感じにする" />
   </component>
   <component name="WindowStateProjectService">
     <state x="3250" y="94" key="CommitChangelistDialog2" timestamp="1613089887778">
@@ -774,11 +775,11 @@
     <state x="51" y="103" width="1736" height="856" key="VCS.FileHistoryDialog/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611788990972" />
     <state x="2787" y="103" width="1736" height="856" key="VCS.FileHistoryDialog/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1614465555800" />
     <state x="51" y="103" width="1736" height="856" key="VCS.FileHistoryDialog/0.0.1920.1040/-2736.0.1368.872@0.0.1920.1040" timestamp="1606388768425" />
-    <state x="3288" y="253" key="Vcs.Push.Dialog.v2" timestamp="1614022529112">
+    <state x="3288" y="253" key="Vcs.Push.Dialog.v2" timestamp="1614494093442">
       <screen x="2736" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="253" key="Vcs.Push.Dialog.v2/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611797067282" />
-    <state x="3288" y="253" key="Vcs.Push.Dialog.v2/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1614022529112" />
+    <state x="3288" y="253" key="Vcs.Push.Dialog.v2/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1614494093442" />
     <state x="393" y="212" key="Vcs.Push.Dialog.v2/0.0.1368.872@0.0.1368.872" timestamp="1611420006898" />
     <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-2736.0.1368.872@0.0.1920.1040" timestamp="1606421529687" />
     <state x="572" y="253" width="775" height="534" key="find.popup" timestamp="1606324168206">

@@ -41,7 +41,6 @@ public class SkyFish : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
             .Subscribe(positions =>
             {
                 float angle = 180 + Vector2.SignedAngle(Vector2.right, (positions.Last() - positions.First()));
-                print(angle);
                 transform.rotation = Quaternion.Euler(0, 0, angle);
             })
             .AddTo(this);
