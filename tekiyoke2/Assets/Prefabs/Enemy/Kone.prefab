@@ -57,9 +57,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7705659539833087128}
   - component: {fileID: 312592777423349949}
-  - component: {fileID: 4641547510591920131}
   - component: {fileID: 7319557327732240524}
   - component: {fileID: 7544165457705721263}
+  - component: {fileID: 4641547510591920131}
   - component: {fileID: 3159020475538117089}
   m_Layer: 0
   m_Name: Kone
@@ -120,6 +120,43 @@ MonoBehaviour:
   secondAttackMove: 3900
   secondAttackDuration: 3
   secondAttackEase: 2
+--- !u!58 &7319557327732240524
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2805130160985002612}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 30
+--- !u!50 &7544165457705721263
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2805130160985002612}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!212 &4641547510591920131
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -160,7 +197,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 38cfb77a09021a2458914866d3d6cf96, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0ab7fd1083920de40ae69ff4c7886635, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -171,43 +208,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &7319557327732240524
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2805130160985002612}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 30
---- !u!50 &7544165457705721263
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2805130160985002612}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!114 &3159020475538117089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,15 +221,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: 21300000, guid: 38cfb77a09021a2458914866d3d6cf96, type: 3}
-  - {fileID: 21300000, guid: d30e875dba990b54b97b1005c9729631, type: 3}
-  - {fileID: 21300000, guid: 538d094f6253d1544b3054b9e94db8a4, type: 3}
-  - {fileID: 21300000, guid: 4edd31368504fc141bb3345961ebb349, type: 3}
-  - {fileID: 21300000, guid: 72e0de4ffbb5af84ca16d4bd00590da8, type: 3}
-  - {fileID: 21300000, guid: b7b81cb7085d95e408151d8a80208e6b, type: 3}
-  - {fileID: 21300000, guid: cb2568cca0d93c94f9de43c567801536, type: 3}
-  - {fileID: 21300000, guid: feeb13324b46cfa4885114affd463a83, type: 3}
-  changeSec: 0.125
+  - {fileID: 21300000, guid: 0ab7fd1083920de40ae69ff4c7886635, type: 3}
+  - {fileID: 21300000, guid: 04d7547a38f7f1d478bbb4c502b390df, type: 3}
+  - {fileID: 21300000, guid: 0b98903792a3520498249b711d65682b, type: 3}
+  - {fileID: 21300000, guid: 3a6f31f898af3114dbf9970f18a69fe1, type: 3}
+  - {fileID: 21300000, guid: e6cebb6efdc7a5d4a8e52a6057027674, type: 3}
+  - {fileID: 21300000, guid: 50b429399496f154bb368ede877fd4b6, type: 3}
+  - {fileID: 21300000, guid: 3a052bbee20e16641a1f5f8f3fddc73d, type: 3}
+  - {fileID: 21300000, guid: 03a11f7156066af4d97533dfb2add932, type: 3}
+  changeSec: 0.075
   loop: 1
 --- !u!1 &8862678143672975789
 GameObject:
