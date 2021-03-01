@@ -12,6 +12,7 @@ public class Curtain4SceneEndMover : MonoBehaviour
 
     public IObservable<Unit> OnMoveEnd => _OnMoveEnd;
     Subject<Unit> _OnMoveEnd = new Subject<Unit>();
+    bool moveEnded;
 
     [SerializeField] float gridSize = 50f;
 
@@ -20,6 +21,8 @@ public class Curtain4SceneEndMover : MonoBehaviour
 
     void Update()
     {
+        if(moveEnded) return;
+
         float dt    = Time.deltaTime;
         float scale = Time.timeScale;
 
@@ -32,6 +35,10 @@ public class Curtain4SceneEndMover : MonoBehaviour
             time -= secondsPerGrid;
         }
 
-        if(gameObject.transform.localPosition.x >= 250) _OnMoveEnd.OnNext(Unit.Default);
+        if (gameObject.transform.localPosition.x >= 250)
+        {
+            moveEnded = true;
+            _OnMoveEnd.OnNext(Unit.Default);
+        }
     }
 }

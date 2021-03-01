@@ -32,9 +32,6 @@ public class WhiteOutTransitionView : ISceneTransitionView
 
     public void OnNextSceneStart(SceneTransition sceneTransition)
     {
-        PostEffectWrapper noise = CameraController.Current?.AfterEffects?.Find("Noise");
-        if(noise != null) DOTween.To(noise.GetVolume, noise.SetVolume, 1, 1);
-        
         float duration = 3;
         
         Material whiteOutMat = whiteOutImage.material;
@@ -42,5 +39,11 @@ public class WhiteOutTransitionView : ISceneTransitionView
         whiteOutMat.SetFloat("_Whiteness", 1);
         whiteOutMat.To("_Alpha", 0, duration);
         whiteOutMat.To("_Whiteness", 0.05f, duration).SetEase(Ease.OutCubic);
+        
+        PostEffectWrapper noise = CameraController.Current?.AfterEffects?.Find("Noise");
+        if(noise is null) return;
+        
+        noise.SetVolume(0);
+        DOTween.To(noise.GetVolume, noise.SetVolume, 1, 1);
     }
 }

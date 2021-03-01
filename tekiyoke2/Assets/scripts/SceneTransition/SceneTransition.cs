@@ -18,9 +18,7 @@ public class SceneTransition : SerializedMonoBehaviour
     // シーンへの依存を無くせば同じにできそう
     // というか最終的に同じにしないと型情報持ってこないといけなくてあれ
     [SerializeField] ISceneTransitionView[] views;
-
-    [SerializeField] Curtain4SceneEndMover curtain4SceneEnd = null;
-    [SerializeField] Curtain4SceneStartMover curtain4SceneStart = null;
+    
     static List<string> _SceneNameLog = new List<string>();
     public static IReadOnlyList<string> SceneNameLog => _SceneNameLog;
     public static int LastStageIndex()
@@ -83,12 +81,11 @@ public class SceneTransition : SerializedMonoBehaviour
 
             case TransitionType.Normal:
                 SceneTransition.State = SceneTransitState.Normal;
-                var curtain = Instantiate(currentInstance.curtain4SceneEnd, currentInstance.transform);
-                curtain.NextSceneName = sceneName;
+                currentInstance.Find<NormalTransitionView>().OnTransitionStart(currentInstance)
+                    .Subscribe(_ => SceneManager.LoadScene(sceneName));
                 break;
             
             case TransitionType.HeroDied:
-                // todo
                 SceneTransition.State = SceneTransitState.HeroDied;
                 currentInstance.Find<HeroDiedTransitionView>().OnTransitionStart(currentInstance)
                     .Subscribe(_ => SceneManager.LoadScene(sceneName));
@@ -134,8 +131,7 @@ public class SceneTransition : SerializedMonoBehaviour
                 break;
             
             case SceneTransitState.Normal:
-                Instantiate(curtain4SceneStart, transform);
-                if(noise != null) DOTween.To(noise.GetVolume, noise.SetVolume, 1, 1);
+                Find<NormalTransitionView>().OnNextSceneStart(this);
                 break;
             
             case SceneTransitState.HeroDied:

@@ -61,10 +61,10 @@ MonoBehaviour:
       Data: 0|ISceneTransitionView[], Assembly-CSharp
     - Name: 
       Entry: 12
-      Data: 3
+      Data: 4
     - Name: 
       Entry: 7
-      Data: 1|HeroDiedTransitionView, Assembly-CSharp
+      Data: 1|NormalTransitionView, Assembly-CSharp
     - Name: curtain4SceneEnd
       Entry: 10
       Data: 0
@@ -76,7 +76,19 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 2|WindAndBlueTransitionView, Assembly-CSharp
+      Data: 2|HeroDiedTransitionView, Assembly-CSharp
+    - Name: curtain4SceneEnd
+      Entry: 10
+      Data: 0
+    - Name: curtain4SceneStart
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 3|WindAndBlueTransitionView, Assembly-CSharp
     - Name: windAndBlur
       Entry: 10
       Data: 2
@@ -91,7 +103,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 3|WhiteOutTransitionView, Assembly-CSharp
+      Data: 4|WhiteOutTransitionView, Assembly-CSharp
     - Name: whiteOutImage
       Entry: 6
       Data: 
@@ -108,5 +120,4 @@ MonoBehaviour:
     type: 3}
   curtain4SceneStart: {fileID: 7335697979290078405, guid: 5fa93a3e983c21149855f97a2ba32be3,
     type: 3}
-  whiteOutImage: {fileID: 0}
   firstState: 0
