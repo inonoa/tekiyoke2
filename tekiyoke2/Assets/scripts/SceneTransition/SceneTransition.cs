@@ -1,14 +1,20 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using DG.Tweening;
+using Sirenix.OdinInspector;
+using UniRx;
 
 //staticな関数であってほしいとなんとなく思ってこうしたけどcurrentInstance必要なら覆い隠すべきではない気もしてきたね……
-public class SceneTransition : MonoBehaviour
+public class SceneTransition : SerializedMonoBehaviour
 {
     static SceneTransition currentInstance;
+
+    [SerializeField] ISceneTransitionView[] views;
 
     [SerializeField] Curtain4SceneEndMover curtain4SceneEnd = null;
     [SerializeField] Curtain4SceneStartMover curtain4SceneStart = null;
@@ -81,15 +87,14 @@ public class SceneTransition : MonoBehaviour
                 break;
             
             case TransitionType.HeroDied:
+                // todo
                 SceneTransition.State = SceneTransitState.HeroDied;
-                var curtainD = Instantiate(currentInstance.curtain4SceneEnd, currentInstance.transform);
-                curtainD.NextSceneName = sceneName;
+                currentInstance.views.First(v => v is HeroDiedTransitionView).OnTransitionStart(currentInstance)
+                    .Subscribe(_ => SceneManager.LoadScene(sceneName));
                 break;
             
             case TransitionType.WindAndBlur:
                 SceneTransition.State = SceneTransitState.WindAndBlur;
-                PostEffectWrapper noise = CameraController.Current.AfterEffects.Find("Noise");
-                if(noise!=null) DOTween.To(noise.GetVolume, noise.SetVolume, 0, 1);
                 DOVirtual.DelayedCall(1.2f, () =>
                 {
                     var windblur = Instantiate(currentInstance.windAndBlur, currentInstance.transform.parent);
@@ -130,9 +135,8 @@ public class SceneTransition : MonoBehaviour
             SceneTransition.State = firstState;
             firstSceneLoaded = true;
         }
-
+        
         PostEffectWrapper noise = CameraController.Current?.AfterEffects?.Find("Noise");
-        if(noise!=null) DOTween.To(noise.GetVolume, noise.SetVolume, 1, 1);
 
         switch(SceneTransition.State)
         {
@@ -144,18 +148,21 @@ public class SceneTransition : MonoBehaviour
             
             case SceneTransitState.Normal:
                 Instantiate(curtain4SceneStart, transform);
+                if(noise != null) DOTween.To(noise.GetVolume, noise.SetVolume, 1, 1);
                 break;
             
             case SceneTransitState.HeroDied:
-                Instantiate(curtain4SceneStart, transform);
+                views.First(v => v is HeroDiedTransitionView).OnNextSceneStart(this);
                 break;
 
             case SceneTransitState.WindAndBlur:
+                if(noise != null) DOTween.To(noise.GetVolume, noise.SetVolume, 1, 1);
                 Image scshoImg = Instantiate(scshoImage, bgTransformForScSho);
                 scshoImg.sprite = Sprite.Create(scSho, new Rect(0, 0, Screen.width, Screen.height), new Vector2(0.5f,0.5f));
                 break;
             
             case SceneTransitState.WhiteOut:
+                if(noise != null) DOTween.To(noise.GetVolume, noise.SetVolume, 1, 1);
                 float duration = 3;
                 Material whiteOutMat = currentInstance.whiteOutImage.material;
                 whiteOutMat.SetFloat("_Alpha", 1f);
@@ -171,4 +178,10 @@ public class SceneTransition : MonoBehaviour
 
     ///<summary>Start()時にsetするだけだとポーズとかの(SceneTranitionがシーン内に複数存在する)場合に支障をきたすらしいので</summary>
     void OnEnable() => currentInstance = this;
+}
+
+public interface ISceneTransitionView
+{
+    IObservable<Unit> OnTransitionStart(SceneTransition sceneTransition);
+    void OnNextSceneStart(SceneTransition sceneTransition);
 }

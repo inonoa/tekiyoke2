@@ -947,6 +947,7 @@
             <e p="BlurTrans.cs" t="Include" />
             <e p="Curtain4SceneEndMover.cs" t="Include" />
             <e p="Curtain4SceneStartMover.cs" t="Include" />
+            <e p="HeroDiedTransitionView.cs" t="Include" />
             <e p="SceneTransition.cs" t="Include" />
             <e p="WindAndBlur.cs" t="Include" />
             <e p="WindPath.cs" t="Include" />

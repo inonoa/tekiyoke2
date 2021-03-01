@@ -43,6 +43,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80d68c0dd503a8e43b54f464e9fea930, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 3757604634413297123, guid: 9a497827e3b42fa4e804f0dfe365c78f, type: 3}
+    - {fileID: 7335697979290078405, guid: 5fa93a3e983c21149855f97a2ba32be3, type: 3}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: views
+      Entry: 7
+      Data: 0|ISceneTransitionView[], Assembly-CSharp
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 1|HeroDiedTransitionView, Assembly-CSharp
+    - Name: curtain4SceneEnd
+      Entry: 10
+      Data: 0
+    - Name: curtain4SceneStart
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   curtain4SceneEnd: {fileID: 3757604634413297123, guid: 9a497827e3b42fa4e804f0dfe365c78f,
     type: 3}
   curtain4SceneStart: {fileID: 7335697979290078405, guid: 5fa93a3e983c21149855f97a2ba32be3,
@@ -51,5 +86,6 @@ MonoBehaviour:
     type: 3}
   scshoImage: {fileID: 6327406004804041851, guid: 0a43d2f3384d94f4dad9792771feac2c,
     type: 3}
+  bgTransformForScSho: {fileID: 0}
   whiteOutImage: {fileID: 0}
   firstState: 0

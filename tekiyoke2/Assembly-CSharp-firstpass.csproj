@@ -115,6 +115,7 @@
      <Compile Include="Assets\Plugins\Steamworks.NET\CallbackDispatcher.cs" />
      <Compile Include="Assets\Plugins\Steamworks.NET\autogen\isteamvideo.cs" />
      <Compile Include="Assets\Plugins\Steamworks.NET\types\SteamController\ControllerAnalogActionHandle_t.cs" />
+     <Compile Include="Assets\Plugins\Demigiant\DOTweenPro\DOTweenDeUnityExtended.cs" />
      <Compile Include="Assets\Plugins\Steamworks.NET\types\MatchmakingTypes\servernetadr_t.cs" />
      <Compile Include="Assets\Plugins\Steamworks.NET\autogen\isteammusic.cs" />
      <Compile Include="Assets\Plugins\Steamworks.NET\types\SteamTypes\AppId_t.cs" />
@@ -122,6 +123,7 @@
      <Compile Include="Assets\Plugins\Steamworks.NET\autogen\isteamnetworkingutils.cs" />
      <Compile Include="Assets\Plugins\Steamworks.NET\types\SteamNetworkingtypes\SteamNetworkingErrMsg.cs" />
      <Compile Include="Assets\Plugins\Steamworks.NET\types\SteamHTTP\HTTPCookieContainerHandle.cs" />
+     <Compile Include="Assets\Plugins\Demigiant\DOTweenPro\DOTweenDeAudio.cs" />
      <Compile Include="Assets\Plugins\Steamworks.NET\types\SteamTypes\ManifestId_t.cs" />
      <Compile Include="Assets\Plugins\Steamworks.NET\autogen\isteamhttp.cs" />
      <Compile Include="Assets\Plugins\Steamworks.NET\autogen\isteamgameserverhttp.cs" />
@@ -162,8 +164,6 @@
      <Compile Include="Assets\Plugins\Steamworks.NET\autogen\isteamcontroller.cs" />
      <Compile Include="Assets\Plugins\Steamworks.NET\types\SteamNetworkingtypes\HSteamNetPollGroup.cs" />
      <Compile Include="Assets\Plugins\Steamworks.NET\autogen\isteammusicremote.cs" />
-     <Compile Include="Assets\Plugins\Demigiant\DOTweenPro\DOTweenDeUnityExtended.cs" />
-     <Compile Include="Assets\Plugins\Demigiant\DOTweenPro\DOTweenDeAudio.cs" />
      <None Include="Assets\Plugins\UniRx\ReadMe.txt" />
      <None Include="Assets\Plugins\Sirenix\Assemblies\Sirenix.OdinInspector.Attributes.xml" />
      <None Include="Assets\Plugins\Sirenix\Assemblies\Sirenix.Serialization.Config.xml" />

@@ -26,7 +26,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c97243fa-09da-4818-b4c1-b9937458f378" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SceneTransition/HeroDiedTransitionView.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SceneTransition/HeroDiedTransitionView.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembly-CSharp-firstpass.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp-firstpass.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/SceneTransition/SceneTransition.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/SceneTransition/SceneTransition.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/Canvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/Canvas.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/scripts/SceneTransition/Curtain4SceneEndMover.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/scripts/SceneTransition/Curtain4SceneEndMover.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/scripts/SceneTransition/SceneTransition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/scripts/SceneTransition/SceneTransition.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,8 +119,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Pause/Pauser.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Config/FocusableSlider.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ranking/ExitButton.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ranking/RankingScrollViewController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ranking/UIFocusManager.cs" />
@@ -161,6 +168,8 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/SceneTransition/WindPath.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SceneTransition/WindAndBlur.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SceneTransition/SceneTransition.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SceneTransition/HeroDiedTransitionView.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SceneTransition/Curtain4SceneEndMover.cs" />
       </list>
     </option>
   </component>
@@ -269,14 +278,7 @@
       <workItem from="1614311683776" duration="160000" />
       <workItem from="1614311873994" duration="254000" />
       <workItem from="1614312251118" duration="18242000" />
-      <workItem from="1614464188727" duration="20521000" />
-    </task>
-    <task id="LOCAL-00088" summary="ポーズ画面から設定画面に行ける">
-      <created>1611871065343</created>
-      <option name="number" value="00088" />
-      <option name="presentableId" value="LOCAL-00088" />
-      <option name="project" value="LOCAL" />
-      <updated>1611871065343</updated>
+      <workItem from="1614464188727" duration="27199000" />
     </task>
     <task id="LOCAL-00089" summary="InputSettings">
       <created>1611893656971</created>
@@ -614,7 +616,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614566048268</updated>
     </task>
-    <option name="localTasksCounter" value="137" />
+    <task id="LOCAL-00137" summary="前シーンのスクショがリザルト画面に表示されてなかったの直した(Transform.Findを使うと難しくなる例だった)">
+      <created>1614568427004</created>
+      <option name="number" value="00137" />
+      <option name="presentableId" value="LOCAL-00137" />
+      <option name="project" value="LOCAL" />
+      <updated>1614568427004</updated>
+    </task>
+    <option name="localTasksCounter" value="138" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -647,7 +656,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="カメラではなく主人公との衝突でカメラを固定する、ワープ時のカメラのFreeze時間を調整可能に" />
     <MESSAGE value="複数置いてみたらEnterよりExitの方が後に呼ばれるのかつらいことになったので修正" />
     <MESSAGE value="前面の霧シェーダーとそれをいい感じにコントロールする奴" />
     <MESSAGE value="フェードイン・アウト" />
@@ -672,7 +680,8 @@
     <MESSAGE value="SkyFish差し替え、向きをいい感じにする" />
     <MESSAGE value="SkyFish置きまくった" />
     <MESSAGE value="ゴール時の謎模様が途切れてた" />
-    <option name="LAST_COMMIT_MESSAGE" value="ゴール時の謎模様が途切れてた" />
+    <MESSAGE value="前シーンのスクショがリザルト画面に表示されてなかったの直した(Transform.Findを使うと難しくなる例だった)" />
+    <option name="LAST_COMMIT_MESSAGE" value="前シーンのスクショがリザルト画面に表示されてなかったの直した(Transform.Findを使うと難しくなる例だった)" />
   </component>
   <component name="WindowStateProjectService">
     <state x="3250" y="94" key="CommitChangelistDialog2" timestamp="1613089887778">
@@ -753,11 +762,11 @@
     </state>
     <state x="173" y="92" key="MergeDialog/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1610685537996" />
     <state x="184" y="86" key="MergeDialog/0.0.1920.1040/-2736.0.1368.872@0.0.1920.1040" timestamp="1606409865233" />
-    <state x="3532" y="221" key="RiderGenerateDialog" timestamp="1614102369425">
+    <state x="3532" y="221" key="RiderGenerateDialog" timestamp="1614575903833">
       <screen x="2736" y="0" width="1920" height="1040" />
     </state>
     <state x="796" y="221" key="RiderGenerateDialog/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611893779006" />
-    <state x="3532" y="221" key="RiderGenerateDialog/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1614102369425" />
+    <state x="3532" y="221" key="RiderGenerateDialog/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1614575903833" />
     <state x="796" y="221" key="RiderGenerateDialog/0.0.1920.1040/-2736.0.1368.872@0.0.1920.1040" timestamp="1606330025401" />
     <state x="3481" y="230" key="RollbackChangesDialog" timestamp="1614212216267">
       <screen x="2736" y="0" width="1920" height="1040" />
@@ -780,11 +789,11 @@
     <state x="51" y="103" width="1736" height="856" key="VCS.FileHistoryDialog/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611788990972" />
     <state x="2787" y="103" width="1736" height="856" key="VCS.FileHistoryDialog/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1614465555800" />
     <state x="51" y="103" width="1736" height="856" key="VCS.FileHistoryDialog/0.0.1920.1040/-2736.0.1368.872@0.0.1920.1040" timestamp="1606388768425" />
-    <state x="3288" y="253" key="Vcs.Push.Dialog.v2" timestamp="1614494093442">
+    <state x="3288" y="253" key="Vcs.Push.Dialog.v2" timestamp="1614568431262">
       <screen x="2736" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="253" key="Vcs.Push.Dialog.v2/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611797067282" />
-    <state x="3288" y="253" key="Vcs.Push.Dialog.v2/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1614494093442" />
+    <state x="3288" y="253" key="Vcs.Push.Dialog.v2/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1614568431262" />
     <state x="393" y="212" key="Vcs.Push.Dialog.v2/0.0.1368.872@0.0.1368.872" timestamp="1611420006898" />
     <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-2736.0.1368.872@0.0.1920.1040" timestamp="1606421529687" />
     <state x="572" y="253" width="775" height="534" key="find.popup" timestamp="1606324168206">
