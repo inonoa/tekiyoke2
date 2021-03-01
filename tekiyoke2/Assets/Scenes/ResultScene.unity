@@ -2471,6 +2471,32 @@ PrefabInstance:
       propertyPath: bgTransformForScSho
       value: 
       objectReference: {fileID: 1033305721}
+    - target: {fileID: 4779534297949084548, guid: be95f329fec77e549b10591ee7c0c26e,
+        type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 4779534297949084548, guid: be95f329fec77e549b10591ee7c0c26e,
+        type: 3}
+    - target: {fileID: 4779534297949084548, guid: be95f329fec77e549b10591ee7c0c26e,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4779534297949084548, guid: be95f329fec77e549b10591ee7c0c26e,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[0]
+      value: '"path":"views.[1].bgTransformForScSho","value":$eref:0'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4779534297949084548, guid: be95f329fec77e549b10591ee7c0c26e,
+        type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4779534297949084548, guid: be95f329fec77e549b10591ee7c0c26e,
+        type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 1033305721}
     - target: {fileID: 4779534297949084550, guid: be95f329fec77e549b10591ee7c0c26e,
         type: 3}
       propertyPath: m_Name

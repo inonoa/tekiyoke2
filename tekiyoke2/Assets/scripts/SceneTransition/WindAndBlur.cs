@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using System;
+using UniRx;
 using UnityEngine.SceneManagement;
 
 //風のないスクショを撮ってぼかす、青がスライドインして来たら全体のスクショを取ってResultSceneへ？
@@ -15,7 +16,10 @@ public class WindAndBlur : MonoBehaviour
     [SerializeField] float secondsToBlur = 3;
     [SerializeField] float secondsToBeReadyToChange = 5;
     event EventHandler scShoTaken;
-    public event EventHandler ReadyToChange;
+
+    public IObservable<Texture2D> OnEnd => _onEnd;
+    Subject<Texture2D> _onEnd = new Subject<Texture2D>();
+    
     public string NextSceneName{ get; set; } = "";
 
     Texture2D scsho = null;
@@ -42,10 +46,7 @@ public class WindAndBlur : MonoBehaviour
 
         DOVirtual.DelayedCall(secondsToBeReadyToChange, () => 
         {
-            CameraController.Current.ScSho(ss => {
-                ReadyToChange?.Invoke(ss, EventArgs.Empty);
-                SceneManager.LoadScene(NextSceneName);
-            });
+            CameraController.Current.ScSho(_onEnd.OnNext);
         });
     }
 

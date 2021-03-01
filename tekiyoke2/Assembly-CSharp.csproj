@@ -234,6 +234,7 @@
      <Compile Include="Assets\Scripts\ScoreHolder.cs" />
      <Compile Include="Assets\Scripts\Config\ConfigManager.cs" />
      <Compile Include="Assets\Scripts\SceneTransition\HeroDiedTransitionView.cs" />
+     <Compile Include="Assets\Scripts\SceneTransition\WindAndBlueTransitionView.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\Materials\PostEffects\BlurEdge2.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />

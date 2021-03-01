@@ -18,10 +18,6 @@ public class SceneTransition : SerializedMonoBehaviour
 
     [SerializeField] Curtain4SceneEndMover curtain4SceneEnd = null;
     [SerializeField] Curtain4SceneStartMover curtain4SceneStart = null;
-    [SerializeField] WindAndBlur windAndBlur = null;
-    [SerializeField] Image scshoImage = null;
-    static Texture2D scSho = null;
-    [SerializeField] Transform bgTransformForScSho;
     [SerializeField] Image whiteOutImage;
     static List<string> _SceneNameLog = new List<string>();
     public static IReadOnlyList<string> SceneNameLog => _SceneNameLog;
@@ -68,6 +64,9 @@ public class SceneTransition : SerializedMonoBehaviour
         WhiteOut
     }
 
+    public ISceneTransitionView Find<T>() where T : ISceneTransitionView
+        => views.First(v => v is T);
+
     ///<summary>シーンを変えることを試みる、短時間に複数回遷移させるみたいなことにならないようによしなにする</summary>
     public static void Start2ChangeScene(string sceneName, TransitionType transitionType)
     {
@@ -89,19 +88,14 @@ public class SceneTransition : SerializedMonoBehaviour
             case TransitionType.HeroDied:
                 // todo
                 SceneTransition.State = SceneTransitState.HeroDied;
-                currentInstance.views.First(v => v is HeroDiedTransitionView).OnTransitionStart(currentInstance)
+                currentInstance.Find<HeroDiedTransitionView>().OnTransitionStart(currentInstance)
                     .Subscribe(_ => SceneManager.LoadScene(sceneName));
                 break;
             
             case TransitionType.WindAndBlur:
                 SceneTransition.State = SceneTransitState.WindAndBlur;
-                DOVirtual.DelayedCall(1.2f, () =>
-                {
-                    var windblur = Instantiate(currentInstance.windAndBlur, currentInstance.transform.parent);
-                    windblur.NextSceneName = sceneName;
-                    windblur.ReadyToChange += (ss, e) => scSho = (Texture2D)ss;
-                    windblur.transform.SetAsLastSibling();
-                });
+                currentInstance.Find<WindAndBlueTransitionView>().OnTransitionStart(currentInstance)
+                    .Subscribe(_ => SceneManager.LoadScene(sceneName));
                 break;
             
             case TransitionType.WhiteOut:
@@ -152,13 +146,11 @@ public class SceneTransition : SerializedMonoBehaviour
                 break;
             
             case SceneTransitState.HeroDied:
-                views.First(v => v is HeroDiedTransitionView).OnNextSceneStart(this);
+                Find<HeroDiedTransitionView>().OnNextSceneStart(this);
                 break;
 
             case SceneTransitState.WindAndBlur:
-                if(noise != null) DOTween.To(noise.GetVolume, noise.SetVolume, 1, 1);
-                Image scshoImg = Instantiate(scshoImage, bgTransformForScSho);
-                scshoImg.sprite = Sprite.Create(scSho, new Rect(0, 0, Screen.width, Screen.height), new Vector2(0.5f,0.5f));
+                Find<WindAndBlueTransitionView>().OnNextSceneStart(this);
                 break;
             
             case SceneTransitState.WhiteOut:
