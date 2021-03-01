@@ -10,37 +10,32 @@ public class WindPath : MonoBehaviour
 {
     [SerializeField] float delaySecAfterScSho = 0;
     [SerializeField] float moveSec = 1;
+    [SerializeField] float pathZ;
+    
     [SerializeField] [TextArea(5,20)] string pathStr = "";
-    Vector3[] pathVecs;
+    [SerializeField, ReadOnly] Vector2[] pathVecs;
+    [Button]
+    void ApplyPathStr() => pathVecs = Str2Vecs(pathStr);
 
     void Start()
     {
         DOVirtual.DelayedCall(delaySecAfterScSho, () =>
         {
-            pathVecs = Str2LocalVecs(pathStr);
-            transform.DOPath(pathVecs, moveSec, PathType.CatmullRom);
+            var parentPos = transform.parent.position;
+            var path = pathVecs
+                       .Select(v2 => new Vector3
+                       (
+                           v2.x + parentPos.x,
+                           v2.y + parentPos.y,
+                           pathZ
+                       ))
+                       .ToArray();
+            
+            transform.DOPath(path, moveSec, PathType.CatmullRom);
         });
     }
 
-    Vector3[] Str2LocalVecs(string str)
-    {
-
-        string[] pointStrs = str.Split(new string[]{"\n"}, StringSplitOptions.RemoveEmptyEntries);
-        return pointStrs.Select(Str2LocalVec).ToArray();
-
-        Vector3 Str2LocalVec(string vecStr)
-        {
-            string[] xyStrs = vecStr.Split(',');
-            return new Vector3
-            (
-                int.Parse(xyStrs[0]) + transform.parent.position.x,
-                int.Parse(xyStrs[1]) + transform.parent.position.y,
-                -400
-            );
-        }
-    }
-
-    Vector2[] Str2Vecs(string str)
+    static Vector2[] Str2Vecs(string str)
     {
         return str.Split(new []{ "\n" }, StringSplitOptions.RemoveEmptyEntries)
                   .Select(line =>
@@ -51,7 +46,7 @@ public class WindPath : MonoBehaviour
                   .ToArray();
     }
 
-    string Vecs2Str(Vector2[] vecs)
+    static string Vecs2Str(Vector2[] vecs)
     {
         return string.Join("\n", vecs.Select(vec => $"{vec.x},{vec.y}"));
     }
@@ -59,6 +54,7 @@ public class WindPath : MonoBehaviour
     [Button]
     void DebugRescale(float rate)
     {
-        pathStr = Vecs2Str(Str2Vecs(pathStr).Select(vec => vec * rate).ToArray());
+        pathVecs = Str2Vecs(pathStr).Select(vec => vec * rate).ToArray();
+        pathStr = Vecs2Str(pathVecs);
     }
 }
