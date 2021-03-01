@@ -14,11 +14,13 @@ public class SceneTransition : SerializedMonoBehaviour
 {
     static SceneTransition currentInstance;
 
+    // 遷移を始めるために使うviewと次のシーンで使うviewが別のオブジェクトという罠がある
+    // シーンへの依存を無くせば同じにできそう
+    // というか最終的に同じにしないと型情報持ってこないといけなくてあれ
     [SerializeField] ISceneTransitionView[] views;
 
     [SerializeField] Curtain4SceneEndMover curtain4SceneEnd = null;
     [SerializeField] Curtain4SceneStartMover curtain4SceneStart = null;
-    [SerializeField] Image whiteOutImage;
     static List<string> _SceneNameLog = new List<string>();
     public static IReadOnlyList<string> SceneNameLog => _SceneNameLog;
     public static int LastStageIndex()
@@ -100,17 +102,8 @@ public class SceneTransition : SerializedMonoBehaviour
             
             case TransitionType.WhiteOut:
                 SceneTransition.State = SceneTransitState.WhiteOut;
-                const float duration = 5f;
-                
-                PostEffectWrapper noise_ = CameraController.Current?.AfterEffects?.Find("Noise");
-                if(noise_ != null) DOTween.To(noise_.GetVolume, noise_.SetVolume, 0, duration / 2);
-
-                Material whiteOutMat = currentInstance.whiteOutImage.material;
-                whiteOutMat.SetFloat("_Alpha", 0.3f);
-                whiteOutMat.SetFloat("_Whiteness", 0.05f);
-                whiteOutMat.To("_Alpha", 1, duration / 1.5f);
-                whiteOutMat.To("_Whiteness", 0.9f, duration).SetEase(Ease.InOutCubic)
-                    .onComplete += () => SceneManager.LoadScene(sceneName);
+                currentInstance.Find<WhiteOutTransitionView>().OnTransitionStart(currentInstance)
+                    .Subscribe(_ => SceneManager.LoadScene(sceneName));
                 break;
         }
     }
@@ -154,13 +147,7 @@ public class SceneTransition : SerializedMonoBehaviour
                 break;
             
             case SceneTransitState.WhiteOut:
-                if(noise != null) DOTween.To(noise.GetVolume, noise.SetVolume, 1, 1);
-                float duration = 3;
-                Material whiteOutMat = currentInstance.whiteOutImage.material;
-                whiteOutMat.SetFloat("_Alpha", 1f);
-                whiteOutMat.SetFloat("_Whiteness", 1);
-                whiteOutMat.To("_Alpha", 0, duration);
-                whiteOutMat.To("_Whiteness", 0.05f, duration).SetEase(Ease.OutCubic);
+                Find<WhiteOutTransitionView>().OnNextSceneStart(this);
                 break;
         }
 

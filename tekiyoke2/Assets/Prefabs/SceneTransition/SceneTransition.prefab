@@ -61,7 +61,7 @@ MonoBehaviour:
       Data: 0|ISceneTransitionView[], Assembly-CSharp
     - Name: 
       Entry: 12
-      Data: 2
+      Data: 3
     - Name: 
       Entry: 7
       Data: 1|HeroDiedTransitionView, Assembly-CSharp
@@ -90,6 +90,15 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: 
+      Entry: 7
+      Data: 3|WhiteOutTransitionView, Assembly-CSharp
+    - Name: whiteOutImage
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
       Entry: 13
       Data: 
     - Name: 
@@ -99,10 +108,5 @@ MonoBehaviour:
     type: 3}
   curtain4SceneStart: {fileID: 7335697979290078405, guid: 5fa93a3e983c21149855f97a2ba32be3,
     type: 3}
-  windAndBlur: {fileID: 1855145380354302208, guid: b74f51cabc3a95e418df7c634d589a0d,
-    type: 3}
-  scshoImage: {fileID: 6327406004804041851, guid: 0a43d2f3384d94f4dad9792771feac2c,
-    type: 3}
-  bgTransformForScSho: {fileID: 0}
   whiteOutImage: {fileID: 0}
   firstState: 0
