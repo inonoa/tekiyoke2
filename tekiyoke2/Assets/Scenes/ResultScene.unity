@@ -2485,7 +2485,7 @@ PrefabInstance:
     - target: {fileID: 4779534297949084548, guid: be95f329fec77e549b10591ee7c0c26e,
         type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[0]
-      value: '"path":"views.[1].bgTransformForScSho","value":$eref:0'
+      value: '"path":"views.[2].bgTransformForScSho","value":$eref:0'
       objectReference: {fileID: 0}
     - target: {fileID: 4779534297949084548, guid: be95f329fec77e549b10591ee7c0c26e,
         type: 3}

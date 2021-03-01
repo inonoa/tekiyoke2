@@ -61,7 +61,7 @@ MonoBehaviour:
       Data: 0|ISceneTransitionView[], Assembly-CSharp
     - Name: 
       Entry: 12
-      Data: 4
+      Data: 5
     - Name: 
       Entry: 7
       Data: 1|NormalTransitionView, Assembly-CSharp
@@ -111,13 +111,15 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: 
+      Entry: 7
+      Data: 5|DefaultTransitionView, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
       Entry: 13
       Data: 
     - Name: 
       Entry: 8
       Data: 
-  curtain4SceneEnd: {fileID: 3757604634413297123, guid: 9a497827e3b42fa4e804f0dfe365c78f,
-    type: 3}
-  curtain4SceneStart: {fileID: 7335697979290078405, guid: 5fa93a3e983c21149855f97a2ba32be3,
-    type: 3}
-  firstState: 0
+  firstTransition: DefaultTransitionView

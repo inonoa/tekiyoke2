@@ -26,17 +26,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c97243fa-09da-4818-b4c1-b9937458f378" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SceneTransition/NormalTransitionView.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SceneTransition/NormalTransitionView.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SceneTransition/DefaultTransitionView.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SceneTransition/DefaultTransitionView.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Materials/FrontFog.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/FrontFog.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/PostEffects/Draft.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/PostEffects/Draft.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/PostEffects/Noise.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/PostEffects/Noise.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/UI/DPGauge.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/UI/DPGauge.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/WhiteOut.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/WhiteOut.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/PauserDepauserBase.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/PauserDepauserBase.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/SceneTransition/SceneTransition.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/SceneTransition/SceneTransition.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/PauseMaster.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/PauseMaster.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/Ranking/Ranking.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/Ranking/Ranking.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/StageChoiceScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/StageChoiceScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapObjs/TutorialEnd.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MapObjs/TutorialEnd.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Pause/PauseView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Pause/PauseView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/StageSelectManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/StageSelectManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TitleScene/TitleSceneManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TitleScene/TitleSceneManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,13 +126,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Input/NormalInput.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/RankingsSelectManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemyStatic.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/Sasayaki.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Pause/PauseView.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Hero/DP/DPManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/DPinEnemy.cs" />
         <option value="$PROJECT_DIR$/Assets/Materials/PostEffects/Noise.shader" />
         <option value="$PROJECT_DIR$/Assets/Materials/WhiteOut.shader" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemySpawner.cs" />
@@ -159,7 +156,6 @@
         <option value="$PROJECT_DIR$/Assets/Sprites/BGs/MapObjs/EdgeLight.shader" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Tags.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Hero/DP/GetDPinEnemy.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Hero/HeroMover.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Pause/PausableExtension.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Utils/SimpleAnim.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Strandbeest.cs" />
@@ -169,9 +165,17 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/SceneTransition/HeroDiedTransitionView.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SceneTransition/WindAndBlur.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SceneTransition/WindAndBlueTransitionView.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/SceneTransition/WhiteOutTransitionView.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SceneTransition/Curtain4SceneEndMover.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SceneTransition/NormalTransitionView.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SceneTransition/WhiteOutTransitionView.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SceneTransition/DefaultTransitionView.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Hero/HeroMover.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/Goal.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/TutorialEnd.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Pause/PauseView.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ResultScene/PressZToReturn.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/StageSelectManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/TitleScene/TitleSceneManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SceneTransition/SceneTransition.cs" />
       </list>
     </option>
@@ -281,14 +285,7 @@
       <workItem from="1614311683776" duration="160000" />
       <workItem from="1614311873994" duration="254000" />
       <workItem from="1614312251118" duration="18242000" />
-      <workItem from="1614464188727" duration="34151000" />
-    </task>
-    <task id="LOCAL-00092" summary="JetLとRを分けることからにげた">
-      <created>1611968144796</created>
-      <option name="number" value="00092" />
-      <option name="presentableId" value="LOCAL-00092" />
-      <option name="project" value="LOCAL" />
-      <updated>1611968144796</updated>
+      <workItem from="1614464188727" duration="37699000" />
     </task>
     <task id="LOCAL-00093" summary="InputManagerとServicesLocatorを無くした">
       <created>1611971730704</created>
@@ -626,7 +623,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614583457987</updated>
     </task>
-    <option name="localTasksCounter" value="141" />
+    <task id="LOCAL-00141" summary="Normalも">
+      <created>1614586418623</created>
+      <option name="number" value="00141" />
+      <option name="presentableId" value="LOCAL-00141" />
+      <option name="project" value="LOCAL" />
+      <updated>1614586418623</updated>
+    </task>
+    <option name="localTasksCounter" value="142" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -659,7 +663,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="霧の出る領域" />
     <MESSAGE value="主人公の移動じゃなくてカメラの移動に追従するべきだった&#10;暗幕より手前に来てた" />
     <MESSAGE value="ポーズ対応、ポーズ時にぬるぽが出るので握り潰しとこ…………" />
     <MESSAGE value="ストランドビーストのガワ" />
@@ -684,7 +687,8 @@
     <MESSAGE value="SceneTransitionの個々の遷移の仕方をクラスに逃がすためにまず一つ逃がした" />
     <MESSAGE value="WindAndBlurを逃した" />
     <MESSAGE value="WhiteOutも逃した" />
-    <option name="LAST_COMMIT_MESSAGE" value="WhiteOutも逃した" />
+    <MESSAGE value="Normalも" />
+    <option name="LAST_COMMIT_MESSAGE" value="Normalも" />
   </component>
   <component name="WindowStateProjectService">
     <state x="3250" y="94" key="CommitChangelistDialog2" timestamp="1613089887778">
@@ -765,11 +769,11 @@
     </state>
     <state x="173" y="92" key="MergeDialog/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1610685537996" />
     <state x="184" y="86" key="MergeDialog/0.0.1920.1040/-2736.0.1368.872@0.0.1920.1040" timestamp="1606409865233" />
-    <state x="3532" y="221" key="RiderGenerateDialog" timestamp="1614583916861">
+    <state x="3532" y="221" key="RiderGenerateDialog" timestamp="1614586946985">
       <screen x="2736" y="0" width="1920" height="1040" />
     </state>
     <state x="796" y="221" key="RiderGenerateDialog/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611893779006" />
-    <state x="3532" y="221" key="RiderGenerateDialog/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1614583916861" />
+    <state x="3532" y="221" key="RiderGenerateDialog/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1614586946985" />
     <state x="796" y="221" key="RiderGenerateDialog/0.0.1920.1040/-2736.0.1368.872@0.0.1920.1040" timestamp="1606330025401" />
     <state x="3481" y="230" key="RollbackChangesDialog" timestamp="1614212216267">
       <screen x="2736" y="0" width="1920" height="1040" />

@@ -281,7 +281,7 @@ public class HeroMover : SerializedMonoBehaviour
         MemoryOverDeath.Instance.SaveOnDeath();
         GameTimeCounter.CurrentInstance.DoesTick = false;
         TimeManager.SetTimeScale(TimeEffectType.Die, 0.2f);
-        SceneTransition.Start2ChangeScene(SceneManager.GetActiveScene().name, SceneTransition.TransitionType.HeroDied);
+        SceneTransition.StartToChangeScene<HeroDiedTransitionView>(SceneManager.GetActiveScene().name);
         draftModeManager.TryExit();
     }
 

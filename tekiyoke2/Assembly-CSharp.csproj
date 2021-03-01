@@ -237,6 +237,7 @@
      <Compile Include="Assets\Scripts\SceneTransition\WindAndBlueTransitionView.cs" />
      <Compile Include="Assets\Scripts\SceneTransition\WhiteOutTransitionView.cs" />
      <Compile Include="Assets\Scripts\SceneTransition\NormalTransitionView.cs" />
+     <Compile Include="Assets\Scripts\SceneTransition\DefaultTransitionView.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\Materials\PostEffects\BlurEdge2.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />

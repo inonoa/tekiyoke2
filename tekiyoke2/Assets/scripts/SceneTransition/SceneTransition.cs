@@ -9,7 +9,7 @@ using DG.Tweening;
 using Sirenix.OdinInspector;
 using UniRx;
 
-//staticな関数であってほしいとなんとなく思ってこうしたけどcurrentInstance必要なら覆い隠すべきではない気もしてきたね……
+// staticな関数であってほしいとなんとなく思ってこうしたけどcurrentInstance必要なら覆い隠すべきではない気もしてきたね……
 public class SceneTransition : SerializedMonoBehaviour
 {
     static SceneTransition currentInstance;
@@ -18,6 +18,9 @@ public class SceneTransition : SerializedMonoBehaviour
     // シーンへの依存を無くせば同じにできそう
     // というか最終的に同じにしないと型情報持ってこないといけなくてあれ
     [SerializeField] ISceneTransitionView[] views;
+    
+    // 持ってきた………
+    static Type currentTransitionType;
     
     static List<string> _SceneNameLog = new List<string>();
     public static IReadOnlyList<string> SceneNameLog => _SceneNameLog;
@@ -35,74 +38,22 @@ public class SceneTransition : SerializedMonoBehaviour
         return -1;
     }
 
-    enum SceneTransitState{ None, Default, Normal, HeroDied, WindAndBlur, WhiteOut }
-    static SceneTransitState _State = SceneTransitState.Normal;
-    static SceneTransitState State
-    {
-        get{ return _State; }
-        set{ _State = value; }
-    }
-
-    ///<summary>シーンごとにデフォルトのStateを持っておき、そのシーンが初めに呼ばれたらstaticのstateに反映</summary>
-    [SerializeField]
-    SceneTransitState firstState = SceneTransitState.None;
+    [SerializeField, ValueDropdown(nameof(Transitions))] string firstTransition;
+    string[] Transitions() => views.Select(view => view.ToString()).ToArray();
+    
     ///<summary>firstState参照</summary>
     static bool firstSceneLoaded = false;
 
-    ///<summary>様々な遷移がある</summary>
-    public enum TransitionType
+    public static void StartToChangeScene<T>(string nextSceneName)
+        where T : ISceneTransitionView
     {
-        ///<summary>素のLoadScene()が呼ばれる</summary>
-        Default,
-        ///<summary>今のとこカーテンが出て横にシューっとなる(？)、大体の場合これを使うみたいな感じで</summary>
-        Normal,
-        ///<summary>主人公が死んだとき専用の遷移</summary>
-        HeroDied,
-        ///<summary>風みたいなエフェクトを出した後背景をぼかす(？)</summary>
-        WindAndBlur,
-        ///<summary>チュートリアルからDraft1への移行(ここでする必要ある？)</summary>
-        WhiteOut
-    }
-
-    public ISceneTransitionView Find<T>() where T : ISceneTransitionView
-        => views.First(v => v is T);
-
-    ///<summary>シーンを変えることを試みる、短時間に複数回遷移させるみたいなことにならないようによしなにする</summary>
-    public static void Start2ChangeScene(string sceneName, TransitionType transitionType)
-    {
-        if(SceneTransition.State != SceneTransitState.None) return;
-
-        switch(transitionType)
-        {
-            case TransitionType.Default:
-                SceneTransition.State = SceneTransitState.Default;
-                SceneManager.LoadScene(sceneName);
-                break;
-
-            case TransitionType.Normal:
-                SceneTransition.State = SceneTransitState.Normal;
-                currentInstance.Find<NormalTransitionView>().OnTransitionStart(currentInstance)
-                    .Subscribe(_ => SceneManager.LoadScene(sceneName));
-                break;
-            
-            case TransitionType.HeroDied:
-                SceneTransition.State = SceneTransitState.HeroDied;
-                currentInstance.Find<HeroDiedTransitionView>().OnTransitionStart(currentInstance)
-                    .Subscribe(_ => SceneManager.LoadScene(sceneName));
-                break;
-            
-            case TransitionType.WindAndBlur:
-                SceneTransition.State = SceneTransitState.WindAndBlur;
-                currentInstance.Find<WindAndBlueTransitionView>().OnTransitionStart(currentInstance)
-                    .Subscribe(_ => SceneManager.LoadScene(sceneName));
-                break;
-            
-            case TransitionType.WhiteOut:
-                SceneTransition.State = SceneTransitState.WhiteOut;
-                currentInstance.Find<WhiteOutTransitionView>().OnTransitionStart(currentInstance)
-                    .Subscribe(_ => SceneManager.LoadScene(sceneName));
-                break;
-        }
+        if(currentTransitionType != null) return;
+        
+        currentTransitionType = typeof(T);
+        
+        currentInstance.views.First(view => view is T)
+            .OnTransitionStart(currentInstance)
+            .Subscribe(_ => SceneManager.LoadScene(nextSceneName));
     }
 
     void Awake()
@@ -114,41 +65,17 @@ public class SceneTransition : SerializedMonoBehaviour
     void Start()
     {
         currentInstance = this;
-        if(!firstSceneLoaded)
-        {
-            SceneTransition.State = firstState;
-            firstSceneLoaded = true;
-        }
-        
-        PostEffectWrapper noise = CameraController.Current?.AfterEffects?.Find("Noise");
 
-        switch(SceneTransition.State)
-        {
-            case SceneTransitState.None:
-                break;
+        Type transType = firstSceneLoaded ? currentTransitionType : Type.GetType(firstTransition);
 
-            case SceneTransitState.Default:
-                break;
-            
-            case SceneTransitState.Normal:
-                Find<NormalTransitionView>().OnNextSceneStart(this);
-                break;
-            
-            case SceneTransitState.HeroDied:
-                Find<HeroDiedTransitionView>().OnNextSceneStart(this);
-                break;
+        // 1シーンに複数インスタンスがあるケース…………(無くしたい)
+        if(transType is null) return;
 
-            case SceneTransitState.WindAndBlur:
-                Find<WindAndBlueTransitionView>().OnNextSceneStart(this);
-                break;
-            
-            case SceneTransitState.WhiteOut:
-                Find<WhiteOutTransitionView>().OnNextSceneStart(this);
-                break;
-        }
+        views.First(view => view.GetType() == transType)
+            .OnNextSceneStart(this);
 
-        //ステート名からくる直感に反するのでアレ
-        SceneTransition.State = SceneTransitState.None;
+        currentTransitionType = null;
+        firstSceneLoaded = true;
     }
 
     ///<summary>Start()時にsetするだけだとポーズとかの(SceneTranitionがシーン内に複数存在する)場合に支障をきたすらしいので</summary>
