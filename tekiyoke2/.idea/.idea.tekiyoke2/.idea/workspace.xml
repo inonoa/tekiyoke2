@@ -27,14 +27,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c97243fa-09da-4818-b4c1-b9937458f378" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/FrontFog.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/FrontFog.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/PostEffects/Noise.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/PostEffects/Noise.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/SceneTransition/WindAndBlur.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/SceneTransition/WindAndBlur.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Draft1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Draft1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/scripts/SceneTransition/WindAndBlur.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/scripts/SceneTransition/WindAndBlur.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/scripts/SceneTransition/WindPath.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/scripts/SceneTransition/WindPath.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +124,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/DPinEnemy.cs" />
         <option value="$PROJECT_DIR$/Assets/Materials/PostEffects/Noise.shader" />
         <option value="$PROJECT_DIR$/Assets/Materials/WhiteOut.shader" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/SceneTransition/SceneTransition.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemySpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DraftMode/DraftWindsManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Parameters/DraftModeParameters.cs" />
@@ -169,6 +160,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/SkyFish.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SceneTransition/WindPath.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SceneTransition/WindAndBlur.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SceneTransition/SceneTransition.cs" />
       </list>
     </option>
   </component>
@@ -277,14 +269,7 @@
       <workItem from="1614311683776" duration="160000" />
       <workItem from="1614311873994" duration="254000" />
       <workItem from="1614312251118" duration="18242000" />
-      <workItem from="1614464188727" duration="18065000" />
-    </task>
-    <task id="LOCAL-00087" summary="ポーズ画面のリファクタリング…………？">
-      <created>1611868797292</created>
-      <option name="number" value="00087" />
-      <option name="presentableId" value="LOCAL-00087" />
-      <option name="project" value="LOCAL" />
-      <updated>1611868797292</updated>
+      <workItem from="1614464188727" duration="20521000" />
     </task>
     <task id="LOCAL-00088" summary="ポーズ画面から設定画面に行ける">
       <created>1611871065343</created>
@@ -622,7 +607,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614554591198</updated>
     </task>
-    <option name="localTasksCounter" value="136" />
+    <task id="LOCAL-00136" summary="ゴール時の謎模様が途切れてた">
+      <created>1614566048268</created>
+      <option name="number" value="00136" />
+      <option name="presentableId" value="LOCAL-00136" />
+      <option name="project" value="LOCAL" />
+      <updated>1614566048268</updated>
+    </task>
+    <option name="localTasksCounter" value="137" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -655,7 +647,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="とりあえず動いとる" />
     <MESSAGE value="カメラではなく主人公との衝突でカメラを固定する、ワープ時のカメラのFreeze時間を調整可能に" />
     <MESSAGE value="複数置いてみたらEnterよりExitの方が後に呼ばれるのかつらいことになったので修正" />
     <MESSAGE value="前面の霧シェーダーとそれをいい感じにコントロールする奴" />
@@ -680,7 +671,8 @@
     <MESSAGE value="Koneスプライト差し替え(本番)" />
     <MESSAGE value="SkyFish差し替え、向きをいい感じにする" />
     <MESSAGE value="SkyFish置きまくった" />
-    <option name="LAST_COMMIT_MESSAGE" value="SkyFish置きまくった" />
+    <MESSAGE value="ゴール時の謎模様が途切れてた" />
+    <option name="LAST_COMMIT_MESSAGE" value="ゴール時の謎模様が途切れてた" />
   </component>
   <component name="WindowStateProjectService">
     <state x="3250" y="94" key="CommitChangelistDialog2" timestamp="1613089887778">

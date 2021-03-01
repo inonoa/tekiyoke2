@@ -15,6 +15,7 @@ public class SceneTransition : MonoBehaviour
     [SerializeField] WindAndBlur windAndBlur = null;
     [SerializeField] Image scshoImage = null;
     static Texture2D scSho = null;
+    [SerializeField] Transform bgTransformForScSho;
     [SerializeField] Image whiteOutImage;
     static List<string> _SceneNameLog = new List<string>();
     public static IReadOnlyList<string> SceneNameLog => _SceneNameLog;
@@ -150,7 +151,7 @@ public class SceneTransition : MonoBehaviour
                 break;
 
             case SceneTransitState.WindAndBlur:
-                Image scshoImg = Instantiate(scshoImage, transform.parent.Find("BG"));
+                Image scshoImg = Instantiate(scshoImage, bgTransformForScSho);
                 scshoImg.sprite = Sprite.Create(scSho, new Rect(0, 0, Screen.width, Screen.height), new Vector2(0.5f,0.5f));
                 break;
             

@@ -23,7 +23,10 @@ public class WindAndBlur : MonoBehaviour
     void Start()
     {
         //ステージのスクショを撮る(まだ表示してない)
-        CameraController.Current.ScShoOutOfWind(ss => scsho = ss);
+        DOVirtual.DelayedCall(1f, () =>
+        {
+            CameraController.Current.ScShoOutOfWind(ss => scsho = ss);
+        });
 
         StartCoroutine(PlayWindSound());
 
