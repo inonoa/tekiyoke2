@@ -464,7 +464,7 @@ public class HeroMover : SerializedMonoBehaviour
     {
         if(IsFrozen) return;
         
-        if(col.gameObject.CompareTag("Terrain"))
+        if(col.gameObject.CompareTag(Tags.Terrain))
         {
             if (col.contacts.Any(contact => contact.normal.y < -0.5f))
             {

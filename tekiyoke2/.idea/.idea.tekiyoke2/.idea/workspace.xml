@@ -26,23 +26,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c97243fa-09da-4818-b4c1-b9937458f378" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/FrontFog.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/FrontFog.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/UI/DPGauge.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/UI/DPGauge.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/UI/RankNodeTop100.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/UI/RankNodeTop100.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapObjs/Goal.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MapObjs/Goal.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SceneTransition/DefaultTransitionView.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SceneTransition/DefaultTransitionView.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SceneTransition/HeroDiedTransitionView.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SceneTransition/HeroDiedTransitionView.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SceneTransition/NormalTransitionView.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SceneTransition/NormalTransitionView.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SceneTransition/WhiteOutTransitionView.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SceneTransition/WhiteOutTransitionView.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SceneTransition/WindAndBlueTransitionView.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SceneTransition/WindAndBlueTransitionView.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/Kone.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/Kone.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Hero/Physics/HeroCollider2Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Hero/Physics/HeroCollider2Enemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tags.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tags.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,6 +70,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/17/acb49825/Tween.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/f9/97e3c724/TweenParams.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/17C1E98F-9A78-42E3-8BE0-5E60BF0530E8/37/63a07319/02000006.il" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/BAD59441-8129-43C7-B8D5-A5BA85795810/49/eb9a0f12/Component.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/cd/9fcf1a7c/ShortcutExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utils/TransformExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/d7/e0b450ec/Resources.cs" root0="SKIP_HIGHLIGHTING" />
@@ -91,12 +79,14 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/22/1a106110/String.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/97/df7e3c54/RuntimeInitializeOnLoadMethodAttribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/17C1E98F-9A78-42E3-8BE0-5E60BF0530E8/94/28da816b/DOTweenPath.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/scripts/MapObjs/Goal.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/97/7d5cd036/Ease.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/Image.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2348FB5E-CC9E-4E68-9F37-F7D7FADAEA9A/62/0208ac2c/TweenSettingsExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/48/3a11e747/SerializeField.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/8a/df89f217/Path.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/ff/80a8bd20/RuntimeInitializeLoadType.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/Hero/Physics/HeroCollider2Enemy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2348FB5E-CC9E-4E68-9F37-F7D7FADAEA9A/8f/57e73b5e/DOTween.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/d2/198907ba/Renderer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/DPinEnemy.cs" root0="FORCE_HIGHLIGHTING" />
@@ -107,9 +97,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Materials/WhiteOut.shader" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemySpawner.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/DraftMode/DraftWindsManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Parameters/DraftModeParameters.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Hero/DraftModeManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/TitleScene/CloudSpawner.cs" />
@@ -134,12 +121,10 @@
         <option value="$PROJECT_DIR$/Assets/Sprites/BGs/MapObjs/Bane.shader" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/Kazaguruma.cs" />
         <option value="$PROJECT_DIR$/Assets/Sprites/BGs/MapObjs/EdgeLight.shader" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Tags.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Hero/DP/GetDPinEnemy.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Pause/PausableExtension.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Utils/SimpleAnim.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Strandbeest.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Kone.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/SkyFish.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SceneTransition/WindPath.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SceneTransition/HeroDiedTransitionView.cs" />
@@ -148,7 +133,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/SceneTransition/Curtain4SceneEndMover.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SceneTransition/NormalTransitionView.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SceneTransition/WhiteOutTransitionView.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Hero/HeroMover.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/Goal.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/TutorialEnd.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Pause/PauseView.cs" />
@@ -158,6 +142,12 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/SceneTransition/SceneTransition.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SceneTransition/DefaultTransitionView.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SceneTransition/Transitions/WindAndBlurTransitionView.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Kone.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemySpawner.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Hero/HeroMover.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Hero/Physics/HeroCollider2Enemy.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Tags.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/TamaController.cs" />
       </list>
     </option>
   </component>
@@ -267,14 +257,7 @@
       <workItem from="1614311873994" duration="254000" />
       <workItem from="1614312251118" duration="18242000" />
       <workItem from="1614464188727" duration="38794000" />
-      <workItem from="1614746284782" duration="1149000" />
-    </task>
-    <task id="LOCAL-00094" summary="InputManagerとServicesLocatorを無くした">
-      <created>1611971737970</created>
-      <option name="number" value="00094" />
-      <option name="presentableId" value="LOCAL-00094" />
-      <option name="project" value="LOCAL" />
-      <updated>1611971737970</updated>
+      <workItem from="1614746284782" duration="3619000" />
     </task>
     <task id="LOCAL-00095" summary="D3のタイル差し替えた(情報量を上げた」)">
       <created>1612430226771</created>
@@ -612,7 +595,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614590060955</updated>
     </task>
-    <option name="localTasksCounter" value="143" />
+    <task id="LOCAL-00143" summary="フォルダ分け・rename・デフォルトだとノイズが0のままになるの修正など">
+      <created>1614747897402</created>
+      <option name="number" value="00143" />
+      <option name="presentableId" value="LOCAL-00143" />
+      <option name="project" value="LOCAL" />
+      <updated>1614747897402</updated>
+    </task>
+    <option name="localTasksCounter" value="144" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -645,7 +635,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="ポーズ対応、ポーズ時にぬるぽが出るので握り潰しとこ…………" />
     <MESSAGE value="ストランドビーストのガワ" />
     <MESSAGE value="画像を置いたらかなりヒエラルキーが変わった" />
     <MESSAGE value="すごい悔しいけどとりあえず見た目は正しいのでこれで………" />
@@ -670,7 +659,8 @@
     <MESSAGE value="WhiteOutも逃した" />
     <MESSAGE value="Normalも" />
     <MESSAGE value="Defaultも追い出した、SceneTransitionから個々のクラスへの依存を消した" />
-    <option name="LAST_COMMIT_MESSAGE" value="Defaultも追い出した、SceneTransitionから個々のクラスへの依存を消した" />
+    <MESSAGE value="フォルダ分け・rename・デフォルトだとノイズが0のままになるの修正など" />
+    <option name="LAST_COMMIT_MESSAGE" value="フォルダ分け・rename・デフォルトだとノイズが0のままになるの修正など" />
   </component>
   <component name="WindowStateProjectService">
     <state x="3250" y="94" key="CommitChangelistDialog2" timestamp="1613089887778">
@@ -768,10 +758,6 @@
     <state x="178" y="198" width="1390" height="710" key="SettingsEditor/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1606772983533" />
     <state x="2914" y="198" key="SettingsEditor/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1613362852331" />
     <state x="373" y="189" key="SettingsEditor/0.0.1920.1040/-2736.0.1368.872@0.0.1920.1040" timestamp="1606322997903" />
-    <state x="746" y="494" key="VCS.ChangelistChooser" timestamp="1605865976745">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="746" y="494" key="VCS.ChangelistChooser/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1605865976745" />
     <state x="2787" y="103" width="1736" height="856" key="VCS.FileHistoryDialog" timestamp="1614465555800">
       <screen x="2736" y="0" width="1920" height="1040" />
     </state>
@@ -785,9 +771,10 @@
     <state x="3288" y="253" key="Vcs.Push.Dialog.v2/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1614590071564" />
     <state x="393" y="212" key="Vcs.Push.Dialog.v2/0.0.1368.872@0.0.1368.872" timestamp="1611420006898" />
     <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-2736.0.1368.872@0.0.1920.1040" timestamp="1606421529687" />
-    <state x="572" y="253" width="775" height="534" key="find.popup" timestamp="1606324168206">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="3237" y="233" width="775" height="534" key="find.popup" timestamp="1614749488846">
+      <screen x="2736" y="0" width="1920" height="1040" />
     </state>
+    <state x="3237" y="233" width="775" height="534" key="find.popup/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1614749488846" />
     <state x="572" y="253" width="775" height="534" key="find.popup/0.0.1920.1040/-2736.0.1368.872@0.0.1920.1040" timestamp="1606324168206" />
     <state x="698" y="234" key="git4idea.branch.GitSmartOperationDialog" timestamp="1610685551794">
       <screen x="0" y="0" width="1920" height="1040" />

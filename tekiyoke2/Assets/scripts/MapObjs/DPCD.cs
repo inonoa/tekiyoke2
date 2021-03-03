@@ -20,7 +20,7 @@ public class DPCD : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.tag == "Player" && !gotten)
+        if(other.CompareTag(Tags.Hero) && !gotten)
         {
             gotten = true;
             

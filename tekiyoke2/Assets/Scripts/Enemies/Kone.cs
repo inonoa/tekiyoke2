@@ -27,7 +27,7 @@ public class Kone : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
         rigidBody = GetComponent<Rigidbody2D>();
         
         groundSensor.OnTriggerEnter2DAsObservable() // 潜るときのつもりが地中から出た時も走ってる、まあこれはこれでいいか…………
-            .Where(other => other.CompareTag("Terrain"))
+            .Where(other => other.CompareTag(Tags.Terrain))
             .Subscribe(_ => Instantiate
             (
                 tsuchiPrefab,
