@@ -3,11 +3,12 @@ using System;
 using DG.Tweening;
 using UniRx;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Object = UnityEngine.Object;
 
 [Serializable]
-public class WindAndBlueTransitionView : ISceneTransitionView
+public class WindAndBlurTransitionView : ISceneTransitionView
 {
     [SerializeField] WindAndBlur windAndBlur = null;
     [SerializeField] Image scshoImage = null;

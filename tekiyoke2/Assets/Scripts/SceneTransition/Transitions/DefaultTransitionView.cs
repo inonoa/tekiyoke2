@@ -12,6 +12,7 @@ public class DefaultTransitionView : ISceneTransitionView
 
     public void OnNextSceneStart(SceneTransition sceneTransition)
     {
-        
+        PostEffectWrapper noise = CameraController.Current?.AfterEffects?.Find("Noise");
+        noise?.SetVolume(1);
     }
 }

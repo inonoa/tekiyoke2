@@ -104,6 +104,7 @@
      <Compile Include="Assets\Scripts\Hero\HeroDefiner.cs" />
      <Compile Include="Assets\Scripts\Pause\PausableExtension.cs" />
      <Compile Include="Assets\Scripts\MapObjs\BaneYokoController.cs" />
+     <Compile Include="Assets\Scripts\SceneTransition\Transitions\HeroDiedTransitionView.cs" />
      <Compile Include="Assets\Scripts\Enemies\NaitrumController.cs" />
      <Compile Include="Assets\Scripts\Warp\WarpParams.cs" />
      <Compile Include="Assets\Scripts\Hero\ISpeedResidue.cs" />
@@ -119,6 +120,7 @@
      <Compile Include="Assets\Scripts\SceneTransition\WindAndBlur.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\States\StateJump.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\States\StateFall.cs" />
+     <Compile Include="Assets\Scripts\SceneTransition\Transitions\WindAndBlurTransitionView.cs" />
      <Compile Include="Assets\Scripts\Hero\Physics\HeroPhysics.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\States\StateRun.cs" />
      <Compile Include="Assets\Scripts\MapObjs\TogeController.cs" />
@@ -134,6 +136,7 @@
      <Compile Include="Assets\Scripts\MapObjs\RecoverItem.cs" />
      <Compile Include="Assets\Scripts\Enemies\EnemyStatic.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\States\HeroState.cs" />
+     <Compile Include="Assets\Scripts\SceneTransition\Transitions\WhiteOutTransitionView.cs" />
      <Compile Include="Assets\Scripts\MainManagers\MemoryOverDeath.cs" />
      <Compile Include="Assets\Scripts\ResultScene\NumberSpritesHolder.cs" />
      <Compile Include="Assets\Scripts\Utils\TransformExtensions.cs" />
@@ -211,6 +214,7 @@
      <Compile Include="Assets\Scripts\Steamworks.NET\SteamManager.cs" />
      <Compile Include="Assets\Scripts\Ranking\RankingView.cs" />
      <Compile Include="Assets\Scripts\Hero\Effects\JumpEffect.cs" />
+     <Compile Include="Assets\Scripts\SceneTransition\Transitions\NormalTransitionView.cs" />
      <Compile Include="Assets\Scripts\ResultScene\ScoresToText.cs" />
      <Compile Include="Assets\Scripts\MainManagers\GameTimeCounter.cs" />
      <Compile Include="Assets\Scripts\MainManagers\TimeLogger.cs" />
@@ -232,12 +236,8 @@
      <Compile Include="Assets\Scripts\MainManagers\Tokitome.cs" />
      <Compile Include="Assets\Scripts\Pause\Pauser.cs" />
      <Compile Include="Assets\Scripts\ScoreHolder.cs" />
+     <Compile Include="Assets\Scripts\SceneTransition\Transitions\DefaultTransitionView.cs" />
      <Compile Include="Assets\Scripts\Config\ConfigManager.cs" />
-     <Compile Include="Assets\Scripts\SceneTransition\HeroDiedTransitionView.cs" />
-     <Compile Include="Assets\Scripts\SceneTransition\WindAndBlueTransitionView.cs" />
-     <Compile Include="Assets\Scripts\SceneTransition\WhiteOutTransitionView.cs" />
-     <Compile Include="Assets\Scripts\SceneTransition\NormalTransitionView.cs" />
-     <Compile Include="Assets\Scripts\SceneTransition\DefaultTransitionView.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\Materials\PostEffects\BlurEdge2.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />

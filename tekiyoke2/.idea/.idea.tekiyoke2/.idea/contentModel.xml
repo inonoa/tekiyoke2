@@ -947,12 +947,14 @@
             <e p="BlurTrans.cs" t="Include" />
             <e p="Curtain4SceneEndMover.cs" t="Include" />
             <e p="Curtain4SceneStartMover.cs" t="Include" />
-            <e p="DefaultTransitionView.cs" t="Include" />
-            <e p="HeroDiedTransitionView.cs" t="Include" />
-            <e p="NormalTransitionView.cs" t="Include" />
             <e p="SceneTransition.cs" t="Include" />
-            <e p="WhiteOutTransitionView.cs" t="Include" />
-            <e p="WindAndBlueTransitionView.cs" t="Include" />
+            <e p="Transitions" t="Include">
+              <e p="DefaultTransitionView.cs" t="Include" />
+              <e p="HeroDiedTransitionView.cs" t="Include" />
+              <e p="NormalTransitionView.cs" t="Include" />
+              <e p="WhiteOutTransitionView.cs" t="Include" />
+              <e p="WindAndBlurTransitionView.cs" t="Include" />
+            </e>
             <e p="WindAndBlur.cs" t="Include" />
             <e p="WindPath.cs" t="Include" />
           </e>

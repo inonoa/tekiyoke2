@@ -88,7 +88,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 3|WindAndBlueTransitionView, Assembly-CSharp
+      Data: 3|WindAndBlurTransitionView, Assembly-CSharp
     - Name: windAndBlur
       Entry: 10
       Data: 2

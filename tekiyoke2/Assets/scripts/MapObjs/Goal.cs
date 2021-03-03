@@ -20,7 +20,7 @@ public class Goal : MonoBehaviour
             MemoryOverDeath.Instance.Clear();
             scoreHolder.Set(new StagePlayData(draftManager.StageIndex, GameTimeCounter.CurrentInstance.Seconds));
 
-            SceneTransition.StartToChangeScene<WindAndBlueTransitionView>("ResultScene");
+            SceneTransition.StartToChangeScene<WindAndBlurTransitionView>("ResultScene");
         }
     }
 }
