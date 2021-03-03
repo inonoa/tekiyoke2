@@ -20,7 +20,7 @@ MonoBehaviour:
     _TsuchihokoriInterval: 0.12
   _MoveInAirParams:
     _HorizontalForce: 200
-    _HorizontalResistance: 20
+    _HorizontalResistance: 50
     _HorizontalSpeedMax: 13
     _Gravity: 80
     _FallSpeedMax: 50

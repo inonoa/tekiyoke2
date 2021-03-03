@@ -28,9 +28,8 @@
     <list default="true" id="c97243fa-09da-4818-b4c1-b9937458f378" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Materials/FrontFog.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/FrontFog.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/UI/DPGauge.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/UI/DPGauge.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Draft1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Draft1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/SkyFish.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/SkyFish.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/HeroParameters (Normal).asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/HeroParameters (Normal).asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -265,14 +264,7 @@
       <workItem from="1614311873994" duration="254000" />
       <workItem from="1614312251118" duration="18242000" />
       <workItem from="1614464188727" duration="38794000" />
-      <workItem from="1614746284782" duration="11364000" />
-    </task>
-    <task id="LOCAL-00101" summary="チュートリアル終わりのホワイトアウト実装">
-      <created>1613002414515</created>
-      <option name="number" value="00101" />
-      <option name="presentableId" value="LOCAL-00101" />
-      <option name="project" value="LOCAL" />
-      <updated>1613002414515</updated>
+      <workItem from="1614746284782" duration="12771000" />
     </task>
     <task id="LOCAL-00102" summary="微…………">
       <created>1613081149256</created>
@@ -610,7 +602,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614759056444</updated>
     </task>
-    <option name="localTasksCounter" value="150" />
+    <task id="LOCAL-00150" summary="SkyGhotiのpathのz座標が0になってるとこがあって突然消えたりしてた">
+      <created>1614761099027</created>
+      <option name="number" value="00150" />
+      <option name="presentableId" value="LOCAL-00150" />
+      <option name="project" value="LOCAL" />
+      <updated>1614761099027</updated>
+    </task>
+    <option name="localTasksCounter" value="151" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -643,7 +642,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="方向転換できた" />
     <MESSAGE value="壁に当たると逆に移動する" />
     <MESSAGE value="Unityのバージョン上げた(2020.1.17f1)" />
     <MESSAGE value="ポーズで止まる…………" />
@@ -668,7 +666,8 @@
     <MESSAGE value="Ultrathin-&gt;SurinukeYuka" />
     <MESSAGE value="チェックポイント名をそれなりにした" />
     <MESSAGE value="Koneがフェードアウトするようにした" />
-    <option name="LAST_COMMIT_MESSAGE" value="Koneがフェードアウトするようにした" />
+    <MESSAGE value="SkyGhotiのpathのz座標が0になってるとこがあって突然消えたりしてた" />
+    <option name="LAST_COMMIT_MESSAGE" value="SkyGhotiのpathのz座標が0になってるとこがあって突然消えたりしてた" />
   </component>
   <component name="WindowStateProjectService">
     <state x="3250" y="94" key="CommitChangelistDialog2" timestamp="1613089887778">
@@ -779,10 +778,10 @@
     <state x="3288" y="253" key="Vcs.Push.Dialog.v2/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1614590071564" />
     <state x="393" y="212" key="Vcs.Push.Dialog.v2/0.0.1368.872@0.0.1368.872" timestamp="1611420006898" />
     <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-2736.0.1368.872@0.0.1920.1040" timestamp="1606421529687" />
-    <state x="3237" y="233" width="775" height="534" key="find.popup" timestamp="1614750267898">
+    <state x="3237" y="233" width="775" height="534" key="find.popup" timestamp="1614760871816">
       <screen x="2736" y="0" width="1920" height="1040" />
     </state>
-    <state x="3237" y="233" width="775" height="534" key="find.popup/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1614750267898" />
+    <state x="3237" y="233" width="775" height="534" key="find.popup/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1614760871816" />
     <state x="572" y="253" width="775" height="534" key="find.popup/0.0.1920.1040/-2736.0.1368.872@0.0.1920.1040" timestamp="1606324168206" />
     <state x="698" y="234" key="git4idea.branch.GitSmartOperationDialog" timestamp="1610685551794">
       <screen x="0" y="0" width="1920" height="1040" />
