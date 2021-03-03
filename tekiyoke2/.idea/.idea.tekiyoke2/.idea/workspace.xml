@@ -25,7 +25,13 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c97243fa-09da-4818-b4c1-b9937458f378" name="Default Changelist" comment="" />
+    <list default="true" id="c97243fa-09da-4818-b4c1-b9937458f378" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/FrontFog.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/FrontFog.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/PostEffects/Noise.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/PostEffects/Noise.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/UI/DPGauge.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/UI/DPGauge.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Draft1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Draft1.unity" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -86,6 +92,7 @@
     <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/Hero/Physics/HeroCollider2Enemy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2348FB5E-CC9E-4E68-9F37-F7D7FADAEA9A/8f/57e73b5e/DOTween.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/d2/198907ba/Renderer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/scripts/MapObjs/TogeDropController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/DPinEnemy.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/Strandbeest.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0C9D4FCF-D613-4956-86FC-3555A6D54354/b9/150c570d/ReadOnlyAttribute.cs" root0="SKIP_HIGHLIGHTING" />
@@ -133,7 +140,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemySpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Hero/HeroMover.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Hero/Physics/HeroCollider2Enemy.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Tags.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/TamaController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/DropTileController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/DontWannaFall.cs" />
@@ -145,6 +151,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/TogeDropController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/UltraThinTileController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/KieruYuka.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Tags.cs" />
       </list>
     </option>
   </component>
@@ -254,21 +261,7 @@
       <workItem from="1614311873994" duration="254000" />
       <workItem from="1614312251118" duration="18242000" />
       <workItem from="1614464188727" duration="38794000" />
-      <workItem from="1614746284782" duration="4041000" />
-    </task>
-    <task id="LOCAL-00097" summary="動かない敵">
-      <created>1612444613151</created>
-      <option name="number" value="00097" />
-      <option name="presentableId" value="LOCAL-00097" />
-      <option name="project" value="LOCAL" />
-      <updated>1612444613151</updated>
-    </task>
-    <task id="LOCAL-00098" summary="動かない敵">
-      <created>1612444721957</created>
-      <option name="number" value="00098" />
-      <option name="presentableId" value="LOCAL-00098" />
-      <option name="project" value="LOCAL" />
-      <updated>1612444721957</updated>
+      <workItem from="1614746284782" duration="6308000" />
     </task>
     <task id="LOCAL-00099" summary="どぎついタイル置いた、タイルのスプライトのフォルダ分け">
       <created>1612447851132</created>
@@ -599,7 +592,21 @@
       <option name="project" value="LOCAL" />
       <updated>1614750326560</updated>
     </task>
-    <option name="localTasksCounter" value="146" />
+    <task id="LOCAL-00146" summary="Ultrathin-&gt;SurinukeYuka">
+      <created>1614750441990</created>
+      <option name="number" value="00146" />
+      <option name="presentableId" value="LOCAL-00146" />
+      <option name="project" value="LOCAL" />
+      <updated>1614750441990</updated>
+    </task>
+    <task id="LOCAL-00147" summary="Ultrathin-&gt;SurinukeYuka">
+      <created>1614750672779</created>
+      <option name="number" value="00147" />
+      <option name="presentableId" value="LOCAL-00147" />
+      <option name="project" value="LOCAL" />
+      <updated>1614750672779</updated>
+    </task>
+    <option name="localTasksCounter" value="148" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -632,7 +639,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="画像を置いたらかなりヒエラルキーが変わった" />
     <MESSAGE value="すごい悔しいけどとりあえず見た目は正しいのでこれで………" />
     <MESSAGE value="風車と動きが連動" />
     <MESSAGE value="方向転換できた" />
@@ -657,7 +663,8 @@
     <MESSAGE value="Defaultも追い出した、SceneTransitionから個々のクラスへの依存を消した" />
     <MESSAGE value="フォルダ分け・rename・デフォルトだとノイズが0のままになるの修正など" />
     <MESSAGE value="Tagを参照してるものを全部CompareTagとTagsの定数を使うように" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tagを参照してるものを全部CompareTagとTagsの定数を使うように" />
+    <MESSAGE value="Ultrathin-&gt;SurinukeYuka" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ultrathin-&gt;SurinukeYuka" />
   </component>
   <component name="WindowStateProjectService">
     <state x="3250" y="94" key="CommitChangelistDialog2" timestamp="1613089887778">
