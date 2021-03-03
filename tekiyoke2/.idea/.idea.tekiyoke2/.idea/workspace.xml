@@ -25,12 +25,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c97243fa-09da-4818-b4c1-b9937458f378" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/Kone.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/Kone.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Hero/Physics/HeroCollider2Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Hero/Physics/HeroCollider2Enemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tags.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tags.cs" afterDir="false" />
-    </list>
+    <list default="true" id="c97243fa-09da-4818-b4c1-b9937458f378" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -65,8 +60,10 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/0e/dffa10d3/DOTween.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/5e/aba48687/ABSSequentiable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/65CAB14A-C59E-4552-B77F-98A4AED18F9E/09/891b6a7e/Physics2D.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/scripts/MapObjs/KieruYuka.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/95/518c31e9/TweenSettingsExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Save/SaveDataManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/Enemies/Collider2Wall.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/17/acb49825/Tween.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/f9/97e3c724/TweenParams.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/17C1E98F-9A78-42E3-8BE0-5E60BF0530E8/37/63a07319/02000006.il" root0="SKIP_HIGHLIGHTING" />
@@ -97,16 +94,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Parameters/DraftModeParameters.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Hero/DraftModeManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/TitleScene/CloudSpawner.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/TagNames.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Warp/WarpEvent.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Hero/HeroDefiner.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Warp/WarpDoor.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/MainManagers/Camera/CameraZoomerForJet.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/MainManagers/Camera/CameraLockingArea.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Warp/WarpParams.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Warp/WarpController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Hero/DetectsCameraLockingArea.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Utils/MaterialTween.cs" />
@@ -148,6 +135,16 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Hero/Physics/HeroCollider2Enemy.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Tags.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/TamaController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/DropTileController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/DontWannaFall.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/DPCD.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Collider2Wall.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Hero/Physics/NearToEnemyChecker.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/RecoverItem.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/TogeController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/TogeDropController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/UltraThinTileController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/KieruYuka.cs" />
       </list>
     </option>
   </component>
@@ -257,21 +254,7 @@
       <workItem from="1614311873994" duration="254000" />
       <workItem from="1614312251118" duration="18242000" />
       <workItem from="1614464188727" duration="38794000" />
-      <workItem from="1614746284782" duration="3619000" />
-    </task>
-    <task id="LOCAL-00095" summary="D3のタイル差し替えた(情報量を上げた」)">
-      <created>1612430226771</created>
-      <option name="number" value="00095" />
-      <option name="presentableId" value="LOCAL-00095" />
-      <option name="project" value="LOCAL" />
-      <updated>1612430226772</updated>
-    </task>
-    <task id="LOCAL-00096" summary="微修正">
-      <created>1612441811788</created>
-      <option name="number" value="00096" />
-      <option name="presentableId" value="LOCAL-00096" />
-      <option name="project" value="LOCAL" />
-      <updated>1612441811788</updated>
+      <workItem from="1614746284782" duration="4041000" />
     </task>
     <task id="LOCAL-00097" summary="動かない敵">
       <created>1612444613151</created>
@@ -602,7 +585,21 @@
       <option name="project" value="LOCAL" />
       <updated>1614747897402</updated>
     </task>
-    <option name="localTasksCounter" value="144" />
+    <task id="LOCAL-00144" summary="Tagを参照してるものを全部CompareTagとTagsの定数を使うように">
+      <created>1614750302881</created>
+      <option name="number" value="00144" />
+      <option name="presentableId" value="LOCAL-00144" />
+      <option name="project" value="LOCAL" />
+      <updated>1614750302881</updated>
+    </task>
+    <task id="LOCAL-00145" summary="Tagを参照してるものを全部CompareTagとTagsの定数を使うように">
+      <created>1614750326560</created>
+      <option name="number" value="00145" />
+      <option name="presentableId" value="LOCAL-00145" />
+      <option name="project" value="LOCAL" />
+      <updated>1614750326560</updated>
+    </task>
+    <option name="localTasksCounter" value="146" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -635,7 +632,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="ストランドビーストのガワ" />
     <MESSAGE value="画像を置いたらかなりヒエラルキーが変わった" />
     <MESSAGE value="すごい悔しいけどとりあえず見た目は正しいのでこれで………" />
     <MESSAGE value="風車と動きが連動" />
@@ -660,7 +656,8 @@
     <MESSAGE value="Normalも" />
     <MESSAGE value="Defaultも追い出した、SceneTransitionから個々のクラスへの依存を消した" />
     <MESSAGE value="フォルダ分け・rename・デフォルトだとノイズが0のままになるの修正など" />
-    <option name="LAST_COMMIT_MESSAGE" value="フォルダ分け・rename・デフォルトだとノイズが0のままになるの修正など" />
+    <MESSAGE value="Tagを参照してるものを全部CompareTagとTagsの定数を使うように" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tagを参照してるものを全部CompareTagとTagsの定数を使うように" />
   </component>
   <component name="WindowStateProjectService">
     <state x="3250" y="94" key="CommitChangelistDialog2" timestamp="1613089887778">
@@ -771,10 +768,10 @@
     <state x="3288" y="253" key="Vcs.Push.Dialog.v2/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1614590071564" />
     <state x="393" y="212" key="Vcs.Push.Dialog.v2/0.0.1368.872@0.0.1368.872" timestamp="1611420006898" />
     <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-2736.0.1368.872@0.0.1920.1040" timestamp="1606421529687" />
-    <state x="3237" y="233" width="775" height="534" key="find.popup" timestamp="1614749488846">
+    <state x="3237" y="233" width="775" height="534" key="find.popup" timestamp="1614750267898">
       <screen x="2736" y="0" width="1920" height="1040" />
     </state>
-    <state x="3237" y="233" width="775" height="534" key="find.popup/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1614749488846" />
+    <state x="3237" y="233" width="775" height="534" key="find.popup/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1614750267898" />
     <state x="572" y="253" width="775" height="534" key="find.popup/0.0.1920.1040/-2736.0.1368.872@0.0.1920.1040" timestamp="1606324168206" />
     <state x="698" y="234" key="git4idea.branch.GitSmartOperationDialog" timestamp="1610685551794">
       <screen x="0" y="0" width="1920" height="1040" />

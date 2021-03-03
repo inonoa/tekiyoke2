@@ -42,7 +42,7 @@ public class TamaController : MonoBehaviour, IReusable
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag(Tags.Terrain) || other.CompareTag(Tags.Hero) || other.CompareTag(Tags.Ultrathin))
+        if(other.CompareTag(Tags.Terrain) || other.CompareTag(Tags.Hero) || other.CompareTag(Tags.SurinukeYuka))
         {
             GetComponent<SpriteRenderer>().DOFade(0, 0.1f);
             DOVirtual.DelayedCall(0.1f, Die, ignoreTimeScale: false);
