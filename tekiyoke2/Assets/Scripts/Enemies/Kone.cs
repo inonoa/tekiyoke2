@@ -11,6 +11,8 @@ public class Kone : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
     [field: SerializeField, LabelText(nameof(DPCD))]
     public DPinEnemy DPCD { get; private set; }
 
+    [SerializeField] Collider2D mainCollider;
+
     [SerializeField] Collider2D heroSensor;
 
     [SerializeField] Collider2D groundSensor;
@@ -18,6 +20,8 @@ public class Kone : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
     [SerializeField] KoneTsuchi tsuchiPrefab;
 
     [SerializeField] SimpleAnim anim;
+
+    [SerializeField] SpriteRenderer spriteRenderer;
 
     new Transform transform;
     Rigidbody2D rigidBody;
@@ -128,9 +132,24 @@ public class Kone : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
         rigidBody.DOMove(direction * secondAttackMove, secondAttackDuration)
             .SetRelative()
             .SetEase(secondAttackEase)
-            .OnComplete(() => Destroy(gameObject))
             .GetPausable()
             .AddTo(this);
+
+        const float fadeOutDur = 0.4f;
+        DOVirtual.DelayedCall
+        (
+            secondAttackDuration - fadeOutDur,
+            () =>
+            {
+                mainCollider.enabled = false;
+                spriteRenderer.DOFade(0, fadeOutDur)
+                    .OnComplete(() => Destroy(gameObject))
+                    .GetPausable().AddTo(this);
+            },
+            false
+        )
+        .GetPausable()
+        .AddTo(this);
     }
 
     public void Hide()

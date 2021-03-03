@@ -46,7 +46,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 500
+  m_Radius: 600
 --- !u!1 &2805130160985002612
 GameObject:
   m_ObjectHideFlags: 0
@@ -57,10 +57,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7705659539833087128}
   - component: {fileID: 312592777423349949}
-  - component: {fileID: 7319557327732240524}
   - component: {fileID: 7544165457705721263}
   - component: {fileID: 4641547510591920131}
   - component: {fileID: 3159020475538117089}
+  - component: {fileID: 885059511634411443}
   m_Layer: 0
   m_Name: Kone
   m_TagString: Enemy
@@ -98,14 +98,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <DPCD>k__BackingField: {fileID: 3240142047383478344}
+  mainCollider: {fileID: 885059511634411443}
   heroSensor: {fileID: 4871271883364510971}
   groundSensor: {fileID: 4799081235312218513}
   tsuchiPrefab: {fileID: 2654727709639374793, guid: 7f828572ae6e21b449884146ecdab78a,
     type: 3}
   anim: {fileID: 3159020475538117089}
+  spriteRenderer: {fileID: 4641547510591920131}
   firstJumpHeight: 350
-  firstJumpDuration: 0.9
-  firstJumpEase: 16
+  firstJumpDuration: 0.5
+  firstJumpEase: 9
   firstJumpToAttack: 0.4
   lookAtHeroDelay: 0.4
   lookAtHeroDuration: 0.2
@@ -114,28 +116,12 @@ MonoBehaviour:
   firstAttackEase: 4
   firstAttackToSecondJump: 0.3
   secondJumpHeight: 500
-  secondJumpDuration: 1.3
+  secondJumpDuration: 1
   secondJumpEase: 4
   secondJumpToSecondAttack: 0
   secondAttackMove: 3900
   secondAttackDuration: 3
   secondAttackEase: 2
---- !u!58 &7319557327732240524
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2805130160985002612}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 30
 --- !u!50 &7544165457705721263
 Rigidbody2D:
   serializedVersion: 4
@@ -231,6 +217,34 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 03a11f7156066af4d97533dfb2add932, type: 3}
   changeSec: 0.075
   loop: 1
+--- !u!60 &885059511634411443
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2805130160985002612}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 50, y: 100}
+    newSize: {x: 50, y: 100}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -1.3347855, y: -32.71686}
+      - {x: 6.7237353, y: 30.705542}
+      - {x: -5.6835766, y: 29.808462}
 --- !u!1 &8862678143672975789
 GameObject:
   m_ObjectHideFlags: 0
