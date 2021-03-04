@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using DG.Tweening;
 using Ranking;
 using Sirenix.OdinInspector;
 using UniRx;
@@ -50,16 +51,19 @@ namespace ResultScene
                 }
             );
 
-            this.UpdateAsObservable()
-                .Where(_ => input.GetButtonDown(ButtonCode.Ranking))
-                .Subscribe(_ =>
-                {
-                    sounds.Play("Put");
-                    gameObject.SetActive(false);
-                    rankView.Show(rankKind);
-                })
-                .AddTo(this);
-            rankView.OnExit.Subscribe(_ => gameObject.SetActive(true));
+            DOVirtual.DelayedCall(3f, () =>
+            {
+                this.UpdateAsObservable()
+                    .Where(_ => input.GetButtonDown(ButtonCode.Ranking))
+                    .Subscribe(_ =>
+                    {
+                        sounds.Play("Put");
+                        gameObject.SetActive(false);
+                        rankView.Show(rankKind);
+                    })
+                    .AddTo(this);
+                rankView.OnExit.Subscribe(_ => gameObject.SetActive(true));
+            });
         }
     }
 

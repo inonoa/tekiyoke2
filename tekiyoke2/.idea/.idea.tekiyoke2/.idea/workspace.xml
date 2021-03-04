@@ -27,11 +27,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c97243fa-09da-4818-b4c1-b9937458f378" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/Ranking/Ranking.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/Ranking/Ranking.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/ResultScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/ResultScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Input/InputSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Input/InputSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Save/Save Data Manager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Save/Save Data Manager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Input/IInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Input/IInput.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResultScene/ResultSceneManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ResultScene/ResultSceneManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -81,6 +77,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Input/ButonToKeys.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/22/1a106110/String.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/ScriptableObjects/Save/Save Data Manager.asset" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/Input/IInput.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/97/df7e3c54/RuntimeInitializeOnLoadMethodAttribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/TitleScene/TitleSceneManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/17C1E98F-9A78-42E3-8BE0-5E60BF0530E8/94/28da816b/DOTweenPath.cs" root0="SKIP_HIGHLIGHTING" />
@@ -121,7 +118,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/Goal.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/TutorialEnd.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Pause/PauseView.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/ResultScene/PressZToReturn.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/StageSelectManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SceneTransition/SceneTransition.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SceneTransition/DefaultTransitionView.cs" />
@@ -149,9 +145,10 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/TitleScene/TitleSceneManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Save/SaveDataManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Input/IInput.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/ResultScene/ResultSceneManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Input/ButonToKeys.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Input/KeyboardSettings.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ResultScene/PressZToReturn.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ResultScene/ResultSceneManager.cs" />
       </list>
     </option>
   </component>
@@ -263,13 +260,6 @@
       <workItem from="1614464188727" duration="38794000" />
       <workItem from="1614746284782" duration="18777000" />
       <workItem from="1614834457798" duration="7079000" />
-    </task>
-    <task id="LOCAL-00108" summary="CameraControllerからZoomerをひきはがした">
-      <created>1613445586530</created>
-      <option name="number" value="00108" />
-      <option name="presentableId" value="LOCAL-00108" />
-      <option name="project" value="LOCAL" />
-      <updated>1613445586530</updated>
     </task>
     <task id="LOCAL-00109" summary="CameraLockingArea.csとプレハブ、当たり判定まで">
       <created>1613447464516</created>
@@ -607,7 +597,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614840405198</updated>
     </task>
-    <option name="localTasksCounter" value="157" />
+    <task id="LOCAL-00157" summary="リザルト画面からランキングにRで遷移できる">
+      <created>1614862314013</created>
+      <option name="number" value="00157" />
+      <option name="presentableId" value="LOCAL-00157" />
+      <option name="project" value="LOCAL" />
+      <updated>1614862314013</updated>
+    </task>
+    <option name="localTasksCounter" value="158" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -640,7 +637,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="ストランドビーストの風車をジェットで回せるようにしたりした" />
     <MESSAGE value="一寸簡単にした" />
     <MESSAGE value="Koneにアニメーションを付けた、ループさせるためにSimpleAnim改修" />
     <MESSAGE value="Koneスプライト差し替え(本番)" />
@@ -665,7 +661,8 @@
     <MESSAGE value="DPCDおいた" />
     <MESSAGE value="BGM/SEの音量をセーブできるように" />
     <MESSAGE value="タイトル画面でデータロードして音量をセットする(ロードする前になってしまうのはご愛敬)" />
-    <option name="LAST_COMMIT_MESSAGE" value="タイトル画面でデータロードして音量をセットする(ロードする前になってしまうのはご愛敬)" />
+    <MESSAGE value="リザルト画面からランキングにRで遷移できる" />
+    <option name="LAST_COMMIT_MESSAGE" value="リザルト画面からランキングにRで遷移できる" />
   </component>
   <component name="WindowStateProjectService">
     <state x="3250" y="94" key="CommitChangelistDialog2" timestamp="1613089887778">
