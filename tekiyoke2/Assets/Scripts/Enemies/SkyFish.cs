@@ -32,7 +32,7 @@ public class SkyFish : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
     void Start()
     {
         spriteRenderer.sprite = eyeToRight ? spriteRight : spriteLeft;
-        DOTweenPath.tween.GetPausable();
+        DOTweenPath.tween.GetPausable().AddTo(this);
         soundVolumeMax = sounds.GetVolume("fly");
 
         this.UpdateAsObservable()
