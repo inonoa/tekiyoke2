@@ -26,16 +26,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c97243fa-09da-4818-b4c1-b9937458f378" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MapObjs/DPCDCounter.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MapObjs/DPCDCounter.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/FrontFog.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/FrontFog.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/UI/DPGauge.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/UI/DPGauge.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/PauserDepauserBase.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/PauserDepauserBase.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Draft1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Draft1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/SkyFish.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/SkyFish.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +58,7 @@
     <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/scripts/MapObjs/KieruYuka.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/95/518c31e9/TweenSettingsExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/Enemies/Collider2Wall.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/Enemies/SkyFish.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/f9/97e3c724/TweenParams.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/BAD59441-8129-43C7-B8D5-A5BA85795810/49/eb9a0f12/Component.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/Enemies/Kone.cs" root0="SKIP_HIGHLIGHTING" />
@@ -271,14 +264,7 @@
       <workItem from="1614311873994" duration="254000" />
       <workItem from="1614312251118" duration="18242000" />
       <workItem from="1614464188727" duration="38794000" />
-      <workItem from="1614746284782" duration="17979000" />
-    </task>
-    <task id="LOCAL-00105" summary="タイトル画面の背景に雲を湧かせる処理にAddToをつけ忘れたせいでチュートリアル画面に雲が湧いてしまった">
-      <created>1613090456583</created>
-      <option name="number" value="00105" />
-      <option name="presentableId" value="LOCAL-00105" />
-      <option name="project" value="LOCAL" />
-      <updated>1613090456583</updated>
+      <workItem from="1614746284782" duration="18777000" />
     </task>
     <task id="LOCAL-00106" summary="タイトル画面の背景に雲を湧かせる処理にAddToをつけ忘れたせいでチュートリアル画面に雲が湧いてしまった">
       <created>1613362456393</created>
@@ -616,7 +602,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614764733467</updated>
     </task>
-    <option name="localTasksCounter" value="154" />
+    <task id="LOCAL-00154" summary="DPCDおいた">
+      <created>1614828435212</created>
+      <option name="number" value="00154" />
+      <option name="presentableId" value="LOCAL-00154" />
+      <option name="project" value="LOCAL" />
+      <updated>1614828435212</updated>
+    </task>
+    <option name="localTasksCounter" value="155" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -649,7 +642,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="プレハブ化、どうしても変なとこで反転してしまうので壁探知と主人公への判定を分けた" />
     <MESSAGE value="とりあえずD1においた" />
     <MESSAGE value="易化" />
     <MESSAGE value="ストランドビーストの風車をジェットで回せるようにしたりした" />
@@ -674,7 +666,8 @@
     <MESSAGE value="空中の慣性弱めた" />
     <MESSAGE value="SkyFishを遅くしたり出現を早くしたりした" />
     <MESSAGE value="Strandbeestの位置調整、最後の塔からの導線" />
-    <option name="LAST_COMMIT_MESSAGE" value="Strandbeestの位置調整、最後の塔からの導線" />
+    <MESSAGE value="DPCDおいた" />
+    <option name="LAST_COMMIT_MESSAGE" value="DPCDおいた" />
   </component>
   <component name="WindowStateProjectService">
     <state x="3250" y="94" key="CommitChangelistDialog2" timestamp="1613089887778">
