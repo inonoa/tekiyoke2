@@ -1,12 +1,12 @@
 # tekiyoke2
-敵を避けるゲームは進化する。  
+敵を避けるゲームは進化する。
 
 ### タイトル: "Lacuna/Draft"(仮)
 
 ### テーマ: "desert" / "風"
 
 # 開発環境
-C# + Unity(2018.3.12f1) (+ VSCode)。
+C# + Unity (+ Rider)
 
 # メンバー
 
@@ -16,3 +16,4 @@ C# + Unity(2018.3.12f1) (+ VSCode)。
 |グラフィック|inonoa|
 |プログラム|inonoa|
 |サウンド|`ここに誰かが入る`|
+|敵デザイン|morisawa( @wasarimo )|
