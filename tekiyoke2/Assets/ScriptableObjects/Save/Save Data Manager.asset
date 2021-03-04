@@ -25,4 +25,5 @@ MonoBehaviour:
     - Name: saver
       Entry: 10
       Data: 0
-  dataSource: {fileID: 0}
+  _data: {fileID: 0}
+  dataSource: {fileID: 11400000, guid: 53abe27dea7a0534d883919a1f775428, type: 2}

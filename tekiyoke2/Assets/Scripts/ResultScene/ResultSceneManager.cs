@@ -1,8 +1,10 @@
 using System;
 using System.Linq;
+using DG.Tweening;
 using Ranking;
 using Sirenix.OdinInspector;
 using UniRx;
+using UniRx.Triggers;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,6 +18,8 @@ namespace ResultScene
         [SerializeField] IRankingSenderGetter rankingSenderGetter;
         [SerializeField] IRankView            rankView;
         [SerializeField] Button               goToRankButton;
+        [SerializeField] IInput               input;
+        [SerializeField] SoundGroup           sounds;
         
         void Start()
         {
@@ -44,13 +48,22 @@ namespace ResultScene
                         rankKind,
                         data => rankView.SetData(data)
                     );
-                });
-            goToRankButton.onClick.AddListener(() =>
+                }
+            );
+
+            DOVirtual.DelayedCall(3f, () =>
             {
-                gameObject.SetActive(false);
-                rankView.Show(rankKind);
+                this.UpdateAsObservable()
+                    .Where(_ => input.GetButtonDown(ButtonCode.Ranking))
+                    .Subscribe(_ =>
+                    {
+                        sounds.Play("Put");
+                        gameObject.SetActive(false);
+                        rankView.Show(rankKind);
+                    })
+                    .AddTo(this);
+                rankView.OnExit.Subscribe(_ => gameObject.SetActive(true));
             });
-            rankView.OnExit.Subscribe(_ => gameObject.SetActive(true));
         }
     }
 

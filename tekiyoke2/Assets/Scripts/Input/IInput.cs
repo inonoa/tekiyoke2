@@ -15,5 +15,5 @@ public enum ButtonCode
     Right, Left, Up, Down,
     Jump, Jet,
     Zone, Pause, Enter, Cancel,
-    Tweet
+    Tweet, Ranking
 }
