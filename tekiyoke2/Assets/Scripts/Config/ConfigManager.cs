@@ -11,12 +11,19 @@ namespace Config
         [SerializeField] IConfigView view;
         [SerializeField] ISoundVolumeChanger soundVolumeChanger;
         [SerializeField] IPlayerNameChanger nameChanger;
+        [SerializeField] SaveDataManager saveDataManager;
 
         void Start()
         {
             view.OnSEVolumeChanged.Subscribe(soundVolumeChanger.ChangeSEVolume).AddTo(this);
             view.OnBGMVolumeChanged.Subscribe(soundVolumeChanger.ChangeBGMVolume).AddTo(this);
-            view.OnExit.Subscribe(_ => _OnExit.OnNext(Unit.Default)).AddTo(this);
+            view.OnExit.Subscribe(_ =>
+            {
+                saveDataManager.SetSEVolume(soundVolumeChanger.SEVolume);
+                saveDataManager.SetBGMVolume(soundVolumeChanger.BGMVolume);
+                _OnExit.OnNext(Unit.Default);
+            })
+            .AddTo(this);
             view.OnPlayerNameChanged.Subscribe(nameChanger.ChangePlayerName).AddTo(this);
         }
 

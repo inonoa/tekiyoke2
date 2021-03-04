@@ -19,3 +19,5 @@ MonoBehaviour:
   - 0
   - 0
   - 0
+  bgmVolume: 0.8
+  seVolume: 0.8

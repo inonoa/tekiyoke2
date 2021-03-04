@@ -11,6 +11,8 @@ public class SaveData : ScriptableObject
     public bool    tutorialFinished = false;
     public bool[]  stageCleared     = new bool[3];
     public float[] bestTimes        = new float[3];
+    public float   bgmVolume        = 0;
+    public float   seVolume         = 0;
 
     public Dictionary<string, string> ToDictionary()
     {
@@ -19,7 +21,9 @@ public class SaveData : ScriptableObject
             {nameof(playerName),       playerName},
             {nameof(tutorialFinished), tutorialFinished.ToString()},
             {nameof(stageCleared),     string.Join(",", stageCleared)},
-            {nameof(bestTimes),        string.Join(",", bestTimes)}
+            {nameof(bestTimes),        string.Join(",", bestTimes)},
+            {nameof(bgmVolume),        bgmVolume.ToString()},
+            {nameof(seVolume),         seVolume.ToString()}
         };
     }
 
@@ -37,6 +41,8 @@ public class SaveData : ScriptableObject
                                 .Split(',')
                                 .Select(float.Parse)
                                 .ToArray();
+        data.bgmVolume        = float.Parse(dict[nameof(bgmVolume)]);
+        data.seVolume         = float.Parse(dict[nameof(seVolume)]);
 
         return data;
     }
@@ -51,6 +57,8 @@ public class SaveData : ScriptableObject
         this.stageCleared.CopyTo(copy.stageCleared, 0);
         copy.bestTimes = new float[3];
         this.bestTimes.CopyTo(copy.bestTimes, 0);
+        copy.bgmVolume = this.bgmVolume;
+        copy.seVolume = this.seVolume;
         
         return copy;
     }

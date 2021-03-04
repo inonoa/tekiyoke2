@@ -8,13 +8,15 @@ using Config;
 [CreateAssetMenu(fileName = "Save Data Manager", menuName = "Scriptable Object/Save Data Manager")]
 public class SaveDataManager : SerializedScriptableObject, IPlayerNameChanger
 {
-    [SerializeField] SaveData _data;
+    [SerializeField, ReadOnly] SaveData _data;
 
     SaveData Data
     {
         get
         {
-            if (_data == null) _data = dataSource.Copy();
+#if UNITY_EDITOR
+            if (_data == null && dataSource != null) _data = dataSource.Copy();
+#endif
             return _data;
         }
     }
@@ -23,6 +25,8 @@ public class SaveDataManager : SerializedScriptableObject, IPlayerNameChanger
     public bool                 TutorialFinished => Data.tutorialFinished;
     public IReadOnlyList<bool>  StageCleared     => Data.stageCleared;
     public IReadOnlyList<float> BestTimes        => Data.bestTimes;
+    public float                BGMVolume        => Data.bgmVolume;
+    public float                SEVolume         => Data.seVolume;
     
 
     [SerializeField] IDataSaver saver;
@@ -55,9 +59,32 @@ public class SaveDataManager : SerializedScriptableObject, IPlayerNameChanger
         return (tmpIsFirst, tmpBestTime);
     }
 
-    void Init()
+    public void SetBGMVolume(float volume)
     {
-        if (Data == null) Load();
+        Data.bgmVolume = volume;
+        Save();
+    }
+
+    public void SetSEVolume(float volume)
+    {
+        Data.seVolume = volume;
+        Save();
+    }
+
+    public void Init(Action onSuccess)
+    {
+        if (Data == null)
+        {
+            saver.Load(data =>
+            {
+                this._data = data;
+                onSuccess?.Invoke();
+            });
+        }
+        else
+        {
+            onSuccess?.Invoke();
+        }
     }
 
     [Button]
