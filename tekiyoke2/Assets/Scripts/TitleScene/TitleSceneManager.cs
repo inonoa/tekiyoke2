@@ -1,4 +1,5 @@
 using System;
+using Config;
 using DG.Tweening;
 using Sirenix.OdinInspector;
 using UniRx;
@@ -13,6 +14,7 @@ public class TitleSceneManager : SerializedMonoBehaviour
     [SerializeField] IInput input;
     [SerializeField] SaveDataManager saveDataManager;
     [SerializeField] float fadeOutToTransition = 1f;
+    [SerializeField] ISoundVolumeChanger soundVolumeChanger;
 
     enum State{ FadingIn, Active, FadingOut }
     State state = State.FadingIn;
@@ -20,6 +22,13 @@ public class TitleSceneManager : SerializedMonoBehaviour
     void Start()
     {
         anyKeyToStart.FadeInCompleted.Subscribe(_ => state = State.Active);
+        
+        saveDataManager.Init(() =>
+        {
+            print("load");
+            soundVolumeChanger.ChangeSEVolume(saveDataManager.SEVolume);
+            soundVolumeChanger.ChangeBGMVolume(saveDataManager.BGMVolume);
+        });
     }
 
     void Update()
