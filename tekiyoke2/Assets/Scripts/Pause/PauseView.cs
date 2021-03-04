@@ -80,7 +80,7 @@ public class PauseView : MonoBehaviour
         quit.OnSelected.Subscribe(_ =>
         {
             soundGroup.Play("Enter");
-            SceneTransition.Start2ChangeScene("StageChoiceScene", SceneTransition.TransitionType.Default);
+            SceneTransition.StartToChangeScene<DefaultTransitionView>("StageChoiceScene");
         });
 
         config.OnExit.Subscribe(_ => Enter());

@@ -46,7 +46,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 500
+  m_Radius: 600
 --- !u!1 &2805130160985002612
 GameObject:
   m_ObjectHideFlags: 0
@@ -57,9 +57,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7705659539833087128}
   - component: {fileID: 312592777423349949}
-  - component: {fileID: 4641547510591920131}
-  - component: {fileID: 7319557327732240524}
   - component: {fileID: 7544165457705721263}
+  - component: {fileID: 4641547510591920131}
+  - component: {fileID: 3159020475538117089}
+  - component: {fileID: 885059511634411443}
   m_Layer: 0
   m_Name: Kone
   m_TagString: Enemy
@@ -97,13 +98,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <DPCD>k__BackingField: {fileID: 3240142047383478344}
+  mainCollider: {fileID: 885059511634411443}
   heroSensor: {fileID: 4871271883364510971}
   groundSensor: {fileID: 4799081235312218513}
   tsuchiPrefab: {fileID: 2654727709639374793, guid: 7f828572ae6e21b449884146ecdab78a,
     type: 3}
+  anim: {fileID: 3159020475538117089}
+  spriteRenderer: {fileID: 4641547510591920131}
   firstJumpHeight: 350
-  firstJumpDuration: 0.9
-  firstJumpEase: 16
+  firstJumpDuration: 0.5
+  firstJumpEase: 9
   firstJumpToAttack: 0.4
   lookAtHeroDelay: 0.4
   lookAtHeroDuration: 0.2
@@ -112,12 +116,33 @@ MonoBehaviour:
   firstAttackEase: 4
   firstAttackToSecondJump: 0.3
   secondJumpHeight: 500
-  secondJumpDuration: 1.3
+  secondJumpDuration: 1
   secondJumpEase: 4
   secondJumpToSecondAttack: 0
   secondAttackMove: 3900
   secondAttackDuration: 3
   secondAttackEase: 2
+--- !u!50 &7544165457705721263
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2805130160985002612}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!212 &4641547510591920131
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -133,6 +158,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -157,7 +183,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8d81412c6baf7fd44adbacd64300d530, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0ab7fd1083920de40ae69ff4c7886635, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -168,8 +194,31 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &7319557327732240524
-CircleCollider2D:
+--- !u!114 &3159020475538117089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2805130160985002612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dad04902c6d6b9949b8d9fba5acf68f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: 0ab7fd1083920de40ae69ff4c7886635, type: 3}
+  - {fileID: 21300000, guid: 04d7547a38f7f1d478bbb4c502b390df, type: 3}
+  - {fileID: 21300000, guid: 0b98903792a3520498249b711d65682b, type: 3}
+  - {fileID: 21300000, guid: 3a6f31f898af3114dbf9970f18a69fe1, type: 3}
+  - {fileID: 21300000, guid: e6cebb6efdc7a5d4a8e52a6057027674, type: 3}
+  - {fileID: 21300000, guid: 50b429399496f154bb368ede877fd4b6, type: 3}
+  - {fileID: 21300000, guid: 3a052bbee20e16641a1f5f8f3fddc73d, type: 3}
+  - {fileID: 21300000, guid: 03a11f7156066af4d97533dfb2add932, type: 3}
+  changeSec: 0.075
+  loop: 1
+--- !u!60 &885059511634411443
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -182,29 +231,20 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 30
---- !u!50 &7544165457705721263
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2805130160985002612}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 50, y: 100}
+    newSize: {x: 50, y: 100}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -1.3347855, y: -32.71686}
+      - {x: 6.7237353, y: 30.705542}
+      - {x: -5.6835766, y: 29.808462}
 --- !u!1 &8862678143672975789
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,6 +306,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7173967767944688376, guid: 679836f8f3bc57f4485a23ec5e873937,
         type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7173967767944688376, guid: 679836f8f3bc57f4485a23ec5e873937,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -281,6 +326,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7173967767944688376, guid: 679836f8f3bc57f4485a23ec5e873937,
         type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7173967767944688376, guid: 679836f8f3bc57f4485a23ec5e873937,
+        type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
@@ -292,16 +342,6 @@ PrefabInstance:
     - target: {fileID: 7173967767944688376, guid: 679836f8f3bc57f4485a23ec5e873937,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7173967767944688376, guid: 679836f8f3bc57f4485a23ec5e873937,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7173967767944688376, guid: 679836f8f3bc57f4485a23ec5e873937,
-        type: 3}
-      propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7173967767944688376, guid: 679836f8f3bc57f4485a23ec5e873937,

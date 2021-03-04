@@ -34,8 +34,10 @@ public class RecoverItem : MonoBehaviour
     void OnEnable() => waveSeq?.Play();
 
     ///<summary></summary>
-    void OnTriggerEnter2D(Collider2D other){
-        if(other.tag=="Player" && !gotten){
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.CompareTag(Tags.Hero) && !gotten)
+        {
             gotten = true;
             HeroDefiner.currentHero.RecoverHP(1);
             waveSeq.Pause();

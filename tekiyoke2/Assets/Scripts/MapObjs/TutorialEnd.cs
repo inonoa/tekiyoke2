@@ -19,7 +19,7 @@ public class TutorialEnd : MonoBehaviour
             MemoryOverDeath.Instance.Clear();
             saveDataManager.SetTutorialFinished();
 
-            SceneTransition.Start2ChangeScene("Draft1", SceneTransition.TransitionType.WhiteOut);
+            SceneTransition.StartToChangeScene<WhiteOutTransitionView>("Draft1");
         }
     }
 }

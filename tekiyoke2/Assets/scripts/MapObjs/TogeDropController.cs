@@ -31,9 +31,10 @@ public class TogeDropController : MonoBehaviour
         velocityY = 0;
     }
 
-    void OnTriggerEnter2D(Collider2D other){
-        if(other.gameObject.tag=="Player")  HeroDefiner.currentHero.Damage(1, DamageType.Normal);
-        if(other.gameObject.tag=="Terrain" || other.gameObject.tag=="Ultrathin") state = State.Die;
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.CompareTag(Tags.Hero))  HeroDefiner.currentHero.Damage(1, DamageType.Normal);
+        if(other.CompareTag(Tags.Terrain) || other.CompareTag(Tags.SurinukeYuka)) state = State.Die;
     }
 
     void FixedUpdate()

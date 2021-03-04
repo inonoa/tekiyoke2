@@ -3,7 +3,7 @@
     Properties
     {
         _MainTex ("Base", 2D) = "white" {}
-        _LightColor ("Light Color", Color) = (0.2,0,1, 1)
+        _LightColor ("Light Color", Color) = (0.2, 0, 1, 1)
         _Volume ("Volume", float) = 1
     }
 

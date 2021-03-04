@@ -12,7 +12,8 @@ public class TamaController : MonoBehaviour, IReusable
     [SerializeField, ReadOnly] float lifeNow;
     public bool InUse{ get; private set; }
 
-    public void Activate(string angle_speed_life){
+    public void Activate(string angle_speed_life)
+    {
         string[] a_s_l = angle_speed_life.Split();
         float angle = float.Parse(a_s_l[0]);
         transform.rotation = Quaternion.identity;
@@ -39,15 +40,18 @@ public class TamaController : MonoBehaviour, IReusable
         if(lifeNow <= 0) Die();
     }
 
-    void OnTriggerEnter2D(Collider2D other){
-        if(other.gameObject.tag == "Terrain" || other.gameObject.tag == "Ultrathin" || other.gameObject.tag == "Player"){
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.CompareTag(Tags.Terrain) || other.CompareTag(Tags.Hero) || other.CompareTag(Tags.SurinukeYuka))
+        {
             GetComponent<SpriteRenderer>().DOFade(0, 0.1f);
             DOVirtual.DelayedCall(0.1f, Die, ignoreTimeScale: false);
         }
-        if(other.gameObject.tag == "Player") HeroDefiner.currentHero.Damage(1, DamageType.Normal);
+        if(other.CompareTag(Tags.Hero)) HeroDefiner.currentHero.Damage(1, DamageType.Normal);
     }
 
-    void Die(){
+    void Die()
+    {
         gameObject.SetActive(false);
         InUse = false;
     }

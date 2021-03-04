@@ -54,6 +54,7 @@
           <e p="DPinEnemy.shader" t="Include" />
           <e p="DPOverlay.shader" t="Include" />
           <e p="FogBlur.shader" t="Include" />
+          <e p="FrontFog.shader" t="Include" />
           <e p="Glitch.shader" t="Include" />
           <e p="Hero.shader" t="Include" />
           <e p="Light.shader" t="Include" />
@@ -268,6 +269,12 @@
           </e>
         </e>
         <e p="Plugins" t="Include">
+          <e p="Demigiant" t="Include">
+            <e p="DOTweenPro" t="Include">
+              <e p="DOTweenDeAudio.cs" t="Include" />
+              <e p="DOTweenDeUnityExtended.cs" t="Include" />
+            </e>
+          </e>
           <e p="Sirenix" t="Include">
             <e p="Assemblies" t="Include">
               <e p="link.xml" t="Include" />
@@ -780,6 +787,7 @@
             <e p="KoneTsuchi.cs" t="Include" />
             <e p="NaitrumController.cs" t="Include" />
             <e p="SkyFish.cs" t="Include" />
+            <e p="Strandbeest.cs" t="Include" />
             <e p="TamaController.cs" t="Include" />
           </e>
           <e p="GameUIManager.cs" t="Include" />
@@ -877,7 +885,10 @@
             <e p="BaneYokoController.cs" t="Include" />
             <e p="BGFogMover.cs" t="Include" />
             <e p="DPCD.cs" t="Include" />
+            <e p="DPCDCounter.cs" t="Include" />
             <e p="DropTileController.cs" t="Include" />
+            <e p="FrontFogArea.cs" t="Include" />
+            <e p="FrontFogMover.cs" t="Include" />
             <e p="Goal.cs" t="Include" />
             <e p="IdouYukaController.cs" t="Include" />
             <e p="KazaGateController.cs" t="Include" />
@@ -938,6 +949,13 @@
             <e p="Curtain4SceneEndMover.cs" t="Include" />
             <e p="Curtain4SceneStartMover.cs" t="Include" />
             <e p="SceneTransition.cs" t="Include" />
+            <e p="Transitions" t="Include">
+              <e p="DefaultTransitionView.cs" t="Include" />
+              <e p="HeroDiedTransitionView.cs" t="Include" />
+              <e p="NormalTransitionView.cs" t="Include" />
+              <e p="WhiteOutTransitionView.cs" t="Include" />
+              <e p="WindAndBlurTransitionView.cs" t="Include" />
+            </e>
             <e p="WindAndBlur.cs" t="Include" />
             <e p="WindPath.cs" t="Include" />
           </e>
@@ -968,6 +986,7 @@
             <e p="ArrayForEach.cs" t="Include" />
             <e p="ColorExtensions.cs" t="Include" />
             <e p="EnumArray.cs" t="Include" />
+            <e p="LR.cs" t="Include" />
             <e p="MaterialTween.cs" t="Include" />
             <e p="MyMath.cs" t="Include" />
             <e p="RandomGenerate.cs" t="Include" />

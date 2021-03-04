@@ -252,7 +252,7 @@ public class HeroMover : SerializedMonoBehaviour
         ChangeState(new StateBend());
         chishibukiParticle.Play();
         chishibuki.StartChishibuki();
-        this.StartPausableCoroutine(Blink()).AddTo(this);
+        this.StartPausableCoroutine(Blink()).Subscription.AddTo(this);
     }
 
     static readonly float blinkPeriodSec = 0.2f;
@@ -281,7 +281,7 @@ public class HeroMover : SerializedMonoBehaviour
         MemoryOverDeath.Instance.SaveOnDeath();
         GameTimeCounter.CurrentInstance.DoesTick = false;
         TimeManager.SetTimeScale(TimeEffectType.Die, 0.2f);
-        SceneTransition.Start2ChangeScene(SceneManager.GetActiveScene().name, SceneTransition.TransitionType.HeroDied);
+        SceneTransition.StartToChangeScene<HeroDiedTransitionView>(SceneManager.GetActiveScene().name);
         draftModeManager.TryExit();
     }
 
@@ -464,7 +464,7 @@ public class HeroMover : SerializedMonoBehaviour
     {
         if(IsFrozen) return;
         
-        if(col.gameObject.CompareTag("Terrain"))
+        if(col.gameObject.CompareTag(Tags.Terrain))
         {
             if (col.contacts.Any(contact => contact.normal.y < -0.5f))
             {

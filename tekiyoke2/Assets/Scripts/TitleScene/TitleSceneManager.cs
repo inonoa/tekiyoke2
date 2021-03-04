@@ -39,12 +39,12 @@ public class TitleSceneManager : SerializedMonoBehaviour
                 
                 DOVirtual.DelayedCall(fadeOutToTransition, () =>
                 {
-                    SceneTransition.Start2ChangeScene("StageChoiceScene", SceneTransition.TransitionType.Default);
+                    SceneTransition.StartToChangeScene<DefaultTransitionView>("StageChoiceScene");
                 });
             }
             else
             {
-                SceneTransition.Start2ChangeScene("Tutorial", SceneTransition.TransitionType.WhiteOut);
+                SceneTransition.StartToChangeScene<WhiteOutTransitionView>("Tutorial");
             }
         }
     }

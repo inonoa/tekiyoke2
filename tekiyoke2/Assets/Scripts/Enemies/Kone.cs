@@ -11,11 +11,17 @@ public class Kone : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
     [field: SerializeField, LabelText(nameof(DPCD))]
     public DPinEnemy DPCD { get; private set; }
 
+    [SerializeField] Collider2D mainCollider;
+
     [SerializeField] Collider2D heroSensor;
 
     [SerializeField] Collider2D groundSensor;
 
     [SerializeField] KoneTsuchi tsuchiPrefab;
+
+    [SerializeField] SimpleAnim anim;
+
+    [SerializeField] SpriteRenderer spriteRenderer;
 
     new Transform transform;
     Rigidbody2D rigidBody;
@@ -25,7 +31,7 @@ public class Kone : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
         rigidBody = GetComponent<Rigidbody2D>();
         
         groundSensor.OnTriggerEnter2DAsObservable() // 潜るときのつもりが地中から出た時も走ってる、まあこれはこれでいいか…………
-            .Where(other => other.CompareTag("Terrain"))
+            .Where(other => other.CompareTag(Tags.Terrain))
             .Subscribe(_ => Instantiate
             (
                 tsuchiPrefab,
@@ -45,6 +51,8 @@ public class Kone : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
             .Take(1)
             .Subscribe(_ => Jump(HeroDefiner.CurrentPos))
             .AddTo(this);
+
+        anim.Play();
     }
 
     [Space(10)]
@@ -124,9 +132,24 @@ public class Kone : MonoBehaviour, IHaveDPinEnemy, ISpawnsNearHero
         rigidBody.DOMove(direction * secondAttackMove, secondAttackDuration)
             .SetRelative()
             .SetEase(secondAttackEase)
-            .OnComplete(() => Destroy(gameObject))
             .GetPausable()
             .AddTo(this);
+
+        const float fadeOutDur = 0.4f;
+        DOVirtual.DelayedCall
+        (
+            secondAttackDuration - fadeOutDur,
+            () =>
+            {
+                mainCollider.enabled = false;
+                spriteRenderer.DOFade(0, fadeOutDur)
+                    .OnComplete(() => Destroy(gameObject))
+                    .GetPausable().AddTo(this);
+            },
+            false
+        )
+        .GetPausable()
+        .AddTo(this);
     }
 
     public void Hide()

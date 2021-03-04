@@ -10,6 +10,6 @@ public class KoneTsuchi : MonoBehaviour
         {
             transform.localScale = new Vector3(-1, 1, 1);
         }
-        anim.ResetAndStartAnim(() => Destroy(gameObject));
+        anim.Play(() => Destroy(gameObject));
     }
 }

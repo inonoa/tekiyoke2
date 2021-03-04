@@ -50,12 +50,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eyeToRight: 0
   <DPCD>k__BackingField: {fileID: 8303422165743087931}
-  DOTweenPathL: {fileID: 6608854768642658800}
-  DOTweenPathR: {fileID: 6608854768642658800}
+  DOTweenPath: {fileID: 6608854768642658800}
+  secondsToFirstTurn: 1
   spriteRenderer: {fileID: 3292364426021157286}
-  spriteLeft: {fileID: 21300000, guid: 5bce3403f83fba24db86adb05e39240c, type: 3}
-  spriteRight: {fileID: 21300000, guid: f6f51a0aaf5fb56438684cf27d467af8, type: 3}
+  spriteLeft: {fileID: 21300000, guid: e58bb0f2554745f4fa1fe4fba1a2b344, type: 3}
+  spriteRight: {fileID: 21300000, guid: e58bb0f2554745f4fa1fe4fba1a2b344, type: 3}
   sounds: {fileID: 5193929880738175075}
+  bufferFramesForAngle: 10
 --- !u!212 &3292364426021157286
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -71,6 +72,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -95,7 +97,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5bce3403f83fba24db86adb05e39240c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e58bb0f2554745f4fa1fe4fba1a2b344, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -119,18 +121,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 2}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 50, y: 50}
+    oldSize: {x: 133.33333, y: 133.33333}
     newSize: {x: 50, y: 50}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 30, y: 30}
+  m_Size: {x: 100, y: 10}
   m_EdgeRadius: 0
 --- !u!114 &5193929880738175075
 MonoBehaviour:
@@ -186,18 +188,7 @@ MonoBehaviour:
       m_Calls: []
   onStepComplete:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4845279565045026869}
-        m_MethodName: OnStep
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onComplete:
     m_PersistentCalls:
       m_Calls: []
@@ -253,228 +244,19 @@ MonoBehaviour:
   forwardDirection: {x: 0, y: 0, z: 1}
   upDirection: {x: 0, y: 1, z: 0}
   tweenRigidbody: 0
-  wps:
-  - {x: 9653.486, y: 5723.259, z: -10}
-  - {x: 9190.902, y: 5568.977, z: -10}
-  - {x: 8798.388, y: 5662.6714, z: -10}
-  - {x: 8522.329, y: 6112.4067, z: -10}
-  - {x: 8740.328, y: 6627.7563, z: -10}
-  - {x: 9199.165, y: 6822.168, z: -10}
-  - {x: 9698.312, y: 6598.7007, z: -10}
+  wps: []
   fullWps: []
   path:
-    wpLengths:
-    - 0
-    - 10600.491
-    - 1811.2141
-    - 413.75357
-    - 539.4551
-    - 571.5127
-    - 511.50696
-    - 1889.0289
-    - 11114.961
+    wpLengths: []
+    wps: []
     type: 1
     subdivisionsXSegment: 10
-    subdivisions: 90
-    wps:
-    - {x: 586, y: 237, z: 0}
-    - {x: 9653.486, y: 5723.259, z: -10}
-    - {x: 9190.902, y: 5568.977, z: -10}
-    - {x: 8798.388, y: 5662.6714, z: -10}
-    - {x: 8522.329, y: 6112.4067, z: -10}
-    - {x: 8740.328, y: 6627.7563, z: -10}
-    - {x: 9199.165, y: 6822.168, z: -10}
-    - {x: 9698.312, y: 6598.7007, z: -10}
-    - {x: 586, y: 237, z: 0}
-    controlPoints:
-    - a: {x: 9698.312, y: 6598.7007, z: -10}
-      b: {x: 0, y: 0, z: 0}
-    - a: {x: 9653.486, y: 5723.259, z: -10}
-      b: {x: 0, y: 0, z: 0}
-    length: 27435.219
-    isFinalized: 1
-    timesTable:
-    - 0.011111111
-    - 0.022222223
-    - 0.033333335
-    - 0.044444446
-    - 0.055555556
-    - 0.06666667
-    - 0.07777778
-    - 0.08888889
-    - 0.1
-    - 0.11111111
-    - 0.12222222
-    - 0.13333334
-    - 0.14444445
-    - 0.15555556
-    - 0.16666667
-    - 0.17777778
-    - 0.18888889
-    - 0.2
-    - 0.21111111
-    - 0.22222222
-    - 0.23333333
-    - 0.24444444
-    - 0.25555557
-    - 0.26666668
-    - 0.2777778
-    - 0.2888889
-    - 0.3
-    - 0.31111112
-    - 0.32222223
-    - 0.33333334
-    - 0.34444445
-    - 0.35555556
-    - 0.36666667
-    - 0.37777779
-    - 0.3888889
-    - 0.4
-    - 0.41111112
-    - 0.42222223
-    - 0.43333334
-    - 0.44444445
-    - 0.45555556
-    - 0.46666667
-    - 0.47777778
-    - 0.4888889
-    - 0.5
-    - 0.51111114
-    - 0.5222222
-    - 0.53333336
-    - 0.54444444
-    - 0.5555556
-    - 0.56666666
-    - 0.5777778
-    - 0.5888889
-    - 0.6
-    - 0.6111111
-    - 0.62222224
-    - 0.6333333
-    - 0.64444447
-    - 0.65555555
-    - 0.6666667
-    - 0.67777777
-    - 0.6888889
-    - 0.7
-    - 0.7111111
-    - 0.72222227
-    - 0.73333335
-    - 0.7444445
-    - 0.75555557
-    - 0.7666667
-    - 0.7777778
-    - 0.78888893
-    - 0.8
-    - 0.81111115
-    - 0.82222223
-    - 0.8333334
-    - 0.84444445
-    - 0.8555556
-    - 0.8666667
-    - 0.8777778
-    - 0.8888889
-    - 0.90000004
-    - 0.9111111
-    - 0.92222226
-    - 0.93333334
-    - 0.9444445
-    - 0.95555556
-    - 0.9666667
-    - 0.9777778
-    - 0.9888889
-    - 1
-    lengthsTable:
-    - 183.77483
-    - 727.0099
-    - 1562.1676
-    - 2620.4016
-    - 3832.7358
-    - 5130.157
-    - 6443.6406
-    - 7704.1553
-    - 8842.669
-    - 9790.143
-    - 10477.539
-    - 10890.13
-    - 11138.997
-    - 11253.006
-    - 11260.062
-    - 11345.245
-    - 11494.111
-    - 11683.018
-    - 11888.278
-    - 12086.211
-    - 12253.189
-    - 12365.792
-    - 12413.636
-    - 12451.429
-    - 12488.859
-    - 12525.8955
-    - 12562.539
-    - 12598.831
-    - 12634.86
-    - 12670.767
-    - 12706.75
-    - 12743.066
-    - 12780.031
-    - 12818.117
-    - 12859.751
-    - 12905.148
-    - 12953.442
-    - 13003.763
-    - 13055.258
-    - 13107.105
-    - 13158.529
-    - 13208.826
-    - 13257.398
-    - 13303.815
-    - 13347.89
-    - 13392.434
-    - 13440.071
-    - 13490.422
-    - 13542.924
-    - 13596.906
-    - 13651.626
-    - 13706.301
-    - 13760.123
-    - 13812.279
-    - 13861.968
-    - 13908.416
-    - 13952.426
-    - 13997.291
-    - 14042.988
-    - 14089.297
-    - 14135.968
-    - 14182.744
-    - 14229.363
-    - 14275.573
-    - 14321.137
-    - 14365.848
-    - 14409.543
-    - 14461.588
-    - 14574.972
-    - 14739.695
-    - 14932.663
-    - 15130.574
-    - 15310.286
-    - 15449.324
-    - 15528.963
-    - 15581.4
-    - 15727.438
-    - 16007.082
-    - 16451.387
-    - 17173.969
-    - 18160.758
-    - 19342.14
-    - 20648.443
-    - 22009.936
-    - 23356.908
-    - 24619.623
-    - 25728.373
-    - 26613.459
-    - 27205.307
-    - 27435.219
+    subdivisions: 0
+    controlPoints: []
+    length: 0
+    isFinalized: 0
+    timesTable: []
+    lengthsTable: []
   inspectorMode: 0
   pathType: 1
   handlesType: 0
@@ -485,7 +267,7 @@ MonoBehaviour:
   showWpLength: 0
   pathColor: {r: 1, g: 1, b: 1, a: 0.5}
   lastSrcPosition: {x: 586, y: 237, z: 0}
-  lastSrcRotation: {x: -0, y: -0, z: -0, w: 1}
+  lastSrcRotation: {x: 0, y: 0, z: 0, w: 1}
   wpsDropdown: 1
   dropToFloorOffset: 0
 --- !u!1001 &5538300222931149519
@@ -499,6 +281,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DPinEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7173967767944688376, guid: 679836f8f3bc57f4485a23ec5e873937,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7173967767944688376, guid: 679836f8f3bc57f4485a23ec5e873937,
         type: 3}
@@ -517,6 +304,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7173967767944688376, guid: 679836f8f3bc57f4485a23ec5e873937,
         type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7173967767944688376, guid: 679836f8f3bc57f4485a23ec5e873937,
+        type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
@@ -528,16 +320,6 @@ PrefabInstance:
     - target: {fileID: 7173967767944688376, guid: 679836f8f3bc57f4485a23ec5e873937,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7173967767944688376, guid: 679836f8f3bc57f4485a23ec5e873937,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7173967767944688376, guid: 679836f8f3bc57f4485a23ec5e873937,
-        type: 3}
-      propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7173967767944688376, guid: 679836f8f3bc57f4485a23ec5e873937,

@@ -10,15 +10,19 @@ public class Collider2Wall : MonoBehaviour
     public bool IsTouched2Wall => touchCount > 0;
     int touchCount = 0;
 
-    void OnTriggerEnter2D(Collider2D other){
-        if(other.gameObject.tag=="Terrain"){
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.CompareTag(Tags.Terrain))
+        {
             touched2Wall?.Invoke(this,EventArgs.Empty);
             touchCount ++;
         }
     }
 
-    void OnTriggerExit2D(Collider2D other){
-        if(other.gameObject.tag=="Terrain"){
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if(other.CompareTag(Tags.Terrain))
+        {
             touchCount --;
         }
     }

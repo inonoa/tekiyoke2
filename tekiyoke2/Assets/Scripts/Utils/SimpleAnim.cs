@@ -3,38 +3,44 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using System;
+using Sirenix.OdinInspector;
 using UniRx;
 
 public class SimpleAnim : MonoBehaviour
 {
-    SpriteRenderer spriteRenderer;
     [SerializeField] Sprite[] sprites;
-    Tween[] tweensToRestart;
     [SerializeField] float changeSec = 0.1f;
+    [SerializeField] bool loop;
 
-    public void ResetAndStartAnim(TweenCallback onComplete = null)
+    IEnumerator currentAnim;
+
+    [Button]
+    public void Play(Action onComplete = null)
     {
-        foreach(Tween tw in tweensToRestart) tw?.Kill();
-
-        spriteRenderer.sprite = sprites[0];
-        for(int i = 0; i < sprites.Length - 1; i++)
-        {
-            int i_copy = i; //コピーしないとループが回りきってからiの値を使用するので配列外参照起こす
-
-            tweensToRestart[i_copy] = DOVirtual.DelayedCall
-            (
-                (i_copy+1) * changeSec,
-                () => spriteRenderer.sprite = sprites[i_copy+1],
-                ignoreTimeScale: false
-            )
-            .AsHeros();
-        }
-        tweensToRestart[sprites.Length-1] = DOVirtual.DelayedCall(sprites.Length * changeSec, onComplete, ignoreTimeScale: false).AsHeros();
+        if(currentAnim != null) StopCoroutine(currentAnim);
+        
+        var (subscription, enumerator) = this.StartPausableCoroutine(Anim(onComplete));
+        subscription.AddTo(this);
+        currentAnim = enumerator;
     }
 
-    void Awake()
+    IEnumerator Anim(Action onComplete = null)
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        tweensToRestart = new Tween[sprites.Length];
+        var spriteRenderer = GetComponent<SpriteRenderer>();
+        
+        while (true)
+        {
+            foreach (Sprite sprite in sprites)
+            {
+                spriteRenderer.sprite = sprite;
+                yield return new WaitForSeconds(changeSec);
+            }
+
+            if (!loop)
+            {
+                onComplete?.Invoke();
+                yield break;
+            }
+        }
     }
 }

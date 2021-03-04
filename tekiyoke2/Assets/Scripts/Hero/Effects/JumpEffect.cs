@@ -18,7 +18,7 @@ public class JumpEffect : MonoBehaviour, IReusable
         transform.rotation = Quaternion.identity;
         if(r_l_kr_kl[0]=='k') transform.Rotate(0, 0, r_l_kr_kl[1]=='r' ? -40 : 40);
 
-        foreach(SimpleAnim anim in anims) anim.ResetAndStartAnim(()=>{
+        foreach(SimpleAnim anim in anims) anim.Play(()=>{
             gameObject.SetActive(false);
             InUse = false;
         });

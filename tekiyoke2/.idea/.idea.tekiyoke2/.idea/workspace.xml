@@ -20,14 +20,14 @@
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:lock_camera" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:finish_d1" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c97243fa-09da-4818-b4c1-b9937458f378" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Draft3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Draft3.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Draft1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Draft1.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,91 +42,119 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="hiddenUrls">
+      <set>
+        <option value="https://github.com/inonoa/tekiyoke2" />
+      </set>
+    </option>
+  </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/Graphic.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/f2/42adda3d/Component.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0B76D74C-9007-4047-ADC3-E5DBD5D3F1DE/69/a3085dc0/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/EventSystem/UIBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/72/b2009ef4/KeyCode.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/3e/4d3e1bd4/DOTweenComponent.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/MainManagers/Camera/CameraController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/65CAB14A-C59E-4552-B77F-98A4AED18F9E/0b/5f4bafde/PhysicsScene2D.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Prefabs/Enemy/Kone.prefab" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Save/SaveData.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/Hero/DetectsCameraLockingArea.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/scripts/MapObjs/KieruYuka.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/95/518c31e9/TweenSettingsExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/Enemies/Collider2Wall.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/Enemies/SkyFish.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/f9/97e3c724/TweenParams.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/BAD59441-8129-43C7-B8D5-A5BA85795810/49/eb9a0f12/Component.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/Enemies/Kone.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/scripts/MapObjs/Goal.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2348FB5E-CC9E-4E68-9F37-F7D7FADAEA9A/37/4bd8dda7/Path.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/Image.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2348FB5E-CC9E-4E68-9F37-F7D7FADAEA9A/62/0208ac2c/TweenSettingsExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/Hero/Physics/HeroCollider2Enemy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2348FB5E-CC9E-4E68-9F37-F7D7FADAEA9A/8f/57e73b5e/DOTween.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/d2/198907ba/Renderer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Prefabs/Enemy/Kone.prefab" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/scripts/MapObjs/TogeDropController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/Strandbeest.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/Graphic.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/EventSystem/UIBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/3e/4d3e1bd4/DOTweenComponent.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Tags.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/65CAB14A-C59E-4552-B77F-98A4AED18F9E/0b/5f4bafde/PhysicsScene2D.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/d7/37d5ca41/Transform.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/0e/dffa10d3/DOTween.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/5e/aba48687/ABSSequentiable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/65CAB14A-C59E-4552-B77F-98A4AED18F9E/09/891b6a7e/Physics2D.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Save/SaveDataManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/17/acb49825/Tween.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/f9/97e3c724/TweenParams.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/17C1E98F-9A78-42E3-8BE0-5E60BF0530E8/37/63a07319/02000006.il" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/cd/9fcf1a7c/ShortcutExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utils/TransformExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/d7/e0b450ec/Resources.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/MaskableGraphic.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Input/ButonToKeys.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/22/1a106110/String.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scenes/Draft1.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/97/df7e3c54/RuntimeInitializeOnLoadMethodAttribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/17C1E98F-9A78-42E3-8BE0-5E60BF0530E8/94/28da816b/DOTweenPath.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/97/7d5cd036/Ease.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/Image.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/48/3a11e747/SerializeField.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/8a/df89f217/Path.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/ff/80a8bd20/RuntimeInitializeLoadType.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/d2/198907ba/Renderer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/DPinEnemy.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0C9D4FCF-D613-4956-86FC-3555A6D54354/b9/150c570d/ReadOnlyAttribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/d7/407bc7a7/SpriteRenderer.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/StageSelectManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/StageSelectBGChanger.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/WakuLightMover.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/WakuMover.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/StageSelectView.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Config/CursorPositionHolder.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Ranking/FocusNode.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Config/ConfigView.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Utils/TransformExtensions.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Utils/ColorExtensions.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Input/ButonToKeys.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Input/KeyboardSettings.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Input/GamePadSettings.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Hero/Actions/JetManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Input/InputSettings.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Input/IAskedInput.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Input/InputManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/ResultScene/PressZToReturn.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/ResultScene/Tweeter.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Pause/Pauser.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Config/FocusableSlider.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Ranking/ExitButton.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Ranking/RankingScrollViewController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Ranking/UIFocusManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Input/NormalInput.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/RankingsSelectManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemyStatic.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/Sasayaki.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Pause/PauseView.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Hero/DP/DPManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/DPinEnemy.cs" />
-        <option value="$PROJECT_DIR$/Assets/Materials/PostEffects/Noise.shader" />
-        <option value="$PROJECT_DIR$/Assets/Materials/WhiteOut.shader" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/SceneTransition/SceneTransition.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemySpawner.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/DraftMode/DraftWindsManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Parameters/DraftModeParameters.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Hero/DraftModeManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/TitleScene/CloudSpawner.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/TagNames.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Warp/WarpEvent.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Hero/HeroDefiner.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Warp/WarpDoor.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/MainManagers/Camera/CameraZoomerForJet.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/MainManagers/Camera/CameraLockingArea.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Tags.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Hero/HeroMover.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/MainManagers/Camera/CameraController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Warp/WarpParams.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Warp/WarpController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Hero/DetectsCameraLockingArea.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Utils/MaterialTween.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Utils/LR.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/FrontFogAreaBound.cs" />
+        <option value="$PROJECT_DIR$/Assets/Materials/FrontFog.shader" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/FrontFogArea.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/FrontFogMover.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MainManagers/DraftManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MainManagers/Camera/CameraController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Utils/TransformExtensions.cs" />
+        <option value="$PROJECT_DIR$/Assets/Sprites/BGs/MapObjs/Bane.shader" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/Kazaguruma.cs" />
+        <option value="$PROJECT_DIR$/Assets/Sprites/BGs/MapObjs/EdgeLight.shader" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Hero/DP/GetDPinEnemy.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Pause/PausableExtension.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Utils/SimpleAnim.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Strandbeest.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SceneTransition/WindPath.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SceneTransition/HeroDiedTransitionView.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SceneTransition/WindAndBlur.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SceneTransition/WindAndBlueTransitionView.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SceneTransition/Curtain4SceneEndMover.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SceneTransition/NormalTransitionView.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SceneTransition/WhiteOutTransitionView.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/Goal.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/TutorialEnd.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Pause/PauseView.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ResultScene/PressZToReturn.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/StageSelectManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/TitleScene/TitleSceneManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SceneTransition/SceneTransition.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SceneTransition/DefaultTransitionView.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SceneTransition/Transitions/WindAndBlurTransitionView.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemySpawner.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Hero/HeroMover.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Hero/Physics/HeroCollider2Enemy.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/TamaController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/DropTileController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/DontWannaFall.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/DPCD.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Collider2Wall.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Hero/Physics/NearToEnemyChecker.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/RecoverItem.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/TogeController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/TogeDropController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/UltraThinTileController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/KieruYuka.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Tags.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Kone.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/SkyFish.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/DPCDCounter.cs" />
       </list>
     </option>
   </component>
@@ -142,6 +170,7 @@
     <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34975636" />
     <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.29994586" />
     <property name="Discover.Launch.Via.Unity" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -226,300 +255,16 @@
       <workItem from="1613363681921" duration="6129000" />
       <workItem from="1613439626608" duration="651000" />
       <workItem from="1613833706550" duration="4944000" />
-    </task>
-    <task id="LOCAL-00064" summary="ミリ秒単位のものを秒単位で解釈してた">
-      <created>1608168967456</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1608168967456</updated>
-    </task>
-    <task id="LOCAL-00065" summary="タイル置いた">
-      <created>1608354564832</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1608354564833</updated>
-    </task>
-    <task id="LOCAL-00066" summary="固定砲台の雑な奴作った">
-      <created>1610758710999</created>
-      <option name="number" value="00066" />
-      <option name="presentableId" value="LOCAL-00066" />
-      <option name="project" value="LOCAL" />
-      <updated>1610758710999</updated>
-    </task>
-    <task id="LOCAL-00067" summary="D3に置いてみたところEnemySpawnerの存在忘れてたことが分かった">
-      <created>1610759035477</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1610759035477</updated>
-    </task>
-    <task id="LOCAL-00068" summary="着弾地点から2撃目っ…………！？">
-      <created>1610770375915</created>
-      <option name="number" value="00068" />
-      <option name="presentableId" value="LOCAL-00068" />
-      <option name="project" value="LOCAL" />
-      <updated>1610770375915</updated>
-    </task>
-    <task id="LOCAL-00069" summary="ジャンプの上昇中に壁キックできなかったのか…………">
-      <created>1610771214630</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1610771214630</updated>
-    </task>
-    <task id="LOCAL-00070" summary="壁キックに左右の入力が要らない感じにした">
-      <created>1610800919918</created>
-      <option name="number" value="00070" />
-      <option name="presentableId" value="LOCAL-00070" />
-      <option name="project" value="LOCAL" />
-      <updated>1610800919918</updated>
-    </task>
-    <task id="LOCAL-00071" summary="コミットし忘れてない？">
-      <created>1611420003520</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL-00071" />
-      <option name="project" value="LOCAL" />
-      <updated>1611420003521</updated>
-    </task>
-    <task id="LOCAL-00072" summary="設定画面のUI素材描いて置いた">
-      <created>1611692514762</created>
-      <option name="number" value="00072" />
-      <option name="presentableId" value="LOCAL-00072" />
-      <option name="project" value="LOCAL" />
-      <updated>1611692514763</updated>
-    </task>
-    <task id="LOCAL-00073" summary="ステージ選択画面のランキング/設定ボタンをいい感じに取り込んだ">
-      <created>1611704253972</created>
-      <option name="number" value="00073" />
-      <option name="presentableId" value="LOCAL-00073" />
-      <option name="project" value="LOCAL" />
-      <updated>1611704253972</updated>
-    </task>
-    <task id="LOCAL-00074" summary="ぐるぐる回ってる光るやつの動きを正常にした">
-      <created>1611708269049</created>
-      <option name="number" value="00074" />
-      <option name="presentableId" value="LOCAL-00074" />
-      <option name="project" value="LOCAL" />
-      <updated>1611708269049</updated>
-    </task>
-    <task id="LOCAL-00075" summary="移動できてなかったり位置ずれてたりした">
-      <created>1611709128619</created>
-      <option name="number" value="00075" />
-      <option name="presentableId" value="LOCAL-00075" />
-      <option name="project" value="LOCAL" />
-      <updated>1611709128619</updated>
-    </task>
-    <task id="LOCAL-00076" summary="フェードアウト、他画面のフェードイン/アウト">
-      <created>1611711553413</created>
-      <option name="number" value="00076" />
-      <option name="presentableId" value="LOCAL-00076" />
-      <option name="project" value="LOCAL" />
-      <updated>1611711553413</updated>
-    </task>
-    <task id="LOCAL-00077" summary="ノードが選択を検出したり、ちょっとフェードインを速くしたり">
-      <created>1611771188564</created>
-      <option name="number" value="00077" />
-      <option name="presentableId" value="LOCAL-00077" />
-      <option name="project" value="LOCAL" />
-      <updated>1611771188564</updated>
-    </task>
-    <task id="LOCAL-00078" summary="ノードが選択を検出したり、ちょっとフェードインを速くしたり">
-      <created>1611771219316</created>
-      <option name="number" value="00078" />
-      <option name="presentableId" value="LOCAL-00078" />
-      <option name="project" value="LOCAL" />
-      <updated>1611771219316</updated>
-    </task>
-    <task id="LOCAL-00079" summary="RankingsSelectをいい感じの見た目に(大半StageSelectと共通)">
-      <created>1611788187654</created>
-      <option name="number" value="00079" />
-      <option name="presentableId" value="LOCAL-00079" />
-      <option name="project" value="LOCAL" />
-      <updated>1611788187654</updated>
-    </task>
-    <task id="LOCAL-00080" summary="RankingsSelectをいい感じの見た目に(大半StageSelectと共通)">
-      <created>1611788975909</created>
-      <option name="number" value="00080" />
-      <option name="presentableId" value="LOCAL-00080" />
-      <option name="project" value="LOCAL" />
-      <updated>1611788975909</updated>
-    </task>
-    <task id="LOCAL-00081" summary="RankingsSelectをいい感じの見た目に(大半StageSelectと共通)">
-      <created>1611788986499</created>
-      <option name="number" value="00081" />
-      <option name="presentableId" value="LOCAL-00081" />
-      <option name="project" value="LOCAL" />
-      <updated>1611788986499</updated>
-    </task>
-    <task id="LOCAL-00082" summary="RankingsSelectをいい感じの見た目に(大半StageSelectと共通)">
-      <created>1611789185801</created>
-      <option name="number" value="00082" />
-      <option name="presentableId" value="LOCAL-00082" />
-      <option name="project" value="LOCAL" />
-      <updated>1611789185801</updated>
-    </task>
-    <task id="LOCAL-00083" summary="設定画面をキーボードだけでいい感じにできるようになった">
-      <created>1611795401097</created>
-      <option name="number" value="00083" />
-      <option name="presentableId" value="LOCAL-00083" />
-      <option name="project" value="LOCAL" />
-      <updated>1611795401097</updated>
-    </task>
-    <task id="LOCAL-00084" summary="Unity Recorder入れた">
-      <created>1611796321081</created>
-      <option name="number" value="00084" />
-      <option name="presentableId" value="LOCAL-00084" />
-      <option name="project" value="LOCAL" />
-      <updated>1611796321081</updated>
-    </task>
-    <task id="LOCAL-00085" summary="スライダーの移動速度deltaTime基準にしてなかったね…………">
-      <created>1611797063453</created>
-      <option name="number" value="00085" />
-      <option name="presentableId" value="LOCAL-00085" />
-      <option name="project" value="LOCAL" />
-      <updated>1611797063453</updated>
-    </task>
-    <task id="LOCAL-00086" summary="UI類のPrefabのフォルダ分け">
-      <created>1611856784560</created>
-      <option name="number" value="00086" />
-      <option name="presentableId" value="LOCAL-00086" />
-      <option name="project" value="LOCAL" />
-      <updated>1611856784560</updated>
-    </task>
-    <task id="LOCAL-00087" summary="ポーズ画面のリファクタリング…………？">
-      <created>1611868797292</created>
-      <option name="number" value="00087" />
-      <option name="presentableId" value="LOCAL-00087" />
-      <option name="project" value="LOCAL" />
-      <updated>1611868797292</updated>
-    </task>
-    <task id="LOCAL-00088" summary="ポーズ画面から設定画面に行ける">
-      <created>1611871065343</created>
-      <option name="number" value="00088" />
-      <option name="presentableId" value="LOCAL-00088" />
-      <option name="project" value="LOCAL" />
-      <updated>1611871065343</updated>
-    </task>
-    <task id="LOCAL-00089" summary="InputSettings">
-      <created>1611893656971</created>
-      <option name="number" value="00089" />
-      <option name="presentableId" value="LOCAL-00089" />
-      <option name="project" value="LOCAL" />
-      <updated>1611893656971</updated>
-    </task>
-    <task id="LOCAL-00090" summary="AnyButtonDownを本当にAnyButtonDownに">
-      <created>1611963767344</created>
-      <option name="number" value="00090" />
-      <option name="presentableId" value="LOCAL-00090" />
-      <option name="project" value="LOCAL" />
-      <updated>1611963767345</updated>
-    </task>
-    <task id="LOCAL-00091" summary="JetLとRを分けることからにげた">
-      <created>1611968136314</created>
-      <option name="number" value="00091" />
-      <option name="presentableId" value="LOCAL-00091" />
-      <option name="project" value="LOCAL" />
-      <updated>1611968136314</updated>
-    </task>
-    <task id="LOCAL-00092" summary="JetLとRを分けることからにげた">
-      <created>1611968144796</created>
-      <option name="number" value="00092" />
-      <option name="presentableId" value="LOCAL-00092" />
-      <option name="project" value="LOCAL" />
-      <updated>1611968144796</updated>
-    </task>
-    <task id="LOCAL-00093" summary="InputManagerとServicesLocatorを無くした">
-      <created>1611971730704</created>
-      <option name="number" value="00093" />
-      <option name="presentableId" value="LOCAL-00093" />
-      <option name="project" value="LOCAL" />
-      <updated>1611971730704</updated>
-    </task>
-    <task id="LOCAL-00094" summary="InputManagerとServicesLocatorを無くした">
-      <created>1611971737970</created>
-      <option name="number" value="00094" />
-      <option name="presentableId" value="LOCAL-00094" />
-      <option name="project" value="LOCAL" />
-      <updated>1611971737970</updated>
-    </task>
-    <task id="LOCAL-00095" summary="D3のタイル差し替えた(情報量を上げた」)">
-      <created>1612430226771</created>
-      <option name="number" value="00095" />
-      <option name="presentableId" value="LOCAL-00095" />
-      <option name="project" value="LOCAL" />
-      <updated>1612430226772</updated>
-    </task>
-    <task id="LOCAL-00096" summary="微修正">
-      <created>1612441811788</created>
-      <option name="number" value="00096" />
-      <option name="presentableId" value="LOCAL-00096" />
-      <option name="project" value="LOCAL" />
-      <updated>1612441811788</updated>
-    </task>
-    <task id="LOCAL-00097" summary="動かない敵">
-      <created>1612444613151</created>
-      <option name="number" value="00097" />
-      <option name="presentableId" value="LOCAL-00097" />
-      <option name="project" value="LOCAL" />
-      <updated>1612444613151</updated>
-    </task>
-    <task id="LOCAL-00098" summary="動かない敵">
-      <created>1612444721957</created>
-      <option name="number" value="00098" />
-      <option name="presentableId" value="LOCAL-00098" />
-      <option name="project" value="LOCAL" />
-      <updated>1612444721957</updated>
-    </task>
-    <task id="LOCAL-00099" summary="どぎついタイル置いた、タイルのスプライトのフォルダ分け">
-      <created>1612447851132</created>
-      <option name="number" value="00099" />
-      <option name="presentableId" value="LOCAL-00099" />
-      <option name="project" value="LOCAL" />
-      <updated>1612447851132</updated>
-    </task>
-    <task id="LOCAL-00100" summary="おおむねDraftモード時に無敵にしたりDPたまりやすくしたり">
-      <created>1612994435783</created>
-      <option name="number" value="00100" />
-      <option name="presentableId" value="LOCAL-00100" />
-      <option name="project" value="LOCAL" />
-      <updated>1612994435783</updated>
-    </task>
-    <task id="LOCAL-00101" summary="チュートリアル終わりのホワイトアウト実装">
-      <created>1613002414515</created>
-      <option name="number" value="00101" />
-      <option name="presentableId" value="LOCAL-00101" />
-      <option name="project" value="LOCAL" />
-      <updated>1613002414515</updated>
-    </task>
-    <task id="LOCAL-00102" summary="微…………">
-      <created>1613081149256</created>
-      <option name="number" value="00102" />
-      <option name="presentableId" value="LOCAL-00102" />
-      <option name="project" value="LOCAL" />
-      <updated>1613081149256</updated>
-    </task>
-    <task id="LOCAL-00103" summary="Revert &quot;チュートリアル最後の敵のDP入れ忘れてた&quot;&#10;&#10;This reverts commit 59cb98b0">
-      <created>1613089888679</created>
-      <option name="number" value="00103" />
-      <option name="presentableId" value="LOCAL-00103" />
-      <option name="project" value="LOCAL" />
-      <updated>1613089888679</updated>
-    </task>
-    <task id="LOCAL-00104" summary="チュートリアル最後の敵のDP入れ忘れてた">
-      <created>1613090112107</created>
-      <option name="number" value="00104" />
-      <option name="presentableId" value="LOCAL-00104" />
-      <option name="project" value="LOCAL" />
-      <updated>1613090112107</updated>
-    </task>
-    <task id="LOCAL-00105" summary="タイトル画面の背景に雲を湧かせる処理にAddToをつけ忘れたせいでチュートリアル画面に雲が湧いてしまった">
-      <created>1613090456583</created>
-      <option name="number" value="00105" />
-      <option name="presentableId" value="LOCAL-00105" />
-      <option name="project" value="LOCAL" />
-      <updated>1613090456583</updated>
+      <workItem from="1613904970195" duration="11347000" />
+      <workItem from="1614018595424" duration="4527000" />
+      <workItem from="1614101124605" duration="2498000" />
+      <workItem from="1614117393216" duration="31076000" />
+      <workItem from="1614308938212" duration="2190000" />
+      <workItem from="1614311683776" duration="160000" />
+      <workItem from="1614311873994" duration="254000" />
+      <workItem from="1614312251118" duration="18242000" />
+      <workItem from="1614464188727" duration="38794000" />
+      <workItem from="1614746284782" duration="18777000" />
     </task>
     <task id="LOCAL-00106" summary="タイトル画面の背景に雲を湧かせる処理にAddToをつけ忘れたせいでチュートリアル画面に雲が湧いてしまった">
       <created>1613362456393</created>
@@ -570,7 +315,301 @@
       <option name="project" value="LOCAL" />
       <updated>1613837450334</updated>
     </task>
-    <option name="localTasksCounter" value="113" />
+    <task id="LOCAL-00113" summary="前面の霧シェーダーとそれをいい感じにコントロールする奴">
+      <created>1613911174489</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1613911174490</updated>
+    </task>
+    <task id="LOCAL-00114" summary="フェードイン・アウト">
+      <created>1613915133653</created>
+      <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL-00114" />
+      <option name="project" value="LOCAL" />
+      <updated>1613915133653</updated>
+    </task>
+    <task id="LOCAL-00115" summary="霧の出る領域">
+      <created>1613916630315</created>
+      <option name="number" value="00115" />
+      <option name="presentableId" value="LOCAL-00115" />
+      <option name="project" value="LOCAL" />
+      <updated>1613916630315</updated>
+    </task>
+    <task id="LOCAL-00116" summary="主人公の移動じゃなくてカメラの移動に追従するべきだった&#10;暗幕より手前に来てた">
+      <created>1614021943617</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
+      <option name="project" value="LOCAL" />
+      <updated>1614021943617</updated>
+    </task>
+    <task id="LOCAL-00117" summary="ポーズ対応、ポーズ時にぬるぽが出るので握り潰しとこ…………">
+      <created>1614022517740</created>
+      <option name="number" value="00117" />
+      <option name="presentableId" value="LOCAL-00117" />
+      <option name="project" value="LOCAL" />
+      <updated>1614022517740</updated>
+    </task>
+    <task id="LOCAL-00118" summary="ストランドビーストのガワ">
+      <created>1614102477733</created>
+      <option name="number" value="00118" />
+      <option name="presentableId" value="LOCAL-00118" />
+      <option name="project" value="LOCAL" />
+      <updated>1614102477734</updated>
+    </task>
+    <task id="LOCAL-00119" summary="画像を置いたらかなりヒエラルキーが変わった">
+      <created>1614117415301</created>
+      <option name="number" value="00119" />
+      <option name="presentableId" value="LOCAL-00119" />
+      <option name="project" value="LOCAL" />
+      <updated>1614117415301</updated>
+    </task>
+    <task id="LOCAL-00120" summary="すごい悔しいけどとりあえず見た目は正しいのでこれで………">
+      <created>1614211922246</created>
+      <option name="number" value="00120" />
+      <option name="presentableId" value="LOCAL-00120" />
+      <option name="project" value="LOCAL" />
+      <updated>1614211922246</updated>
+    </task>
+    <task id="LOCAL-00121" summary="風車と動きが連動">
+      <created>1614214649545</created>
+      <option name="number" value="00121" />
+      <option name="presentableId" value="LOCAL-00121" />
+      <option name="project" value="LOCAL" />
+      <updated>1614214649545</updated>
+    </task>
+    <task id="LOCAL-00122" summary="方向転換できた">
+      <created>1614216323391</created>
+      <option name="number" value="00122" />
+      <option name="presentableId" value="LOCAL-00122" />
+      <option name="project" value="LOCAL" />
+      <updated>1614216323391</updated>
+    </task>
+    <task id="LOCAL-00123" summary="壁に当たると逆に移動する">
+      <created>1614311335096</created>
+      <option name="number" value="00123" />
+      <option name="presentableId" value="LOCAL-00123" />
+      <option name="project" value="LOCAL" />
+      <updated>1614311335096</updated>
+    </task>
+    <task id="LOCAL-00124" summary="Unityのバージョン上げた(2020.1.17f1)">
+      <created>1614313447594</created>
+      <option name="number" value="00124" />
+      <option name="presentableId" value="LOCAL-00124" />
+      <option name="project" value="LOCAL" />
+      <updated>1614313447594</updated>
+    </task>
+    <task id="LOCAL-00125" summary="ポーズで止まる…………">
+      <created>1614319852659</created>
+      <option name="number" value="00125" />
+      <option name="presentableId" value="LOCAL-00125" />
+      <option name="project" value="LOCAL" />
+      <updated>1614319852659</updated>
+    </task>
+    <task id="LOCAL-00126" summary="プレハブ化、どうしても変なとこで反転してしまうので壁探知と主人公への判定を分けた">
+      <created>1614322629205</created>
+      <option name="number" value="00126" />
+      <option name="presentableId" value="LOCAL-00126" />
+      <option name="project" value="LOCAL" />
+      <updated>1614322629205</updated>
+    </task>
+    <task id="LOCAL-00127" summary="とりあえずD1においた">
+      <created>1614382115696</created>
+      <option name="number" value="00127" />
+      <option name="presentableId" value="LOCAL-00127" />
+      <option name="project" value="LOCAL" />
+      <updated>1614382115696</updated>
+    </task>
+    <task id="LOCAL-00128" summary="易化">
+      <created>1614390903162</created>
+      <option name="number" value="00128" />
+      <option name="presentableId" value="LOCAL-00128" />
+      <option name="project" value="LOCAL" />
+      <updated>1614390903162</updated>
+    </task>
+    <task id="LOCAL-00129" summary="ストランドビーストの風車をジェットで回せるようにしたりした">
+      <created>1614395560926</created>
+      <option name="number" value="00129" />
+      <option name="presentableId" value="LOCAL-00129" />
+      <option name="project" value="LOCAL" />
+      <updated>1614395560926</updated>
+    </task>
+    <task id="LOCAL-00130" summary="一寸簡単にした">
+      <created>1614445959542</created>
+      <option name="number" value="00130" />
+      <option name="presentableId" value="LOCAL-00130" />
+      <option name="project" value="LOCAL" />
+      <updated>1614445959543</updated>
+    </task>
+    <task id="LOCAL-00131" summary="Koneにアニメーションを付けた、ループさせるためにSimpleAnim改修">
+      <created>1614467065572</created>
+      <option name="number" value="00131" />
+      <option name="presentableId" value="LOCAL-00131" />
+      <option name="project" value="LOCAL" />
+      <updated>1614467065573</updated>
+    </task>
+    <task id="LOCAL-00132" summary="Koneにアニメーションを付けた、ループさせるためにSimpleAnim改修">
+      <created>1614467437959</created>
+      <option name="number" value="00132" />
+      <option name="presentableId" value="LOCAL-00132" />
+      <option name="project" value="LOCAL" />
+      <updated>1614467437959</updated>
+    </task>
+    <task id="LOCAL-00133" summary="Koneスプライト差し替え(本番)">
+      <created>1614479333710</created>
+      <option name="number" value="00133" />
+      <option name="presentableId" value="LOCAL-00133" />
+      <option name="project" value="LOCAL" />
+      <updated>1614479333710</updated>
+    </task>
+    <task id="LOCAL-00134" summary="SkyFish差し替え、向きをいい感じにする">
+      <created>1614493992491</created>
+      <option name="number" value="00134" />
+      <option name="presentableId" value="LOCAL-00134" />
+      <option name="project" value="LOCAL" />
+      <updated>1614493992491</updated>
+    </task>
+    <task id="LOCAL-00135" summary="SkyFish置きまくった">
+      <created>1614554591198</created>
+      <option name="number" value="00135" />
+      <option name="presentableId" value="LOCAL-00135" />
+      <option name="project" value="LOCAL" />
+      <updated>1614554591198</updated>
+    </task>
+    <task id="LOCAL-00136" summary="ゴール時の謎模様が途切れてた">
+      <created>1614566048268</created>
+      <option name="number" value="00136" />
+      <option name="presentableId" value="LOCAL-00136" />
+      <option name="project" value="LOCAL" />
+      <updated>1614566048268</updated>
+    </task>
+    <task id="LOCAL-00137" summary="前シーンのスクショがリザルト画面に表示されてなかったの直した(Transform.Findを使うと難しくなる例だった)">
+      <created>1614568427004</created>
+      <option name="number" value="00137" />
+      <option name="presentableId" value="LOCAL-00137" />
+      <option name="project" value="LOCAL" />
+      <updated>1614568427004</updated>
+    </task>
+    <task id="LOCAL-00138" summary="SceneTransitionの個々の遷移の仕方をクラスに逃がすためにまず一つ逃がした">
+      <created>1614579210552</created>
+      <option name="number" value="00138" />
+      <option name="presentableId" value="LOCAL-00138" />
+      <option name="project" value="LOCAL" />
+      <updated>1614579210553</updated>
+    </task>
+    <task id="LOCAL-00139" summary="WindAndBlurを逃した">
+      <created>1614581807057</created>
+      <option name="number" value="00139" />
+      <option name="presentableId" value="LOCAL-00139" />
+      <option name="project" value="LOCAL" />
+      <updated>1614581807057</updated>
+    </task>
+    <task id="LOCAL-00140" summary="WhiteOutも逃した">
+      <created>1614583457987</created>
+      <option name="number" value="00140" />
+      <option name="presentableId" value="LOCAL-00140" />
+      <option name="project" value="LOCAL" />
+      <updated>1614583457987</updated>
+    </task>
+    <task id="LOCAL-00141" summary="Normalも">
+      <created>1614586418623</created>
+      <option name="number" value="00141" />
+      <option name="presentableId" value="LOCAL-00141" />
+      <option name="project" value="LOCAL" />
+      <updated>1614586418623</updated>
+    </task>
+    <task id="LOCAL-00142" summary="Defaultも追い出した、SceneTransitionから個々のクラスへの依存を消した">
+      <created>1614590060955</created>
+      <option name="number" value="00142" />
+      <option name="presentableId" value="LOCAL-00142" />
+      <option name="project" value="LOCAL" />
+      <updated>1614590060955</updated>
+    </task>
+    <task id="LOCAL-00143" summary="フォルダ分け・rename・デフォルトだとノイズが0のままになるの修正など">
+      <created>1614747897402</created>
+      <option name="number" value="00143" />
+      <option name="presentableId" value="LOCAL-00143" />
+      <option name="project" value="LOCAL" />
+      <updated>1614747897402</updated>
+    </task>
+    <task id="LOCAL-00144" summary="Tagを参照してるものを全部CompareTagとTagsの定数を使うように">
+      <created>1614750302881</created>
+      <option name="number" value="00144" />
+      <option name="presentableId" value="LOCAL-00144" />
+      <option name="project" value="LOCAL" />
+      <updated>1614750302881</updated>
+    </task>
+    <task id="LOCAL-00145" summary="Tagを参照してるものを全部CompareTagとTagsの定数を使うように">
+      <created>1614750326560</created>
+      <option name="number" value="00145" />
+      <option name="presentableId" value="LOCAL-00145" />
+      <option name="project" value="LOCAL" />
+      <updated>1614750326560</updated>
+    </task>
+    <task id="LOCAL-00146" summary="Ultrathin-&gt;SurinukeYuka">
+      <created>1614750441990</created>
+      <option name="number" value="00146" />
+      <option name="presentableId" value="LOCAL-00146" />
+      <option name="project" value="LOCAL" />
+      <updated>1614750441990</updated>
+    </task>
+    <task id="LOCAL-00147" summary="Ultrathin-&gt;SurinukeYuka">
+      <created>1614750672779</created>
+      <option name="number" value="00147" />
+      <option name="presentableId" value="LOCAL-00147" />
+      <option name="project" value="LOCAL" />
+      <updated>1614750672779</updated>
+    </task>
+    <task id="LOCAL-00148" summary="チェックポイント名をそれなりにした">
+      <created>1614754854297</created>
+      <option name="number" value="00148" />
+      <option name="presentableId" value="LOCAL-00148" />
+      <option name="project" value="LOCAL" />
+      <updated>1614754854297</updated>
+    </task>
+    <task id="LOCAL-00149" summary="Koneがフェードアウトするようにした">
+      <created>1614759056444</created>
+      <option name="number" value="00149" />
+      <option name="presentableId" value="LOCAL-00149" />
+      <option name="project" value="LOCAL" />
+      <updated>1614759056444</updated>
+    </task>
+    <task id="LOCAL-00150" summary="SkyGhotiのpathのz座標が0になってるとこがあって突然消えたりしてた">
+      <created>1614761099027</created>
+      <option name="number" value="00150" />
+      <option name="presentableId" value="LOCAL-00150" />
+      <option name="project" value="LOCAL" />
+      <updated>1614761099027</updated>
+    </task>
+    <task id="LOCAL-00151" summary="空中の慣性弱めた">
+      <created>1614763384480</created>
+      <option name="number" value="00151" />
+      <option name="presentableId" value="LOCAL-00151" />
+      <option name="project" value="LOCAL" />
+      <updated>1614763384480</updated>
+    </task>
+    <task id="LOCAL-00152" summary="SkyFishを遅くしたり出現を早くしたりした">
+      <created>1614763761710</created>
+      <option name="number" value="00152" />
+      <option name="presentableId" value="LOCAL-00152" />
+      <option name="project" value="LOCAL" />
+      <updated>1614763761710</updated>
+    </task>
+    <task id="LOCAL-00153" summary="Strandbeestの位置調整、最後の塔からの導線">
+      <created>1614764733467</created>
+      <option name="number" value="00153" />
+      <option name="presentableId" value="LOCAL-00153" />
+      <option name="project" value="LOCAL" />
+      <updated>1614764733467</updated>
+    </task>
+    <task id="LOCAL-00154" summary="DPCDおいた">
+      <created>1614828435212</created>
+      <option name="number" value="00154" />
+      <option name="presentableId" value="LOCAL-00154" />
+      <option name="project" value="LOCAL" />
+      <updated>1614828435212</updated>
+    </task>
+    <option name="localTasksCounter" value="155" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -589,7 +628,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="lock_camera" />
+                        <option value="finish_d1" />
                       </list>
                     </value>
                   </entry>
@@ -603,38 +642,34 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Unity Recorder入れた" />
-    <MESSAGE value="スライダーの移動速度deltaTime基準にしてなかったね…………" />
-    <MESSAGE value="UI類のPrefabのフォルダ分け" />
-    <MESSAGE value="ポーズ画面のリファクタリング…………？" />
-    <MESSAGE value="ポーズ画面から設定画面に行ける" />
-    <MESSAGE value="InputSettings" />
-    <MESSAGE value="AnyButtonDownを本当にAnyButtonDownに" />
-    <MESSAGE value="JetLとRを分けることからにげた" />
-    <MESSAGE value="InputManagerとServicesLocatorを無くした" />
-    <MESSAGE value="D3のタイル差し替えた(情報量を上げた」)" />
-    <MESSAGE value="微修正" />
-    <MESSAGE value="動かない敵" />
-    <MESSAGE value="どぎついタイル置いた、タイルのスプライトのフォルダ分け" />
-    <MESSAGE value="おおむねDraftモード時に無敵にしたりDPたまりやすくしたり" />
-    <MESSAGE value="チュートリアル終わりのホワイトアウト実装" />
-    <MESSAGE value="微…………" />
-    <MESSAGE value="Revert &quot;チュートリアル最後の敵のDP入れ忘れてた&quot;&#10;&#10;This reverts commit 59cb98b0" />
-    <MESSAGE value="チュートリアル最後の敵のDP入れ忘れてた" />
-    <MESSAGE value="タイトル画面の背景に雲を湧かせる処理にAddToをつけ忘れたせいでチュートリアル画面に雲が湧いてしまった" />
-    <MESSAGE value="ワープゲートリニューアル/リファクタリング" />
-    <MESSAGE value="CameraControllerからZoomerをひきはがした" />
-    <MESSAGE value="CameraLockingArea.csとプレハブ、当たり判定まで" />
-    <MESSAGE value="とりあえず動いとる" />
-    <MESSAGE value="カメラではなく主人公との衝突でカメラを固定する、ワープ時のカメラのFreeze時間を調整可能に" />
-    <MESSAGE value="複数置いてみたらEnterよりExitの方が後に呼ばれるのかつらいことになったので修正" />
-    <option name="LAST_COMMIT_MESSAGE" value="複数置いてみたらEnterよりExitの方が後に呼ばれるのかつらいことになったので修正" />
+    <MESSAGE value="とりあえずD1においた" />
+    <MESSAGE value="易化" />
+    <MESSAGE value="ストランドビーストの風車をジェットで回せるようにしたりした" />
+    <MESSAGE value="一寸簡単にした" />
+    <MESSAGE value="Koneにアニメーションを付けた、ループさせるためにSimpleAnim改修" />
+    <MESSAGE value="Koneスプライト差し替え(本番)" />
+    <MESSAGE value="SkyFish差し替え、向きをいい感じにする" />
+    <MESSAGE value="SkyFish置きまくった" />
+    <MESSAGE value="ゴール時の謎模様が途切れてた" />
+    <MESSAGE value="前シーンのスクショがリザルト画面に表示されてなかったの直した(Transform.Findを使うと難しくなる例だった)" />
+    <MESSAGE value="SceneTransitionの個々の遷移の仕方をクラスに逃がすためにまず一つ逃がした" />
+    <MESSAGE value="WindAndBlurを逃した" />
+    <MESSAGE value="WhiteOutも逃した" />
+    <MESSAGE value="Normalも" />
+    <MESSAGE value="Defaultも追い出した、SceneTransitionから個々のクラスへの依存を消した" />
+    <MESSAGE value="フォルダ分け・rename・デフォルトだとノイズが0のままになるの修正など" />
+    <MESSAGE value="Tagを参照してるものを全部CompareTagとTagsの定数を使うように" />
+    <MESSAGE value="Ultrathin-&gt;SurinukeYuka" />
+    <MESSAGE value="チェックポイント名をそれなりにした" />
+    <MESSAGE value="Koneがフェードアウトするようにした" />
+    <MESSAGE value="SkyGhotiのpathのz座標が0になってるとこがあって突然消えたりしてた" />
+    <MESSAGE value="空中の慣性弱めた" />
+    <MESSAGE value="SkyFishを遅くしたり出現を早くしたりした" />
+    <MESSAGE value="Strandbeestの位置調整、最後の塔からの導線" />
+    <MESSAGE value="DPCDおいた" />
+    <option name="LAST_COMMIT_MESSAGE" value="DPCDおいた" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="709" y="345" key="#Notifications" timestamp="1605532697581">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="709" y="345" key="#Notifications/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1605532697581" />
     <state x="3250" y="94" key="CommitChangelistDialog2" timestamp="1613089887778">
       <screen x="2736" y="0" width="1920" height="1040" />
     </state>
@@ -713,42 +748,40 @@
     </state>
     <state x="173" y="92" key="MergeDialog/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1610685537996" />
     <state x="184" y="86" key="MergeDialog/0.0.1920.1040/-2736.0.1368.872@0.0.1920.1040" timestamp="1606409865233" />
-    <state x="3532" y="221" key="RiderGenerateDialog" timestamp="1612442867680">
+    <state x="3532" y="221" key="RiderGenerateDialog" timestamp="1614586946985">
       <screen x="2736" y="0" width="1920" height="1040" />
     </state>
     <state x="796" y="221" key="RiderGenerateDialog/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611893779006" />
-    <state x="3532" y="221" key="RiderGenerateDialog/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1612442867680" />
+    <state x="3532" y="221" key="RiderGenerateDialog/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1614586946985" />
     <state x="796" y="221" key="RiderGenerateDialog/0.0.1920.1040/-2736.0.1368.872@0.0.1920.1040" timestamp="1606330025401" />
-    <state x="3481" y="230" key="RollbackChangesDialog" timestamp="1613089995231">
+    <state x="3481" y="230" key="RollbackChangesDialog" timestamp="1614757087000">
       <screen x="2736" y="0" width="1920" height="1040" />
     </state>
     <state x="745" y="230" key="RollbackChangesDialog/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1613072957510" />
-    <state x="3481" y="230" key="RollbackChangesDialog/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1613089995231" />
+    <state x="3481" y="230" key="RollbackChangesDialog/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1614757087000" />
     <state x="2914" y="198" width="1390" height="710" key="SettingsEditor" timestamp="1613362852331">
       <screen x="2736" y="0" width="1920" height="1040" />
     </state>
     <state x="178" y="198" width="1390" height="710" key="SettingsEditor/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1606772983533" />
     <state x="2914" y="198" key="SettingsEditor/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1613362852331" />
     <state x="373" y="189" key="SettingsEditor/0.0.1920.1040/-2736.0.1368.872@0.0.1920.1040" timestamp="1606322997903" />
-    <state x="746" y="494" key="VCS.ChangelistChooser" timestamp="1605865976745">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="746" y="494" key="VCS.ChangelistChooser/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1605865976745" />
-    <state x="51" y="103" width="1736" height="856" key="VCS.FileHistoryDialog" timestamp="1611788990972">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="2787" y="103" width="1736" height="856" key="VCS.FileHistoryDialog" timestamp="1614465555800">
+      <screen x="2736" y="0" width="1920" height="1040" />
     </state>
     <state x="51" y="103" width="1736" height="856" key="VCS.FileHistoryDialog/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611788990972" />
+    <state x="2787" y="103" width="1736" height="856" key="VCS.FileHistoryDialog/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1614465555800" />
     <state x="51" y="103" width="1736" height="856" key="VCS.FileHistoryDialog/0.0.1920.1040/-2736.0.1368.872@0.0.1920.1040" timestamp="1606388768425" />
-    <state x="3288" y="253" key="Vcs.Push.Dialog.v2" timestamp="1613893474769">
+    <state x="3288" y="253" key="Vcs.Push.Dialog.v2" timestamp="1614590071564">
       <screen x="2736" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="253" key="Vcs.Push.Dialog.v2/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611797067282" />
-    <state x="3288" y="253" key="Vcs.Push.Dialog.v2/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1613893474769" />
+    <state x="3288" y="253" key="Vcs.Push.Dialog.v2/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1614590071564" />
     <state x="393" y="212" key="Vcs.Push.Dialog.v2/0.0.1368.872@0.0.1368.872" timestamp="1611420006898" />
     <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-2736.0.1368.872@0.0.1920.1040" timestamp="1606421529687" />
-    <state x="572" y="253" width="775" height="534" key="find.popup" timestamp="1606324168206">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="3237" y="233" width="775" height="534" key="find.popup" timestamp="1614760871816">
+      <screen x="2736" y="0" width="1920" height="1040" />
     </state>
+    <state x="3237" y="233" width="775" height="534" key="find.popup/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1614760871816" />
     <state x="572" y="253" width="775" height="534" key="find.popup/0.0.1920.1040/-2736.0.1368.872@0.0.1920.1040" timestamp="1606324168206" />
     <state x="698" y="234" key="git4idea.branch.GitSmartOperationDialog" timestamp="1610685551794">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -760,10 +793,11 @@
     </state>
     <state x="617" y="240" key="run.anything.popup/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1607093285273" />
     <state x="617" y="240" key="run.anything.popup/0.0.1920.1040/-2736.0.1368.872@0.0.1920.1040" timestamp="1606404650437" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1611767841203">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="3359" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1613913307703">
+      <screen x="2736" y="0" width="1920" height="1040" />
     </state>
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611767841203" />
+    <state x="3359" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1613913307703" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-2736.0.1368.872@0.0.1920.1040" timestamp="1606324033921" />
   </component>
 </project>

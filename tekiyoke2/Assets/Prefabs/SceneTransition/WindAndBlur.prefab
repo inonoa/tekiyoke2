@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6035892637557041803}
   - component: {fileID: 1704945695416384527}
   - component: {fileID: 7310323474651823520}
+  - component: {fileID: 6730757358928984010}
   m_Layer: 11
   m_Name: WindBrushMain
   m_TagString: Untagged
@@ -62,6 +63,7 @@ TrailRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -184,6 +186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delaySecAfterScSho: 0.2
   moveSec: 0.5
+  pathZ: -401
   pathStr: '660,420
 
     504,336
@@ -227,6 +230,40 @@ MonoBehaviour:
     -720,-360
 
     -960,-360'
+  pathVecs:
+  - {x: 660, y: 420}
+  - {x: 504, y: 336}
+  - {x: 444, y: 264}
+  - {x: 420, y: 144}
+  - {x: 456, y: 0}
+  - {x: 492, y: -108}
+  - {x: 492, y: -216}
+  - {x: 432, y: -312}
+  - {x: 312, y: -348}
+  - {x: 240, y: -360}
+  - {x: 84, y: -324}
+  - {x: -48, y: -288}
+  - {x: -240, y: -240}
+  - {x: -336, y: -204}
+  - {x: -360, y: -120}
+  - {x: -240, y: -72}
+  - {x: -132, y: -120}
+  - {x: -156, y: -204}
+  - {x: -360, y: -240}
+  - {x: -528, y: -276}
+  - {x: -720, y: -360}
+  - {x: -960, y: -360}
+--- !u!210 &6730757358928984010
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771253244530463864}
+  m_Enabled: 1
+  m_SortingLayerID: -1260985269
+  m_SortingLayer: 1
+  m_SortingOrder: 0
 --- !u!1 &873441159376900034
 GameObject:
   m_ObjectHideFlags: 0
@@ -239,6 +276,7 @@ GameObject:
   - component: {fileID: 9092481986269142953}
   - component: {fileID: 832265745331781854}
   - component: {fileID: 2629185448666002829}
+  - component: {fileID: 314701940471716953}
   m_Layer: 11
   m_Name: WindBrush (1)
   m_TagString: Untagged
@@ -289,6 +327,7 @@ TrailRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -411,6 +450,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delaySecAfterScSho: 0
   moveSec: 0.3
+  pathZ: -401
   pathStr: '540,180
 
     492,96
@@ -430,6 +470,28 @@ MonoBehaviour:
     -84,-480
 
     -180,-240'
+  pathVecs:
+  - {x: 540, y: 180}
+  - {x: 492, y: 96}
+  - {x: 468, y: -60}
+  - {x: 432, y: -132}
+  - {x: 360, y: -216}
+  - {x: 240, y: -264}
+  - {x: 120, y: -288}
+  - {x: 24, y: -360}
+  - {x: -84, y: -480}
+  - {x: -180, y: -240}
+--- !u!210 &314701940471716953
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 873441159376900034}
+  m_Enabled: 1
+  m_SortingLayerID: -1260985269
+  m_SortingLayer: 1
+  m_SortingOrder: 0
 --- !u!1 &3113870350591193420
 GameObject:
   m_ObjectHideFlags: 0
@@ -517,6 +579,7 @@ MonoBehaviour:
   SEGroup: {fileID: 3052081377995588122, guid: 79120cacd6b5fea4f98d2ef99084037e, type: 2}
   BGMGroup: {fileID: -3936053361323068745, guid: 79120cacd6b5fea4f98d2ef99084037e,
     type: 2}
+  <IsSEs>k__BackingField: 1
 --- !u!1 &7750489329463781463
 GameObject:
   m_ObjectHideFlags: 0
@@ -529,6 +592,7 @@ GameObject:
   - component: {fileID: 8260304649310733796}
   - component: {fileID: 1352687086431616924}
   - component: {fileID: 3741537270577000181}
+  - component: {fileID: 3228096468775200226}
   m_Layer: 11
   m_Name: WindBrush
   m_TagString: Untagged
@@ -579,6 +643,7 @@ TrailRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -701,6 +766,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delaySecAfterScSho: 0.5
   moveSec: 0.3
+  pathZ: -401
   pathStr: '528,276
 
     492,216
@@ -728,6 +794,32 @@ MonoBehaviour:
     408,-396
 
     312,-396'
+  pathVecs:
+  - {x: 528, y: 276}
+  - {x: 492, y: 216}
+  - {x: 540, y: 0}
+  - {x: 576, y: -48}
+  - {x: 588, y: 0}
+  - {x: 582, y: 24}
+  - {x: 564, y: 48}
+  - {x: 552, y: 0}
+  - {x: 564, y: -120}
+  - {x: 552, y: -240}
+  - {x: 540, y: -360}
+  - {x: 492, y: -408}
+  - {x: 408, y: -396}
+  - {x: 312, y: -396}
+--- !u!210 &3228096468775200226
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7750489329463781463}
+  m_Enabled: 1
+  m_SortingLayerID: -1260985269
+  m_SortingLayer: 1
+  m_SortingOrder: 0
 --- !u!1 &8038505327422714345
 GameObject:
   m_ObjectHideFlags: 0
@@ -740,6 +832,7 @@ GameObject:
   - component: {fileID: 6779094126367166178}
   - component: {fileID: 7559765220422600836}
   - component: {fileID: 6574841551656826965}
+  - component: {fileID: 1400634970799857516}
   m_Layer: 11
   m_Name: WindBrush (2)
   m_TagString: Untagged
@@ -790,6 +883,7 @@ TrailRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -912,6 +1006,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delaySecAfterScSho: 0.5
   moveSec: 0.3
+  pathZ: -401
   pathStr: '-60,-360
 
     -240,-312
@@ -927,3 +1022,23 @@ MonoBehaviour:
     -360,-408
 
     -840,-414'
+  pathVecs:
+  - {x: -60, y: -360}
+  - {x: -240, y: -312}
+  - {x: -384, y: -312}
+  - {x: -420, y: -324}
+  - {x: -348, y: -348}
+  - {x: -252, y: -396}
+  - {x: -360, y: -408}
+  - {x: -840, y: -414}
+--- !u!210 &1400634970799857516
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8038505327422714345}
+  m_Enabled: 1
+  m_SortingLayerID: -1260985269
+  m_SortingLayer: 1
+  m_SortingOrder: 0

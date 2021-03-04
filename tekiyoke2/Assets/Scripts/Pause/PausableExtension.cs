@@ -28,7 +28,7 @@ public static class PausableExtension
         return disps;
     }
 
-    public static IDisposable StartPausableCoroutine(this MonoBehaviour behav, IEnumerator iter)
+    public static (IDisposable Subscription, IEnumerator Enumerator) StartPausableCoroutine(this MonoBehaviour behav, IEnumerator iter)
     {
         CompositeDisposable disps = new CompositeDisposable();
 
@@ -47,7 +47,7 @@ public static class PausableExtension
             behav.StartCoroutine(wrappingIter);
         }));
 
-        return disps;
+        return (disps, wrappingIter);
     }
 
     static IEnumerator NotifyComplete(this MonoBehaviour behav, IEnumerator wrapped, Action onCompleted)

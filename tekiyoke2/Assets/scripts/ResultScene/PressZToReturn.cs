@@ -17,7 +17,7 @@ public class PressZToReturn : SerializedMonoBehaviour
     void Update()
     {
         if(input.GetButtonDown(ButtonCode.Enter) && canPress){
-            SceneTransition.Start2ChangeScene("StageChoiceScene", SceneTransition.TransitionType.Normal);
+            SceneTransition.StartToChangeScene<NormalTransitionView>("StageChoiceScene");
             cursor.OnPushed();
             GetComponent<SoundGroup>().Play("Put");
         }

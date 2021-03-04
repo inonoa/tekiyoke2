@@ -162,5 +162,12 @@ public class CameraController : MonoBehaviour
         Current = null;
     }
 
+    [Button]
+    void WarpToHero()
+    {
+        var hero = GameObject.Find("Hero");
+        transform.position = hero.transform.position + new Vector3(positionGapWidth, 0, 0) - fromCameraToHero.ToVec3() + new Vector3(0, 0, -500);
+    }
+
     #endregion
 }

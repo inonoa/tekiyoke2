@@ -17,7 +17,7 @@ public class EnemySpawner : MonoBehaviour
     {
         if(spawnedYet) return;
 
-        if(other.CompareTag("CanSeeEnemy"))
+        if(other.CompareTag(Tags.CanSeeEnemy))
         {
             foreach(ISpawnsNearHero enemy in enemies)
             {
