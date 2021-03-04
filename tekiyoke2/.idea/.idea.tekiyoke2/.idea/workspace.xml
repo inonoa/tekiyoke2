@@ -25,11 +25,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c97243fa-09da-4818-b4c1-b9937458f378" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ResultScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/ResultScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResultScene/ResultSceneManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ResultScene/ResultSceneManager.cs" afterDir="false" />
-    </list>
+    <list default="true" id="c97243fa-09da-4818-b4c1-b9937458f378" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -260,13 +256,6 @@
       <workItem from="1614464188727" duration="38794000" />
       <workItem from="1614746284782" duration="18777000" />
       <workItem from="1614834457798" duration="7079000" />
-    </task>
-    <task id="LOCAL-00109" summary="CameraLockingArea.csとプレハブ、当たり判定まで">
-      <created>1613447464516</created>
-      <option name="number" value="00109" />
-      <option name="presentableId" value="LOCAL-00109" />
-      <option name="project" value="LOCAL" />
-      <updated>1613447464516</updated>
     </task>
     <task id="LOCAL-00110" summary="とりあえず動いとる">
       <created>1613454607942</created>
@@ -604,7 +593,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614862314013</updated>
     </task>
-    <option name="localTasksCounter" value="158" />
+    <task id="LOCAL-00158" summary="Draft2をポーズ可能にしたらとりあえず動いてはいる">
+      <created>1614864977660</created>
+      <option name="number" value="00158" />
+      <option name="presentableId" value="LOCAL-00158" />
+      <option name="project" value="LOCAL" />
+      <updated>1614864977661</updated>
+    </task>
+    <option name="localTasksCounter" value="159" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -637,7 +633,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="一寸簡単にした" />
     <MESSAGE value="Koneにアニメーションを付けた、ループさせるためにSimpleAnim改修" />
     <MESSAGE value="Koneスプライト差し替え(本番)" />
     <MESSAGE value="SkyFish差し替え、向きをいい感じにする" />
@@ -662,7 +657,8 @@
     <MESSAGE value="BGM/SEの音量をセーブできるように" />
     <MESSAGE value="タイトル画面でデータロードして音量をセットする(ロードする前になってしまうのはご愛敬)" />
     <MESSAGE value="リザルト画面からランキングにRで遷移できる" />
-    <option name="LAST_COMMIT_MESSAGE" value="リザルト画面からランキングにRで遷移できる" />
+    <MESSAGE value="Draft2をポーズ可能にしたらとりあえず動いてはいる" />
+    <option name="LAST_COMMIT_MESSAGE" value="Draft2をポーズ可能にしたらとりあえず動いてはいる" />
   </component>
   <component name="WindowStateProjectService">
     <state x="3250" y="94" key="CommitChangelistDialog2" timestamp="1613089887778">
