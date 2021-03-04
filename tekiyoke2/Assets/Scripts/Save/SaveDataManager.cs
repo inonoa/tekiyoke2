@@ -23,6 +23,8 @@ public class SaveDataManager : SerializedScriptableObject, IPlayerNameChanger
     public bool                 TutorialFinished => Data.tutorialFinished;
     public IReadOnlyList<bool>  StageCleared     => Data.stageCleared;
     public IReadOnlyList<float> BestTimes        => Data.bestTimes;
+    public float                BGMVolume        => Data.bgmVolume;
+    public float                SEVolume         => Data.seVolume;
     
 
     [SerializeField] IDataSaver saver;
@@ -53,6 +55,18 @@ public class SaveDataManager : SerializedScriptableObject, IPlayerNameChanger
         Save();
 
         return (tmpIsFirst, tmpBestTime);
+    }
+
+    public void SetBGMVolume(float volume)
+    {
+        Data.bgmVolume = volume;
+        Save();
+    }
+
+    public void SetSEVolume(float volume)
+    {
+        Data.seVolume = volume;
+        Save();
     }
 
     void Init()
