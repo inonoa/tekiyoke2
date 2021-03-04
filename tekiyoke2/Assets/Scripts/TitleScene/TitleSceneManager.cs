@@ -25,7 +25,6 @@ public class TitleSceneManager : SerializedMonoBehaviour
         
         saveDataManager.Init(() =>
         {
-            print("load");
             soundVolumeChanger.ChangeSEVolume(saveDataManager.SEVolume);
             soundVolumeChanger.ChangeBGMVolume(saveDataManager.BGMVolume);
         });
