@@ -27,8 +27,8 @@
   <component name="ChangeListManager">
     <list default="true" id="c97243fa-09da-4818-b4c1-b9937458f378" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/UIs/Ranking/ranking_category.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/UIs/Ranking/ranking_category.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Draft3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Draft3.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Tutorial.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Tutorial.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,6 +94,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/97/7d5cd036/Ease.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/Strandbeest.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/48/3a11e747/SerializeField.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Prefabs/UI/Ranking/Ranking.prefab" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/8a/df89f217/Path.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/ff/80a8bd20/RuntimeInitializeLoadType.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/Ranking/PlayfabRankingSenderGetter.cs" root0="SKIP_HIGHLIGHTING" />
@@ -104,7 +105,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Strandbeest.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SceneTransition/WindPath.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SceneTransition/HeroDiedTransitionView.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SceneTransition/WindAndBlur.cs" />
@@ -149,12 +149,13 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Logins/PlayFabLoginCore.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Save/PlayFabSaver.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Logins/PlayFabLoginManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Ranking/RankingView.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ranking/RankingScrollViewController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Logins/DebugLogin.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ranking/PlayfabRankingSenderGetter.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ResultScene/ResultSceneManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Logins/GenerateIDLogin.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Utils/ImagesForDrafts.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Ranking/RankingView.cs" />
       </list>
     </option>
   </component>
@@ -266,13 +267,6 @@
       <workItem from="1614464188727" duration="38794000" />
       <workItem from="1614746284782" duration="18777000" />
       <workItem from="1614834457798" duration="7079000" />
-    </task>
-    <task id="LOCAL-00115" summary="霧の出る領域">
-      <created>1613916630315</created>
-      <option name="number" value="00115" />
-      <option name="presentableId" value="LOCAL-00115" />
-      <option name="project" value="LOCAL" />
-      <updated>1613916630315</updated>
     </task>
     <task id="LOCAL-00116" summary="主人公の移動じゃなくてカメラの移動に追従するべきだった&#10;暗幕より手前に来てた">
       <created>1614021943617</created>
@@ -610,7 +604,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615034597072</updated>
     </task>
-    <option name="localTasksCounter" value="164" />
+    <task id="LOCAL-00164" summary="ランキング画面のカテゴリの画像全部入れて変わるようにした">
+      <created>1615042129847</created>
+      <option name="number" value="00164" />
+      <option name="presentableId" value="LOCAL-00164" />
+      <option name="project" value="LOCAL" />
+      <updated>1615042129847</updated>
+    </task>
+    <option name="localTasksCounter" value="165" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -643,7 +644,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="前シーンのスクショがリザルト画面に表示されてなかったの直した(Transform.Findを使うと難しくなる例だった)" />
     <MESSAGE value="SceneTransitionの個々の遷移の仕方をクラスに逃がすためにまず一つ逃がした" />
     <MESSAGE value="WindAndBlurを逃した" />
     <MESSAGE value="WhiteOutも逃した" />
@@ -668,7 +668,8 @@
     <MESSAGE value="ログ消したり見やすくしたり" />
     <MESSAGE value="IDランダム生成するタイプのログイン" />
     <MESSAGE value="PlayFabのLeaderboardsが降順にしかならないので数字ひっくり返して送る&#10;スコア送ってから反映されるまでラグがあるので少し待つ" />
-    <option name="LAST_COMMIT_MESSAGE" value="PlayFabのLeaderboardsが降順にしかならないので数字ひっくり返して送る&#10;スコア送ってから反映されるまでラグがあるので少し待つ" />
+    <MESSAGE value="ランキング画面のカテゴリの画像全部入れて変わるようにした" />
+    <option name="LAST_COMMIT_MESSAGE" value="ランキング画面のカテゴリの画像全部入れて変わるようにした" />
   </component>
   <component name="WindowStateProjectService">
     <state x="3250" y="94" key="CommitChangelistDialog2" timestamp="1613089887778">
