@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0150de89917680f43a54140d232aa261, type: 3}
-  m_Name: PlayFab Saver
+  m_Script: {fileID: 11500000, guid: 2b0cbd27c8174793a304d7902ffb358c, type: 3}
+  m_Name: PlayFabLoginManager
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -20,5 +20,10 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
-  login: {fileID: 11400000, guid: d916d052fa1036f4b8703cabf5c6315e, type: 2}
+    SerializationNodes:
+    - Name: login
+      Entry: 7
+      Data: 0|DebugLogin, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 

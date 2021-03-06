@@ -5,19 +5,22 @@ using System.Linq;
 using PlayFab;
 using UnityEngine;
 using PlayFab.ClientModels;
+using Sirenix.OdinInspector;
 
 [CreateAssetMenu(fileName = "PlayFab Saver", menuName = "Scriptable Object/PlayFabSaver")]
-public class PlayFabSaver : ScriptableObject, IDataSaver
+public class PlayFabSaver : SerializedScriptableObject, IDataSaver
 {
+    [SerializeField] PlayFabLoginManager login;
+    
     public void Save(SaveData data)
     {
-        if (PlayFabClientAPI.IsClientLoggedIn())
+        if (login.IsLoggedIn())
         {
             Save_(data);
         }
         else
         {
-            Login(result => Save_(data));
+            login.Login(() => Save_(data), error => Debug.Log(error.GenerateErrorReport()));
         }
 
         void Save_(SaveData data_)
@@ -48,13 +51,13 @@ public class PlayFabSaver : ScriptableObject, IDataSaver
 
     public void Load(Action<SaveData> dataCallback)
     {
-        if (PlayFabClientAPI.IsClientLoggedIn())
+        if (login.IsLoggedIn())
         {
             Load_(dataCallback);
         }
         else
         {
-            Login(result => Load_(dataCallback));
+            login.Login(() => Load_(dataCallback), error => Debug.Log(error.GenerateErrorReport()));
         }
         
         void Load_(Action<SaveData> dataCallback_)
@@ -75,19 +78,5 @@ public class PlayFabSaver : ScriptableObject, IDataSaver
                 error  => {}
             );
         }
-    }
-
-    void Login(Action<LoginResult> resultCallback, Action<PlayFabError> errorCallback = null)
-    {
-        var request = new LoginWithCustomIDRequest()
-        {
-            CustomId = SystemInfo.deviceUniqueIdentifier
-        };
-        PlayFabClientAPI.LoginWithCustomID
-        (
-            request,
-            resultCallback,
-            errorCallback
-        );
     }
 }

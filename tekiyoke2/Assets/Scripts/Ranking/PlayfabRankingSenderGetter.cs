@@ -11,8 +11,16 @@ namespace Ranking
 {
     public class PlayfabRankingSenderGetter : MonoBehaviour, IRankingSenderGetter
     {
+        [SerializeField] PlayFabLoginManager loginManager;
+        
         public void SendRanking(RankKind kind, float time, Action onSent)
         {
+            if (!loginManager.IsLoggedIn())
+            {
+                loginManager.Login(() => SendRanking(kind, time, onSent), error => print(error.GenerateErrorReport()));
+                return;
+            }
+            
             int milliseconds = (int) (time * 1000);
             List<StatisticUpdate> stats = new List<StatisticUpdate>();
             stats.Add(new StatisticUpdate {StatisticName = kind.ToString(), Value = milliseconds});
@@ -30,6 +38,12 @@ namespace Ranking
 
         public void GetRanking(RankKind kind, Action<RankData> onGot)
         {
+            if (!loginManager.IsLoggedIn())
+            {
+                loginManager.Login(() => GetRanking(kind, onGot), error => print(error.GenerateErrorReport()));
+                return;
+            }
+            
             StartCoroutine(GetRankingCor(kind, onGot));
         }
 

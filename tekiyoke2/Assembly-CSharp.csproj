@@ -137,6 +137,7 @@
      <Compile Include="Assets\Scripts\Enemies\EnemyStatic.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\States\HeroState.cs" />
      <Compile Include="Assets\Scripts\SceneTransition\Transitions\WhiteOutTransitionView.cs" />
+     <Compile Include="Assets\Scripts\MapObjs\DPCDCounter.cs" />
      <Compile Include="Assets\Scripts\MainManagers\MemoryOverDeath.cs" />
      <Compile Include="Assets\Scripts\ResultScene\NumberSpritesHolder.cs" />
      <Compile Include="Assets\Scripts\Utils\TransformExtensions.cs" />
@@ -238,7 +239,9 @@
      <Compile Include="Assets\Scripts\ScoreHolder.cs" />
      <Compile Include="Assets\Scripts\SceneTransition\Transitions\DefaultTransitionView.cs" />
      <Compile Include="Assets\Scripts\Config\ConfigManager.cs" />
-     <Compile Include="Assets\Scripts\MapObjs\DPCDCounter.cs" />
+     <Compile Include="Assets\Scripts\Logins\DebugLogin.cs" />
+     <Compile Include="Assets\Scripts\Logins\IPlayFabLogin.cs" />
+     <Compile Include="Assets\Scripts\Logins\PlayFabLoginManager.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\Materials\PostEffects\BlurEdge2.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
