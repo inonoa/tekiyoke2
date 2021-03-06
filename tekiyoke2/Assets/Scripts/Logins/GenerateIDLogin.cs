@@ -10,38 +10,59 @@ using Random = UnityEngine.Random;
 [Serializable]
 public class GenerateIDLogin : IPlayFabLogin
 {
-    public void Login(Action onSuccess, Action<PlayFabError> onError)
-    {
-        string id = LoadOrGenerateID();
-        
-        PlayFabClientAPI.LoginWithCustomID
-        (
-            new LoginWithCustomIDRequest()
-            {
-                CustomId = id,
-                CreateAccount = true
-            },
-            _ => onSuccess?.Invoke(),
-            onError
-        );
-    }
-    
     const string Key = "PlayFabLoginID";
-    string LoadOrGenerateID()
+    
+    public void Login(Action onSuccess, Action<PlayFabError> onError)
     {
         var idIfExisting = PlayerPrefs.GetString(Key);
 
         if (string.IsNullOrEmpty(idIfExisting))
         {
-            string generated = GenerateRandomString();
-            Debug.Log(generated);
-            PlayerPrefs.SetString(Key, generated);
-            return generated;
+            CreateAccountLogin(onSuccess, onError);
         }
         else
         {
-            return idIfExisting;
+            LoginWithExistingID(idIfExisting, onSuccess, onError);
         }
+    }
+
+    void CreateAccountLogin(Action onSuccess, Action<PlayFabError> onError)
+    {
+        var req = new LoginWithCustomIDRequest()
+        {
+            CustomId = GenerateRandomString(),
+            CreateAccount = true
+        };
+        PlayFabClientAPI.LoginWithCustomID
+        (
+            req,
+            result =>
+            {
+                if (!result.NewlyCreated)
+                {
+                    CreateAccountLogin(onSuccess, onError);
+                    return;
+                }
+                PlayerPrefs.SetString(Key, req.CustomId);
+                onSuccess?.Invoke();
+            },
+            onError
+        );
+    }
+
+    void LoginWithExistingID(string id, Action onSuccess, Action<PlayFabError> onError)
+    {
+        var req = new LoginWithCustomIDRequest()
+        {
+            CustomId = id,
+            CreateAccount = false
+        };
+        PlayFabClientAPI.LoginWithCustomID
+        (
+            req,
+            _ => onSuccess?.Invoke(),
+            onError
+        );
     }
 
     static string GenerateRandomString()
