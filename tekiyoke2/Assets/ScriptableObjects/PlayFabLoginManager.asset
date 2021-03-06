@@ -23,7 +23,7 @@ MonoBehaviour:
     SerializationNodes:
     - Name: login
       Entry: 7
-      Data: 0|DebugLogin, Assembly-CSharp
+      Data: 0|GenerateIDLogin, Assembly-CSharp
     - Name: 
       Entry: 8
       Data: 

@@ -6,6 +6,7 @@ using PlayFab;
 using ResultScene;
 using UnityEngine;
 using PlayFab.ClientModels;
+using Sirenix.OdinInspector;
 
 namespace Ranking
 {
@@ -21,9 +22,9 @@ namespace Ranking
                 return;
             }
             
-            int milliseconds = (int) (time * 1000);
+            int score = TimeToNumberForPlayFab(time);
             List<StatisticUpdate> stats = new List<StatisticUpdate>();
-            stats.Add(new StatisticUpdate {StatisticName = kind.ToString(), Value = milliseconds});
+            stats.Add(new StatisticUpdate {StatisticName = kind.ToString(), Value = score});
             var request = new UpdatePlayerStatisticsRequest
             {
                 Statistics = stats
@@ -81,12 +82,26 @@ namespace Ranking
             (
                 kind,
                 top100
-                    .Select(entry => new RankDatum(entry.DisplayName, entry.Position + 1, entry.StatValue / (float)1000))
+                    .Select(entry => new RankDatum(entry.DisplayName, entry.Position + 1, NumberToTimeFloat(entry.StatValue)))
                     .ToArray(),
                 aroundPlayer100
-                    .Select(entry => new RankDatum(entry.DisplayName, entry.Position + 1, entry.StatValue / (float)1000))
+                    .Select(entry => new RankDatum(entry.DisplayName, entry.Position + 1, NumberToTimeFloat(entry.StatValue)))
                     .ToArray()
             ));
+        }
+        
+        const int TimeMax = Int32.MaxValue;
+        
+        [Button]
+        static int TimeToNumberForPlayFab(float time)
+        {
+            return TimeMax - (int) (time * 1000);
+        }
+
+        [Button]
+        static float NumberToTimeFloat(int numFromPlayFab)
+        {
+            return (TimeMax - numFromPlayFab) / 1000f;
         }
     }
 }
