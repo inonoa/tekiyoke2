@@ -22,6 +22,11 @@ namespace Ranking
         [Space(10)]
         [SerializeField] CanvasGroup leftGroup;
         [SerializeField] ExitButton exitButton;
+        [SerializeField] Image categoryImage;
+        [SerializeField] Sprite draft1;
+        [SerializeField] Sprite draft2;
+        [SerializeField] Sprite draft3;
+        [SerializeField] Sprite allDrafts;
         [Space(10)]
         [SerializeField] float enterDuration = 0.5f;
         [SerializeField] float exitDuration = 0.5f;
@@ -44,6 +49,21 @@ namespace Ranking
             if(!initialized) Init();
             
             shownKind.Value = kind;
+            switch (kind)
+            {
+                case RankKind.Draft1:
+                    categoryImage.sprite = draft1;
+                    break;
+                case RankKind.Draft2:
+                    categoryImage.sprite = draft2;
+                    break;
+                case RankKind.Draft3:
+                    categoryImage.sprite = draft3;
+                    break;
+                case RankKind.AllDrafts:
+                    categoryImage.sprite = allDrafts;
+                    break;
+            }
             gameObject.SetActive(true);
             focusManager.OnEnter();
             
