@@ -26,9 +26,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c97243fa-09da-4818-b4c1-b9937458f378" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Logins/GenerateIDLogin.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Logins/GenerateIDLogin.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Ranking/RankingScrollViewController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Ranking/RankingScrollViewController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Ranking/RankingView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Ranking/RankingView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Logins/DebugLogin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Logins/DebugLogin.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +103,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Utils/SimpleAnim.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Strandbeest.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SceneTransition/WindPath.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SceneTransition/HeroDiedTransitionView.cs" />
@@ -145,12 +147,13 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/ResultScene/ResultSceneManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Logins/IPlayFabLogin.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Logins/PlayFabLoginCore.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Logins/DebugLogin.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Save/PlayFabSaver.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Logins/PlayFabLoginManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ranking/PlayfabRankingSenderGetter.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ranking/RankingView.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ranking/RankingScrollViewController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Logins/DebugLogin.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Logins/GenerateIDLogin.cs" />
       </list>
     </option>
   </component>
@@ -262,13 +265,6 @@
       <workItem from="1614464188727" duration="38794000" />
       <workItem from="1614746284782" duration="18777000" />
       <workItem from="1614834457798" duration="7079000" />
-    </task>
-    <task id="LOCAL-00112" summary="複数置いてみたらEnterよりExitの方が後に呼ばれるのかつらいことになったので修正">
-      <created>1613837450334</created>
-      <option name="number" value="00112" />
-      <option name="presentableId" value="LOCAL-00112" />
-      <option name="project" value="LOCAL" />
-      <updated>1613837450334</updated>
     </task>
     <task id="LOCAL-00113" summary="前面の霧シェーダーとそれをいい感じにコントロールする奴">
       <created>1613911174489</created>
@@ -606,7 +602,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615025533778</updated>
     </task>
-    <option name="localTasksCounter" value="161" />
+    <task id="LOCAL-00161" summary="ログ消したり見やすくしたり">
+      <created>1615026409657</created>
+      <option name="number" value="00161" />
+      <option name="presentableId" value="LOCAL-00161" />
+      <option name="project" value="LOCAL" />
+      <updated>1615026409657</updated>
+    </task>
+    <option name="localTasksCounter" value="162" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -639,7 +642,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="SkyFish差し替え、向きをいい感じにする" />
     <MESSAGE value="SkyFish置きまくった" />
     <MESSAGE value="ゴール時の謎模様が途切れてた" />
     <MESSAGE value="前シーンのスクショがリザルト画面に表示されてなかったの直した(Transform.Findを使うと難しくなる例だった)" />
@@ -664,7 +666,8 @@
     <MESSAGE value="Draft2をポーズ可能にしたらとりあえず動いてはいる" />
     <MESSAGE value="写真撮った" />
     <MESSAGE value="ログインがいろいろあるなと思ってとりあえず差し替え可能にしたらランキング表示がうまくいってなくてログインとは全く関係ない修正も入っちゃったね…………" />
-    <option name="LAST_COMMIT_MESSAGE" value="ログインがいろいろあるなと思ってとりあえず差し替え可能にしたらランキング表示がうまくいってなくてログインとは全く関係ない修正も入っちゃったね…………" />
+    <MESSAGE value="ログ消したり見やすくしたり" />
+    <option name="LAST_COMMIT_MESSAGE" value="ログ消したり見やすくしたり" />
   </component>
   <component name="WindowStateProjectService">
     <state x="3250" y="94" key="CommitChangelistDialog2" timestamp="1613089887778">

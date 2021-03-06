@@ -11,7 +11,8 @@ public class DebugLogin : IPlayFabLogin
     {
         var request = new LoginWithCustomIDRequest()
         {
-            CustomId = SystemInfo.deviceUniqueIdentifier
+            CustomId = SystemInfo.deviceUniqueIdentifier,
+            CreateAccount = true
         };
         PlayFabClientAPI.LoginWithCustomID
         (

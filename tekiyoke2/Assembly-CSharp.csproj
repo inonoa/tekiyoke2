@@ -242,6 +242,7 @@
      <Compile Include="Assets\Scripts\Logins\DebugLogin.cs" />
      <Compile Include="Assets\Scripts\Logins\IPlayFabLogin.cs" />
      <Compile Include="Assets\Scripts\Logins\PlayFabLoginManager.cs" />
+     <Compile Include="Assets\Scripts\Logins\GenerateIDLogin.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\Materials\PostEffects\BlurEdge2.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
