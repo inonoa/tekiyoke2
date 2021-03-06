@@ -43,11 +43,14 @@ namespace ResultScene
                 playData.Time,
                 () =>
                 {
-                    rankingSenderGetter.GetRanking
-                    (
-                        rankKind,
-                        data => rankView.SetData(data)
-                    );
+                    DOVirtual.DelayedCall(2f, () =>
+                    {
+                        rankingSenderGetter.GetRanking
+                        (
+                            rankKind,
+                            data => rankView.SetData(data)
+                        );
+                    });
                 }
             );
 

@@ -25,12 +25,16 @@ public class RankingScrollViewController : SerializedMonoBehaviour
 
     public void Init(IObservable<IReadOnlyList<RankDatum>> datums)
     {
-        datums.Subscribe(CreateNodes);
+        datums.Subscribe(dt =>
+        {
+            ClearNodes();
+            CreateNodes(dt);
+        });
     }
 
     public void OnExit()
     {
-        ClearNodes();
+        //
     }
 
     Tween blink;

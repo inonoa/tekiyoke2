@@ -859,6 +859,12 @@
             <e p="NormalInput.cs" t="Include" />
           </e>
           <e p="IReusable.cs" t="Include" />
+          <e p="Logins" t="Include">
+            <e p="DebugLogin.cs" t="Include" />
+            <e p="GenerateIDLogin.cs" t="Include" />
+            <e p="IPlayFabLogIn.cs" t="Include" />
+            <e p="PlayFabLoginManager.cs" t="Include" />
+          </e>
           <e p="MainManagers" t="Include">
             <e p="BGMover.cs" t="Include" />
             <e p="Camera" t="Include">

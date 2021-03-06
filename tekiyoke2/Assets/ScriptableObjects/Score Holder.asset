@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Score Holder
   m_EditorClassIdentifier: 
   data:
-    <Stage>k__BackingField: 0
-    <Time>k__BackingField: 5
+    <Stage>k__BackingField: 1
+    <Time>k__BackingField: 0.99

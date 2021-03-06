@@ -95,13 +95,19 @@ namespace Ranking
 
             var shownDataChanged = rankDatas
                 .ObserveReplace()
-                .Where(replace => replace.Index == (int) shownKind.Value)
                 .CombineLatest(shownKind, (replace, shown) => rankDatas[(int)shown]);
-            
-            top100Controller
-                .Init(shownDataChanged.Select(data => data.Top100));
-            aroundPlayerController
-                .Init(shownDataChanged.Select(data => data.AroundPlayer100));
+
+            var shownTop100Changed = shownDataChanged
+                .DistinctUntilChanged()
+                .Where(data => data != null)
+                .Select(data => data.Top100);
+            var shownAroundYouChanged = shownDataChanged
+                .DistinctUntilChanged()
+                .Where(data => data != null)
+                .Select(data => data.AroundPlayer100);
+
+            top100Controller.Init(shownTop100Changed);
+            aroundPlayerController.Init(shownAroundYouChanged);
         }
     }
 }

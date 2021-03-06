@@ -6,16 +6,25 @@ using PlayFab;
 using ResultScene;
 using UnityEngine;
 using PlayFab.ClientModels;
+using Sirenix.OdinInspector;
 
 namespace Ranking
 {
     public class PlayfabRankingSenderGetter : MonoBehaviour, IRankingSenderGetter
     {
+        [SerializeField] PlayFabLoginManager loginManager;
+        
         public void SendRanking(RankKind kind, float time, Action onSent)
         {
-            int milliseconds = (int) (time * 1000);
+            if (!loginManager.IsLoggedIn())
+            {
+                loginManager.Login(() => SendRanking(kind, time, onSent), error => print(error.GenerateErrorReport()));
+                return;
+            }
+            
+            int score = TimeToNumberForPlayFab(time);
             List<StatisticUpdate> stats = new List<StatisticUpdate>();
-            stats.Add(new StatisticUpdate {StatisticName = kind.ToString(), Value = milliseconds});
+            stats.Add(new StatisticUpdate {StatisticName = kind.ToString(), Value = score});
             var request = new UpdatePlayerStatisticsRequest
             {
                 Statistics = stats
@@ -30,6 +39,12 @@ namespace Ranking
 
         public void GetRanking(RankKind kind, Action<RankData> onGot)
         {
+            if (!loginManager.IsLoggedIn())
+            {
+                loginManager.Login(() => GetRanking(kind, onGot), error => print(error.GenerateErrorReport()));
+                return;
+            }
+            
             StartCoroutine(GetRankingCor(kind, onGot));
         }
 
@@ -67,12 +82,26 @@ namespace Ranking
             (
                 kind,
                 top100
-                    .Select(entry => new RankDatum(entry.DisplayName, entry.Position + 1, entry.StatValue / (float)1000))
+                    .Select(entry => new RankDatum(entry.DisplayName, entry.Position + 1, NumberToTimeFloat(entry.StatValue)))
                     .ToArray(),
                 aroundPlayer100
-                    .Select(entry => new RankDatum(entry.DisplayName, entry.Position + 1, entry.StatValue / (float)1000))
+                    .Select(entry => new RankDatum(entry.DisplayName, entry.Position + 1, NumberToTimeFloat(entry.StatValue)))
                     .ToArray()
             ));
+        }
+        
+        const int TimeMax = Int32.MaxValue;
+        
+        [Button]
+        static int TimeToNumberForPlayFab(float time)
+        {
+            return TimeMax - (int) (time * 1000);
+        }
+
+        [Button]
+        static float NumberToTimeFloat(int numFromPlayFab)
+        {
+            return (TimeMax - numFromPlayFab) / 1000f;
         }
     }
 }
