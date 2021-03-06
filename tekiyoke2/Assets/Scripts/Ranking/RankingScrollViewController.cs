@@ -67,8 +67,6 @@ public class RankingScrollViewController : SerializedMonoBehaviour
     List<RankNodeView> nodes;
     void CreateNodes(IReadOnlyList<RankDatum> datums)
     {
-        print(datums);
-        
         if(datums == null) return;
         
         nodes = new List<RankNodeView>();

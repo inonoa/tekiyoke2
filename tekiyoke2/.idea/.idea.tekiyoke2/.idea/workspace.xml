@@ -26,26 +26,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c97243fa-09da-4818-b4c1-b9937458f378" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Logins.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Logins/DebugLogin.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Logins/DebugLogin.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Logins/IPlayFabLogin.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Logins/IPlayFabLogin.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Logins/PlayFabLoginManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Logins/PlayFabLoginManager.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/FrontFog.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/FrontFog.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/PostEffects/Noise.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/PostEffects/Noise.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/UI/DPGauge.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/UI/DPGauge.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/Ranking/PlayFabRankingSenderGetter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/Ranking/PlayFabRankingSenderGetter.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ResultScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/ResultScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Save/PlayFab Saver.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Save/PlayFab Saver.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Ranking/PlayfabRankingSenderGetter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Ranking/PlayfabRankingSenderGetter.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Ranking/RankingScrollViewController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Ranking/RankingScrollViewController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Ranking/RankingView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Ranking/RankingView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Save/PlayFabSaver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Save/PlayFabSaver.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,6 +95,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/DPinEnemy.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0C9D4FCF-D613-4956-86FC-3555A6D54354/b9/150c570d/ReadOnlyAttribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/d7/407bc7a7/SpriteRenderer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Unity/Hub/Editor/2020.1.17f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/StencilMaterial.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -278,13 +262,6 @@
       <workItem from="1614464188727" duration="38794000" />
       <workItem from="1614746284782" duration="18777000" />
       <workItem from="1614834457798" duration="7079000" />
-    </task>
-    <task id="LOCAL-00111" summary="カメラではなく主人公との衝突でカメラを固定する、ワープ時のカメラのFreeze時間を調整可能に">
-      <created>1613836010846</created>
-      <option name="number" value="00111" />
-      <option name="presentableId" value="LOCAL-00111" />
-      <option name="project" value="LOCAL" />
-      <updated>1613836010846</updated>
     </task>
     <task id="LOCAL-00112" summary="複数置いてみたらEnterよりExitの方が後に呼ばれるのかつらいことになったので修正">
       <created>1613837450334</created>
@@ -622,7 +599,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615011753123</updated>
     </task>
-    <option name="localTasksCounter" value="160" />
+    <task id="LOCAL-00160" summary="ログインがいろいろあるなと思ってとりあえず差し替え可能にしたらランキング表示がうまくいってなくてログインとは全く関係ない修正も入っちゃったね…………">
+      <created>1615025533778</created>
+      <option name="number" value="00160" />
+      <option name="presentableId" value="LOCAL-00160" />
+      <option name="project" value="LOCAL" />
+      <updated>1615025533778</updated>
+    </task>
+    <option name="localTasksCounter" value="161" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -655,7 +639,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Koneスプライト差し替え(本番)" />
     <MESSAGE value="SkyFish差し替え、向きをいい感じにする" />
     <MESSAGE value="SkyFish置きまくった" />
     <MESSAGE value="ゴール時の謎模様が途切れてた" />
@@ -680,7 +663,8 @@
     <MESSAGE value="リザルト画面からランキングにRで遷移できる" />
     <MESSAGE value="Draft2をポーズ可能にしたらとりあえず動いてはいる" />
     <MESSAGE value="写真撮った" />
-    <option name="LAST_COMMIT_MESSAGE" value="写真撮った" />
+    <MESSAGE value="ログインがいろいろあるなと思ってとりあえず差し替え可能にしたらランキング表示がうまくいってなくてログインとは全く関係ない修正も入っちゃったね…………" />
+    <option name="LAST_COMMIT_MESSAGE" value="ログインがいろいろあるなと思ってとりあえず差し替え可能にしたらランキング表示がうまくいってなくてログインとは全く関係ない修正も入っちゃったね…………" />
   </component>
   <component name="WindowStateProjectService">
     <state x="3250" y="94" key="CommitChangelistDialog2" timestamp="1613089887778">

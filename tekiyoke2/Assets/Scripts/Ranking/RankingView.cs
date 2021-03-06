@@ -97,16 +97,17 @@ namespace Ranking
                 .ObserveReplace()
                 .CombineLatest(shownKind, (replace, shown) => rankDatas[(int)shown]);
 
-            shownDataChanged.Subscribe(data =>
-            {
-                if (data is null) print("null");
-                else              print(string.Join(",", data.Top100));
-            });
-            
-            top100Controller
-                .Init(shownDataChanged.DistinctUntilChanged().Where(data => data != null).Select(data => data.Top100));
-            aroundPlayerController
-                .Init(shownDataChanged.DistinctUntilChanged().Where(data => data != null).Select(data => data.AroundPlayer100));
+            var shownTop100Changed = shownDataChanged
+                .DistinctUntilChanged()
+                .Where(data => data != null)
+                .Select(data => data.Top100);
+            var shownAroundYouChanged = shownDataChanged
+                .DistinctUntilChanged()
+                .Where(data => data != null)
+                .Select(data => data.AroundPlayer100);
+
+            top100Controller.Init(shownTop100Changed);
+            aroundPlayerController.Init(shownAroundYouChanged);
         }
     }
 }
