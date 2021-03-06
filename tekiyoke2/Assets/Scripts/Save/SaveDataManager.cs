@@ -21,11 +21,12 @@ public class SaveDataManager : SerializedScriptableObject, IPlayerNameChanger
         }
     }
 
-    public string               PlayerName       => Data.playerName;
-    public bool                 TutorialFinished => Data.tutorialFinished;
-    public IReadOnlyList<bool>  StageCleared     => Data.stageCleared;
-    public IReadOnlyList<float> BestTimes        => Data.bestTimes;
-    public float                BGMVolume        => Data.bgmVolume;
+    public string               PlayerName           => Data.playerName;
+    public bool                 TutorialFinished     => Data.tutorialFinished;
+    public IReadOnlyList<bool>  StageCleared         => Data.stageCleared;
+    public bool                 StageIsBeingUnlocked => Data.stageBeingUnlocked;
+    public IReadOnlyList<float> BestTimes            => Data.bestTimes;
+    public float                BGMVolume            => Data.bgmVolume;
     public float                SEVolume         => Data.seVolume;
     
 
@@ -59,6 +60,12 @@ public class SaveDataManager : SerializedScriptableObject, IPlayerNameChanger
         return (tmpIsFirst, tmpBestTime);
     }
 
+    public void SetStageBeingUnlocked(bool value)
+    {
+        Data.stageBeingUnlocked = value;
+        Save();
+    }
+    
     public void SetBGMVolume(float volume)
     {
         Data.bgmVolume = volume;

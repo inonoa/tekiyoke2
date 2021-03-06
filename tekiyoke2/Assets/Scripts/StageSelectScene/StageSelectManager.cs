@@ -9,6 +9,7 @@ public class StageSelectManager : SerializedMonoBehaviour
     [SerializeField] IStageSelectView view;
     [SerializeField] ConfigManager configManager;
     [SerializeField] RankingsSelectManager rankingsSelectManager;
+    [SerializeField] SaveDataManager saveDataManager;
 
     void Start()
     {
@@ -21,6 +22,12 @@ public class StageSelectManager : SerializedMonoBehaviour
 
         configManager.OnExit.Subscribe(_ => view.Enter());
         rankingsSelectManager.OnExit.Subscribe(_ => view.Enter());
+
+        if (saveDataManager.StageIsBeingUnlocked)
+        {
+            print("unlock stage!");
+            saveDataManager.SetStageBeingUnlocked(false);
+        }
         
         view.Enter();
     }

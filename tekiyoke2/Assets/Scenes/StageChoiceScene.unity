@@ -1758,6 +1758,7 @@ MonoBehaviour:
       Data: 0
   configManager: {fileID: 1847597933}
   rankingsSelectManager: {fileID: 940943217}
+  saveDataManager: {fileID: 11400000, guid: 7bf337bff8d2aa1478bacb0d045a6fcc, type: 2}
 --- !u!225 &1385504748
 CanvasGroup:
   m_ObjectHideFlags: 0

@@ -28,6 +28,11 @@ namespace ResultScene
             scoreToText.Init(playData.Stage, playData.Time, isFirstPlay, lastBestTime);
             RankKind rankKind = RankKindUtil.ToKind(playData.Stage);
 
+            if (isFirstPlay && (playData.Stage == 0 || playData.Stage == 1))
+            {
+                saveDataManager.SetStageBeingUnlocked(true);
+            }
+
             if (saveDataManager.StageCleared.All(cleared => cleared))
             {
                 rankingSenderGetter.SendRanking
