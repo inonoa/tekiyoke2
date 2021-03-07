@@ -46,16 +46,16 @@ public class FocusNode : SerializedMonoBehaviour
     }
 
     [field: SerializeField, LabelText(nameof(Left))]
-    public FocusNode Left { get; private set; }
+    public FocusNode Left { get; set; }
     
     [field: SerializeField, LabelText(nameof(Right))]
-    public FocusNode Right { get; private set; }
+    public FocusNode Right { get; set; }
     
     [field: SerializeField, LabelText(nameof(Up))]
-    public FocusNode Up { get; private set; }
+    public FocusNode Up { get; set; }
     
     [field: SerializeField, LabelText(nameof(Down))]
-    public FocusNode Down { get; private set; }
+    public FocusNode Down { get; set; }
 }
 
 public interface IFocusManager

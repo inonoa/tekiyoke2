@@ -118,15 +118,59 @@ public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
         focusManager.OnExit();
     }
 
-    public void Enter()
+    public void Enter(IReadOnlyList<bool> draftsSelectable, bool unlocking)
     {
         gameObject.SetActive(true);
         focusManager.OnEnter();
         goToConfig.gameObject.SetActive(true);
         goToRankings.gameObject.SetActive(true);
         
+        ApplySelectableDrafts(draftsSelectable);
+
+        if (unlocking)
+        {
+            if (!draftsSelectable[2])
+            {
+                if (draftsSelectable[1])
+                {
+                    print("Draft 2の解放演出");
+                }
+                else
+                {
+                    print("実際には通らない");
+                }
+            }
+            else
+            {
+                print("Draft 3の解放演出");
+            }
+        }
+        
         FadeIn();
         focusManager.OnEnter();
+    }
+
+    void ApplySelectableDrafts(IReadOnlyList<bool> draftsSelectable)
+    {
+        if (!draftsSelectable[1])
+        {
+            print("本来こうはならないけど開発中はなる");
+            
+            draft2.gameObject.SetActive(false);
+            draft3.gameObject.SetActive(false);
+
+            draft1.Down     = goToRankings;
+            goToRankings.Up = draft1;
+            goToConfig.Up   = draft1;
+        }
+        else if (!draftsSelectable[2])
+        {
+            draft3.gameObject.SetActive(false);
+
+            draft2.Down     = goToRankings;
+            goToRankings.Up = draft2;
+            goToConfig.Up   = draft2;
+        }
     }
 
     void FadeIn()

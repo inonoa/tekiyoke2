@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
 using Ranking;
@@ -23,13 +24,15 @@ public class RankingsSelectManager : SerializedMonoBehaviour
     [SerializeField] IRankView rankView;
     [SerializeField] IRankingSenderGetter rankingSenderGetter;
 
-    public void Enter()
+    public void Enter(IReadOnlyList<bool> draftsSelectable)
     {
         gameObject.SetActive(true);
         var canvasGroup = GetComponent<CanvasGroup>();
         canvasGroup.alpha = 0;
         transform.SetLocalX(100);
         waku.FadeOut(0, Ease.Linear);
+        
+        ApplySelectableDrafts(draftsSelectable);
 
         float dur = 0.4f;
         canvasGroup.DOFade(1, dur).SetEase(Ease.OutCubic);
@@ -40,6 +43,31 @@ public class RankingsSelectManager : SerializedMonoBehaviour
             waku.Start_();
             waku.FadeIn(0.4f, Ease.Linear);
         });
+    }
+
+    void ApplySelectableDrafts(IReadOnlyList<bool> draftsSelectable)
+    {
+        if (!draftsSelectable[1])
+        {
+            draft2.gameObject.SetActive(false);
+            draft3.gameObject.SetActive(false);
+            allDrafts.gameObject.SetActive(false);
+
+            draft1.Down = exit;
+            draft1.Left = exit;
+            exit.Up     = draft1;
+            exit.Right  = draft1;
+        }
+        else if (!draftsSelectable[2])
+        {
+            draft3.gameObject.SetActive(false);
+            allDrafts.gameObject.SetActive(false);
+
+            draft2.Down = exit;
+            draft2.Left = exit;
+            exit.Up     = draft2;
+            exit.Right  = draft2;
+        }
     }
 
     public IObservable<Unit> OnExit => _OnExit;

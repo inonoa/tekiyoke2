@@ -12,7 +12,9 @@ public class SaveData : ScriptableObject
     public bool[]  stageCleared       = new bool[3];
     public bool    stageBeingUnlocked = false;
     public float[] bestTimes          = new float[3];
+    [Range(0, 1)]
     public float   bgmVolume          = 0;
+    [Range(0, 1)]
     public float   seVolume           = 0;
 
     public Dictionary<string, string> ToDictionary()
