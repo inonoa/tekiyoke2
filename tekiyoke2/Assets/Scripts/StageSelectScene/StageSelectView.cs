@@ -256,7 +256,7 @@ public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
             .Append(vignette.To(5, 0.8f).SetEase(Ease.OutCubic))
             .Append(mat.To("_Light", 2, 0.4f).SetEase(Ease.OutSine))
             .Join(mat.To("_Contrast", 0, 0.6f).SetEase(Ease.OutSine))
-            .Append(mat.To("_LightAreaThreshold", 1.1f, 1.5f).SetEase(Ease.InOutSine))
+            .Append(mat.To("_LightAreaThreshold", 1.1f, 2.5f).SetEase(Ease.Linear))
             .Append(vignette.To(-2, 0.5f).SetEase(Ease.OutSine))
             .Append(vignette.To(0, 0.3f).SetEase(Ease.InOutSine))
             .Join(mat.To("_Light", 0, 0.3f).SetEase(Ease.InOutSine));

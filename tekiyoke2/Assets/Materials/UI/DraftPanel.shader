@@ -59,9 +59,9 @@
                 return _Contrast * (v * v * v) + (1 - _Contrast) * v;
             }
 
-            float sq(float v)
+            float easeAroundThreshold(float v)
             {
-                return v * v;
+                return (v > 0.5) ? (1 - 2 * (1 - v) * (1 - v)) : (2 * v * v);
             }
 
             fixed4 frag (v2f i) : SV_Target
@@ -70,9 +70,9 @@
                 float4 contrastAdded = float4(contrasted(baseCol.r), contrasted(baseCol.g), contrasted(baseCol.b), baseCol.a) * i.color;
                 float lightX = (i.uv.x + (1 - i.uv.y) / 16.0) * 16 / 17.0;
                 float litness = lightX < _LightAreaThreshold ?
-                    1 + sq(50 * saturate(0.02 + lightX - _LightAreaThreshold)):
-                        sq(50 * saturate(0.04 + _LightAreaThreshold - lightX)) / 2;
-                fixed4 lit = contrastAdded + float4(tex2D(_LightTex, i.uv).rgb, 0) * _Light * litness;
+                    1 + easeAroundThreshold(50 * saturate(0.02 + lightX - _LightAreaThreshold)):
+                        easeAroundThreshold(50 * saturate(0.02 + _LightAreaThreshold - lightX)) * 2;
+                fixed4 lit = contrastAdded + saturate(float4((tex2D(_LightTex, i.uv).rgb - float3(0.05, 0.05, 0.05)) / float3(0.95, 0.95, 0.95), 0)) * _Light * litness;
 
                 return lit;
             }

@@ -26,17 +26,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c97243fa-09da-4818-b4c1-b9937458f378" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MainManagers/Camera/PostEffectWrapperExtension.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MainManagers/Camera/PostEffectWrapperExtension.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/PostEffects/Vignette.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/PostEffects/Vignette.shader" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/StageChoiceScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/StageChoiceScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Save/Save Data Manager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Save/Save Data Manager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MainManagers/Camera/PostEffectWrapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MainManagers/Camera/PostEffectWrapper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/StageSelectView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/StageSelectView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/UIs/stageSelect/draft1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/UIs/stageSelect/draft1.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/UI/DraftPanel.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/UI/DraftPanel.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/UI/DraftPanel.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/UI/DraftPanel.shader" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -267,14 +259,7 @@
       <workItem from="1614464188727" duration="38794000" />
       <workItem from="1614746284782" duration="18777000" />
       <workItem from="1614834457798" duration="7079000" />
-      <workItem from="1615117596202" duration="21319000" />
-    </task>
-    <task id="LOCAL-00119" summary="画像を置いたらかなりヒエラルキーが変わった">
-      <created>1614117415301</created>
-      <option name="number" value="00119" />
-      <option name="presentableId" value="LOCAL-00119" />
-      <option name="project" value="LOCAL" />
-      <updated>1614117415301</updated>
+      <workItem from="1615117596202" duration="21992000" />
     </task>
     <task id="LOCAL-00120" summary="すごい悔しいけどとりあえず見た目は正しいのでこれで………">
       <created>1614211922246</created>
@@ -612,7 +597,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615124047461</updated>
     </task>
-    <option name="localTasksCounter" value="168" />
+    <task id="LOCAL-00168" summary="いい感じではない演出ができた">
+      <created>1615151440765</created>
+      <option name="number" value="00168" />
+      <option name="presentableId" value="LOCAL-00168" />
+      <option name="project" value="LOCAL" />
+      <updated>1615151440765</updated>
+    </task>
+    <option name="localTasksCounter" value="169" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -645,7 +637,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="WhiteOutも逃した" />
     <MESSAGE value="Normalも" />
     <MESSAGE value="Defaultも追い出した、SceneTransitionから個々のクラスへの依存を消した" />
     <MESSAGE value="フォルダ分け・rename・デフォルトだとノイズが0のままになるの修正など" />
@@ -670,7 +661,8 @@
     <MESSAGE value="ランキング画面のカテゴリの画像全部入れて変わるようにした" />
     <MESSAGE value="セーブデータにステージ解放処理が必要かどうかを入れてステージ選択時に見る(解放処理はまだ)" />
     <MESSAGE value="ステージ選択・ランキング選択画面で選べる選択肢以外は隠す" />
-    <option name="LAST_COMMIT_MESSAGE" value="ステージ選択・ランキング選択画面で選べる選択肢以外は隠す" />
+    <MESSAGE value="いい感じではない演出ができた" />
+    <option name="LAST_COMMIT_MESSAGE" value="いい感じではない演出ができた" />
   </component>
   <component name="WindowStateProjectService">
     <state x="3250" y="94" key="CommitChangelistDialog2" timestamp="1613089887778">
