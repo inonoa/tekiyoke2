@@ -4,6 +4,7 @@
     {
         _MainTex ("Texture", 2D) = "white" {}
         _Volume ("Volume", float) = 0.3
+        _EdgeColor ("Edge Color", Color) = (0.3, 0.2, 0.05, 1)
     }
     SubShader
     {
@@ -35,6 +36,7 @@
 
             sampler2D _MainTex;
             float _Volume;
+            float4 _EdgeColor;
 
             VertToFrag vert (VertInput vert)
             {
@@ -61,7 +63,8 @@
             fixed4 frag (VertToFrag input) : SV_Target
             {
                 fixed4 col = tex2D(_MainTex, input.uv);
-                col -= float4(0.7,0.8,0.95,0) * ( edge(input.uv.x) / 1.5 + edge(input.uv.y) / 3 ) * _Volume;
+                col -= (float4(1, 1, 1, 1) - _EdgeColor) * ( edge(input.uv.x) / 1.5 + edge(input.uv.y) / 3 ) * _Volume;
+                col.a = 1;
                 return col;
             }
             ENDCG

@@ -34,6 +34,11 @@ public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
 
     [SerializeField] StageSelectBGChanger bgChanger;
 
+    [SerializeField] AfterEffects afterEffects;
+
+    [SerializeField] Texture2D draft2Light;
+    [SerializeField] Texture2D draft3Light;
+
     #endregion
 
     enum State{ Entering, Active, Selected }
@@ -50,6 +55,8 @@ public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
     
     Subject<Unit> _OnGoToRankings = new Subject<Unit>();
     public IObservable<Unit> OnGoToRankings => _OnGoToRankings;
+
+    PostEffectWrapper vignette;
 
     void Start()
     {
@@ -95,6 +102,9 @@ public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
                 DOVirtual.DelayedCall(0.3f, () => _OnGoToConfig.OnNext(Unit.Default));
             })
             .AddTo(this);
+
+        vignette = afterEffects.Find("VignetteInStageSelect");
+        vignette.SetVolume(0);
     }
 
     IObservable<Unit> Selected(FocusNode node)
@@ -133,7 +143,7 @@ public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
             {
                 if (draftsSelectable[1])
                 {
-                    print("Draft 2の解放演出");
+                    UnlockDraft(draft2.GetComponent<Image>(), draft2Light);
                 }
                 else
                 {
@@ -142,7 +152,7 @@ public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
             }
             else
             {
-                print("Draft 3の解放演出");
+                UnlockDraft(draft3.GetComponent<Image>(), draft3Light);
             }
         }
         
@@ -229,6 +239,27 @@ public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
                 state = State.Active;
                 waku.Start_();
             });
+    }
+
+    void UnlockDraft(Image unlockedImage, Texture2D lightTex)
+    {
+        // なんかインスタンス化されないので複製する(todo: 破棄)
+        Material mat = new Material(unlockedImage.material);
+        unlockedImage.material = mat;
+        mat.SetTexture("_LightTex", lightTex);
+        
+        mat.SetFloat("_Contrast", 1);
+        mat.SetFloat("_LightAreaThreshold", -0.1f);
+        
+        DOTween.Sequence()
+            .AppendInterval(1.5f)
+            .Append(vignette.To(5, 0.8f).SetEase(Ease.OutCubic))
+            .Append(mat.To("_Light", 2, 0.4f).SetEase(Ease.OutSine))
+            .Join(mat.To("_Contrast", 0, 0.6f).SetEase(Ease.OutSine))
+            .Append(mat.To("_LightAreaThreshold", 1.1f, 1.5f).SetEase(Ease.InOutSine))
+            .Append(vignette.To(-2, 0.5f).SetEase(Ease.OutSine))
+            .Append(vignette.To(0, 0.3f).SetEase(Ease.InOutSine))
+            .Join(mat.To("_Light", 0, 0.3f).SetEase(Ease.InOutSine));
     }
 
     void FadeOut()
