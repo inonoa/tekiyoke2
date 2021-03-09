@@ -4,7 +4,7 @@ using UnityEngine.Rendering;
 using UniRx;
 
 [Serializable]
-public class PostEffectWrapper : INamable
+public class PostEffectWrapper
 {
     bool commandBufApplied = false;
     public bool IsActive => _IsActive;

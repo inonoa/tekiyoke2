@@ -8,7 +8,7 @@ public class AfterEffects : MonoBehaviour
 {
 
     [SerializeField] PostEffectWrapper[] effects;
-    public PostEffectWrapper Find(string key) => effects.Find(key);
+    public PostEffectWrapper Find(string key) => effects.FirstOrDefault(ef => ef.Name == key);
 
     void Awake()
     {

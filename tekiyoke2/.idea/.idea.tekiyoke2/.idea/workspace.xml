@@ -27,8 +27,12 @@
   <component name="ChangeListManager">
     <list default="true" id="c97243fa-09da-4818-b4c1-b9937458f378" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/UI/DraftPanel.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/UI/DraftPanel.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/PostEffects/Vignette.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/PostEffects/Vignette.shader" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Materials/UI/DraftPanel.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/UI/DraftPanel.shader" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MainManagers/Camera/AfterEffects.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MainManagers/Camera/AfterEffects.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MainManagers/Camera/PostEffectWrapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MainManagers/Camera/PostEffectWrapper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/StageSelectView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/StageSelectView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utils/ArrayForEach.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utils/ArrayForEach.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,12 +97,11 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0C9D4FCF-D613-4956-86FC-3555A6D54354/b9/150c570d/ReadOnlyAttribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Unity/Hub/Editor/2020.1.17f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/StencilMaterial.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/d7/407bc7a7/SpriteRenderer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Materials/UI/DraftPanel.shader" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Pause/PauseView.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/SceneTransition/SceneTransition.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SceneTransition/DefaultTransitionView.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SceneTransition/Transitions/WindAndBlurTransitionView.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemySpawner.cs" />
@@ -143,11 +146,13 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Save/SaveData.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/StageSelectManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/RankingsSelectManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Materials/PostEffects/Vignette.shader" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/MainManagers/Camera/PostEffectWrapper.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MainManagers/Camera/PostEffectWrapperExtension.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/StageSelectView.cs" />
+        <option value="$PROJECT_DIR$/Assets/Materials/PostEffects/Vignette.shader" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MainManagers/Camera/AfterEffects.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Utils/ArrayForEach.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MainManagers/Camera/PostEffectWrapper.cs" />
         <option value="$PROJECT_DIR$/Assets/Materials/UI/DraftPanel.shader" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/StageSelectView.cs" />
       </list>
     </option>
   </component>
@@ -259,14 +264,7 @@
       <workItem from="1614464188727" duration="38794000" />
       <workItem from="1614746284782" duration="18777000" />
       <workItem from="1614834457798" duration="7079000" />
-      <workItem from="1615117596202" duration="21992000" />
-    </task>
-    <task id="LOCAL-00120" summary="すごい悔しいけどとりあえず見た目は正しいのでこれで………">
-      <created>1614211922246</created>
-      <option name="number" value="00120" />
-      <option name="presentableId" value="LOCAL-00120" />
-      <option name="project" value="LOCAL" />
-      <updated>1614211922246</updated>
+      <workItem from="1615117596202" duration="35767000" />
     </task>
     <task id="LOCAL-00121" summary="風車と動きが連動">
       <created>1614214649545</created>
@@ -604,7 +602,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615151440765</updated>
     </task>
-    <option name="localTasksCounter" value="169" />
+    <task id="LOCAL-00169" summary="境界部をいい感じにしたり境界の移動を線形にしたり">
+      <created>1615152173611</created>
+      <option name="number" value="00169" />
+      <option name="presentableId" value="LOCAL-00169" />
+      <option name="project" value="LOCAL" />
+      <updated>1615152173611</updated>
+    </task>
+    <option name="localTasksCounter" value="170" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -637,7 +642,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Normalも" />
     <MESSAGE value="Defaultも追い出した、SceneTransitionから個々のクラスへの依存を消した" />
     <MESSAGE value="フォルダ分け・rename・デフォルトだとノイズが0のままになるの修正など" />
     <MESSAGE value="Tagを参照してるものを全部CompareTagとTagsの定数を使うように" />
@@ -662,7 +666,8 @@
     <MESSAGE value="セーブデータにステージ解放処理が必要かどうかを入れてステージ選択時に見る(解放処理はまだ)" />
     <MESSAGE value="ステージ選択・ランキング選択画面で選べる選択肢以外は隠す" />
     <MESSAGE value="いい感じではない演出ができた" />
-    <option name="LAST_COMMIT_MESSAGE" value="いい感じではない演出ができた" />
+    <MESSAGE value="境界部をいい感じにしたり境界の移動を線形にしたり" />
+    <option name="LAST_COMMIT_MESSAGE" value="境界部をいい感じにしたり境界の移動を線形にしたり" />
   </component>
   <component name="WindowStateProjectService">
     <state x="3250" y="94" key="CommitChangelistDialog2" timestamp="1613089887778">

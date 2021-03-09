@@ -39,6 +39,9 @@ public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
     [SerializeField] Texture2D draft2Light;
     [SerializeField] Texture2D draft3Light;
 
+    [SerializeField] Texture2D draft2Black;
+    [SerializeField] Texture2D draft3Black;
+
     #endregion
 
     enum State{ Entering, Active, Selected }
@@ -143,7 +146,7 @@ public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
             {
                 if (draftsSelectable[1])
                 {
-                    UnlockDraft(draft2.GetComponent<Image>(), draft2Light);
+                    UnlockDraft(draft2.GetComponent<Image>(), draft2Light, draft2Black);
                 }
                 else
                 {
@@ -152,7 +155,7 @@ public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
             }
             else
             {
-                UnlockDraft(draft3.GetComponent<Image>(), draft3Light);
+                UnlockDraft(draft3.GetComponent<Image>(), draft3Light, draft3Black);
             }
         }
         
@@ -241,23 +244,24 @@ public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
             });
     }
 
-    void UnlockDraft(Image unlockedImage, Texture2D lightTex)
+    void UnlockDraft(Image unlockedImage, Texture2D lightTex, Texture2D blackTex)
     {
         // なんかインスタンス化されないので複製する(todo: 破棄)
         Material mat = new Material(unlockedImage.material);
         unlockedImage.material = mat;
         mat.SetTexture("_LightTex", lightTex);
+        mat.SetTexture("_BlackTex", blackTex);
         
-        mat.SetFloat("_Contrast", 1);
+        mat.SetFloat("_Contrast",           1);
         mat.SetFloat("_LightAreaThreshold", -0.1f);
+        mat.SetFloat("_Light",              3);
         
         DOTween.Sequence()
-            .AppendInterval(1.5f)
+            .AppendInterval(0.5f)
             .Append(vignette.To(5, 0.8f).SetEase(Ease.OutCubic))
-            .Append(mat.To("_Light", 2, 0.4f).SetEase(Ease.OutSine))
-            .Join(mat.To("_Contrast", 0, 0.6f).SetEase(Ease.OutSine))
-            .Append(mat.To("_LightAreaThreshold", 1.1f, 2.5f).SetEase(Ease.Linear))
+            .Append(mat.To("_LightAreaThreshold", 1.1f, 2f).SetEase(Ease.Linear))
             .Append(vignette.To(-2, 0.5f).SetEase(Ease.OutSine))
+            .Join(mat.To("_Contrast", 0, 0.5f).SetEase(Ease.OutSine))
             .Append(vignette.To(0, 0.3f).SetEase(Ease.InOutSine))
             .Join(mat.To("_Light", 0, 0.3f).SetEase(Ease.InOutSine));
     }

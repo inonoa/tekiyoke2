@@ -10,7 +10,10 @@
     {
         Tags { "RenderType"="Opaque" }
         LOD 100
-        Blend SrcAlpha OneMinusSrcAlpha
+        Blend One Zero
+        
+        // 書かないとDraftPanelがZテストではじかれる、なぜ…………
+        ZTest Always
 
         Pass
         {
@@ -56,7 +59,8 @@
                 return output;
             }
 
-            float edge(float x){
+            float edge(float x)
+            {
                 return (x * x * x * x  +  (1-x) * (1-x) * (1-x) * (1-x)) * 8/7 - 1/7;
             }
 
