@@ -18,7 +18,7 @@ public class WakuMover : MonoBehaviour
     public Image LightImage => lightImage;
     public Image WakuImage => wakuImage;
 
-    new public Transform transform => base.transform;
+    public Transform Transform => transform;
 
     public void ChangeFocus(RectTransform focused)
     {
@@ -29,7 +29,7 @@ public class WakuMover : MonoBehaviour
         WakuImage.rectTransform.DOMove(focused.position, moveDuration).SetEase(moveEase);
         
         lightImage.transform
-            .DOMove(Target(focused), moveDuration)
+            .DOMove(Target(focused).ToVec3(-1), moveDuration)
             .SetEase(moveEase);
         this.focused = focused;
     }

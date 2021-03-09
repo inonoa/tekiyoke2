@@ -235,7 +235,7 @@ public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
             .AppendInterval(0.5f)
             .Append(chooseADraftImage.DOFade(1, fadeInDuration).SetEase(Ease.Linear))
             .Join(chooseADraftImage.transform.DOLocalMoveX(0, fadeInDuration).SetEase(Ease.OutCubic))
-            .AppendCallback(() => waku.transform.position = focusManager.Focused.transform.position)
+            .AppendCallback(() => waku.Transform.position = focusManager.Focused.transform.position)
             .Append(waku.WakuImage.DOFade(1, 0.2f).SetEase(Ease.Linear))
             .AppendCallback(() =>
             {

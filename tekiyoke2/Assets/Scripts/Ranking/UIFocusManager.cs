@@ -17,7 +17,7 @@ public class UIFocusManager : SerializedMonoBehaviour, IFocusManager
 
     [SerializeField] IInput input;
 
-    bool isActive = false;
+    bool isActive = true;
     
     public void OnExit()
     {

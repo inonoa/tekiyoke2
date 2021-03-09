@@ -27,8 +27,9 @@
   <component name="ChangeListManager">
     <list default="true" id="c97243fa-09da-4818-b4c1-b9937458f378" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/StageChoiceScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/StageChoiceScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/StageSelectView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/StageSelectView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/WakuMover.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/WakuMover.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utils/MyMath.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utils/MyMath.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,6 +72,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/17/acb49825/Tween.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/f9/97e3c724/TweenParams.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2348FB5E-CC9E-4E68-9F37-F7D7FADAEA9A/d7/05003c0c/Ease.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scenes/StageChoiceScene.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/BAD59441-8129-43C7-B8D5-A5BA85795810/49/eb9a0f12/Component.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/17C1E98F-9A78-42E3-8BE0-5E60BF0530E8/37/63a07319/02000006.il" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/cd/9fcf1a7c/ShortcutExtensions.cs" root0="SKIP_HIGHLIGHTING" />
@@ -93,6 +95,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2348FB5E-CC9E-4E68-9F37-F7D7FADAEA9A/8f/57e73b5e/DOTween.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/d2/198907ba/Renderer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/DPinEnemy.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/StageSelectScene/StageSelectManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0C9D4FCF-D613-4956-86FC-3555A6D54354/b9/150c570d/ReadOnlyAttribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Unity/Hub/Editor/2020.1.17f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/StencilMaterial.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/d7/407bc7a7/SpriteRenderer.cs" root0="SKIP_HIGHLIGHTING" />
@@ -101,7 +104,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Hero/HeroMover.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Hero/Physics/HeroCollider2Enemy.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/TamaController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/DropTileController.cs" />
@@ -140,7 +142,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/SceneTransition/BlurTrans.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ranking/FocusNode.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Save/SaveData.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/StageSelectManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/RankingsSelectManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MainManagers/Camera/PostEffectWrapperExtension.cs" />
         <option value="$PROJECT_DIR$/Assets/Materials/PostEffects/Vignette.shader" />
@@ -150,8 +151,10 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/SoundOrMusic/SoundGroup.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Utils/ArrayForEach.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ranking/UIFocusManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/WakuMover.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/StageSelectView.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/StageSelectManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Utils/MyMath.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/WakuMover.cs" />
       </list>
     </option>
   </component>
@@ -263,21 +266,7 @@
       <workItem from="1614464188727" duration="38794000" />
       <workItem from="1614746284782" duration="18777000" />
       <workItem from="1614834457798" duration="7079000" />
-      <workItem from="1615117596202" duration="39229000" />
-    </task>
-    <task id="LOCAL-00123" summary="壁に当たると逆に移動する">
-      <created>1614311335096</created>
-      <option name="number" value="00123" />
-      <option name="presentableId" value="LOCAL-00123" />
-      <option name="project" value="LOCAL" />
-      <updated>1614311335096</updated>
-    </task>
-    <task id="LOCAL-00124" summary="Unityのバージョン上げた(2020.1.17f1)">
-      <created>1614313447594</created>
-      <option name="number" value="00124" />
-      <option name="presentableId" value="LOCAL-00124" />
-      <option name="project" value="LOCAL" />
-      <updated>1614313447594</updated>
+      <workItem from="1615117596202" duration="40027000" />
     </task>
     <task id="LOCAL-00125" summary="ポーズで止まる…………">
       <created>1614319852659</created>
@@ -608,7 +597,21 @@
       <option name="project" value="LOCAL" />
       <updated>1615313605870</updated>
     </task>
-    <option name="localTasksCounter" value="172" />
+    <task id="LOCAL-00172" summary="申し訳程度の音">
+      <created>1615314126387</created>
+      <option name="number" value="00172" />
+      <option name="presentableId" value="LOCAL-00172" />
+      <option name="project" value="LOCAL" />
+      <updated>1615314126387</updated>
+    </task>
+    <task id="LOCAL-00173" summary="申し訳程度の音">
+      <created>1615314216451</created>
+      <option name="number" value="00173" />
+      <option name="presentableId" value="LOCAL-00173" />
+      <option name="project" value="LOCAL" />
+      <updated>1615314216451</updated>
+    </task>
+    <option name="localTasksCounter" value="174" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -641,7 +644,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Tagを参照してるものを全部CompareTagとTagsの定数を使うように" />
     <MESSAGE value="Ultrathin-&gt;SurinukeYuka" />
     <MESSAGE value="チェックポイント名をそれなりにした" />
     <MESSAGE value="Koneがフェードアウトするようにした" />
@@ -666,7 +668,8 @@
     <MESSAGE value="境界部をいい感じにしたり境界の移動を線形にしたり" />
     <MESSAGE value="コントラストを単なる画像間の線形補間にしたりライト画像差し替えたりなんやかんやしたらいい感じになった" />
     <MESSAGE value="演出終わるまで操作できない、というか枠を消すように" />
-    <option name="LAST_COMMIT_MESSAGE" value="演出終わるまで操作できない、というか枠を消すように" />
+    <MESSAGE value="申し訳程度の音" />
+    <option name="LAST_COMMIT_MESSAGE" value="申し訳程度の音" />
   </component>
   <component name="WindowStateProjectService">
     <state x="3250" y="94" key="CommitChangelistDialog2" timestamp="1613089887778">
