@@ -28,7 +28,6 @@ public class StageSelectManager : SerializedMonoBehaviour
         
         if (saveDataManager.StageIsBeingUnlocked)
         {
-            print("unlock stage!");
             saveDataManager.SetStageBeingUnlocked(false);
         }
     }

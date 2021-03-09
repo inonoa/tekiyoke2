@@ -307,6 +307,11 @@ MonoBehaviour:
     _Volume: 0.636
     _RequireComponent: 0
     <Loop>k__BackingField: 0
+  - _Name: Light
+    _Clip: {fileID: 8300000, guid: 4875aa7bd46a3a34ba06d53c1cd0d511, type: 3}
+    _Volume: 0.86
+    _RequireComponent: 0
+    <Loop>k__BackingField: 0
   SEGroup: {fileID: 3052081377995588122, guid: 79120cacd6b5fea4f98d2ef99084037e, type: 2}
   BGMGroup: {fileID: -3936053361323068745, guid: 79120cacd6b5fea4f98d2ef99084037e,
     type: 2}

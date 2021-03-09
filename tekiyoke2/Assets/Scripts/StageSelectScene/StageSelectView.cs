@@ -262,6 +262,7 @@ public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
         DOTween.Sequence()
             .AppendInterval(0.5f)
             .Append(vignette.To(5, 0.8f).SetEase(Ease.OutCubic))
+            .AppendCallback(() => soundGroup.Play("Light"))
             .Append(mat.To("_LightAreaThreshold", 1.1f, 2f).SetEase(Ease.Linear))
             .Append(vignette.To(-2, 0.5f).SetEase(Ease.OutSine))
             .Join(mat.To("_Contrast", 0, 0.5f).SetEase(Ease.OutSine))
