@@ -91,6 +91,12 @@ public class WakuMover : MonoBehaviour
         lightImage.DOFade(0, duration).SetEase(ease);
     }
 
+    public void SetInvisible()
+    {
+        wakuImage.SetAlpha(0);
+        lightImage.SetAlpha(0);
+    }
+
     void Update()
     {
         lightImage.color = wakuImage.color;

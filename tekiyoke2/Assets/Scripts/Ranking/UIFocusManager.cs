@@ -16,15 +16,17 @@ public class UIFocusManager : SerializedMonoBehaviour, IFocusManager
     public IObservable<FocusNode> OnNodeFocused => _OnNodeFocused;
 
     [SerializeField] IInput input;
+
+    bool isActive = false;
     
     public void OnExit()
     {
-        AcceptsInput = false;
+        isActive = false;
     }
 
     public void OnEnter()
     {
-        AcceptsInput = true;
+        isActive = true;
     }
 
     void Start()
@@ -34,11 +36,12 @@ public class UIFocusManager : SerializedMonoBehaviour, IFocusManager
         _OnNodeFocused.OnNext(initialNode);
     }
 
-    public bool AcceptsInput { get; private set; } = true;
+    public bool AcceptsInput { get; set; } = true;
     public bool SelectButtonDown() => input.GetButtonDown(ButtonCode.Enter);
 
     void Update()
     {
+        if(!isActive)     return;
         if(!AcceptsInput) return;
         
         if (input.GetButtonDown(ButtonCode.Left))
