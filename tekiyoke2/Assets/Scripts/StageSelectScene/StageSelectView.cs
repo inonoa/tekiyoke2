@@ -246,7 +246,7 @@ public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
 
     void UnlockDraft(Image unlockedImage, Texture2D lightTex, Texture2D blackTex)
     {
-        focusManager.AcceptsInput = false;
+        focusManager.SetAcceptsInput(false);
         waku.gameObject.SetActive(false);
         
         // なんかインスタンス化されないので複製する(todo: 破棄)
@@ -270,7 +270,7 @@ public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
             .Join(mat.To("_Light", 0, 0.3f).SetEase(Ease.InOutSine))
             .OnComplete(() =>
             {
-                focusManager.AcceptsInput = true;
+                focusManager.SetAcceptsInput(true);
                 waku.gameObject.SetActive(true);
                 waku.SetInvisible();
                 waku.FadeIn(0.3f, Ease.InOutSine);

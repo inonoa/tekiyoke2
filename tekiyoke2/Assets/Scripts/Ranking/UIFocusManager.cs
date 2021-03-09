@@ -36,7 +36,11 @@ public class UIFocusManager : SerializedMonoBehaviour, IFocusManager
         _OnNodeFocused.OnNext(initialNode);
     }
 
-    public bool AcceptsInput { get; set; } = true;
+    bool acceptsInput = true;
+    // Setした直後にGetしてSetした値になってない気持ち悪さどうしよう
+    public bool AcceptsInput => isActive && acceptsInput;
+    public void SetAcceptsInput(bool val) => acceptsInput = val;
+    
     public bool SelectButtonDown() => input.GetButtonDown(ButtonCode.Enter);
 
     void Update()
