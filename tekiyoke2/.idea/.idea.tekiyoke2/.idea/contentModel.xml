@@ -74,6 +74,7 @@
           </e>
           <e p="RespawnPosition.shader" t="Include" />
           <e p="UI" t="Include">
+            <e p="DraftPanel.shader" t="Include" />
             <e p="LogoDissolve.shader" t="Include" />
             <e p="RankNode.shader" t="Include" />
             <e p="TimeText.shader" t="Include" />
@@ -873,6 +874,7 @@
               <e p="CameraLockingArea.cs" t="Include" />
               <e p="CameraZoomerForJet.cs" t="Include" />
               <e p="PostEffectWrapper.cs" t="Include" />
+              <e p="PostEffectWrapperExtension.cs" t="Include" />
               <e p="ScShoController.cs" t="Include" />
               <e p="ScShoOutOfWindController.cs" t="Include" />
             </e>

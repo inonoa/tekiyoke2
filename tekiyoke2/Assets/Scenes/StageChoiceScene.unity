@@ -307,6 +307,11 @@ MonoBehaviour:
     _Volume: 0.636
     _RequireComponent: 0
     <Loop>k__BackingField: 0
+  - _Name: Light
+    _Clip: {fileID: 8300000, guid: 4875aa7bd46a3a34ba06d53c1cd0d511, type: 3}
+    _Volume: 0.86
+    _RequireComponent: 0
+    <Loop>k__BackingField: 0
   SEGroup: {fileID: 3052081377995588122, guid: 79120cacd6b5fea4f98d2ef99084037e, type: 2}
   BGMGroup: {fileID: -3936053361323068745, guid: 79120cacd6b5fea4f98d2ef99084037e,
     type: 2}
@@ -636,7 +641,6 @@ GameObject:
   - component: {fileID: 637423145}
   - component: {fileID: 637423144}
   - component: {fileID: 637423143}
-  - component: {fileID: 637423147}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -729,19 +733,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &637423147
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 637423142}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34b8407a2366315419b5205bf12d0cf7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  effects: []
 --- !u!1 &647817629
 GameObject:
   m_ObjectHideFlags: 0
@@ -939,7 +930,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: 65ea7c170c1de5b429f2b84f092fa6d5, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 0.69803923}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -1731,6 +1722,11 @@ MonoBehaviour:
   waku: {fileID: 399176288}
   soundGroup: {fileID: 46160779}
   bgChanger: {fileID: 647817631}
+  afterEffects: {fileID: 1988778062}
+  draft2Light: {fileID: 2800000, guid: 84a62a1e95816fb449fc3080896ddcc9, type: 3}
+  draft3Light: {fileID: 2800000, guid: ab3cee6094b2f154a954f7246de20976, type: 3}
+  draft2Black: {fileID: 2800000, guid: deed12feee4ea2345adc7c6ac21f714c, type: 3}
+  draft3Black: {fileID: 2800000, guid: 44acd1322555531499c7285eba656a40, type: 3}
 --- !u!114 &1385504747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1758,6 +1754,7 @@ MonoBehaviour:
       Data: 0
   configManager: {fileID: 1847597933}
   rankingsSelectManager: {fileID: 940943217}
+  saveDataManager: {fileID: 11400000, guid: 7bf337bff8d2aa1478bacb0d045a6fcc, type: 2}
 --- !u!225 &1385504748
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -2153,7 +2150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: 65ea7c170c1de5b429f2b84f092fa6d5, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 0.69803923}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -2445,6 +2442,7 @@ GameObject:
   - component: {fileID: 1988778061}
   - component: {fileID: 1988778060}
   - component: {fileID: 1988778059}
+  - component: {fileID: 1988778062}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2517,6 +2515,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1988778062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1988778058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34b8407a2366315419b5205bf12d0cf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effects:
+  - _IsActive: 1
+    _Material: {fileID: 2100000, guid: 369320d7181e5f94f9a7d9e8383dc57e, type: 2}
+    volumePropertyName: _Volume
+    defaultVolume: 0.2
 --- !u!1001 &2047073896
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2895,7 +2910,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: 65ea7c170c1de5b429f2b84f092fa6d5, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 0.69803923}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}

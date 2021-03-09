@@ -13,7 +13,7 @@ public class BlurTrans : MonoBehaviour
     void Start()
     {
         material = GetComponent<Image>().material;
-        StartCoroutine("Blur");
+        StartCoroutine(Blur());
     }
 
     IEnumerator Blur(){

@@ -34,6 +34,14 @@ public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
 
     [SerializeField] StageSelectBGChanger bgChanger;
 
+    [SerializeField] AfterEffects afterEffects;
+
+    [SerializeField] Texture2D draft2Light;
+    [SerializeField] Texture2D draft3Light;
+
+    [SerializeField] Texture2D draft2Black;
+    [SerializeField] Texture2D draft3Black;
+
     #endregion
 
     enum State{ Entering, Active, Selected }
@@ -50,6 +58,8 @@ public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
     
     Subject<Unit> _OnGoToRankings = new Subject<Unit>();
     public IObservable<Unit> OnGoToRankings => _OnGoToRankings;
+
+    PostEffectWrapper vignette;
 
     void Start()
     {
@@ -95,6 +105,9 @@ public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
                 DOVirtual.DelayedCall(0.3f, () => _OnGoToConfig.OnNext(Unit.Default));
             })
             .AddTo(this);
+
+        vignette = afterEffects.Find("VignetteInStageSelect");
+        vignette.SetVolume(0);
     }
 
     IObservable<Unit> Selected(FocusNode node)
@@ -118,15 +131,59 @@ public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
         focusManager.OnExit();
     }
 
-    public void Enter()
+    public void Enter(IReadOnlyList<bool> draftsSelectable, bool unlocking)
     {
         gameObject.SetActive(true);
         focusManager.OnEnter();
         goToConfig.gameObject.SetActive(true);
         goToRankings.gameObject.SetActive(true);
         
+        ApplySelectableDrafts(draftsSelectable);
+
+        if (unlocking)
+        {
+            if (!draftsSelectable[2])
+            {
+                if (draftsSelectable[1])
+                {
+                    UnlockDraft(draft2.GetComponent<Image>(), draft2Light, draft2Black);
+                }
+                else
+                {
+                    print("実際には通らない");
+                }
+            }
+            else
+            {
+                UnlockDraft(draft3.GetComponent<Image>(), draft3Light, draft3Black);
+            }
+        }
+        
         FadeIn();
         focusManager.OnEnter();
+    }
+
+    void ApplySelectableDrafts(IReadOnlyList<bool> draftsSelectable)
+    {
+        if (!draftsSelectable[1])
+        {
+            print("本来こうはならないけど開発中はなる");
+            
+            draft2.gameObject.SetActive(false);
+            draft3.gameObject.SetActive(false);
+
+            draft1.Down     = goToRankings;
+            goToRankings.Up = draft1;
+            goToConfig.Up   = draft1;
+        }
+        else if (!draftsSelectable[2])
+        {
+            draft3.gameObject.SetActive(false);
+
+            draft2.Down     = goToRankings;
+            goToRankings.Up = draft2;
+            goToConfig.Up   = draft2;
+        }
     }
 
     void FadeIn()
@@ -178,12 +235,45 @@ public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
             .AppendInterval(0.5f)
             .Append(chooseADraftImage.DOFade(1, fadeInDuration).SetEase(Ease.Linear))
             .Join(chooseADraftImage.transform.DOLocalMoveX(0, fadeInDuration).SetEase(Ease.OutCubic))
-            .AppendCallback(() => waku.transform.position = focusManager.Focused.transform.position)
+            .AppendCallback(() => waku.Transform.position = focusManager.Focused.transform.position)
             .Append(waku.WakuImage.DOFade(1, 0.2f).SetEase(Ease.Linear))
             .AppendCallback(() =>
             {
                 state = State.Active;
                 waku.Start_();
+            });
+    }
+
+    void UnlockDraft(Image unlockedImage, Texture2D lightTex, Texture2D blackTex)
+    {
+        focusManager.SetAcceptsInput(false);
+        waku.gameObject.SetActive(false);
+        
+        // なんかインスタンス化されないので複製する(todo: 破棄)
+        Material mat = new Material(unlockedImage.material);
+        unlockedImage.material = mat;
+        mat.SetTexture("_LightTex", lightTex);
+        mat.SetTexture("_BlackTex", blackTex);
+        
+        mat.SetFloat("_Contrast",           1);
+        mat.SetFloat("_LightAreaThreshold", -0.1f);
+        mat.SetFloat("_Light",              3);
+        
+        DOTween.Sequence()
+            .AppendInterval(0.5f)
+            .Append(vignette.To(5, 0.8f).SetEase(Ease.OutCubic))
+            .AppendCallback(() => soundGroup.Play("Light"))
+            .Append(mat.To("_LightAreaThreshold", 1.1f, 2f).SetEase(Ease.Linear))
+            .Append(vignette.To(-2, 0.5f).SetEase(Ease.OutSine))
+            .Join(mat.To("_Contrast", 0, 0.5f).SetEase(Ease.OutSine))
+            .Append(vignette.To(0, 0.3f).SetEase(Ease.InOutSine))
+            .Join(mat.To("_Light", 0, 0.3f).SetEase(Ease.InOutSine))
+            .OnComplete(() =>
+            {
+                focusManager.SetAcceptsInput(true);
+                waku.gameObject.SetActive(true);
+                waku.SetInvisible();
+                waku.FadeIn(0.3f, Ease.InOutSine);
             });
     }
 

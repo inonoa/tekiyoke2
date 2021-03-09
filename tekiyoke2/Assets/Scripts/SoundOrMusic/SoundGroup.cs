@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 using System;
+using System.Linq;
 using DG.Tweening;
 using UnityEngine.Audio;
 
@@ -112,11 +113,10 @@ public class SoundGroup : MonoBehaviour
         if(idx > -1) DOTween.To(() => ses[idx].Volume, v => ses[idx].Volume = v, 0, durationSec);
     }
 
-    public void FadeoutAll(float durationSec){
-        ses.ForEach(
-            se => DOTween.To(() => se.Volume, v => se.Volume = v, 0, durationSec),
-            where: se => se.RequireComponent
-        );
+    public void FadeoutAll(float durationSec)
+    {
+        ses.Where(se => se.RequireComponent)
+            .ForEach(se => DOTween.To(() => se.Volume, v => se.Volume = v, 0, durationSec));
     }
 
     public void VolumeTo(string soundName, float endValue, float durationSec){

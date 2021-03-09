@@ -4,7 +4,7 @@ using UnityEngine.Rendering;
 using UniRx;
 
 [Serializable]
-public class PostEffectWrapper : INamable
+public class PostEffectWrapper
 {
     bool commandBufApplied = false;
     public bool IsActive => _IsActive;
@@ -38,11 +38,13 @@ public class PostEffectWrapper : INamable
     }
     CommandBuffer buffer;
     Camera camera;
-    public void ApplyCommandBuf(){
+    public void ApplyCommandBuf()
+    {
         camera.AddCommandBuffer(CameraEvent.AfterEverything, buffer);
         commandBufApplied = true;
     }
-    public void RemoveCommandBuf(){
+    public void RemoveCommandBuf()
+    {
         camera.RemoveCommandBuffer(CameraEvent.AfterEverything, buffer);
         commandBufApplied = false;
     }

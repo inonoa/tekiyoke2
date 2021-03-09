@@ -144,6 +144,7 @@
      <Compile Include="Assets\Scripts\Ranking\RankingCategoryTab.cs" />
      <Compile Include="Assets\Scripts\Ranking\FocusNode.cs" />
      <Compile Include="Assets\Scripts\SceneTransition\Curtain4SceneStartMover.cs" />
+     <Compile Include="Assets\Scripts\Logins\PlayFabLoginManager.cs" />
      <Compile Include="Assets\Scripts\MapObjs\Goal.cs" />
      <Compile Include="Assets\Scripts\StageSelectScene\StageSelectBGChanger.cs" />
      <Compile Include="Assets\Scripts\Hero\DamageType.cs" />
@@ -205,12 +206,15 @@
      <Compile Include="Assets\Scripts\MapObjs\DropTileController.cs" />
      <Compile Include="Assets\Scripts\MapObjs\FrontFogArea.cs" />
      <Compile Include="Assets\Scripts\Hero\DetectsCameraLockingArea.cs" />
+     <Compile Include="Assets\Scripts\Logins\DebugLogin.cs" />
      <Compile Include="Assets\Scripts\Input\NormalInput.cs" />
      <Compile Include="Assets\Scripts\SceneTransition\SceneTransition.cs" />
      <Compile Include="Assets\Scripts\Hero\Actions\WallChecker.cs" />
      <Compile Include="Assets\Scripts\Ranking\ExitButton.cs" />
      <Compile Include="Assets\Scripts\Enemies\Collider2Wall.cs" />
      <Compile Include="Assets\Scripts\Hero\HeroTween.cs" />
+     <Compile Include="Assets\Scripts\Logins\IPlayFabLogin.cs" />
+     <Compile Include="Assets\Scripts\Logins\GenerateIDLogin.cs" />
      <Compile Include="Assets\Scripts\Save\SaveData.cs" />
      <Compile Include="Assets\Scripts\Steamworks.NET\SteamManager.cs" />
      <Compile Include="Assets\Scripts\Ranking\RankingView.cs" />
@@ -239,10 +243,7 @@
      <Compile Include="Assets\Scripts\ScoreHolder.cs" />
      <Compile Include="Assets\Scripts\SceneTransition\Transitions\DefaultTransitionView.cs" />
      <Compile Include="Assets\Scripts\Config\ConfigManager.cs" />
-     <Compile Include="Assets\Scripts\Logins\DebugLogin.cs" />
-     <Compile Include="Assets\Scripts\Logins\IPlayFabLogin.cs" />
-     <Compile Include="Assets\Scripts\Logins\PlayFabLoginManager.cs" />
-     <Compile Include="Assets\Scripts\Logins\GenerateIDLogin.cs" />
+     <Compile Include="Assets\Scripts\MainManagers\Camera\PostEffectWrapperExtension.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\Materials\PostEffects\BlurEdge2.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
@@ -259,6 +260,7 @@
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
      <None Include="Assets\Demigiant\readme_DOTweenPro.txt" />
      <None Include="Assets\Materials\DPinEnemy.shader" />
+     <None Include="Assets\Materials\UI\DraftPanel.shader" />
      <None Include="Assets\Materials\MapObjs\Bane.shader" />
      <None Include="Assets\Materials\UI\LogoDissolve.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
