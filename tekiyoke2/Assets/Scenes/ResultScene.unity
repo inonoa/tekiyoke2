@@ -5186,7 +5186,7 @@ MonoBehaviour:
     - Name: input
       Entry: 10
       Data: 0
-  tweetText: "Draft 1 \u3092 [score] \u3067\u30AF\u30EA\u30A2\u3002\n\n#lacuna_draft\nhttps://unityroom.com/games/lacunadraft/"
+  tweetText: "Draft [draft] \u3092 [score] \u3067\u30AF\u30EA\u30A2\u3002\n\n#lacuna_draft"
   scoreHolder: {fileID: 11400000, guid: f55b8efd8c1d2a642b170033e87f467e, type: 2}
 --- !u!1 &1942060073
 GameObject:

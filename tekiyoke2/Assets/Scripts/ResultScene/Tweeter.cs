@@ -8,7 +8,7 @@ using Sirenix.OdinInspector;
 public class Tweeter : SerializedMonoBehaviour
 {
 
-    [SerializeField, Tooltip("`[score]`でスコアが入るよ"), Multiline]
+    [SerializeField, Tooltip("`[score]`でスコアが入るよ、`[draft]`で何ステージ目かが入るよ"), Multiline]
     string tweetText;
     string url;
     [SerializeField] IInput input;
@@ -23,10 +23,17 @@ public class Tweeter : SerializedMonoBehaviour
     {
         int stageIdx = SceneTransition.LastStageIndex();
         float time = stageIdx != -1 ? scoreHolder.Get().Time : 69.865f;
-        string actualTweetText = tweetText.Replace(
-            "[score]",
-            time.ToTimeString()
-        );
+        string actualTweetText = tweetText
+            .Replace
+            (
+                "[score]",
+                time.ToTimeString()
+            )
+            .Replace
+            (
+                "[draft]",
+                (stageIdx + 1).ToString()
+            );
 
         url = "https://twitter.com/intent/tweet?text=" 
             + UnityWebRequest.EscapeURL(actualTweetText);

@@ -27,13 +27,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c97243fa-09da-4818-b4c1-b9937458f378" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/FrontFog.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/FrontFog.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/UI/DPGauge.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/UI/DPGauge.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/PauserDepauserBase.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/PauserDepauserBase.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Draft2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Draft2.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Save/Save Data Manager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Save/Save Data Manager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Save/最強.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Save/最強.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Save/SaveData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Save/SaveData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResultScene/Tweeter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ResultScene/Tweeter.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,8 +180,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/DropTileController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/DontWannaFall.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/DPCD.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Collider2Wall.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Hero/Physics/NearToEnemyChecker.cs" />
@@ -237,6 +229,8 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Save/PlayFabSaver.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Save/SaveData.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Config/ConfigView.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Pause/PausableExtension.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ResultScene/Tweeter.cs" />
       </list>
     </option>
   </component>
@@ -349,13 +343,6 @@
       <workItem from="1614746284782" duration="18777000" />
       <workItem from="1614834457798" duration="7079000" />
       <workItem from="1615117596202" duration="40027000" />
-    </task>
-    <task id="LOCAL-00127" summary="とりあえずD1においた">
-      <created>1614382115696</created>
-      <option name="number" value="00127" />
-      <option name="presentableId" value="LOCAL-00127" />
-      <option name="project" value="LOCAL" />
-      <updated>1614382115696</updated>
     </task>
     <task id="LOCAL-00128" summary="易化">
       <created>1614390903162</created>
@@ -693,7 +680,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615399965724</updated>
     </task>
-    <option name="localTasksCounter" value="176" />
+    <task id="LOCAL-00176" summary="ステージ中ににEventSystemなくてマウス入力取れてなかった / セーブデータの音量のデフォルトを0.8に">
+      <created>1615402438036</created>
+      <option name="number" value="00176" />
+      <option name="presentableId" value="LOCAL-00176" />
+      <option name="project" value="LOCAL" />
+      <updated>1615402438036</updated>
+    </task>
+    <option name="localTasksCounter" value="177" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -726,7 +720,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Koneがフェードアウトするようにした" />
     <MESSAGE value="SkyGhotiのpathのz座標が0になってるとこがあって突然消えたりしてた" />
     <MESSAGE value="空中の慣性弱めた" />
     <MESSAGE value="SkyFishを遅くしたり出現を早くしたりした" />
@@ -751,7 +744,8 @@
     <MESSAGE value="申し訳程度の音" />
     <MESSAGE value="一旦本番モードにした" />
     <MESSAGE value="Koneの飛距離縮めた(前縮めてなかった？)、セーブデータがないときに初期値で作る" />
-    <option name="LAST_COMMIT_MESSAGE" value="Koneの飛距離縮めた(前縮めてなかった？)、セーブデータがないときに初期値で作る" />
+    <MESSAGE value="ステージ中ににEventSystemなくてマウス入力取れてなかった / セーブデータの音量のデフォルトを0.8に" />
+    <option name="LAST_COMMIT_MESSAGE" value="ステージ中ににEventSystemなくてマウス入力取れてなかった / セーブデータの音量のデフォルトを0.8に" />
   </component>
   <component name="WindowStateProjectService">
     <state x="3250" y="94" key="CommitChangelistDialog2" timestamp="1613089887778">

@@ -5335,7 +5335,7 @@ PrefabInstance:
     - target: {fileID: 3423410219917244383, guid: 95d3e8075a941f348803e6df2c824c6d,
         type: 3}
       propertyPath: bgrate
-      value: 0.08
+      value: 0.078
       objectReference: {fileID: 0}
     - target: {fileID: 3423410219917244383, guid: 95d3e8075a941f348803e6df2c824c6d,
         type: 3}
