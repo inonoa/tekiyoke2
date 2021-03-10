@@ -1008,6 +1008,7 @@
             <e p="WarpDoor.cs" t="Include" />
             <e p="WarpParams.cs" t="Include" />
           </e>
+          <e p="WindowSizeFixer.cs" t="Include" />
           <e p="ZatsuTest.cs" t="Include" />
         </e>
         <e p="ScriptTemplates" t="Include">
