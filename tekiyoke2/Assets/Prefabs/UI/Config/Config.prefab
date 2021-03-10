@@ -124,15 +124,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
-    SerializedBytes: 0b01070000006d0061006e00610067006500720000000000
+    SerializedFormat: 2
+    SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 784597433013355626}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: manager
+      Entry: 10
+      Data: 0
   _Focused:
     value: 0
   <Left>k__BackingField: {fileID: 0}
@@ -206,15 +209,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
-    SerializedBytes: 0b01070000006d0061006e00610067006500720000000000
+    SerializedFormat: 2
+    SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 784597433013355626}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: manager
+      Entry: 10
+      Data: 0
   _Focused:
     value: 0
   <Left>k__BackingField: {fileID: 0}
@@ -234,15 +240,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
-    SerializedBytes: 0b010500000069006e0070007500740000000000
+    SerializedFormat: 2
+    SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 11400000, guid: 6b644d5913282014a8230e0e012ad215, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: input
+      Entry: 10
+      Data: 0
   slider: {fileID: 6456377775149720451}
   node: {fileID: 4332638457967262170}
   speed: 0.6
@@ -338,8 +347,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
-    SerializedBytes: 0b01040000007600690065007700000000000b011200000073006f0075006e00640056006f006c0075006d0065004300680061006e00670065007200010000000b010b0000006e0061006d0065004300680061006e0067006500720002000000
+    SerializedFormat: 2
+    SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 1043250778967390551}
     - {fileID: 11400000, guid: c5e3f6c85f6a653408ef4daf5772d247, type: 2}
@@ -348,7 +357,16 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: view
+      Entry: 10
+      Data: 0
+    - Name: soundVolumeChanger
+      Entry: 10
+      Data: 1
+    - Name: nameChanger
+      Entry: 10
+      Data: 2
   saveDataManager: {fileID: 11400000, guid: 7bf337bff8d2aa1478bacb0d045a6fcc, type: 2}
 --- !u!114 &1043250778967390551
 MonoBehaviour:
@@ -396,15 +414,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
-    SerializedBytes: 0b010500000069006e0070007500740000000000
+    SerializedFormat: 2
+    SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 11400000, guid: 6b644d5913282014a8230e0e012ad215, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: input
+      Entry: 10
+      Data: 0
   initialNode: {fileID: 6125399822319141937}
   focused: {fileID: 0}
 --- !u!1 &1043250779267735571
@@ -540,15 +561,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
-    SerializedBytes: 0b01070000006d0061006e00610067006500720000000000
+    SerializedFormat: 2
+    SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 784597433013355626}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: manager
+      Entry: 10
+      Data: 0
   _Focused:
     value: 0
   <Left>k__BackingField: {fileID: 0}
@@ -581,15 +605,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
-    SerializedBytes: 0b010500000069006e0070007500740000000000
+    SerializedFormat: 2
+    SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 11400000, guid: 6b644d5913282014a8230e0e012ad215, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: input
+      Entry: 10
+      Data: 0
   slider: {fileID: 1043250777798641786}
   node: {fileID: 3698537521814776961}
   speed: 0.6
@@ -1005,7 +1032,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1700864960433024642}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6748370960322842996}
@@ -1140,7 +1167,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2527601378352742122}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6748370960322842996}
@@ -1313,7 +1340,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2812941854519454347}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6748370960322842996}
@@ -2038,8 +2065,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -460, y: 55.692}
-  m_SizeDelta: {x: 400, y: 637.3843}
+  m_AnchoredPosition: {x: -493, y: 55.692}
+  m_SizeDelta: {x: 360, y: 637.3843}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2032025777994737744
 CanvasRenderer:
@@ -2132,15 +2159,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
-    SerializedBytes: 0b01070000006d0061006e00610067006500720000000000
+    SerializedFormat: 2
+    SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 784597433013355626}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: manager
+      Entry: 10
+      Data: 0
   _Focused:
     value: 0
   <Left>k__BackingField: {fileID: 0}

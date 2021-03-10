@@ -27,9 +27,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c97243fa-09da-4818-b4c1-b9937458f378" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fonts/TanukiMagic SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fonts/TanukiMagic SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/Config/Config.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/Config/Config.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Input/InputSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Input/InputSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/StageChoiceScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/StageChoiceScene.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,6 +174,7 @@
     <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/Ranking/UIFocusManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/ScriptableObjects/Save/Save Data Manager.asset" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/Ranking/UIFocusManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Prefabs/UI/Config/Config.prefab" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/Ranking/UIFocusManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/Utils/ArrayForEach.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/d7/407bc7a7/SpriteRenderer.cs" root0="SKIP_HIGHLIGHTING" />
@@ -347,13 +346,6 @@
       <workItem from="1614746284782" duration="18777000" />
       <workItem from="1614834457798" duration="7079000" />
       <workItem from="1615117596202" duration="40027000" />
-    </task>
-    <task id="LOCAL-00128" summary="易化">
-      <created>1614390903162</created>
-      <option name="number" value="00128" />
-      <option name="presentableId" value="LOCAL-00128" />
-      <option name="project" value="LOCAL" />
-      <updated>1614390903162</updated>
     </task>
     <task id="LOCAL-00129" summary="ストランドビーストの風車をジェットで回せるようにしたりした">
       <created>1614395560926</created>
@@ -691,7 +683,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615402438036</updated>
     </task>
-    <option name="localTasksCounter" value="177" />
+    <task id="LOCAL-00177" summary="キー一覧を作った、説明しづらいので操作は一通りにした、キーコンフィグがないことを謝った">
+      <created>1615418421325</created>
+      <option name="number" value="00177" />
+      <option name="presentableId" value="LOCAL-00177" />
+      <option name="project" value="LOCAL" />
+      <updated>1615418421325</updated>
+    </task>
+    <option name="localTasksCounter" value="178" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -724,7 +723,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="SkyGhotiのpathのz座標が0になってるとこがあって突然消えたりしてた" />
     <MESSAGE value="空中の慣性弱めた" />
     <MESSAGE value="SkyFishを遅くしたり出現を早くしたりした" />
     <MESSAGE value="Strandbeestの位置調整、最後の塔からの導線" />
@@ -749,7 +747,8 @@
     <MESSAGE value="一旦本番モードにした" />
     <MESSAGE value="Koneの飛距離縮めた(前縮めてなかった？)、セーブデータがないときに初期値で作る" />
     <MESSAGE value="ステージ中ににEventSystemなくてマウス入力取れてなかった / セーブデータの音量のデフォルトを0.8に" />
-    <option name="LAST_COMMIT_MESSAGE" value="ステージ中ににEventSystemなくてマウス入力取れてなかった / セーブデータの音量のデフォルトを0.8に" />
+    <MESSAGE value="キー一覧を作った、説明しづらいので操作は一通りにした、キーコンフィグがないことを謝った" />
+    <option name="LAST_COMMIT_MESSAGE" value="キー一覧を作った、説明しづらいので操作は一通りにした、キーコンフィグがないことを謝った" />
   </component>
   <component name="WindowStateProjectService">
     <state x="3250" y="94" key="CommitChangelistDialog2" timestamp="1613089887778">
