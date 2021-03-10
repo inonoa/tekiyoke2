@@ -119,8 +119,8 @@ MonoBehaviour:
   secondJumpDuration: 1
   secondJumpEase: 4
   secondJumpToSecondAttack: 0
-  secondAttackMove: 3900
-  secondAttackDuration: 3
+  secondAttackMove: 1000
+  secondAttackDuration: 1.5
   secondAttackEase: 2
 --- !u!50 &7544165457705721263
 Rigidbody2D:

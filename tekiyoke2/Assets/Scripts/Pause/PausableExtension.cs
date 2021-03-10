@@ -44,6 +44,7 @@ public static class PausableExtension
         }));
         disps.Add(Pauser.Instance.OnPauseEnd.Subscribe(_ =>
         {
+            if(! behav.gameObject.activeInHierarchy) return;
             behav.StartCoroutine(wrappingIter);
         }));
 

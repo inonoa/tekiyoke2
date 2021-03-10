@@ -15,7 +15,10 @@ MonoBehaviour:
   playerName: saikyo
   tutorialFinished: 1
   stageCleared: 010101
+  stageBeingUnlocked: 0
   bestTimes:
   - 10
   - 10
   - 10
+  bgmVolume: 0.464
+  seVolume: 0.808

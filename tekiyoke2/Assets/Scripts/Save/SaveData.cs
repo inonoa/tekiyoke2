@@ -7,15 +7,15 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Save Data", menuName = "Scriptable Object/Save Data")]
 public class SaveData : ScriptableObject
 {
-    public string  playerName;
+    public string  playerName         = "";
     public bool    tutorialFinished   = false;
     public bool[]  stageCleared       = new bool[3];
     public bool    stageBeingUnlocked = false;
     public float[] bestTimes          = new float[3];
     [Range(0, 1)]
-    public float   bgmVolume          = 0;
+    public float   bgmVolume          = 0.8f;
     [Range(0, 1)]
-    public float   seVolume           = 0;
+    public float   seVolume           = 0.8f;
 
     public Dictionary<string, string> ToDictionary()
     {
