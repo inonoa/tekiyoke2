@@ -84,7 +84,14 @@ public class SaveDataManager : SerializedScriptableObject, IPlayerNameChanger
         {
             saver.Load(data =>
             {
-                this._data = data;
+                if (data is null)
+                {
+                    this._data = ScriptableObject.CreateInstance<SaveData>();
+                }
+                else
+                {
+                    this._data = data;
+                }
                 onSuccess?.Invoke();
             });
         }

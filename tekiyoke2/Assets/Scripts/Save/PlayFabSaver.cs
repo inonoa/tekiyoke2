@@ -71,9 +71,16 @@ public class PlayFabSaver : SerializedScriptableObject, IDataSaver
                 request,
                 result =>
                 {
-                    Dictionary<string, string> strStrDict = result.Data
-                        .ToDictionary(kvp => kvp.Key, kvp => kvp.Value.Value);
-                    dataCallback_.Invoke(SaveData.FromDictionary(strStrDict));
+                    if (result.Data.Count == 0)
+                    {
+                        dataCallback_.Invoke(null);
+                    }
+                    else
+                    {
+                        Dictionary<string, string> strStrDict = result.Data
+                            .ToDictionary(kvp => kvp.Key, kvp => kvp.Value.Value);
+                        dataCallback_.Invoke(SaveData.FromDictionary(strStrDict));
+                    }
                 },
                 error  => {}
             );

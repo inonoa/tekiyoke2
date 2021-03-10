@@ -19,17 +19,24 @@
     <select>
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:origin/master" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c97243fa-09da-4818-b4c1-b9937458f378" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/StageChoiceScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/StageChoiceScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Save/Save Data Manager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Save/Save Data Manager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/FrontFog.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/FrontFog.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/PostEffects/Noise.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/PostEffects/Noise.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/PostEffects/Vignette.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/PostEffects/Vignette.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/UI/DPGauge.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/UI/DPGauge.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemy/Kone.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemy/Kone.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/PauserDepauserBase.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/PauserDepauserBase.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/Canvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/Canvas.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Draft1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Draft1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Save/PlayFabSaver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Save/PlayFabSaver.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Save/SaveDataManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Save/SaveDataManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +46,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/.." value="d580c18e2bcce9b2c0098b93594f3b57aba1a643" />
+        <entry key="$PROJECT_DIR$/.." value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -65,6 +72,7 @@
     <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/Ranking/UIFocusManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/StageSelectScene/StageSelectView.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/Ranking/UIFocusManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/Save/PlayFabSaver.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/Ranking/UIFocusManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/SoundOrMusic/SoundGroup.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/Ranking/UIFocusManager.cs" root0="SKIP_HIGHLIGHTING" />
@@ -121,6 +129,7 @@
     <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/Utils/ArrayForEach.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/f2/42adda3d/Component.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/StageSelectScene/WakuMover.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/Save/SaveDataManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/SoundOrMusic/SoundGroup.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/SoundOrMusic/SoundGroup.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/Ranking/UIFocusManager.cs" root0="SKIP_HIGHLIGHTING" />
@@ -203,7 +212,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/ResultScene/PressZToReturn.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Logins/IPlayFabLogin.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Logins/PlayFabLoginCore.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Save/PlayFabSaver.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Logins/PlayFabLoginManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ranking/RankingScrollViewController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Logins/DebugLogin.cs" />
@@ -212,7 +220,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Utils/ImagesForDrafts.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ranking/RankingView.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Hero/Actions/JetManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Save/SaveDataManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ResultScene/ResultSceneManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SceneTransition/BlurTrans.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ranking/FocusNode.cs" />
@@ -231,6 +238,8 @@
         <option value="$USER_HOME$/AppData/Local/Temp/Qoqijij.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/StageSelectView.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ranking/UIFocusManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Save/SaveDataManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Save/PlayFabSaver.cs" />
       </list>
     </option>
   </component>
@@ -343,13 +352,6 @@
       <workItem from="1614746284782" duration="18777000" />
       <workItem from="1614834457798" duration="7079000" />
       <workItem from="1615117596202" duration="40027000" />
-    </task>
-    <task id="LOCAL-00125" summary="ポーズで止まる…………">
-      <created>1614319852659</created>
-      <option name="number" value="00125" />
-      <option name="presentableId" value="LOCAL-00125" />
-      <option name="project" value="LOCAL" />
-      <updated>1614319852659</updated>
     </task>
     <task id="LOCAL-00126" summary="プレハブ化、どうしても変なとこで反転してしまうので壁探知と主人公への判定を分けた">
       <created>1614322629205</created>
@@ -687,7 +689,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615314216451</updated>
     </task>
-    <option name="localTasksCounter" value="174" />
+    <task id="LOCAL-00174" summary="一旦本番モードにした">
+      <created>1615375570348</created>
+      <option name="number" value="00174" />
+      <option name="presentableId" value="LOCAL-00174" />
+      <option name="project" value="LOCAL" />
+      <updated>1615375570349</updated>
+    </task>
+    <option name="localTasksCounter" value="175" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -706,7 +715,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="stage_unlock" />
+                        <option value="master" />
                       </list>
                     </value>
                   </entry>
@@ -720,7 +729,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Ultrathin-&gt;SurinukeYuka" />
     <MESSAGE value="チェックポイント名をそれなりにした" />
     <MESSAGE value="Koneがフェードアウトするようにした" />
     <MESSAGE value="SkyGhotiのpathのz座標が0になってるとこがあって突然消えたりしてた" />
@@ -745,7 +753,8 @@
     <MESSAGE value="コントラストを単なる画像間の線形補間にしたりライト画像差し替えたりなんやかんやしたらいい感じになった" />
     <MESSAGE value="演出終わるまで操作できない、というか枠を消すように" />
     <MESSAGE value="申し訳程度の音" />
-    <option name="LAST_COMMIT_MESSAGE" value="申し訳程度の音" />
+    <MESSAGE value="一旦本番モードにした" />
+    <option name="LAST_COMMIT_MESSAGE" value="一旦本番モードにした" />
   </component>
   <component name="WindowStateProjectService">
     <state x="3250" y="94" key="CommitChangelistDialog2" timestamp="1613089887778">
