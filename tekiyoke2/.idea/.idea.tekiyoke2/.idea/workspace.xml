@@ -28,15 +28,12 @@
     <list default="true" id="c97243fa-09da-4818-b4c1-b9937458f378" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Materials/FrontFog.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/FrontFog.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/PostEffects/Noise.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/PostEffects/Noise.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/PostEffects/Vignette.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/PostEffects/Vignette.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Materials/UI/DPGauge.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/UI/DPGauge.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemy/Kone.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemy/Kone.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/PauserDepauserBase.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/PauserDepauserBase.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/Canvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/Canvas.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Draft1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Draft1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Save/PlayFabSaver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Save/PlayFabSaver.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Save/SaveDataManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Save/SaveDataManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Draft2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Draft2.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Save/Save Data Manager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Save/Save Data Manager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Save/最強.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Save/最強.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Save/SaveData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Save/SaveData.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,7 +186,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/TamaController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/DropTileController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/DontWannaFall.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/DPCD.cs" />
@@ -223,7 +219,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/ResultScene/ResultSceneManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SceneTransition/BlurTrans.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ranking/FocusNode.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Save/SaveData.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/RankingsSelectManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MainManagers/Camera/PostEffectWrapperExtension.cs" />
         <option value="$PROJECT_DIR$/Assets/Materials/PostEffects/Vignette.shader" />
@@ -240,6 +235,8 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Ranking/UIFocusManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Save/SaveDataManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Save/PlayFabSaver.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Save/SaveData.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Config/ConfigView.cs" />
       </list>
     </option>
   </component>
@@ -352,13 +349,6 @@
       <workItem from="1614746284782" duration="18777000" />
       <workItem from="1614834457798" duration="7079000" />
       <workItem from="1615117596202" duration="40027000" />
-    </task>
-    <task id="LOCAL-00126" summary="プレハブ化、どうしても変なとこで反転してしまうので壁探知と主人公への判定を分けた">
-      <created>1614322629205</created>
-      <option name="number" value="00126" />
-      <option name="presentableId" value="LOCAL-00126" />
-      <option name="project" value="LOCAL" />
-      <updated>1614322629205</updated>
     </task>
     <task id="LOCAL-00127" summary="とりあえずD1においた">
       <created>1614382115696</created>
@@ -696,7 +686,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615375570349</updated>
     </task>
-    <option name="localTasksCounter" value="175" />
+    <task id="LOCAL-00175" summary="Koneの飛距離縮めた(前縮めてなかった？)、セーブデータがないときに初期値で作る">
+      <created>1615399965724</created>
+      <option name="number" value="00175" />
+      <option name="presentableId" value="LOCAL-00175" />
+      <option name="project" value="LOCAL" />
+      <updated>1615399965724</updated>
+    </task>
+    <option name="localTasksCounter" value="176" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -729,7 +726,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="チェックポイント名をそれなりにした" />
     <MESSAGE value="Koneがフェードアウトするようにした" />
     <MESSAGE value="SkyGhotiのpathのz座標が0になってるとこがあって突然消えたりしてた" />
     <MESSAGE value="空中の慣性弱めた" />
@@ -754,7 +750,8 @@
     <MESSAGE value="演出終わるまで操作できない、というか枠を消すように" />
     <MESSAGE value="申し訳程度の音" />
     <MESSAGE value="一旦本番モードにした" />
-    <option name="LAST_COMMIT_MESSAGE" value="一旦本番モードにした" />
+    <MESSAGE value="Koneの飛距離縮めた(前縮めてなかった？)、セーブデータがないときに初期値で作る" />
+    <option name="LAST_COMMIT_MESSAGE" value="Koneの飛距離縮めた(前縮めてなかった？)、セーブデータがないときに初期値で作る" />
   </component>
   <component name="WindowStateProjectService">
     <state x="3250" y="94" key="CommitChangelistDialog2" timestamp="1613089887778">
