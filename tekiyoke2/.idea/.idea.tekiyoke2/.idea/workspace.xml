@@ -26,14 +26,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c97243fa-09da-4818-b4c1-b9937458f378" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/CannotSelectDialog.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/CannotSelectDialog.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/FrontFog.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/FrontFog.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/PostEffects/Noise.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/PostEffects/Noise.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/UI/DPGauge.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/UI/DPGauge.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/Canvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/Canvas.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/Config/Config.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/Config/Config.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/StageChoiceScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/StageChoiceScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Save/Save Data Manager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Save/Save Data Manager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,6 +127,7 @@
     <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/StageSelectScene/WakuMover.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/Save/SaveDataManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/SoundOrMusic/SoundGroup.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Prefabs/UI/Canvas.prefab" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/SoundOrMusic/SoundGroup.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/Ranking/UIFocusManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/f9/97e3c724/TweenParams.cs" root0="SKIP_HIGHLIGHTING" />
@@ -161,6 +161,7 @@
     <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/Utils/ArrayForEach.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/5e/aba48687/ABSSequentiable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/65CAB14A-C59E-4552-B77F-98A4AED18F9E/09/891b6a7e/Physics2D.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/ProjectSettings/ProjectSettings.asset" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Save/SaveDataManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/StageSelectScene/StageSelectView.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/Ranking/UIFocusManager.cs" root0="SKIP_HIGHLIGHTING" />
@@ -189,7 +190,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Hero/Physics/NearToEnemyChecker.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/RecoverItem.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/TogeController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/TogeDropController.cs" />
@@ -240,6 +240,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Save/SaveDataManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/TitleScene/TitleSceneManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/TitleScene/InitNameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/CannotSelectDialog.cs" />
       </list>
     </option>
   </component>
@@ -352,13 +353,6 @@
       <workItem from="1614746284782" duration="18777000" />
       <workItem from="1614834457798" duration="7079000" />
       <workItem from="1615117596202" duration="40027000" />
-    </task>
-    <task id="LOCAL-00131" summary="Koneにアニメーションを付けた、ループさせるためにSimpleAnim改修">
-      <created>1614467065572</created>
-      <option name="number" value="00131" />
-      <option name="presentableId" value="LOCAL-00131" />
-      <option name="project" value="LOCAL" />
-      <updated>1614467065573</updated>
     </task>
     <task id="LOCAL-00132" summary="Koneにアニメーションを付けた、ループさせるためにSimpleAnim改修">
       <created>1614467437959</created>
@@ -696,7 +690,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615427865300</updated>
     </task>
-    <option name="localTasksCounter" value="180" />
+    <task id="LOCAL-00180" summary="キーの表示ををW-&gt;I, x-&gt;l, x-&gt;tにした">
+      <created>1615428283209</created>
+      <option name="number" value="00180" />
+      <option name="presentableId" value="LOCAL-00180" />
+      <option name="project" value="LOCAL" />
+      <updated>1615428283209</updated>
+    </task>
+    <option name="localTasksCounter" value="181" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -729,7 +730,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Strandbeestの位置調整、最後の塔からの導線" />
     <MESSAGE value="DPCDおいた" />
     <MESSAGE value="BGM/SEの音量をセーブできるように" />
     <MESSAGE value="タイトル画面でデータロードして音量をセットする(ロードする前になってしまうのはご愛敬)" />
@@ -754,7 +754,8 @@
     <MESSAGE value="キー一覧を作った、説明しづらいので操作は一通りにした、キーコンフィグがないことを謝った" />
     <MESSAGE value="はじめに起動したときに名前を入力してからタイトルを出す" />
     <MESSAGE value="ウインドウ外の黒枠がRayふさいどった" />
-    <option name="LAST_COMMIT_MESSAGE" value="ウインドウ外の黒枠がRayふさいどった" />
+    <MESSAGE value="キーの表示ををW-&gt;I, x-&gt;l, x-&gt;tにした" />
+    <option name="LAST_COMMIT_MESSAGE" value="キーの表示ををW-&gt;I, x-&gt;l, x-&gt;tにした" />
   </component>
   <component name="WindowStateProjectService">
     <state x="3250" y="94" key="CommitChangelistDialog2" timestamp="1613089887778">
@@ -847,7 +848,6 @@
     <state x="2914" y="198" width="1390" height="710" key="SettingsEditor" timestamp="1613362852331">
       <screen x="2736" y="0" width="1920" height="1040" />
     </state>
-    <state x="178" y="198" width="1390" height="710" key="SettingsEditor/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1606772983533" />
     <state x="2914" y="198" key="SettingsEditor/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1613362852331" />
     <state x="2787" y="103" width="1736" height="856" key="VCS.FileHistoryDialog" timestamp="1614465555800">
       <screen x="2736" y="0" width="1920" height="1040" />
@@ -872,10 +872,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="617" y="240" key="run.anything.popup/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1607093285273" />
-    <state x="3359" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1613913307703">
+    <state x="3359" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1615428578541">
       <screen x="2736" y="0" width="1920" height="1040" />
     </state>
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611767841203" />
-    <state x="3359" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1613913307703" />
+    <state x="3359" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1615428578541" />
   </component>
 </project>

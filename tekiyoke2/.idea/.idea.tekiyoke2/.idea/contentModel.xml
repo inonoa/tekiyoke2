@@ -974,6 +974,7 @@
           </e>
           <e p="StagePlayData.cs" t="Include" />
           <e p="StageSelectScene" t="Include">
+            <e p="CannotSelectDialog.cs" t="Include" />
             <e p="RankingsSelectManager.cs" t="Include" />
             <e p="StageSelectBGChanger.cs" t="Include" />
             <e p="StageSelectManager.cs" t="Include" />
