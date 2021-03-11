@@ -30,6 +30,7 @@
       <change beforePath="$PROJECT_DIR$/Assets/Materials/FrontFog.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/FrontFog.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Materials/PostEffects/Noise.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/PostEffects/Noise.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Materials/UI/DPGauge.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/UI/DPGauge.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/Canvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/Canvas.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/Config/Config.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/Config/Config.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/StageChoiceScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/StageChoiceScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Save/Save Data Manager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Save/Save Data Manager.asset" afterDir="false" />
@@ -351,13 +352,6 @@
       <workItem from="1614746284782" duration="18777000" />
       <workItem from="1614834457798" duration="7079000" />
       <workItem from="1615117596202" duration="40027000" />
-    </task>
-    <task id="LOCAL-00130" summary="一寸簡単にした">
-      <created>1614445959542</created>
-      <option name="number" value="00130" />
-      <option name="presentableId" value="LOCAL-00130" />
-      <option name="project" value="LOCAL" />
-      <updated>1614445959543</updated>
     </task>
     <task id="LOCAL-00131" summary="Koneにアニメーションを付けた、ループさせるためにSimpleAnim改修">
       <created>1614467065572</created>
@@ -695,7 +689,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615426548143</updated>
     </task>
-    <option name="localTasksCounter" value="179" />
+    <task id="LOCAL-00179" summary="ウインドウ外の黒枠がRayふさいどった">
+      <created>1615427865300</created>
+      <option name="number" value="00179" />
+      <option name="presentableId" value="LOCAL-00179" />
+      <option name="project" value="LOCAL" />
+      <updated>1615427865300</updated>
+    </task>
+    <option name="localTasksCounter" value="180" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -728,7 +729,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="SkyFishを遅くしたり出現を早くしたりした" />
     <MESSAGE value="Strandbeestの位置調整、最後の塔からの導線" />
     <MESSAGE value="DPCDおいた" />
     <MESSAGE value="BGM/SEの音量をセーブできるように" />
@@ -753,7 +753,8 @@
     <MESSAGE value="ステージ中ににEventSystemなくてマウス入力取れてなかった / セーブデータの音量のデフォルトを0.8に" />
     <MESSAGE value="キー一覧を作った、説明しづらいので操作は一通りにした、キーコンフィグがないことを謝った" />
     <MESSAGE value="はじめに起動したときに名前を入力してからタイトルを出す" />
-    <option name="LAST_COMMIT_MESSAGE" value="はじめに起動したときに名前を入力してからタイトルを出す" />
+    <MESSAGE value="ウインドウ外の黒枠がRayふさいどった" />
+    <option name="LAST_COMMIT_MESSAGE" value="ウインドウ外の黒枠がRayふさいどった" />
   </component>
   <component name="WindowStateProjectService">
     <state x="3250" y="94" key="CommitChangelistDialog2" timestamp="1613089887778">

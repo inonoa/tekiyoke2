@@ -395,7 +395,7 @@ GameObject:
   - component: {fileID: 309793077}
   - component: {fileID: 309793076}
   m_Layer: 5
-  m_Name: z
+  m_Name: l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -440,7 +440,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300050, guid: c2667ea6b1faddb479ea7d1fbe4a5a3b, type: 3}
+  m_Sprite: {fileID: 21300022, guid: c2667ea6b1faddb479ea7d1fbe4a5a3b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3713,7 +3713,7 @@ GameObject:
   - component: {fileID: 1380201728}
   - component: {fileID: 1380201727}
   m_Layer: 5
-  m_Name: x
+  m_Name: t
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3758,7 +3758,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300046, guid: c2667ea6b1faddb479ea7d1fbe4a5a3b, type: 3}
+  m_Sprite: {fileID: 21300038, guid: c2667ea6b1faddb479ea7d1fbe4a5a3b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
