@@ -13,7 +13,7 @@ public class CannotSelectDialog : MonoBehaviour
 
         const float fadeInDur = 0.3f;
         image.DOFade(0.8f, fadeInDur).SetEase(Ease.Linear);
-        transform.DOLocalMoveY(-50, fadeInDur).From().SetEase(Ease.OutQuint);
+        transform.DOLocalMoveY(-50, fadeInDur).From().SetEase(Ease.OutCubic);
 
         const float stayDur = 0.9f;
         DOVirtual.DelayedCall(fadeInDur + stayDur, () =>

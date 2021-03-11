@@ -26,13 +26,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c97243fa-09da-4818-b4c1-b9937458f378" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/CannotSelectDialog.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/CannotSelectDialog.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/StageChoiceScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/StageChoiceScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Save/Save Data Manager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Save/Save Data Manager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/CannotSelectDialog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/CannotSelectDialog.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -229,7 +223,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Utils/MyMath.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/WakuMover.cs" />
         <option value="$USER_HOME$/AppData/Local/Temp/Qoqijij.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/StageSelectView.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ranking/UIFocusManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Save/PlayFabSaver.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Config/ConfigView.cs" />
@@ -240,6 +233,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Save/SaveDataManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/TitleScene/TitleSceneManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/TitleScene/InitNameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/StageSelectView.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/CannotSelectDialog.cs" />
       </list>
     </option>
@@ -353,20 +347,6 @@
       <workItem from="1614746284782" duration="18777000" />
       <workItem from="1614834457798" duration="7079000" />
       <workItem from="1615117596202" duration="40027000" />
-    </task>
-    <task id="LOCAL-00132" summary="Koneにアニメーションを付けた、ループさせるためにSimpleAnim改修">
-      <created>1614467437959</created>
-      <option name="number" value="00132" />
-      <option name="presentableId" value="LOCAL-00132" />
-      <option name="project" value="LOCAL" />
-      <updated>1614467437959</updated>
-    </task>
-    <task id="LOCAL-00133" summary="Koneスプライト差し替え(本番)">
-      <created>1614479333710</created>
-      <option name="number" value="00133" />
-      <option name="presentableId" value="LOCAL-00133" />
-      <option name="project" value="LOCAL" />
-      <updated>1614479333710</updated>
     </task>
     <task id="LOCAL-00134" summary="SkyFish差し替え、向きをいい感じにする">
       <created>1614493992491</created>
@@ -697,7 +677,21 @@
       <option name="project" value="LOCAL" />
       <updated>1615428283209</updated>
     </task>
-    <option name="localTasksCounter" value="181" />
+    <task id="LOCAL-00181" summary="ステージ3を選ぼうとすると出るダイアログ？">
+      <created>1615430767256</created>
+      <option name="number" value="00181" />
+      <option name="presentableId" value="LOCAL-00181" />
+      <option name="project" value="LOCAL" />
+      <updated>1615430767256</updated>
+    </task>
+    <task id="LOCAL-00182" summary="ステージ3を選ぼうとすると出るダイアログをステージ3を選ぼうとしたときに出す">
+      <created>1615431381108</created>
+      <option name="number" value="00182" />
+      <option name="presentableId" value="LOCAL-00182" />
+      <option name="project" value="LOCAL" />
+      <updated>1615431381108</updated>
+    </task>
+    <option name="localTasksCounter" value="183" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -730,8 +724,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="DPCDおいた" />
-    <MESSAGE value="BGM/SEの音量をセーブできるように" />
     <MESSAGE value="タイトル画面でデータロードして音量をセットする(ロードする前になってしまうのはご愛敬)" />
     <MESSAGE value="リザルト画面からランキングにRで遷移できる" />
     <MESSAGE value="Draft2をポーズ可能にしたらとりあえず動いてはいる" />
@@ -755,7 +747,9 @@
     <MESSAGE value="はじめに起動したときに名前を入力してからタイトルを出す" />
     <MESSAGE value="ウインドウ外の黒枠がRayふさいどった" />
     <MESSAGE value="キーの表示ををW-&gt;I, x-&gt;l, x-&gt;tにした" />
-    <option name="LAST_COMMIT_MESSAGE" value="キーの表示ををW-&gt;I, x-&gt;l, x-&gt;tにした" />
+    <MESSAGE value="ステージ3を選ぼうとすると出るダイアログ？" />
+    <MESSAGE value="ステージ3を選ぼうとすると出るダイアログをステージ3を選ぼうとしたときに出す" />
+    <option name="LAST_COMMIT_MESSAGE" value="ステージ3を選ぼうとすると出るダイアログをステージ3を選ぼうとしたときに出す" />
   </component>
   <component name="WindowStateProjectService">
     <state x="3250" y="94" key="CommitChangelistDialog2" timestamp="1613089887778">

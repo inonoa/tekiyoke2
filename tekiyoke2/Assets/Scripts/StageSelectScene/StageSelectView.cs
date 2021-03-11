@@ -42,6 +42,8 @@ public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
     [SerializeField] Texture2D draft2Black;
     [SerializeField] Texture2D draft3Black;
 
+    [SerializeField] CannotSelectDialog cannotSelectDialog;
+
     #endregion
 
     enum State{ Entering, Active, Selected }
@@ -82,7 +84,18 @@ public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
         AllStages.ForEach((stage, i) =>
         {
             Selected(stage)
-                .Subscribe(_ => OnDetermine(i))
+                .Subscribe(_ =>
+                {
+                    if (i == 2)
+                    {
+                        soundGroup.Play("Enter");
+                        Instantiate(cannotSelectDialog, draft3.transform);
+                    }
+                    else
+                    {
+                        OnDetermine(i);
+                    }
+                })
                 .AddTo(this);
         });
 
