@@ -2,8 +2,10 @@ using System;
 using Config;
 using DG.Tweening;
 using Sirenix.OdinInspector;
+using Sirenix.Utilities;
 using UniRx;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TitleSceneManager : SerializedMonoBehaviour
 {
@@ -16,6 +18,9 @@ public class TitleSceneManager : SerializedMonoBehaviour
     [SerializeField] float fadeOutToTransition = 1f;
     [SerializeField] ISoundVolumeChanger soundVolumeChanger;
 
+    [SerializeField] GameObject mainObj;
+    [SerializeField] InitNameManager initName;
+
     enum State{ FadingIn, Active, FadingOut }
     State state = State.FadingIn;
 
@@ -25,6 +30,22 @@ public class TitleSceneManager : SerializedMonoBehaviour
         
         saveDataManager.Init(() =>
         {
+            if (!saveDataManager.PlayerNameInitiallized)
+            {
+                initName.Enter();
+                initName.NameEntered.First().Subscribe(name =>
+                {
+                    saveDataManager.ChangePlayerName(name);
+                    initName.Exit().Subscribe(_ =>
+                    {
+                        mainObj.SetActive(true);
+                    });
+                });
+            }
+            else
+            {
+                mainObj.SetActive(true);
+            }
             soundVolumeChanger.ChangeSEVolume(saveDataManager.SEVolume);
             soundVolumeChanger.ChangeBGMVolume(saveDataManager.BGMVolume);
         });

@@ -7,27 +7,29 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Save Data", menuName = "Scriptable Object/Save Data")]
 public class SaveData : ScriptableObject
 {
-    public string  playerName         = "";
-    public bool    tutorialFinished   = false;
-    public bool[]  stageCleared       = new bool[3];
-    public bool    stageBeingUnlocked = false;
-    public float[] bestTimes          = new float[3];
+    public bool    playerNameInitiallized = false;
+    public string  playerName             = "";
+    public bool    tutorialFinished       = false;
+    public bool[]  stageCleared           = new bool[3];
+    public bool    stageBeingUnlocked     = false;
+    public float[] bestTimes              = new float[3];
     [Range(0, 1)]
-    public float   bgmVolume          = 0.8f;
+    public float   bgmVolume              = 0.8f;
     [Range(0, 1)]
-    public float   seVolume           = 0.8f;
+    public float   seVolume               = 0.8f;
 
     public Dictionary<string, string> ToDictionary()
     {
         return new Dictionary<string, string>()
         {
-            {nameof(playerName),         playerName},
-            {nameof(tutorialFinished),   tutorialFinished.ToString()},
-            {nameof(stageCleared),       string.Join(",", stageCleared)},
-            {nameof(stageBeingUnlocked), stageBeingUnlocked.ToString()},
-            {nameof(bestTimes),          string.Join(",", bestTimes)},
-            {nameof(bgmVolume),          bgmVolume.ToString()},
-            {nameof(seVolume),           seVolume.ToString()}
+            {nameof(playerNameInitiallized), playerNameInitiallized.ToString()},
+            {nameof(playerName),             playerName},
+            {nameof(tutorialFinished),       tutorialFinished.ToString()},
+            {nameof(stageCleared),           string.Join(",", stageCleared)},
+            {nameof(stageBeingUnlocked),     stageBeingUnlocked.ToString()},
+            {nameof(bestTimes),              string.Join(",", bestTimes)},
+            {nameof(bgmVolume),              bgmVolume.ToString()},
+            {nameof(seVolume),               seVolume.ToString()}
         };
     }
 
@@ -35,19 +37,20 @@ public class SaveData : ScriptableObject
     {
         var data = ScriptableObject.CreateInstance<SaveData>();
 
-        data.playerName         = dict[nameof(playerName)];
-        data.tutorialFinished   = bool.Parse(dict[nameof(tutorialFinished)]);
-        data.stageCleared       = dict[nameof(stageCleared)]
-                                  .Split(',')
-                                  .Select(bool.Parse)
-                                  .ToArray();
-        data.stageBeingUnlocked = bool.Parse(dict[nameof(stageBeingUnlocked)]);
-        data.bestTimes          = dict[nameof(bestTimes)]
-                                  .Split(',')
-                                  .Select(float.Parse)
-                                  .ToArray();
-        data.bgmVolume          = float.Parse(dict[nameof(bgmVolume)]);
-        data.seVolume           = float.Parse(dict[nameof(seVolume)]);
+        data.playerNameInitiallized = bool.Parse(dict[nameof(playerNameInitiallized)]);
+        data.playerName             = dict[nameof(playerName)];
+        data.tutorialFinished       = bool.Parse(dict[nameof(tutorialFinished)]);
+        data.stageCleared           = dict[nameof(stageCleared)]
+                                      .Split(',')
+                                      .Select(bool.Parse)
+                                      .ToArray();
+        data.stageBeingUnlocked     = bool.Parse(dict[nameof(stageBeingUnlocked)]);
+        data.bestTimes              = dict[nameof(bestTimes)]
+                                      .Split(',')
+                                      .Select(float.Parse)
+                                      .ToArray();
+        data.bgmVolume              = float.Parse(dict[nameof(bgmVolume)]);
+        data.seVolume               = float.Parse(dict[nameof(seVolume)]);
 
         return data;
     }
@@ -56,6 +59,7 @@ public class SaveData : ScriptableObject
     {
         SaveData copy = ScriptableObject.CreateInstance<SaveData>();
 
+        copy.playerNameInitiallized = this.playerNameInitiallized;
         copy.playerName = this.playerName;
         copy.tutorialFinished = this.tutorialFinished;
         copy.stageCleared = new bool[3];
