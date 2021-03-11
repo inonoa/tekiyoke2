@@ -12,12 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c3f4aed822051b4495f5a66177f48ed, type: 3}
   m_Name: "\u306F\u3058\u3081\u304B\u3089"
   m_EditorClassIdentifier: Assembly-CSharp::SaveData
+  playerNameInitiallized: 0
   playerName: beginner
   tutorialFinished: 0
   stageCleared: 000000
+  stageBeingUnlocked: 0
   bestTimes:
-  - 0
-  - 0
-  - 0
+  - Infinity
+  - Infinity
+  - Infinity
   bgmVolume: 0.8
   seVolume: 0.8

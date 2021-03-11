@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 
@@ -12,7 +13,7 @@ public class SaveData : ScriptableObject
     public bool    tutorialFinished       = false;
     public bool[]  stageCleared           = new bool[3];
     public bool    stageBeingUnlocked     = false;
-    public float[] bestTimes              = new float[3];
+    public float[] bestTimes              = new float[3]{ float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity };
     [Range(0, 1)]
     public float   bgmVolume              = 0.8f;
     [Range(0, 1)]
@@ -72,4 +73,6 @@ public class SaveData : ScriptableObject
         
         return copy;
     }
+    
+    [Button] void resetbesttime() => bestTimes = new float[3]{ float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity };
 }
