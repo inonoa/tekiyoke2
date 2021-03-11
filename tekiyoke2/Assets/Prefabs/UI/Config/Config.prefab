@@ -1207,7 +1207,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "\u306F\u3057\u308B \u3000\uFF1AA(\u5DE6) / D(\u53F3)\n\u3068\u3076\u3000\u3000\uFF1AW
-    / I\n\u3058\u3047\u3063\u3068  \uFF1AL\n\uFF1F\uFF1F\uFF1F\u3000\uFF1A \u5DE6Shift\n\u307D\u30FC\u305A  
+    / I\n\u3058\u3047\u3063\u3068  \uFF1AL\n\uFF1F\uFF1F\uFF1F\u3000\uFF1A\u5DE6Shift\n\u307D\u30FC\u305A  
     \uFF1ASpace\n\n\u30AB\u30FC\u30BD\u30EB\u3044\u3069\u3046: W / A / S / D\n\u3051\u3063\u3066\u3044\u3000\u3000\u3000
     : Enter / L\n"
   m_isRightToLeft: 0
