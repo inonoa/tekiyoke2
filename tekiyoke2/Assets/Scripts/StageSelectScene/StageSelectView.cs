@@ -86,15 +86,7 @@ public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
             Selected(stage)
                 .Subscribe(_ =>
                 {
-                    if (i == 2)
-                    {
-                        soundGroup.Play("Enter");
-                        Instantiate(cannotSelectDialog, draft3.transform);
-                    }
-                    else
-                    {
-                        OnDetermine(i);
-                    }
+                    OnDetermine(i);
                 })
                 .AddTo(this);
         });
