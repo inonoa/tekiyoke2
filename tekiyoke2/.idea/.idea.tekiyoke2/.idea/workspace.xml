@@ -27,7 +27,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c97243fa-09da-4818-b4c1-b9937458f378" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Save/PlayFabSaver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Save/PlayFabSaver.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/StageSelectView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/StageSelectView.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,19 +61,20 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Save/SaveData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/d7/37d5ca41/Transform.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/0e/dffa10d3/DOTween.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/ScriptableObjects/Number Sprites.asset" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/5e/aba48687/ABSSequentiable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/65CAB14A-C59E-4552-B77F-98A4AED18F9E/09/891b6a7e/Physics2D.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/StageSelectScene/RankingsSelectManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/95/518c31e9/TweenSettingsExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Save/SaveDataManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/TitleScene/TitleSceneManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/17/acb49825/Tween.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/ScriptableObjects/Save/Save Data Manager.asset" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2348FB5E-CC9E-4E68-9F37-F7D7FADAEA9A/d7/05003c0c/Ease.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/f9/97e3c724/TweenParams.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/17C1E98F-9A78-42E3-8BE0-5E60BF0530E8/37/63a07319/02000006.il" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/BAD59441-8129-43C7-B8D5-A5BA85795810/49/eb9a0f12/Component.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/cd/9fcf1a7c/ShortcutExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utils/TransformExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/ScriptableObjects/Save/Save Data Manager.asset" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/d7/e0b450ec/Resources.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/MaskableGraphic.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Input/ButonToKeys.cs" root0="FORCE_HIGHLIGHTING" />
@@ -82,7 +83,6 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/17C1E98F-9A78-42E3-8BE0-5E60BF0530E8/94/28da816b/DOTweenPath.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/97/7d5cd036/Ease.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2348FB5E-CC9E-4E68-9F37-F7D7FADAEA9A/37/4bd8dda7/Path.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$USER_HOME$/AppData/Local/Temp/Qoqijij.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/Strandbeest.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/Image.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/48/3a11e747/SerializeField.cs" root0="SKIP_HIGHLIGHTING" />
@@ -144,12 +144,12 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/WindowSizeFixer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Save/SaveDataManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/TitleScene/InitNameManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/StageSelectView.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/CannotSelectDialog.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ResultScene/ScoresToText.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Save/SaveData.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/TitleScene/TitleSceneManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Save/PlayFabSaver.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/StageSelectView.cs" />
       </list>
     </option>
   </component>
@@ -750,10 +750,10 @@
     </state>
     <state x="796" y="221" key="RiderGenerateDialog/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611893779006" />
     <state x="3532" y="221" key="RiderGenerateDialog/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1614586946985" />
-    <state x="3481" y="230" key="RollbackChangesDialog" timestamp="1615414664770">
-      <screen x="2736" y="0" width="1920" height="1040" />
+    <state x="745" y="230" key="RollbackChangesDialog" timestamp="1616060985370">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="745" y="230" key="RollbackChangesDialog/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1613072957510" />
+    <state x="745" y="230" key="RollbackChangesDialog/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1616060985370" />
     <state x="3481" y="230" key="RollbackChangesDialog/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1615414664770" />
     <state x="2914" y="198" width="1390" height="710" key="SettingsEditor" timestamp="1613362852331">
       <screen x="2736" y="0" width="1920" height="1040" />
@@ -778,10 +778,6 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="698" y="234" key="git4idea.branch.GitSmartOperationDialog/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1610685551794" />
-    <state x="617" y="240" key="run.anything.popup" timestamp="1607093285273">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="617" y="240" key="run.anything.popup/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1607093285273" />
     <state x="3359" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1615428578541">
       <screen x="2736" y="0" width="1920" height="1040" />
     </state>
