@@ -778,6 +778,7 @@
             <e p="DPinEnemy.cs" t="Include" />
             <e p="EnemyController.cs" t="Include" />
             <e p="EnemyExtensions.cs" t="Include" />
+            <e p="EnemyShuttle.cs" t="Include" />
             <e p="EnemySpawner.cs" t="Include" />
             <e p="EnemyStatic.cs" t="Include" />
             <e p="GierController.cs" t="Include" />
@@ -787,6 +788,7 @@
             <e p="Kone.cs" t="Include" />
             <e p="KoneTsuchi.cs" t="Include" />
             <e p="NaitrumController.cs" t="Include" />
+            <e p="ShuttleView.cs" t="Include" />
             <e p="SkyFish.cs" t="Include" />
             <e p="Strandbeest.cs" t="Include" />
             <e p="TamaController.cs" t="Include" />
