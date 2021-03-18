@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using DG.Tweening;
 using PlayFab;
 using UnityEngine;
 using PlayFab.ClientModels;
@@ -35,17 +36,21 @@ public class PlayFabSaver : SerializedScriptableObject, IDataSaver
                 result => {},
                 error  => {}
             );
-            
-            var nameRequest = new UpdateUserTitleDisplayNameRequest
+
+            // 応急処置？
+            DOVirtual.DelayedCall(1f, () =>
             {
-                DisplayName = data_.playerName
-            };
-            PlayFabClientAPI.UpdateUserTitleDisplayName
-            (
-                nameRequest,
-                result => { },
-                error  => { }
-            );
+                var nameRequest = new UpdateUserTitleDisplayNameRequest
+                {
+                    DisplayName = data_.playerName
+                };
+                PlayFabClientAPI.UpdateUserTitleDisplayName
+                (
+                    nameRequest,
+                    result => { },
+                    error => { }
+                );
+            });
         }
     }
 

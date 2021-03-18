@@ -42,6 +42,8 @@ public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
     [SerializeField] Texture2D draft2Black;
     [SerializeField] Texture2D draft3Black;
 
+    [SerializeField] CannotSelectDialog cannotSelectDialog;
+
     #endregion
 
     enum State{ Entering, Active, Selected }
@@ -82,7 +84,10 @@ public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
         AllStages.ForEach((stage, i) =>
         {
             Selected(stage)
-                .Subscribe(_ => OnDetermine(i))
+                .Subscribe(_ =>
+                {
+                    OnDetermine(i);
+                })
                 .AddTo(this);
         });
 
@@ -167,14 +172,13 @@ public class StageSelectView : SerializedMonoBehaviour, IStageSelectView
     {
         if (!draftsSelectable[1])
         {
-            print("本来こうはならないけど開発中はなる");
-            
             draft2.gameObject.SetActive(false);
             draft3.gameObject.SetActive(false);
+            goToRankings.gameObject.SetActive(false);
 
-            draft1.Down     = goToRankings;
-            goToRankings.Up = draft1;
+            draft1.Down     = goToConfig;
             goToConfig.Up   = draft1;
+            goToConfig.Left = null;
         }
         else if (!draftsSelectable[2])
         {

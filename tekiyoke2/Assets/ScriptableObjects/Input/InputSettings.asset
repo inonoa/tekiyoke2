@@ -35,7 +35,7 @@ MonoBehaviour:
     - button: 9
       keys: 080000006a000000
     - button: 10
-      keys: 7800000074000000
+      keys: 74000000
     - button: 11
       keys: 72000000
   exceptionalKeyCodes: 0000000043010000440100004501000046010000470100004801000049010000

@@ -15,7 +15,7 @@ public class ScoresToText : MonoBehaviour
         float timeLast = (stage != -1 ? time : 55 * 60 + 55.55f);
         int[] timeDigitsLast = TimeFloat2Ints(timeLast);
 
-        int[] timeDigitsBest = TimeFloat2Ints(lastBestTime);
+        int[] timeDigitsBest = float.IsPositiveInfinity(lastBestTime) ? new []{10, 10, 10, 10, 10, 10} : TimeFloat2Ints(lastBestTime);
 
         for(int i = 0; i < 6; i++)
         {

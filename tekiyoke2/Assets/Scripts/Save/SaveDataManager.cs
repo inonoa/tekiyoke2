@@ -21,19 +21,21 @@ public class SaveDataManager : SerializedScriptableObject, IPlayerNameChanger
         }
     }
 
-    public string               PlayerName           => Data.playerName;
-    public bool                 TutorialFinished     => Data.tutorialFinished;
-    public IReadOnlyList<bool>  StageCleared         => Data.stageCleared;
-    public bool                 StageIsBeingUnlocked => Data.stageBeingUnlocked;
-    public IReadOnlyList<float> BestTimes            => Data.bestTimes;
-    public float                BGMVolume            => Data.bgmVolume;
-    public float                SEVolume         => Data.seVolume;
+    public bool                 PlayerNameInitiallized => Data.playerNameInitiallized;
+    public string               PlayerName             => Data.playerName;
+    public bool                 TutorialFinished       => Data.tutorialFinished;
+    public IReadOnlyList<bool>  StageCleared           => Data.stageCleared;
+    public bool                 StageIsBeingUnlocked   => Data.stageBeingUnlocked;
+    public IReadOnlyList<float> BestTimes              => Data.bestTimes;
+    public float                BGMVolume              => Data.bgmVolume;
+    public float                SEVolume               => Data.seVolume;
     
 
     [SerializeField] IDataSaver saver;
 
     public void ChangePlayerName(string name)
     {
+        Data.playerNameInitiallized = true;
         Data.playerName = name;
         Save();
     }

@@ -974,6 +974,7 @@
           </e>
           <e p="StagePlayData.cs" t="Include" />
           <e p="StageSelectScene" t="Include">
+            <e p="CannotSelectDialog.cs" t="Include" />
             <e p="RankingsSelectManager.cs" t="Include" />
             <e p="StageSelectBGChanger.cs" t="Include" />
             <e p="StageSelectManager.cs" t="Include" />
@@ -987,6 +988,7 @@
           <e p="TitleScene" t="Include">
             <e p="AnyKeyToStart.cs" t="Include" />
             <e p="CloudSpawner.cs" t="Include" />
+            <e p="InitNameManager.cs" t="Include" />
             <e p="TitleLogo.cs" t="Include" />
             <e p="TitleSceneManager.cs" t="Include" />
           </e>
