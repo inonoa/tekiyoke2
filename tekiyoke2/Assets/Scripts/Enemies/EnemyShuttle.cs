@@ -5,15 +5,15 @@ using UniRx;
 using UniRx.Triggers;
 using UnityEngine;
 
-public class EnemyShuttle : MonoBehaviour, ISpawnsNearHero, IHaveDPinEnemy
+public class EnemyShuttle : SerializedMonoBehaviour, ISpawnsNearHero, IHaveDPinEnemy
 {
-    [SerializeField] bool goToRight;
+    [field: SerializeField] public bool GoToRight { get; private set; }
     [SerializeField] float topSpeed = 200;
     [SerializeField] float durationToTopSpeed = 0.5f;
     
     [Space(10)]
     [SerializeField] Collider2D heroSensor;
-    [SerializeField] ShuttleView view;
+    [SerializeField] IShuttleView view;
     [SerializeField] new Rigidbody2D rigidbody;
     [SerializeField] Collider2D wallSensor;
 
@@ -56,6 +56,8 @@ public class EnemyShuttle : MonoBehaviour, ISpawnsNearHero, IHaveDPinEnemy
                 DOVirtual.DelayedCall(vanishDelay, () => Destroy(this.gameObject));
             })
             .AddTo(this);
+        
+        view.Init(this);
     }
 
     void Update()
@@ -64,7 +66,7 @@ public class EnemyShuttle : MonoBehaviour, ISpawnsNearHero, IHaveDPinEnemy
         {
             case State.Active:
                 float acceleration = topSpeed / durationToTopSpeed * TimeManager.Current.DeltaTimeExceptHero;
-                var nextVel = rigidbody.velocity.x + (goToRight ? acceleration : -acceleration);
+                var nextVel = rigidbody.velocity.x + (GoToRight ? acceleration : -acceleration);
                 rigidbody.velocity = new Vector2(Mathf.Clamp(nextVel, -topSpeed, topSpeed), 0);
                 break;
         }
@@ -79,4 +81,11 @@ public class EnemyShuttle : MonoBehaviour, ISpawnsNearHero, IHaveDPinEnemy
     {
         gameObject.SetActive(false);
     }
+}
+
+public interface IShuttleView
+{
+    void Init(EnemyShuttle shuttle);
+    float OnHeroDetected();
+    float Vanish();
 }

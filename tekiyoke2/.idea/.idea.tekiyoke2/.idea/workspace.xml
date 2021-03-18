@@ -27,6 +27,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c97243fa-09da-4818-b4c1-b9937458f378" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/PostEffects/Noise.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/PostEffects/Noise.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Materials/UI/DPGauge.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/UI/DPGauge.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Not In Build/Shuttle.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Not In Build/Shuttle.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemyShuttle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemyShuttle.cs" afterDir="false" />
@@ -105,7 +106,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/TogeController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/TogeDropController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/UltraThinTileController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/KieruYuka.cs" />
@@ -154,8 +154,9 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/ResultScene/Tweeter.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/WindowSizeFixer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Hero/DP/DPManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/ShuttleView.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemyShuttle.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Hero/Effects/HeroAfterimage.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/ShuttleView.cs" />
       </list>
     </option>
   </component>
@@ -268,13 +269,6 @@
       <workItem from="1614746284782" duration="18777000" />
       <workItem from="1614834457798" duration="7079000" />
       <workItem from="1615117596202" duration="40027000" />
-    </task>
-    <task id="LOCAL-00130" summary="一寸簡単にした">
-      <created>1614445959542</created>
-      <option name="number" value="00130" />
-      <option name="presentableId" value="LOCAL-00130" />
-      <option name="project" value="LOCAL" />
-      <updated>1614445959543</updated>
     </task>
     <task id="LOCAL-00131" summary="Koneにアニメーションを付けた、ループさせるためにSimpleAnim改修">
       <created>1614467065572</created>
@@ -612,7 +606,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616073296494</updated>
     </task>
-    <option name="localTasksCounter" value="179" />
+    <task id="LOCAL-00179" summary="消し跳ぶまで">
+      <created>1616074767104</created>
+      <option name="number" value="00179" />
+      <option name="presentableId" value="LOCAL-00179" />
+      <option name="project" value="LOCAL" />
+      <updated>1616074767104</updated>
+    </task>
+    <option name="localTasksCounter" value="180" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -645,7 +646,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="SkyFishを遅くしたり出現を早くしたりした" />
     <MESSAGE value="Strandbeestの位置調整、最後の塔からの導線" />
     <MESSAGE value="DPCDおいた" />
     <MESSAGE value="BGM/SEの音量をセーブできるように" />
@@ -670,7 +670,8 @@
     <MESSAGE value="ステージ中ににEventSystemなくてマウス入力取れてなかった / セーブデータの音量のデフォルトを0.8に" />
     <MESSAGE value="キー一覧を作った、説明しづらいので操作は一通りにした、キーコンフィグがないことを謝った" />
     <MESSAGE value="突進してくる部分まで" />
-    <option name="LAST_COMMIT_MESSAGE" value="突進してくる部分まで" />
+    <MESSAGE value="消し跳ぶまで" />
+    <option name="LAST_COMMIT_MESSAGE" value="消し跳ぶまで" />
   </component>
   <component name="WindowStateProjectService">
     <state x="3250" y="94" key="CommitChangelistDialog2" timestamp="1613089887778">
@@ -783,6 +784,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="698" y="234" key="git4idea.branch.GitSmartOperationDialog/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1610685551794" />
+    <state x="617" y="240" key="run.anything.popup" timestamp="1616096192232">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="617" y="240" key="run.anything.popup/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1616096192232" />
     <state x="3359" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1613913307703">
       <screen x="2736" y="0" width="1920" height="1040" />
     </state>

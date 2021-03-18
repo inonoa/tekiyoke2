@@ -26,7 +26,7 @@ Material:
     m_Floats:
     - _BGAlpha: 0.3
     - _GradationWidth: 0.02
-    - _Light: 0.16963494
+    - _Light: 0
     - _MainAlpha: 0.8
     - _OverlayAlpha: 0.4
     - _OverlayColorOffset: 0.45
