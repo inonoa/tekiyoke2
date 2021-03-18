@@ -15,13 +15,14 @@ public class EnemyShuttle : MonoBehaviour, ISpawnsNearHero, IHaveDPinEnemy
     [SerializeField] Collider2D heroSensor;
     [SerializeField] ShuttleView view;
     [SerializeField] new Rigidbody2D rigidbody;
+    [SerializeField] Collider2D wallSensor;
 
     [field: SerializeField]
     public DPinEnemy DPCD { get; private set; }
 
     enum State
     {
-        Inactive, Active
+        Inactive, Active, Vanishing
     }
     [SerializeField, ReadOnly] State state = State.Inactive;
 
@@ -41,6 +42,18 @@ public class EnemyShuttle : MonoBehaviour, ISpawnsNearHero, IHaveDPinEnemy
                 )
                 .GetPausable()
                 .AddTo(this);
+            })
+            .AddTo(this);
+
+        wallSensor.OnTriggerEnter2DAsObservable()
+            .Where(other => other.CompareTag(Tags.Terrain))
+            .Take(1)
+            .Subscribe(_ =>
+            {
+                float vanishDelay = view.Vanish();
+                rigidbody.velocity = Vector2.zero;
+                state = State.Vanishing;
+                DOVirtual.DelayedCall(vanishDelay, () => Destroy(this.gameObject));
             })
             .AddTo(this);
     }
