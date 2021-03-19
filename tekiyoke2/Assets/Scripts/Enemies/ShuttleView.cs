@@ -63,12 +63,12 @@ public class ShuttleView : MonoBehaviour, IShuttleView
     {
         Destroy(afterimage.gameObject);
         spriteRenderer.enabled = false;
+        
         var effect = Instantiate(vanishEffectPrefab, worldTransform);
-        var effPos = this.transform.position;
-        effPos.z = this.transform.position.z - 1;
-        effPos.x += 40;
-        effect.transform.position = effPos;
+        if(goToRight) effect.transform.localScale = new Vector3(-1, 1, 1);
+        effect.transform.position = this.transform.position + new Vector3(goToRight ? -40 : 40, 0, -1);
         effect.Play(() => Destroy(effect.gameObject));
+        
         return 0.4f;
     }
 }
