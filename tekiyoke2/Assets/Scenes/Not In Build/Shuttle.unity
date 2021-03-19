@@ -142,9 +142,10 @@ GameObject:
   - component: {fileID: 591854720}
   - component: {fileID: 591854722}
   - component: {fileID: 591854721}
+  - component: {fileID: 591854723}
   m_Layer: 0
   m_Name: Shuttle
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -296,6 +297,32 @@ MonoBehaviour:
   afterimageZ: 1
   vanishEffectPrefab: {fileID: 1219876583641401142, guid: 02c4428b6c70b8345b9987ca67b65e1b,
     type: 3}
+--- !u!61 &591854723
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 591854717}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 250, y: 100}
+    newSize: {x: 285, y: 193}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 60, y: 60}
+  m_EdgeRadius: 0
 --- !u!1 &731951168
 GameObject:
   m_ObjectHideFlags: 0
