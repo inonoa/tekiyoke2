@@ -14,6 +14,8 @@ public class ShuttleView : MonoBehaviour, IShuttleView
     [SerializeField] Sprite sprite2R;
     [SerializeField] Sprite sprite3R;
 
+    [SerializeField] new AudioSource audio;
+
     [Space(10)]
     [SerializeField] SpriteRenderer afterimagePrefab;
     [SerializeField] Transform worldTransform;
@@ -55,6 +57,7 @@ public class ShuttleView : MonoBehaviour, IShuttleView
             .GetPausable().AddTo(this);
         DOVirtual.DelayedCall(0.2f,  () => spriteRenderer.sprite = goToRight ? sprite3R : sprite3L, false)
             .GetPausable().AddTo(this);
+        audio.Play();
         
         return 0.25f;
     }
