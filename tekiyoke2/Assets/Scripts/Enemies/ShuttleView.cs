@@ -14,11 +14,15 @@ public class ShuttleView : MonoBehaviour, IShuttleView
     [SerializeField] Sprite sprite2R;
     [SerializeField] Sprite sprite3R;
 
+    [Space(10)]
     [SerializeField] SpriteRenderer afterimagePrefab;
     [SerializeField] Transform worldTransform;
     [SerializeField] float afterimageChangeInterval = 0.1f;
     [SerializeField] float afterimageZ = 0;
     SpriteRenderer afterimage;
+
+    [Space(10)]
+    [SerializeField] SimpleAnim vanishEffectPrefab;
 
     bool goToRight;
     public void Init(EnemyShuttle shuttle)
@@ -58,6 +62,13 @@ public class ShuttleView : MonoBehaviour, IShuttleView
     public float Vanish()
     {
         Destroy(afterimage.gameObject);
+        spriteRenderer.enabled = false;
+        var effect = Instantiate(vanishEffectPrefab, worldTransform);
+        var effPos = this.transform.position;
+        effPos.z = this.transform.position.z - 1;
+        effPos.x += 40;
+        effect.transform.position = effPos;
+        effect.Play(() => Destroy(effect.gameObject));
         return 0.4f;
     }
 }
