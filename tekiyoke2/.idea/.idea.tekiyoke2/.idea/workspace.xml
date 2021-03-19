@@ -26,11 +26,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c97243fa-09da-4818-b4c1-b9937458f378" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemy/Vanish.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemy/Vanish.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Not In Build/Shuttle.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Not In Build/Shuttle.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/ShuttleView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/ShuttleView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Draft3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Draft3.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +60,7 @@
     <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/ScriptableObjects/Save/Save Data Manager.asset" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2348FB5E-CC9E-4E68-9F37-F7D7FADAEA9A/37/4bd8dda7/Path.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/Image.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scenes/Not In Build/Shuttle.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2348FB5E-CC9E-4E68-9F37-F7D7FADAEA9A/62/0208ac2c/TweenSettingsExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scenes/Draft3.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2348FB5E-CC9E-4E68-9F37-F7D7FADAEA9A/8f/57e73b5e/DOTween.cs" root0="SKIP_HIGHLIGHTING" />
@@ -73,6 +70,7 @@
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/EventSystem/UIBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/3e/4d3e1bd4/DOTweenComponent.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Tags.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scenes/Not In Build/Shuttle.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/65CAB14A-C59E-4552-B77F-98A4AED18F9E/0b/5f4bafde/PhysicsScene2D.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/d7/37d5ca41/Transform.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/0e/dffa10d3/DOTween.cs" root0="SKIP_HIGHLIGHTING" />
@@ -270,20 +268,6 @@
       <workItem from="1614746284782" duration="18777000" />
       <workItem from="1614834457798" duration="7079000" />
       <workItem from="1615117596202" duration="40027000" />
-    </task>
-    <task id="LOCAL-00135" summary="SkyFish置きまくった">
-      <created>1614554591198</created>
-      <option name="number" value="00135" />
-      <option name="presentableId" value="LOCAL-00135" />
-      <option name="project" value="LOCAL" />
-      <updated>1614554591198</updated>
-    </task>
-    <task id="LOCAL-00136" summary="ゴール時の謎模様が途切れてた">
-      <created>1614566048268</created>
-      <option name="number" value="00136" />
-      <option name="presentableId" value="LOCAL-00136" />
-      <option name="project" value="LOCAL" />
-      <updated>1614566048268</updated>
     </task>
     <task id="LOCAL-00137" summary="前シーンのスクショがリザルト画面に表示されてなかったの直した(Transform.Findを使うと難しくなる例だった)">
       <created>1614568427004</created>
@@ -614,7 +598,21 @@
       <option name="project" value="LOCAL" />
       <updated>1616140833678</updated>
     </task>
-    <option name="localTasksCounter" value="184" />
+    <task id="LOCAL-00184" summary="音鳴らした、Prefab化した">
+      <created>1616143628202</created>
+      <option name="number" value="00184" />
+      <option name="presentableId" value="LOCAL-00184" />
+      <option name="project" value="LOCAL" />
+      <updated>1616143628202</updated>
+    </task>
+    <task id="LOCAL-00185" summary="保存忘れ？">
+      <created>1616143674403</created>
+      <option name="number" value="00185" />
+      <option name="presentableId" value="LOCAL-00185" />
+      <option name="project" value="LOCAL" />
+      <updated>1616143674403</updated>
+    </task>
+    <option name="localTasksCounter" value="186" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -647,8 +645,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="リザルト画面からランキングにRで遷移できる" />
-    <MESSAGE value="Draft2をポーズ可能にしたらとりあえず動いてはいる" />
     <MESSAGE value="写真撮った" />
     <MESSAGE value="ログインがいろいろあるなと思ってとりあえず差し替え可能にしたらランキング表示がうまくいってなくてログインとは全く関係ない修正も入っちゃったね…………" />
     <MESSAGE value="ログ消したり見やすくしたり" />
@@ -672,7 +668,9 @@
     <MESSAGE value="消えるエフェクト" />
     <MESSAGE value="当たり判定なかった" />
     <MESSAGE value="右向き対応" />
-    <option name="LAST_COMMIT_MESSAGE" value="右向き対応" />
+    <MESSAGE value="音鳴らした、Prefab化した" />
+    <MESSAGE value="保存忘れ？" />
+    <option name="LAST_COMMIT_MESSAGE" value="保存忘れ？" />
   </component>
   <component name="WindowStateProjectService">
     <state x="3250" y="94" key="CommitChangelistDialog2" timestamp="1613089887778">
