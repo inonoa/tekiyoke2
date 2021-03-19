@@ -20,14 +20,13 @@
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:NF2020" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c97243fa-09da-4818-b4c1-b9937458f378" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tekiyoke2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/StageSelectView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/StageSelectView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Draft3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Draft3.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +36,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/.." value="NF2020" />
+        <entry key="$PROJECT_DIR$/.." value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -50,31 +49,43 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/Graphic.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/f2/42adda3d/Component.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0B76D74C-9007-4047-ADC3-E5DBD5D3F1DE/69/a3085dc0/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/EventSystem/UIBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/72/b2009ef4/KeyCode.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/StageSelectScene/StageSelectView.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Save/SaveData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/95/518c31e9/TweenSettingsExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/f9/97e3c724/TweenParams.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/BAD59441-8129-43C7-B8D5-A5BA85795810/49/eb9a0f12/Component.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/ScriptableObjects/Save/Save Data Manager.asset" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2348FB5E-CC9E-4E68-9F37-F7D7FADAEA9A/37/4bd8dda7/Path.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/Image.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scenes/Not In Build/Shuttle.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2348FB5E-CC9E-4E68-9F37-F7D7FADAEA9A/62/0208ac2c/TweenSettingsExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scenes/Draft3.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2348FB5E-CC9E-4E68-9F37-F7D7FADAEA9A/8f/57e73b5e/DOTween.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/d2/198907ba/Renderer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Unity/Hub/Editor/2020.1.17f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/StencilMaterial.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/Graphic.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/EventSystem/UIBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/3e/4d3e1bd4/DOTweenComponent.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Tags.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scenes/Not In Build/Shuttle.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/65CAB14A-C59E-4552-B77F-98A4AED18F9E/0b/5f4bafde/PhysicsScene2D.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Save/SaveData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/d7/37d5ca41/Transform.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/0e/dffa10d3/DOTween.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/5e/aba48687/ABSSequentiable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/65CAB14A-C59E-4552-B77F-98A4AED18F9E/09/891b6a7e/Physics2D.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scripts/StageSelectScene/RankingsSelectManager.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/95/518c31e9/TweenSettingsExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Save/SaveDataManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/17/acb49825/Tween.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/ScriptableObjects/Save/Save Data Manager.asset" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2348FB5E-CC9E-4E68-9F37-F7D7FADAEA9A/d7/05003c0c/Ease.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/f9/97e3c724/TweenParams.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/17C1E98F-9A78-42E3-8BE0-5E60BF0530E8/37/63a07319/02000006.il" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/BAD59441-8129-43C7-B8D5-A5BA85795810/49/eb9a0f12/Component.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/cd/9fcf1a7c/ShortcutExtensions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utils/TransformExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/ScriptableObjects/Save/Save Data Manager.asset" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2348FB5E-CC9E-4E68-9F37-F7D7FADAEA9A/d7/05003c0c/Ease.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/17C1E98F-9A78-42E3-8BE0-5E60BF0530E8/37/63a07319/02000006.il" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/cd/9fcf1a7c/ShortcutExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scenes/Not In Build/Shuttle.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utils/TransformExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/d7/e0b450ec/Resources.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/MaskableGraphic.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Input/ButonToKeys.cs" root0="FORCE_HIGHLIGHTING" />
@@ -82,24 +93,18 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/97/df7e3c54/RuntimeInitializeOnLoadMethodAttribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/17C1E98F-9A78-42E3-8BE0-5E60BF0530E8/94/28da816b/DOTweenPath.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/97/7d5cd036/Ease.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2348FB5E-CC9E-4E68-9F37-F7D7FADAEA9A/37/4bd8dda7/Path.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/Strandbeest.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/Image.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/48/3a11e747/SerializeField.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2348FB5E-CC9E-4E68-9F37-F7D7FADAEA9A/62/0208ac2c/TweenSettingsExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623DD1C5-ED6E-43BC-8659-6AF9203BEC21/8a/df89f217/Path.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/ff/80a8bd20/RuntimeInitializeLoadType.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2348FB5E-CC9E-4E68-9F37-F7D7FADAEA9A/8f/57e73b5e/DOTween.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/d2/198907ba/Renderer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/DPinEnemy.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0C9D4FCF-D613-4956-86FC-3555A6D54354/b9/150c570d/ReadOnlyAttribute.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Unity/Hub/Editor/2020.1.17f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/StencilMaterial.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9674024A-B0E7-4D27-BBE9-EAA30DAB34D1/d7/407bc7a7/SpriteRenderer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/himur/Documents/tekiyoke2/tekiyoke2/Assets/Scenes/Not In Build/Shuttle.unity" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/TogeController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/TogeDropController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/UltraThinTileController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/KieruYuka.cs" />
@@ -108,6 +113,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/SkyFish.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MapObjs/DPCDCounter.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Config/ConfigManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/TitleScene/TitleSceneManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Input/IInput.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Input/ButonToKeys.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Input/KeyboardSettings.cs" />
@@ -137,19 +143,19 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Utils/MyMath.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/WakuMover.cs" />
         <option value="$USER_HOME$/AppData/Local/Temp/Qoqijij.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/StageSelectView.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ranking/UIFocusManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Save/SaveDataManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Save/PlayFabSaver.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Save/SaveData.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Config/ConfigView.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Pause/PausableExtension.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ResultScene/Tweeter.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/WindowSizeFixer.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Save/SaveDataManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/TitleScene/InitNameManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/CannotSelectDialog.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/ResultScene/ScoresToText.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Save/SaveData.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/TitleScene/TitleSceneManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Save/PlayFabSaver.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/StageSelectScene/StageSelectView.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Hero/DP/DPManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemyShuttle.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Hero/Effects/HeroAfterimage.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/ShuttleView.cs" />
       </list>
     </option>
   </component>
@@ -262,7 +268,6 @@
       <workItem from="1614746284782" duration="18777000" />
       <workItem from="1614834457798" duration="7079000" />
       <workItem from="1615117596202" duration="40027000" />
-      <workItem from="1615467373429" duration="4018000" />
     </task>
     <task id="LOCAL-00137" summary="前シーンのスクショがリザルト画面に表示されてなかったの直した(Transform.Findを使うと難しくなる例だった)">
       <created>1614568427004</created>
@@ -551,61 +556,61 @@
       <option name="project" value="LOCAL" />
       <updated>1615418421325</updated>
     </task>
-    <task id="LOCAL-00178" summary="はじめに起動したときに名前を入力してからタイトルを出す">
-      <created>1615426548143</created>
+    <task id="LOCAL-00178" summary="突進してくる部分まで">
+      <created>1616073296494</created>
       <option name="number" value="00178" />
       <option name="presentableId" value="LOCAL-00178" />
       <option name="project" value="LOCAL" />
-      <updated>1615426548143</updated>
+      <updated>1616073296494</updated>
     </task>
-    <task id="LOCAL-00179" summary="ウインドウ外の黒枠がRayふさいどった">
-      <created>1615427865300</created>
+    <task id="LOCAL-00179" summary="消し跳ぶまで">
+      <created>1616074767104</created>
       <option name="number" value="00179" />
       <option name="presentableId" value="LOCAL-00179" />
       <option name="project" value="LOCAL" />
-      <updated>1615427865300</updated>
+      <updated>1616074767104</updated>
     </task>
-    <task id="LOCAL-00180" summary="キーの表示ををW-&gt;I, x-&gt;l, x-&gt;tにした">
-      <created>1615428283209</created>
+    <task id="LOCAL-00180" summary="スプライト作って残像作って">
+      <created>1616098251038</created>
       <option name="number" value="00180" />
       <option name="presentableId" value="LOCAL-00180" />
       <option name="project" value="LOCAL" />
-      <updated>1615428283209</updated>
+      <updated>1616098251038</updated>
     </task>
-    <task id="LOCAL-00181" summary="ステージ3を選ぼうとすると出るダイアログ？">
-      <created>1615430767256</created>
+    <task id="LOCAL-00181" summary="消えるエフェクト">
+      <created>1616139922111</created>
       <option name="number" value="00181" />
       <option name="presentableId" value="LOCAL-00181" />
       <option name="project" value="LOCAL" />
-      <updated>1615430767256</updated>
+      <updated>1616139922111</updated>
     </task>
-    <task id="LOCAL-00182" summary="ステージ3を選ぼうとすると出るダイアログをステージ3を選ぼうとしたときに出す">
-      <created>1615431381108</created>
+    <task id="LOCAL-00182" summary="当たり判定なかった">
+      <created>1616140032381</created>
       <option name="number" value="00182" />
       <option name="presentableId" value="LOCAL-00182" />
       <option name="project" value="LOCAL" />
-      <updated>1615431381108</updated>
+      <updated>1616140032381</updated>
     </task>
-    <task id="LOCAL-00183" summary="ステージ3を選ぼうとすると出るダイアログをステージ3を選ぼうとしたときに出す">
-      <created>1615433572254</created>
+    <task id="LOCAL-00183" summary="右向き対応">
+      <created>1616140833678</created>
       <option name="number" value="00183" />
       <option name="presentableId" value="LOCAL-00183" />
       <option name="project" value="LOCAL" />
-      <updated>1615433572254</updated>
+      <updated>1616140833678</updated>
     </task>
-    <task id="LOCAL-00184" summary="static画像差し替え">
-      <created>1615467409740</created>
+    <task id="LOCAL-00184" summary="音鳴らした、Prefab化した">
+      <created>1616143628202</created>
       <option name="number" value="00184" />
       <option name="presentableId" value="LOCAL-00184" />
       <option name="project" value="LOCAL" />
-      <updated>1615467409741</updated>
+      <updated>1616143628202</updated>
     </task>
-    <task id="LOCAL-00185" summary="セーブデータのベストタイムのデフォルトが0になってたpositiveinfinitiyにした">
-      <created>1615470354639</created>
+    <task id="LOCAL-00185" summary="保存忘れ？">
+      <created>1616143674403</created>
       <option name="number" value="00185" />
       <option name="presentableId" value="LOCAL-00185" />
       <option name="project" value="LOCAL" />
-      <updated>1615470354639</updated>
+      <updated>1616143674403</updated>
     </task>
     <option name="localTasksCounter" value="186" />
     <servers />
@@ -626,7 +631,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="NF2020" />
+                        <option value="master" />
                       </list>
                     </value>
                   </entry>
@@ -640,7 +645,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Draft2をポーズ可能にしたらとりあえず動いてはいる" />
     <MESSAGE value="写真撮った" />
     <MESSAGE value="ログインがいろいろあるなと思ってとりあえず差し替え可能にしたらランキング表示がうまくいってなくてログインとは全く関係ない修正も入っちゃったね…………" />
     <MESSAGE value="ログ消したり見やすくしたり" />
@@ -658,14 +662,15 @@
     <MESSAGE value="Koneの飛距離縮めた(前縮めてなかった？)、セーブデータがないときに初期値で作る" />
     <MESSAGE value="ステージ中ににEventSystemなくてマウス入力取れてなかった / セーブデータの音量のデフォルトを0.8に" />
     <MESSAGE value="キー一覧を作った、説明しづらいので操作は一通りにした、キーコンフィグがないことを謝った" />
-    <MESSAGE value="はじめに起動したときに名前を入力してからタイトルを出す" />
-    <MESSAGE value="ウインドウ外の黒枠がRayふさいどった" />
-    <MESSAGE value="キーの表示ををW-&gt;I, x-&gt;l, x-&gt;tにした" />
-    <MESSAGE value="ステージ3を選ぼうとすると出るダイアログ？" />
-    <MESSAGE value="ステージ3を選ぼうとすると出るダイアログをステージ3を選ぼうとしたときに出す" />
-    <MESSAGE value="static画像差し替え" />
-    <MESSAGE value="セーブデータのベストタイムのデフォルトが0になってたpositiveinfinitiyにした" />
-    <option name="LAST_COMMIT_MESSAGE" value="セーブデータのベストタイムのデフォルトが0になってたpositiveinfinitiyにした" />
+    <MESSAGE value="突進してくる部分まで" />
+    <MESSAGE value="消し跳ぶまで" />
+    <MESSAGE value="スプライト作って残像作って" />
+    <MESSAGE value="消えるエフェクト" />
+    <MESSAGE value="当たり判定なかった" />
+    <MESSAGE value="右向き対応" />
+    <MESSAGE value="音鳴らした、Prefab化した" />
+    <MESSAGE value="保存忘れ？" />
+    <option name="LAST_COMMIT_MESSAGE" value="保存忘れ？" />
   </component>
   <component name="WindowStateProjectService">
     <state x="3250" y="94" key="CommitChangelistDialog2" timestamp="1613089887778">
@@ -745,15 +750,15 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="173" y="92" key="MergeDialog/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1610685537996" />
-    <state x="3532" y="221" key="RiderGenerateDialog" timestamp="1614586946985">
-      <screen x="2736" y="0" width="1920" height="1040" />
-    </state>
-    <state x="796" y="221" key="RiderGenerateDialog/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611893779006" />
-    <state x="3532" y="221" key="RiderGenerateDialog/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1614586946985" />
-    <state x="745" y="230" key="RollbackChangesDialog" timestamp="1616060985370">
+    <state x="796" y="221" key="RiderGenerateDialog" timestamp="1616064693667">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="745" y="230" key="RollbackChangesDialog/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1616060985370" />
+    <state x="796" y="221" key="RiderGenerateDialog/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1616064693667" />
+    <state x="3532" y="221" key="RiderGenerateDialog/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1614586946985" />
+    <state x="3481" y="230" key="RollbackChangesDialog" timestamp="1615414664770">
+      <screen x="2736" y="0" width="1920" height="1040" />
+    </state>
+    <state x="745" y="230" key="RollbackChangesDialog/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1613072957510" />
     <state x="3481" y="230" key="RollbackChangesDialog/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1615414664770" />
     <state x="2914" y="198" width="1390" height="710" key="SettingsEditor" timestamp="1613362852331">
       <screen x="2736" y="0" width="1920" height="1040" />
@@ -778,10 +783,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="698" y="234" key="git4idea.branch.GitSmartOperationDialog/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1610685551794" />
-    <state x="3359" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1615428578541">
+    <state x="617" y="240" key="run.anything.popup" timestamp="1616096192232">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="617" y="240" key="run.anything.popup/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1616096192232" />
+    <state x="3359" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1613913307703">
       <screen x="2736" y="0" width="1920" height="1040" />
     </state>
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/-2736.0.1368.892/0.0.1920.1040@0.0.1920.1040" timestamp="1611767841203" />
-    <state x="3359" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1615428578541" />
+    <state x="3359" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1613913307703" />
   </component>
 </project>

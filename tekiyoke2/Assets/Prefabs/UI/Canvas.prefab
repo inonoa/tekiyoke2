@@ -721,6 +721,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <DP>k__BackingField: 0
+  debugInitialDP: 100
   displaySpeed: 0.2
   uiImage: {fileID: 2783582464764908243}
   lightLifeSeconds: 1
